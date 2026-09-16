@@ -1,0 +1,1569 @@
+{
+  "model_id": "n400_naturalization__uscis_field_office",
+  "source": "designed",
+  "jurisdiction": "USCIS field office (federal); one model with per-office timing variants for San Francisco (SFR), San Jose (SNJ), Los Angeles (LOS), Sacramento (SAC) and New York City (NYC)",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "USCIS Policy Manual Vol. 12, Part B, Ch. 2 — Background Investigation and Security Checks",
+      "url": "https://www.uscis.gov/policy-manual/volume-12-part-b-chapter-2",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/policy_manual/vol12_partB_ch2.txt"
+    },
+    {
+      "id": "D2",
+      "title": "USCIS Policy Manual Vol. 12, Part B, Ch. 3 — Naturalization Examination",
+      "url": "https://www.uscis.gov/policy-manual/volume-12-part-b-chapter-3",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/policy_manual/vol12_partB_ch3.txt"
+    },
+    {
+      "id": "D3",
+      "title": "USCIS Policy Manual Vol. 12, Part B, Ch. 4 — Results of the Naturalization Examination",
+      "url": "https://www.uscis.gov/policy-manual/volume-12-part-b-chapter-4",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/policy_manual/vol12_partB_ch4_decision.txt"
+    },
+    {
+      "id": "D4",
+      "title": "USCIS Policy Manual Vol. 12, Part J, Ch. 2 — The Oath of Allegiance",
+      "url": "https://www.uscis.gov/policy-manual/volume-12-part-j-chapter-2",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/policy_manual/vol12_partJ_ch2_oath.txt"
+    },
+    {
+      "id": "D5",
+      "title": "USCIS Policy Manual Vol. 12, Part J, Ch. 4 — General Considerations for All Oath Ceremonies",
+      "url": "https://www.uscis.gov/policy-manual/volume-12-part-j-chapter-4",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/policy_manual/vol12_partJ_ch4_ceremonies.txt"
+    },
+    {
+      "id": "D6",
+      "title": "8 CFR Part 335 — Examination on Application for Naturalization (full text via eCFR API, 2026-09-01)",
+      "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-09-01/title-8.xml?part=335",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/cfr/8cfr335_full.txt"
+    },
+    {
+      "id": "D7",
+      "title": "10 Steps to Naturalization (M-1051, rev. 5/22) — applicant-facing brochure",
+      "url": "https://www.uscis.gov/sites/default/files/document/brochures/M-1051.pdf",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/uscis/M-1051.txt"
+    },
+    {
+      "id": "D8",
+      "title": "Application for Naturalization — N-400 program page (applicant-facing)",
+      "url": "https://www.uscis.gov/n-400",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/uscis/n400_page.html"
+    },
+    {
+      "id": "D9",
+      "title": "The Naturalization Interview and Test (applicant-facing; 2008 vs. 2025 civics test cutover)",
+      "url": "https://www.uscis.gov/citizenship/learn-about-citizenship/the-naturalization-interview-and-test",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/uscis/interview_test_page.html"
+    },
+    {
+      "id": "D10",
+      "title": "Naturalization Ceremonies (applicant-facing, 5-step ceremony walkthrough)",
+      "url": "https://www.uscis.gov/citizenship/learn-about-citizenship/naturalization-ceremonies",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/uscis/naturalization_ceremonies.html"
+    },
+    {
+      "id": "D11",
+      "title": "Instructions for Form N-400 (applicant-facing, 1,424 lines)",
+      "url": "https://www.uscis.gov/n-400",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/uscis/n400_instructions.txt"
+    },
+    {
+      "id": "D12",
+      "title": "Number of Form N-400 by Category of Naturalization, Case Status, and USCIS Field Office Location, FY2026 Q3 (Apr 1 2025 – Jun 30 2026)",
+      "url": "https://www.uscis.gov/sites/default/files/document/data/n400_performance_data_fy2026_q3_v1.xlsx",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/officetimes/n400_performance_data_fy2026_q3_v1.csv"
+    },
+    {
+      "id": "D13",
+      "title": "N-400 Processing Time by field office, as of Aug 17 2026 — ImmigrationTimes.org (third-party daily scrape of the official USCIS processing-times API, which was Cloudflare-blocked to this session)",
+      "url": "https://immigrationtimes.org/forms/n-400/",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/officetimes/immigrationtimes_n400.txt"
+    },
+    {
+      "id": "D14",
+      "title": "8 U.S.C. §§1446, 1447 (INA §§335, 336) — investigation, examination, hearings on denials, 120-day judicial review",
+      "url": "https://www.law.cornell.edu/uscode/text/8/1447",
+      "saved_as": "corpus/realworld/n400_naturalization/raw/statute/8usc_1447.html"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Naturalization applicant (lawful permanent resident)",
+      "dept": "external"
+    },
+    {
+      "id": "uscis_intake",
+      "name": "USCIS intake (online account / lockbox / National Benefits Center)",
+      "dept": "USCIS"
+    },
+    {
+      "id": "asc",
+      "name": "Application Support Center",
+      "dept": "USCIS"
+    },
+    {
+      "id": "uscis_investigator",
+      "name": "Designated USCIS investigator (neighborhood investigation under INA 335(a))",
+      "dept": "USCIS"
+    },
+    {
+      "id": "fbi",
+      "name": "FBI Enterprise Vetting Center (formerly the National Name Check Program)",
+      "dept": "Federal Bureau of Investigation"
+    },
+    {
+      "id": "field_office",
+      "name": "USCIS field office scheduling and clerical operations",
+      "dept": "USCIS field office"
+    },
+    {
+      "id": "adjudicating_officer",
+      "name": "Adjudicating immigration services officer (conducts the examination and decides)",
+      "dept": "USCIS field office"
+    },
+    {
+      "id": "reverification_officer",
+      "name": "Re-verification officer (quality review; not the interviewing officer)",
+      "dept": "USCIS field office"
+    },
+    {
+      "id": "oath_official",
+      "name": "Official with delegated Oath authority (Field Office Director or re-delegate; or a judge in a judicial ceremony)",
+      "dept": "USCIS field office / district court"
+    },
+    {
+      "id": "district_court",
+      "name": "U.S. district court (judicial review under 8 U.S.C. §1447(b) and §1421(c))",
+      "dept": "judiciary"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Self-screen eligibility: 18 or older, permanent resident for at least 5 years (or 3 years if married to a U.S. citizen), or a military basis",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Permanent Resident Card",
+        "travel history",
+        "Naturalization Eligibility Tool"
+      ],
+      "artifacts_out": [
+        "eligibility self-determination"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 316 / 8 U.S.C. §1427; INA 319 / §1430",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "In general, you may qualify for naturalization if you are at least 18 years old and have been a permanent resident for at least 5 years (or 3 years if you are married to a U.S. citizen)",
+          "page_or_section": "Step 2, Determine your eligibility to become a U.S. citizen"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Prepare and sign Form N-400, collect the eligibility documents, and add Form N-648 if claiming a medical disability exception",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Form N-400",
+        "supporting documents",
+        "Form N-648 (if applicable)",
+        "2 passport-style photos if residing outside the U.S."
+      ],
+      "artifacts_out": [
+        "completed, signed application package"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 334 / 8 CFR 334",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "Complete and sign your Form N-400. Get 2 passport-style photos taken if you reside outside the United States. Collect the necessary documents to demonstrate your eligibility for naturalization.",
+          "page_or_section": "Step 3, Prepare Form N-400"
+        },
+        {
+          "doc": "D7",
+          "quote": "USCIS may ask for additional information if your application is incomplete. This will delay the processing of your application.",
+          "page_or_section": "Step 3, Note"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "File the N-400 online or on paper and pay the fee: $760 by paper, $710 online, $380 reduced fee, or request a fee waiver (fee-reduction and waiver requests cannot be filed online)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "application package",
+        "payment or fee-reduction documentation"
+      ],
+      "artifacts_out": [
+        "filed N-400"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 760.0,
+        "when": "at filing; $710 if filed online, $380 reduced fee, or $0 with an approved fee waiver"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 103.7 (fee schedule, Form G-1055)",
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "Submit $760 if filing by paper, or $710 if filing online",
+          "page_or_section": "Filing Tips"
+        },
+        {
+          "doc": "D8",
+          "quote": "You cannot file online if you are requesting a fee waiver or a reduced fee; you must file a paper Form N-400.",
+          "page_or_section": "Filing Tips"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Reject an unsigned filing or one without the correct fee, returning the application and any fees with an explanation",
+      "actor": "uscis_intake",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "defective filing"
+      ],
+      "artifacts_out": [
+        "returned application and fee",
+        "rejection explanation"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A02",
+        "reason": "application unsigned or accompanied by the wrong fee"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D11",
+          "quote": "USCIS will reject any Form N-400 that is not signed or accompanied by the correct filing fee.",
+          "page_or_section": "General Instructions, filing fee"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Issue the receipt notice, after which the applicant can track case status and published processing times",
+      "actor": "uscis_intake",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "accepted filing"
+      ],
+      "artifacts_out": [
+        "receipt notice with receipt number"
+      ],
+      "timing": {
+        "median_days": 1,
+        "p90_days": 7,
+        "source": "user-report tier only (reddit timelines: same day to about a week for online filings). USCIS publishes no receipt-notice service level."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "Once you submit Form N-400 and get a receipt notice, you can check current processing times and the status of your application by visiting uscis.gov.",
+          "page_or_section": "Step 4, Submit Form N-400"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Collect biometrics (fingerprints, photograph, signature) at an Application Support Center — or issue a notice that prior biometrics have been re-used",
+      "actor": "asc",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "biometrics appointment notice or biometrics-reuse notice"
+      ],
+      "artifacts_out": [
+        "captured fingerprints, photograph and signature"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": 28,
+        "source": "user-report tier only (reddit: 4–28 days from receipt; many applicants now get a reuse notice the same day as the receipt notice). No official figure published."
+      },
+      "fee": {
+        "amount": 0.0,
+        "when": "biometric services fee is included in the N-400 fee for most applicants"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 103.2(b)(9); 8 CFR 335.1",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "USCIS must collect biometrics (fingerprints, photograph, signature) as part of the background check process on aliens applying for naturalization regardless of their age.",
+          "page_or_section": "B.1, Biometrics Collection"
+        },
+        {
+          "doc": "D7",
+          "quote": "You will either receive a notice that your biometrics have been re-used, or, if new biometrics are required, you will receive a notice of a biometrics appointment.",
+          "page_or_section": "Step 5, Go to the biometrics appointment"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Request FBI name checks through the FBI's Enterprise Vetting Center against the Universal Index, plus other security checks as necessary",
+      "actor": "fbi",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "applicant biographic data"
+      ],
+      "artifacts_out": [
+        "FBI name-check response",
+        "other security-check results in the record"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published. 8 CFR 335.2(b) makes a 'definitive response' the gate on interview scheduling but attaches no service level to it."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 335.2(b)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "USCIS requests FBI “name checks” on all aliens applying for naturalization and receives the information contained in the FBI’s files in response to the name check requests.",
+          "page_or_section": "B.2, FBI Name Checks"
+        },
+        {
+          "doc": "D1",
+          "quote": "The FBI’s Enterprise Vetting Center (EVC), formerly the National Name Check Program (NNCP) includes a search against the FBI’s Universal Index (UNI)",
+          "page_or_section": "B.2, FBI Name Checks"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Conduct the neighborhood investigation under INA 335(a): witness interviews in the vicinity of the applicant's residences and employment or business, covering at least the 5 years before filing, generally completed before the interview is scheduled",
+      "actor": "uscis_investigator",
+      "visibility": "staff_only",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "application and A-file",
+        "witness testimony from neighbors, landlords, employers, coworkers, clients"
+      ],
+      "artifacts_out": [
+        "investigation results incorporated into the record"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 335(a) / 8 U.S.C. §1446(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Unless waived, the neighborhood investigation applies to all aliens and will generally be conducted and completed before the alien is scheduled for his or her naturalization interview.",
+          "page_or_section": "A, Neighborhood Investigations"
+        },
+        {
+          "doc": "D1",
+          "quote": "Neighborhood investigations may include taking witness statements and testimonials in the vicinity of the alien’s: Residences; and either Employment; or Business’s location or self-employment location.",
+          "page_or_section": "A.2, Scope of Investigation"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Submit at least two character reference letters from U.S. citizens who personally know the applicant, which can support a waiver of the neighborhood investigation",
+      "actor": "applicant",
+      "visibility": "staff_only",
+      "occasion": "mail",
+      "artifacts_in": [
+        "testimonial or character reference letters"
+      ],
+      "artifacts_out": [
+        "letters weighed in the record"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Proactively submitting at least two letters with the Application for Naturalization (Form N-400) can assist USCIS in determining whether a waiver of the neighborhood investigation is appropriate or not.",
+          "page_or_section": "A.4, Decision to Require or Discretion to Waive a Neighborhood Investigation"
+        },
+        {
+          "doc": "D1",
+          "quote": "USCIS does not consider letters written by the alien’s immediate family or relatives.",
+          "page_or_section": "A.4, Testimonial or Character Reference Letters"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Weigh the investigation record: decide discretionarily whether to waive the neighborhood investigation, and give the applicant notice of any derogatory information it produced plus an opportunity to refute it before denying on that basis",
+      "actor": "adjudicating_officer",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "character letters and other record evidence",
+        "adverse investigation results"
+      ],
+      "artifacts_out": [
+        "waiver decision",
+        "notice of the derogatory information and the applicant's rebuttal"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "An alien’s failure or refusal to provide the letters may contribute to a decision to conduct a neighborhood investigation.",
+          "page_or_section": "A.4, Decision to Require or Discretion to Waive"
+        },
+        {
+          "doc": "D1",
+          "quote": "USCIS may waive the neighborhood investigation if, using its discretion, USCIS determines that the waiver of the investigation is appropriate in a particular case or classes of cases.",
+          "page_or_section": "A.4, Waiving the Neighborhood Investigation"
+        },
+        {
+          "doc": "D1",
+          "quote": "If USCIS intends to deny the application based on derogatory information obtained from the investigation, USCIS must give the alien sufficient notice of the information and an opportunity to refute the adverse information.",
+          "page_or_section": "A.5, Evaluating Investigation Results"
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Schedule the examination and mail the interview appointment notice — but only after a definitive FBI response that the full criminal background check is complete. This is where the queue lives.",
+      "actor": "field_office",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "definitive FBI response",
+        "completed or waived investigation"
+      ],
+      "artifacts_out": [
+        "interview appointment notice"
+      ],
+      "timing": {
+        "median_days": 350,
+        "p90_days": 451,
+        "source": "observed (third-party scrape of the official API) — D13, as of Aug 17 2026: source-row average 11.5–14.8 months; full per-office range 8.0–26.0 months. Per-office values in timing_gold.per_office."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 335.2(b); INA 335(b)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "USCIS will notify applicants for naturalization to appear before a USCIS officer for initial examination on the naturalization application only after the USCIS has received a definitive response from the Federal Bureau of Investigation",
+          "page_or_section": "8 CFR 335.2(b)"
+        },
+        {
+          "doc": "D7",
+          "quote": "All applicants must have background checks completed before USCIS will schedule an interview.",
+          "page_or_section": "Step 5, Go to the biometrics appointment"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Officer's pre-interview review of the A-file: build the issue list, verify the background and security checks were conducted and remain valid at adjudication, and check the record and relevant databases for a pending removal proceeding or prior final removal order (the INA 318 bar)",
+      "actor": "adjudicating_officer",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "A-file (prior benefit filings, correspondence, criminal records, investigative reports, enforcement actions)",
+        "Notice to Appear, Order to Show Cause, or final removal order if present"
+      ],
+      "artifacts_out": [
+        "issue list for the interview",
+        "jurisdictional-bar finding if any"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 335.2(a); INA 318 / 8 U.S.C. §1429",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "A USCIS officer who is designated to conduct the naturalization interview should review the alien’s “A-file” and naturalization application before the interview.",
+          "page_or_section": "B, Preliminary Review of Application"
+        },
+        {
+          "doc": "D2",
+          "quote": "An officer must ensure that all of the appropriate background and security checks have been conducted on the alien applying for naturalization and that the results of those checks remain valid at time of adjudication.",
+          "page_or_section": "B.3, Results of Background and Security Checks"
+        },
+        {
+          "doc": "D2",
+          "quote": "An officer reviews an alien’s record and relevant databases to identify any current removal proceedings or previous proceedings resulting in a final order of removal from the United States.",
+          "page_or_section": "B.4, Previous Notice to Appear, Order to Show Cause, or Removal Order"
+        },
+        {
+          "doc": "D3",
+          "quote": "USCIS cannot consider the naturalization application of an applicant who is in removal proceedings.",
+          "page_or_section": "C, Denial of Naturalization Application"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Transfer the application to the office with jurisdiction if the applicant moved after filing; the applicant then gets a new appointment notice from the new office",
+      "actor": "field_office",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "changed address of record"
+      ],
+      "artifacts_out": [
+        "transferred A-file",
+        "new appointment notice"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A13",
+        "reason": "jurisdiction changed; the receiving office reschedules the examination"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 335.9",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "The officer informs the alien that the application’s jurisdiction has changed. The alien will receive a new appointment notice from the current office with jurisdiction.",
+          "page_or_section": "B.2, Jurisdiction for Application"
+        },
+        {
+          "doc": "D7",
+          "quote": "You must notify USCIS if you change your address after filing your Form N-400 within 10 days of your relocation.",
+          "page_or_section": "Step 6, Complete the interview, Note"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Appear in person for the examination: the officer places the applicant under oath and questions them on every naturalization requirement and on any derogatory information from the investigation",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "appointment notice",
+        "Form G-28 if represented",
+        "interpreter's oath and privacy release if an interpreter is used"
+      ],
+      "artifacts_out": [
+        "sworn testimony",
+        "amendments to the application made in the course of the interview"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 335(b) / 8 U.S.C. §1446(b); 8 CFR 335.2(a)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "All aliens applying for naturalization must appear for an in-person examination before a USCIS officer after filing an Application for Naturalization (Form N-400).",
+          "page_or_section": "C, Interview"
+        },
+        {
+          "doc": "D2",
+          "quote": "The officer places the alien under oath and interviews the alien on the questions and responses in the alien’s naturalization application.",
+          "page_or_section": "C, Interview"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Administer the English (speaking, reading, writing) and civics tests unless exempt — the 2008 test (up to 10 of 100 questions, 6 to pass) for pre-Oct 20 2025 filings, the 2025 test (20 of 128 questions, 12 to pass) for filings on or after that date",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "reading and writing vocabulary lists",
+        "civics question bank"
+      ],
+      "artifacts_out": [
+        "test result per component"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 312 / 8 U.S.C. §1423; 8 CFR 312.1–312.2",
+      "evidence": [
+        {
+          "doc": "D9",
+          "quote": "The 2025 naturalization civics test is an oral test consisting of 20 questions from the list of 128 civics test questions. You must answer 12 questions correctly to pass the 2025 test.",
+          "page_or_section": "Civics Test, 2025 Naturalization Civics Test"
+        },
+        {
+          "doc": "D2",
+          "quote": "In most cases, the officer conducting the naturalization interview administers the required tests relating to the alien’s ability to read and write English, and his or her knowledge of U.S. history and government (civics), unless the alien is exempt.",
+          "page_or_section": "A.1, Questions on Eligibility"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Issue the notice of examination results (Form N-652) at the end of the examination regardless of the outcome, stating the next steps for a continued case",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "interview outcome"
+      ],
+      "artifacts_out": [
+        "Form N-652, Notice of Examination Results"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The officer must provide the applicant with a notice of results at the end of the interview regardless of the outcome. The notice should address the outcome of the interview and the next steps involved for continued cases.",
+          "page_or_section": "Chapter 4 opening"
+        },
+        {
+          "doc": "D7",
+          "quote": "USCIS will provide you with a notice of interview results following your interview.",
+          "page_or_section": "Step 6, What to Expect"
+        }
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Continue the case with a written Request for Evidence (Form N-14); the applicant generally has 30 days to respond, and failure to respond lets the officer adjudicate on the available evidence",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "identified evidentiary gap"
+      ],
+      "artifacts_out": [
+        "Form N-14 Request for Evidence",
+        "applicant's response or default"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 33,
+        "source": "designed — 8 CFR 335.7 (30 days, plus 3 days when mailed under 8 CFR 103.8(b))"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A17",
+        "reason": "additional documents or evidence needed before a decision can be made"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 335.7",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "An officer issues the applicant a written Request for Evidence if additional information is needed to make an accurate determination on the naturalization application.",
+          "page_or_section": "B.1, Continuation to Request Evidence"
+        },
+        {
+          "doc": "D3",
+          "quote": "In general, USCIS permits a period of 30 days for the applicant to respond to a Request for Evidence.",
+          "page_or_section": "B.1, Continuation to Request Evidence"
+        }
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Schedule one re-examination between 60 and 90 days after the initial examination if the applicant failed a test component — retesting only the failed portion, still inside the 120-day window; a second failure means denial",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "failed English or civics component",
+        "RFE response"
+      ],
+      "artifacts_out": [
+        "re-examination outcome"
+      ],
+      "timing": {
+        "median_days": 75,
+        "p90_days": 90,
+        "source": "designed — 8 CFR 312.5(a) and 8 CFR 335.3(b) (not earlier than 60 days, scheduled within the 120-day window)"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A17",
+        "reason": "failed a portion of the naturalization test, or an eligibility issue needs resolving"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 335.3(b); 8 CFR 312.5(a)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "If an applicant fails any portion of the naturalization test, an officer must provide the applicant a second opportunity to pass the test within 60 to 90 days after the initial examination",
+          "page_or_section": "B.2, Scheduling Subsequent Re-examination"
+        },
+        {
+          "doc": "D9",
+          "quote": "If you fail any of the tests at your initial interview, you will be retested on the portion of the test that you failed (English or civics) between 60 and 90 days from the date of your initial interview.",
+          "page_or_section": "If You Don't Pass"
+        }
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Decide within 120 days of the initial examination — approve, continue, or deny; miss the 120 days and the applicant may take the case to district court",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "complete record including test results and any RFE response"
+      ],
+      "artifacts_out": [
+        "written decision"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 120,
+        "source": "designed — 8 CFR 335.3(a) and 8 U.S.C. §1447(b) (120 days from the initial examination). Frequently exceeded per user reports; no official distribution of interview-to-decision times is published."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 335.3(a); 8 U.S.C. §1447(b)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "USCIS has 120 days from the date of the initial naturalization interview to issue a decision. If the decision is not issued within 120 days of the interview, an applicant may request judicial review",
+          "page_or_section": "Chapter 4 opening"
+        },
+        {
+          "doc": "D6",
+          "quote": "A decision to grant or deny the application shall be made at the time of the initial examination or within 120-days after the date of the initial examination of the applicant for naturalization under § 335.2.",
+          "page_or_section": "8 CFR 335.3(a)"
+        }
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Run every approved application through internal re-verification quality review by an officer who is not the interviewing officer, who may raise substantive eligibility issues without re-adjudicating",
+      "actor": "reverification_officer",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "approved application"
+      ],
+      "artifacts_out": [
+        "re-verified approval, or an eligibility issue raised"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A22",
+        "reason": "re-verification officer raises a substantive eligibility issue"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The internal procedures include a “re-verification” procedure where all approved applications are reviewed for quality. The officer who conducts the re-verification is not the same officer who conducts the interview.",
+          "page_or_section": "A, Approval of Naturalization Application"
+        },
+        {
+          "doc": "D3",
+          "quote": "While the officer conducting the re-verification process does not adjudicate the application once again, the officer may raise any substantive eligibility issues.",
+          "page_or_section": "A, Approval of Naturalization Application"
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Deny in writing no later than 120 days after the initial interview, with a clear statement of the supporting facts, the specific eligibility requirements not met, and how to request a hearing",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "record establishing ineligibility"
+      ],
+      "artifacts_out": [
+        "written denial notice"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 120,
+        "source": "designed — INA 335(d); 8 CFR 336.1(a)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "INA 336 / 8 U.S.C. §1447; 8 CFR 336.1",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "If an officer denies a naturalization application, the officer must issue the applicant and his or her attorney or representative a written denial notice no later than 120 days after the initial interview on the application.",
+          "page_or_section": "C, Denial of Naturalization Application"
+        },
+        {
+          "doc": "D7",
+          "quote": "You will receive a notice from USCIS explaining the reason for your Form N-400 denial.",
+          "page_or_section": "Step 7A, Application Denied"
+        }
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Request a hearing on the denial by filing Form N-336 with the fee within 30 days of the decision date; miss it and the denial is final",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "denial notice",
+        "Form N-336"
+      ],
+      "artifacts_out": [
+        "administrative hearing before an immigration officer"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 30,
+        "source": "designed — filing deadline only; no published decision time for the N-336 hearing"
+      },
+      "fee": {
+        "amount": null,
+        "when": "N-336 filing fee, per Form G-1055"
+      },
+      "rework": {
+        "back_to": "A22",
+        "reason": "hearing officer reopens the decision"
+      },
+      "optional": true,
+      "element_ref": "INA 336(a) / 8 U.S.C. §1447(a); 8 CFR 336.2",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "You MUST file Form N-336 with the appropriate fee within 30 days of the Form N-400 decision date. If a request for hearing is not filed within the time allowed, the denial decision is final.",
+          "page_or_section": "Step 7A, Application Denied"
+        }
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Treat a failure to appear as abandonment: a missed fingerprinting appointment without good cause, or a missed initial examination not explained within 30 days, lets USCIS administratively close the application without a merits decision; reopening is free within 1 year, after which it is dismissed without notice",
+      "actor": "field_office",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "missed biometrics appointment or missed initial examination"
+      ],
+      "artifacts_out": [
+        "administrative closure",
+        "or reopening (the reopening date becomes the new filing date)"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 365,
+        "source": "designed — 8 CFR 335.6(a)–(c)"
+      },
+      "fee": {
+        "amount": 0.0,
+        "when": "reopening within 1 year carries no additional fee"
+      },
+      "rework": {
+        "back_to": "A13",
+        "reason": "application reopened; the examination must be rescheduled"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 335.6; 8 CFR 103.2(b)(13)(ii)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "An alien abandons his or her naturalization application if the applicant fails to appear for the fingerprinting appointment without good cause and without notifying USCIS.",
+          "page_or_section": "B.1, Biometrics Collection"
+        },
+        {
+          "doc": "D3",
+          "quote": "An applicant abandons their application if the applicant fails to appear for their initial naturalization examination without good cause and without notifying USCIS of the reason for non-appearance within 30 days of the scheduled appointment.",
+          "page_or_section": "D.1, Administrative Closure for Failing to Appear"
+        },
+        {
+          "doc": "D6",
+          "quote": "An applicant may reopen an administratively closed application by submitting a written request to USCIS within one (1) year from the date the application was closed. Such reopening shall be without additional fee.",
+          "page_or_section": "8 CFR 335.6(b)"
+        }
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Identify post-approval disqualifying derogatory information and pull the applicant's name off every list of granted applications and of applicants scheduled for the oath — the oath must not be scheduled or administered until the matter resolves favorably",
+      "actor": "field_office",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "derogatory information received or identified after approval"
+      ],
+      "artifacts_out": [
+        "name removed from the oath list"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "8 CFR 335.5",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "USCIS must not schedule an applicant for the administration of the Oath of Allegiance if USCIS receives or identifies disqualifying derogatory information. USCIS must not administer the Oath of Allegiance to the applicant until the matter is resolved favorably.",
+          "page_or_section": "B, Derogatory Information Received before Oath or Failure to Appear"
+        },
+        {
+          "doc": "D6",
+          "quote": "USCIS shall remove the applicant's name from any list of granted applications or of applicants scheduled for administration of the oath of allegiance, until such time as the matter can be resolved.",
+          "page_or_section": "8 CFR 335.5"
+        }
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "Execute a motion to reopen the already-granted application, giving the applicant 15 days to overcome the derogatory information or show good cause for missing ceremonies; otherwise the motion is granted and the application is denied on the merits",
+      "actor": "adjudicating_officer",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "derogatory information, or two or more missed oath ceremonies"
+      ],
+      "artifacts_out": [
+        "motion to reopen",
+        "applicant response",
+        "re-approval and oath scheduling, or denial"
+      ],
+      "timing": {
+        "median_days": 15,
+        "p90_days": 15,
+        "source": "designed — 8 CFR 335.5 / 8 CFR 337.10 (15-day response window)"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A22",
+        "reason": "previously granted application re-adjudicated"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 335.5; 8 CFR 337.10",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "The applicant has 15 days to respond to the motion to reopen and overcome the derogatory information or provide good cause for failing to appear at the Oath ceremony.",
+          "page_or_section": "B, Derogatory Information Received before Oath"
+        },
+        {
+          "doc": "D5",
+          "quote": "If the applicant is unable to overcome the derogatory information, the officer grants the motion to reopen and denies the application on its merits.",
+          "page_or_section": "B"
+        }
+      ]
+    },
+    {
+      "id": "A29",
+      "name": "Schedule the oath ceremony and mail Form N-445, Notice of Naturalization Oath Ceremony, with the date, time and location; a few offices run daily ceremonies where examination, adjudication and oath happen the same day",
+      "actor": "field_office",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "re-verified approval"
+      ],
+      "artifacts_out": [
+        "Form N-445 oath ceremony notice"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "no regulatory clock and no published figure for approval-to-oath. User reports in this corpus span 2 days to 9.5+ weeks, with cancelled-and-unrescheduled cases running 7+ months."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 337 / 8 U.S.C. §1448; 8 CFR 337",
+      "evidence": [
+        {
+          "doc": "D10",
+          "quote": "If a ceremony is unavailable, we will mail you a notice with the date, time, and location of your scheduled naturalization ceremony on Form N-445, Notice of Naturalization Oath Ceremony.",
+          "page_or_section": "What to Expect, 1. Receive a Notice to Take the Oath of Allegiance"
+        },
+        {
+          "doc": "D5",
+          "quote": "In some instances, USCIS offices may conduct daily ceremonies where the examination, adjudication, and the oath take place on the same day.",
+          "page_or_section": "A, USCIS Administrative Ceremony"
+        }
+      ]
+    },
+    {
+      "id": "A30",
+      "name": "Check in at the ceremony, have a USCIS officer review the completed Form N-445 questionnaire responses, and surrender the Permanent Resident Card",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "completed Form N-445",
+        "Permanent Resident Card"
+      ],
+      "artifacts_out": [
+        "cleared check-in",
+        "surrendered green card"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "8 CFR 337.1",
+      "evidence": [
+        {
+          "doc": "D10",
+          "quote": "A USCIS officer will review your responses to the questionnaire, Form N-445, Notice of Naturalization Oath Ceremony.",
+          "page_or_section": "What to Expect, 2. Check in at the Ceremony"
+        },
+        {
+          "doc": "D10",
+          "quote": "You must return your Permanent Resident Card to USCIS when you check in for your naturalization ceremony.",
+          "page_or_section": "What to Expect, 3. Return your Permanent Resident Card"
+        }
+      ]
+    },
+    {
+      "id": "A31",
+      "name": "Take the Oath of Allegiance in English at a public ceremony before an official with delegated Oath authority (or a judge in a judicial ceremony), then receive the Certificate of Naturalization and review it before leaving the site",
+      "actor": "oath_official",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "oath text",
+        "interpreter if the applicant brings one"
+      ],
+      "artifacts_out": [
+        "administered Oath of Allegiance; the applicant becomes a citizen",
+        "Certificate of Naturalization"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "INA 337(a) / 8 U.S.C. §1448(a); 8 CFR 337.1; INA 341 / 8 CFR 341",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "The Oath of Allegiance is administered in the English language, regardless of whether the applicant was eligible for an exception to the English language requirements.",
+          "page_or_section": "A, Oath of Allegiance"
+        },
+        {
+          "doc": "D4",
+          "quote": "During judicial naturalization ceremonies, the judge in the district of proper jurisdiction has exclusive authority to administer the Oath.",
+          "page_or_section": "B, Authority to Administer the Oath"
+        },
+        {
+          "doc": "D10",
+          "quote": "You are not a U.S. citizen until you take the Oath of Allegiance at a naturalization ceremony.",
+          "page_or_section": "What to Expect, 4. Take the Oath of Allegiance"
+        },
+        {
+          "doc": "D10",
+          "quote": "Carefully review your Certificate of Naturalization and notify USCIS of any errors before leaving the ceremony.",
+          "page_or_section": "What to Expect, 5. Receive Certificate of Naturalization"
+        },
+        {
+          "doc": "D7",
+          "quote": "Receive your Certificate of Naturalization and review it before leaving the ceremony site. Notify USCIS of any corrections to your certificate at that time.",
+          "page_or_section": "Step 9, Take the Oath of Allegiance"
+        }
+      ]
+    },
+    {
+      "id": "A33",
+      "name": "Presume abandonment when the applicant fails to appear for more than one oath ceremony, treating it as equivalent to post-approval derogatory information",
+      "actor": "field_office",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "two or more missed ceremonies"
+      ],
+      "artifacts_out": [
+        "motion to reopen; denial if unanswered within 15 days"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A28",
+        "reason": "failure to appear for at least two oath ceremonies without good cause"
+      },
+      "optional": true,
+      "element_ref": "8 CFR 337.10",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "USCIS presumes an applicant to have abandoned his or her naturalization application when the applicant fails to appear for more than one oath ceremony.",
+          "page_or_section": "A, USCIS Administrative Ceremony"
+        },
+        {
+          "doc": "D5",
+          "quote": "USCIS considers multiple failures to appear to be equivalent to receipt of derogatory information after the approval of a naturalization application.",
+          "page_or_section": "B"
+        }
+      ]
+    },
+    {
+      "id": "A34",
+      "name": "Petition the U.S. district court: for a decision when USCIS has not decided within 120 days of the examination, or for de novo review of a denial after the N-336 hearing",
+      "actor": "district_court",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "examination held more than 120 days ago with no decision, or a final administrative denial"
+      ],
+      "artifacts_out": [
+        "court determination or remand with instructions"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published; no timed instance in this corpus"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A22",
+        "reason": "court orders USCIS to decide, or remands with instructions"
+      },
+      "optional": true,
+      "element_ref": "8 U.S.C. §1447(b); 8 U.S.C. §1421(c)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "If the decision is not issued within 120 days of the interview, an applicant may request judicial review of his or her application in district court.",
+          "page_or_section": "Chapter 4 opening"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "sequence",
+      "condition": "applicant is eligible"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A03",
+      "to": "A04",
+      "type": "optional",
+      "condition": "unsigned or wrong fee"
+    },
+    {
+      "from": "A04",
+      "to": "A02",
+      "type": "rework",
+      "condition": "refile corrected package"
+    },
+    {
+      "from": "A03",
+      "to": "A05",
+      "type": "sequence",
+      "condition": "filing accepted"
+    },
+    {
+      "from": "A05",
+      "to": "A06",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A06",
+      "to": "A26",
+      "type": "optional",
+      "condition": "applicant fails to appear for fingerprinting without good cause"
+    },
+    {
+      "from": "A06",
+      "to": "A08",
+      "type": "handoff",
+      "condition": "biometrics captured or reused"
+    },
+    {
+      "from": "A05",
+      "to": "A09",
+      "type": "handoff",
+      "condition": "investigation opened on filing"
+    },
+    {
+      "from": "A02",
+      "to": "A10",
+      "type": "optional",
+      "condition": "applicant submits character reference letters with the N-400"
+    },
+    {
+      "from": "A10",
+      "to": "A11",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A09",
+      "to": "A11",
+      "type": "optional",
+      "condition": "waiver considered"
+    },
+    {
+      "from": "A11",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "investigation waived"
+    },
+    {
+      "from": "A09",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "investigation completed"
+    },
+    {
+      "from": "A08",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "definitive FBI response received"
+    },
+    {
+      "from": "A13",
+      "to": "A14",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A14",
+      "to": "A16",
+      "type": "optional",
+      "condition": "applicant moved after filing"
+    },
+    {
+      "from": "A16",
+      "to": "A13",
+      "type": "rework",
+      "condition": "receiving office reschedules"
+    },
+    {
+      "from": "A14",
+      "to": "A17",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A13",
+      "to": "A26",
+      "type": "optional",
+      "condition": "applicant fails to appear for the initial examination"
+    },
+    {
+      "from": "A26",
+      "to": "A13",
+      "type": "rework",
+      "condition": "reopened within 1 year"
+    },
+    {
+      "from": "A17",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "applicant not exempt from the tests"
+    },
+    {
+      "from": "A18",
+      "to": "A19",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A17",
+      "to": "A19",
+      "type": "sequence",
+      "condition": "applicant exempt from the tests"
+    },
+    {
+      "from": "A19",
+      "to": "A20",
+      "type": "optional",
+      "condition": "more evidence needed"
+    },
+    {
+      "from": "A20",
+      "to": "A17",
+      "type": "rework",
+      "condition": "evidence submitted; officer re-examines the record"
+    },
+    {
+      "from": "A19",
+      "to": "A21",
+      "type": "optional",
+      "condition": "applicant failed English or civics"
+    },
+    {
+      "from": "A21",
+      "to": "A17",
+      "type": "rework",
+      "condition": "re-examination held"
+    },
+    {
+      "from": "A19",
+      "to": "A22",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A14",
+      "to": "A24",
+      "type": "optional",
+      "condition": "INA 318 removal-proceedings bar applies"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "sequence",
+      "condition": "application approved"
+    },
+    {
+      "from": "A23",
+      "to": "A22",
+      "type": "rework",
+      "condition": "re-verification raises a substantive eligibility issue"
+    },
+    {
+      "from": "A22",
+      "to": "A24",
+      "type": "optional",
+      "condition": "applicant does not meet all requirements"
+    },
+    {
+      "from": "A24",
+      "to": "A25",
+      "type": "optional",
+      "condition": "applicant requests a hearing within 30 days"
+    },
+    {
+      "from": "A25",
+      "to": "A22",
+      "type": "rework",
+      "condition": "hearing officer reopens"
+    },
+    {
+      "from": "A23",
+      "to": "A27",
+      "type": "optional",
+      "condition": "disqualifying derogatory information surfaces after approval"
+    },
+    {
+      "from": "A27",
+      "to": "A28",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A28",
+      "to": "A29",
+      "type": "sequence",
+      "condition": "applicant overcomes the derogatory information"
+    },
+    {
+      "from": "A28",
+      "to": "A24",
+      "type": "optional",
+      "condition": "applicant cannot overcome it"
+    },
+    {
+      "from": "A23",
+      "to": "A29",
+      "type": "sequence",
+      "condition": "approval re-verified"
+    },
+    {
+      "from": "A29",
+      "to": "A30",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A29",
+      "to": "A33",
+      "type": "optional",
+      "condition": "applicant misses more than one ceremony"
+    },
+    {
+      "from": "A33",
+      "to": "A28",
+      "type": "rework",
+      "condition": "motion to reopen executed"
+    },
+    {
+      "from": "A30",
+      "to": "A31",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A22",
+      "to": "A34",
+      "type": "optional",
+      "condition": "no decision within 120 days of the examination"
+    },
+    {
+      "from": "A25",
+      "to": "A34",
+      "type": "optional",
+      "condition": "denial upheld at the N-336 hearing"
+    },
+    {
+      "from": "A34",
+      "to": "A22",
+      "type": "rework",
+      "condition": "court orders a decision or remands"
+    }
+  ],
+  "terminal_artifact": "Certificate of Naturalization (issued at the oath ceremony, after the Permanent Resident Card is surrendered)",
+  "denial_rate": 0.1864,
+  "timing_gold": {
+    "end_to_end_median_days": 350,
+    "p90": 451,
+    "source": "observed, third-party scrape of the official USCIS processing-times API — D13 (ImmigrationTimes.org, as of Aug 17 2026). The primary API at egov.uscis.gov/processing-times/ was Cloudflare-blocked (HTTP 403) to this session, so the aggregator is used and labelled as secondary/derived. Per-office case counts come from the primary official dataset, D12.",
+    "quote": "As of Aug 17, 2026, USCIS processing times for N-400 (Application for Naturalization) range from 8.0 mo to 26.0 mo across all field offices (full range; source-row average 11.5 mo–14.8 mo).",
+    "caveat": "USCIS publishes a RANGE per office, not a median and a p90: the lower bound is roughly a median-of-completions figure and the upper bound is the time within which about 80% of cases complete. 350 and 451 days are the national source-row average bounds (11.5 and 14.8 months) converted at 30.44 days/month. They are NOT a true median and p90 and must not be scored as if they were.",
+    "per_office": {
+      "SFR": {
+        "office": "San Francisco, CA",
+        "min_months": 13.5,
+        "max_months": 18.0,
+        "min_days": 411,
+        "max_days": 548,
+        "label": "Slow",
+        "received_fy26q3": 3207,
+        "approved_fy26q3": 334,
+        "denied_fy26q3": 61,
+        "pending_fy26q3": 18595,
+        "denials_over_completions": 0.1544
+      },
+      "SNJ": {
+        "office": "San Jose, CA",
+        "min_months": 14.5,
+        "max_months": 26.0,
+        "min_days": 441,
+        "max_days": 791,
+        "label": "Very Slow",
+        "received_fy26q3": 4680,
+        "approved_fy26q3": 314,
+        "denied_fy26q3": 86,
+        "pending_fy26q3": 20860,
+        "denials_over_completions": 0.215
+      },
+      "LOS": {
+        "office": "Los Angeles, CA",
+        "min_months": 9.5,
+        "max_months": 13.0,
+        "min_days": 289,
+        "max_days": 396,
+        "label": "Normal",
+        "received_fy26q3": 2502,
+        "approved_fy26q3": 430,
+        "denied_fy26q3": 99,
+        "pending_fy26q3": 11662,
+        "denials_over_completions": 0.1871
+      },
+      "SAC": {
+        "office": "Sacramento, CA",
+        "min_months": 15.0,
+        "max_months": 23.5,
+        "min_days": 457,
+        "max_days": 715,
+        "label": "Slow",
+        "received_fy26q3": 2456,
+        "approved_fy26q3": 487,
+        "denied_fy26q3": 147,
+        "pending_fy26q3": 15845,
+        "denials_over_completions": 0.2319
+      },
+      "NYC": {
+        "office": "New York City, NY",
+        "min_months": 10.0,
+        "max_months": 12.0,
+        "min_days": 304,
+        "max_days": 365,
+        "label": "Normal",
+        "received_fy26q3": 4047,
+        "approved_fy26q3": 2311,
+        "denied_fy26q3": 705,
+        "pending_fy26q3": 17028,
+        "denials_over_completions": 0.2338
+      }
+    },
+    "national_fy26q3": {
+      "received": 140179,
+      "approved": 54974,
+      "denied": 12591,
+      "pending": 727371,
+      "denials_over_completions": 0.1864,
+      "window": "April 1, 2025 – June 30, 2026, non-military naturalization category"
+    },
+    "note": "Field-office codes are counter-intuitive and worth preserving: San Francisco is SFR (not SFO), San Jose is SNJ, Santa Ana is SAA. The per-office approval counts are startling next to the pending counts — San Jose approved 314 while holding 20,860 pending in the same window, versus New York's 2,311 approvals against 17,028 pending. Throughput, not intake, is what separates these offices."
+  },
+  "known_gaps": [
+    "The FBI 'definitive response' service level. 8 CFR 335.2(b) makes it the gate on the single longest wait in the process (A13), and nothing in the regulation, the Policy Manual, or any statistic quantifies how long it takes or how often it stalls.",
+    "Why any specific case is continued a second time rather than approved or denied. The Policy Manual gives the officer's full menu (approve / continue with N-14 / re-examine / deny) but no selection logic, and no distribution of interview-to-decision times is published — so the 120-day rule's real compliance rate is unknown.",
+    "Approval-to-oath scheduling. There is no regulatory clock at all between A23 and A29, and no published figure. The only mechanism the documents describe for a cancelled or unscheduled oath is the derogatory-information motion to reopen (A27/A28); user reports in this corpus include a ceremony cancelled with no reason given and still unscheduled 7+ months later, which that mechanism does not obviously explain.",
+    "Per-office queue discipline: which filing cohorts an office works, and in what order. The FY2026 Q3 data shows San Jose approving 314 cases against 20,860 pending in the same window, but nothing published explains the throughput difference between offices.",
+    "Biometrics reuse. The decision to reuse prior fingerprints rather than schedule an appointment (A06) is stated as a possibility on the applicant-facing brochure but no document collected gives the criteria, and it materially changes the front of the timeline.",
+    "Combination adjudication. An I-751 pending in parallel appears in practice to gate N-400 approval, and combined I-751 + N-400 interviews are routine, but no document in the declared or designed tier describes either practice.",
+    "Nationality- or country-based pauses on interviews and oath ceremonies. A real, dated administrative pause affecting applicants from a list of countries is visible only through affected applicants' reports; no USCIS policy page collected acknowledges it.",
+    "No current oversight report. The CIS Ombudsman page is now a stub that links no annual report at all; the most recent report recoverable was 2023 (via the Wayback Machine), and no GAO or OIG naturalization-backlog report was located.",
+    "USCIS's own processing-times API is Cloudflare-blocked, so the per-office numbers in this gold file pass through a third-party aggregator. The case counts (D12) are primary; the month ranges (D13) are not."
+  ],
+  "notes": "One model, five timing variants: the process shape is federal and uniform, and the only thing that varies by implementer is throughput, so per-office data lives in timing_gold.per_office rather than in separate models. Visibility calls were checked against the applicant-facing documents held in raw/: the background-check-before-interview gate, biometrics reuse, the continuation/N-14 path, the 60–90-day retest, the N-336 appeal and the whole ceremony sequence are all stated in D7 (M-1051), D8, D9 or D10, so they are marked applicant_facing even though their operational detail comes from the Policy Manual. Eight activities appear in no applicant-facing document held here and are marked staff_only: the FBI name check mechanics (A08), the neighborhood investigation (A09), the character-letter path and the waiver/derogatory-information weighing that follows it (A10, A11), the A-file pre-review including the INA 318 removal-proceedings database check (A14), the internal re-verification quality review of every approval (A23), the removal of a name from the oath list on post-approval derogatory information (A27), and the two-missed-ceremonies abandonment presumption (A33). A09 and A23 are the two a solver working only from the declared tier could not reach by any route: the neighborhood investigation is a physical visit to the applicant's neighbours and employer that no applicant-facing USCIS page mentions, and the re-verification step means every approval is silently reviewed by a second officer. Note also that A10 is a rare case of an applicant-facing ACTION whose purpose is staff_only: the brochures never mention character reference letters, so an applicant cannot know that sending two of them may spare them a neighbourhood investigation. Sibling-process contamination to guard against in scoring: I-130/I-485 adjustment-of-status timelines and I-751 conditional-residence removal both appear constantly in the same user-report corpus and share the receipt/biometrics/interview vocabulary; neither is part of this model."
+}

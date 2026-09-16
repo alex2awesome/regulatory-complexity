@@ -1,0 +1,692 @@
+{
+ "built": "2026-09-15",
+ "n_keys_tested": 44,
+ "family": {
+  "median_abs_log_error": 1.1807,
+  "mean_abs_log_error": 1.1024,
+  "median_factor_off": 3.26,
+  "within_2x": 0.386
+ },
+ "protocol": "leave-one-key-out; each predictor sees every observation EXCEPT the held-out key's",
+ "rows": [
+  {
+   "key": "plan_review/document_review",
+   "n": 2,
+   "truth_days": 14.1,
+   "global": 0.3953637544494044,
+   "family": 1.6855408788787658,
+   "eb": 1.5982136866543115,
+   "bayes": 1.426743474391194,
+   "covered": true,
+   "bayes_days": 58.9,
+   "ci90_days": [
+    9.6,
+    284.4
+   ]
+  },
+  {
+   "key": "plan_review/document_review",
+   "n": 9,
+   "truth_days": 49.0,
+   "global": 0.8472978603872034,
+   "family": 0.7621400520468966,
+   "eb": 0.5144579782106713,
+   "bayes": 0.07832475464166011,
+   "covered": true,
+   "bayes_days": 45.3,
+   "ci90_days": [
+    7.7,
+    262.6
+   ]
+  },
+  {
+   "key": "plan_review/document_review",
+   "n": 6,
+   "truth_days": 220.5,
+   "global": 2.3511669672208693,
+   "family": 1.5929932225368253,
+   "eb": 1.6413583073732343,
+   "bayes": 2.0069357531118692,
+   "covered": false,
+   "bayes_days": 29.6,
+   "ci90_days": [
+    5.7,
+    173.9
+   ]
+  },
+  {
+   "key": "caseworker/interview",
+   "n": 7,
+   "truth_days": 14.0,
+   "global": 0.4054651081081646,
+   "family": 0.09707800722047866,
+   "eb": 0.12472178422835567,
+   "bayes": 0.25830375906972325,
+   "covered": true,
+   "bayes_days": 18.1,
+   "ci90_days": [
+    2.9,
+    113.4
+   ]
+  },
+  {
+   "key": "unspecified/unspecified",
+   "n": 2,
+   "truth_days": 11.8,
+   "global": 0.5737012264187711,
+   "family": 1.2424533248940004,
+   "eb": 1.204044738566762,
+   "bayes": 0.9124836504268403,
+   "covered": true,
+   "bayes_days": 29.5,
+   "ci90_days": [
+    4.6,
+    158.3
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 5,
+   "truth_days": 19.0,
+   "global": 0.10008345855698275,
+   "family": 0.6418538861723944,
+   "eb": 0.5966947729550638,
+   "bayes": 0.7962054716811071,
+   "covered": true,
+   "bayes_days": 8.6,
+   "ci90_days": [
+    1.4,
+    49.4
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 2,
+   "truth_days": 13.4,
+   "global": 0.4480440122783178,
+   "family": 0.2938933324510593,
+   "eb": 0.25182197416680907,
+   "bayes": 0.41096731530303954,
+   "covered": true,
+   "bayes_days": 8.9,
+   "ci90_days": [
+    1.5,
+    48.5
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 2,
+   "truth_days": 42.4,
+   "global": 0.7032485342187047,
+   "family": 1.4451858789480818,
+   "eb": 1.407626790749882,
+   "bayes": 1.7194031078413166,
+   "covered": false,
+   "bayes_days": 7.6,
+   "ci90_days": [
+    1.3,
+    38.8
+   ]
+  },
+  {
+   "key": "unspecified/unspecified",
+   "n": 2,
+   "truth_days": 47.7,
+   "global": 0.82144292325082,
+   "family": 0.38769263939845855,
+   "eb": 0.4150043743320255,
+   "bayes": 0.6446201995444976,
+   "covered": true,
+   "bayes_days": 25.1,
+   "ci90_days": [
+    3.9,
+    125.5
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 3,
+   "truth_days": 3.0,
+   "global": 1.9459101490553132,
+   "family": 1.2039728043259361,
+   "eb": 1.242398168555056,
+   "bayes": 1.1846482988901632,
+   "covered": true,
+   "bayes_days": 9.8,
+   "ci90_days": [
+    1.6,
+    51.5
+   ]
+  },
+  {
+   "key": "records_unit/notice",
+   "n": 2,
+   "truth_days": 16.4,
+   "global": 0.24531145822423595,
+   "family": 1.3116628846741243,
+   "eb": 0.9851184309121299,
+   "bayes": 0.9636079992792439,
+   "covered": true,
+   "bayes_days": 43.1,
+   "ci90_days": [
+    5.9,
+    273.7
+   ]
+  },
+  {
+   "key": "third_party/issuance",
+   "n": 4,
+   "truth_days": 12.0,
+   "global": 0.5596157879354227,
+   "family": 0.2876820724517808,
+   "eb": 0.13596685774182093,
+   "bayes": 0.20675123593789158,
+   "covered": true,
+   "bayes_days": 9.8,
+   "ci90_days": [
+    0.7,
+    155.1
+   ]
+  },
+  {
+   "key": "records_unit/decision",
+   "n": 2,
+   "truth_days": 153.5,
+   "global": 1.9889181119988586,
+   "family": 0.0,
+   "eb": 0.5070807258981507,
+   "bayes": 0.26743389224109837,
+   "covered": true,
+   "bayes_days": 200.5,
+   "ci90_days": [
+    30.5,
+    1189.3
+   ]
+  },
+  {
+   "key": "records_unit/decision",
+   "n": 2,
+   "truth_days": 2190.0,
+   "global": 4.647134385087124,
+   "family": 2.6810215287142913,
+   "eb": 2.9198446276474392,
+   "bayes": 2.992890132812475,
+   "covered": false,
+   "bayes_days": 109.8,
+   "ci90_days": [
+    20.0,
+    612.0
+   ]
+  },
+  {
+   "key": "records_unit/referral",
+   "n": 2,
+   "truth_days": 730.0,
+   "global": 3.548522096419014,
+   "family": 3.4202263537281388,
+   "eb": 3.527257799951897,
+   "bayes": 3.9223030575510394,
+   "covered": false,
+   "bayes_days": 14.5,
+   "ci90_days": [
+    0.7,
+    464.1
+   ]
+  },
+  {
+   "key": "records_unit/decision",
+   "n": 3,
+   "truth_days": 150.0,
+   "global": 1.9661128563728325,
+   "family": 0.04561051125205218,
+   "eb": 0.5672602432964027,
+   "bayes": 0.35291693930576784,
+   "covered": true,
+   "bayes_days": 213.5,
+   "ci90_days": [
+    37.4,
+    1350.6
+   ]
+  },
+  {
+   "key": "state_agency/decision",
+   "n": 2,
+   "truth_days": 24.0,
+   "global": 0.13266258267525233,
+   "family": 1.241655587397923,
+   "eb": 0.8303390297490028,
+   "bayes": 0.20467820107548107,
+   "covered": true,
+   "bayes_days": 29.4,
+   "ci90_days": [
+    3.6,
+    203.2
+   ]
+  },
+  {
+   "key": "background_check/records_check",
+   "n": 2,
+   "truth_days": 9.9,
+   "global": 0.7520386983881373,
+   "family": 0.27246561812625103,
+   "eb": 0.30424849682991484,
+   "bayes": 0.9532984560454492,
+   "covered": true,
+   "bayes_days": 25.7,
+   "ci90_days": [
+    4.0,
+    181.8
+   ]
+  },
+  {
+   "key": "unspecified/unspecified",
+   "n": 8,
+   "truth_days": 60.0,
+   "global": 1.0498221244986774,
+   "family": 0.9560228175512782,
+   "eb": 0.962619451830689,
+   "bayes": 1.0550907774426355,
+   "covered": true,
+   "bayes_days": 20.9,
+   "ci90_days": [
+    3.9,
+    133.4
+   ]
+  },
+  {
+   "key": "state_agency/issuance",
+   "n": 6,
+   "truth_days": 27.1,
+   "global": 0.25541281188299525,
+   "family": 1.354025100551105,
+   "eb": 0.8232840130572554,
+   "bayes": 1.6754928035984593,
+   "covered": true,
+   "bayes_days": 5.1,
+   "ci90_days": [
+    0.7,
+    44.5
+   ]
+  },
+  {
+   "key": "third_party/scheduling",
+   "n": 4,
+   "truth_days": 31.3,
+   "global": 0.39925384810888565,
+   "family": 1.045881013033938,
+   "eb": 0.8695433519260307,
+   "bayes": 0.09357013334681863,
+   "covered": true,
+   "bayes_days": 28.5,
+   "ci90_days": [
+    4.0,
+    210.2
+   ]
+  },
+  {
+   "key": "state_agency/issuance",
+   "n": 2,
+   "truth_days": 3.9,
+   "global": 1.6904973371723182,
+   "family": 1.6904973371723182,
+   "eb": 1.6904973371723182,
+   "bayes": 1.068556905916434,
+   "covered": true,
+   "bayes_days": 11.3,
+   "ci90_days": [
+    1.5,
+    62.5
+   ]
+  },
+  {
+   "key": "background_check/records_check",
+   "n": 12,
+   "truth_days": 12.0,
+   "global": 0.5631001225934695,
+   "family": 1.410397982980673,
+   "eb": 1.133308291513734,
+   "bayes": 0.781370090206738,
+   "covered": true,
+   "bayes_days": 26.1,
+   "ci90_days": [
+    3.3,
+    164.7
+   ]
+  },
+  {
+   "key": "background_check/records_check",
+   "n": 2,
+   "truth_days": 30.0,
+   "global": 0.35667494393873245,
+   "family": 0.8362480242006187,
+   "eb": 0.7995316948038336,
+   "bayes": 0.5487701858881828,
+   "covered": true,
+   "bayes_days": 17.3,
+   "ci90_days": [
+    2.2,
+    107.0
+   ]
+  },
+  {
+   "key": "third_party/scheduling",
+   "n": 3,
+   "truth_days": 11.0,
+   "global": 0.6466271649250523,
+   "family": 1.1574527886910428,
+   "eb": 1.1024220880251878,
+   "bayes": 1.7270099400470027,
+   "covered": true,
+   "bayes_days": 61.9,
+   "ci90_days": [
+    7.8,
+    468.5
+   ]
+  },
+  {
+   "key": "third_party/test_or_exam",
+   "n": 3,
+   "truth_days": 60.0,
+   "global": 1.0498221244986774,
+   "family": 1.3195286648076294,
+   "eb": 1.223975315328632,
+   "bayes": 1.1089922797132017,
+   "covered": true,
+   "bayes_days": 181.9,
+   "ci90_days": [
+    23.9,
+    1755.4
+   ]
+  },
+  {
+   "key": "federal_agency/records_check",
+   "n": 8,
+   "truth_days": 21.0,
+   "global": 0.0,
+   "family": 2.4607347321792044,
+   "eb": 2.357213669214007,
+   "bayes": 2.0882416063182645,
+   "covered": false,
+   "bayes_days": 169.5,
+   "ci90_days": [
+    22.2,
+    1739.5
+   ]
+  },
+  {
+   "key": "federal_agency/records_check",
+   "n": 14,
+   "truth_days": 246.0,
+   "global": 2.4607347321792044,
+   "family": 2.4607347321792044,
+   "eb": 2.4607347321792044,
+   "bayes": 3.0352031725540574,
+   "covered": false,
+   "bayes_days": 11.8,
+   "ci90_days": [
+    1.6,
+    111.9
+   ]
+  },
+  {
+   "key": "third_party/document_review",
+   "n": 2,
+   "truth_days": 16.0,
+   "global": 0.27193371548364187,
+   "family": 0.6608779199911594,
+   "eb": 0.5911643859987721,
+   "bayes": 0.543507787486821,
+   "covered": true,
+   "bayes_days": 27.6,
+   "ci90_days": [
+    2.7,
+    200.7
+   ]
+  },
+  {
+   "key": "field_inspection/inspection",
+   "n": 2,
+   "truth_days": 8.8,
+   "global": 0.872619726796581,
+   "family": 1.4390152017173823,
+   "eb": 1.309698382071796,
+   "bayes": 1.1764303506182725,
+   "covered": true,
+   "bayes_days": 28.5,
+   "ci90_days": [
+    3.3,
+    212.9
+   ]
+  },
+  {
+   "key": "state_agency/recordkeeping",
+   "n": 2,
+   "truth_days": 365.0,
+   "global": 2.8553749158590684,
+   "family": 1.805552791360391,
+   "eb": 2.0623183096033415,
+   "bayes": 1.7605116419149232,
+   "covered": true,
+   "bayes_days": 62.8,
+   "ci90_days": [
+    8.0,
+    545.3
+   ]
+  },
+  {
+   "key": "front_counter/decision",
+   "n": 2,
+   "truth_days": 42.6,
+   "global": 0.7068466676540024,
+   "family": 0.14045119273320106,
+   "eb": 0.28319773746040067,
+   "bayes": 0.06476263293279949,
+   "covered": true,
+   "bayes_days": 45.4,
+   "ci90_days": [
+    2.9,
+    792.4
+   ]
+  },
+  {
+   "key": "state_agency/document_review",
+   "n": 2,
+   "truth_days": 2.2,
+   "global": 2.2398034815063728,
+   "family": 1.9033312448851598,
+   "eb": 2.0715673631957663,
+   "bayes": 1.6589171987033193,
+   "covered": true,
+   "bayes_days": 11.7,
+   "ci90_days": [
+    0.8,
+    170.9
+   ]
+  },
+  {
+   "key": "field_inspection/inspection",
+   "n": 3,
+   "truth_days": 37.0,
+   "global": 0.5663954749208013,
+   "family": 1.4390152017173823,
+   "eb": 1.1327720421395493,
+   "bayes": 1.0327037885368804,
+   "covered": true,
+   "bayes_days": 13.2,
+   "ci90_days": [
+    1.6,
+    104.6
+   ]
+  },
+  {
+   "key": "caseworker/document_review",
+   "n": 2,
+   "truth_days": 21.0,
+   "global": 0.0,
+   "family": 0.4795730802618863,
+   "eb": 0.23978654013094314,
+   "bayes": 0.6175262189011144,
+   "covered": true,
+   "bayes_days": 11.3,
+   "ci90_days": [
+    0.7,
+    178.3
+   ]
+  },
+  {
+   "key": "unspecified/recordkeeping",
+   "n": 2,
+   "truth_days": 14.0,
+   "global": 0.4054651081081646,
+   "family": 1.5404450409471486,
+   "eb": 0.5674899664194921,
+   "bayes": 1.768576735653785,
+   "covered": true,
+   "bayes_days": 2.4,
+   "ci90_days": [
+    0.2,
+    34.3
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 2,
+   "truth_days": 61.5,
+   "global": 1.0742172065833935,
+   "family": 1.8161545513127706,
+   "eb": 1.7833173074724398,
+   "bayes": 2.0638638666671536,
+   "covered": false,
+   "bayes_days": 7.8,
+   "ci90_days": [
+    1.4,
+    43.9
+   ]
+  },
+  {
+   "key": "state_agency/payment",
+   "n": 6,
+   "truth_days": 14.0,
+   "global": 0.4054651081081646,
+   "family": 0.2027325540540823,
+   "eb": 0.24529672884221876,
+   "bayes": 0.3988964309705656,
+   "covered": true,
+   "bayes_days": 9.4,
+   "ci90_days": [
+    1.3,
+    68.6
+   ]
+  },
+  {
+   "key": "state_agency/recordkeeping",
+   "n": 2,
+   "truth_days": 50.2,
+   "global": 0.8714846525293116,
+   "family": 1.9838902633297568,
+   "eb": 1.337422393188028,
+   "bayes": 1.1357007412183977,
+   "covered": true,
+   "bayes_days": 156.3,
+   "ci90_days": [
+    17.7,
+    1092.2
+   ]
+  },
+  {
+   "key": "caseworker/scheduling",
+   "n": 2,
+   "truth_days": 6.3,
+   "global": 1.2000827106664547,
+   "family": 0.6263814842476836,
+   "eb": 0.6752279429787249,
+   "bayes": 0.5044621667829872,
+   "covered": true,
+   "bayes_days": 10.5,
+   "ci90_days": [
+    1.9,
+    83.5
+   ]
+  },
+  {
+   "key": "caseworker/scheduling",
+   "n": 4,
+   "truth_days": 9.9,
+   "global": 0.7520386983881373,
+   "family": 0.010101353658760193,
+   "eb": 0.10619837253959963,
+   "bayes": 0.08114284306772346,
+   "covered": true,
+   "bayes_days": 10.7,
+   "ci90_days": [
+    1.5,
+    81.0
+   ]
+  },
+  {
+   "key": "caseworker/decision",
+   "n": 11,
+   "truth_days": 10.0,
+   "global": 0.7419373447293771,
+   "family": 0.18232155679395445,
+   "eb": 0.23930494951853865,
+   "bayes": 0.02471442226882159,
+   "covered": true,
+   "bayes_days": 9.8,
+   "ci90_days": [
+    1.5,
+    56.9
+   ]
+  },
+  {
+   "key": "caseworker/records_check",
+   "n": 2,
+   "truth_days": 11.8,
+   "global": 0.5737012264187711,
+   "family": 0.4236489301936017,
+   "eb": 0.2515032115662281,
+   "bayes": 0.7622498416744699,
+   "covered": true,
+   "bayes_days": 5.5,
+   "ci90_days": [
+    0.4,
+    62.3
+   ]
+  },
+  {
+   "key": "state_agency/payment",
+   "n": 2,
+   "truth_days": 24.2,
+   "global": 0.1438410362258904,
+   "family": 0.549306144334055,
+   "eb": 0.5244585574993503,
+   "bayes": 1.1984749468596494,
+   "covered": true,
+   "bayes_days": 7.3,
+   "ci90_days": [
+    1.3,
+    55.8
+   ]
+  }
+ ],
+ "global": {
+  "median_abs_log_error": 0.705,
+  "mean_abs_log_error": 1.0133,
+  "median_factor_off": 2.02,
+  "within_2x": 0.477
+ },
+ "eb": {
+  "median_abs_log_error": 0.8499,
+  "mean_abs_log_error": 1.0368,
+  "median_factor_off": 2.34,
+  "within_2x": 0.432
+ },
+ "bayes": {
+  "median_abs_log_error": 0.9585,
+  "mean_abs_log_error": 1.0745,
+  "median_factor_off": 2.61,
+  "within_2x": 0.386,
+  "ci90_coverage": 0.841
+ }
+}

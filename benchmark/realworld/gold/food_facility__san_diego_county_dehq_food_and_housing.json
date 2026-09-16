@@ -1,0 +1,1410 @@
+{
+  "model_id": "RW__food_facility__san_diego_county_dehq_food_and_housing",
+  "source": "designed",
+  "jurisdiction": "County of San Diego, CA",
+  "implementer": "County of San Diego Department of Environmental Health and Quality (DEHQ) — Food and Housing Division, Plan Check and Construction Unit",
+  "process": "Opening a new fixed retail food facility (or remodelling/changing the menu, process or equipment of an existing one): DEHQ plan check via Accela, building-department sequencing, up to three construction inspections, Annual DEHQ Health Permit, final approval to operate and grade card.",
+  "gold_tier": "designed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "County of San Diego Food Facility Plan Review Guide, 3rd Edition (DEHQ, Food Water and Housing Division, Plan Check Division), Rev. 12/2025",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/food/pdf/publications_newconstguide887.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_plan_review_guide_3rd.pdf, corpus/realworld/food_facility/raw/sd_plan_review_guide_3rd.txt",
+      "tier": "designed",
+      "date": "2025-12",
+      "role": "the primary designed-tier source and the richest single process document in the three-county food_facility corpus: an eight-item taxonomy of submittal types (Submittal, Resubmittal, Approval, Revision, Re-stamp, Non-Health Regulated Stamp, Consultation, Inspections), four named inspection types with two of them optional, plan-expiry and records-retention rules, and explicit demand-dependent turnaround language. Publicly posted, but written as the unit's own operating description rather than as applicant marketing — which is why sources.json tiers it designed."
+    },
+    {
+      "id": "D2",
+      "title": "Food Facility Plan Check Flow Chart (County of San Diego DEHQ), Rev 12 2025",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/food/pdf/foodflowchart_pc.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_flowchart.pdf, corpus/realworld/food_facility/raw/sd_flowchart.txt",
+      "tier": "declared",
+      "date": "2025-12",
+      "role": "the one-page swimlane (Application Process / Plan Review / Inspections) and the continuity-of-reviewer footnote that appears nowhere else in any county's materials"
+    },
+    {
+      "id": "D3",
+      "title": "Food Plan Check (San Diego County DEHQ resource hub)",
+      "url": "https://www.sandiegocounty.gov/content/sdc/deh/fhd/food/foodplancheck.html",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_food_plan_check_page.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "the hub: unit scope, the plnchk@ mailbox, and the ~30 linked guidance documents (several stamped 'Effective January 1, 2026' or '*Updated 1/2026')"
+    },
+    {
+      "id": "D4",
+      "title": "Online Plan Submission Instructions (County of San Diego DEHQ), updated 1/2026",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/food/pdf/onlinesubmission_pc.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_online_submission_pc.pdf, corpus/realworld/food_facility/raw/sd_online_submission_pc.txt",
+      "tier": "declared",
+      "date": "2026-01",
+      "role": "the Accela Citizen Access submittal mechanics, including the automatic-rejection rule for multi-PDF uploads"
+    },
+    {
+      "id": "D5",
+      "title": "Plan Check Fee Schedule, County of San Diego Department of Environmental Health, Food and Housing Division, effective July 1, 2020 (FH-PC 154 rev 6/30/20)",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/pool/plancheckfeeschedule_pp.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_plancheck_fee_schedule.pdf, corpus/realworld/food_facility/raw/sd_plancheck_fee_schedule.txt",
+      "tier": "declared",
+      "date": "2020-07-01",
+      "role": "square-footage plan check tiers, consultation and reinspection fees, the 2x express-review multiplier, after-hours inspection rates, and the veteran fee exemption. Dated 2020 — the oldest artifact in this model and a staleness risk against the 12/2025 guidance."
+    },
+    {
+      "id": "D6",
+      "title": "Facilities That Require Plan Check Review (County of San Diego DEH, Food and Housing Division), DEH:FH-930 Rev. 10/15/20",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/food/pdf/publications_plancheckreference.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_plancheck_reference.pdf, corpus/realworld/food_facility/raw/sd_plancheck_reference.txt",
+      "tier": "declared",
+      "date": "2020-10-15",
+      "role": "the scope-determination rule set: which facility types need plan check, the statutory hook (HSC 114380(e) requires FHD approval BEFORE a building permit issues), and the inter-agency requirement that the Building Department routes even non-health-regulated plans to FHD"
+    },
+    {
+      "id": "D7",
+      "title": "AB 671 — Frequently Asked Questions (County of San Diego DEHQ), Rev. 12/2025",
+      "url": "https://www.sandiegocounty.gov/content/dam/sdc/deh/fhd/food/pdf/publications_ab671faqs.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sd_ab671_faq.pdf, corpus/realworld/food_facility/raw/sd_ab671_faq.txt",
+      "tier": "designed",
+      "date": "2025-12",
+      "role": "San Diego's resubmittal-vs-change-of-scope taxonomy — near-verbatim identical to LA County's independently published FAQ (see notes)"
+    },
+    {
+      "id": "D8",
+      "title": "Cal. Health & Safety Code §§ 114380 (incl. (e) and (f) as added by AB 671), 114381, 114390, 113709, 113947; San Diego County Code of Regulatory Ordinances Title 6",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=114380",
+      "saved_as": null,
+      "tier": "statute",
+      "date": "operative 2026-01-01",
+      "role": "mandated-element reference only (statute text not fetched to raw/ in Wave 1); used for element_ref, never quoted"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant / prospective food facility operator",
+      "dept": "—"
+    },
+    {
+      "id": "plan_check_specialist",
+      "name": "Plan Check Specialist (also the field inspector for the same project where possible)",
+      "dept": "DEHQ Food and Housing Division, Plan Check and Construction Unit"
+    },
+    {
+      "id": "plan_check_unit",
+      "name": "Plan Check and Construction Unit (counter, scheduling line, plnchk@ mailbox)",
+      "dept": "DEHQ Food and Housing Division"
+    },
+    {
+      "id": "accela",
+      "name": "Accela Citizen Access online submittal system",
+      "dept": "County IT system"
+    },
+    {
+      "id": "building_fire",
+      "name": "Local building department and fire officials",
+      "dept": "city or county building/fire"
+    },
+    {
+      "id": "permits",
+      "name": "FHD Permits (Annual DEHQ Health Permit issuance)",
+      "dept": "DEHQ Food and Housing Division"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Determine whether the project requires plan check review",
+      "actor": "plan_check_unit",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "project description",
+        "Plan Check Review Reference Guidelines"
+      ],
+      "artifacts_out": [
+        "plan-check-required determination, or a referral for a Non-Health Regulated stamp"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(e); San Diego County Code Title 6",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "If you are not sure if you have to submit plans, contact the Plan Check Program at (858) 505-6659 to speak to a plan check specialist.",
+          "page_or_section": "p. 3, Introduction → 'Who needs to submit plans?'"
+        },
+        {
+          "doc": "D6",
+          "quote": "Section 114380(e) of the California Retail Food Code requires that plans for health-regulated retail food facilities be reviewed and approved by FHD before issuance of a building permit.",
+          "page_or_section": "Retail Food Facilities and Wholesale Warehouses"
+        },
+        {
+          "doc": "D3",
+          "quote": "The Plan Check and Construction unit is responsible for reviewing the plans of new food establishments, existing food establishments that are being remodeled, and mobile food facilities such as vending vehicles and pushcarts.",
+          "page_or_section": "Food Plan Check hub page"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Request a pre-submittal consultation with a plan check specialist (office or field appointment)",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "consultation request and fee",
+        "proposed project or facility to be purchased"
+      ],
+      "artifacts_out": [
+        "list of items that will need correction (without any guarantee that plan submittal is avoided)"
+      ],
+      "timing": null,
+      "fee": {
+        "amount_options": {
+          "field_consultation_one_appointment": 311,
+          "office_consultation_one_appointment": 141
+        },
+        "when": "at the appointment",
+        "note": "priced per appointment in D5; a paid pre-check that is explicitly non-binding"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The consultation can also be requested prior to submitting plans or purchasing a facility to inform the operator of all the items that will need to be corrected.",
+          "page_or_section": "p. 5, item 7 Consultation"
+        },
+        {
+          "doc": "D1",
+          "quote": "The plan check consultation does not guarantee that plan submittal may not be required if the facility is not up to current code, or for other reasons.",
+          "page_or_section": "p. 5, item 7 Consultation"
+        },
+        {
+          "doc": "D5",
+          "quote": "FIELD CONSULTATION (ONE APPOINTMENT) $ 311.00",
+          "page_or_section": "FOOD PLAN CHECK, fee code 6FSFT-EHO"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Prepare the plan submittal package with a clearly stated scope of work",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Food Facility Plan Check Application",
+        "Complete Plan Submission Checklist",
+        "required health notes and certification statements",
+        "New Construction Guide"
+      ],
+      "artifacts_out": [
+        "1 set of plans drawn to scale",
+        "menu",
+        "equipment specification/cut sheets",
+        "material samples",
+        "stated scope of work"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "Submit application and respective review fees with 1 set of plans, menu, equipment specification/cut sheets, and material samples. Ensure that plans contain a clearly stated scope of work",
+          "page_or_section": "flow chart, Application Process lane → Submittal"
+        },
+        {
+          "doc": "D1",
+          "quote": "Plans must be drawn in ink, to a scale which is indicated on the plans (e.g., ¼ inch=1 foot, ½ inch=1 foot, etc.) and on a minimum 11 inch by 17 inch size paper.",
+          "page_or_section": "p. 3, 'How are plans submitted?'"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Submit plans online through Accela Citizen Access (or on paper over the counter)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "plan submittal package",
+        "Accela account"
+      ],
+      "artifacts_out": [
+        "filed plan check application"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Users must create an account and login to the Accela Citizen Access page when submitting plans.",
+          "page_or_section": "p. 3, 'How are plans submitted?'"
+        },
+        {
+          "doc": "D1",
+          "quote": "Applicants with no access to online services, may still submit paper plans over the counter but paper plans may take longer to process since they will be scanned and reviewed digitally by plan check staff.",
+          "page_or_section": "p. 3, 'How are plans submitted?'"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Automatic rejection of the submittal package if plan sheets are uploaded as multiple PDF files",
+      "actor": "accela",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "multi-PDF upload"
+      ],
+      "artifacts_out": [
+        "rejected plan submittal package"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A04",
+        "reason": "plan sheets must be consolidated into one PDF and resubmitted"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "All plan sheets must be submitted as one PDF file. Uploading multiple PDF files of plans will result in automatic rejection of the plan submittal package.",
+          "page_or_section": "Online Plan Submission Instructions, submittal requirements bullet (appears twice, pp. for new and for resubmittal flows)"
+        }
+      ],
+      "visibility_check": "Declared in an applicant-facing instruction document, so not staff_only — but worth flagging as a purely administrative failure mode with no statutory basis whatever: the sharpest example in this corpus of an implementation-layer rule that can cost an applicant a full review cycle."
+    },
+    {
+      "id": "A06",
+      "name": "Pay the plan check review fee, assessed on the scope of work and square footage",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "fee invoice"
+      ],
+      "artifacts_out": [
+        "paid plan review fee"
+      ],
+      "timing": null,
+      "fee": {
+        "amount_range": "food plan check $1,263 (0-1999 sq ft) / $1,624 (2000-5999) / $2,733 (6000-9999) / $2,978 (10,000+ with one prep area only); each additional prep area $571; minor remodel (restrooms, equipment) $516; prepackaged or wholesale food warehouse $731; mobile food $387",
+        "when": "with the application",
+        "basis": "square footage and scope of work",
+        "exemption": "'If you are an honorably discharged veteran you may be eligible for a fee exemption.' — the only fee exemption in any of the three counties' schedules",
+        "note": "Fee schedule is effective 2020-07-01, i.e. five years older than the 12/2025 guidance it is used with. Treat amounts as possibly stale."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(e) (fees sufficient to cover actual expenses)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "Fees for plan review will be assessed based on the scope of work.",
+          "page_or_section": "opening paragraph"
+        },
+        {
+          "doc": "D5",
+          "quote": "0 – 1999 SQ. Ft $1,263.00",
+          "page_or_section": "FOOD PLAN CHECK, fee code 6FSFF-EHO / account 429S01"
+        },
+        {
+          "doc": "D5",
+          "quote": "NOTE: If you are an honorably discharged veteran you may be eligible for a fee exemption.",
+          "page_or_section": "footer"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Elect FOOD EXPRESS PLAN REVIEW at twice the plan check fee",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "express review request"
+      ],
+      "artifacts_out": [
+        "expedited review slot"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "no expedited turnaround figure is published anywhere; only the price multiplier is"
+      },
+      "fee": {
+        "amount": null,
+        "multiplier": "2x the plan check fee",
+        "when": "at submittal",
+        "note": "San Diego prices queue position as an explicit multiplier (2x); LA County prices the same thing as a separate fee tier at roughly 1.5x with a published 10-business-day ceiling. San Diego publishes the price but not the promise."
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "FOOD EXPRESS PLAN REVIEW (2X Plan Check Fee)",
+          "page_or_section": "EXPEDITE SERVICES, fee code 6FS95F-EHO"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Initial plan review within 20 business days",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed plan check application",
+        "paid fee"
+      ],
+      "artifacts_out": [
+        "approval",
+        "or a correction notice listing deficiencies"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "business_day_ceiling": 20,
+        "source": "statutory ceiling (HSC 114380, deemed approved if missed). D1 is the only document in the three-county corpus that admits actual practice can differ from the ceiling — 'can at times be less than 20 business days throughout the year based on demand' — and it gives no number."
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A10",
+        "reason": "corrections required"
+      },
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "State Law requires that all plans be reviewed within 20 business days. This review timeline can at times be less than 20 business days throughout the year based on demand.",
+          "page_or_section": "p. 4, Submittal and Inspection Process, item 1 Submittal"
+        },
+        {
+          "doc": "D7",
+          "quote": "Have there been any changes to the initial plan review turnaround time? No. Initial plan reviews should still be completed within 20 business days.",
+          "page_or_section": "AB 671 FAQ, Q5"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Adjust review and inspection-scheduling turnaround against current demand, with no published lead time",
+      "actor": "plan_check_unit",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "current queue depth and staffing"
+      ],
+      "artifacts_out": [
+        "the actual review and inspection lead times, obtainable only by telephoning the unit"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "unpublished by construction: the guide tells applicants to call for current lead times rather than publishing them"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Reach out to the Plan Check Unit to check on current review timelines.",
+          "page_or_section": "p. 4, item 1 Submittal"
+        },
+        {
+          "doc": "D1",
+          "quote": "Construction inspection scheduling timeline fluctuate throughout the year based on demand. Reach out to the Plan Check Unit to check on inspection scheduling lead times.",
+          "page_or_section": "p. 5, item 8 Inspections"
+        }
+      ],
+      "visibility_check": "The fact that turnaround varies with demand is declared; the queue state itself — the only number that would let an applicant plan — is published nowhere in raw/ and is disclosed only on request, per-caller and unrecorded. The activity of rationing capacity against demand is therefore staff_only, and it is the reason no measured turnaround exists for San Diego."
+    },
+    {
+      "id": "A10",
+      "name": "Issue a correction notice listing the deficiencies",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "reviewed plans"
+      ],
+      "artifacts_out": [
+        "correction notice with the deficiencies listed"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Plans needing correction or further information will have the deficiencies listed on a correction notice.",
+          "page_or_section": "p. 4, item 2 Resubmittals/Corrections Required"
+        },
+        {
+          "doc": "D2",
+          "quote": "Plans must be resubmitted reflecting the",
+          "page_or_section": "flow chart, Plan Review lane → Corrections Required: Yes — box text reads 'Plans must be resubmitted reflecting the corrections indicated in the plan review comments.' in the PDF layout, but the rotated lane label 'Plan Review' is interleaved into the middle of it in the extracted .txt, so the quote is split"
+        },
+        {
+          "doc": "D2",
+          "quote": "corrections indicated in the plan review",
+          "page_or_section": "flow chart, Plan Review lane → Corrections Required: Yes (continuation of the same box)"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Resubmit corrected plans, annotating on the correction notice where each corrected item sits on the plan",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "correction notice"
+      ],
+      "artifacts_out": [
+        "corrected plan set with located corrections",
+        "resubmittal fee invoice"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 347,
+        "label": "FOOD PLAN RECHECK / MINOR REVISION",
+        "when": "invoiced at the time of the plan resubmittal, payable before review",
+        "note": "San Diego charges per resubmittal and requires payment before the resubmittal is looked at — so an applicant in a multi-round correction loop pays each round"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "A fee for this resubmittal will be invoiced at the time of the plan resubmittal.",
+          "page_or_section": "p. 4, item 2"
+        },
+        {
+          "doc": "D1",
+          "quote": "To help expedite this process clearly note on correction notice where the corrected items are located on the plan.",
+          "page_or_section": "p. 4, item 2"
+        },
+        {
+          "doc": "D2",
+          "quote": "*Resubmittals will require a fee be paid prior to review.",
+          "page_or_section": "flow chart, Plan Review lane footnote"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "Classify the additional submittal as a Resubmittal (10 business days) or a Revision / change of scope (20 business days)",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "additional submittal",
+        "prior correction notice"
+      ],
+      "artifacts_out": [
+        "classification and clock assignment",
+        "revision fee invoice"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "business_day_ceiling": "10 for a resubmittal (no deemed-approval backstop), 20 for a change of scope",
+        "source": "HSC 114380(f) as added by AB 671; the resubmittal/change-of-scope boundary is the county's own construction"
+      },
+      "fee": {
+        "amount": 347,
+        "label": "FOOD PLAN RECHECK / MINOR REVISION",
+        "when": "invoiced at the time of the plan resubmittal"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "State Law requires that all resubmittal plans be reviewed within 10 business days as long as no other items beyond what was noted on the correction sheet are modified.",
+          "page_or_section": "p. 4, item 2"
+        },
+        {
+          "doc": "D1",
+          "quote": "This is for any plan submittal required for a change of scope to the initial submittal for any New, Major Remodel, or Minor Remodel project",
+          "page_or_section": "p. 5, item 4 Revision"
+        },
+        {
+          "doc": "D7",
+          "quote": "Change of Scope revisions will be reviewed within 20 business days.",
+          "page_or_section": "AB 671 FAQ, Q9"
+        }
+      ],
+      "visibility_check": "The taxonomy and its worked examples are published in D7 and in D1's item 2/item 4 split, so not staff_only — but the classification decision is the county's, made without a stated appeal, and the taxonomy exists nowhere in the statute. This is the same mandated/designed seam as LA County's A09."
+    },
+    {
+      "id": "A13",
+      "name": "Approve the plans and e-mail the stamped set to the submitter",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "compliant plans"
+      ],
+      "artifacts_out": [
+        "DEHQ-stamped approved plans (e-mailed)",
+        "requirement to keep the stamped set on site"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Once approved, the submitter will receive an email notification with stamped plans.",
+          "page_or_section": "p. 4, item 3 Approval"
+        },
+        {
+          "doc": "D1",
+          "quote": "DEHQ’s approved stamped plans must be kept at the site for reference to health code requirements during construction.",
+          "page_or_section": "p. 4, item 3 Approval"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Retain inspected plan sets for a maximum of one year after the date of notification",
+      "actor": "plan_check_unit",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "inspected plan sets (approved or needing correction)"
+      ],
+      "artifacts_out": [
+        "retained record for up to one year, then disposed"
+      ],
+      "timing": {
+        "median_days": 365,
+        "p90_days": null,
+        "source": "stated retention maximum, not a measured figure"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Inspected plan sets, once approved or those needing correction, will be retained for a maximum of one year after the date of notification to the submitter.",
+          "page_or_section": "p. 4, item 3 Approval"
+        }
+      ],
+      "visibility_check": "A records-management rule with real consequences for an applicant who returns after a year, stated in the designed-tier guide and in none of the applicant-facing pages, checklists or flow chart in raw/. Hence staff_only."
+    },
+    {
+      "id": "A15",
+      "name": "Plans expire one year from approval or one year from the last DEHQ construction inspection; expired plans are voided",
+      "actor": "plan_check_unit",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "approved plan set with no recent construction inspection"
+      ],
+      "artifacts_out": [
+        "voided plans requiring a full new submittal"
+      ],
+      "timing": {
+        "median_days": 365,
+        "p90_days": null,
+        "source": "stated expiry rule"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A03",
+        "reason": "expired plans are voided and new plans must be resubmitted for review"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Approved plans expire 1 year from the date the plans were approved by this department or 1 year from the last DEHQ construction inspection. Expired plans will be voided and new plans must be resubmitted for review.",
+          "page_or_section": "p. 5, item 5 Re-stamp"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Re-stamp an identical approved plan set at a counter appointment for a fee",
+      "actor": "plan_check_unit",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "approved plan set identical to the stamped original"
+      ],
+      "artifacts_out": [
+        "re-stamped plans"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 155,
+        "label": "RESTAMP / APPROVAL OF NON-HEALTH REGULATED BUILDING PLANS",
+        "when": "at the counter appointment"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Re-stamps are done with a counter appointment, for a fee. Plans to be re-stamped must be identical to the approved set; any changes or additions to the plans will result in the submittal of revised sets.",
+          "page_or_section": "p. 5, item 5 Re-stamp"
+        },
+        {
+          "doc": "D6",
+          "quote": "Please note: Appointments are required for review of plans.",
+          "page_or_section": "footer note"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Stamp plans Non-Health Regulated when another agency requires DEHQ approval for a site that would not otherwise be submitted",
+      "actor": "plan_check_unit",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "plans for a non-health-regulated site routed by the Building Department"
+      ],
+      "artifacts_out": [
+        "Non-Health Regulated stamp (DEHQ retains one set)"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 155,
+        "label": "RESTAMP / APPROVAL OF NON-HEALTH REGULATED BUILDING PLANS",
+        "when": "at the appointment"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "A non-health regulated stamp is provided for a fee when other agencies are requiring DEHQ approval for a site that would not normally need submittal to this department.",
+          "page_or_section": "p. 5, item 6 Non-Health Regulated Stamp"
+        },
+        {
+          "doc": "D6",
+          "quote": "The Building Department requires that plans for non-health regulated facilities be reviewed by FHD.",
+          "page_or_section": "opening paragraph — an inter-agency requirement DEHQ did not create and does not administer"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Obtain approvals from the local building department after DEHQ plan approval",
+      "actor": "building_fire",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "DEHQ-stamped plans"
+      ],
+      "artifacts_out": [
+        "building inspection permits"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(e)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Plans must be submitted and approved prior to the start of construction. After this Department has approved your plans, you will also have to obtain approvals from the local building department.",
+          "page_or_section": "p. 3, 'When are the plans submitted?'"
+        },
+        {
+          "doc": "D1",
+          "quote": "Once corrected and approved, these plans are considered ready for construction with appropriate building inspection permits.",
+          "page_or_section": "p. 4, item 2"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Begin construction, keeping at least one DEHQ-stamped plan set on the job site",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "approved stamped plans",
+        "building permits"
+      ],
+      "artifacts_out": [
+        "facility under construction"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "Construction Begins",
+          "page_or_section": "flow chart, Plan Review lane → after Plans Approved"
+        },
+        {
+          "doc": "D1",
+          "quote": "Maintain at minimum one set of the DEHQ approved stamped set of plans on the job site to be used during DEHQ construction inspections.",
+          "page_or_section": "p. 5, item 8 Inspections"
+        }
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Optional Preliminary Inspection to verify plumbing fixtures and stub-outs against the plans",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "installed plumbing fixtures and stub-outs"
+      ],
+      "artifacts_out": [
+        "approval of that portion of construction, or corrections to be completed before the mid inspection"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A19",
+        "reason": "discrepancies must be completed prior to calling for the mid inspection"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "This optional inspection is for the purposes of ensuring that the plumbing fixtures and stub outs installed in the facility are installed according to your plans.",
+          "page_or_section": "p. 5, item 8a Preliminary Inspection"
+        }
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Mandatory Construction (Mid) Inspection at 50-80 percent complete",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "installed floor, wall and ceiling surfaces",
+        "installed equipment (hood exhaust, cooking equipment, warewasher, sinks)"
+      ],
+      "artifacts_out": [
+        "mid-inspection approval",
+        "trigger to apply for the Annual DEHQ Health Permit"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "no scheduling lead time published; the applicant is told to call the unit (see A09)"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A19",
+        "reason": "corrections found at the mid inspection"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "This mandatory inspection is conducted when your facility is 50-80% complete.",
+          "page_or_section": "p. 6, item 8b Construction (Mid) Inspection"
+        },
+        {
+          "doc": "D2",
+          "quote": "Mid-Construction Inspection (required at 50-80%)",
+          "page_or_section": "flow chart, Inspections lane"
+        },
+        {
+          "doc": "D1",
+          "quote": "When the Specialist has approved this inspection, you will then need to apply for your Annual DEHQ Health Permit.",
+          "page_or_section": "p. 6, item 8b"
+        }
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Apply for the Annual DEHQ Health Permit and pay all its fees before calling for the final inspection",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "health permit application"
+      ],
+      "artifacts_out": [
+        "filed Annual DEHQ Health Permit application with fees paid"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "before the final inspection",
+        "note": "annual operational health permit fees are NOT in D5 (which is the plan check schedule only) and were not captured in Wave 1 — a real gap for fee scoring"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "An application for the annual operational DEHQ health permit must be submitted to DEHQ prior to calling for the final inspection.",
+          "page_or_section": "p. 5, item 8 Inspections"
+        },
+        {
+          "doc": "D1",
+          "quote": "A permit application must be submitted and all fees paid for the Annual DEHQ Health Permit prior to the final inspection.",
+          "page_or_section": "p. 6, item 8d Final Inspection"
+        },
+        {
+          "doc": "D2",
+          "quote": "Apply for Health Permit",
+          "page_or_section": "flow chart, Inspections lane (between mid and final inspection)"
+        }
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Optional Pre-Final Inspection; approval to stock the facility or train employees may be granted",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "near-complete facility",
+        "occupancy or temporary occupancy from building and fire officials"
+      ],
+      "artifacts_out": [
+        "verification the facility was built per the stamped health plans",
+        "conditional approval to stock or train"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "During the Pre-Final inspection, the approval to stock the facility or train employees may be granted if occupancy or temporary occupancy has been granted by the building and fire officials.",
+          "page_or_section": "p. 6, item 8c Pre-Final Inspection"
+        },
+        {
+          "doc": "D1",
+          "quote": "The inspector will check to see if the facility was built per the stamped health plans.",
+          "page_or_section": "p. 6, item 8c"
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Obtain local building and fire final approval or a Temporary Certificate of Occupancy, with proof on the job site",
+      "actor": "building_fire",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "completed construction"
+      ],
+      "artifacts_out": [
+        "final sign-off on job cards, or a TCO"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Proof of these approvals must be on the job site (e.g., final sign off on respective \"job cards\", etc.). The DEHQ Final Approval cannot be granted without these approvals.",
+          "page_or_section": "p. 6, item 8d Final Inspection"
+        }
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Mandatory Final Inspection at 100 percent complete with all utilities operational and the facility cleaned and ready",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "building/fire final approval or TCO",
+        "filed and paid health permit application",
+        "operational utilities, hood-exhaust, refrigeration and warewashing",
+        "stocked handsinks"
+      ],
+      "artifacts_out": [
+        "final inspection result"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A19",
+        "reason": "facility not built per the stamped plans or not ready to operate"
+      },
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114390",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "This mandatory final inspection will be conducted after you have finished all of your construction and the local building and fire officials have granted their final approval or Temporary Certificate of Occupancy (TCO) for your opening.",
+          "page_or_section": "p. 6, item 8d"
+        },
+        {
+          "doc": "D1",
+          "quote": "All utilities (electric, gas and potable water) must be available and operational for the final inspection",
+          "page_or_section": "p. 6, item 8d"
+        },
+        {
+          "doc": "D2",
+          "quote": "Final Inspection (Required at 100%)",
+          "page_or_section": "flow chart, Inspections lane"
+        }
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Charge additional inspection fees beyond three construction inspections, or an after-hours premium",
+      "actor": "plan_check_unit",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "fourth or later construction inspection, or an after-hours request"
+      ],
+      "artifacts_out": [
+        "supplemental / reinspection invoice"
+      ],
+      "timing": null,
+      "fee": {
+        "supplemental_reinspection": 338,
+        "after_hours_two_hour_minimum": 459,
+        "after_hours_additional_per_hour": 229.5,
+        "when": "on the extra inspection",
+        "note": "the correction-loop cost is two-sided in San Diego: each plan resubmittal is invoiced (A11/A12) and each inspection past the third is invoiced too"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Up to 3 construction inspections of the facility are conducted by the DEHQ Plan Check Specialist after plans have been approved. More than three inspections will require additional inspection fees.",
+          "page_or_section": "p. 5, item 8 Inspections"
+        },
+        {
+          "doc": "D5",
+          "quote": "FOOD SUPPLEMENTAL / REINSPECTION $ 338.00",
+          "page_or_section": "FOOD PLAN CHECK, fee code 6FS08-EHO"
+        },
+        {
+          "doc": "D5",
+          "quote": "FOOD AFTER HOURS INSPECTION RATE (2 hour minimum) $ 459.00",
+          "page_or_section": "EXPEDITE SERVICES, fee code 6FS96F-EHO"
+        }
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Assign the same Specialist to both plan review and field inspections for a project where possible",
+      "actor": "plan_check_unit",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "project assignment"
+      ],
+      "artifacts_out": [
+        "continuity of reviewer across plan check and construction inspections"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "All plan review and field inspections are conducted with the same Specialist where possible.",
+          "page_or_section": "flow chart, footnote at the bottom of the page"
+        }
+      ],
+      "visibility_check": "A staffing-continuity policy stated once, as a footnote on an otherwise purely diagrammatic one-page PDF. It appears in no LA County or San Francisco document at all, and in no other San Diego document in raw/ — including the 3rd-edition guide that describes everything else about the unit. An applicant would experience it (the same person reviews and inspects) without any page telling them it is policy. Hence staff_only."
+    },
+    {
+      "id": "A28",
+      "name": "Obtain Food Safety Certification for the Person in Charge and food handler cards for all food employees",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "food safety training and exam"
+      ],
+      "artifacts_out": [
+        "Food Safety Certification (FSC)",
+        "San Diego food handler cards or in-house certification tests"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "food handler cards required within 10 days of employment; FSC training to be scheduled before calling for approval to open"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 113947",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Schedule this food safety training prior to calling for approval to open.",
+          "page_or_section": "p. 6, item 8d"
+        },
+        {
+          "doc": "D1",
+          "quote": "All employees who handle food, beverage or food contact surfaces should obtain a valid San Diego food handler card or in-house certification test within 10 days of employment.",
+          "page_or_section": "p. 6, item 8d"
+        }
+      ]
+    },
+    {
+      "id": "A29",
+      "name": "Grant final approval; the facility may open, and facilities with open food or beverage preparation are issued a grade card",
+      "actor": "plan_check_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "passed final inspection",
+        "issued Annual DEHQ Health Permit"
+      ],
+      "artifacts_out": [
+        "DEHQ final approval to operate",
+        "grade card (for facilities with open food/beverage preparation)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code §§ 114381(a), 113709 (grading is a local-government option)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "You can open to the public once final approval is granted. Food facilities with open food/beverage preparation will have a grade card issued.",
+          "page_or_section": "p. 6, item 8d"
+        },
+        {
+          "doc": "D2",
+          "quote": "Facility is approved to operate",
+          "page_or_section": "flow chart, Inspections lane, terminal box"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "optional",
+      "condition": "applicant buys a pre-submittal consultation"
+    },
+    {
+      "from": "A01",
+      "to": "A03",
+      "type": "sequence",
+      "condition": "plan check required"
+    },
+    {
+      "from": "A01",
+      "to": "A17",
+      "type": "optional",
+      "condition": "site is not health-regulated but another agency requires DEHQ approval"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A03",
+      "to": "A04",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A04",
+      "to": "A05",
+      "type": "optional",
+      "condition": "plan sheets uploaded as multiple PDFs"
+    },
+    {
+      "from": "A05",
+      "to": "A04",
+      "type": "rework",
+      "condition": "consolidate into one PDF and resubmit"
+    },
+    {
+      "from": "A04",
+      "to": "A06",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A06",
+      "to": "A07",
+      "type": "optional",
+      "condition": "applicant elects express review at 2x the fee"
+    },
+    {
+      "from": "A06",
+      "to": "A08",
+      "type": "sequence",
+      "condition": "fees paid"
+    },
+    {
+      "from": "A07",
+      "to": "A08",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A09",
+      "to": "A08",
+      "type": "sequence",
+      "condition": "demand sets the actual review lead time"
+    },
+    {
+      "from": "A08",
+      "to": "A10",
+      "type": "rework",
+      "condition": "corrections required"
+    },
+    {
+      "from": "A10",
+      "to": "A11",
+      "type": "rework",
+      "condition": "applicant corrects and resubmits"
+    },
+    {
+      "from": "A11",
+      "to": "A12",
+      "type": "handoff",
+      "condition": "additional submittal received"
+    },
+    {
+      "from": "A12",
+      "to": "A08",
+      "type": "rework",
+      "condition": "reclassified submittal re-enters review on the assigned clock"
+    },
+    {
+      "from": "A08",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "no further corrections required"
+    },
+    {
+      "from": "A13",
+      "to": "A14",
+      "type": "handoff",
+      "condition": "inspected plan set enters retention"
+    },
+    {
+      "from": "A13",
+      "to": "A15",
+      "type": "optional",
+      "condition": "a year passes with no construction inspection"
+    },
+    {
+      "from": "A15",
+      "to": "A03",
+      "type": "rework",
+      "condition": "plans voided; full resubmittal required"
+    },
+    {
+      "from": "A15",
+      "to": "A16",
+      "type": "optional",
+      "condition": "identical plans re-stamped instead of voided"
+    },
+    {
+      "from": "A13",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "DEHQ approval in hand"
+    },
+    {
+      "from": "A18",
+      "to": "A19",
+      "type": "sequence",
+      "condition": "building inspection permits obtained"
+    },
+    {
+      "from": "A19",
+      "to": "A20",
+      "type": "optional",
+      "condition": "applicant requests the preliminary plumbing inspection"
+    },
+    {
+      "from": "A20",
+      "to": "A19",
+      "type": "rework",
+      "condition": "discrepancies to be fixed before the mid inspection"
+    },
+    {
+      "from": "A19",
+      "to": "A21",
+      "type": "sequence",
+      "condition": "facility 50-80 percent complete"
+    },
+    {
+      "from": "A09",
+      "to": "A21",
+      "type": "sequence",
+      "condition": "demand sets the actual inspection scheduling lead time"
+    },
+    {
+      "from": "A21",
+      "to": "A19",
+      "type": "rework",
+      "condition": "corrections found"
+    },
+    {
+      "from": "A21",
+      "to": "A22",
+      "type": "sequence",
+      "condition": "mid inspection approved"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "optional",
+      "condition": "applicant requests a pre-final inspection"
+    },
+    {
+      "from": "A22",
+      "to": "A24",
+      "type": "sequence",
+      "condition": "construction finished"
+    },
+    {
+      "from": "A23",
+      "to": "A24",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A24",
+      "to": "A25",
+      "type": "sequence",
+      "condition": "building and fire final approval or TCO on site"
+    },
+    {
+      "from": "A25",
+      "to": "A19",
+      "type": "rework",
+      "condition": "facility not built per plan or not ready"
+    },
+    {
+      "from": "A25",
+      "to": "A26",
+      "type": "optional",
+      "condition": "a fourth or later inspection, or an after-hours visit, is needed"
+    },
+    {
+      "from": "A26",
+      "to": "A25",
+      "type": "rework",
+      "condition": "re-inspection performed"
+    },
+    {
+      "from": "A03",
+      "to": "A28",
+      "type": "sequence",
+      "condition": "training arranged in parallel with the build"
+    },
+    {
+      "from": "A28",
+      "to": "A25",
+      "type": "sequence",
+      "condition": "FSC scheduled before calling for approval to open"
+    },
+    {
+      "from": "A25",
+      "to": "A29",
+      "type": "sequence",
+      "condition": "final inspection passed"
+    }
+  ],
+  "terminal_artifact": "DEHQ final approval to operate plus the Annual DEHQ Health Permit, with a grade card posted at facilities that have open food or beverage preparation",
+  "denial_rate": null,
+  "denial_rate_note": "Not documented. San Diego County publishes no plan-check rejection rate, no permit denial rate and no count of facilities closed at final inspection.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "p90_days": null,
+    "source": "No end-to-end or stage-level measured turnaround is published. San Diego is, however, the only one of the three counties whose own document concedes that actual practice diverges from the statutory ceiling — and it still gives no number, directing applicants to telephone the unit instead. Stage ceilings: 20 business days initial review (statutory, deemed approved if missed); 10 business days for a resubmittal (statutory under AB 671, no deemed-approval backstop); 20 business days for a change of scope; minimum 2 mandatory construction inspections (50-80% and 100%) with up to 3 included in the fee.",
+    "quote": "State Law requires that all plans be reviewed within 20 business days. This review timeline can at times be less than 20 business days throughout the year based on demand.",
+    "secondary_quotes": [
+      {
+        "quote": "Reach out to the Plan Check Unit to check on current review timelines.",
+        "page_or_section": "D1 p. 4 — the publication gap stated as an instruction"
+      },
+      {
+        "quote": "Construction inspection scheduling timeline fluctuate throughout the year based on demand. Reach out to the Plan Check Unit to check on inspection scheduling lead times.",
+        "page_or_section": "D1 p. 5, item 8"
+      },
+      {
+        "quote": "Resubmittals should be reviewed within 10 business days. However, unlike initial plan reviews, the bill does not specify that plans will be automatically deemed approved if not reviewed within that timeframe.",
+        "page_or_section": "D7, AB 671 FAQ Q7"
+      },
+      {
+        "quote": "Approved plans expire 1 year from the date the plans were approved by this department or 1 year from the last DEHQ construction inspection. Expired plans will be voided and new plans must be resubmitted for review.",
+        "page_or_section": "D1 p. 5, item 5 — the only hard deadline in the model that runs against the applicant"
+      }
+    ],
+    "scope": "DEHQ plan-check and construction-inspection segment only. The local building-department segment (A18, A24) is run by the City of San Diego and 17 other cities plus the county and has no DEHQ clock at all.",
+    "express_track": "FOOD EXPRESS PLAN REVIEW is priced at 2x the plan check fee with no published turnaround promise attached — a price without a service level."
+  },
+  "known_gaps": [
+    "No measured plan-check or inspection turnaround. D1 admits the 20-business-day ceiling is not what actually happens and then withholds the number, telling applicants to call. Lead times are therefore disclosed per-caller, unrecorded and unauditable.",
+    "Annual DEHQ Health Permit fee amounts are missing: D5 is the plan check schedule only. Fee error for the permit itself is unscoreable, though plan-check fee error is fully scoreable.",
+    "D5 is effective 2020-07-01 while the guidance it accompanies is Rev. 12/2025 — a five-year gap. Any fee amount quoted here may be superseded; this is a live staleness trap for a solver and for the gold alike.",
+    "San Diego's grade-card system (A/B/C letter grades under county ordinance) is referenced only as 'a grade card will be issued'; the ordinance number, the score bands and the posting rules were not captured in Wave 1. Compare LA County, where the ordinance number (97-0071) is known but only from a 1999 grand jury report.",
+    "The routine post-opening inspection cycle is out of this model. D1 covers plan check and construction inspections only; San Diego's risk-based routine inspection frequency is asserted in notes.md from other sources but no primary document stating it was captured.",
+    "The county's internal criteria for accepting a plan as 'complete' cannot be verified against the reasonable-person list D7 publishes — the same gap as LA County's.",
+    "Mobile food facilities are out of scope here (San Diego runs a separate MFF track with its own construction guide, operations FAQ — currently 'Removed for pending updates' per D3 — and template submittal packages). A separate gold model would be needed.",
+    "Cottage Food Operations are explicitly a non-plan-check track ('must obtain a permit or registration from FHD, but are not required to submit plans'), as are public pools, body art and some massage establishments handled by the same unit. These are the disentanglement boundaries for this task.",
+    "No observed tier at all: San Diego publishes an inspection-results search but no permit-volume or cycle-time dataset was captured, so gold_tier is 'designed' rather than 'designed+observed'.",
+    "D1 references a 'Plan Check Flow Chart' on its own page 10 and a 'Food Facility Final Inspection Checklist' on page 11; the diagrammatic page is an image in the extracted text (D2 is the standalone version of the same chart), and the final-inspection checklist body was not quoted here."
+  ],
+  "notes": "Why a third food_facility model: San Diego completes a three-county natural experiment on one statute. The California Retail Food Code gives all three counties the same thin skeleton — plans before construction, a 20-working-day clock, a permit required to open, grading left to local option — and the three designed visibly different machines. SF folds DPH review inside a single DBI Permit Center submittal as a routing station; LA takes a direct EH submittal and deliberately sequences its final inspection AFTER all city Building & Safety approvals; San Diego takes a direct Accela submittal, requires its own approval BEFORE a building permit may issue (HSC 114380(e)), and then requires building/fire final approval before its own final inspection — i.e. it gates both ends. Scoring the same solver across all three isolates local design from statutory mandate.\n\nSan Diego is the most operationally explicit of the three, and consequently has only three staff_only activities: the demand-driven rationing of review and inspection lead times (A09), the one-year retention rule on inspected plan sets (A14), and the continuity-of-reviewer policy buried in a flow-chart footnote (A27). The same pattern holds as in LA County — the more a county publishes about its procedure, the less of its hidden layer is sequence and the more it is capacity, records and staffing. That is a finding about where opacity actually lives in these processes, not an artifact of document supply.\n\nThree details worth singling out. (1) San Diego charges on both sides of every correction loop: each plan resubmittal is invoiced and must be paid before it is looked at, and each construction inspection past the third is invoiced too — so the cost of a rework round is explicit and double, where LA says only that 'additional fees apply' and SF publishes no plan-review amount at all. (2) The express lane is priced as a bare 2x multiplier with no turnaround promise attached; LA sells the same thing at roughly 1.5x with a published 10-business-day ceiling. Same statutory silence, two different ways to monetise the queue. (3) D7, San Diego's AB 671 FAQ, is near-verbatim identical to LA County's independently published FAQ — same 'complete plan' list, same resubmittal-vs-change-of-scope split, same worked examples down to 'Relocating or resizing a sink, floor sink, or floor drain per correction comments' and 'Adding equipment requiring referral to other agencies (CDFA, FDA, USDA)'. Two counties converging word-for-word on a taxonomy that appears nowhere in HSC 114380(f) is either shared CDPH/CCDEH guidance behind the scenes or an obvious reading of the statute, and the public record cannot distinguish the two. Whichever it is, it means the 'local design' in this seam may be a single design adopted twice — a caution for any metric that treats the two counties as independent observations.",
+  "quote_verification": "All evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions, after normalising whitespace, curly quotes/dashes, PDF ligatures (fi/fl/ff) and hyphen-at-line-break. One flow-chart quote (A10) is split into two fragments because a rotated swimlane label is interleaved into the box text by the PDF extractor. 0 unverified quotes."
+}

@@ -1,0 +1,4345 @@
+{
+ "built": "2026-09-15",
+ "sampler": "conjugate Gibbs, two-level normal with a hierarchical shape",
+ "draws": 4000,
+ "burn": 1000,
+ "family": "agency_task",
+ "n_eff_note": "Kish effective sample size (sum w)^2/sum w^2, not the weight sum",
+ "hyper": {
+  "tau2_mean": 0.9369,
+  "tau2_ci90": [
+   0.5115,
+   1.4944
+  ],
+  "s2_mean": 0.5896
+ },
+ "n_keys": 158,
+ "rows": [
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "background_check/records_check",
+   "n_anchors": 12,
+   "n_eff": 12.0,
+   "median_days": 14.7,
+   "ci50": [
+    12.5,
+    17.4
+   ],
+   "ci90": [
+    9.8,
+    22.1
+   ],
+   "sigma_mean": 0.887,
+   "sigma_ci90": [
+    0.651,
+    1.227
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.215,
+    "q05": 0.086,
+    "q95": 0.38
+   }
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/records_check",
+   "n_anchors": 14,
+   "n_eff": 11.64,
+   "median_days": 196.5,
+   "ci50": [
+    168.1,
+    230.3
+   ],
+   "ci90": [
+    127.9,
+    288.5
+   ],
+   "sigma_mean": 0.834,
+   "sigma_ci90": [
+    0.606,
+    1.149
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/decision",
+   "n_anchors": 11,
+   "n_eff": 11.0,
+   "median_days": 7.2,
+   "ci50": [
+    6.2,
+    8.7
+   ],
+   "ci90": [
+    4.8,
+    11.1
+   ],
+   "sigma_mean": 0.854,
+   "sigma_ci90": [
+    0.617,
+    1.171
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "plan_review/document_review",
+   "n_anchors": 9,
+   "n_eff": 8.33,
+   "median_days": 46.6,
+   "ci50": [
+    38.5,
+    55.5
+   ],
+   "ci90": [
+    28.9,
+    71.7
+   ],
+   "sigma_mean": 0.824,
+   "sigma_ci90": [
+    0.577,
+    1.153
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "records_check",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/records_check",
+   "n_anchors": 8,
+   "n_eff": 8.0,
+   "median_days": 16.1,
+   "ci50": [
+    13.4,
+    19.5
+   ],
+   "ci90": [
+    10.4,
+    25.8
+   ],
+   "sigma_mean": 0.82,
+   "sigma_ci90": [
+    0.571,
+    1.159
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "scheduling",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/scheduling",
+   "n_anchors": 7,
+   "n_eff": 7.0,
+   "median_days": 41.9,
+   "ci50": [
+    36.0,
+    48.6
+   ],
+   "ci90": [
+    28.3,
+    60.9
+   ],
+   "sigma_mean": 0.634,
+   "sigma_ci90": [
+    0.419,
+    0.955
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "unspecified/unspecified",
+   "n_anchors": 8,
+   "n_eff": 6.6,
+   "median_days": 46.5,
+   "ci50": [
+    35.7,
+    61.8
+   ],
+   "ci90": [
+    23.3,
+    90.8
+   ],
+   "sigma_mean": 1.152,
+   "sigma_ci90": [
+    0.789,
+    1.717
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "plan_review/document_review",
+   "n_anchors": 6,
+   "n_eff": 6.0,
+   "median_days": 145.3,
+   "ci50": [
+    109.3,
+    186.3
+   ],
+   "ci90": [
+    71.5,
+    266.1
+   ],
+   "sigma_mean": 1.026,
+   "sigma_ci90": [
+    0.68,
+    1.525
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/issuance",
+   "n_anchors": 6,
+   "n_eff": 6.0,
+   "median_days": 30.5,
+   "ci50": [
+    23.5,
+    39.4
+   ],
+   "ci90": [
+    15.4,
+    57.0
+   ],
+   "sigma_mean": 1.02,
+   "sigma_ci90": [
+    0.675,
+    1.557
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "decision",
+   "channel": "counter",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "third_party/decision",
+   "n_anchors": 6,
+   "n_eff": 5.83,
+   "median_days": 12.5,
+   "ci50": [
+    8.8,
+    17.7
+   ],
+   "ci90": [
+    5.0,
+    29.5
+   ],
+   "sigma_mean": 1.327,
+   "sigma_ci90": [
+    0.885,
+    2.016
+   ],
+   "statutory_cap_days": 29.5,
+   "p_exceed_cap": {
+    "mean": 0.263,
+    "q05": 0.077,
+    "q95": 0.5
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/interview",
+   "n_anchors": 7,
+   "n_eff": 5.4,
+   "median_days": 8.9,
+   "ci50": [
+    6.0,
+    13.0
+   ],
+   "ci90": [
+    3.5,
+    23.7
+   ],
+   "sigma_mean": 1.65,
+   "sigma_ci90": [
+    1.087,
+    2.536
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/payment",
+   "n_anchors": 6,
+   "n_eff": 5.2,
+   "median_days": 15.1,
+   "ci50": [
+    12.7,
+    17.8
+   ],
+   "ci90": [
+    9.6,
+    23.4
+   ],
+   "sigma_mean": 0.644,
+   "sigma_ci90": [
+    0.407,
+    0.971
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "issuance",
+   "channel": "hearing",
+   "blocking_party": "shared",
+   "cadence": "biweekly_or_monthly_cycle",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/issuance",
+   "n_anchors": 5,
+   "n_eff": 5.0,
+   "median_days": 43.8,
+   "ci50": [
+    32.9,
+    58.7
+   ],
+   "ci90": [
+    21.3,
+    91.0
+   ],
+   "sigma_mean": 0.998,
+   "sigma_ci90": [
+    0.649,
+    1.518
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "third_party/issuance",
+   "n_anchors": 4,
+   "n_eff": 4.0,
+   "median_days": 11.8,
+   "ci50": [
+    9.7,
+    14.6
+   ],
+   "ci90": [
+    7.2,
+    19.5
+   ],
+   "sigma_mean": 0.654,
+   "sigma_ci90": [
+    0.395,
+    1.069
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "third_party/scheduling",
+   "n_anchors": 4,
+   "n_eff": 4.0,
+   "median_days": 35.4,
+   "ci50": [
+    27.9,
+    44.5
+   ],
+   "ci90": [
+    18.7,
+    65.0
+   ],
+   "sigma_mean": 0.76,
+   "sigma_ci90": [
+    0.468,
+    1.218
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/scheduling",
+   "n_anchors": 4,
+   "n_eff": 4.0,
+   "median_days": 8.4,
+   "ci50": [
+    6.5,
+    10.9
+   ],
+   "ci90": [
+    4.4,
+    16.8
+   ],
+   "sigma_mean": 0.843,
+   "sigma_ci90": [
+    0.527,
+    1.387
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/decision",
+   "n_anchors": 5,
+   "n_eff": 3.77,
+   "median_days": 14.2,
+   "ci50": [
+    10.5,
+    18.7
+   ],
+   "ci90": [
+    6.4,
+    29.9
+   ],
+   "sigma_mean": 1.004,
+   "sigma_ci90": [
+    0.646,
+    1.553
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/decision",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 147.8,
+   "ci50": [
+    119.7,
+    196.5
+   ],
+   "ci90": [
+    83.2,
+    294.0
+   ],
+   "sigma_mean": 0.708,
+   "sigma_ci90": [
+    0.414,
+    1.175
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "channel": "counter",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "third_party/scheduling",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 12.8,
+   "ci50": [
+    10.0,
+    16.8
+   ],
+   "ci90": [
+    7.0,
+    26.8
+   ],
+   "sigma_mean": 0.738,
+   "sigma_ci90": [
+    0.418,
+    1.234
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "test_or_exam",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "third_party/test_or_exam",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 128.5,
+   "ci50": [
+    77.1,
+    214.5
+   ],
+   "ci90": [
+    36.4,
+    468.5
+   ],
+   "sigma_mean": 1.816,
+   "sigma_ci90": [
+    1.121,
+    2.944
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/decision",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 97.4,
+   "ci50": [
+    76.0,
+    125.6
+   ],
+   "ci90": [
+    47.8,
+    203.4
+   ],
+   "sigma_mean": 0.732,
+   "sigma_ci90": [
+    0.419,
+    1.245
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/decision",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 84.6,
+   "ci50": [
+    63.2,
+    109.3
+   ],
+   "ci90": [
+    36.9,
+    183.3
+   ],
+   "sigma_mean": 0.772,
+   "sigma_ci90": [
+    0.445,
+    1.313
+   ],
+   "statutory_cap_days": 120.0,
+   "p_exceed_cap": {
+    "mean": 0.326,
+    "q05": 0.065,
+    "q95": 0.69
+   }
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "field_inspection/inspection",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 32.2,
+   "ci50": [
+    25.3,
+    40.9
+   ],
+   "ci90": [
+    16.0,
+    61.1
+   ],
+   "sigma_mean": 0.716,
+   "sigma_ci90": [
+    0.403,
+    1.237
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "hearing_officer",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "hearing_officer/decision",
+   "n_anchors": 3,
+   "n_eff": 3.0,
+   "median_days": 52.7,
+   "ci50": [
+    40.6,
+    68.3
+   ],
+   "ci90": [
+    25.9,
+    104.9
+   ],
+   "sigma_mean": 0.725,
+   "sigma_ci90": [
+    0.412,
+    1.232
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/issuance",
+   "n_anchors": 3,
+   "n_eff": 2.88,
+   "median_days": 3.8,
+   "ci50": [
+    2.8,
+    5.2
+   ],
+   "ci90": [
+    1.6,
+    8.8
+   ],
+   "sigma_mean": 0.844,
+   "sigma_ci90": [
+    0.511,
+    1.41
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "inspection",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "third_party/inspection",
+   "n_anchors": 3,
+   "n_eff": 2.67,
+   "median_days": 1.6,
+   "ci50": [
+    1.2,
+    2.2
+   ],
+   "ci90": [
+    0.7,
+    3.6
+   ],
+   "sigma_mean": 0.789,
+   "sigma_ci90": [
+    0.434,
+    1.373
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/decision",
+   "n_anchors": 3,
+   "n_eff": 2.27,
+   "median_days": 6.5,
+   "ci50": [
+    4.6,
+    9.4
+   ],
+   "ci90": [
+    2.6,
+    17.7
+   ],
+   "sigma_mean": 1.054,
+   "sigma_ci90": [
+    0.623,
+    1.762
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/document_review",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 19.9,
+   "ci50": [
+    14.3,
+    28.7
+   ],
+   "ci90": [
+    8.9,
+    59.9
+   ],
+   "sigma_mean": 0.885,
+   "sigma_ci90": [
+    0.479,
+    1.61
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "correction_cycle",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/correction_cycle",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 7.0,
+   "ci50": [
+    5.0,
+    10.0
+   ],
+   "ci90": [
+    2.4,
+    19.6
+   ],
+   "sigma_mean": 0.845,
+   "sigma_ci90": [
+    0.461,
+    1.466
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/unspecified",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 14.6,
+   "ci50": [
+    10.8,
+    20.5
+   ],
+   "ci90": [
+    7.0,
+    37.8
+   ],
+   "sigma_mean": 0.822,
+   "sigma_ci90": [
+    0.455,
+    1.448
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "family": "caseworker/decision",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 28.8,
+   "ci50": [
+    19.7,
+    40.1
+   ],
+   "ci90": [
+    9.5,
+    62.8
+   ],
+   "sigma_mean": 0.875,
+   "sigma_ci90": [
+    0.481,
+    1.561
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.489,
+    "q05": 0.145,
+    "q95": 0.863
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "appeal",
+   "channel": "hearing",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/appeal",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 49.7,
+   "ci50": [
+    30.3,
+    76.8
+   ],
+   "ci90": [
+    13.1,
+    192.1
+   ],
+   "sigma_mean": 1.079,
+   "sigma_ci90": [
+    0.59,
+    1.881
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/decision",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 167.8,
+   "ci50": [
+    124.1,
+    229.6
+   ],
+   "ci90": [
+    74.9,
+    402.0
+   ],
+   "sigma_mean": 0.801,
+   "sigma_ci90": [
+    0.44,
+    1.347
+   ],
+   "statutory_cap_days": 10.0,
+   "p_exceed_cap": {
+    "mean": 0.994,
+    "q05": 0.972,
+    "q95": 1.0
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/decision",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 1124.7,
+   "ci50": [
+    678.4,
+    1644.1
+   ],
+   "ci90": [
+    235.8,
+    2679.2
+   ],
+   "sigma_mean": 0.972,
+   "sigma_ci90": [
+    0.475,
+    1.816
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "referral",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/referral",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 580.7,
+   "ci50": [
+    408.4,
+    812.5
+   ],
+   "ci90": [
+    200.0,
+    1358.3
+   ],
+   "sigma_mean": 0.817,
+   "sigma_ci90": [
+    0.437,
+    1.464
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "state_agency/decision",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 25.3,
+   "ci50": [
+    18.6,
+    34.8
+   ],
+   "ci90": [
+    11.2,
+    59.8
+   ],
+   "sigma_mean": 0.802,
+   "sigma_ci90": [
+    0.447,
+    1.39
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "test_or_exam",
+   "channel": "counter",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "front_counter/test_or_exam",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 1.0,
+   "ci50": [
+    0.7,
+    1.5
+   ],
+   "ci90": [
+    0.4,
+    2.7
+   ],
+   "sigma_mean": 0.804,
+   "sigma_ci90": [
+    0.455,
+    1.482
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "background_check/records_check",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 26.6,
+   "ci50": [
+    17.0,
+    39.7
+   ],
+   "ci90": [
+    8.8,
+    71.6
+   ],
+   "sigma_mean": 1.127,
+   "sigma_ci90": [
+    0.638,
+    1.926
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "third_party/intake_screen",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 15.8,
+   "ci50": [
+    10.1,
+    24.4
+   ],
+   "ci90": [
+    4.8,
+    50.5
+   ],
+   "sigma_mean": 0.996,
+   "sigma_ci90": [
+    0.575,
+    1.698
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "reinspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "family": "field_inspection/reinspection",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 13.8,
+   "ci50": [
+    9.6,
+    19.6
+   ],
+   "ci90": [
+    4.4,
+    36.4
+   ],
+   "sigma_mean": 0.832,
+   "sigma_ci90": [
+    0.453,
+    1.503
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "notice",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/notice",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 37.5,
+   "ci50": [
+    27.1,
+    54.9
+   ],
+   "ci90": [
+    15.0,
+    102.9
+   ],
+   "sigma_mean": 0.829,
+   "sigma_ci90": [
+    0.472,
+    1.453
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "third_party/document_review",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 17.5,
+   "ci50": [
+    12.5,
+    24.2
+   ],
+   "ci90": [
+    7.4,
+    42.1
+   ],
+   "sigma_mean": 0.796,
+   "sigma_ci90": [
+    0.44,
+    1.34
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "field_inspection/inspection",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 10.6,
+   "ci50": [
+    7.7,
+    15.1
+   ],
+   "ci90": [
+    4.8,
+    27.9
+   ],
+   "sigma_mean": 0.821,
+   "sigma_ci90": [
+    0.455,
+    1.42
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/recordkeeping",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 275.8,
+   "ci50": [
+    189.8,
+    376.2
+   ],
+   "ci90": [
+    92.3,
+    613.5
+   ],
+   "sigma_mean": 0.824,
+   "sigma_ci90": [
+    0.447,
+    1.461
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "front_counter/decision",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 42.3,
+   "ci50": [
+    30.3,
+    57.8
+   ],
+   "ci90": [
+    17.0,
+    98.5
+   ],
+   "sigma_mean": 0.794,
+   "sigma_ci90": [
+    0.441,
+    1.387
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/document_review",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 2.9,
+   "ci50": [
+    2.0,
+    4.7
+   ],
+   "ci90": [
+    1.1,
+    10.3
+   ],
+   "sigma_mean": 1.007,
+   "sigma_ci90": [
+    0.575,
+    1.813
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "interconnection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "utility/interconnection",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 21.3,
+   "ci50": [
+    14.5,
+    31.1
+   ],
+   "ci90": [
+    8.0,
+    54.1
+   ],
+   "sigma_mean": 0.852,
+   "sigma_ci90": [
+    0.48,
+    1.533
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/document_review",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 20.1,
+   "ci50": [
+    14.4,
+    27.3
+   ],
+   "ci90": [
+    7.7,
+    48.5
+   ],
+   "sigma_mean": 0.798,
+   "sigma_ci90": [
+    0.441,
+    1.386
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "records_check",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/records_check",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 11.4,
+   "ci50": [
+    8.4,
+    15.8
+   ],
+   "ci90": [
+    4.6,
+    26.5
+   ],
+   "sigma_mean": 0.784,
+   "sigma_ci90": [
+    0.442,
+    1.314
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/payment",
+   "n_anchors": 2,
+   "n_eff": 2.0,
+   "median_days": 20.7,
+   "ci50": [
+    14.6,
+    28.5
+   ],
+   "ci90": [
+    8.0,
+    44.5
+   ],
+   "sigma_mean": 0.794,
+   "sigma_ci90": [
+    0.451,
+    1.38
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/decision",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 12.3,
+   "ci50": [
+    9.0,
+    16.5
+   ],
+   "ci90": [
+    5.2,
+    25.7
+   ],
+   "sigma_mean": 0.808,
+   "sigma_ci90": [
+    0.464,
+    1.419
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "records_unit/notice",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 18.5,
+   "ci50": [
+    12.7,
+    27.8
+   ],
+   "ci90": [
+    7.0,
+    62.6
+   ],
+   "sigma_mean": 1.067,
+   "sigma_ci90": [
+    0.61,
+    1.783
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/issuance",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 9.5,
+   "ci50": [
+    5.4,
+    17.6
+   ],
+   "ci90": [
+    2.5,
+    41.5
+   ],
+   "sigma_mean": 2.143,
+   "sigma_ci90": [
+    1.278,
+    3.635
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "recordkeeping",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "daily_batch",
+   "jurisdiction_class": "county",
+   "family": "third_party/recordkeeping",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 1.0,
+   "ci50": [
+    0.7,
+    1.4
+   ],
+   "ci90": [
+    0.4,
+    2.4
+   ],
+   "sigma_mean": 0.82,
+   "sigma_ci90": [
+    0.448,
+    1.469
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "biweekly_or_monthly_cycle",
+   "jurisdiction_class": "state",
+   "family": "unspecified/recordkeeping",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 12.0,
+   "ci50": [
+    8.1,
+    17.1
+   ],
+   "ci90": [
+    4.0,
+    28.4
+   ],
+   "sigma_mean": 0.831,
+   "sigma_ci90": [
+    0.447,
+    1.489
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/scheduling",
+   "n_anchors": 2,
+   "n_eff": 1.92,
+   "median_days": 7.9,
+   "ci50": [
+    5.6,
+    11.1
+   ],
+   "ci90": [
+    3.3,
+    20.7
+   ],
+   "sigma_mean": 0.866,
+   "sigma_ci90": [
+    0.484,
+    1.5
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/recordkeeping",
+   "n_anchors": 2,
+   "n_eff": 1.8,
+   "median_days": 56.3,
+   "ci50": [
+    38.3,
+    88.0
+   ],
+   "ci90": [
+    21.2,
+    178.2
+   ],
+   "sigma_mean": 1.03,
+   "sigma_ci90": [
+    0.564,
+    1.862
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/unspecified",
+   "n_anchors": 2,
+   "n_eff": 1.6,
+   "median_days": 29.1,
+   "ci50": [
+    19.9,
+    42.1
+   ],
+   "ci90": [
+    10.8,
+    80.7
+   ],
+   "sigma_mean": 0.985,
+   "sigma_ci90": [
+    0.554,
+    1.69
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "background_check/records_check",
+   "n_anchors": 2,
+   "n_eff": 1.6,
+   "median_days": 9.7,
+   "ci50": [
+    5.8,
+    16.7
+   ],
+   "ci90": [
+    2.8,
+    39.6
+   ],
+   "sigma_mean": 1.342,
+   "sigma_ci90": [
+    0.734,
+    2.369
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "background_check/decision",
+   "n_anchors": 2,
+   "n_eff": 1.6,
+   "median_days": 30.1,
+   "ci50": [
+    19.2,
+    47.8
+   ],
+   "ci90": [
+    9.3,
+    114.2
+   ],
+   "sigma_mean": 0.96,
+   "sigma_ci90": [
+    0.523,
+    1.728
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/decision",
+   "n_anchors": 2,
+   "n_eff": 1.6,
+   "median_days": 21.4,
+   "ci50": [
+    13.6,
+    32.1
+   ],
+   "ci90": [
+    6.4,
+    58.7
+   ],
+   "sigma_mean": 1.073,
+   "sigma_ci90": [
+    0.603,
+    1.87
+   ],
+   "statutory_cap_days": 35.0,
+   "p_exceed_cap": {
+    "mean": 0.338,
+    "q05": 0.075,
+    "q95": 0.712
+   }
+  },
+  {
+   "agency_class": "specialist_referral",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "specialist_referral/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 10.4,
+   "ci50": [
+    5.9,
+    17.7
+   ],
+   "ci90": [
+    2.4,
+    43.4
+   ],
+   "sigma_mean": 0.956,
+   "sigma_ci90": [
+    0.497,
+    1.766
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "specialist_referral",
+   "task_type": "correction_cycle",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "specialist_referral/correction_cycle",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 4.7,
+   "ci50": [
+    2.7,
+    8.4
+   ],
+   "ci90": [
+    0.8,
+    22.4
+   ],
+   "sigma_mean": 0.971,
+   "sigma_ci90": [
+    0.49,
+    1.76
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "small_city",
+   "family": "plan_review/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 105.9,
+   "ci50": [
+    63.3,
+    161.2
+   ],
+   "ci90": [
+    27.2,
+    302.0
+   ],
+   "sigma_mean": 0.941,
+   "sigma_ci90": [
+    0.488,
+    1.766
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "referral",
+   "channel": "mail",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "family": "utility/referral",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 178.3,
+   "ci50": [
+    100.1,
+    292.3
+   ],
+   "ci90": [
+    35.2,
+    786.0
+   ],
+   "sigma_mean": 0.952,
+   "sigma_ci90": [
+    0.468,
+    1.834
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "unspecified/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 348.3,
+   "ci50": [
+    203.1,
+    608.3
+   ],
+   "ci90": [
+    64.1,
+    2242.8
+   ],
+   "sigma_mean": 0.958,
+   "sigma_ci90": [
+    0.492,
+    1.907
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "issuance",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "plan_review/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 6.8,
+   "ci50": [
+    4.4,
+    10.8
+   ],
+   "ci90": [
+    2.2,
+    25.6
+   ],
+   "sigma_mean": 0.899,
+   "sigma_ci90": [
+    0.472,
+    1.667
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "front_counter/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 0.9,
+   "ci50": [
+    0.5,
+    1.6
+   ],
+   "ci90": [
+    0.2,
+    3.9
+   ],
+   "sigma_mean": 0.954,
+   "sigma_ci90": [
+    0.481,
+    1.914
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "family": "caseworker/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 30.3,
+   "ci50": [
+    17.5,
+    52.3
+   ],
+   "ci90": [
+    6.2,
+    144.8
+   ],
+   "sigma_mean": 0.944,
+   "sigma_ci90": [
+    0.483,
+    1.79
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.503,
+    "q05": 0.055,
+    "q95": 0.944
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "records_unit/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 81.0,
+   "ci50": [
+    44.9,
+    136.0
+   ],
+   "ci90": [
+    18.2,
+    269.3
+   ],
+   "sigma_mean": 1.023,
+   "sigma_ci90": [
+    0.511,
+    1.918
+   ],
+   "statutory_cap_days": 5.0,
+   "p_exceed_cap": {
+    "mean": 0.962,
+    "q05": 0.78,
+    "q95": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 21.2,
+   "ci50": [
+    12.3,
+    33.0
+   ],
+   "ci90": [
+    4.8,
+    60.5
+   ],
+   "sigma_mean": 0.936,
+   "sigma_ci90": [
+    0.485,
+    1.753
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "payment",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "family": "caseworker/payment",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 10.5,
+   "ci50": [
+    6.2,
+    18.5
+   ],
+   "ci90": [
+    2.3,
+    48.6
+   ],
+   "sigma_mean": 0.932,
+   "sigma_ci90": [
+    0.469,
+    1.801
+   ],
+   "statutory_cap_days": 3.0,
+   "p_exceed_cap": {
+    "mean": 0.856,
+    "q05": 0.421,
+    "q95": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 6.0,
+   "ci50": [
+    3.9,
+    9.2
+   ],
+   "ci90": [
+    2.1,
+    18.1
+   ],
+   "sigma_mean": 0.881,
+   "sigma_ci90": [
+    0.474,
+    1.528
+   ],
+   "statutory_cap_days": 60.0,
+   "p_exceed_cap": {
+    "mean": 0.03,
+    "q05": 0.0,
+    "q95": 0.165
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "unspecified",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/unspecified",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 119.7,
+   "ci50": [
+    69.9,
+    212.9
+   ],
+   "ci90": [
+    24.3,
+    652.4
+   ],
+   "sigma_mean": 0.948,
+   "sigma_ci90": [
+    0.478,
+    1.773
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 49.9,
+   "ci50": [
+    30.2,
+    81.7
+   ],
+   "ci90": [
+    12.6,
+    167.7
+   ],
+   "sigma_mean": 0.896,
+   "sigma_ci90": [
+    0.483,
+    1.616
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "records_check",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/records_check",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 0.4,
+   "ci50": [
+    0.2,
+    0.9
+   ],
+   "ci90": [
+    0.1,
+    4.3
+   ],
+   "sigma_mean": 1.075,
+   "sigma_ci90": [
+    0.509,
+    2.231
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 33.1,
+   "ci50": [
+    21.2,
+    55.7
+   ],
+   "ci90": [
+    10.2,
+    145.1
+   ],
+   "sigma_mean": 0.918,
+   "sigma_ci90": [
+    0.474,
+    1.72
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 14.7,
+   "ci50": [
+    10.1,
+    22.8
+   ],
+   "ci90": [
+    5.2,
+    44.2
+   ],
+   "sigma_mean": 0.881,
+   "sigma_ci90": [
+    0.473,
+    1.571
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/unspecified",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 19.8,
+   "ci50": [
+    12.4,
+    30.0
+   ],
+   "ci90": [
+    6.8,
+    60.2
+   ],
+   "sigma_mean": 0.874,
+   "sigma_ci90": [
+    0.479,
+    1.557
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "records_check",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "unspecified/records_check",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 2.8,
+   "ci50": [
+    1.3,
+    5.1
+   ],
+   "ci90": [
+    0.3,
+    10.8
+   ],
+   "sigma_mean": 1.03,
+   "sigma_ci90": [
+    0.501,
+    2.033
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "third_party",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 11.3,
+   "ci50": [
+    7.1,
+    17.5
+   ],
+   "ci90": [
+    3.9,
+    37.6
+   ],
+   "sigma_mean": 0.893,
+   "sigma_ci90": [
+    0.478,
+    1.543
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "records_unit/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 14.5,
+   "ci50": [
+    9.6,
+    23.1
+   ],
+   "ci90": [
+    4.8,
+    49.5
+   ],
+   "sigma_mean": 0.89,
+   "sigma_ci90": [
+    0.478,
+    1.607
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "records_check",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "caseworker/records_check",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 3.0,
+   "ci50": [
+    1.7,
+    5.9
+   ],
+   "ci90": [
+    0.8,
+    21.7
+   ],
+   "sigma_mean": 1.13,
+   "sigma_ci90": [
+    0.522,
+    2.224
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "family": "unspecified/unspecified",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 28.8,
+   "ci50": [
+    19.8,
+    44.7
+   ],
+   "ci90": [
+    9.8,
+    82.7
+   ],
+   "sigma_mean": 0.863,
+   "sigma_ci90": [
+    0.462,
+    1.593
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.492,
+    "q05": 0.095,
+    "q95": 0.899
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "records_unit/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 55.9,
+   "ci50": [
+    26.6,
+    123.3
+   ],
+   "ci90": [
+    11.3,
+    340.1
+   ],
+   "sigma_mean": 1.309,
+   "sigma_ci90": [
+    0.565,
+    2.642
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "fiscal",
+   "task_type": "payment",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "fiscal/payment",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 150.9,
+   "ci50": [
+    92.7,
+    239.3
+   ],
+   "ci90": [
+    44.0,
+    539.2
+   ],
+   "sigma_mean": 0.897,
+   "sigma_ci90": [
+    0.474,
+    1.656
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 6.5,
+   "ci50": [
+    3.8,
+    11.3
+   ],
+   "ci90": [
+    1.4,
+    29.5
+   ],
+   "sigma_mean": 0.944,
+   "sigma_ci90": [
+    0.477,
+    1.81
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 16.6,
+   "ci50": [
+    10.7,
+    28.4
+   ],
+   "ci90": [
+    5.6,
+    64.8
+   ],
+   "sigma_mean": 0.928,
+   "sigma_ci90": [
+    0.476,
+    1.719
+   ],
+   "statutory_cap_days": 14.0,
+   "p_exceed_cap": {
+    "mean": 0.561,
+    "q05": 0.114,
+    "q95": 0.934
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 46.7,
+   "ci50": [
+    28.5,
+    71.9
+   ],
+   "ci90": [
+    13.1,
+    140.8
+   ],
+   "sigma_mean": 0.9,
+   "sigma_ci90": [
+    0.466,
+    1.689
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 355.5,
+   "ci50": [
+    227.9,
+    538.0
+   ],
+   "ci90": [
+    100.4,
+    1054.6
+   ],
+   "sigma_mean": 0.922,
+   "sigma_ci90": [
+    0.49,
+    1.654
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 55.6,
+   "ci50": [
+    34.2,
+    85.5
+   ],
+   "ci90": [
+    14.2,
+    166.7
+   ],
+   "sigma_mean": 0.918,
+   "sigma_ci90": [
+    0.479,
+    1.717
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "state_agency/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 19.4,
+   "ci50": [
+    11.4,
+    30.1
+   ],
+   "ci90": [
+    4.9,
+    58.7
+   ],
+   "sigma_mean": 0.914,
+   "sigma_ci90": [
+    0.483,
+    1.695
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "referral",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/referral",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 438.5,
+   "ci50": [
+    259.4,
+    706.6
+   ],
+   "ci90": [
+    100.7,
+    1347.9
+   ],
+   "sigma_mean": 0.921,
+   "sigma_ci90": [
+    0.466,
+    1.746
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 338.3,
+   "ci50": [
+    82.1,
+    810.7
+   ],
+   "ci90": [
+    10.1,
+    1982.7
+   ],
+   "sigma_mean": 1.408,
+   "sigma_ci90": [
+    0.545,
+    3.261
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "family": "records_unit/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 149.3,
+   "ci50": [
+    96.0,
+    229.5
+   ],
+   "ci90": [
+    51.8,
+    518.8
+   ],
+   "sigma_mean": 0.882,
+   "sigma_ci90": [
+    0.474,
+    1.653
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "family": "records_unit/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 25.0,
+   "ci50": [
+    10.7,
+    98.0
+   ],
+   "ci90": [
+    4.4,
+    864.2
+   ],
+   "sigma_mean": 1.321,
+   "sigma_ci90": [
+    0.537,
+    2.952
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "referral",
+   "channel": "online",
+   "blocking_party": "shared",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "records_unit/referral",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 120.9,
+   "ci50": [
+    37.8,
+    334.7
+   ],
+   "ci90": [
+    4.3,
+    1191.6
+   ],
+   "sigma_mean": 2.624,
+   "sigma_ci90": [
+    0.905,
+    5.145
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 67.4,
+   "ci50": [
+    40.7,
+    108.0
+   ],
+   "ci90": [
+    17.0,
+    207.8
+   ],
+   "sigma_mean": 0.97,
+   "sigma_ci90": [
+    0.483,
+    1.777
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.764,
+    "q05": 0.329,
+    "q95": 0.998
+   }
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "background_check/records_check",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 58.9,
+   "ci50": [
+    31.1,
+    98.3
+   ],
+   "ci90": [
+    10.3,
+    185.5
+   ],
+   "sigma_mean": 1.019,
+   "sigma_ci90": [
+    0.506,
+    1.946
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "intake_screen",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 18.1,
+   "ci50": [
+    11.1,
+    31.6
+   ],
+   "ci90": [
+    5.4,
+    90.3
+   ],
+   "sigma_mean": 0.909,
+   "sigma_ci90": [
+    0.474,
+    1.685
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "unspecified/unspecified",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 41.7,
+   "ci50": [
+    26.5,
+    65.7
+   ],
+   "ci90": [
+    13.2,
+    124.8
+   ],
+   "sigma_mean": 0.905,
+   "sigma_ci90": [
+    0.475,
+    1.731
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 57.0,
+   "ci50": [
+    34.6,
+    88.9
+   ],
+   "ci90": [
+    14.3,
+    163.0
+   ],
+   "sigma_mean": 0.949,
+   "sigma_ci90": [
+    0.494,
+    1.798
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 42.1,
+   "ci50": [
+    24.3,
+    70.3
+   ],
+   "ci90": [
+    8.9,
+    144.4
+   ],
+   "sigma_mean": 0.931,
+   "sigma_ci90": [
+    0.481,
+    1.776
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "test_or_exam",
+   "channel": "counter",
+   "blocking_party": "shared",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "third_party/test_or_exam",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 236.2,
+   "ci50": [
+    145.4,
+    366.6
+   ],
+   "ci90": [
+    63.7,
+    716.6
+   ],
+   "sigma_mean": 0.891,
+   "sigma_ci90": [
+    0.478,
+    1.58
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "counter",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "unspecified/unspecified",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 28.9,
+   "ci50": [
+    18.9,
+    42.9
+   ],
+   "ci90": [
+    10.3,
+    84.4
+   ],
+   "sigma_mean": 0.869,
+   "sigma_ci90": [
+    0.467,
+    1.533
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "test_or_exam",
+   "channel": "counter",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "third_party/test_or_exam",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 171.0,
+   "ci50": [
+    109.5,
+    267.2
+   ],
+   "ci90": [
+    51.1,
+    546.7
+   ],
+   "sigma_mean": 0.9,
+   "sigma_ci90": [
+    0.485,
+    1.589
+   ],
+   "statutory_cap_days": 1825.0,
+   "p_exceed_cap": {
+    "mean": 0.028,
+    "q05": 0.0,
+    "q95": 0.159
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "third_party/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 82.4,
+   "ci50": [
+    47.1,
+    138.7
+   ],
+   "ci90": [
+    17.3,
+    284.0
+   ],
+   "sigma_mean": 1.02,
+   "sigma_ci90": [
+    0.491,
+    2.005
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "correction_cycle",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "unspecified/correction_cycle",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 21.0,
+   "ci50": [
+    11.6,
+    36.9
+   ],
+   "ci90": [
+    4.3,
+    107.0
+   ],
+   "sigma_mean": 0.946,
+   "sigma_ci90": [
+    0.485,
+    1.794
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "counter",
+   "blocking_party": "shared",
+   "cadence": "on_request",
+   "jurisdiction_class": "small_city",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 42.0,
+   "ci50": [
+    24.0,
+    67.1
+   ],
+   "ci90": [
+    9.9,
+    123.2
+   ],
+   "sigma_mean": 0.99,
+   "sigma_ci90": [
+    0.488,
+    1.915
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "scheduling",
+   "channel": "counter",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "front_counter/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 88.5,
+   "ci50": [
+    51.3,
+    155.5
+   ],
+   "ci90": [
+    19.3,
+    368.5
+   ],
+   "sigma_mean": 0.93,
+   "sigma_ci90": [
+    0.469,
+    1.705
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "front_counter/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 55.4,
+   "ci50": [
+    30.3,
+    93.0
+   ],
+   "ci90": [
+    8.4,
+    271.6
+   ],
+   "sigma_mean": 0.954,
+   "sigma_ci90": [
+    0.483,
+    1.829
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "recordkeeping",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "records_unit/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 25.5,
+   "ci50": [
+    14.8,
+    39.5
+   ],
+   "ci90": [
+    6.2,
+    77.0
+   ],
+   "sigma_mean": 0.905,
+   "sigma_ci90": [
+    0.475,
+    1.635
+   ],
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": {
+    "mean": 0.433,
+    "q05": 0.059,
+    "q95": 0.872
+   }
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "family": "front_counter/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 14.1,
+   "ci50": [
+    8.0,
+    25.1
+   ],
+   "ci90": [
+    2.9,
+    68.2
+   ],
+   "sigma_mean": 0.973,
+   "sigma_ci90": [
+    0.494,
+    1.905
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "biweekly_or_monthly_cycle",
+   "jurisdiction_class": "county",
+   "family": "field_inspection/inspection",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 62.2,
+   "ci50": [
+    32.2,
+    107.1
+   ],
+   "ci90": [
+    10.7,
+    209.6
+   ],
+   "sigma_mean": 1.074,
+   "sigma_ci90": [
+    0.526,
+    2.039
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "counter",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "plan_review/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 55.3,
+   "ci50": [
+    35.9,
+    85.9
+   ],
+   "ci90": [
+    18.0,
+    160.9
+   ],
+   "sigma_mean": 0.882,
+   "sigma_ci90": [
+    0.465,
+    1.595
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "issuance",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 20.0,
+   "ci50": [
+    11.9,
+    30.8
+   ],
+   "ci90": [
+    4.6,
+    55.5
+   ],
+   "sigma_mean": 0.921,
+   "sigma_ci90": [
+    0.469,
+    1.67
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "issuance",
+   "channel": "counter",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "plan_review/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 8.3,
+   "ci50": [
+    5.5,
+    13.0
+   ],
+   "ci90": [
+    2.7,
+    30.0
+   ],
+   "sigma_mean": 0.891,
+   "sigma_ci90": [
+    0.478,
+    1.614
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "weekly",
+   "jurisdiction_class": "large_city",
+   "family": "records_unit/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 9.3,
+   "ci50": [
+    5.9,
+    15.5
+   ],
+   "ci90": [
+    3.1,
+    35.9
+   ],
+   "sigma_mean": 0.904,
+   "sigma_ci90": [
+    0.481,
+    1.629
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "family": "plan_review/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 354.1,
+   "ci50": [
+    206.3,
+    630.3
+   ],
+   "ci90": [
+    71.7,
+    1664.4
+   ],
+   "sigma_mean": 0.945,
+   "sigma_ci90": [
+    0.481,
+    1.76
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "family": "third_party/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 41.0,
+   "ci50": [
+    25.2,
+    64.3
+   ],
+   "ci90": [
+    10.9,
+    134.6
+   ],
+   "sigma_mean": 0.933,
+   "sigma_ci90": [
+    0.483,
+    1.773
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "intake_screen",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 2.7,
+   "ci50": [
+    1.3,
+    6.0
+   ],
+   "ci90": [
+    0.7,
+    27.1
+   ],
+   "sigma_mean": 1.121,
+   "sigma_ci90": [
+    0.5,
+    2.332
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "intake_screen",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 23.8,
+   "ci50": [
+    10.3,
+    45.3
+   ],
+   "ci90": [
+    2.0,
+    93.9
+   ],
+   "sigma_mean": 1.103,
+   "sigma_ci90": [
+    0.517,
+    2.213
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "correction_cycle",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/correction_cycle",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 58.7,
+   "ci50": [
+    32.3,
+    98.7
+   ],
+   "ci90": [
+    10.8,
+    259.9
+   ],
+   "sigma_mean": 0.959,
+   "sigma_ci90": [
+    0.481,
+    1.894
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "recordkeeping",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "federal",
+   "family": "federal_agency/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 86.0,
+   "ci50": [
+    49.0,
+    152.7
+   ],
+   "ci90": [
+    18.6,
+    411.6
+   ],
+   "sigma_mean": 0.954,
+   "sigma_ci90": [
+    0.493,
+    1.834
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 8.9,
+   "ci50": [
+    5.8,
+    13.3
+   ],
+   "ci90": [
+    2.8,
+    27.8
+   ],
+   "sigma_mean": 0.899,
+   "sigma_ci90": [
+    0.479,
+    1.637
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "state_agency/payment",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 13.3,
+   "ci50": [
+    8.9,
+    20.5
+   ],
+   "ci90": [
+    4.4,
+    41.3
+   ],
+   "sigma_mean": 0.893,
+   "sigma_ci90": [
+    0.471,
+    1.586
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "third_party/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 19.0,
+   "ci50": [
+    12.2,
+    29.3
+   ],
+   "ci90": [
+    6.0,
+    62.7
+   ],
+   "sigma_mean": 0.919,
+   "sigma_ci90": [
+    0.478,
+    1.691
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "field_inspection/inspection",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 8.4,
+   "ci50": [
+    5.1,
+    14.5
+   ],
+   "ci90": [
+    2.5,
+    38.7
+   ],
+   "sigma_mean": 0.986,
+   "sigma_ci90": [
+    0.507,
+    1.789
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "state_agency/inspection",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 1.9,
+   "ci50": [
+    1.2,
+    3.1
+   ],
+   "ci90": [
+    0.5,
+    6.2
+   ],
+   "sigma_mean": 0.884,
+   "sigma_ci90": [
+    0.475,
+    1.645
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "state_agency/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 9.8,
+   "ci50": [
+    5.7,
+    16.3
+   ],
+   "ci90": [
+    1.9,
+    30.5
+   ],
+   "sigma_mean": 0.956,
+   "sigma_ci90": [
+    0.473,
+    1.776
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "state_agency/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 13.2,
+   "ci50": [
+    8.4,
+    22.0
+   ],
+   "ci90": [
+    4.3,
+    53.3
+   ],
+   "sigma_mean": 0.973,
+   "sigma_ci90": [
+    0.491,
+    1.793
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "state_agency/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 218.3,
+   "ci50": [
+    133.9,
+    340.2
+   ],
+   "ci90": [
+    61.5,
+    645.9
+   ],
+   "sigma_mean": 0.951,
+   "sigma_ci90": [
+    0.486,
+    1.767
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "family": "front_counter/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 45.8,
+   "ci50": [
+    29.0,
+    74.1
+   ],
+   "ci90": [
+    13.6,
+    156.1
+   ],
+   "sigma_mean": 0.902,
+   "sigma_ci90": [
+    0.493,
+    1.7
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "plan_review/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 17.0,
+   "ci50": [
+    10.3,
+    30.1
+   ],
+   "ci90": [
+    5.0,
+    82.0
+   ],
+   "sigma_mean": 1.012,
+   "sigma_ci90": [
+    0.502,
+    1.939
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "counter",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 10.2,
+   "ci50": [
+    6.2,
+    18.9
+   ],
+   "ci90": [
+    3.1,
+    52.2
+   ],
+   "sigma_mean": 1.063,
+   "sigma_ci90": [
+    0.501,
+    2.158
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/inspection",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 2.0,
+   "ci50": [
+    1.2,
+    3.1
+   ],
+   "ci90": [
+    0.5,
+    6.8
+   ],
+   "sigma_mean": 0.905,
+   "sigma_ci90": [
+    0.475,
+    1.703
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "utility/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 10.1,
+   "ci50": [
+    5.6,
+    17.9
+   ],
+   "ci90": [
+    1.8,
+    54.0
+   ],
+   "sigma_mean": 0.976,
+   "sigma_ci90": [
+    0.478,
+    1.879
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 3.4,
+   "ci50": [
+    1.9,
+    7.1
+   ],
+   "ci90": [
+    0.9,
+    21.8
+   ],
+   "sigma_mean": 1.131,
+   "sigma_ci90": [
+    0.523,
+    2.22
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "interconnection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "state_agency/interconnection",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 107.4,
+   "ci50": [
+    61.1,
+    187.9
+   ],
+   "ci90": [
+    18.3,
+    519.2
+   ],
+   "sigma_mean": 0.994,
+   "sigma_ci90": [
+    0.488,
+    1.942
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "utility/intake_screen",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 5.0,
+   "ci50": [
+    2.8,
+    8.5
+   ],
+   "ci90": [
+    0.9,
+    26.6
+   ],
+   "sigma_mean": 0.978,
+   "sigma_ci90": [
+    0.499,
+    1.989
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "family": "utility/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 15.2,
+   "ci50": [
+    8.4,
+    26.7
+   ],
+   "ci90": [
+    2.9,
+    72.3
+   ],
+   "sigma_mean": 0.953,
+   "sigma_ci90": [
+    0.482,
+    1.849
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/notice",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 12.9,
+   "ci50": [
+    6.9,
+    23.1
+   ],
+   "ci90": [
+    2.0,
+    65.8
+   ],
+   "sigma_mean": 0.977,
+   "sigma_ci90": [
+    0.484,
+    1.858
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 10.6,
+   "ci50": [
+    6.8,
+    15.7
+   ],
+   "ci90": [
+    3.5,
+    30.9
+   ],
+   "sigma_mean": 0.882,
+   "sigma_ci90": [
+    0.465,
+    1.606
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 14.9,
+   "ci50": [
+    9.9,
+    22.7
+   ],
+   "ci90": [
+    5.3,
+    44.1
+   ],
+   "sigma_mean": 0.889,
+   "sigma_ci90": [
+    0.467,
+    1.631
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "records_check",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/records_check",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 25.5,
+   "ci50": [
+    13.6,
+    43.3
+   ],
+   "ci90": [
+    4.4,
+    83.4
+   ],
+   "sigma_mean": 1.025,
+   "sigma_ci90": [
+    0.499,
+    1.894
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 11.2,
+   "ci50": [
+    7.3,
+    16.5
+   ],
+   "ci90": [
+    3.9,
+    29.9
+   ],
+   "sigma_mean": 0.877,
+   "sigma_ci90": [
+    0.463,
+    1.553
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "third_party/issuance",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 9.7,
+   "ci50": [
+    6.3,
+    15.2
+   ],
+   "ci90": [
+    3.3,
+    29.3
+   ],
+   "sigma_mean": 0.887,
+   "sigma_ci90": [
+    0.483,
+    1.619
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "hearing_officer",
+   "task_type": "scheduling",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "family": "hearing_officer/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 16.1,
+   "ci50": [
+    9.9,
+    26.0
+   ],
+   "ci90": [
+    4.6,
+    61.0
+   ],
+   "sigma_mean": 0.891,
+   "sigma_ci90": [
+    0.482,
+    1.611
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "hearing_officer",
+   "task_type": "scheduling",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "hearing_officer/scheduling",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 24.7,
+   "ci50": [
+    15.4,
+    40.2
+   ],
+   "ci90": [
+    6.5,
+    85.0
+   ],
+   "sigma_mean": 0.91,
+   "sigma_ci90": [
+    0.475,
+    1.535
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 53.8,
+   "ci50": [
+    33.6,
+    89.5
+   ],
+   "ci90": [
+    18.6,
+    226.0
+   ],
+   "sigma_mean": 0.958,
+   "sigma_ci90": [
+    0.49,
+    1.784
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "fiscal",
+   "task_type": "payment",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "fiscal/payment",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 170.6,
+   "ci50": [
+    103.7,
+    284.6
+   ],
+   "ci90": [
+    42.9,
+    605.9
+   ],
+   "sigma_mean": 0.911,
+   "sigma_ci90": [
+    0.469,
+    1.701
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "unspecified/recordkeeping",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 4.2,
+   "ci50": [
+    2.6,
+    7.0
+   ],
+   "ci90": [
+    1.4,
+    16.6
+   ],
+   "sigma_mean": 0.917,
+   "sigma_ci90": [
+    0.477,
+    1.666
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 16.5,
+   "ci50": [
+    10.5,
+    25.2
+   ],
+   "ci90": [
+    5.7,
+    46.4
+   ],
+   "sigma_mean": 0.875,
+   "sigma_ci90": [
+    0.468,
+    1.575
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "third_party",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/interview",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 23.6,
+   "ci50": [
+    14.9,
+    36.1
+   ],
+   "ci90": [
+    6.8,
+    63.1
+   ],
+   "sigma_mean": 0.899,
+   "sigma_ci90": [
+    0.483,
+    1.642
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/document_review",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 14.2,
+   "ci50": [
+    8.7,
+    23.0
+   ],
+   "ci90": [
+    4.2,
+    49.2
+   ],
+   "sigma_mean": 0.897,
+   "sigma_ci90": [
+    0.465,
+    1.631
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "caseworker/decision",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 3.0,
+   "ci50": [
+    1.7,
+    5.6
+   ],
+   "ci90": [
+    0.9,
+    14.8
+   ],
+   "sigma_mean": 1.095,
+   "sigma_ci90": [
+    0.519,
+    2.182
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "hearing_officer",
+   "task_type": "appeal",
+   "channel": "hearing",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "hearing_officer/appeal",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 85.5,
+   "ci50": [
+    46.6,
+    142.3
+   ],
+   "ci90": [
+    14.2,
+    400.7
+   ],
+   "sigma_mean": 0.98,
+   "sigma_ci90": [
+    0.494,
+    1.947
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "family": "state_agency/payment",
+   "n_anchors": 1,
+   "n_eff": 1.0,
+   "median_days": 4.4,
+   "ci50": [
+    2.7,
+    7.7
+   ],
+   "ci90": [
+    1.4,
+    21.6
+   ],
+   "sigma_mean": 0.995,
+   "sigma_ci90": [
+    0.503,
+    1.845
+   ],
+   "statutory_cap_days": null,
+   "p_exceed_cap": null
+  }
+ ]
+}

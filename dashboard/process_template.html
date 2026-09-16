@@ -1,0 +1,267 @@
+<title>AB 2533, as a Process</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--ground:#f4f5f2; --surface:#ffffff; --ink:#1d2327; --muted:#616b73; --line:#dde1dd;
+  --band:#b45d0a; --band-soft:#b45d0a22; --obj:#206f8e; --obj-soft:#206f8e1f; --ref:#7862a8; --ref-soft:#7862a824;
+  --cited:#b23f38; --cited-soft:#b23f3826; --passed:#3d7d5f; --passed-soft:#3d7d5f1f; --code-bg:#eef0ec;}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--ground:#151a1e; --surface:#1e252b; --ink:#e7eaec; --muted:#98a2aa; --line:#323b42;
+  --band:#e08a33; --band-soft:#e08a3326; --obj:#5aa7c4; --obj-soft:#5aa7c426; --ref:#a692d4; --ref-soft:#a692d426;
+  --cited:#d96b62; --cited-soft:#d96b6230; --passed:#66ab8b; --passed-soft:#66ab8b26; --code-bg:#161c21;}}
+:root[data-theme="dark"]{--ground:#151a1e; --surface:#1e252b; --ink:#e7eaec; --muted:#98a2aa; --line:#323b42;
+  --band:#e08a33; --band-soft:#e08a3326; --obj:#5aa7c4; --obj-soft:#5aa7c426; --ref:#a692d4; --ref-soft:#a692d426;
+  --cited:#d96b62; --cited-soft:#d96b6230; --passed:#66ab8b; --passed-soft:#66ab8b26; --code-bg:#161c21;}
+body{background:var(--ground); color:var(--ink); font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:15px; line-height:1.55;}
+.wrap{max-width:1120px; margin:0 auto; padding:36px 20px 80px; display:flex; flex-direction:column; gap:44px;}
+h1,h2,h3{font-family:'Spectral',Georgia,serif; text-wrap:balance; margin:0;}
+h1{font-size:2.1rem; font-weight:600; line-height:1.15;} h2{font-size:1.35rem; font-weight:600;} h3{font-size:1rem; font-weight:600;}
+p{margin:0;} .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;} .muted{color:var(--muted);}
+.eyebrow{font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--band); font-weight:600;}
+header.top{display:flex; flex-direction:column; gap:10px; max-width:72ch;} header.top p{color:var(--muted);}
+section{display:flex; flex-direction:column; gap:14px;}
+.sechead{display:flex; flex-direction:column; gap:6px; max-width:78ch;} .sechead p{color:var(--muted); font-size:.92rem;}
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:18px;}
+.tabs{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;}
+.tab{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:5px; padding:6px 14px; cursor:pointer; font:inherit; font-size:.85rem;}
+.tab[aria-selected="true"]{background:var(--ink); color:var(--ground); border-color:var(--ink);}
+.statute{font-family:'Spectral',Georgia,serif; font-size:.98rem; line-height:1.75; max-width:78ch; display:flex; flex-direction:column; gap:12px;}
+mark{border-radius:3px; padding:0 2px; color:inherit; background:var(--band-soft); box-shadow:inset 0 -2px 0 var(--band);}
+mark.optional{background:var(--obj-soft); box-shadow:inset 0 -2px 0 var(--obj);}
+.legend{display:flex; flex-wrap:wrap; gap:8px 16px; font-size:.8rem; color:var(--muted); align-items:center;}
+.sw{display:inline-block; width:11px; height:11px; border-radius:2px; margin-right:5px; vertical-align:-1px;}
+.stats{display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.85rem; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px;}
+.stats b{color:var(--ink); font-variant-numeric:tabular-nums;}
+/* swimlanes */
+.swimwrap{overflow-x:auto;}
+.swim{display:grid; gap:6px 8px; align-items:stretch; width:max-content; min-width:100%;}
+.lane{font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; font-weight:600; color:var(--muted); display:flex; align-items:center;
+  border-right:2px solid var(--line); padding-right:8px; max-width:130px;}
+.stephead{font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted); text-align:center;}
+.act{border:1.5px solid var(--ink); border-radius:6px; padding:6px 8px; font-size:.76rem; line-height:1.35; background:var(--surface); width:170px;}
+.act.invented{border-style:dashed; border-color:var(--band);}
+.act.opt{border-color:var(--obj); border-style:dotted;}
+.act .tag2{display:block; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; margin-top:3px; color:var(--muted);}
+.act.invented .tag2{color:var(--band);} .act .tag2.law{color:var(--ink);}
+.act .art{display:block; font-family:'IBM Plex Mono',monospace; font-size:.64rem; color:var(--muted); margin-top:2px;}
+.rework{font-size:.76rem; color:var(--cited); border-top:1px dashed var(--cited); padding-top:6px; margin-top:8px;}
+.toy .act{width:auto} .toy .rework{grid-column:2 / -1}
+.unclear{font-size:.8rem; color:var(--muted); margin-top:10px; max-width:80ch;}
+.unclear li{margin-bottom:2px;}
+table{border-collapse:collapse; font-size:.84rem; width:100%;}
+th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top;}
+th{font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted);}
+td.ok{color:var(--passed); font-weight:600;} td.miss{color:var(--cited); font-weight:600;}
+.tablewrap{overflow-x:auto;}
+.icosec{font-size:.86rem; line-height:1.5;}
+footer{font-size:.78rem; color:var(--muted); border-top:1px solid var(--line); padding-top:14px; max-width:80ch;}
+a{color:var(--obj);}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Regulatory complexity · process layer · AB 2533</div>
+  <h1>AB 2533, as a Process</h1>
+  <p>The same statute seen from the applicant's side of the counter: what the law requires to happen, what four
+  jurisdictions say happens, what one city's own documents show it designed, and what permit records can observe.
+  Companion to the decision-model dashboard, <em>Pricing “Adequate.”</em></p>
+</header>
+
+<section id="skeleton">
+  <div class="sechead">
+    <h2>1 · What the statute mandates</h2>
+    <p>Gov. Code § 66311.7 mandates process <em>elements</em> and no procedure. Highlights mark the spans the
+    skeleton parse anchored each element to (<span class="sw" style="background:var(--band-soft);box-shadow:inset 0 -2px 0 var(--band)"></span>required,
+    <span class="sw" style="background:var(--obj-soft);box-shadow:inset 0 -2px 0 var(--obj)"></span>optional / “may”). Below it, the skeleton as swimlanes.</p>
+  </div>
+  <div class="panel">
+    <div class="statute" id="statute"></div>
+  </div>
+  <div class="panel">
+    <div class="stats" id="skel-stats"></div>
+    <div class="swimwrap" id="skel-swim"></div>
+    <p class="unclear" id="skel-notes"></p>
+  </div>
+</section>
+
+<section id="cities">
+  <div class="sechead">
+    <h2>2 · What four jurisdictions declare</h2>
+    <p>Each city's published program page, transcribed step by step. Solid boxes are steps that instantiate a
+    statute-mandated element; dashed amber boxes are the city's own inventions. Lanes are actors; a change of lane
+    is a handoff. These are <em>declared</em> processes: what the city tells applicants, not necessarily what it does.</p>
+  </div>
+  <div class="panel">
+    <div class="tabs" role="tablist" id="citytabs"></div>
+    <div class="stats" id="city-stats"></div>
+    <div class="swimwrap" id="city-swim"></div>
+    <div id="city-rework"></div>
+    <div class="unclear" id="city-unclear"></div>
+  </div>
+</section>
+
+<section id="coverage">
+  <div class="sechead">
+    <h2>3 · Coverage of the mandated elements</h2>
+    <p>Which of the statute's elements each declared process mentions. A gap can mean the city doesn't do it, does it
+    but didn't say so, or the element is implicit (“decision”). Gaps on the applicant-protective elements — the
+    third-party option and the notice of it — are the ones closest to real omissions, because an owner cannot
+    discover those through the generic permit process.</p>
+  </div>
+  <div class="panel tablewrap"><table id="covtable"></table></div>
+</section>
+
+<section id="hayward">
+  <div class="sechead">
+    <h2>4 · One city's designed process, from its own documents</h2>
+    <p>A records pull for Hayward found <b>no council staff report, resolution, ordinance, or fee-schedule line</b>
+    creating the program (2,108 council matters 2023–2026 and four adopted fee schedules checked). The program is
+    administrative: it existed before the statute (January 2024, $590, the “Certificate of Compliance” already in
+    place), was adapted from Berkeley's program (its form still cites Berkeley Municipal Code § 19.40.040), and was
+    retrofitted to AB 2533 during 2025. Handouts, a questionnaire, and archived page versions yield the richer
+    process below.</p>
+  </div>
+  <div class="panel">
+    <div class="stats" id="hay-stats"></div>
+    <div class="swimwrap" id="hay-swim"></div>
+    <div id="hay-rework"></div>
+    <div class="unclear" id="hay-unclear"></div>
+  </div>
+</section>
+
+<section id="observed">
+  <div class="sechead">
+    <h2>5 · What permit records can observe</h2>
+    <p>Scan of open permitting data (2026-09-04). Only San Francisco exposes per-review-station timestamps; only Los
+    Angeles and San José label AB 2533 permits explicitly. The confidential third-party inspection is unobservable
+    everywhere, by design.</p>
+  </div>
+  <div class="panel tablewrap"><table>
+    <tr><th>City</th><th>Dataset</th><th>Timestamps</th><th>AB 2533 identifiable?</th><th>System</th></tr>
+    <tr><td>San Francisco</td><td>Building Permits (1.29M rows) + Permit Addenda with Routing (4.0M rows)</td><td>Per-station arrive / assign / start / finish / hold, with reviewer</td><td class="miss">No — 0 explicit mentions; ~3.3k “legalize ADU” hits conflate SF's older § 207.3 program</td><td>DBI PTS (in-house)</td></tr>
+    <tr><td>Los Angeles</td><td>Issued (410k) + submitted (304k) permits; inspections (11.7M rows)</td><td>Submitted / issued / CofO dates</td><td class="ok">Yes — 31 issued + 77 submitted cite “AB 2533” in the work description</td><td>PCIS (portal blocked)</td></tr>
+    <tr><td>San José</td><td>CKAN snapshot CSVs (17k active permits)</td><td>Issue / final dates only</td><td class="ok">Yes — 6 active permits named “AB 2533”</td><td>AMANDA</td></tr>
+    <tr><td>San Diego</td><td>Approvals issued 2025 (54.6k rows)</td><td>Create / deemed-complete / issue / close</td><td class="miss">No — structured ADU counts (1,416 in 2025) but no legalization flag</td><td>Accela</td></tr>
+  </table></div>
+</section>
+
+__TOY__
+
+<section id="method">
+  <div class="sechead">
+    <h2>How to read this page</h2>
+    <p>Three tiers of evidence, none derivable from the statute alone. <b>Declared</b> = what a city publishes for
+    applicants (authoritative for applicant burden and terminal artifacts; silent on internal routing).
+    <b>Designed</b> = what the city's own documents say the departments will do (staff reports, resolutions,
+    handouts; for Hayward, handouts only). <b>Observed</b> = what records show happened. Element tagging on this
+    page is keyword-based and will be replaced by a parse of each city's steps through the same prompt as the
+    skeleton. All artifacts and sources: <span class="mono">corpus/ab2533/process/</span>.</p>
+  </div>
+</section>
+
+<footer>Built from <span class="mono">examples/ab2533/process/</span> (skeleton, declared models, report) and
+<span class="mono">corpus/ab2533/process/</span> (city pages fetched 2026-09-04; Hayward records pull 2026-09-10).
+Statute text: leginfo.legislature.ca.gov.</footer>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+const esc = s => String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const ELEMENTS = ["checklist_publication","notice","third_party_option","application","inspection","correction_permits","fee_waiver","decision","terminal_issuance"];
+const ELABEL = {checklist_publication:"publish checklist", notice:"notice of third-party option", third_party_option:"third-party inspection option",
+  application:"application", inspection:"inspection", correction_permits:"permits to correct", fee_waiver:"fee waiver", decision:"decision", terminal_issuance:"issuance"};
+const isOpt = v => v === true || (typeof v === "string" && v.length > 0);
+const actorName = (m, a) => { const o = (m.actors||[]).find(x => typeof x === "object" && x.id === a); return o ? o.name.split(" (")[0] : String(a).replace(/_/g," "); };
+
+// ---- statute with skeleton spans ----
+(function(){
+  const norm = s => s.replace(/\s+/g," ").trim();
+  const paras = DATA.statute.split(/\n{2,}/).map(norm).filter(Boolean);
+  const spans = DATA.skeleton.activities.filter(a => a.span && a.span.quote).map(a => ({q: norm(a.span.quote).toLowerCase(), el: a.mandated_element, opt: isOpt(a.optional)}));
+  const html = paras.map(p => {
+    const low = p.toLowerCase(); let marks = [];
+    for (const s of spans){ let q = s.q, i = low.indexOf(q); if (i < 0 && q.length > 50){ q = q.slice(0,50); i = low.indexOf(q); } if (i >= 0) marks.push({s:i, e:i+q.length, el:s.el, opt:s.opt}); }
+    marks.sort((a,b)=>a.s-b.s || (b.e-b.s)-(a.e-a.s)); const kept=[]; let last=0;
+    for (const m of marks){ if (m.s >= last){ kept.push(m); last = m.e; } }
+    let out="", pos=0; for (const m of kept){ out += esc(p.slice(pos,m.s)) + `<mark class="${m.opt?'optional':''}" title="${esc(ELABEL[m.el]||m.el||'')}">` + esc(p.slice(m.s,m.e)) + `</mark>`; pos = m.e; }
+    return `<p>${out + esc(p.slice(pos))}</p>`;
+  }).join("");
+  document.getElementById("statute").innerHTML = html;
+})();
+
+// ---- swimlane renderer ----
+function renderSwim(model, mount, opts={}){
+  const acts = model.activities;
+  const lanes = []; for (const a of acts){ if (!lanes.includes(a.actor)) lanes.push(a.actor); }
+  const el = document.getElementById(mount);
+  const grid = document.createElement("div"); grid.className = "swim";
+  grid.style.gridTemplateColumns = `130px repeat(${acts.length}, 178px)`;
+  grid.insertAdjacentHTML("beforeend", `<div></div>` + acts.map((a,i)=>`<div class="stephead">${i+1}</div>`).join(""));
+  for (const lane of lanes){
+    grid.insertAdjacentHTML("beforeend", `<div class="lane">${esc(actorName(model, lane))}</div>`);
+    for (const a of acts){
+      if (a.actor !== lane){ grid.insertAdjacentHTML("beforeend", `<div></div>`); continue; }
+      const mand = a.mandated_element || (a.mandated_elements||[])[0];
+      const cls = (opts.allLaw || mand) ? (isOpt(a.optional) ? "act opt" : "act") : "act invented";
+      const tag = opts.allLaw ? `<span class="tag2 law">${esc(ELABEL[mand]||mand||"")}${isOpt(a.optional)?" · optional":""}</span>`
+                : (mand ? `<span class="tag2 law">law: ${esc(ELABEL[mand]||mand)}</span>` : `<span class="tag2">city's choice</span>`);
+      const arts = (a.artifacts_out||[]).filter(Boolean).map(x => x.split(";")[0].split("(")[0].trim()).slice(0,2);
+      grid.insertAdjacentHTML("beforeend", `<div class="${cls}" title="${esc(a.span?.quote||a.name)}">${esc(a.name.slice(0,110))}${tag}${arts.length?`<span class="art">→ ${esc(arts.join(", ").slice(0,60))}</span>`:""}</div>`);
+    }
+  }
+  el.innerHTML = ""; el.appendChild(grid);
+  const idx = {}; acts.forEach((a,i)=>idx[a.id]=i+1);
+  const rw = (model.edges||[]).filter(e => e.type === "rework").map(e => `step ${idx[e.from]||e.from} ↺ back to step ${idx[e.to]||e.to}${e.condition?` (${esc(e.condition)})`:""}`);
+  return {lanes: lanes.length, handoffs: (model.edges||[]).filter(e=>e.type==="handoff").length, rework: rw,
+          optional: acts.filter(a=>isOpt(a.optional)).length};
+}
+function statsHtml(m, r, extra=""){
+  return `<span><b>${m.activities.length}</b> activities</span><span><b>${r.lanes}</b> actors</span>
+    <span><b>${r.handoffs}</b> handoffs</span><span><b>${r.rework.length}</b> rework loops</span>
+    <span><b>${r.optional}</b> optional</span>${m.terminal_artifact?`<span>ends with: <b>${esc(String(m.terminal_artifact).slice(0,70))}</b></span>`:""}${extra}`;
+}
+
+// ---- skeleton ----
+(function(){
+  const r = renderSwim(DATA.skeleton, "skel-swim", {allLaw:true});
+  document.getElementById("skel-stats").innerHTML = statsHtml(DATA.skeleton, r);
+  document.getElementById("skel-notes").innerHTML = (r.rework.length?`<span class="rework">↺ ${r.rework.map(esc).join("; ")}</span><br>`:"") +
+    `<b>What the statute leaves open</b> (from the parse): ${esc(DATA.skeleton.notes||"")}`;
+})();
+
+// ---- cities ----
+let cur = 0;
+function renderCity(){
+  document.getElementById("citytabs").innerHTML = DATA.models.map((m,i)=>`<button class="tab" role="tab" aria-selected="${i===cur}" data-i="${i}">${esc(m.jurisdiction.replace(/\s*\(.*\)/,""))}</button>`).join("");
+  const m = DATA.models[cur]; const j = DATA.declared[cur];
+  const r = renderSwim(m, "city-swim");
+  const cov = (DATA.report.models[m.jurisdiction]||{}).coverage_of_statute;
+  document.getElementById("city-stats").innerHTML = statsHtml(m, r, cov?`<span>coverage of mandated elements: <b>${cov.coverage}</b></span>`:"") +
+    `<span class="muted"><a href="${esc(j.url)}" target="_blank" rel="noopener">source page</a>${j.fetched?` · fetched ${esc(j.fetched)}`:""}</span>`;
+  document.getElementById("city-rework").innerHTML = r.rework.length ? `<div class="rework">↺ ${r.rework.join("; ")}</div>` : "";
+  const unclear = j.unclear||[];
+  document.getElementById("city-unclear").innerHTML = (j.fees?`<b>Fees:</b> ${esc(String(j.fees).slice(0,160))}<br>`:"") +
+    (unclear.length?`<b>What the page leaves unclear:</b><ul>${unclear.map(u=>`<li>${esc(u)}</li>`).join("")}</ul>`:"");
+}
+document.getElementById("citytabs").addEventListener("click", e=>{ const t=e.target.closest(".tab"); if(!t) return; cur=+t.dataset.i; renderCity(); });
+renderCity();
+
+// ---- coverage matrix ----
+(function(){
+  const rows = DATA.models.map(m => {
+    const c = (DATA.report.models[m.jurisdiction]||{}).coverage_of_statute || {present:[],coverage:null};
+    return `<tr><td>${esc(m.jurisdiction.replace(/\s*\(.*\)/,""))}</td>` + ELEMENTS.map(e => c.present.includes(e) ? `<td class="ok">✓</td>` : `<td class="miss">—</td>`).join("") + `<td><b>${c.coverage??""}</b></td></tr>`;
+  }).join("");
+  document.getElementById("covtable").innerHTML = `<tr><th>Jurisdiction</th>${ELEMENTS.map(e=>`<th>${esc(ELABEL[e])}</th>`).join("")}<th>coverage</th></tr>` + rows;
+})();
+
+// ---- hayward designed ----
+(function(){
+  const h = DATA.hayward;
+  const r = renderSwim(h, "hay-swim");
+  const fee = h.staffing_and_cost?.fee_current;
+  document.getElementById("hay-stats").innerHTML = statsHtml(h, r, fee?`<span>fee: <b>$${fee.amount}</b> ${esc(fee.plus||"")}</span>`:"") +
+    `<span class="muted">${(h.documents||[]).length} source documents</span>`;
+  document.getElementById("hay-rework").innerHTML = r.rework.length ? `<div class="rework">↺ ${r.rework.join("; ")}</div>` : "";
+  const u = h.unclear||[];
+  document.getElementById("hay-unclear").innerHTML = u.length ? `<b>Unclear from the documents (${u.length}):</b><ul>${u.slice(0,8).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "";
+})();
+</script>

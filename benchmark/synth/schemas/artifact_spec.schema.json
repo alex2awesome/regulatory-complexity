@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "artifact_spec",
+  "description": "What one artifact exists, where it lives, and exactly which truth it reveals.",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "kind",
+    "world",
+    "target",
+    "url",
+    "publisher",
+    "audience",
+    "date",
+    "reveals",
+    "links_to",
+    "why"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "program_page",
+        "generic_permits_page",
+        "form",
+        "checklist",
+        "faq",
+        "fee_schedule",
+        "ordinance",
+        "fee_resolution",
+        "staff_report",
+        "sop",
+        "audit_excerpt",
+        "news",
+        "reddit_thread",
+        "forum_thread",
+        "council_minutes",
+        "third_party_guide",
+        "bill_analysis",
+        "official_stats"
+      ]
+    },
+    "subkind": {
+      "type": "string"
+    },
+    "world": {
+      "type": "string"
+    },
+    "jur": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stat_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target": {
+      "type": "boolean"
+    },
+    "about_program": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "links_to": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "audience": {
+      "enum": [
+        "applicant",
+        "staff",
+        "council",
+        "public"
+      ]
+    },
+    "date": {
+      "type": "string"
+    },
+    "describes_version": {
+      "type": "integer"
+    },
+    "stale": {
+      "type": "boolean"
+    },
+    "reveals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref",
+          "field",
+          "fidelity",
+          "value"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "field": {
+            "enum": [
+              "exists",
+              "actor",
+              "order",
+              "timing",
+              "fee",
+              "artifact",
+              "rework"
+            ]
+          },
+          "fidelity": {
+            "enum": [
+              "exact",
+              "approximate",
+              "vague",
+              "wrong"
+            ]
+          },
+          "value": {
+            "type": "string"
+          },
+          "must_quote": {
+            "type": "boolean"
+          },
+          "level": {
+            "type": "string"
+          },
+          "process": {
+            "type": "string"
+          },
+          "describes_prior": {
+            "type": "boolean"
+          },
+          "stale_of": {
+            "type": "string"
+          },
+          "optimistic": {
+            "type": "boolean"
+          },
+          "insider": {
+            "type": "boolean"
+          },
+          "insider_knowledge": {
+            "type": "boolean"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "lineage_hint": {
+            "type": "boolean"
+          },
+          "count_observation": {
+            "type": "object",
+            "required": ["measure", "statistic", "population"],
+            "properties": {
+              "measure": {"enum": ["correction_probability_per_eligible_visit", "cases_with_observed_correction"]},
+              "statistic": {"enum": ["planning_probability", "observed_cohort_fraction"]},
+              "population": {"type": "string"},
+              "stage_scope": {"type": "string"},
+              "as_of": {"type": "string"},
+              "numerator": {"type": "integer", "minimum": 0},
+              "sample_size": {"type": "integer", "minimum": 1}
+            },
+            "additionalProperties": false,
+            "description": "Preserve per-eligible-visit versus per-case units and actual counted denominators. Planning probabilities do not imply a counted sample."
+          },
+          "measurement_clock": {
+            "type": ["object", "null"],
+            "required": ["start", "end", "population", "statistic"],
+            "properties": {
+              "start": {"type": "string"},
+              "end": {"type": "string"},
+              "population": {"type": "string"},
+              "statistic": {"enum": ["median", "median_and_p90", "typical", "optimistic_typical", "forecast", "service_target", "individual_completion"]},
+              "basis": {"enum": ["whole_case", "single_visit_cycle", "sum_visit_cycles"]},
+              "sample_size": {"type": "integer", "minimum": 0},
+              "as_of": {"type": "string"}
+            },
+            "additionalProperties": false,
+            "description": "Observation operator the renderer must preserve; cycle times are not active-work hours or first-to-last spans."
+          }
+        }
+      }
+    },
+    "must_not_reveal": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Activity ids that must stay hidden in this artifact. On a shared (multi-process) artifact such as a fee schedule or a generic permits page the ids are process-qualified: \"<model_id>:<activity_id>\"."
+    },
+    "contamination": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "about",
+          "value"
+        ],
+        "properties": {
+          "about": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "required": [
+        "register",
+        "length_words"
+      ],
+      "properties": {
+        "register": {
+          "enum": [
+            "municipal_web",
+            "legal",
+            "bureaucratic_memo",
+            "reddit_casual",
+            "news"
+          ]
+        },
+        "length_words": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "template_lineage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subreddit": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "sections": {
+          "type": "integer"
+        }
+      }
+    },
+    "persona": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "applicant_id": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "true_timeline": {
+          "type": "object"
+        },
+        "reported_timeline": {
+          "type": "object"
+        },
+        "why_posting": {
+          "type": "string"
+        }
+      }
+    },
+    "thread": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "author"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "op",
+              "comment"
+            ]
+          },
+          "author": {
+            "type": "string"
+          },
+          "reveals": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "contamination": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "wrong": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "is_staff_insider": {
+            "type": "boolean"
+          },
+          "persona_ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "why": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,1684 @@
+{
+  "model_id": "ui_claim__edd",
+  "source": "designed",
+  "jurisdiction": "State of California (statewide)",
+  "implementer": "Employment Development Department (EDD), Unemployment Insurance Branch; appeals adjudicated by the independent California Unemployment Insurance Appeals Board (CUIAB)",
+  "stat_id": "UIC_1253_1336",
+  "statute_cite": "Cal. Unemployment Insurance Code §§ 1253, 1254, 1326-1336; 20 C.F.R. § 640.5",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "G1",
+      "title": "California State Auditor Report 2020-128/628.1, \"EDD's Poor Planning and Ineffective Management Left It Unprepared to Assist Californians Unemployed by COVID-19 Shutdowns\" (January 2021)",
+      "url": "https://information.auditor.ca.gov/pdfs/reports/2020-128and628.1.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/ca_state_auditor_2020-128and628.1.txt"
+    },
+    {
+      "id": "G2",
+      "title": "Legislative Analyst's Office, \"Improving California's Unemployment Insurance Program\" (August 9, 2022)",
+      "url": "https://lao.ca.gov/reports/2022/4622/Improving-CA-UI-Program-080922.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/lao_improving_ca_ui_program_2022.txt"
+    },
+    {
+      "id": "G3",
+      "title": "EDD Strike Team Final Detailed Assessment and Recommendations (September 16, 2020)",
+      "url": "https://edd.ca.gov/siteassets/files/en/about_edd/pdf/edd_strike_team_report.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_strike_team_report_2020.txt"
+    },
+    {
+      "id": "G4",
+      "title": "CUIAB, \"Appeals Procedure Before Administrative Law Judges\" (DE 1433, 16th Edition, Rev. 25 (7-19))",
+      "url": "https://cuiab.ca.gov/wp-content/uploads/sites/13/documents/cuiabAppealsProcedureManual.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/cuiab_appeals_procedure_manual.txt"
+    },
+    {
+      "id": "G5",
+      "title": "California State Auditor Report 2014-101, \"Employment Development Department: It Should Improve Its Efforts to Minimize Avoidable Appeals of Its Eligibility Determinations for Unemployment Insurance Benefits\" (August 2014)",
+      "url": "https://information.auditor.ca.gov/pdfs/reports/2014-101.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/ca_state_auditor_2014-101.txt"
+    },
+    {
+      "id": "G6",
+      "title": "California State Auditor Report 2020-628.2, \"Significant Weaknesses in EDD's Approach to Fraud Prevention Have Led to Billions of Dollars in Improper Benefit Payments\" (January 2021)",
+      "url": "https://information.auditor.ca.gov/pdfs/reports/2020-628.2.pdf",
+      "saved_as": "corpus/realworld/ui_claim/raw/ca_state_auditor_2020-628.2.txt"
+    },
+    {
+      "id": "D1",
+      "title": "EDD, \"Step 1: Get Your Information in Order\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-1-get-your-information-in-order/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step1_get_info_in_order.txt"
+    },
+    {
+      "id": "D2",
+      "title": "EDD, \"Step 2: Apply\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-2-apply/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step2_apply.txt"
+    },
+    {
+      "id": "D3",
+      "title": "EDD, \"Step 3: Register in CalJOBS\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-3-register-in-caljobs/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step3_caljobs.txt"
+    },
+    {
+      "id": "D4",
+      "title": "EDD, \"Step 4: Review Benefit Documents\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-4-review-benefit-documents/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step4_review_benefit_documents.txt"
+    },
+    {
+      "id": "D5",
+      "title": "EDD, \"Step 5: Certify for Benefits\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-5-certify-for-benefits/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step5_certify.txt"
+    },
+    {
+      "id": "D6",
+      "title": "EDD, \"Step 6: Receive Your First Payment\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-6-receive-your-first-payment/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step6_first_payment.txt"
+    },
+    {
+      "id": "D7",
+      "title": "EDD, \"Step 7: Continue to Certify\" (declared step page)",
+      "url": "https://edd.ca.gov/en/unemployment/step-7-continue-to-certify/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_step7_continue_certify.txt"
+    },
+    {
+      "id": "D8",
+      "title": "EDD, \"Unemployment Determinations and Eligibility\" (claim status page)",
+      "url": "https://edd.ca.gov/en/unemployment/claim-status/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_claim_status_determinations_eligibility.txt"
+    },
+    {
+      "id": "D9",
+      "title": "EDD, \"Unemployment Insurance Appeals\"",
+      "url": "https://edd.ca.gov/en/unemployment/appeals/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_appeals.txt"
+    },
+    {
+      "id": "D10",
+      "title": "EDD, \"Identity Verification for Unemployment\"",
+      "url": "https://edd.ca.gov/en/unemployment/identity-verification/",
+      "saved_as": "corpus/realworld/ui_claim/raw/edd_identity_verification.txt"
+    },
+    {
+      "id": "L1",
+      "title": "Cal. Unemployment Insurance Code § 1253 (eligibility conditions, incl. § 1253(f) automated profiling)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1253.&lawCode=UIC",
+      "saved_as": "corpus/realworld/ui_claim/raw/uic_1253_eligibility.txt"
+    },
+    {
+      "id": "L2",
+      "title": "Cal. Unemployment Insurance Code §§ 1326-1333 (filing, notice to last employer, computation, determination, reconsideration)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1326.&lawCode=UIC",
+      "saved_as": "corpus/realworld/ui_claim/raw/uic_1326-1333_claims_determinations_notices.txt"
+    },
+    {
+      "id": "L3",
+      "title": "Cal. Unemployment Insurance Code § 1328 (right to appeal to an administrative law judge)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1328.&lawCode=UIC",
+      "saved_as": "corpus/realworld/ui_claim/raw/uic_1328_appeal_right.txt"
+    },
+    {
+      "id": "L4",
+      "title": "Cal. Unemployment Insurance Code §§ 1334-1336 (ALJ decision, payment pending appeal, Appeals Board)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1334.&lawCode=UIC",
+      "saved_as": "corpus/realworld/ui_claim/raw/uic_1334-1336_alj_appeals_board.txt"
+    },
+    {
+      "id": "L5",
+      "title": "20 C.F.R. § 640.5 (Criteria for compliance — first-payment promptness)",
+      "url": "https://www.law.cornell.edu/cfr/text/20/640.5",
+      "saved_as": "corpus/realworld/ui_claim/raw/federal_20cfr640.5.txt"
+    }
+  ],
+  "actors": [
+    {
+      "id": "claimant",
+      "name": "Claimant (unemployed worker)",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "employer",
+      "name": "Last employer / base-period employer",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "idme",
+      "name": "ID.me (contracted identity-proofing vendor, selected Sept./Oct. 2020)",
+      "dept": null,
+      "type": "vendor"
+    },
+    {
+      "id": "edd_system",
+      "name": "EDD benefit information system (UI Online / Single Client Database)",
+      "dept": "EDD UI Branch",
+      "type": "system"
+    },
+    {
+      "id": "edd_claims_staff",
+      "name": "EDD claims-processing staff (employment program representatives, \"EPR agents\"; tier 1 agents for technical assistance only)",
+      "dept": "EDD UI Branch",
+      "type": "state_agency"
+    },
+    {
+      "id": "edd_idverify",
+      "name": "UI Identity Verification and Technical Support Section",
+      "dept": "EDD UI Support Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "edd_integrity",
+      "name": "UI Integrity and Legislation Unit (fraud-report triage)",
+      "dept": "EDD UI Support Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "edd_adjudicator",
+      "name": "EDD determination staff (eligibility interviewer / adjudicator)",
+      "dept": "EDD UI Branch",
+      "type": "state_agency"
+    },
+    {
+      "id": "edd_appeals_reviewer",
+      "name": "EDD designated appeal reviewer (may not be the individual who made the initial determination)",
+      "dept": "EDD UI Branch",
+      "type": "state_agency"
+    },
+    {
+      "id": "cuiab_office_of_appeals",
+      "name": "CUIAB Office of Appeals (clerical registration and hearing calendar; 11 field offices)",
+      "dept": "CUIAB",
+      "type": "independent_agency"
+    },
+    {
+      "id": "alj",
+      "name": "Administrative Law Judge (impartial; not an EDD employee since 1943)",
+      "dept": "CUIAB",
+      "type": "independent_agency"
+    },
+    {
+      "id": "appeals_board",
+      "name": "California Unemployment Insurance Appeals Board (five members; two-member deciding panels)",
+      "dept": "CUIAB",
+      "type": "independent_agency"
+    },
+    {
+      "id": "money_network",
+      "name": "Money Network (prepaid benefit debit card issuer)",
+      "dept": null,
+      "type": "vendor"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Gather claim information before filing (SSN, photo ID, last employer, last day worked, gross wages in last week worked)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [],
+      "artifacts_out": [
+        "applicant information packet"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "employer and your immediate supervisor, the date when you last worked for this last employer, and gross wages in the \"last week\" you worked",
+          "page_or_section": "Step 1: Get Your Information in Order"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "File initial claim (myEDD/UI Online, or by phone, paper, or fax)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "applicant information packet"
+      ],
+      "artifacts_out": [
+        "initial claim"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": 0,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC § 1326",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "EDD allows claimants to file a claim for benefits in three ways: online through its UI Online application system, on paper, or by phone. Most claimants file their claims using UI Online.",
+          "page_or_section": "Introduction, p. 6"
+        },
+        {
+          "doc": "D2",
+          "quote": "The fastest way to apply for unemployment benefits is through myEDD.",
+          "page_or_section": "Step 2: Apply"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Verify claimant identity through ID.me (SSN, selfie, photo of ID) for online filers",
+      "actor": "idme",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "initial claim"
+      ],
+      "artifacts_out": [
+        "verified identity assertion OR unresolved identity flag"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": null,
+        "source": "none"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D10",
+          "quote": "When you first apply for unemployment benefits through UI Online, you will be redirected to the ID.me site.",
+          "page_or_section": "ID.me Verification Process"
+        },
+        {
+          "doc": "G3",
+          "quote": "UPDATE: This plan is in progress. The vendor selected is ID.me.",
+          "page_or_section": "Key Issues and Challenges, p. 8"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Verify identity on an ID.me video call with a trusted referee (two primary, or one primary plus two secondary, documents)",
+      "actor": "idme",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "unresolved identity flag"
+      ],
+      "artifacts_out": [
+        "verified identity assertion"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A03",
+        "reason": "automated identity proofing could not confirm identity"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D10",
+          "quote": "If we need more information to verify your identity, you will need to join a video call with ID.me.",
+          "page_or_section": "ID.me Verification Process"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Attempt automatic claim establishment in the benefit information system (\"clean claim\" path)",
+      "actor": "edd_system",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "initial claim"
+      ],
+      "artifacts_out": [
+        "established claim record",
+        "estimated benefit amount",
+        "continued claim form"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": 0,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "EDD's benefit information system attempts to automatically file the claim.",
+          "page_or_section": "Figure 1 (source: EDD's procedure documents), p. 6"
+        },
+        {
+          "doc": "G1",
+          "quote": "If a claim is filed automatically, EDD sends the claimant an estimated benefit amount and a copy of the continued claim form to sign and return to EDD to receive the first payment.",
+          "page_or_section": "Figure 1, p. 6"
+        },
+        {
+          "doc": "G3",
+          "quote": "Only \"clean claims\" (fully-automated claims) were auto-registered to UIOnline before the pandemic.",
+          "page_or_section": "Claimants getting stuck between BPO and UIO (the EDDCAN issue), p. 28"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Route claims that cannot be filed automatically into manual-processing queues, coded by the internal \"CPT Conditions\" taxonomy",
+      "actor": "edd_claims_staff",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "initial claim"
+      ],
+      "artifacts_out": [
+        "manual work item with CPT condition code"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G3",
+          "quote": "The breakdown of reasons an electronic claim is sent for manual review is known and is available in an internal report called CPT Conditions.",
+          "page_or_section": "Key Issues and Challenges, p. 8"
+        },
+        {
+          "doc": "G3",
+          "quote": "The slowest, lowest throughput parts of the system include identity verification, the CPT queues (routing claims requiring processing to the correct next step), and mail sorting, processing, and tracking.",
+          "page_or_section": "Staffing, p. 15"
+        },
+        {
+          "doc": "G2",
+          "quote": "EDD redirects about 40 percent of all UI applications to manual staff processing.",
+          "page_or_section": "Steps That Make Proving Eligibility Difficult, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Manually review the claim to resolve mismatched employment information or identity concerns",
+      "actor": "edd_claims_staff",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "manual work item with CPT condition code"
+      ],
+      "artifacts_out": [
+        "resolved claim record OR request for more documents OR disqualification"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "If a claim cannot be filed automatically, EDD must manually review the claim to determine what issues need to be resolved. Potential issues include mismatched information and concerns about the claimant's identity.",
+          "page_or_section": "Figure 1, p. 6"
+        },
+        {
+          "doc": "G2",
+          "quote": "claims that need work history review are almost always delayed by 21 days, and often longer",
+          "page_or_section": "Duplicative Requests for Work History, p. 13"
+        },
+        {
+          "doc": "D6",
+          "quote": "If your claim status says Pending, we may need to confirm your identity or eligibility before processing your payment.",
+          "page_or_section": "Step 6: Pending Claim Status"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Mail notice requesting additional identity documents",
+      "actor": "edd_idverify",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "unresolved identity flag"
+      ],
+      "artifacts_out": [
+        "request for identity documents"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "When worker documents do not match, EDD mails a notice to the worker requesting more documents. The worker then must submit the documents.",
+          "page_or_section": "Matching Identity Information, p. 13"
+        },
+        {
+          "doc": "D10",
+          "quote": "We will ask for more documents if we can't confirm your identity with the information you provided when you applied.",
+          "page_or_section": "Identity Verification for Unemployment"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Return the requested identity documents (mail or upload)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "request for identity documents"
+      ],
+      "artifacts_out": [
+        "identity documents"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A07",
+        "reason": "documents returned; claim re-enters manual identity review"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "In many cases, the worker returns the requested information and gets their UI payment, albeit after a delay.",
+          "page_or_section": "Matching Identity Information, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Disqualify the claim when documents are not returned promptly or cannot be located/processed (procedural denial)",
+      "actor": "edd_claims_staff",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "request for identity documents"
+      ],
+      "artifacts_out": [
+        "Notice of Determination (DE 1080CZ)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1253(a)",
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "if the worker is unable to return the documents promptly (or if EDD cannot locate or process their documents), state staff disqualify the worker's claim",
+          "page_or_section": "Matching Identity Information, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Triage the fraud report, then pass it to the UI Identity Verification and Technical Support Section for further work",
+      "actor": "edd_integrity",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "fraud report (hotline/email)"
+      ],
+      "artifacts_out": [
+        "referral to UI Identity Verification and Technical Support Section"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G6",
+          "quote": "The UI Integrity and Legislation Unit reviews the claim associated with the fraud report and then passes the fraud report to the UI Identity Verification and Technical Support Section for further work.",
+          "page_or_section": "Chapter on fraud reporting"
+        },
+        {
+          "doc": "G3",
+          "quote": "Of 183,167 cases in the three months of May, June, and July this year, less than one half of one percent (.04% or 804 people) were deemed imposters during EDD review.",
+          "page_or_section": "Current Identity Verification Processes, p. 9"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "Serve Notice of Unemployment Insurance Claim Filed on the last employer; employer has 10 days to submit facts",
+      "actor": "edd_system",
+      "visibility": "applicant_inferable",
+      "occasion": "mail",
+      "artifacts_in": [
+        "established claim record"
+      ],
+      "artifacts_out": [
+        "Notice of Unemployment Insurance Claim Filed (employer copy; DE 1101CLMT to claimant)"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC § 1327",
+      "evidence": [
+        {
+          "doc": "L2",
+          "quote": "The employing unit so notified shall submit within 10 days after the mailing of the notice any facts then known that may affect the claimant's eligibility for benefits",
+          "page_or_section": "§ 1327"
+        },
+        {
+          "doc": "G2",
+          "quote": "The notice states \"ACTION REQUIRED\" and \"Failure to respond may result in an increased employment tax rate and employer penalties.\"",
+          "page_or_section": "Disputes of Worker's Claim, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Respond to the notice of claim filed, or dispute the separation",
+      "actor": "employer",
+      "visibility": "applicant_inferable",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Notice of Unemployment Insurance Claim Filed"
+      ],
+      "artifacts_out": [
+        "employer statement of facts / dispute"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1327",
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "Businesses can respond to the notice if they dispute the worker's eligibility. The most common scenario is a dispute about whether the worker quit or was fired.",
+          "page_or_section": "Disputes of Worker's Claim, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Compute the award and mail benefit documents (Notice of UI Award DE 429Z, EDDCAN notification DE 5614, DE 1275B, continued claim form)",
+      "actor": "edd_system",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "established claim record"
+      ],
+      "artifacts_out": [
+        "Notice of Unemployment Insurance Award (DE 429Z)",
+        "EDD Customer Account Number notification (DE 5614)",
+        "Continued Claim form (DE 4581)"
+      ],
+      "timing": {
+        "median_days": 14,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC § 1329",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "After you submit your unemployment application, we will mail important documents to you in about two weeks.",
+          "page_or_section": "Step 4: Review Benefit Documents"
+        },
+        {
+          "doc": "D4",
+          "quote": "This has your EDD Customer Account Number (EDDCAN) to register in UI Online, after you visit myEDD.",
+          "page_or_section": "Step 4, DE 5614 bullet"
+        },
+        {
+          "doc": "G3",
+          "quote": "In July 2020, 55,555 of 177,527 AskEDD messages (one-third) were related to requesting an EDDCAN number.",
+          "page_or_section": "p. 28"
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Register in CalJOBS and post a résumé within 21 days of the Notice of Requirement to Register for Work (DE 8405)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Notice of Requirement to Register for Work (DE 8405)"
+      ],
+      "artifacts_out": [
+        "CalJOBS registration and posted résumé"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": 21,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC § 1253(b)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "You have 21 days from the date on your Notice of Requirement to Register for Work (DE 8405) to do so, but there's no reason to wait.",
+          "page_or_section": "Step 3: Register in CalJOBS"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Select claimants for reemployment services via an automated profiling system (RESEA)",
+      "actor": "edd_system",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "established claim record"
+      ],
+      "artifacts_out": [
+        "reemployment orientation/assessment appointment"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1253(f)",
+      "evidence": [
+        {
+          "doc": "L1",
+          "quote": "He or she participated as required by the director in reemployment activities, such as orientation and assessment if the individual has been identified pursuant to an automated profiling system as likely to exhaust regular unemployment benefits",
+          "page_or_section": "§ 1253(f)"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Serve the one-week unpaid waiting period (certified, once per benefit year)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "established claim record"
+      ],
+      "artifacts_out": [
+        "waiting week served"
+      ],
+      "timing": {
+        "median_days": 7,
+        "p90_days": 7,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC §§ 1253(d), 1254",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "You must serve a one-week unpaid waiting period on your claim before getting paid.",
+          "page_or_section": "Step 6: Waiting Period"
+        },
+        {
+          "doc": "L1",
+          "quote": "He has been unemployed for a waiting period of one week as defined in Section 1254",
+          "page_or_section": "§ 1253(d)"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Certify for benefits every two weeks (continued claim)",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "active claim"
+      ],
+      "artifacts_out": [
+        "continued claim certification"
+      ],
+      "timing": {
+        "median_days": 14,
+        "p90_days": 14,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "every two weeks, a claimant must answer a series of questions certifying continued eligibility. These certifications are known as continued claims.",
+          "page_or_section": "Introduction, p. 6"
+        },
+        {
+          "doc": "D5",
+          "quote": "Certifying is the process of answering basic questions every two weeks to tell us you're still unemployed and eligible to receive benefit payments.",
+          "page_or_section": "Step 5: Certify for Benefits"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Investigate certifications whose employment or wage information does not match the original filing",
+      "actor": "edd_claims_staff",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "continued claim certification"
+      ],
+      "artifacts_out": [
+        "resolved certification OR held payment"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Staff must investigate these unmatched certifications, and EDD does not pay such claims until it resolves the issues in question.",
+          "page_or_section": "Chapter 1, p. 16"
+        }
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Detect an eligibility issue and choose one of three fact-finding channels (online Eligibility Questionnaire, mailed DE 4365FF, or scheduled phone interview)",
+      "actor": "edd_adjudicator",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "established claim record",
+        "employer statement of facts / dispute"
+      ],
+      "artifacts_out": [
+        "Eligibility Questionnaire invitation OR Request for Eligibility Information (DE 4365FF) OR interview notice"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1328",
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "If there is an issue with your claim and we need more information from you, we will contact you in one of three ways",
+          "page_or_section": "Eligibility Issues"
+        },
+        {
+          "doc": "D8",
+          "quote": "You will have three days to set up your account and seven more days to fill out the online questionnaire.",
+          "page_or_section": "Online Eligibility Questionnaire"
+        },
+        {
+          "doc": "G2",
+          "quote": "it is our understanding that it is the department's practice to investigate the claim. This occurs even if the business does not dispute the claim.",
+          "page_or_section": "State Proactively Investigates Certain Claims, p. 13"
+        }
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Issue Notification of Unemployment Insurance Benefits Eligibility Interview (DE 4800) with date, time and likely questions",
+      "actor": "edd_adjudicator",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "interview notice request"
+      ],
+      "artifacts_out": [
+        "Notification of UI Benefits Eligibility Interview (DE 4800)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "You will receive a Notification of Unemployment Insurance Benefits Eligibility Interview (DE 4800) with the date and time of the interview.",
+          "page_or_section": "Phone Interview"
+        }
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Conduct the eligibility interview by phone with the claimant (and, where the separation is disputed, with the employer)",
+      "actor": "edd_adjudicator",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Notification of UI Benefits Eligibility Interview (DE 4800)"
+      ],
+      "artifacts_out": [
+        "interview record / fact-finding"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A21",
+        "reason": "missed interview: claimant may call back the same day, or EDD decides on the information it has"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "If a claimant might be ineligible, EDD staff must conduct additional work—such as an interview with the claimant—to make an eligibility determination.",
+          "page_or_section": "Chapter 2, p. 26"
+        },
+        {
+          "doc": "G2",
+          "quote": "the business and worker must respond to questions during interviews scheduled by EDD. These interviews often lead to payment delays, up to several months in some cases.",
+          "page_or_section": "Disputes of Worker's Claim, p. 13"
+        },
+        {
+          "doc": "D8",
+          "quote": "An EDD representative will call you at the scheduled time.",
+          "page_or_section": "Prepare for the Interview"
+        }
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Make the eligibility determination and serve the Notice of Determination (DE 1080CZ) with an Appeal Form (DE 1000M)",
+      "actor": "edd_adjudicator",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "interview record / fact-finding"
+      ],
+      "artifacts_out": [
+        "Notice of Determination (DE 1080CZ)",
+        "Appeal Form (DE 1000M)"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "UIC §§ 1326, 1332",
+      "evidence": [
+        {
+          "doc": "G5",
+          "quote": "To meet federal timeliness standards, EDD must make at least 80 percent of its determinations within 21 days after it becomes aware of any issues that have the potential to affect the claimant's eligibility for benefits.",
+          "page_or_section": "Introduction, p. 11"
+        },
+        {
+          "doc": "G5",
+          "quote": "since fiscal year 2010–11, EDD has almost always failed to meet this federal timeliness standard",
+          "page_or_section": "Introduction, p. 11"
+        },
+        {
+          "doc": "D8",
+          "quote": "If you don't qualify, you will receive a Notice of Determination (DE 1080CZ) and an Appeal Form (DE 1000M).",
+          "page_or_section": "After the Interview"
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Issue a conditional payment (Notice of Conditional Payment Pending Eligibility Review, DE 5400) when payments have been pending more than two weeks",
+      "actor": "edd_claims_staff",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "pending eligibility issue",
+        "at least one prior payment"
+      ],
+      "artifacts_out": [
+        "conditional payment",
+        "Notice of Conditional Payment Pending Eligibility Review (DE 5400)"
+      ],
+      "timing": {
+        "median_days": 14,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "if your payments have been pending for more than two weeks because of an eligibility issue, we may process a conditional payment as we continue reviewing the issue",
+          "page_or_section": "Conditional Payments"
+        }
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Issue first payment (direct deposit, mailed check, or Money Network prepaid debit card)",
+      "actor": "money_network",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "waiting week served",
+        "favorable determination"
+      ],
+      "artifacts_out": [
+        "first benefit payment",
+        "Money Network prepaid debit card"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": 35,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "20 C.F.R. § 640.5",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "It takes about three weeks to process a new application for unemployment benefits and issue payment to eligible workers.",
+          "page_or_section": "Step 6: Receive Your First Payment"
+        },
+        {
+          "doc": "L5",
+          "quote": "14 days, waiting week States | 21 days, nonwaiting week States | 35 days, all States ... Intrastate Claims ... 87 | 87 | 93",
+          "page_or_section": "§ 640.5 schedule"
+        },
+        {
+          "doc": "G1",
+          "quote": "For claims submitted in April through September 2019, EDD reported that it paid about 75 percent within that 14-day period.",
+          "page_or_section": "Chapter 1, p. 15"
+        }
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "File a written appeal within 30 days of the mailing date of the determination",
+      "actor": "claimant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Notice of Determination (DE 1080CZ)"
+      ],
+      "artifacts_out": [
+        "filed appeal (DE 1000M or letter)"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 30,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1328",
+      "evidence": [
+        {
+          "doc": "L3",
+          "quote": "The claimant and the employer may appeal from a determination or reconsidered determination to an administrative law judge within 30 days from service of notice of the determination or reconsidered determination.",
+          "page_or_section": "§ 1328(a)"
+        },
+        {
+          "doc": "G4",
+          "quote": "An appeal or petition is considered filed on the date it is mailed, electronically transmitted, or physically delivered.",
+          "page_or_section": "Filing the Appeal or Petition"
+        }
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Review the appeal internally and, for good cause, reverse the disqualification without a hearing (reviewer may not be the individual who made the determination)",
+      "actor": "edd_appeals_reviewer",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed appeal"
+      ],
+      "artifacts_out": [
+        "reconsidered determination OR case record forwarded to CUIAB"
+      ],
+      "timing": {
+        "median_days": 15,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A23",
+        "reason": "EDD reconsiders for good cause and finds the claimant eligible"
+      },
+      "optional": true,
+      "element_ref": "UIC § 1332(b)",
+      "evidence": [
+        {
+          "doc": "D9",
+          "quote": "In some cases, based on the information you provide, we may change a disqualification and find you eligible for benefits. This would eliminate the need for an appeal.",
+          "page_or_section": "Unemployment Insurance Appeals"
+        },
+        {
+          "doc": "L2",
+          "quote": "The director shall designate individuals to review and reconsider appealed determinations. No individual designated shall be the same individual who made the initial determination in the same matter.",
+          "page_or_section": "§ 1332(b)"
+        }
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "Register the appeal, prepare the case file and assign case number(s)",
+      "actor": "cuiab_office_of_appeals",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "case record forwarded to CUIAB"
+      ],
+      "artifacts_out": [
+        "registered case file",
+        "CUIAB case number(s)",
+        "acknowledgment letter"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G4",
+          "quote": "Upon receipt of an appeal, the Department forwards its records to a CUIAB Office of Appeals. The case is registered, a file is prepared and a case number(s) assigned.",
+          "page_or_section": "Processing of Appeals and Petitions"
+        },
+        {
+          "doc": "D9",
+          "quote": "You will receive a letter from the Office of Appeals acknowledging your appeal.",
+          "page_or_section": "After You File an Appeal"
+        }
+      ]
+    },
+    {
+      "id": "A29",
+      "name": "Calendar the hearing: benefit-eligibility cases take priority over tax and ruling cases and are generally heard first-in-first-out, consolidated by party or geography",
+      "actor": "cuiab_office_of_appeals",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "registered case file"
+      ],
+      "artifacts_out": [
+        "hearing slot (45 minutes to one hour for benefit cases)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1326",
+      "evidence": [
+        {
+          "doc": "G4",
+          "quote": "cases concerning eligibility for benefits are given priority over tax and ruling proceedings in setting cases for hearing",
+          "page_or_section": "Scheduling of Cases for Hearing"
+        },
+        {
+          "doc": "G4",
+          "quote": "Cases which have been filed first are generally heard first. This practice is adjusted as needed for purposes of efficiency by consolidating cases involving the same party or by grouping cases by geographical locations.",
+          "page_or_section": "Scheduling of Cases for Hearing"
+        },
+        {
+          "doc": "G4",
+          "quote": "Benefit cases generally are set for hearings at intervals of forty-five minutes to one hour.",
+          "page_or_section": "Time Allotted for Hearings"
+        }
+      ]
+    },
+    {
+      "id": "A30",
+      "name": "Mail written Notice of Hearing (with hearing information pamphlet) at least 10 days before the hearing",
+      "actor": "cuiab_office_of_appeals",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "hearing slot"
+      ],
+      "artifacts_out": [
+        "Notice of Hearing",
+        "hearing information pamphlet"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G4",
+          "quote": "Written notice of the time and place of hearing is sent to each party (including the Department) at least 10 days before the date of hearing.",
+          "page_or_section": "Scheduling of Cases for Hearing"
+        }
+      ]
+    },
+    {
+      "id": "A31",
+      "name": "Conduct the hearing (parties and witnesses under oath; the ALJ develops the evidentiary record)",
+      "actor": "alj",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "Notice of Hearing",
+        "registered case file"
+      ],
+      "artifacts_out": [
+        "hearing record (audio recording)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A30",
+        "reason": "party or witness unavailable: rescheduling requested, or case reopened for good cause for failure to attend"
+      },
+      "optional": true,
+      "element_ref": "UIC § 1334",
+      "evidence": [
+        {
+          "doc": "G4",
+          "quote": "The ALJ will place all parties and witnesses under oath.",
+          "page_or_section": "Conduct of the Hearing"
+        },
+        {
+          "doc": "G4",
+          "quote": "It is the ALJ's responsibility to ascertain the relevant facts and safeguard the rights of the parties.",
+          "page_or_section": "Conduct of the Hearing"
+        }
+      ]
+    },
+    {
+      "id": "A32",
+      "name": "Issue a written decision (issue statement, findings of fact, reasons, conclusion) and mail it to all parties",
+      "actor": "alj",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "hearing record"
+      ],
+      "artifacts_out": [
+        "ALJ decision",
+        "explanation of appeal rights"
+      ],
+      "timing": {
+        "median_days": 51,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1334",
+      "evidence": [
+        {
+          "doc": "G4",
+          "quote": "As soon as possible after the hearing is completed, the ALJ issues a written decision that is mailed to all parties.",
+          "page_or_section": "The Decision of the Administrative Law Judge"
+        },
+        {
+          "doc": "G5",
+          "quote": "from July 2010 through April 2014, claimants at the first level had to wait an average of 51 days from the time EDD received their appeals until the appeals board mailed its decision letters",
+          "page_or_section": "Chapter 1, p. 13"
+        },
+        {
+          "doc": "G2",
+          "quote": "ALJs at the appeals board overturn EDD's decision about 50 percent of the time.",
+          "page_or_section": "Half of EDD Decisions Overturned on Appeal, p. 11"
+        }
+      ]
+    },
+    {
+      "id": "A33",
+      "name": "Pay benefits promptly when the ALJ affirms a determination allowing benefits, regardless of any further appeal",
+      "actor": "edd_claims_staff",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "ALJ decision (favorable)"
+      ],
+      "artifacts_out": [
+        "restored benefit payments"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC § 1335(b)",
+      "evidence": [
+        {
+          "doc": "L4",
+          "quote": "If an administrative law judge affirms a determination allowing benefits, such benefits shall be promptly paid regardless of any appeal",
+          "page_or_section": "§ 1335(b)"
+        }
+      ]
+    },
+    {
+      "id": "A34",
+      "name": "Decide the second-level appeal on the record by a two-member Board panel (filed within 30 days of the ALJ decision)",
+      "actor": "appeals_board",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "ALJ decision"
+      ],
+      "artifacts_out": [
+        "Appeals Board decision",
+        "acknowledgment letter",
+        "copy of the record (incl. CD of hearing audio)"
+      ],
+      "timing": {
+        "median_days": 58,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "UIC §§ 1334, 1336",
+      "evidence": [
+        {
+          "doc": "L4",
+          "quote": "The decision shall be final unless, within 30 days after mailing of the decision, further appeal is initiated",
+          "page_or_section": "§ 1334(a)"
+        },
+        {
+          "doc": "G4",
+          "quote": "A panel of any two members of the Board will consider the Board appeal. The decision of those two members constitutes the decision of the Appeals Board.",
+          "page_or_section": "Appeals Board Review of the ALJ's Decision"
+        },
+        {
+          "doc": "G5",
+          "quote": "at the second level, claimants waited a total of 58 days on average",
+          "page_or_section": "Chapter 1, p. 13"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "sequence"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "sequence",
+      "condition": "filed online through UI Online"
+    },
+    {
+      "from": "A03",
+      "to": "A04",
+      "type": "rework",
+      "condition": "automated identity proofing failed"
+    },
+    {
+      "from": "A04",
+      "to": "A05",
+      "type": "sequence"
+    },
+    {
+      "from": "A03",
+      "to": "A05",
+      "type": "sequence"
+    },
+    {
+      "from": "A02",
+      "to": "A05",
+      "type": "sequence",
+      "condition": "filed by phone, paper or fax"
+    },
+    {
+      "from": "A05",
+      "to": "A06",
+      "type": "handoff",
+      "condition": "claim could not be filed automatically"
+    },
+    {
+      "from": "A06",
+      "to": "A07",
+      "type": "sequence"
+    },
+    {
+      "from": "A07",
+      "to": "A08",
+      "type": "sequence",
+      "condition": "identity documents do not match"
+    },
+    {
+      "from": "A08",
+      "to": "A09",
+      "type": "sequence"
+    },
+    {
+      "from": "A09",
+      "to": "A07",
+      "type": "rework",
+      "condition": "documents returned"
+    },
+    {
+      "from": "A08",
+      "to": "A10",
+      "type": "sequence",
+      "condition": "documents not returned promptly or not processed"
+    },
+    {
+      "from": "A07",
+      "to": "A11",
+      "type": "optional",
+      "condition": "fraud report or suspected imposter claim"
+    },
+    {
+      "from": "A11",
+      "to": "A07",
+      "type": "handoff"
+    },
+    {
+      "from": "A05",
+      "to": "A12",
+      "type": "sequence"
+    },
+    {
+      "from": "A07",
+      "to": "A12",
+      "type": "sequence"
+    },
+    {
+      "from": "A12",
+      "to": "A13",
+      "type": "optional",
+      "condition": "employer chooses to respond"
+    },
+    {
+      "from": "A05",
+      "to": "A14",
+      "type": "sequence"
+    },
+    {
+      "from": "A14",
+      "to": "A15",
+      "type": "sequence"
+    },
+    {
+      "from": "A14",
+      "to": "A16",
+      "type": "optional",
+      "condition": "profiled as likely to exhaust benefits"
+    },
+    {
+      "from": "A14",
+      "to": "A17",
+      "type": "sequence"
+    },
+    {
+      "from": "A17",
+      "to": "A18",
+      "type": "sequence"
+    },
+    {
+      "from": "A18",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "repeats every two weeks for the benefit year"
+    },
+    {
+      "from": "A18",
+      "to": "A19",
+      "type": "optional",
+      "condition": "certification does not match the original filing"
+    },
+    {
+      "from": "A13",
+      "to": "A20",
+      "type": "handoff",
+      "condition": "employer disputed the separation"
+    },
+    {
+      "from": "A05",
+      "to": "A20",
+      "type": "optional",
+      "condition": "eligibility issue detected (quit, discharge, able and available, identity)"
+    },
+    {
+      "from": "A20",
+      "to": "A21",
+      "type": "sequence",
+      "condition": "phone-interview channel selected"
+    },
+    {
+      "from": "A21",
+      "to": "A22",
+      "type": "sequence"
+    },
+    {
+      "from": "A22",
+      "to": "A21",
+      "type": "rework",
+      "condition": "claimant missed the scheduled interview"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "sequence"
+    },
+    {
+      "from": "A20",
+      "to": "A23",
+      "type": "sequence",
+      "condition": "questionnaire or DE 4365FF channel"
+    },
+    {
+      "from": "A20",
+      "to": "A24",
+      "type": "optional",
+      "condition": "payments pending more than two weeks after a prior payment"
+    },
+    {
+      "from": "A24",
+      "to": "A23",
+      "type": "handoff"
+    },
+    {
+      "from": "A19",
+      "to": "A23",
+      "type": "handoff"
+    },
+    {
+      "from": "A23",
+      "to": "A25",
+      "type": "sequence",
+      "condition": "eligible"
+    },
+    {
+      "from": "A17",
+      "to": "A25",
+      "type": "sequence",
+      "condition": "clean claim, no eligibility issue"
+    },
+    {
+      "from": "A23",
+      "to": "A26",
+      "type": "optional",
+      "condition": "disqualified"
+    },
+    {
+      "from": "A10",
+      "to": "A26",
+      "type": "optional",
+      "condition": "procedural denial appealed"
+    },
+    {
+      "from": "A26",
+      "to": "A27",
+      "type": "sequence"
+    },
+    {
+      "from": "A27",
+      "to": "A23",
+      "type": "rework",
+      "condition": "EDD reverses itself; no hearing needed"
+    },
+    {
+      "from": "A27",
+      "to": "A28",
+      "type": "handoff",
+      "condition": "determination unchanged; record forwarded to CUIAB"
+    },
+    {
+      "from": "A28",
+      "to": "A29",
+      "type": "sequence"
+    },
+    {
+      "from": "A29",
+      "to": "A30",
+      "type": "sequence"
+    },
+    {
+      "from": "A30",
+      "to": "A31",
+      "type": "sequence"
+    },
+    {
+      "from": "A31",
+      "to": "A30",
+      "type": "rework",
+      "condition": "hearing rescheduled or reopened for good cause"
+    },
+    {
+      "from": "A31",
+      "to": "A32",
+      "type": "sequence"
+    },
+    {
+      "from": "A32",
+      "to": "A33",
+      "type": "optional",
+      "condition": "ALJ allows benefits"
+    },
+    {
+      "from": "A33",
+      "to": "A18",
+      "type": "sequence"
+    },
+    {
+      "from": "A32",
+      "to": "A34",
+      "type": "optional",
+      "condition": "either party appeals within 30 days"
+    },
+    {
+      "from": "A34",
+      "to": "A33",
+      "type": "rework",
+      "condition": "Board reverses in the claimant's favor"
+    }
+  ],
+  "terminal_artifact": "Biweekly unemployment insurance benefit payments for the benefit year (delivered by direct deposit, mailed check, or Money Network prepaid debit card); on the adverse branch, a final ALJ or Appeals Board decision",
+  "denial_rate": null,
+  "denial_rate_notes": "No single published denial rate for California UI initial claims. Documented components: EDD denied about 3.4 million pandemic-era claims under UIC § 1253(a) for non-response (G2); ALJs overturn about 50 percent of appealed EDD decisions, implying 5-10 percent of all applicants are denied by EDD before being approved by an ALJ (G2, 'Half of EDD Decisions Overturned on Appeal'); EDD's own weekly legislative reports counted only about 705,000 'disqualified/denied' over the same period (G2).",
+  "timing_gold": {
+    "end_to_end_median_days": 21,
+    "p90": 35,
+    "source": "official (EDD declared estimate) cross-checked against audit-reported DOL performance data",
+    "quote": "It takes about three weeks to process a new application for unemployment benefits and issue payment to eligible workers."
+  },
+  "timing_gold_secondary": [
+    {
+      "what": "Federal first-payment promptness criterion applicable to California (a waiting-week State)",
+      "value": "87 percent of intrastate first payments within 14 days of the end of the first compensable week; 93 percent within 35 days",
+      "source": "official",
+      "doc": "L5",
+      "quote": "14 days, waiting week States | 21 days, nonwaiting week States | 35 days, all States ... Intrastate Claims ... 87 | 87 | 93"
+    },
+    {
+      "what": "Observed first-payment timeliness reported by EDD to the U.S. Department of Labor",
+      "value": "about 75 percent within 14 days for claims submitted April-September 2019; only 61 percent for the same months in 2020",
+      "source": "audit",
+      "doc": "G1",
+      "quote": "for the same period in 2020, EDD reported that it made only 61 percent of payments within 14 days"
+    },
+    {
+      "what": "Share of applicants experiencing delay in normal economic times",
+      "value": "15 to 20 percent",
+      "source": "audit",
+      "doc": "G2",
+      "quote": "Between 15 percent and 20 percent of workers who apply for UI during normal economic times experience delays."
+    },
+    {
+      "what": "Effect of the manual-review branch",
+      "value": "a claim routed to manual processing cannot be determined in under 21 days",
+      "source": "audit",
+      "doc": "G3",
+      "quote": "Once you require manual processing, you cannot have your claim determined in under 21 days."
+    },
+    {
+      "what": "First-level and second-level appeal duration",
+      "value": "51 days (first level) and 58 days (second level) on average, July 2010 - April 2014; federal standard is 60 percent of first-level decisions within 30 days and 80 percent within 45 days",
+      "source": "audit",
+      "doc": "G5",
+      "quote": "the appeals board must make at least 60 percent of its first-level decisions within 30 days of the date the appeal was filed, and at least 80 percent within 45 days"
+    }
+  ],
+  "known_gaps": [
+    "The routing rule is not public. G3 proves an internal report called \"CPT Conditions\" enumerates every reason an electronic claim is diverted to manual review, and names one code (CPT Code 023, international mailing address), but neither the current condition list nor the code-to-queue mapping is published anywhere. A10/A06/A07 are therefore correct in existence but unscored in structure: a solver cannot recover the branch conditions, and neither can this gold file.",
+    "No gold document states which of the three fact-finding channels (Eligibility Questionnaire / DE 4365FF / phone interview) a given claim gets, or the lead time for scheduling a phone interview. D8 lists all three and gives day counts only for the questionnaire path (3 days + 7 days).",
+    "No gold document states an internal service level for the interval between the eligibility interview (A22) and the determination (A23). A widely repeated claimant report of \"10 business days after the interview\" appears in at least three independent Reddit threads and in no EDD, Auditor, or LAO document we hold; it is deliberately excluded from this gold file.",
+    "Current-era numbers are missing. The manual-review share (40 percent), automation rate (~60 percent), tier 1 / EPR staffing split, and identity-verification throughput all come from 2020-2022 documents. Nothing equivalent has been published for the post-EDDNext system, so A05-A07 timing is dated rather than current.",
+    "A05 is modelled as a single system activity, but G1's Figure 1 is EDD's own simplification of its procedure documents; the underlying sequence (wage-record retrieval, base-period computation, SSA/DMV identity matching, claim establishment) is not separately documented, so the gold undercounts activities inside the automated path.",
+    "Occasion coding is lossy for this process: the phone interview (A22) and the ALJ hearing (A31) are both conducted by telephone, but the schema's occasion enum has no telephone value, so A22 is coded 'internal' and A31 'hearing'.",
+    "Per-activity timing distributions do not exist anywhere. Every timing figure in this file is either a statutory or federal deadline, an agency-wide average, or a compliance-rate threshold; no gold document publishes stage-level medians or p90s for California UI, so p90_days is null for most activities.",
+    "Observed-tier evidence about EDD is itself unreliable: G1 found EDD's public backlog dashboard reported about 685,700 claims while fewer than 20,000 actually had incomplete EDD work, and G2 found EDD's legislative reporting undercounted true denials roughly fivefold. Any solver scored against EDD's own published statistics is being scored against a known-biased instrument.",
+    "Title 22 CCR §§ 1256-1, 1256-3, 1256-30, 1253(c)-1 and 1326-6(b)(2) govern determination substance and are cited secondhand in G5 but were not fetched, so the determination step (A23) has no regulation-level element_ref.",
+    "Judicial review (writ of mandate, within six months of the Appeals Board decision per G4) is documented but excluded from the activity list as outside the implementer's process."
+  ],
+  "notes": "Gold for the (ui_claim, EDD) task. Designed-tier spine: G1's Figure 1 (drawn by the Auditor from EDD's own procedure documents) for the automated-vs-manual filing fork; G3 for the manual-review queues, the CPT Conditions report, the ID.me procurement and the BPO/UI-Online (EDDCAN) account-linking defect; G2 for what makes eligibility hard to prove and for appeal overturn rates; G4 (DE 1433, CUIAB's own procedure manual) for the entire appeal lane; G5 for determination and appeal timeliness baselines; G6 for the internal fraud-triage units. Declared EDD step pages (D1-D10) are used only to anchor the applicant-facing activities and to fix which steps a claimant can actually see, per the brief. Visibility discipline: an activity is labelled staff_only only after checking that no applicant-facing document in corpus/realworld/ui_claim/raw/ mentions it. The four staff_only activities are A05 (automatic claim establishment; 'automatic' appears in no applicant-facing UI page, only in two unrelated passages of DE 1275A, about direct-deposit transfers and alternate claim types), A06 (CPT routing; 'manual', 'queue' and 'CPT' appear in no applicant-facing page), A11 (fraud triage units; the unit names appear only in G6), and A16 (RESEA automated profiling; 'reemployment' and 'RESEA' appear in no applicant-facing page, only in UIC § 1253(f)). A07 and A19 are applicant_inferable rather than staff_only because D6 tells the claimant that a 'Pending' status means EDD is confirming identity or eligibility. CUIAB registration and calendaring (A28, A29) are applicant_inferable because D9 tells the claimant the appeal is forwarded and a hearing will be scheduled, even though the FIFO-with-eligibility-priority rule exists only in G4. Two known gold-error risks: (1) the timing_gold end-to-end figure is EDD's own declared estimate, which happens to coincide with the federal nonwaiting-week benchmark rather than with measured California performance (G1 reports 61-75 percent within 14 days); (2) all back-office structure is 2020-2022 vintage and EDDNext has since changed the systems, so this gold is a snapshot of the audited process, not necessarily the 2026 process."
+}

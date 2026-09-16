@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "process_truth",
+  "description": "Full designed process. Extends pipeline/schemas/process_model.schema.json with: source 'designed'; actors as objects (id/name/dept/type) instead of strings; and the activity fields visibility, element_ref, timing, fee, rework, local_name, p_occurs, flow_gate, per_case, blocking.",
+  "type": "object",
+  "required": [
+    "model_id",
+    "source",
+    "jurisdiction",
+    "stat_id",
+    "actors",
+    "activities",
+    "edges",
+    "terminal_artifact",
+    "denial_rate"
+  ],
+  "properties": {
+    "model_id": {
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "designed",
+        "declared",
+        "statute",
+        "observed"
+      ]
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "jur_id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "stat_id": {
+      "type": "string"
+    },
+    "statute_cite": {
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "unpermitted_unit_amnesty",
+        "str_registration",
+        "sidewalk_vending",
+        "tree_removal",
+        "home_business",
+        "mobile_food",
+        "solar_auto_permit",
+        "rental_inspection",
+        "backyard_hens",
+        "special_event",
+        "well_permit",
+        "contractor_registration"
+      ]
+    },
+    "program_name": {
+      "type": "string"
+    },
+    "local_rule_cite": {
+      "type": "string"
+    },
+    "local_rule_instrument": {
+      "type": "string"
+    },
+    "lead_department": {
+      "type": "string"
+    },
+    "form_name": {
+      "type": "string"
+    },
+    "checklist_name": {
+      "type": "string"
+    },
+    "permit_system": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "version_date": {
+      "type": "string"
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dept": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "actor",
+          "visibility",
+          "occasion",
+          "artifacts_in",
+          "artifacts_out",
+          "timing",
+          "optional"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Verb-first action phrase (\"Submit...\", \"Pay...\", \"Issue...\"); the statute's own wording is in element_text/span.quote."
+          },
+          "local_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "actor": {
+            "type": "string"
+          },
+          "visibility": {
+            "enum": [
+              "applicant_facing",
+              "applicant_inferable",
+              "staff_only"
+            ]
+          },
+          "element_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "occasion": {
+            "enum": [
+              "counter",
+              "online",
+              "site_visit",
+              "internal",
+              "mail",
+              "hearing"
+            ]
+          },
+          "artifacts_in": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "artifacts_out": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timing": {
+            "type": "object",
+            "required": [
+              "dist",
+              "median_days",
+              "p90_days"
+            ],
+            "properties": {
+              "dist": {
+                "type": "string"
+              },
+              "median_days": {
+                "type": "number"
+              },
+              "p90_days": {
+                "type": "number"
+              }
+            }
+          },
+          "fee": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "when": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "refundable": {
+                "type": "boolean"
+              }
+            }
+          },
+          "rework": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "p_trigger",
+              "back_to"
+            ],
+            "properties": {
+              "p_trigger": {
+                "type": "number"
+              },
+              "back_to": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "p_occurs": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "flow_gate": {
+            "enum": [
+              "always",
+              "if_denied",
+              "if_appealed",
+              "if_rework"
+            ]
+          },
+          "per_case": {
+            "type": "boolean",
+            "description": "false = standing obligation (publish rules, maintain registry, report to the state): not walked by an applicant and excluded from the simulated timeline and from process-level order reveals."
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "backoffice_tag": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "element_text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The statute or local-rule clause wording this activity implements."
+          },
+          "counterparty": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Actor id on the other side of the step (the cashier for a fee payment, the receiving department for a referral)."
+          },
+          "span": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "quote": {
+                "type": "string"
+              },
+              "cite": {
+                "type": "string"
+              }
+            }
+          },
+          "statutorily_disclosed": {
+            "type": "boolean",
+            "description": "true for a staff_only activity that implements a public statute or ordinance element: invisible to the applicant but inferable from public law, so the ceiling credits its existence at `approximate`."
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "type"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "sequence",
+              "rework",
+              "optional",
+              "handoff"
+            ]
+          },
+          "condition": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "terminal_artifact": {
+      "type": "string"
+    },
+    "denial_rate": {
+      "type": "number"
+    },
+    "p_appeal_if_denied": {
+      "type": "number"
+    },
+    "unimplemented_elements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "deviations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "prior_version": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer"
+        },
+        "version_date": {
+          "type": "string"
+        },
+        "cite": {
+          "type": "string"
+        },
+        "fee_amount": {
+          "type": "number"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

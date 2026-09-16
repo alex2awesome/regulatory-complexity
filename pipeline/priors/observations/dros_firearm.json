@@ -1,0 +1,2238 @@
+{
+  "slug": "dros_firearm",
+  "observations": [
+    {
+      "obs_id": "dros_firearm-0001",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, DOJ BOF)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC written test retake (24h minimum interval)",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A04",
+      "quote": "after 24 hours have elapsed, they may take a different version of the FSC test without any additional fee (one free retest)",
+      "date": "2025-06",
+      "notes": "Gold activity A04. Source is D2 (DES Dealer/Ammunition User Guide, a staff manual), not a statute citation, hence designed_document not statutory."
+    },
+    {
+      "obs_id": "dros_firearm-0002",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, DOJ BOF)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "DOJ eligibility check against DOJ/hospital records + NICS cross-check",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": 10,
+        "p90": 30
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A16",
+      "quote": "DOJ examines its own records and authorized state hospital records to determine if a purchaser is prohibited from firearm possession under state or federal law.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A16, timing.source cites Pen. Code SS26815, 28220(g) directly; p50/p90 here describe the statutory clock structure (10-day baseline, 30-day outer bound), not a measured distribution."
+    },
+    {
+      "obs_id": "dros_firearm-0003",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, DOJ BOF)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Mandatory 10-day waiting period before delivery",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A17",
+      "quote": "Within 10 days of the application to purchase, or, after notice by the department pursuant to Section 28220, within 10 days of the submission to the department of any correction to the application",
+      "date": "2026-09-15",
+      "notes": "Gold activity A17, Pen. Code S26815(a). This is the statutory ceiling, recorded as statutory_cap_days per the taxonomy rule, not elapsed_days."
+    },
+    {
+      "obs_id": "dros_firearm-0004",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, DOJ BOF)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay branch: temporary hold pending DOJ final determination",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A19",
+      "quote": "A 'Delayed' notice shall be generated when the Department is unable to determine the purchaser's eligibility within the 10-day waiting period... DOJ has up to 30 days to come to a determination.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A19, Pen. Code S28220(g)(3)-(4). Statutory ceiling on the delay-resolution window."
+    },
+    {
+      "obs_id": "dros_firearm-0005",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined branch: dealer discretionary release/hold decision",
+      "value": {
+        "elapsed_days": 31,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A20",
+      "quote": "An 'Undetermined Notice' shall be generated when 30 days have passed since the original transaction date and the Department is unable to determine a purchaser's eligibility",
+      "date": "2020-01-15",
+      "notes": "Gold activity A20, sourced to D1 (DES Dealer User Guide SOP) rather than a bare statute citation for this specific notice-generation timing detail, hence designed_document. The decision itself is delegated to the dealer (third_party), matching taxonomy's licensed-private-actor definition."
+    },
+    {
+      "obs_id": "dros_firearm-0006",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, DOJ BOF)",
+      "step_key": {
+        "agency_class": "fiscal",
+        "task_type": "payment",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Monthly DES billing cycle; non-payment within 30 days suspends dealer",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A31",
+      "quote": "At the first of each month, the DOJ will generate DES invoices for each dealership that submitted DROS transactions during the previous month.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A31, 11 CCR S4240(b) - a regulation (written into law), so tiered statutory rather than designed_document despite also citing the D1 billing chart. Blocking party is the dealer (playing an applicant-like payer role in this sub-process)."
+    },
+    {
+      "obs_id": "dros_firearm-0007",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "End-to-end DROS-to-delivery time (inferred from statutory clock, not measured)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          10,
+          30
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#timing_gold",
+      "quote": "There is a mandatory 10-day waiting period before the firearms dealer can deliver the firearm to the purchaser.",
+      "date": "2026-09-15",
+      "notes": "timing_gold.end_to_end_median_days=10/p90=30 is explicitly labelled 'no official distribution of actual DROS-to-delivery times is published by DOJ' - this is an inferred worst-case built from the statutory clock (10-day baseline + 30-day delay ceiling), not a measured distribution. Tiered statutory, not verifiable_official, for that reason."
+    },
+    {
+      "obs_id": "dros_firearm-0008",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC answer-sheet retention by DOJ-certified instructor",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1825,
+          1825
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A06",
+      "quote": "You must retain all applicants' completed FSC test answer sheets for five years from the test date.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A06 evidence quote (doc D2, a manual) - gold's structured timing field was null for this activity even though a duration is stated in evidence[]. This is a back-office retention duration, not an applicant-facing wait."
+    },
+    {
+      "obs_id": "dros_firearm-0009",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer retention of signed DROS printout",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1095,
+          1095
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A30",
+      "quote": "The DROS printout signed by the purchaser and dealer must be retained for three years. (Pen. Code, S 28215, subd. (c).)",
+      "date": "2026-09-15",
+      "notes": "Gold activity A30 evidence quote directly cites Pen. Code S28215(c), hence statutory. Back-office retention duration, not applicant wait time."
+    },
+    {
+      "obs_id": "dros_firearm-0010",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer retention of ammunition purchase records",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1825,
+          1825
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:dros_firearm__ca_doj_bof_dealer#A30",
+      "quote": "Retain the signed DROS printout at the place of business for three years (ammunition records five years)",
+      "date": "2026-09-15",
+      "notes": "Gold activity A30 name field states the ammunition-record variant (5 years); no separate statute cite captured for this sub-fact in the collected evidence, so tiered designed_document pending confirmation against 11 CCR text."
+    },
+    {
+      "obs_id": "dros_firearm-0011",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting period before delivery (statute text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S1",
+      "quote": "Within 10 days of the application to purchase, or, after notice by the department pursuant to Section 28220, within 10 days of the submission to the department of any correction to the application.",
+      "date": "2026-09-15",
+      "notes": "Pen. Code S26815, statute text (fetched date used; statutes carry no publication date)."
+    },
+    {
+      "obs_id": "dros_firearm-0012",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined extension / dealer discretion (statute text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S2",
+      "quote": "If eligibility remains undetermined after the waiting period but within 30 days, the DOJ either approves the transfer or denies it. If still undetermined after 30 days, the dealer may proceed with transfer.",
+      "date": "2026-09-15",
+      "notes": "Pen. Code S28220(g). The statute itself delegates a discretionary decision to the dealer once 30 days pass without resolution."
+    },
+    {
+      "obs_id": "dros_firearm-0013",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC certificate validity period",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1825,
+          1825
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S13",
+      "quote": "An FSC is valid for five years from the date of issuance.",
+      "date": "2026-09-15",
+      "notes": "S13 is an applicant-facing declared/FAQ page; tiered designed_document (no better bucket in the 5-tier taxonomy for a public agency FAQ). Undated source, fetch date used."
+    },
+    {
+      "obs_id": "dros_firearm-0014",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC test retake interval and instructor continuity rule",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S20",
+      "quote": "after 24 hours have elapsed, they may take a different version of the FSC test without any additional fee (one free retest)",
+      "date": "2025-06",
+      "notes": "FSC Manual for Dealers and DOJ Certified Instructors (SOP)."
+    },
+    {
+      "obs_id": "dros_firearm-0015",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting period defined in hour-periods",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S21",
+      "quote": "The waiting period for the purchase of a firearm is ten (10) 24-hour periods from the date and time the DROS is accepted by DOJ.",
+      "date": "2020-01-15",
+      "notes": "DES Dealer/Ammunition User Guide (SOP), Rev.4."
+    },
+    {
+      "obs_id": "dros_firearm-0016",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined-notice generation window",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S21",
+      "quote": "An 'Undetermined Notice' shall be generated when 30 days have passed since the original transaction date and the Department is unable to determine a purchaser's eligibility to own or possess firearms",
+      "date": "2020-01-15",
+      "notes": "DES Dealer/Ammunition User Guide (SOP)."
+    },
+    {
+      "obs_id": "dros_firearm-0017",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "correction_cycle",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "DROS self-service correction/cancellation window via DES",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          60
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S21",
+      "quote": "Within 60 days of submission, a DROS may be corrected or cancelled via the DROS Entry System (DES). To correct or cancel a DROS after 60 days, a DROS Cancellation/Correction for Firearms form (BOF 958) is required.",
+      "date": "2020-01-15",
+      "notes": "DES Dealer/Ammunition User Guide (SOP). Operational deadline set by DES self-service design, not a statute."
+    },
+    {
+      "obs_id": "dros_firearm-0018",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting period defined in hour-periods (dealer FAQ)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S23",
+      "quote": "The waiting period for the purchase of a firearm is ten (10) 24-hour periods from the date and time the DROS is accepted by DOJ.",
+      "date": "2026-09-15",
+      "notes": "Dealer FAQ, undated (fetch date used)."
+    },
+    {
+      "obs_id": "dros_firearm-0019",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "One-gun-per-30-days rolling purchase cap",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S23",
+      "quote": "A person shall not make an application to purchase one or more firearms that would result in the purchase of more than three firearms cumulatively within any 30-day period",
+      "date": "2026-09-15",
+      "notes": "Dealer FAQ. Confirms the rule was expanded from 1-handgun/30-days to 3-firearms/30-days."
+    },
+    {
+      "obs_id": "dros_firearm-0020",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Historical waiting-period length by era (official DOJ chart)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S24",
+      "quote": "1975-1997: 15-day waiting period in place. 1997-present: 10-day waiting period in place.",
+      "date": "2019-02-01",
+      "notes": "DOJ's own published Dealer Record of Sale Transactions chart (1972-2018). Documents legal wait length by era (5 days 1972-74, 15 days 1975-97, 10 days 1997-present) - the one genuinely official/audited duration-adjacent document found for this slug; note it documents statutory history, not measured processing performance, and DOJ publishes no delay/undetermined counts or post-2018 figures."
+    },
+    {
+      "obs_id": "dros_firearm-0021",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "10-day wait clock start (FFL possession + DROS submission)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R1",
+      "quote": "The 10 day wait begins once the FFL has possession of the firearm and submits a DROS (Dealer Record of Sale) form. This includes online purchases.",
+      "date": "2020-06-09",
+      "notes": "Community wiki FAQ (r/CAguns), user-authored, not corroborated against a DOJ document in this recon."
+    },
+    {
+      "obs_id": "dros_firearm-0022",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay onset within initial 10-day wait, released after full 30 days",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R2",
+      "quote": "A day before the 10 day mark they called and told me that my DROS is delayed and that we will have to wait to find out when it clears.",
+      "date": "2025-06-02",
+      "notes": "Single reddit case; selection-biased toward delay since posters with a routine 10-day approval rarely post."
+    },
+    {
+      "obs_id": "dros_firearm-0023",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined status transition timing and further dealer window",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R3",
+      "quote": "the state has until 30 days ... to Approve, Deny or put you on 'Undetermined' status. Typically it takes up to 24hrs for your status to change to Undetermined once the 30 days has passed.",
+      "date": "2025-06-20",
+      "notes": "Self-identified FFL (staff-insider per notes.md). The further claim that the FFL then gets 'another 30 days' to Deliver or Cancel is reconstructed by users and not found stated this way in any DOJ document collected."
+    },
+    {
+      "obs_id": "dros_firearm-0024",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay onset day within 10-day wait (first purchase)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R4",
+      "quote": "the wonderful Doj's office put me on a delay on day 7 of my 10 wait",
+      "date": "2025-12-04",
+      "notes": "Selection-biased toward delay."
+    },
+    {
+      "obs_id": "dros_firearm-0025",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay-to-approval resolution time",
+      "value": {
+        "elapsed_days": 17,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R5",
+      "quote": "My DROS got delayed on day 7 ... Day 17 I got the Approval.",
+      "date": "2026-01-12",
+      "notes": "Resolution 10 days after the delay notice; selection-biased sample."
+    },
+    {
+      "obs_id": "dros_firearm-0026",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, Sportsman's Warehouse)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer-specific pickup deadline shorter than statutory 30 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 29,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R6",
+      "quote": "Sportsman's has a policy of 29 days after DROS initiated. You might be out of luck already.",
+      "date": "2025-05-13",
+      "notes": "Dealer-level policy variance layered on the statewide statutory clock; one day short of the 30-day statutory undetermined threshold."
+    },
+    {
+      "obs_id": "dros_firearm-0027",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay onset to called-in resolution",
+      "value": {
+        "elapsed_days": 26,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R8",
+      "quote": "i dros a gun at sportsman last month in April went delayed at day 6 went up to day 26 and I called",
+      "date": "2025-05-19",
+      "notes": "Selection-biased toward delay."
+    },
+    {
+      "obs_id": "dros_firearm-0028",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Live-scan re-check to denial letter",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R9",
+      "quote": "Was advised to do the California Firearm Eligibility Check/ LiveScan ... after 3 months, I got a letter in the mail saying I was denied.",
+      "date": "2025-07-29",
+      "notes": "Single worst-case outlier for a misidentification dispute; contrast with R-SimkinCA's 10-day resolution below shows high variance in this step."
+    },
+    {
+      "obs_id": "dros_firearm-0029",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Denial within initial 10-day wait",
+      "value": {
+        "elapsed_days": 4,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R12",
+      "quote": "Four days into the ten day waiting period ... I received a call from the firearms dealer saying that my DROS application was denied.",
+      "date": "2020-03-21",
+      "notes": "Single case; denial can occur well before the 10-day mark elapses."
+    },
+    {
+      "obs_id": "dros_firearm-0030",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-appeal return-to-FFL deadline",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R13",
+      "quote": "the letter states that I must go back to the original FFL where I purchased the shotgun within 30 days",
+      "date": "2020-03-26",
+      "notes": "Single case of a successful denial appeal."
+    },
+    {
+      "obs_id": "dros_firearm-0031",
+      "slug": "dros_firearm",
+      "jurisdiction": "Sunnyvale, CA (Sunnyvale DPS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "on_request",
+        "jurisdiction_class": "small_city"
+      },
+      "step_label": "CCW license issuance end-to-end (adjacent process, not DROS)",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R15",
+      "quote": "Just got my CCW license via Sunnyvale DPS in 3 months.",
+      "date": "2026-04-15",
+      "notes": "ADJACENT PROCESS: CCW permit issuance is a distinct county/city process (psych eval, sheriff/PD interview) frequently conflated with DROS in reddit threads per notes.md section 6/cross_process_contamination. Included for completeness, not counted toward DROS step coverage."
+    },
+    {
+      "obs_id": "dros_firearm-0032",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "intake_screen",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "daily_batch",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "PPT DROS submission deferred to next business day by dealer policy",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 1,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R20",
+      "quote": "if we show up later for a PPT, they will take our information down and our gun and start the DROS the next day. We pick up 10 days after DROS is started.",
+      "date": "2026-06-09",
+      "notes": "Dealer-level policy shifts the clock start by up to a day depending on walk-in time."
+    },
+    {
+      "obs_id": "dros_firearm-0033",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer DES system lockout (CFLC renewal lapse)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R21",
+      "quote": "My shops been down for a week now.",
+      "date": "2026-02-11",
+      "notes": "Unresolved at time of posting; a dealer-administrative failure mode indistinguishable from a DOJ-side delay from the buyer's seat."
+    },
+    {
+      "obs_id": "dros_firearm-0034",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined-to-second-DROS re-attempt at another dealer",
+      "value": {
+        "elapsed_days": 8,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R30",
+      "quote": "first one came back undetermined on the 8th of my second one",
+      "date": "2025-10-05",
+      "notes": "Selection-biased toward delay/undetermined."
+    },
+    {
+      "obs_id": "dros_firearm-0035",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Full undetermined cycle to dealer release",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R33",
+      "quote": "After getting delayed, then undetermined at Bass Pro, I made sure to hit my local FFL... Needless to say, I went undetermined but the good people at Red Star Armory will work with you!",
+      "date": "2025-10-04",
+      "notes": "Selection-biased toward delay/undetermined; illustrates dealer-shopping behavior once a purchase goes Undetermined."
+    },
+    {
+      "obs_id": "dros_firearm-0036",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC test administration time (no complaints found)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0.01,
+          0.02
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "inferred",
+      "source_id": "sources.json:timing_summary#1",
+      "quote": "no timing complaints found; treated as a same-visit, ~15-30 minute formality at the dealer counter",
+      "date": "2026-09-15",
+      "notes": "Corpus curator's inferred estimate from absence of reddit complaints about FSC test duration itself, not a directly measured or reported figure. n=0 reflects zero corroborating reports."
+    },
+    {
+      "obs_id": "dros_firearm-0037",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay onset day within initial 10-day wait (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          2,
+          9
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 12,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#3",
+      "quote": "delay onset reported anywhere from day 2 to day 9 of the initial 10-day wait",
+      "date": "2026-09-15",
+      "notes": "Rollup across R2, R4, R5, R6, R8, R30, R33 and others (n=12 reddit reports aggregated by corpus curator). Selection-biased toward delay since routine approvals are rarely posted about."
+    },
+    {
+      "obs_id": "dros_firearm-0038",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay resolution day (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          17,
+          30
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 12,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#3",
+      "quote": "resolution reported anywhere from ~day 17 (R5) to the full 30 days (R33); one dealer enforces an internal 29-day cutoff shorter than the statutory 30 (R6)",
+      "date": "2026-09-15",
+      "notes": "Same n=12 rollup as above, resolution side. Selection-biased toward delay."
+    },
+    {
+      "obs_id": "dros_firearm-0039",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, staff/instructor-side)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC instructor Certificate of Eligibility (COE) processing",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          28,
+          56
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "instructor COE ~4-8 weeks",
+      "date": "2026-09-15",
+      "notes": "Staff/instructor-side upstream process, not the purchaser-facing DROS flow, but part of the same statewide FSC program design (S15 program page)."
+    },
+    {
+      "obs_id": "dros_firearm-0040",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, staff/instructor-side)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC instructor certification processing time - online channel",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          3,
+          4
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "instructor certification 3-4 business days online",
+      "date": "2026-09-15",
+      "notes": "Staff-side upstream process; online channel is markedly faster than mail (see next observation)."
+    },
+    {
+      "obs_id": "dros_firearm-0041",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, staff/instructor-side)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FSC instructor certification processing time - mail channel",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          28
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "up to 4 weeks by mail",
+      "date": "2026-09-15",
+      "notes": "Staff-side upstream process; mail channel is markedly slower than the online channel for the identical certification task - a clean channel effect."
+    },
+    {
+      "obs_id": "dros_firearm-0042",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Undetermined/delay resolved with no notification at 30-day mark",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1ehlcwp",
+      "quote": "They delayed my dros, and of course 30 days passed without any notification.",
+      "date": "2024-08-01",
+      "notes": "Selection-biased toward delay; illustrates that the 30-day mark passing silently is a common complaint pattern."
+    },
+    {
+      "obs_id": "dros_firearm-0043",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, Orange County applicant)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "DROS data-entry error correction via DOJ phone contact",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.5,
+        "queue_days": 14,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1lb3j17",
+      "quote": "It took 2 weeks to reach someone but once I did, the correction took less than a day.",
+      "date": "2025-06-14",
+      "notes": "Distinguishes queue time (2 weeks to reach a live person) from touch time (correction itself resolved in under a day) once contact was made - a clean illustration of the touch/queue split the taxonomy rationale calls out."
+    },
+    {
+      "obs_id": "dros_firearm-0044",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delay notice arriving one day before scheduled pickup (day 9)",
+      "value": {
+        "elapsed_days": 9,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1q4wwu6",
+      "quote": "On 12/26/25, 1 day before my supposed pick up date, I got an email from the dealer saying my DROS had been delayed.",
+      "date": "2026-01-05",
+      "notes": "Selection-biased toward delay."
+    },
+    {
+      "obs_id": "dros_firearm-0045",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer DES system lockout exceeding one month (second report)",
+      "value": {
+        "elapsed_days": 35,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1r2b75q",
+      "quote": "It's been 35 days now and I have nothing to show for it.",
+      "date": "2026-02-11",
+      "notes": "Same underlying dealer DES-outage episode as R21 but a distinct commenter/case reporting a longer elapsed time (35 vs 7 days), showing within-episode variance by customer."
+    },
+    {
+      "obs_id": "dros_firearm-0046",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, Turner's Outdoorsman)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "scheduling",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Layaway hold before starting DROS at dealer discretion",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1s2x4e4",
+      "quote": "I have gone as far as 3 months before Turners manager called and said \"hey come finish buying this\"",
+      "date": "2026-03-25",
+      "notes": "Pre-DROS commitment/layaway step; store's informal policy extended well beyond a nominal 30-day layaway window in this case."
+    },
+    {
+      "obs_id": "dros_firearm-0047",
+      "slug": "dros_firearm",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "FFL03 Curio & Relic license + Certificate of Eligibility issuance",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1u0g8l1",
+      "quote": "It took roughly 5 months exactly from start to finish from filling out CCW app to getting the card in the mail, and roughly 2 month exactly for FFL03+COE.",
+      "date": "2026-06-08",
+      "notes": "FFL03+COE is a distinct licensing track layered on the base DROS process (notes.md section 6); the CCW figure in the same quote is the adjacent process and is not separately recorded here to avoid duplicating R15."
+    },
+    {
+      "obs_id": "dros_firearm-0048",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Background wait time reported longer than statutory baseline",
+      "value": {
+        "elapsed_days": 18,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "h03tti",
+      "quote": "10 day wait is now 15-20 days.",
+      "date": "2020-06-21",
+      "notes": "Comment on the pinned r/CAguns FAQ thread; midpoint of the stated 15-20 day range used for elapsed_days, full range in range_days."
+    },
+    {
+      "obs_id": "dros_firearm-0049",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Current DOJ background wait time estimate",
+      "value": {
+        "elapsed_days": 13,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "h03tti",
+      "quote": "Current DOJ background wait times seem to be ~13 days.",
+      "date": "2020-06-27",
+      "notes": "Comment on the pinned r/CAguns FAQ thread."
+    },
+    {
+      "obs_id": "dros_firearm-0050",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Folk explanation for waits up to 30 days (caseload)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "h03tti",
+      "quote": "Heard it can be up to 30 days because of the increased case load and insufficient staff to review case by case.",
+      "date": "2020-07-08",
+      "notes": "Comment on the pinned r/CAguns FAQ thread; a community folk-belief about cause, not a documented DOJ fact per notes.md."
+    },
+    {
+      "obs_id": "dros_firearm-0051",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Pickup after a 10-12 day DROS (no delay)",
+      "value": {
+        "elapsed_days": 11,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "h03tti",
+      "quote": "Just picked up my new handgun today (after 10-12 day DROS), using my car registration as proof of residency.",
+      "date": "2020-06-14",
+      "notes": "Comment on the pinned r/CAguns FAQ thread; a routine (non-delayed) case, useful as a baseline contrast to the delay-heavy sample elsewhere in this corpus."
+    },
+    {
+      "obs_id": "dros_firearm-0052",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "One-gun-per-30-days rule (community paraphrase)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1dzr102",
+      "quote": "1 every 30 days, if it's a PPT (private party transfer) or a consignment gun the 1 in 30 doesn't apply",
+      "date": "2024-07-10",
+      "notes": "Community paraphrase of the exemption structure; corroborates S23's 3-in-30 rule text."
+    },
+    {
+      "obs_id": "dros_firearm-0053",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delays reported rare and usually resolved by day 30",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1m5w04q",
+      "quote": "Delays aren't common but they're usually resolved by the end of the 30 days, it's actually pretty rare to have an entirely undetermined background check.",
+      "date": "2025-07-21",
+      "notes": "Counter-narrative to the delay-heavy sample: this commenter frames delay/undetermined as uncommon overall, a useful check against reddit's selection bias toward posting about delays."
+    },
+    {
+      "obs_id": "dros_firearm-0054",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, Bass Pro Shops)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer-specific 11-day pickup policy (Bass Pro Shops)",
+      "value": {
+        "elapsed_days": 11,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1n2g7la",
+      "quote": "Basspro does the 11 days because the law is technically 10 24 hour periods (from when the DROS is submitted I think) and they were having problems with people coming in on the 10th day",
+      "date": "2025-08-28",
+      "notes": "Dealer-level policy variance layered on the statutory 10-day/240-hour clock; corroborated independently by a second Bass Pro customer below (1rxd3op)."
+    },
+    {
+      "obs_id": "dros_firearm-0055",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "document_review",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Cable-lock purchase-receipt recency requirement",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1papdsq",
+      "quote": "If it didn't come with a lock, and you plan to bring your own lock, you would need to bring proof that you purchased the lock within the past last 30 days.",
+      "date": "2025-11-30",
+      "notes": "Safe-storage compliance sub-step at delivery; a 30-day receipt-recency rule distinct from the one-gun-per-30-days rule despite sharing the same window length."
+    },
+    {
+      "obs_id": "dros_firearm-0056",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Pickup 10 days after starting DROS (online-rebate purchase)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1pnl1yy",
+      "quote": "Eventually picking it up 10 days later.",
+      "date": "2025-12-15",
+      "notes": "Routine (non-delayed) baseline case."
+    },
+    {
+      "obs_id": "dros_firearm-0057",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, hypothetical)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Illustrative 10-day buy/pickup cycle under the one-gun rule",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1pr1vy0",
+      "quote": "Day 01 - DROS Gun # 1. Day 11 - Pick up Gun # 1, DROS Gun # 2. Day 21 - Pick up Gun # 2, DROS Gun # 3.",
+      "date": "2025-12-20",
+      "notes": "Commenter's hypothetical schedule to test compliance with the 3-in-30 rule, not a reported real case; n=1 illustrative, not an actual completed transaction."
+    },
+    {
+      "obs_id": "dros_firearm-0058",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "One-gun-rule rolling window reported as 34 days elapsed",
+      "value": {
+        "elapsed_days": 34,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1tu338v",
+      "quote": "it's been 34 days since started my first Dros and did two more in may equaling 3 in may",
+      "date": "2026-06-01",
+      "notes": "Applicant's own accounting of the rolling 30-day purchase-count window; slightly exceeds 30 as reported, contributing to confusion about the exact anchor date used by DOJ."
+    },
+    {
+      "obs_id": "dros_firearm-0059",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "PPT appointment queue at dealers requiring scheduling",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 28,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1u1jalm",
+      "quote": "half the other shops in the area require you to make an appointment for a ppt, then tell you they dont have any available until 4 weeks later.",
+      "date": "2026-06-10",
+      "notes": "Distinct from the 10-day statutory wait itself: this is queue time to even get a PPT appointment slot at some dealers, a purely dealer-capacity-driven queue."
+    },
+    {
+      "obs_id": "dros_firearm-0060",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "5-year firearm-ownership prohibition after a 72-hour involuntary hold",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1825,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "i9yvrp",
+      "quote": "an involuntary 72 hour hold would result in a 5 year prohibition on firearm ownership",
+      "date": "2020-08-15",
+      "notes": "User's paraphrase of Welfare & Institutions Code (not independently verified against statute text in this recon); a different kind of DOJ-administered clock than the transactional 10/30-day DROS wait - an eligibility-restoration duration."
+    },
+    {
+      "obs_id": "dros_firearm-0061",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, Bass Pro Shops)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer-specific 11-day pickup policy (Bass Pro Shops, second report)",
+      "value": {
+        "elapsed_days": 11,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1rxd3op",
+      "quote": "the long length of time it takes to purchase and pick up just waiting in the store, as well as the 11 day store pickup policy.",
+      "date": "2025-12-06",
+      "notes": "Independent corroboration of the same Bass Pro Shops 11-day policy reported in 1n2g7la, at a different store visit."
+    },
+    {
+      "obs_id": "dros_firearm-0062",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Delayed twice; one case resolved on the last day of the 30-day window",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1lwfnbb",
+      "quote": "I've been delayed twice. Already own guns. 1 time went undetermined. Another time approved on the last day of 30 days. It's a crap shoot.",
+      "date": "2026-01-24",
+      "notes": "Same poster reports two different delay outcomes; illustrates within-person variance across repeat purchases."
+    },
+    {
+      "obs_id": "dros_firearm-0063",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Repeat-delay pattern for a single FFL client",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 5,
+      "evidence_tier": "community_reported",
+      "source_id": "1lgbeal",
+      "quote": "I have a client that's been delayed 5 times now in the past 4 months.",
+      "date": "2025-06-20",
+      "notes": "Self-identified FFL (qmdrkvic) describing a single client's history across 5 separate delay episodes over 4 months - staff-insider anecdote, n=5 episodes for that one client, not a broad sample."
+    },
+    {
+      "obs_id": "dros_firearm-0064",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Dealer releasing after 3 business days on a delayed NICS check",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1lgbeal",
+      "quote": "In May my NICS came back delayed. Lgs released my firearm after three days.",
+      "date": "2025-06-20",
+      "notes": "Fast-release dealer policy, contrasting sharply with the 29-30 day holdouts (R6, R33) reported elsewhere - shows the width of dealer-level discretion."
+    },
+    {
+      "obs_id": "dros_firearm-0065",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide, dealer-level)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "decision",
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Second delayed purchase resolved the next morning",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1lgbeal",
+      "quote": "This week I went and bought more and NICS, again, came back delayed. The very next morning it changed to \"PROCEED\".",
+      "date": "2025-06-20",
+      "notes": "Same commenter's second, faster-resolving delay episode with the same dealer."
+    },
+    {
+      "obs_id": "dros_firearm-0066",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Fast live-scan correction turnaround (contrast case)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1kmx2oh",
+      "quote": "it's another live scan, and more money, but I'm 10 days like clockwork now.",
+      "date": "2025-09-02",
+      "notes": "Contrasts with R9's 3-month live-scan-correction outlier; shows high variance in this step's resolution time."
+    },
+    {
+      "obs_id": "dros_firearm-0067",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Safe-handling demonstration has no attempt limit or minimum interval",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "o2p3um",
+      "quote": "There is no limit on how many times you can attempt the demo or time limit, unlike the FSC test which says you can only attempt once every 24 hours.",
+      "date": "2025-04-18",
+      "notes": "Notable absence of a duration constraint, unlike the FSC retest's 24-hour rule; recorded as elapsed_days=0 to represent 'no minimum interval', see notes."
+    },
+    {
+      "obs_id": "dros_firearm-0068",
+      "slug": "dros_firearm",
+      "jurisdiction": "California (statewide)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Denial-letter mailing time after phone denial notice",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "fmk2dv",
+      "quote": "I have not received any mail from the DOJ regarding reasons why I was denied yet. I have been told that they have two weeks to send me a letter.",
+      "date": "2020-03-14",
+      "notes": "Distinct step from the denial call itself (already captured via R12/S-sources): the written notice-of-denial letter has its own ~2-week mailing lag."
+    },
+    {
+      "obs_id": "dros_firearm-0069",
+      "slug": "dros_firearm",
+      "jurisdiction": "Federal (USCIS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "USCIS permanent-resident card renewal extension letter validity",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          548,
+          548
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "fmk2dv",
+      "quote": "I have an authenticated letter from USCIS explaining that my permanent residency status is extended 18 months from the date of expiry on my US permanent resident card.",
+      "date": "2020-03-14",
+      "notes": "ADJACENT PROCESS: a federal USCIS document-validity duration affecting purchaser ID eligibility, not a DOJ/DROS timing fact; included because it directly entered this purchaser's DROS denial dispute."
+    }
+  ],
+  "coverage": {
+    "by_evidence_tier": {
+      "verifiable_official": 1,
+      "designed_document": 14,
+      "statutory": 8,
+      "community_reported": 45,
+      "inferred": 1
+    },
+    "distinct_step_keys": 21,
+    "total_observations": 69,
+    "gold_steps_with_no_duration_evidence": [
+      "A05 (Issue the FSC immediately on a pass, online) - no numeric duration found anywhere; treated as instantaneous by all sources",
+      "A07 (Verify FSC/exemption at counter) - counter data-entry micro-step, no distinct timing evidence",
+      "A08 (Clear DES gate / dealership login) - counter data-entry micro-step, no distinct timing evidence",
+      "A09 (Capture purchaser/seller ID via swipe) - counter data-entry micro-step, no distinct timing evidence",
+      "A10 (Select DROS transaction type) - counter data-entry micro-step, no distinct timing evidence",
+      "A11 (Apply waiting-period exemption code) - counter data-entry micro-step, no distinct timing evidence",
+      "A12 (Preview DROS / fee agreement) - counter data-entry micro-step, no distinct timing evidence",
+      "A13 (Submit Final / DES returns Pending DROS report) - counter data-entry micro-step, no distinct timing evidence",
+      "A14 (Print & sign Pending DROS) - counter data-entry micro-step, no distinct timing evidence",
+      "A22 (Reject branch: DMV Reject / 30-Day Reject) - distinct from Denial/Delay/Undetermined; no duration evidence found specific to this branch",
+      "A28 (Thumbprint + signatures at delivery) - same-visit pickup micro-step, no distinct timing evidence",
+      "A29 (Add ammunition transaction at delivery) - same-visit pickup micro-step, no distinct timing evidence"
+    ]
+  }
+}

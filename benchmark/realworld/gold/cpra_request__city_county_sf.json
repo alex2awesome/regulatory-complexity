@@ -1,0 +1,575 @@
+{
+  "model_id": "cpra_request__city_county_sf",
+  "source": "designed",
+  "jurisdiction": "City and County of San Francisco — department custodian of records (e.g. SFPD) under the Sunshine Ordinance (SF Admin. Code ch. 67, art. III), plus the Supervisor of Records (City Attorney) and the Sunshine Ordinance Task Force appeal track",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {"id": "D1", "title": "San Francisco Sunshine Ordinance Task Force (SOTF) Complaint Procedures (revised 10/9/2024)", "url": "https://www.sfgov.org/sunshine/sites/default/files/Complaint_Procedure.pdf", "saved_as": "corpus/realworld/cpra_request/raw/S9_sotf_complaint_procedure.txt"},
+    {"id": "D2", "title": "SF Sunshine Ordinance (Admin. Code ch. 67), Article III: Public Information and Public Records — fetch-tool extraction of the ordinance page", "url": "https://www.sfgov.org/sunshine/article-iii-public-information-and-public-records", "saved_as": "corpus/realworld/cpra_request/raw/S13_sf_sunshine_article3_summary.txt"},
+    {"id": "D3", "title": "Cal. Gov. Code §7922.535 — 10-day determination and 14-day 'unusual circumstances' extension", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.535", "saved_as": "corpus/realworld/cpra_request/raw/S1_gov_7922_535.txt"},
+    {"id": "D4", "title": "Cal. Gov. Code §7922.530 — inspection and direct cost of duplication", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.530", "saved_as": "corpus/realworld/cpra_request/raw/S2_gov_7922_530.txt"},
+    {"id": "D5", "title": "Cal. Gov. Code §7922.600 — duty to assist the requester formulate a focused request", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.600", "saved_as": "corpus/realworld/cpra_request/raw/S5_gov_7922_600.txt"},
+    {"id": "D6", "title": "Cal. Gov. Code §7923.000 — writ of mandate, injunctive or declaratory relief", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7923.000", "saved_as": "corpus/realworld/cpra_request/raw/S3_gov_7923_000.txt"},
+    {"id": "D7", "title": "MuckRock agency statistics for SFPD and for the City and County of San Francisco (scraped 2026-09-15)", "url": "https://www.muckrock.com/agency/san-francisco-141/san-francisco-police-department-367/", "saved_as": "corpus/realworld/cpra_request/raw/muckrock_agency_stats.json"},
+    {"id": "D8", "title": "MuckRock per-request timelines, SFPD (Immediate Disclosure Request for airport crime statistics; Tenderloin camera/complaint/overtime request)", "url": "https://www.muckrock.com/foi/san-francisco-141/immediate-disclosure-request-sfpd-airport-crime-statistics-96529/", "saved_as": "corpus/realworld/cpra_request/raw/muckrock_request_samples.json"},
+    {"id": "D9", "title": "The People's Business: A Guide to the California Public Records Act (League of California Cities, rev. Sept. 2022)", "url": "https://www.pattersonca.gov/DocumentCenter/View/7832/THE-PEOPLES-BUSINESS--A-Guide-to-the-California-Public-Records-Act", "saved_as": "corpus/realworld/cpra_request/raw/S7_peoples_business_guide.txt"}
+  ],
+  "actors": [
+    {"id": "requester", "name": "Requester / petitioner / complainant (may file as 'Anonymous')", "dept": "external"},
+    {"id": "custodian", "name": "Department custodian of records (e.g. SFPD Legal Division; SFPD Airport Bureau)", "dept": "City and County of San Francisco department"},
+    {"id": "supervisor_of_records", "name": "Supervisor of Records", "dept": "San Francisco City Attorney's Office"},
+    {"id": "sotf_administrator", "name": "SOTF Administrator", "dept": "Sunshine Ordinance Task Force, City Hall Room 244"},
+    {"id": "sotf_committee", "name": "SOTF Complaint Committee (or other committee authorized to process complaints)", "dept": "Sunshine Ordinance Task Force"},
+    {"id": "sotf", "name": "Full Sunshine Ordinance Task Force (volunteer commissioners)", "dept": "Sunshine Ordinance Task Force"},
+    {"id": "sotf_dca", "name": "SOTF Deputy City Attorney", "dept": "San Francisco City Attorney's Office"},
+    {"id": "enforcement_bodies", "name": "District Attorney / California Attorney General / Board of Supervisors / Ethics Commission", "dept": "referral recipients"},
+    {"id": "superior_court", "name": "San Francisco Superior Court", "dept": "judiciary"}
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Submit the request orally or in writing by fax, email or postal delivery to the department custodian",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["description of the records sought"],
+      "artifacts_out": ["filed public records request"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "SF Admin. Code §67.21(a); Gov. Code §7922.530",
+      "evidence": [
+        {"doc": "D2", "quote": "Requests may be submitted orally or in writing via fax, email, or postal delivery.", "page_or_section": "Public Records Access Process"}
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Mark a simple, routine request an 'Immediate Disclosure Request', which is due by the close of business on the day following the day of the request",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["request marked 'Immediate Disclosure Request'"],
+      "artifacts_out": ["next-business-day response obligation"],
+      "timing": {"median_days": 1, "p90_days": 1, "source": "designed — SF Admin. Code §67.25 as extracted in D2. No observed instance in this sample met it: the one sampled IDR has been open 6+ years (D8)."},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.25",
+      "evidence": [
+        {"doc": "D2", "quote": "For simple requests marked \"Immediate Disclosure Request,\" responses are due \"no later than the close of business on the day following the day of the request.\"", "page_or_section": "Response Timeline"}
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Acknowledge the request and route it internally to the bureau or division that actually holds the records",
+      "actor": "custodian",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["filed request"],
+      "artifacts_out": ["internal referral", "acknowledgment and portal reference number"],
+      "timing": {"median_days": 2, "p90_days": 2, "source": "observed — D8 (SFPD acknowledged same day on the airport-statistics request and in 2 days on the Tenderloin request)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D8", "quote": "Acknowledged, forwarded internally.", "page_or_section": "SFPD airport crime statistics IDR, 2020-06-22 entry"},
+        {"doc": "D8", "quote": "Acknowledged (2 days).", "page_or_section": "SFPD Tenderloin data request, 2022-10-31 entry"}
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Ask the requester to clarify or narrow scope (date range, specific bureau) under the duty to assist",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["request as filed"],
+      "artifacts_out": ["clarified or narrowed request"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.600",
+      "evidence": [
+        {"doc": "D5", "quote": "Assist the member of the public to identify records and information that are responsive to the request or to the purpose of the request, if stated.", "page_or_section": "Gov. Code §7922.600(a)(1)"},
+        {"doc": "D8", "quote": "Willing to comply but asked for date-range clarification.", "page_or_section": "SFPD airport crime statistics IDR, 2020-06-25 Airport Bureau entry"}
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Comply within ten days following receipt of the request for inspection or copy",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["located records", "exemption analysis"],
+      "artifacts_out": ["determination and/or records"],
+      "timing": {"median_days": 10, "p90_days": 24, "source": "designed — SF Admin. Code §67.21(a) (10 days) read with Gov. Code §7922.535 (10 + 14). Observed: SFPD's MuckRock average is 157 days (D7)."},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "SF Admin. Code §67.21(a); Gov. Code §7922.535(a)",
+      "evidence": [
+        {"doc": "D2", "quote": "Custodians must comply within \"ten days following receipt of a request for inspection or copy.\"", "page_or_section": "Response Timeline"},
+        {"doc": "D3", "quote": "Each agency, upon a request for a copy of records, shall, within 10 days from receipt of the request, determine whether the request, in whole or in part, seeks copies of disclosable public records", "page_or_section": "Gov. Code §7922.535(a)"}
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Invoke the 14-day 'unusual circumstances' extension by written notice on one of the enumerated statutory grounds",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["voluminous or multi-location request"],
+      "artifacts_out": ["written extension notice with a new determination date"],
+      "timing": {"median_days": 14, "p90_days": 14, "source": "designed — Gov. Code §7922.535(b); observed in D8 on the Tenderloin overtime-data component"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.535(b)–(c)",
+      "evidence": [
+        {"doc": "D3", "quote": "In unusual circumstances, the time limit prescribed in this article and Article 1 (commencing with Section 7922.500) may be extended by written notice from the head of the agency or a designee", "page_or_section": "Gov. Code §7922.535(b)"},
+        {"doc": "D8", "quote": "camera footage unavailable (10-day retention only), complaints routed to Dept. of Police Accountability, invoked 14-day extension for overtime d", "page_or_section": "SFPD Tenderloin data request, 2023-02-27 entry"}
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Release responsive documents on a rolling basis rather than holding available records while searching for the rest",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["partially assembled record set"],
+      "artifacts_out": ["first and subsequent rolling productions"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "SF Admin. Code §67.21 (immediacy of response)",
+      "evidence": [
+        {"doc": "D2", "quote": "Records should be produced on a \"rolling basis\" rather than withheld pending complete collection. Custodians cannot delay releasing available responsive documents while searching for others.", "page_or_section": "Immediacy of Response"}
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Charge duplication at the ordinance's hard caps — inspection free, routine copies up to a cent a page, custom copies up to ten cents a page, video up to $10 per meeting — far below the state's 'direct cost' standard",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["copy request"],
+      "artifacts_out": ["invoice at the capped rate"],
+      "timing": null,
+      "fee": {"amount": 0.01, "when": "per page for routine copies; $0.10/page custom; $10 or less per meeting for video; inspection free. SFPD's observed MuckRock average fee is $94.30 (D7)."},
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.28; Gov. Code §7922.530(a)",
+      "evidence": [
+        {"doc": "D2", "quote": "Inspection: No charge - Routine copies: Up to 1 cent per page - Custom copies: Up to 10 cents per page", "page_or_section": "Fees for Duplication"},
+        {"doc": "D4", "quote": "shall make the records promptly available to any person upon payment of fees covering direct costs of duplication, or a statutory fee if applicable", "page_or_section": "Gov. Code §7922.530(a)"}
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Refuse, or respond incompletely — the trigger for the ordinance's two-tier free administrative appeal",
+      "actor": "custodian",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["exemption determination"],
+      "artifacts_out": ["refusal or partial response"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.21(b)",
+      "evidence": [
+        {"doc": "D2", "quote": "If a custodian refuses or incompletely responds, requesters can petition the Supervisor of Records (City Attorney) for a determination.", "page_or_section": "Administrative Appeals"}
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Petition the Supervisor of Records (the City Attorney's Office), who must respond as soon as possible and within 10 days",
+      "actor": "supervisor_of_records",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["petition citing the refusal"],
+      "artifacts_out": ["Supervisor of Records determination; order to comply if the records are public"],
+      "timing": {"median_days": 10, "p90_days": 10, "source": "designed — SF Admin. Code §67.21(c)–(d) as extracted in D2. No timed instance of this step was recovered in this sample."},
+      "fee": null,
+      "rework": {"back_to": "A05", "reason": "Supervisor of Records determines the records are public and orders compliance"},
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.21(b)–(d)",
+      "evidence": [
+        {"doc": "D2", "quote": "The supervisor must respond \"as soon as possible and within 10 days.\"", "page_or_section": "Administrative Appeals"},
+        {"doc": "D2", "quote": "Upon determining records are public, both officials can order compliance and refer non-compliant custodians to law enforcement.", "page_or_section": "Administrative Appeals"}
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Contact the SOTF Administrator, who attempts to resolve the dispute informally by mediating with the City or County agency",
+      "actor": "sotf_administrator",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["requester's account of the denial"],
+      "artifacts_out": ["informal resolution, or advice of the right to escalate"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "A05", "reason": "mediation produces the records without a formal complaint"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Administrator will attempt to resolve the issue by mediating with the appropriate City or County agency.", "page_or_section": "A. Step 1: Contact SOTF About Resolving Your Request, ¶1"},
+        {"doc": "D1", "quote": "If unable to reach a resolution, the Administrator will advise you of your right to file a petition with the Supervisor of Records (the City Attorney’s Office) and to file a formal complaint with the SOTF.", "page_or_section": "A. Step 1, ¶2"}
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "File a formal SOTF complaint naming the agency, the person who handled the request, what happened, and the specific ordinance sections violated, with dated documentation",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["complaint form or letter", "dated request and agency response"],
+      "artifacts_out": ["filed SOTF complaint (itself a public record)"],
+      "timing": null,
+      "fee": {"amount": 0.0, "when": "no fee; no lawyer required"},
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.21(e); §67.35",
+      "evidence": [
+        {"doc": "D1", "quote": "state that they were not provided within the 10 days required and cite the applicable section of the law if you know it (example: Sunshine Ordinance, Section 67.21(a)).", "page_or_section": "B. Step 2: File a Complaint With the SOTF, ¶2"},
+        {"doc": "D1", "quote": "All submissions are public records open to public review. It is your responsibility to protect your confidential personal information.", "page_or_section": "B. Step 2, ¶2"}
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "SOTF staff review the complaint for completeness and may decline to consider a case that lacks the basic information needed for a reasoned determination",
+      "actor": "sotf_administrator",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["filed complaint"],
+      "artifacts_out": ["complaint accepted for referral, or declined"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "A12", "reason": "complaint lacks basic information necessary to make a reasoned determination"},
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "However, if your case lacks basic information necessary to make a reasoned determination, we may decline to consider your case.", "page_or_section": "B. Step 2, ¶3"},
+        {"doc": "D1", "quote": "The SOTF staff, upon review of the complaint for completeness, shall refer the complaint to the Respondent who has five days to respond to the complaint.", "page_or_section": "Addendum Complaint Procedure Summary"}
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Serve the named respondent with written email notice of the complaint and a request for response within five business days; failure to respond may itself support a violation finding",
+      "actor": "sotf_administrator",
+      "visibility": "applicant_inferable",
+      "occasion": "online",
+      "artifacts_in": ["accepted complaint"],
+      "artifacts_out": ["respondent notice", "respondent's written response or default"],
+      "timing": {"median_days": 5, "p90_days": 5, "source": "designed — D1 (five business days for the respondent to answer)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "Once we receive your complaint, we will send the named respondent written notice via email of the complaint and a request for response within five (5) business days.", "page_or_section": "B. Step 2, ¶4"},
+        {"doc": "D1", "quote": "Failure to respond to a SOTF complaint or to provide the requested documents may lead to a determination that the City or County agency violated the Sunshine Ordinance.", "page_or_section": "B. Step 2, ¶4"}
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Priority-calendar a §67.21(b) petition: assign it to a committee complaints calendar immediately on receipt and tell the committee the date of the 45-day deadline",
+      "actor": "sotf_committee",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["§67.21(b) petition"],
+      "artifacts_out": ["priority committee calendar assignment with the 45-day date named"],
+      "timing": {"median_days": 45, "p90_days": 45, "source": "designed — SF Admin. Code §67.21(e) deadline, operationalized by D1's priority-handling rule"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.21(b), (e)",
+      "evidence": [
+        {"doc": "D1", "quote": "Petitions that allege violations of S.F. Admin. Code Section 67.21(b) shall be designated for priority handling and immediately assigned upon receipt to a complaints calendar in a committee", "page_or_section": "C.1A, Priority Handling of Section 67.21(b) Petitions"},
+        {"doc": "D1", "quote": "The committee shall be informed of the date of the applicable 45-day deadline mandated by Section 67.21(e).", "page_or_section": "C.1A"}
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Committee hearing: decide whether SOTF has jurisdiction and whether the complaint duplicates an earlier one by the same complainant, review the merits, and issue a report or recommendation — both parties required to attend",
+      "actor": "sotf_committee",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["complaint, respondent response, supporting documents"],
+      "artifacts_out": ["committee report and/or proposed determination and order"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Committee shall review to 1) ascertain if the SOTF has jurisdiction and the records are public and if the complaint is new or duplicates a previous complaint by the same complainant; 2) review the merits of the complaint", "page_or_section": "C.1A"},
+        {"doc": "D1", "quote": "The Complainant and Respondent are required to attend the Committee hearing to review the complaint.", "page_or_section": "C.1B, Committee Hearing Schedule"}
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Prepare a Deputy City Attorney or Administrator memorandum, on SOTF request, to help the task force understand the issues",
+      "actor": "sotf_dca",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["complaint file"],
+      "artifacts_out": ["internal issues memorandum"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "the SOTF Deputy City Attorney or the SOTF Administrator, may prepare upon request by the SOTF, a memorandum to assist the SOTF in understanding the issues.", "page_or_section": "C.2"}
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Notice both parties of the hearing date, time and location and of the five-working-day documentation deadline; late evidence may be excluded or may continue the hearing",
+      "actor": "sotf_administrator",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["committee referral"],
+      "artifacts_out": ["hearing notice", "agenda packet"],
+      "timing": {"median_days": 5, "p90_days": 5, "source": "designed — D1 (documentation due five working days before the hearing)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Administrator shall inform both parties of the deadline to submit any supporting documentation. Both parties shall be held to the stated deadline: five (5) working days before the hearing.", "page_or_section": "C.3"},
+        {"doc": "D1", "quote": "Any documents or other evidence provided less than five days prior to the meeting may not be reviewed or may not be allowed as evidence.", "page_or_section": "C.6, Documentation"}
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Combine related complaints for a single hearing, and cap each complainant at two complaints per meeting",
+      "actor": "sotf_committee",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["multiple pending complaints"],
+      "artifacts_out": ["combined or severed hearing calendar"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Complaint Committee or other Committee authorized to process complaints shall review and determine whether or not to combine complaints for a single hearing prior to scheduling before the Task Force.", "page_or_section": "C.10, Combining Petitions/Complaints"},
+        {"doc": "D1", "quote": "The SOTF and its Committees shall limit each Petitioner/Complainant to a maximum of two (2) complaints per meeting.", "page_or_section": "C.11"}
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Full SOTF public hearing on the committee's referral; after hearing all testimony the task force determines whether violations of the Sunshine Ordinance occurred",
+      "actor": "sotf",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["committee recommendation", "testimony", "agenda packet"],
+      "artifacts_out": ["finding of violation or no violation"],
+      "timing": {"median_days": 45, "p90_days": null, "source": "designed — decision due within 2 days after the SOTF's next meeting and in no case later than 45 days after the petition (D2, D1)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "SF Admin. Code §67.21(e)",
+      "evidence": [
+        {"doc": "D1", "quote": "After hearing all testimonies, the SOTF shall determine if violations of the Sunshine Ordinance have occurred and/or provide other directives as needed.", "page_or_section": "C.5"},
+        {"doc": "D2", "quote": "The Task Force must decide \"within 2 days after its next meeting but in no case later than 45 days\" after receiving the written petition.", "page_or_section": "Administrative Appeals"}
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Order of Determination: orders take effect immediately, the custodian must provide the record within five business days of the hearing, and the Administrator emails notice of the orders the next business day",
+      "actor": "sotf",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["finding of violation"],
+      "artifacts_out": ["Order of Determination", "email notice to both parties", "later memorandum of reasoning (optional)"],
+      "timing": {"median_days": 5, "p90_days": 5, "source": "designed — D1 (compliance required within 5 business days of the hearing)"},
+      "fee": null,
+      "rework": {"back_to": "A05", "reason": "custodian ordered to produce the record"},
+      "optional": false,
+      "element_ref": "SF Admin. Code §67.21(e)",
+      "evidence": [
+        {"doc": "D1", "quote": "Orders stated at the conclusion of the SOTF complaint hearing are effective immediately and compliance is required within 5 business days of the hearing.", "page_or_section": "C.5"},
+        {"doc": "D1", "quote": "If a public records violation is found, the custodian of records shall be ordered to provide the record to the complainant within five (5) business days after the hearing at which the orders were announced.", "page_or_section": "D.1, Department to Comply with SOTF Order"}
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Monitor compliance with the order through the Compliance and Amendments or another SOTF committee",
+      "actor": "sotf_committee",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["issued order"],
+      "artifacts_out": ["compliance review finding"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The SOTF may also request that the Compliance and Amendments or another SOTF Committee monitor and review whether a department has complied with SOTF’s orders.", "page_or_section": "D.1"}
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "On failure to comply, refer the matter to the District Attorney, the California Attorney General, the Board of Supervisors and/or the Ethics Commission, and notify both parties of the referral and of the complainant's independent right to go to court",
+      "actor": "enforcement_bodies",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["order plus evidence of non-compliance"],
+      "artifacts_out": ["enforcement referral with a copy of the order", "notice to the parties"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "SF Admin. Code §67.35",
+      "evidence": [
+        {"doc": "D1", "quote": "a SOTF Committee of the SOTF may recommend that the SOTF notify the District Attorney, the California Attorney General, the Board of Supervisors and/or the Ethics Commission, who may take measures they deem necessary to ensure compliance", "page_or_section": "D.2"},
+        {"doc": "D1", "quote": "the respondent and complainant shall be sent a notice that the District Attorney, California Attorney General, Board of Supervisors and Ethics Commission have been contacted, and of the complainant’s independent right to pursue the issue in court.", "page_or_section": "D.3"}
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Request reconsideration within 30 days, and only on certified new and pertinent information; one request per party, and the prior violation vote is treated as rescinded pending the revote",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["new information unavailable at the time of the original complaint"],
+      "artifacts_out": ["Revised Order of Determination, or the original order reaffirmed"],
+      "timing": {"median_days": 30, "p90_days": null, "source": "designed — D1 (30-day window to request reconsideration)"},
+      "fee": null,
+      "rework": {"back_to": "A20", "reason": "reconsideration granted — the complaint is reopened to consider the new information exclusively"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The petitioner or respondent may submit a request for reconsideration of any SOTF order within 30 days only in cases where new and pertinent information becomes available.", "page_or_section": "E.1, Request for Reconsideration"},
+        {"doc": "D1", "quote": "The SOTF will accept no more than one request for reconsideration from each party for any given complaint.", "page_or_section": "E.1"}
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Administrator tables or closes the file: after six months of an unresponsive complainant, or where the complainant cannot attend a hearing within 120 days, the matter is scheduled for closure due to inactivity",
+      "actor": "sotf_administrator",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["stalled complaint file"],
+      "artifacts_out": ["complaint tabled or closed for inactivity"],
+      "timing": {"median_days": 180, "p90_days": null, "source": "designed — D1 (six months of unresponsiveness; 120-day attendance rule)"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "After six months have elapsed and at the discretion of the Administrator, the Administrator may inform the Complainant that complaint files will be closed unless they provide confirmation of intent to attend a hearing on a specific date.", "page_or_section": "C.9, Administrator's Authority to Table/Close Files"},
+        {"doc": "D1", "quote": "If the Complainant is unable or refuses to attend a scheduled hearing on a specific date within 120 days, the SOTF may schedule a hearing to consider taking no further action and to close the file due to inactivity.", "page_or_section": "C.8(c), Continuances"}
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Keep the Administrator's log of every petition filed — dates, the agency complained of, the nature of the complaint and its status",
+      "actor": "sotf_administrator",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["all complaint filings and correspondence"],
+      "artifacts_out": ["SOTF petition log and complaint files"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Administrator shall keep a file of all documents and a log of all petitions filed with the SOTF, including the dates of each petition, the department/agency against which it was made, the nature of the complaint and its status.", "page_or_section": "F. Documentation and Information Regarding Individual Complaints"}
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Independent superior court action for injunctive or declaratory relief or a writ of mandate, which remains available regardless of the SOTF outcome",
+      "actor": "superior_court",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["denial, or an unenforced SOTF order"],
+      "artifacts_out": ["court order to disclose; costs and attorney's fees to a prevailing requester"],
+      "timing": {"median_days": null, "p90_days": null, "source": "designed — Gov. Code §7923.000; no timed instance observed in this sample"},
+      "fee": null,
+      "rework": {"back_to": "A05", "reason": "court orders production"},
+      "optional": true,
+      "element_ref": "Gov. Code §§7923.000, 7923.115",
+      "evidence": [
+        {"doc": "D6", "quote": "Any person may institute a proceeding for injunctive or declarative relief, or for a writ of mandate, in any court of competent jurisdiction, to enforce that person’s right under this division", "page_or_section": "Gov. Code §7923.000"},
+        {"doc": "D1", "quote": "of the complainant’s independent right to pursue the issue in court.", "page_or_section": "D.3"}
+      ]
+    }
+  ],
+  "edges": [
+    {"from": "A01", "to": "A03", "type": "sequence", "condition": ""},
+    {"from": "A02", "to": "A03", "type": "sequence", "condition": "request marked Immediate Disclosure Request"},
+    {"from": "A03", "to": "A04", "type": "optional", "condition": "scope unclear"},
+    {"from": "A04", "to": "A05", "type": "sequence", "condition": "requester narrows the request"},
+    {"from": "A03", "to": "A05", "type": "sequence", "condition": ""},
+    {"from": "A05", "to": "A06", "type": "optional", "condition": "unusual circumstances"},
+    {"from": "A06", "to": "A05", "type": "rework", "condition": "determination deferred to the extended date"},
+    {"from": "A05", "to": "A07", "type": "sequence", "condition": "some responsive records already available"},
+    {"from": "A07", "to": "A08", "type": "optional", "condition": "requester wants copies rather than inspection"},
+    {"from": "A05", "to": "A09", "type": "optional", "condition": "records refused or response incomplete"},
+    {"from": "A09", "to": "A10", "type": "optional", "condition": "requester petitions the Supervisor of Records"},
+    {"from": "A09", "to": "A11", "type": "optional", "condition": "requester contacts the SOTF Administrator first"},
+    {"from": "A10", "to": "A12", "type": "optional", "condition": "Supervisor of Records determination unsatisfactory"},
+    {"from": "A11", "to": "A12", "type": "sequence", "condition": "informal resolution failed"},
+    {"from": "A12", "to": "A13", "type": "sequence", "condition": ""},
+    {"from": "A13", "to": "A12", "type": "rework", "condition": "complaint incomplete"},
+    {"from": "A13", "to": "A14", "type": "sequence", "condition": "complaint accepted"},
+    {"from": "A14", "to": "A15", "type": "optional", "condition": "petition alleges a §67.21(b) violation"},
+    {"from": "A14", "to": "A16", "type": "sequence", "condition": ""},
+    {"from": "A15", "to": "A16", "type": "sequence", "condition": ""},
+    {"from": "A16", "to": "A17", "type": "optional", "condition": "SOTF requests a memorandum"},
+    {"from": "A16", "to": "A18", "type": "sequence", "condition": ""},
+    {"from": "A16", "to": "A19", "type": "optional", "condition": "related complaints pending"},
+    {"from": "A18", "to": "A20", "type": "sequence", "condition": ""},
+    {"from": "A17", "to": "A20", "type": "handoff", "condition": ""},
+    {"from": "A20", "to": "A21", "type": "sequence", "condition": "violation found"},
+    {"from": "A21", "to": "A22", "type": "optional", "condition": "SOTF asks a committee to monitor compliance"},
+    {"from": "A22", "to": "A23", "type": "optional", "condition": "department fails to comply"},
+    {"from": "A21", "to": "A24", "type": "optional", "condition": "a party certifies new and pertinent information within 30 days"},
+    {"from": "A24", "to": "A20", "type": "rework", "condition": "reconsideration granted; prior vote rescinded pending revote"},
+    {"from": "A12", "to": "A25", "type": "optional", "condition": "complainant becomes unresponsive"},
+    {"from": "A12", "to": "A26", "type": "handoff", "condition": ""},
+    {"from": "A09", "to": "A27", "type": "optional", "condition": "requester goes straight to court"},
+    {"from": "A23", "to": "A27", "type": "optional", "condition": "referral does not produce the records"}
+  ],
+  "terminal_artifact": "the inspected or copied public record — or, on appeal, a SOTF Order of Determination finding a Sunshine Ordinance violation and ordering the custodian to produce it within five business days",
+  "denial_rate": null,
+  "timing_gold": {
+    "end_to_end_median_days": 157,
+    "p90": null,
+    "source": "observed — D7, MuckRock aggregate statistics scraped 2026-09-15: San Francisco Police Department 157 days, City and County of San Francisco (general/citywide) 128 days. Statutory and ordinance ceiling for comparison: 24 days (10 + 14), or next business day for an Immediate Disclosure Request.",
+    "quote": "Success rates cluster around 32% for the three police/law-enforcement agencies but jump to 75% for the general city agency, suggesting the gap between statute and practice is concentrated in law-enforcement records specifically.",
+    "official_ceiling_days": 24,
+    "per_agency": {
+      "san_francisco_police_department": {"observed_mean_days": 157, "success_rate_pct": 32.64, "mean_fee_usd": 94.3},
+      "city_and_county_of_san_francisco_general": {"observed_mean_days": 128, "success_rate_pct": 75.0, "mean_fee_usd": null}
+    },
+    "worst_observed": {
+      "request": "SFPD airport crime statistics, filed 2020-06-22 as an Immediate Disclosure Request",
+      "quote": "An 'Immediate Disclosure Request' -- the Sunshine Ordinance's fastest, next-business-day-response track (Sec. 67.25) -- has instead gone unresolved for 6+ years",
+      "elapsed": "6+ years open, ~60 unanswered follow-ups"
+    },
+    "note": "Both figures are MuckRock means over all request types, not medians, and they measure the records-request leg only. No observed duration exists for either appeal step."
+  },
+  "known_gaps": [
+    "Whether the appeal track is ever actually used, and how long it actually takes. The Supervisor of Records 10-day deadline and the SOTF 45-day deadline are precisely written, but this corpus recovered no timed instance of either step — no petition-to-determination duration, no complaint-to-order duration, no compliance rate for SOTF orders.",
+    "Whether SOTF orders produce records. D1 specifies five-business-day compliance, committee monitoring and referral to the DA/AG/Board/Ethics Commission, but nothing states how often non-compliance is referred or what any referral has ever produced. A first-person account from a sitting SOTF member (reddit, user-report tier) describes the body as toothless, directly contradicting the procedural confidence of D1.",
+    "The Immediate Disclosure Request is the sharpest designed-vs-observed gap in the whole corpus: the ordinance's fastest track (next business day) produced the single worst observed outcome (6+ years, ~60 ignored follow-ups). No document explains what happens to an IDR that is simply not answered, or who is supposed to notice.",
+    "SF's internal routing. D1 and D2 describe the appeal machinery in fine grain but say almost nothing about the custodian side: no SF equivalent of LAPD's CPRA Unit Manual was located, so the department-level intake, search, exemption-review and redaction workflow (A03–A09 here) is reconstructed from the ordinance plus observed request logs, not from an SF SOP.",
+    "Which exemptions SF departments actually invoke, and how often. Observed samples show SFPD asserting investigative-records exemptions over both open and closed files and routing complaint records to the Department of Police Accountability, but no SF document enumerates its own exemption practice.",
+    "Fee practice versus the caps. The ordinance caps routine copies at a cent a page, yet SFPD's observed MuckRock average fee is $94.30. Nothing in the corpus reconciles the two — whether through the 'custom copies' rate, an itemized cost analysis, or the state's electronic-record construction provisions.",
+    "Retention upstream of the request. One sampled SFPD response states lobby camera footage was already gone under a 10-day retention rule; no SF retention schedule is held in the corpus, so which records expire before a 10-day determination is even due is unknown."
+  ],
+  "notes": "San Francisco is the corpus's clearest case of a local rule building on a state statute: it keeps the state's 10-day determination but adds three things the state has none of — the next-business-day Immediate Disclosure Request (A02), hard fee caps far below 'direct cost' (A08), and a free two-tier administrative appeal (A10 Supervisor of Records, then A11–A24 SOTF) where the state's only remedy is litigation. For SF the declared and local-rule tiers collapse into the same documents: no clean SF applicant-facing program page was recoverable (sf.gov's public-records page 404'd at fetch time), so the ordinance text and the SOTF procedure ARE the applicant-facing documents. That is why relatively few activities here are marked staff_only (6 of 27): almost everything in the appeal track is written down in a document aimed at complainants. The staff_only calls are the completeness screen (A13), the priority-calendaring mechanic (A15), the Deputy City Attorney memorandum (A17), the combine/cap docket rules (A19), compliance monitoring (A22), the table/close-for-inactivity power (A25) and the petition log (A26) — the docket-management machinery, which is exactly the part that determines whether a complaint is ever heard. IMPORTANT CAVEAT for scoring: D2 is a fetch-tool extraction of the ordinance page, not a raw text dump, so quotes attributed to D2 are verbatim to the saved file and to the fragments that file itself marks as quoted; re-verify any D2 quote against the ordinance text before treating it as load-bearing. SFPD is used as the worked custodian because that is where the observed data is; the model is otherwise citywide."
+}

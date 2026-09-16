@@ -1,0 +1,903 @@
+<title>Pricing “Adequate”</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4f5f2; --surface:#ffffff; --ink:#1d2327; --muted:#616b73; --line:#dde1dd;
+  --band:#b45d0a; --band-soft:#b45d0a22; --band-strong:#b45d0a44;
+  --obj:#206f8e; --obj-soft:#206f8e1f; --ref:#7862a8; --ref-soft:#7862a824;
+  --cited:#b23f38; --cited-soft:#b23f3826; --passed:#3d7d5f; --passed-soft:#3d7d5f1f;
+  --chip-ink:#ffffff; --code-bg:#eef0ec; --edge:#b8bfc4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#151a1e; --surface:#1e252b; --ink:#e7eaec; --muted:#98a2aa; --line:#323b42;
+    --band:#e08a33; --band-soft:#e08a3326; --band-strong:#e08a3345;
+    --obj:#5aa7c4; --obj-soft:#5aa7c426; --ref:#a692d4; --ref-soft:#a692d426;
+    --cited:#d96b62; --cited-soft:#d96b6230; --passed:#66ab8b; --passed-soft:#66ab8b26;
+    --chip-ink:#14181c; --code-bg:#161c21; --edge:#4a555e;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#151a1e; --surface:#1e252b; --ink:#e7eaec; --muted:#98a2aa; --line:#323b42;
+  --band:#e08a33; --band-soft:#e08a3326; --band-strong:#e08a3345;
+  --obj:#5aa7c4; --obj-soft:#5aa7c426; --ref:#a692d4; --ref-soft:#a692d426;
+  --cited:#d96b62; --cited-soft:#d96b6230; --passed:#66ab8b; --passed-soft:#66ab8b26;
+  --chip-ink:#14181c; --code-bg:#161c21; --edge:#4a555e;
+}
+body{background:var(--ground); color:var(--ink); font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-size:15px; line-height:1.55;}
+.wrap{max-width:1120px; margin:0 auto; padding:36px 20px 80px; display:flex; flex-direction:column; gap:46px;}
+h1,h2,h3{font-family:'Spectral',Georgia,serif; text-wrap:balance; margin:0;}
+h1{font-size:2.1rem; font-weight:600; line-height:1.15;}
+h2{font-size:1.35rem; font-weight:600;}
+h3{font-size:1rem; font-weight:600;}
+p{margin:0;}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+.muted{color:var(--muted);}
+.eyebrow{font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--band); font-weight:600;}
+header.top{display:flex; flex-direction:column; gap:10px; max-width:70ch;}
+header.top p{color:var(--muted);}
+.numstrip{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px;}
+.num{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:12px 14px;
+  display:flex; flex-direction:column; gap:2px;}
+.num .v{font-family:'Spectral',serif; font-size:1.5rem; font-weight:600; font-variant-numeric:tabular-nums;}
+.num .k{font-size:.75rem; color:var(--muted); letter-spacing:.04em; text-transform:uppercase;}
+.tag{display:inline-block; font-size:.66rem; padding:1px 6px; border-radius:3px; letter-spacing:.05em;
+  text-transform:uppercase; font-weight:600; vertical-align:2px;}
+.tag.placeholder{background:var(--band-soft); color:var(--band);}
+.tag.artifact{background:var(--cited-soft); color:var(--cited);}
+section{display:flex; flex-direction:column; gap:16px;}
+.sechead{display:flex; flex-direction:column; gap:6px; max-width:78ch;}
+.sechead p{color:var(--muted); font-size:.92rem;}
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:18px;}
+.tabs{display:flex; gap:6px; flex-wrap:wrap;}
+.tab{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:5px;
+  padding:6px 14px; cursor:pointer; font:inherit; font-size:.85rem;}
+.tab[aria-selected="true"]{background:var(--ink); color:var(--ground); border-color:var(--ink);}
+.legend{display:flex; flex-wrap:wrap; gap:8px 16px; font-size:.8rem; color:var(--muted); align-items:center;}
+.sw{display:inline-block; width:11px; height:11px; border-radius:2px; margin-right:5px; vertical-align:-1px;}
+
+/* ---- plan diagram ---- */
+.plan{display:flex; flex-direction:column; gap:0; align-items:stretch;}
+.lawbox{border:1.5px solid var(--ink); border-radius:8px; padding:14px 18px; background:var(--surface);
+  max-width:640px; margin:0 auto; width:100%; box-sizing:border-box;}
+.lawbox h3{margin-bottom:4px;}
+.planarrow{display:flex; flex-direction:column; align-items:center; gap:2px; padding:10px 0; color:var(--muted);}
+.planarrow .stem{font-size:1.3rem; line-height:1; color:var(--ink);}
+.planarrow .lbl{font-size:.78rem; max-width:46ch; text-align:center;}
+.icorow{display:grid; grid-template-columns:1fr 34px 1fr 34px 1fr; gap:0; align-items:stretch; min-width:860px;}
+.icorowwrap{overflow-x:auto;}
+.icocard{border-radius:8px; padding:14px 16px; background:var(--surface); display:flex; flex-direction:column; gap:9px;}
+.icocard.inputs{border:1.5px solid var(--obj);}
+.icocard.conds{border:1.5px solid var(--band);}
+.icocard.outs{border:1.5px solid var(--passed);}
+.icocard h3{font-size:.95rem;}
+.icocard.inputs h3{color:var(--obj);} .icocard.conds h3{color:var(--band);} .icocard.outs h3{color:var(--passed);}
+.icoarrow{display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--muted);}
+.icosec{font-size:.82rem; line-height:1.5;}
+.icosec b{display:block; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+  margin-bottom:2px;}
+.icosec.validation{border-top:1px dashed var(--line); padding-top:8px;}
+
+
+/* ---- toy process model (swimlanes) ---- */
+.swim{display:grid; grid-template-columns:110px repeat(6, 1fr); gap:6px 8px; align-items:stretch; min-width:820px;}
+.swimwrap{overflow-x:auto;}
+.lane{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600; color:var(--muted);
+  display:flex; align-items:center; border-right:2px solid var(--line); padding-right:8px;}
+.stephead{font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted); text-align:center;}
+.act{border:1.5px solid var(--ink); border-radius:6px; padding:6px 8px; font-size:.78rem; line-height:1.35;
+  background:var(--surface);}
+.act.invented{border-style:dashed; border-color:var(--band);}
+.act .tag2{display:block; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; margin-top:3px;}
+.act .tag2.law{color:var(--ink);} .act.invented .tag2{color:var(--band);}
+.act .art{display:block; font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--muted); margin-top:2px;}
+.rework{grid-column:2 / -1; font-size:.74rem; color:var(--cited); border-top:1px dashed var(--cited); padding-top:4px;}
+
+/* ---- statute ---- */
+.statute{font-family:'Spectral',Georgia,serif; font-size:.98rem; line-height:1.75;
+  max-height:520px; overflow-y:auto; padding-right:10px; display:flex; flex-direction:column; gap:14px;}
+.statute.expanded{max-height:none;}
+.statute h3{font-family:'IBM Plex Sans',sans-serif; font-size:.8rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:4px;
+  margin-top:10px;}
+.statute p{max-width:78ch;}
+.statute .crumbs{font-size:.72rem; color:var(--muted); font-family:'IBM Plex Mono',monospace; line-height:1.5;}
+mark{border-radius:3px; padding:0 2px; color:inherit; cursor:pointer; background:transparent;}
+mark.objective{background:var(--obj-soft); box-shadow:inset 0 -2px 0 var(--obj);}
+mark.judgment{background:var(--band-soft); box-shadow:inset 0 -2px 0 var(--band);}
+mark.reference{background:var(--ref-soft); box-shadow:inset 0 -2px 0 var(--ref);}
+mark.pulse{outline:2px solid var(--ink); outline-offset:1px;}
+.expandbtn{align-self:flex-start; margin-top:10px; font-size:.8rem; border:1px solid var(--line);
+  background:var(--surface); color:var(--muted); border-radius:5px; padding:4px 12px; cursor:pointer;}
+.matchnote{font-size:.78rem; color:var(--muted); margin-top:8px;}
+
+/* ---- flow ---- */
+.flowouter{overflow-x:auto;}
+.flow{position:relative; display:grid; grid-template-columns:270px 1fr 190px; gap:0 70px;
+  min-width:920px; align-items:start;}
+.flow svg.edges{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0;}
+.fcol{display:flex; flex-direction:column; gap:8px; position:relative; z-index:1;}
+.fcolhead{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+  color:var(--muted); padding-bottom:4px; display:flex; align-items:center; gap:10px;}
+.fcolhead .clearchip{text-transform:none; letter-spacing:0;}
+.supgroup{display:flex; flex-direction:column; gap:5px; margin-bottom:10px;}
+.suphead{font-size:.74rem; font-weight:600; color:var(--ink); text-transform:capitalize;
+  border-bottom:1px solid var(--line); padding-bottom:2px;}
+.suphead .mono{color:var(--muted); font-weight:400;}
+.inrow{background:var(--surface); border:1px solid var(--line); border-radius:5px; padding:4px 8px;
+  font-size:.79rem; display:flex; gap:6px; align-items:baseline; cursor:default;}
+.inrow.hot{border-color:var(--band); box-shadow:0 0 0 1px var(--band);}
+.inrow .prov{font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted); flex-shrink:0;
+  border:1px solid var(--line); border-radius:3px; padding:0 4px;}
+.inrow .sens{font-size:.62rem; color:var(--cited); font-weight:600; letter-spacing:.04em;}
+.inrow .est{font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--band); margin-left:auto;
+  flex-shrink:0; white-space:nowrap;}
+.suphead .subtotal{float:right; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--band); font-weight:500;}
+.outpill{cursor:pointer;}
+.cond{cursor:pointer;}
+.inrow{cursor:pointer;}
+.clearchip{border:1px solid var(--band); background:var(--band-soft); color:var(--band); border-radius:5px;
+  padding:4px 12px; cursor:pointer; font:inherit; font-size:.8rem; font-weight:600;}
+.cond .deleg{font-size:.74rem; color:var(--ref);}
+.cond{background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:10px 12px;
+  display:flex; flex-direction:column; gap:6px; font-size:.86rem; position:relative;}
+.cond.hot{border-color:var(--band); box-shadow:0 0 0 1px var(--band);}
+.cond .toprow{display:flex; gap:8px; align-items:baseline; flex-wrap:wrap;}
+.cond .idx{font-family:'Spectral',serif; font-weight:600; color:var(--muted);}
+.ptype{font-size:.62rem; font-weight:600; letter-spacing:.07em; padding:1px 6px; border-radius:3px; flex-shrink:0;}
+.ptype.objective{background:var(--obj); color:var(--chip-ink);}
+.ptype.judgment{background:var(--band); color:var(--chip-ink);}
+.ptype.reference{background:var(--ref); color:var(--chip-ink);}
+.cond .decider{font-size:.72rem; color:var(--muted); margin-left:auto;}
+.cond .branches{display:flex; flex-direction:column; gap:2px; font-size:.78rem; color:var(--muted);}
+.cond .branches b{color:var(--ink); font-weight:600;}
+.outpill{font-size:.74rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  padding:6px 12px; border-radius:5px; width:100%; text-align:center; box-sizing:border-box;}
+.outpill.approve{background:var(--passed-soft); color:var(--passed); border:1px solid var(--passed);}
+.outpill.deny{background:var(--cited-soft); color:var(--cited); border:1px solid var(--cited);}
+.outpill.conditional_approve{background:var(--band-soft); color:var(--band); border:1px solid var(--band);}
+.outpill.refer,.outpill.not_applicable{background:var(--code-bg); color:var(--muted); border:1px solid var(--line);}
+.outcount{font-size:.7rem; color:var(--muted); text-align:center; margin-top:2px;}
+.inlineout{display:inline-block; font-size:.68rem; font-weight:600; padding:0 6px; border-radius:3px;
+  text-transform:uppercase; letter-spacing:.03em;}
+.inlineout.approve{background:var(--passed-soft); color:var(--passed);}
+.inlineout.deny{background:var(--cited-soft); color:var(--cited);}
+.inlineout.conditional_approve{background:var(--band-soft); color:var(--band);}
+.inlineout.refer,.inlineout.not_applicable{background:var(--code-bg); color:var(--muted);}
+.compstats{display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.85rem; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px;}
+.compstats b{color:var(--ink); font-variant-numeric:tabular-nums;}
+
+/* ---- instrument / matrix (unchanged from v1) ---- */
+svg text{font-family:'IBM Plex Sans',sans-serif;}
+.axiswrap{overflow-x:auto;}
+.anchorbox{border-left:3px solid var(--band); background:var(--band-soft); padding:10px 14px;
+  border-radius:0 6px 6px 0; font-size:.9rem; min-height:2.6em;}
+.anchorbox .mono{color:var(--band); font-weight:500;}
+.matrixwrap{overflow-x:auto; padding-bottom:4px;}
+.matrix{display:grid; gap:2px; width:max-content;}
+.mcell{width:20px; height:22px; border-radius:2px; cursor:pointer; border:none; padding:0;}
+.mcell.cited{background:var(--cited);}
+.mcell.passed{background:var(--passed-soft);}
+.mcell:hover, .mcell:focus-visible{outline:2px solid var(--ink); outline-offset:1px;}
+.mcell.selcol{box-shadow:0 0 0 2px var(--band);}
+.rowlab{font-size:.76rem; white-space:nowrap; padding-right:10px; align-self:center; text-align:right;}
+.collab{font-size:.6rem; color:var(--muted); writing-mode:vertical-rl; transform:rotate(180deg);
+  justify-self:center; font-family:'IBM Plex Mono',monospace;}
+.dossier{display:none; flex-direction:column; gap:12px;}
+.dossier.open{display:flex;}
+.dossier .vig{font-family:'Spectral',serif; font-size:1.02rem; line-height:1.6; max-width:72ch;}
+.dhead{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:baseline;}
+.readerlist{display:flex; flex-direction:column; gap:8px;}
+.rrow{display:grid; grid-template-columns:110px 190px 1fr; gap:12px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; align-items:baseline; font-size:.88rem;}
+.decision{font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  padding:2px 8px; border-radius:3px; justify-self:start;}
+.decision.cited{background:var(--cited); color:var(--chip-ink);}
+.decision.passed{background:var(--passed-soft); color:var(--passed);}
+.problems{display:flex; flex-direction:column; gap:10px; counter-reset:prob;}
+.prob{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:12px 16px 12px 46px;
+  position:relative; font-size:.92rem; max-width:80ch;}
+.prob::before{counter-increment:prob; content:counter(prob); position:absolute; left:14px; top:11px;
+  font-family:'Spectral',serif; font-weight:600; font-size:1.1rem; color:var(--band);}
+.prob b{display:block; margin-bottom:2px;}
+.prob p{color:var(--muted); font-size:.88rem;}
+footer{font-size:.78rem; color:var(--muted); border-top:1px solid var(--line); padding-top:14px; max-width:80ch;}
+a{color:var(--obj);}
+@media (prefers-reduced-motion: no-preference){
+  .dossier.open{animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
+}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Regulatory complexity · pilot run · 2026-08-31</div>
+  <h1>Pricing “Adequate”</h1>
+  <p>AB&nbsp;2533's text with every extracted condition highlighted in place, its decision process redrawn
+  as <em>inputs → conditions → outcomes</em>, and the measured looseness of its central judgment call,
+  “inadequate sanitation.” Headline numbers, a toy example, method, and caveats are at the bottom.</p>
+</header>
+
+
+<section id="law">
+  <div class="sechead">
+    <h2>The law, annotated</h2>
+    <p>Full text of both provisions. Highlights are the spans one machine reading anchored its conditions to
+    — <span class="sw" style="background:var(--obj-soft);box-shadow:inset 0 -2px 0 var(--obj)"></span>teal
+    = <b>objective</b> (a clerk can check it from documents),
+    <span class="sw" style="background:var(--band-soft);box-shadow:inset 0 -2px 0 var(--band)"></span>amber
+    = <b>judgment</b> (an official must exercise discretion),
+    <span class="sw" style="background:var(--ref-soft);box-shadow:inset 0 -2px 0 var(--ref)"></span>violet
+    = <b>reference</b> (delegates to another law we did not expand).
+    Switch readings below and watch the highlights move — that movement <em>is</em> the point:
+    the same text, carved differently by different faithful readers. Click a highlight to jump to its
+    condition in the flow chart.</p>
+  </div>
+  <div class="panel">
+    <div class="tabs" role="tablist" id="comptabs"></div>
+    <div class="statute" id="statute" style="margin-top:14px"></div>
+    <button class="expandbtn" id="expandbtn">Show full height</button>
+    <div class="matchnote" id="matchnote"></div>
+  </div>
+</section>
+
+<section id="flow-section">
+  <div class="sechead">
+    <h2>The process: inputs → conditions → outcomes</h2>
+    <p>Left: every piece of information the process needs, <b>grouped by who must produce it</b>, each with
+    an effort estimate (hours · dollars · wait) from its effort class — <span class="mono">a</span>&nbsp;=
+    known offhand … <span class="mono">e</span>&nbsp;= paid professional, <span class="mono">f</span>&nbsp;=
+    government inspection; these are class priors, not measurements. Middle: the conditions the law turns
+    on, in the order the process checks them; each card says in words where a yes and a no lead. Right: the
+    possible outcomes. Hover to preview connections; <b>click any input, condition, or outcome to filter
+    the chart to just its subgraph</b> — click it again (or “Show all”) to reset.</p>
+    <p><b>Why three readings?</b> We compiled the statute three times, independently, from the same text.
+    No reading is “the” answer — the statute only pins down so much, and the spread between faithful
+    readings is our measure of its discretion. Reading A is the smallest; start there.</p>
+  </div>
+  <div class="panel">
+    <div class="legend" style="margin-bottom:12px; row-gap:6px;">
+      <span><span class="ptype objective">OBJ</span> objective — a clerk can check it from documents; carries an executable test</span>
+      <span><span class="ptype judgment">JUDG</span> judgment — an official must exercise discretion; no fixed cutoff exists in the text</span>
+      <span><span class="ptype reference">REF</span> reference — hands the question to another law we haven't expanded</span>
+      <span><span class="inlineout not_applicable">not applicable</span> this law doesn't govern the case — it exits to the ordinary process (regular permitting or code enforcement), which may itself deny</span>
+      <span><span class="inlineout refer">refer</span> sent to another authority or process for decision</span>
+    </div>
+    <div class="compstats" id="compstats"></div>
+    <div class="flowouter"><div class="flow" id="flow"></div></div>
+  </div>
+</section>
+
+<section id="instrument">
+  <div class="sechead">
+    <h2>The instrument: where seven readers draw the line</h2>
+    <p>The amber highlights above are where discretion lives. To price the central one — “inadequate
+    sanitation” — forty synthetic units sweep a severity axis from pristine (0.0) to uninhabitable (1.0),
+    and seven reader personas each applied the predicate to all forty. Every reader behaved as a clean
+    threshold; the spread of their cutoffs is the word's looseness. Click an axis tick to read the
+    condition description anchored at that severity.</p>
+  </div>
+  <div class="panel">
+    <div class="axiswrap"><svg id="axis" width="1000" height="230" role="img"
+      aria-label="Reader cutoffs on the sanitation severity axis"></svg></div>
+    <div class="anchorbox" id="anchorbox"><span class="muted">Click an axis tick (0.0 – 1.0) to see the anchored condition description at that severity.</span></div>
+  </div>
+</section>
+
+<section id="matrix-section">
+  <div class="sechead">
+    <h2>Decision matrix</h2>
+    <p>Rows are readers, strictest cutoff first; columns are the forty units, ordered by severity.
+    A filled cell means the reader cited the unit as substandard. The ragged vertical seam is the
+    discretion band — units whose fate depends on which reader shows up.
+    <b>Click any column to open that unit's dossier.</b></p>
+  </div>
+  <div class="panel">
+    <div class="legend">
+      <span><span class="sw" style="background:var(--cited)"></span>cited (substandard)</span>
+      <span><span class="sw" style="background:var(--passed-soft)"></span>passed</span>
+    </div>
+    <div class="matrixwrap" id="matrixwrap"></div>
+  </div>
+  <div class="panel dossier" id="dossier"></div>
+</section>
+
+<section id="numbers">
+  <div class="sechead"><h2>Headline numbers</h2>
+  <p>The measurements above, condensed. Placeholder-prior and artifact tags mark numbers not yet calibrated to real data.</p></div>
+  <div class="numstrip" id="numstrip"></div>
+</section>
+
+<section id="toy">
+  <div class="sechead">
+    <h2>The idea in ten seconds: a toy law, parsed</h2>
+    <p>A two-line ordinance: <em style="font-family:'Spectral',serif">“A resident may keep a backyard
+    chicken coop if the coop stands at least ten feet from any neighboring dwelling, is maintained in
+    sanitary condition, and complies with the State Animal Welfare Code.”</em> Parsed, it becomes:</p>
+  </div>
+  <div class="panel">
+    <div class="icorowwrap"><div class="icorow" style="min-width:780px">
+      <div class="icocard inputs"><h3>Inputs</h3><div class="icosec">
+        <span class="mono">distance_to_dwelling</span> — resident measures it (site sketch)<br>
+        <span class="mono">coop condition facts</span> — clerk observes on one visit</div></div>
+      <div class="icoarrow">→</div>
+      <div class="icocard conds"><h3>Conditions</h3><div class="icosec">
+        #1 <span class="ptype objective">OBJ</span> distance ≥ 10 ft — computed from the measurement<br>
+        #2 <span class="ptype judgment">JUDG</span> “sanitary condition” — the clerk's call<br>
+        #3 <span class="ptype reference">REF</span> “complies with the Animal Welfare Code” — another law, not expanded here</div></div>
+      <div class="icoarrow">→</div>
+      <div class="icocard outs"><h3>Outcomes</h3><div class="icosec">
+        <span class="inlineout approve">approve</span> &nbsp;<span class="inlineout deny">deny</span></div></div>
+    </div></div>
+    <p class="icosec muted" style="max-width:78ch; margin-top:10px">Read-out: size = 3 conditions; judgment
+    share = 2 of 3; burden ≈ one self-measurement + one clerk visit; discretion = every coop that passes the
+    tape measure lands on “is it sanitary?” — the answer depends on which clerk shows up. To price that
+    phrase, we generate coops sweeping from spotless to squalid, ask many committed clerk-personas to rule
+    on each, and report the interval where they disagree. The rest of this page does exactly this, for a
+    real law.</p>
+  </div>
+</section>
+
+
+
+<section id="plan">
+  <div class="sechead">
+    <h2>The plan, abstracted</h2>
+    <p>The law is parsed into three layers. Each box says what the layer is, how we get it, how it's checked
+    against things that already exist, and what we measure from it. The rest of this page is this diagram
+    instantiated for AB&nbsp;2533.</p>
+  </div>
+  <div class="panel plan">
+    <div class="lawbox">
+      <h3>Input law</h3>
+      <div class="icosec">The statute text, verbatim from the official source.</div>
+    </div>
+    <div class="planarrow">
+      <span class="stem">↓</span>
+      <span class="lbl"><b>parse with LLM</b> — several independent parses, every element quoting its statute
+      span verbatim. Parses are never averaged: where they disagree is a measurement of the law.</span>
+    </div>
+    <div class="icorowwrap"><div class="icorow">
+      <div class="icocard inputs">
+        <h3>Inputs</h3>
+        <div class="icosec"><b>What</b>Every fact someone must supply — who produces it, by what act
+        (form, records request, site inspection).</div>
+        <div class="icosec validation"><b>Checked against</b>Cities' own application forms and checklists;
+        existing cost data — fee schedules, the federal burden-hour inventory, the IRS taxpayer burden model.</div>
+        <div class="icosec validation"><b>Complexity =</b>Facts × acquisition acts; hours, dollars, and
+        waiting per case — the <em>burden</em> axis.</div>
+      </div>
+      <div class="icoarrow">→</div>
+      <div class="icocard conds">
+        <h3>Conditions</h3>
+        <div class="icosec"><b>What</b>The tests the law turns on: objective, judgment, or reference
+        (legend below).</div>
+        <div class="icosec validation"><b>Checked against</b>SARA's expert hand-written parses of nine
+        tax-code sections (known-answer test); a fresh reading of the raw text must agree with the tree
+        case-by-case.</div>
+        <div class="icosec validation"><b>Complexity =</b>Count and depth (<em>size</em>); share needing
+        judgment; per vague word, the band where committed readers disagree (<em>discretion</em>, priced).</div>
+      </div>
+      <div class="icoarrow">→</div>
+      <div class="icocard outs">
+        <h3>Outcomes</h3>
+        <div class="icosec"><b>What</b>What can happen to a case: approve, approve with corrections, deny,
+        refer, not applicable.</div>
+        <div class="icosec validation"><b>Checked against</b>Dispositions implied by cities' published
+        checklists; eventually real permit records.</div>
+        <div class="icosec validation"><b>Complexity =</b>Share of realistic cases that can reach more than
+        one outcome — the rule's bottom-line <em>discretion</em>.</div>
+      </div>
+    </div></div>
+
+  </div>
+</section>
+
+<section id="method">
+  <div class="sechead">
+    <h2>What this is</h2>
+  </div>
+  <div class="panel" style="display:flex; flex-direction:column; gap:14px; max-width:none;">
+    <p style="max-width:78ch"><b>Goal.</b> Measure what a rule costs the people subject to it, and eventually
+    simplify rules while changing as few outcomes as possible. We split “complexity” into three separately
+    measured costs: <b>size</b> (how much there is to read), <b>discretion</b> (how often the text fails to
+    determine a case's outcome), and <b>burden</b> (the time, money, and waiting it takes to produce what the
+    process demands). Existing complexity metrics capture only the first; the middle one is the measurement
+    this project adds.</p>
+    <p style="max-width:78ch"><b>Method, briefly.</b> We have language models compile the statute into
+    executable decision trees — several times, independently, under strict contracts: every condition must
+    quote its statute span verbatim, one condition per subdivision, inputs must be raw observable facts, and
+    every input names the real-world act that produces it. We never trust a model's <em>opinion</em> about
+    the law; models only generate artifacts (trees, test cases, readings), and every artifact is checked by
+    execution. Running a case through a tree explores both branches of every judgment condition, so the
+    result is the <em>set</em> of outcomes the text licenses — a case with more than one licensed outcome is
+    a concrete witness of discretion. To price a single vague word, we generate synthetic units sweeping a
+    severity axis and ask a panel of committed reader personas to apply the predicate to each unit; each
+    reader's cutoff is estimated from their decisions, and the spread of cutoffs is the word's looseness.
+    Burden is priced per acquisition event — one inspection yields many facts — from effort-class priors
+    until fee schedules and permit records replace them.</p>
+    <p style="max-width:78ch"><b>Validation without ground truth.</b> The instrument is calibrated on planted
+    worlds where the right answer is known by construction (a threshold rule must compile to a threshold; an
+    XOR rule must defeat every simple program — it does). Compiled trees face a reconstruction test: a fresh
+    reader applies the raw statute to the same case and must land inside the tree's licensed set. The
+    external test is a natural experiment: California required every city to publish a §&nbsp;17920.3
+    checklist, so hundreds of independent human compilations of this same statute exist — our looseness
+    measure should predict where those checklists disagree. That comparison is the next milestone.</p>
+    <p style="max-width:78ch"><b>Where this sits.</b> Legal-complexity metrics (Katz &amp; Bommarito's work on
+    the U.S. Code; Colliard &amp; Georg's regulation-as-code measures) count textual structure and cannot see
+    discretion — “adequate” is one token. Rules-as-code, from the 1986 British Nationality Act in Prolog
+    through Catala and OpenFisca to recent LLM formalization work (SARA's hand-written gold Prolog, the Dutch
+    government's production permit decision models, JusticeBot's pathways), treats a formalization as a means
+    to correct answers, and explicitly suppresses the fact that a statute admits several viable
+    formalizations. We measure as signal exactly what that literature controls as a confound. Administrative
+    burden research (Herd &amp; Moynihan; sludge audits; the federal burden-hour inventory) supplies the
+    burden axis; reform microsimulation (PolicyEngine, EUROMOD) supplies the who-gains-who-loses machinery
+    for the simplification half.</p>
+    <p style="max-width:78ch" class="muted"><b>Terms used on this page.</b> <em>Fuzz panel</em> — test cases
+    made by drawing every input at random from its allowed values; good for exercising a tree's wiring,
+    deliberately unrealistic (a coin flip per defect makes every unit a disaster), so population-level claims
+    wait for panels calibrated to real housing data. <em>Identified set</em> — all outcomes a case can
+    validly reach through the text. <em>Judgment mass</em> — the share of conditions requiring an official's
+    judgment; sensitive to how finely the tree is parsed, unlike the behavioral discretion measure.
+    <em>Band</em> — the severity interval where committed readers disagree.</p>
+  </div>
+</section>
+
+<section id="problems-section">
+  <div class="sechead">
+    <h2>Problem register</h2>
+    <p>Ranked. The instrument is honest about what its numbers do not yet mean.</p>
+  </div>
+  <div class="problems">
+    <div class="prob"><b>Cross-reading divergence reads 0.000 — an artifact, not a finding.</b>
+      <p>The three readings name their input facts almost entirely differently (only <span class="mono">construction_date</span>
+      is shared by all three), so one test panel is not a coherent world across trees. Stricter prompting made
+      this <em>worse</em>, not better — finer-grained facts multiply the naming surface — so a field crosswalk
+      to shared latent facts is unavoidable, plus adversarial case generation. The vocabulary divergence is
+      itself a finding: faithful readers don't even agree on what facts the statute asks for.</p></div>
+    <div class="prob"><b>Ensemble validity: seven personas, one model, scripted by us.</b>
+      <p>The band could partly be persona-design artifact. Fix: real readings — scrape 10–20 city §&nbsp;17920.3
+      checklists as checklist-sourced readers, later revealed readings from permit records. Also: batched
+      elicitation protocol and sweep-grid quantization; no per-case replication yet.</p></div>
+    <div class="prob"><b>Placeholder priors under every population and burden number.</b>
+      <p>The 9.5% band mass uses a beta(2,5) guess; burden hours/dollars use class priors. Calibration paths:
+      assessor / inspection data; PRA-ICR burden inventory, fee schedules, permit timestamps.</p></div>
+    <div class="prob"><b>The reference frontier is unexpanded.</b>
+      <p>Violet spans delegate to Title 24 and other provisions we did not expand (23 REF flags), so judgment
+      mass partly reflects unexpanded delegation rather than measured vagueness.</p></div>
+    <div class="prob"><b>Synthetic realism is assumed, not yet validated.</b>
+      <p>Axis anchors and vignettes are our authorship. Check rendered vignettes against real inspection
+      reports; verify measured looseness predicts real cross-city checklist divergence.</p></div>
+  </div>
+</section>
+
+<footer>
+  Generated from the pilot artifacts in <span class="mono">examples/</span> (readings, looseness, vignettes,
+  compilations) · elicitation backend: Codex CLI, batched protocol, recorded in the data · sweep n=40, seed 1 ·
+  Statute texts: leginfo.legislature.ca.gov (current through SB&nbsp;543, eff. 2026-01-01).
+</footer>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+const esc = s => String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+const PERSONA_SHORT = {
+  llm_00:"Strict big-city official", llm_01:"Rural amnesty-intent official",
+  llm_02:"Health-dept. officer", llm_03:"ABAG-template follower",
+  llm_04:"Cautious literalist", llm_05:"“Family member” veteran", llm_06:"HCD-audit conservative"};
+
+const L = DATA.looseness, WORLD = DATA.world, AXIS = WORLD.axes[0];
+const cases = DATA.vignettes.cases.slice().sort((a,b)=>a.theta.sanitation_severity-b.theta.sanitation_severity);
+const theta = c => c.theta.sanitation_severity;
+const resp = {};
+for (const r of DATA.readings.responses){ (resp[r.reader_id] = resp[r.reader_id] || {})[r.case_id] = r; }
+const readers = Object.keys(L.per_reader).sort((a,b)=>L.per_reader[a].b-L.per_reader[b].b || a.localeCompare(b));
+
+// ---------- headline numbers ----------
+const nums = [
+  {v:`[${L.band_full[0].toFixed(2)}, ${L.band_full[1].toFixed(2)}]`, k:"looseness band (full)"},
+  {v:L.cutoff_sd.toFixed(3), k:"cutoff dispersion (SD)"},
+  {v:`${L.n_threshold_readers}/${L.n_readers}`, k:"threshold-like readers"},
+  {v:(100*L.band_mass_full).toFixed(1)+"%", k:"units in contested band", tag:"placeholder prior"},
+  {v:(()=>{const j=DATA.compstats.map(c=>c.judgment_mass); return `${Math.min(...j).toFixed(2)}–${Math.max(...j).toFixed(2)}`;})(), k:"judgment mass, 3 readings"},
+  {v:"0.000", k:"cross-reading divergence", tag:"artifact"},
+];
+document.getElementById("numstrip").innerHTML = nums.map(n=>
+  `<div class="num"><span class="v">${n.v}</span><span class="k">${n.k}${
+    n.tag ? ` <span class="tag ${n.tag==="artifact"?"artifact":"placeholder"}">${n.tag}</span>` : ""}</span></div>`).join("");
+
+// ---------- readings, smallest first (stats computed by dashboard/build.py) ----------
+const READINGS = DATA.compstats
+  .map((m,ci)=>({ci, meta:m, approach:m.approach}))
+  .sort((a,b)=>a.meta.n_preds-b.meta.n_preds)
+  .map((r,i)=>({...r, name:`Reading ${"ABCDEFG"[i]}`}));
+let cur = 0;
+const curTree = () => DATA.compilations[READINGS[cur].ci];
+
+function predsOf(tree){ return tree.nodes.filter(n=>n.predicate); }
+function walkOrder(tree){
+  const byId = {}; tree.nodes.forEach(n=>byId[n.id]=n);
+  const order = [], seen = new Set();
+  (function walk(id){
+    const n = byId[id]; if(!n || seen.has(id)) return;
+    seen.add(id);
+    if(n.predicate){ order.push(n); walk(n.if_true); walk(n.if_false); }
+  })(tree.root);
+  for (const n of tree.nodes) if(n.predicate && !seen.has(n.id)) order.push(n); // unreachable, keep visible
+  return {order, byId};
+}
+
+// ---------- tabs ----------
+function renderTabs(){
+  document.getElementById("comptabs").innerHTML = READINGS.map((r,i)=>{
+    const np = predsOf(DATA.compilations[r.ci]).length;
+    return `<button class="tab" role="tab" aria-selected="${i===cur}" data-i="${i}">${r.name} · ${np} conditions${i===0?" (smallest)":""}</button>`;
+  }).join("");
+}
+document.getElementById("comptabs").addEventListener("click", e=>{
+  const t = e.target.closest(".tab"); if(!t) return;
+  cur = +t.dataset.i; renderAll();
+});
+
+// ---------- statute annotation ----------
+function renderStatute(){
+  const tree = curTree();
+  const norm = s => s.replace(/\s+/g," ").trim();
+  const spans = predsOf(tree).map((n,i)=>({q:norm(n.span?.quote||"").toLowerCase(),
+    type:n.predicate.type, id:n.id, idx:i+1})).filter(s=>s.q.length>=8);
+  let matched = 0;
+  const html = DATA.statutes.map(st=>{
+    const paras = st.text.split(/\n{2,}/).map(norm).filter(Boolean);
+    const body = paras.map(p=>{
+      const low = p.toLowerCase();
+      let marks = [];
+      for (const s of spans){
+        let q = s.q, idx = low.indexOf(q);
+        if (idx < 0 && q.length > 60){ q = q.slice(0,60); idx = low.indexOf(q); }
+        if (idx >= 0) marks.push({start:idx, end:idx+q.length, s});
+      }
+      marks.sort((a,b)=>a.start-b.start || (b.end-b.start)-(a.end-a.start));
+      const kept = []; let last = 0;
+      for (const m of marks){ if(m.start >= last){ kept.push(m); last = m.end; m.s._matched = true; } }
+      let out = "", pos = 0;
+      for (const m of kept){
+        out += esc(p.slice(pos, m.start));
+        out += `<mark class="${m.s.type}" data-node="${m.s.id}" title="Condition #${m.s.idx} (${m.s.type})">${esc(p.slice(m.start, m.end))}</mark>`;
+        pos = m.end;
+      }
+      out += esc(p.slice(pos));
+      return `<p>${out}</p>`;
+    }).join("");
+    return `<h3>${esc(st.title)}</h3><div class="crumbs">${esc(st.crumbs)}</div>${body}`;
+  }).join("");
+  matched = spans.filter(s=>s._matched).length;
+  document.getElementById("statute").innerHTML = html;
+  document.getElementById("matchnote").textContent =
+    `${matched} of ${spans.length} condition spans in this reading matched the statute text verbatim; ` +
+    `unmatched ones are paraphrases by the compiler (visible in the flow chart but not highlightable here).`;
+}
+document.getElementById("statute").addEventListener("click", e=>{
+  const m = e.target.closest("mark"); if(!m) return;
+  const card = document.querySelector(`.cond[data-node="${m.dataset.node}"]`);
+  if(card){ card.scrollIntoView({behavior:"smooth", block:"center"});
+    card.classList.add("hot"); setTimeout(()=>card.classList.remove("hot"), 1800); }
+});
+document.getElementById("expandbtn").addEventListener("click", ()=>{
+  const s = document.getElementById("statute");
+  s.classList.toggle("expanded");
+  document.getElementById("expandbtn").textContent = s.classList.contains("expanded") ? "Collapse" : "Show full height";
+});
+
+// ---------- flow chart ----------
+const OUTLABEL = {approve:"approve", deny:"deny", conditional_approve:"approve w/ corrections",
+  refer:"refer", not_applicable:"not applicable"};
+function renderFlow(){
+  const tree = curTree(), {order, byId} = walkOrder(tree);
+  const meta = READINGS[cur].meta;
+  const condIdx = {}; order.forEach((n,i)=>condIdx[n.id]=i+1);
+  document.getElementById("compstats").innerHTML =
+    `<span><b>${order.length}</b> conditions</span>
+     <span><b>${tree.input_schema.fields.length}</b> inputs demanded</span>
+     <span>P(discretion) <b>${meta.pd.toFixed(2)}</b></span>
+     <span>mean burden <b>${meta.burden}</b> <span class="tag placeholder">class priors</span></span>
+     <span>flags: <b>${meta.flags}</b></span>
+     <span class="muted">${READINGS[cur].approach}</span>`;
+
+  // which inputs are actually used
+  const used = new Set(); order.forEach(n=>(n.predicate.inputs||[]).forEach(f=>used.add(f)));
+  // effort estimates from class priors (+ per-field overrides)
+  const effort = f=>{
+    const cls = (DATA.priors.classes[f.provenance_class]||{}), ov = f.burden_override||{};
+    return {h: ov.hours ?? cls.hours ?? 0, d: ov.dollars ?? cls.dollars ?? 0, w: ov.wait_days ?? cls.wait_days ?? 0};
+  };
+  const fmtEffort = e=>{
+    const p = [];
+    if(e.h) p.push(e.h + "h"); if(e.d) p.push("$" + e.d); if(e.w) p.push(e.w + "d wait");
+    return p.join(" · ") || "—";
+  };
+  // group inputs by supplier
+  const groups = {};
+  for (const f of tree.input_schema.fields) (groups[f.supplier] = groups[f.supplier]||[]).push(f);
+  const supOrder = Object.keys(groups).sort((a,b)=> (a==="applicant"?-1:1)-(b==="applicant"?-1:1) || a.localeCompare(b));
+  const inputsHtml = supOrder.map(sup=>{
+    const tot = groups[sup].reduce((a,f)=>{const e = effort(f); return {h:a.h+e.h, d:a.d+e.d};}, {h:0,d:0});
+    return `
+    <div class="supgroup" data-sup="${esc(sup)}">
+      <div class="suphead">${esc(sup.replace("_"," "))} <span class="mono">supplies ${groups[sup].length}</span>
+        <span class="subtotal" title="sum of class-prior estimates">≈${Math.round(tot.h*10)/10}h${tot.d?` · $${tot.d}`:""}</span></div>
+      ${groups[sup].map(f=>`
+        <div class="inrow" data-field="${esc(f.name)}" title="${esc(f.question||"")} — estimate from effort class ${f.provenance_class||"?"} prior">
+          <span class="prov" title="effort class ${f.provenance_class||"?"}">${f.provenance_class||"?"}</span>
+          <span>${esc(f.name.replace(/_/g," "))}${used.has(f.name)?"":" <span class='muted'>(unused)</span>"}
+            ${f.sensitive?`<span class="sens">sensitive</span>`:""}</span>
+          <span class="est">${fmtEffort(effort(f))}</span>
+        </div>`).join("")}
+    </div>`;}).join("");
+
+  const branchText = (target)=>{
+    const t = byId[target];
+    if(!t) return `<span class="muted">?</span>`;
+    if(t.outcome) return `<span class="inlineout ${t.outcome.label}">${OUTLABEL[t.outcome.label]||t.outcome.label}</span>`;
+    return `condition #${condIdx[t.id]||"?"}`;
+  };
+  const condsHtml = order.map((n,i)=>{
+    const p = n.predicate;
+    const deleg = p.type==="reference" ? `<div class="deleg">↪ delegates to: <b>${esc(p.target||"another provision")}</b>${
+      (p.inputs||[]).length ? "" : " — no local inputs; the referenced law defines its own facts (unexpanded)"}</div>` : "";
+    return `<div class="cond" data-node="${n.id}" data-inputs="${esc((p.inputs||[]).join("|"))}">
+      <div class="toprow"><span class="idx">#${i+1}</span>
+        <span class="ptype ${p.type}">${p.type==="objective"?"OBJ":p.type==="judgment"?"JUDG":"REF"}</span>
+        <span>${esc(p.text)}</span>
+        <span class="decider">decides: ${esc(p.decider||"—")}</span></div>
+      ${n.span?.quote?`<div class="mono muted" style="font-size:.72rem">“${esc(n.span.quote.slice(0,100))}” — ${esc(n.span.cite||"")}</div>`:""}
+      ${deleg}
+      <div class="branches">
+        <span><b>if yes</b> → ${branchText(n.if_true)}</span>
+        <span><b>if no</b> → ${branchText(n.if_false)}</span></div>
+    </div>`;
+  }).join("");
+
+  // outcome tallies: count branch edges landing on each label
+  const tally = {};
+  order.forEach(n=>["if_true","if_false"].forEach(k=>{
+    const t = byId[n[k]]; if(t?.outcome) tally[t.outcome.label] = (tally[t.outcome.label]||0)+1;
+  }));
+  const outsHtml = Object.entries(tally).sort((a,b)=>b[1]-a[1]).map(([label,c])=>`
+    <div data-out="${label}"><div class="outpill ${label}">${OUTLABEL[label]||label}</div>
+    <div class="outcount">${c} path${c>1?"s":""} land here</div></div>`).join("");
+
+  document.getElementById("flow").innerHTML = `
+    <svg class="edges"></svg>
+    <div class="fcol" id="col-in"><div class="fcolhead">Inputs — who must produce what
+      <button class="clearchip" id="clearfilter" hidden>Show all</button></div>${inputsHtml}</div>
+    <div class="fcol" id="col-cond"><div class="fcolhead">Conditions, in the order checked</div>${condsHtml}</div>
+    <div class="fcol" id="col-out"><div class="fcolhead">Outcomes</div>${outsHtml}</div>`;
+  // publish current reading's graph for the (once-wired) interaction handlers
+  const preds = {};   // nodeId -> [condition ids whose branch points to it]
+  order.forEach(n=>["if_true","if_false"].forEach(k=>{ (preds[n[k]] = preds[n[k]]||[]).push(n.id); }));
+  flowState = {order, byId, preds, filterKey:null};
+  const clearBtn = document.getElementById("flow").querySelector("#clearfilter");
+  if(clearBtn) clearBtn.hidden = true;
+  requestAnimationFrame(drawEdges);
+  wireFlowOnce();
+}
+
+// ---- flow interactions: wired ONCE, always read the current flowState ----
+let flowState = null, flowWired = false;
+function applyFilter(sel){
+  const flow = document.getElementById("flow");
+  flow.querySelectorAll(".cond").forEach(el=>{ el.hidden = !!sel && !sel.conds.has(el.dataset.node); });
+  flow.querySelectorAll(".inrow").forEach(el=>{ el.hidden = !!sel && !sel.fields.has(el.dataset.field); });
+  flow.querySelectorAll("[data-out]").forEach(el=>{ el.hidden = !!sel && !sel.outs.has(el.dataset.out); });
+  flow.querySelectorAll(".supgroup").forEach(g=>{
+    g.hidden = !!sel && ![...g.querySelectorAll(".inrow")].some(r=>!r.hidden);
+  });
+  const cb = flow.querySelector("#clearfilter"); if(cb) cb.hidden = !sel;
+  requestAnimationFrame(drawEdges);
+}
+function subgraphFor(kind, key){
+  // Strictly minimal neighborhoods — every visible card must have a drawable
+  // edge to the clicked element. Neighboring conditions are NEVER shown as
+  // cards (the if-yes/if-no text already names them).
+  const {order, byId} = flowState;
+  const conds = new Set(), fields = new Set(), outs = new Set();
+  const addCond = n=>{
+    conds.add(n.id);
+    (n.predicate.inputs||[]).forEach(f=>fields.add(f));
+    ["if_true","if_false"].forEach(k=>{ const t = byId[n[k]]; if(t?.outcome) outs.add(t.outcome.label); });
+  };
+  if(kind==="cond"){
+    const n = byId[key]; if(n) addCond(n);          // just this condition + its inputs + its direct outcomes
+  } else if(kind==="field"){
+    order.forEach(n=>{ if((n.predicate.inputs||[]).includes(key)) addCond(n); });
+    fields.clear(); fields.add(key);                 // consuming conditions keep only the clicked input visible
+  } else if(kind==="out"){
+    outs.clear(); outs.add(key);
+    order.forEach(n=>{
+      if(["if_true","if_false"].some(k=>byId[n[k]]?.outcome?.label===key)){
+        conds.add(n.id); (n.predicate.inputs||[]).forEach(f=>fields.add(f));
+      }
+    });
+  }
+  return {conds, fields, outs};
+}
+function wireFlowOnce(){
+  if(flowWired) return; flowWired = true;
+  const flow = document.getElementById("flow");
+  flow.addEventListener("mouseover", e=>{
+    if(flowState?.filterKey) return;   // don't fight an active filter
+    const card = e.target.closest(".cond"), inrow = e.target.closest(".inrow");
+    flow.querySelectorAll(".hot").forEach(el=>el.classList.remove("hot"));
+    highlightEdges(null);
+    if(card){
+      card.classList.add("hot");
+      (card.dataset.inputs||"").split("|").filter(Boolean)
+        .forEach(f=>flow.querySelector(`.inrow[data-field="${CSS.escape(f)}"]`)?.classList.add("hot"));
+      highlightEdges(card.dataset.node);
+    } else if(inrow){
+      inrow.classList.add("hot");
+      flow.querySelectorAll(".cond").forEach(c=>{
+        if((c.dataset.inputs||"").split("|").includes(inrow.dataset.field)) c.classList.add("hot");
+      });
+      highlightEdges("field:"+inrow.dataset.field);
+    }
+  });
+  flow.addEventListener("click", e=>{
+    if(e.target.closest("#clearfilter")){ flowState.filterKey = null; applyFilter(null); return; }
+    const card = e.target.closest(".cond"), inrow = e.target.closest(".inrow"), out = e.target.closest("[data-out]");
+    let kind, key;
+    if(card){ kind = "cond"; key = card.dataset.node; }
+    else if(inrow){ kind = "field"; key = inrow.dataset.field; }
+    else if(out){ kind = "out"; key = out.dataset.out; }
+    else return;
+    const k = kind + ":" + key;
+    if(flowState.filterKey === k){ flowState.filterKey = null; applyFilter(null); }
+    else {
+      flowState.filterKey = k;
+      flow.querySelectorAll(".hot").forEach(el=>el.classList.remove("hot"));
+      applyFilter(subgraphFor(kind, key));
+      const label = kind==="cond" ? `condition #${flowState.order.findIndex(n=>n.id===key)+1}`
+                  : kind==="field" ? `input “${key.replace(/_/g," ")}”` : `outcome “${key.replace(/_/g," ")}”`;
+      const cb = flow.querySelector("#clearfilter"); if(cb) cb.textContent = `Show all — filtered to ${label}`;
+    }
+  });
+}
+
+function drawEdges(){
+  const flow = document.getElementById("flow");
+  const svg = flow.querySelector("svg.edges");
+  const fr = flow.getBoundingClientRect();
+  svg.setAttribute("viewBox", `0 0 ${fr.width} ${fr.height}`);
+  const vis = el => el && !el.hidden && el.offsetParent !== null;
+  const pos = el => { const r = el.getBoundingClientRect();
+    return {l:r.left-fr.left, r:r.right-fr.left, y:(r.top+r.bottom)/2-fr.top}; };
+  const tree = curTree(), {order, byId} = walkOrder(tree);
+  let s = "";
+  const path = (x1,y1,x2,y2,cls,extra)=>{
+    const mx = (x1+x2)/2;
+    return `<path d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}" fill="none" ${extra||""} class="${cls||""}"/>`;
+  };
+  for (const n of order){
+    const card = flow.querySelector(`.cond[data-node="${n.id}"]`); if(!vis(card)) continue;
+    const cp = pos(card);
+    for (const f of (n.predicate.inputs||[])){
+      const row = flow.querySelector(`.inrow[data-field="${CSS.escape(f)}"]`); if(!vis(row)) continue;
+      const ip = pos(row);
+      s += path(ip.r, ip.y, cp.l, cp.y, "", `stroke="var(--edge)" stroke-width="1" opacity="0.55" data-e="${n.id}" data-f="field:${f}"`);
+    }
+    for (const k of ["if_true","if_false"]){
+      const t = byId[n[k]];
+      if(t?.outcome){
+        const wrap = flow.querySelector(`[data-out="${t.outcome.label}"]`); if(!vis(wrap)) continue;
+        const out = wrap.querySelector(".outpill");
+        const op = pos(out);
+        const col = {approve:"var(--passed)", deny:"var(--cited)", conditional_approve:"var(--band)"}[t.outcome.label] || "var(--edge)";
+        s += path(cp.r, cp.y, op.l, op.y, "", `stroke="${col}" stroke-width="1.4" opacity="0.6" data-e="${n.id}"`);
+      }
+    }
+  }
+  svg.innerHTML = s;
+}
+function highlightEdges(key){
+  document.querySelectorAll(".edges path").forEach(p=>{
+    const on = key && (p.dataset.e===key || p.dataset.f===key);
+    p.style.strokeWidth = on ? "2.5" : "";
+    p.style.opacity = on ? "1" : (key ? "0.15" : "");
+  });
+}
+let rsz; window.addEventListener("resize", ()=>{ clearTimeout(rsz); rsz = setTimeout(drawEdges, 150); });
+
+function renderAll(){ renderTabs(); renderStatute(); renderFlow(); }
+renderAll();
+
+// ---------- cutoff axis ----------
+(function(){
+  const svg = document.getElementById("axis");
+  const X0 = 50, X1 = 950, Y = 160;
+  const x = t => X0 + (X1-X0)*t;
+  let s = "";
+  s += `<rect x="${x(L.band_full[0])}" y="60" width="${x(L.band_full[1])-x(L.band_full[0])}" height="${Y-60}" fill="var(--band-soft)"/>`;
+  s += `<rect x="${x(L.band_iqr[0])}" y="60" width="${x(L.band_iqr[1])-x(L.band_iqr[0])}" height="${Y-60}" fill="var(--band-strong)"/>`;
+  s += `<text x="${x((L.band_full[0]+L.band_full[1])/2)}" y="52" text-anchor="middle" font-size="11" fill="var(--band)" font-weight="600">contested band</text>`;
+  s += `<line x1="${X0}" y1="${Y}" x2="${X1}" y2="${Y}" stroke="var(--muted)" stroke-width="1.5"/>`;
+  for (const a of AXIS.anchors){
+    s += `<g class="tick" data-theta="${a.theta}" style="cursor:pointer">
+      <line x1="${x(a.theta)}" y1="${Y-5}" x2="${x(a.theta)}" y2="${Y+7}" stroke="var(--ink)" stroke-width="2"/>
+      <text x="${x(a.theta)}" y="${Y+24}" text-anchor="middle" font-size="12" fill="var(--ink)" font-family="'IBM Plex Mono',monospace">${a.theta.toFixed(1)}</text>
+      <rect x="${x(a.theta)-14}" y="${Y-8}" width="28" height="44" fill="transparent"/></g>`;
+  }
+  s += `<text x="${X1}" y="${Y+44}" text-anchor="end" font-size="11" fill="var(--muted)">sanitation severity θ → worse</text>`;
+  readers.forEach((rid,i)=>{
+    const b = L.per_reader[rid].b, yy = 130 - (i%4)*24;
+    s += `<line x1="${x(b)}" y1="${yy}" x2="${x(b)}" y2="${Y}" stroke="var(--cited)" stroke-width="1.4" stroke-dasharray="2 3"/>`;
+    s += `<circle cx="${x(b)}" cy="${yy}" r="5.5" fill="var(--cited)"/>`;
+    const anchor = b > .62 ? "end" : "start", dx = b > .62 ? -9 : 9;
+    s += `<text x="${x(b)+dx}" y="${yy+4}" text-anchor="${anchor}" font-size="11.5" fill="var(--ink)">${PERSONA_SHORT[rid]} <tspan fill="var(--muted)" font-family="'IBM Plex Mono',monospace">${b.toFixed(2)}</tspan></text>`;
+  });
+  svg.innerHTML = s;
+  const box = document.getElementById("anchorbox");
+  svg.querySelectorAll(".tick").forEach(g=>g.addEventListener("click",()=>{
+    const a = AXIS.anchors.find(a=>a.theta===+g.dataset.theta);
+    box.innerHTML = `<span class="mono">θ = ${a.theta.toFixed(1)}</span> — ${esc(a.description)}`;
+  }));
+})();
+
+// ---------- decision matrix ----------
+(function(){
+  const wrap = document.getElementById("matrixwrap");
+  const grid = document.createElement("div");
+  grid.className = "matrix";
+  grid.style.gridTemplateColumns = `max-content repeat(${cases.length}, 20px)`;
+  grid.insertAdjacentHTML("beforeend", `<div class="rowlab muted">θ</div>`);
+  for (const c of cases){
+    const inBand = theta(c) >= L.band_full[0] && theta(c) <= L.band_full[1];
+    grid.insertAdjacentHTML("beforeend",
+      `<div class="collab" style="${inBand?'color:var(--band);font-weight:600;':''}">${theta(c).toFixed(2)}</div>`);
+  }
+  for (const rid of readers){
+    grid.insertAdjacentHTML("beforeend",
+      `<div class="rowlab">${PERSONA_SHORT[rid]} <span class="mono muted">${L.per_reader[rid].b.toFixed(2)}</span></div>`);
+    for (const c of cases){
+      const d = resp[rid][c.case_id];
+      grid.insertAdjacentHTML("beforeend",
+        `<button class="mcell ${d.decision?"cited":"passed"}" data-case="${c.case_id}"
+          aria-label="${PERSONA_SHORT[rid]}, unit θ=${theta(c).toFixed(2)}: ${d.decision?"cited":"passed"}"></button>`);
+    }
+  }
+  wrap.appendChild(grid);
+  wrap.addEventListener("click", e=>{
+    const cell = e.target.closest(".mcell"); if(!cell) return;
+    openDossier(cell.dataset.case);
+    grid.querySelectorAll(".mcell").forEach(m=>m.classList.toggle("selcol", m.dataset.case===cell.dataset.case));
+  });
+})();
+
+function openDossier(caseId){
+  const c = cases.find(c=>c.case_id===caseId);
+  const votes = readers.map(rid=>({rid, ...resp[rid][caseId]}));
+  const nCited = votes.filter(v=>v.decision).length;
+  const el = document.getElementById("dossier");
+  el.classList.add("open");
+  el.innerHTML = `
+    <div class="dhead">
+      <h3>Unit dossier</h3>
+      <span class="mono muted">${esc(caseId)}</span>
+      <span class="mono">θ = ${theta(c).toFixed(3)}</span>
+      <span style="color:${nCited>0&&nCited<readers.length?"var(--band)":"var(--muted)"};font-weight:600">
+        ${nCited}/${readers.length} readers cite${nCited>0&&nCited<readers.length?" — contested":""}</span>
+      <span class="muted" style="font-size:.85rem">${esc(c.context.unit_type)}, ${esc(c.context.construction_era)}, ${esc(c.context.occupancy)}</span>
+    </div>
+    <p class="vig">${esc(c.vignette)}</p>
+    <div class="readerlist">${votes.map(v=>`
+      <div class="rrow">
+        <span class="decision ${v.decision?"cited":"passed"}">${v.decision?"cited":"passed"}</span>
+        <span>${PERSONA_SHORT[v.rid]}</span>
+        <span class="muted">${esc(v.rationale)}</span>
+      </div>`).join("")}
+    </div>`;
+  el.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+</script>

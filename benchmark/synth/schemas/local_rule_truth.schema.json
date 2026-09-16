@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "local_rule_truth",
+  "description": "A jurisdiction's instrument filling the statute's open choices, with lineage and versioning.",
+  "type": "object",
+  "required": [
+    "jur",
+    "stat_id",
+    "instrument",
+    "cite",
+    "adopted",
+    "choices",
+    "added_elements",
+    "stricter_standards",
+    "version",
+    "prior_version"
+  ],
+  "properties": {
+    "jur": {
+      "type": "string"
+    },
+    "stat_id": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "unpermitted_unit_amnesty",
+        "str_registration",
+        "sidewalk_vending",
+        "tree_removal",
+        "home_business",
+        "mobile_food",
+        "solar_auto_permit",
+        "rental_inspection",
+        "backyard_hens",
+        "special_event",
+        "well_permit",
+        "contractor_registration"
+      ]
+    },
+    "instrument": {
+      "enum": [
+        "ordinance",
+        "resolution",
+        "admin_policy"
+      ]
+    },
+    "cite": {
+      "type": "string"
+    },
+    "adopted": {
+      "type": "string"
+    },
+    "effective": {
+      "type": "string"
+    },
+    "choices": {
+      "type": "object"
+    },
+    "added_elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "element_id",
+          "kind",
+          "name",
+          "mandatory"
+        ],
+        "properties": {
+          "element_id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mandatory": {
+            "type": "boolean"
+          },
+          "fee": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "stricter_standards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "text_spec": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "prior_version": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "adopted": {
+          "type": "string"
+        },
+        "instrument": {
+          "type": "string"
+        },
+        "cite": {
+          "type": "string"
+        },
+        "choices": {
+          "type": "object"
+        },
+        "fee_amount": {
+          "type": "integer"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lineage_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lineage_note": {
+      "type": "string"
+    },
+    "retrofit": {
+      "type": "boolean"
+    },
+    "first_adopted": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "program_name": {
+      "type": "string"
+    },
+    "terminal_artifact": {
+      "type": "string"
+    },
+    "lead_role": {
+      "type": "string"
+    },
+    "prior_lead_role": {
+      "type": "string"
+    },
+    "prior_dropped_element": {
+      "type": "string"
+    },
+    "fee": {
+      "type": "object",
+      "required": [
+        "amount",
+        "when"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "label": {
+          "type": "string"
+        },
+        "derivation": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string"
+        },
+        "adopted_by": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

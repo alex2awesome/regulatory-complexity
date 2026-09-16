@@ -1,0 +1,3112 @@
+{
+  "slug": "ui_claim",
+  "observations": [
+    {
+      "obs_id": "ui_claim_001",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A02 File initial claim (myEDD/UI Online)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "D2",
+      "quote": "The fastest way to apply for unemployment benefits is through myEDD.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A02; median/p90=0 days per gold (source:'official'). Filing itself is an applicant self-service action with no processing lag; no explicit 'X days' quote exists, the 0-day value is the gold curator's inference from the declared page."
+    },
+    {
+      "obs_id": "ui_claim_002",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A05 Attempt automatic claim establishment ('clean claim' path)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "EDD's benefit information system attempts to automatically file the claim.",
+      "date": "2021-01-01",
+      "notes": "Gold activity A05, source:'audit' (CA State Auditor 2020-128/628.1). Only fully-automated 'clean claims' take this path; non-clean claims fall to A06."
+    },
+    {
+      "obs_id": "ui_claim_003",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A06 Route non-automatable claims into manual queues (CPT Conditions)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "The breakdown of reasons an electronic claim is sent for manual review is known and is available in an internal report called CPT Conditions.",
+      "date": "2020-09-16",
+      "notes": "Gold activity A06, source:'audit' (EDD Strike Team Report). ~40% of all UI applications are diverted to this manual path (LAO, G2/S13). Routing itself is instantaneous; the resulting queue wait is captured separately at A07."
+    },
+    {
+      "obs_id": "ui_claim_004",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "document_review",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A07 Manually review claim to resolve identity/work-history mismatches",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G2",
+      "quote": "claims that need work history review are almost always delayed by 21 days, and often longer",
+      "date": "2022-08-01",
+      "notes": "Gold activity A07, source:'audit' (LAO 2022). 21 days is a floor, not a median ('and often longer'); no p90 published."
+    },
+    {
+      "obs_id": "ui_claim_005",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "third_party",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A12 Serve Notice of UI Claim Filed on last employer (10-day statutory response window)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L2",
+      "quote": "The employing unit so notified shall submit within 10 days after the mailing of the notice any facts then known that may affect the claimant's eligibility for benefits",
+      "date": "2026-09-15",
+      "notes": "Gold activity A12; UIC \u00a71327. blocking_party coded third_party because the taxonomy's enum has no 'employer' bucket; the employer is external to both agency and claimant."
+    },
+    {
+      "obs_id": "ui_claim_006",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "mail",
+        "blocking_party": "third_party",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A13 Employer responds to notice of claim filed / disputes separation",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G2",
+      "quote": "Businesses can respond to the notice if they dispute the worker's eligibility. The most common scenario is a dispute about whether the worker quit or was fired.",
+      "date": "2022-08-01",
+      "notes": "Gold activity A13; same statutory 10-day window as A12 viewed from the employer's side. agency_class/task_type null: the actor is the employer, not an agency, and no task_type describes an external party's fact-submission."
+    },
+    {
+      "obs_id": "ui_claim_007",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A14 Compute award and mail benefit documents (DE 429Z, DE 5614, DE 4581)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D4",
+      "quote": "After you submit your unemployment application, we will mail important documents to you in about two weeks.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A14, source:'official' (EDD declared step page); element_ref UIC \u00a71329 exists but the day-count itself comes from the declared page, not the statute text."
+    },
+    {
+      "obs_id": "ui_claim_008",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A15 Register in CalJOBS within 21 days of DE 8405 notice",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 21,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "D3",
+      "quote": "You have 21 days from the date on your Notice of Requirement to Register for Work (DE 8405) to do so, but there's no reason to wait.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A15; UIC \u00a71253(b). agency_class/task_type null: this is a compliance deadline imposed on the claimant, not an agency-performed task."
+    },
+    {
+      "obs_id": "ui_claim_009",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A17 Serve one-week unpaid waiting period",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 7,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "He has been unemployed for a waiting period of one week as defined in Section 1254",
+      "date": "2026-09-15",
+      "notes": "Gold activity A17; UIC \u00a7\u00a71253(d)/1254. Exactly one waiting week per benefit year, not per claim."
+    },
+    {
+      "obs_id": "ui_claim_010",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A18 Certify for continued benefits every two weeks",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 14
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D5",
+      "quote": "Certifying is the process of answering basic questions every two weeks to tell us you're still unemployed and eligible to receive benefit payments.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A18. cadence field repurposed from its 'scheduled body' definition to the closest available enum value for a fixed 14-day applicant reporting cycle; no better-fitting enum value exists."
+    },
+    {
+      "obs_id": "ui_claim_011",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A20 Detect eligibility issue and select a fact-finding channel",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D8",
+      "quote": "You will have three days to set up your account and seven more days to fill out the online questionnaire.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A20, source:'official'. The 10-day median is EDD's own 3+7 day questionnaire-path breakdown; no lead time is published for the phone-interview or mailed-form channels (known_gaps)."
+    },
+    {
+      "obs_id": "ui_claim_012",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A23 Make eligibility determination; serve Notice of Determination (DE 1080CZ)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G5",
+      "quote": "To meet federal timeliness standards, EDD must make at least 80 percent of its determinations within 21 days after it becomes aware of any issues that have the potential to affect the claimant's eligibility for benefits.",
+      "date": "2014-08-01",
+      "notes": "Gold activity A23, source:'audit'. 21 days is the federal compliance target, not a measured median; the same 2014 Auditor report says EDD 'has almost always failed to meet' it since FY2010-11."
+    },
+    {
+      "obs_id": "ui_claim_013",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A24 Issue conditional payment (DE 5400) after 2+ weeks pending",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D8",
+      "quote": "if your payments have been pending for more than two weeks because of an eligibility issue, we may process a conditional payment as we continue reviewing the issue",
+      "date": "2026-09-15",
+      "notes": "Gold activity A24, source:'official' (EDD declared page)."
+    },
+    {
+      "obs_id": "ui_claim_014",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A25 Issue first payment (direct deposit / check / prepaid card)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 35
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D6",
+      "quote": "It takes about three weeks to process a new application for unemployment benefits and issue payment to eligible workers.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A25, EDD's own declared estimate; cross-checked against 20 CFR \u00a7640.5's federal 21-day/87%, 35-day/93% waiting-week-state benchmark (L5) and against measured DOL performance (75%/61% within 14 days, S11)."
+    },
+    {
+      "obs_id": "ui_claim_015",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A26 File written appeal within 30 days of determination",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L3",
+      "quote": "The claimant and the employer may appeal from a determination or reconsidered determination to an administrative law judge within 30 days from service of notice of the determination or reconsidered determination.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A26; UIC \u00a71328(a)."
+    },
+    {
+      "obs_id": "ui_claim_016",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A27 EDD internal reconsideration of appealed determination",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L2",
+      "quote": "The department may for good cause reconsider any determination within 15 days after an appeal to an administrative law judge is filed.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A27; UIC \u00a71332(b). 30 days if no appeal was filed. The reviewer may not be the same person who made the original determination (internal-control rule, no day count)."
+    },
+    {
+      "obs_id": "ui_claim_017",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A30 Mail Notice of Hearing at least 10 days before the hearing",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G4",
+      "quote": "Written notice of the time and place of hearing is sent to each party (including the Department) at least 10 days before the date of hearing.",
+      "date": "2019-07-01",
+      "notes": "Gold activity A30, from CUIAB's own Appeals Procedure Manual (DE 1433) -- an SOP stating an intended minimum, hence designed_document even though it functions like a floor."
+    },
+    {
+      "obs_id": "ui_claim_018",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "interview",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A31 Conduct the CUIAB hearing",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.04,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0.03,
+          0.04
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G4",
+      "quote": "Benefit cases generally are set for hearings at intervals of forty-five minutes to one hour.",
+      "date": "2019-07-01",
+      "notes": "Gold activity A31; hearing-length figure appears under A29's evidence in gold but describes A31's touch time. task_type 'interview' reused for lack of a dedicated hearing task_type; channel 'hearing' used per gold's own occasion coding despite being conducted by phone (known_gaps notes the schema has no telephone occasion)."
+    },
+    {
+      "obs_id": "ui_claim_019",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A32 ALJ issues written decision after hearing",
+      "value": {
+        "elapsed_days": 51,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G5",
+      "quote": "claimants at the first level had to wait an average of 51 days from the time EDD received their appeals until the appeals board mailed its decision letters",
+      "date": "2014-08-01",
+      "notes": "Gold activity A32, source:'audit', average July 2010-April 2014. Federal target is >=60% within 30 days, >=80% within 45 days (not met)."
+    },
+    {
+      "obs_id": "ui_claim_020",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A33 Pay benefits promptly once ALJ affirms, regardless of further appeal",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L4",
+      "quote": "If an administrative law judge affirms a determination allowing benefits, such benefits shall be promptly paid regardless of any appeal",
+      "date": "2026-09-15",
+      "notes": "Gold activity A33; UIC \u00a71335(b). 'Promptly' carries no fixed day count -- a duration statement with no quantified value, recorded to make the gap explicit rather than invent a number."
+    },
+    {
+      "obs_id": "ui_claim_021",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A34 Appeals Board decides second-level appeal",
+      "value": {
+        "elapsed_days": 58,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G5",
+      "quote": "at the second level, claimants waited a total of 58 days on average",
+      "date": "2014-08-01",
+      "notes": "Gold activity A34, source:'audit', average July 2010-April 2014."
+    },
+    {
+      "obs_id": "ui_claim_022",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "End-to-end: file claim -> first payment (whole process)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 35
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D6",
+      "quote": "It takes about three weeks to process a new application for unemployment benefits and issue payment to eligible workers.",
+      "date": "2026-09-15",
+      "notes": "gold timing_gold field, cross-checked against audit-reported DOL performance data. Not a single step -- an end-to-end rollup; task_type/agency_class null for that reason."
+    },
+    {
+      "obs_id": "ui_claim_023",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A25 first-payment promptness -- federal compliance criterion",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 35
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L5",
+      "quote": "14 days, waiting week States | 21 days, nonwaiting week States | 35 days, all States ... Intrastate Claims ... 87 | 87 | 93",
+      "date": "2026-09-15",
+      "notes": "gold timing_gold_secondary #1; CA is a waiting-week state so the applicable intrastate target is >=87% within 14 days, >=93% within 35 days (20 CFR \u00a7640.5)."
+    },
+    {
+      "obs_id": "ui_claim_024",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "A25 first-payment promptness -- observed DOL-reported performance",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": 14,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "for the same period in 2020, EDD reported that it made only 61 percent of payments within 14 days",
+      "date": "2021-01-01",
+      "notes": "gold timing_gold_secondary #2; 75% (2019, normal year) vs 61% (2020, pandemic peak) within 14 days."
+    },
+    {
+      "obs_id": "ui_claim_025",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Share of applicants experiencing any delay, normal economic times",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G2",
+      "quote": "Between 15 percent and 20 percent of workers who apply for UI during normal economic times experience delays.",
+      "date": "2022-08-01",
+      "notes": "gold timing_gold_secondary #3. A rate, not a day-count; value left null deliberately."
+    },
+    {
+      "obs_id": "ui_claim_026",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "document_review",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Manual-review branch floor (A06/A07)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "Once you require manual processing, you cannot have your claim determined in under 21 days.",
+      "date": "2020-09-16",
+      "notes": "gold timing_gold_secondary #4; stated as a hard floor ('cannot ... under 21 days'), not a median."
+    },
+    {
+      "obs_id": "ui_claim_027",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting week (S1)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 7,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S1",
+      "quote": "He has been unemployed for a waiting period of one week as defined in Section 1254, unless this waiting period has been waived pursuant to Section 8571 of the Government Code.",
+      "date": "2026-09-15",
+      "notes": "UIC \u00a71253(d)."
+    },
+    {
+      "obs_id": "ui_claim_028",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting-week counting rule (S2)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S2",
+      "quote": "Unless it occurs within the benefit year which includes the week with respect to which he claims payment of unemployment compensation benefits...",
+      "date": "2026-09-15",
+      "notes": "UIC \u00a71254. No independent day-count beyond the 1-week figure already captured at A17; recorded because it defines WHICH week counts."
+    },
+    {
+      "obs_id": "ui_claim_029",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "third_party",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Employer response to notice of claim (S3, \u00a71327)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "The employing unit so notified shall submit within 10 days after the mailing of the notice any facts then known that may affect the claimant's eligibility for benefits...",
+      "date": "2026-09-15",
+      "notes": "Same statutory clock as gold A12/A13, independently recorded from sources.json."
+    },
+    {
+      "obs_id": "ui_claim_030",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "third_party",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Employer late-discovered facts (S3, \u00a71327/1331)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "Any base period employer shall, within 15 days after mailing of a notice of computation, submit to the department any facts then known...",
+      "date": "2026-09-15",
+      "notes": "Distinct from the 10-day initial-notice window: 15 days after a notice of computation."
+    },
+    {
+      "obs_id": "ui_claim_031",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Protest of benefit computation (S3, \u00a71330)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "The claimant and any base period employer to whom a notice of computation or recomputation is given may, within 30 days after the service of the notice, protest the accuracy of the computation or recomputation.",
+      "date": "2026-09-15",
+      "notes": "A separate 30-day protest right from the \u00a71328 appeal-of-determination deadline (A26); both happen to be 30 days."
+    },
+    {
+      "obs_id": "ui_claim_032",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "EDD reconsideration window (S3, \u00a71332(b))",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "The department may for good cause reconsider any determination within 15 days after an appeal to an administrative law judge is filed.",
+      "date": "2026-09-15",
+      "notes": "Same clock as gold A27; independently recorded from sources.json."
+    },
+    {
+      "obs_id": "ui_claim_033",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Prompt payment/denial standard (S3, \u00a71326)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "the department shall promptly pay benefits if it finds the claimant is eligible or shall promptly deny benefits if it finds the claimant is ineligible.",
+      "date": "2026-09-15",
+      "notes": "'Promptly' has no fixed day count -- the statutory root of A23/A25's timing ambiguity."
+    },
+    {
+      "obs_id": "ui_claim_034",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Deadline to appeal a determination to an ALJ (S4)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S4",
+      "quote": "The claimant and the employer may appeal from a determination or reconsidered determination to an administrative law judge within 30 days from service of notice of the determination or reconsidered determination.",
+      "date": "2026-09-15",
+      "notes": "Same clock as gold A26."
+    },
+    {
+      "obs_id": "ui_claim_035",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Deadline for second-level appeal to Appeals Board (S5)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S5",
+      "quote": "The decision shall be final unless, within 30 days after mailing of the decision, further appeal is initiated to the appeals board pursuant to Section 1336.",
+      "date": "2026-09-15",
+      "notes": "UIC \u00a71334; precedes A34's 58-day decision average."
+    },
+    {
+      "obs_id": "ui_claim_036",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "First-payment promptness compliance criteria (S6, federal)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 35
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S6",
+      "quote": "Percentage of first payments issued\u2014days following end of first compensable week ... 14 days, waiting week States ... 87 [intrastate] 70 [interstate] ... 35 days, all States ... 93 [intrastate] 78 [interstate]",
+      "date": "2026-09-15",
+      "notes": "20 CFR \u00a7640.5; same figure as gold timing_gold_secondary #1, recorded independently from sources.json."
+    },
+    {
+      "obs_id": "ui_claim_037",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "National UI PERFORMS Core Measures targets (S9)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S9",
+      "quote": "First Payment Promptness (Regulation): % of all 1st payments made within 14/21 days: Intrastate, UI, full weeks >= 87% ... Lower Authority Appeals (Regulation): % decided within 30 days of filing >= 60%",
+      "date": "2026-09-15",
+      "notes": "DOL/ETA reference sheet; bundles first-payment and appeals targets in one document."
+    },
+    {
+      "obs_id": "ui_claim_038",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Actual appeal-decision wait, July 2010-April 2014 (S10)",
+      "value": {
+        "elapsed_days": 51,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S10",
+      "quote": "claimants at the first level had to wait an average of 51 days from the time EDD received their appeals until the appeals board mailed its decision letters, while at the second level, claimants waited a total of 58 days on average",
+      "date": "2014-08-01",
+      "notes": "Same measured figure as gold A32/A34, independently recorded from sources.json (2014 Auditor report)."
+    },
+    {
+      "obs_id": "ui_claim_039",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "First-payment timeliness, 14-day DOL measure, 2019 vs 2020 (S11)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": 14,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S11",
+      "quote": "For claims submitted in April through September 2019, EDD reported that it paid about 75 percent within that 14-day period. In contrast, for the same period in 2020, EDD reported that it made only 61 percent of payments within 14 days.",
+      "date": "2021-01-01",
+      "notes": "Same figure as gold timing_gold_secondary #2."
+    },
+    {
+      "obs_id": "ui_claim_040",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "First-payment timeliness, 21-day DOL measure, 2019 vs 2020 (S11)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 800000,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S11",
+      "quote": "EDD provided 80 percent of claims with a first payment within 21 days\u2014leaving more than 800,000 claimants ... waiting longer than the 21 days to receive their first payment.",
+      "date": "2021-01-01",
+      "notes": "n approximated as the >800,000-claimant count of 2020 claimants who waited beyond 21 days; 88% (2019) vs 80% (2020) met the 21-day window."
+    },
+    {
+      "obs_id": "ui_claim_041",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "EDD's own definition of 'backlog' (S11)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S11",
+      "quote": "When a claimant has waited more than 21 days after submitting an application for either processing of payment or disqualification, EDD considers that claim as part of its backlog.",
+      "date": "2021-01-01",
+      "notes": "A threshold definition, not a measured median; sets the 21-day mark as EDD's own internal delay flag."
+    },
+    {
+      "obs_id": "ui_claim_042",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Interview-triggered delays from separation disputes (S13)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          180
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S13",
+      "quote": "When a business responds to the notice, the business and worker must respond to questions during interviews scheduled by EDD. These interviews often lead to payment delays, up to several months in some cases.",
+      "date": "2022-08-01",
+      "notes": "LAO 2022; upper bound 'several months' approximated as ~180 days for range_days; no median given."
+    },
+    {
+      "obs_id": "ui_claim_043",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Strike Team's own backlog-clearance target (S14)",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S14",
+      "quote": "weeks from now, and the final remnants of the backlog resolved within four months.",
+      "date": "2020-09-16",
+      "notes": "EDD Strike Team's stated intended timeline (4 months ~ 120 days) for clearing the 2020 pandemic backlog -- a plan, not a measured outcome."
+    },
+    {
+      "obs_id": "ui_claim_044",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Tax-jeopardy and disputed-coverage appeal windows (S15)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          10,
+          55
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "Unemployment Insurance Cases ... 30 days ... Tax Case (jeopardy assessment) ... 10 days Law does not permit extension of filing time.",
+      "date": "2019-07-01",
+      "notes": "CUIAB Appeals Procedure Manual (DE 1433). Distinct from the 30-day UI-case deadline already captured (A26/S4): tax-jeopardy cases get only 10 non-extendable days; a disputed-coverage case with no response gets 55 days."
+    },
+    {
+      "obs_id": "ui_claim_045",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Advance notice of a new issue raised at hearing (S15)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "The right to 10 days' advance written notice of each issue",
+      "date": "2019-07-01",
+      "notes": "CUIAB manual; distinct from the hearing-date notice (A30) -- this is notice of a NEW issue being raised."
+    },
+    {
+      "obs_id": "ui_claim_046",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Time to file written argument to the Board after review notice (S15)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 12,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S15",
+      "quote": "Each party will have 12 days from the mailing date of that notice in which to file with the Board written argument",
+      "date": "2019-07-01",
+      "notes": "CUIAB manual; part of the second-level (A34) appeal lane, upstream of the 58-day decision average."
+    },
+    {
+      "obs_id": "ui_claim_047",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Deadline for judicial review of Appeals Board decision (S15)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          90,
+          730
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S15",
+      "quote": "for judicial review within 90 days after the issuance of the Appeals Board decision, which time may be extended for two years",
+      "date": "2019-07-01",
+      "notes": "Beyond CUIAB's own process (excluded from gold's activity list as outside the implementer's process, per known_gaps), but the only duration evidence for what happens after A34."
+    },
+    {
+      "obs_id": "ui_claim_048",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Online Eligibility Questionnaire two-stage deadline (S25)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          3,
+          10
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S25",
+      "quote": "You will have three days to set up your account and seven more days to fill out the online questionnaire.",
+      "date": "2026-09-15",
+      "notes": "Breaks gold A20's blunt 10-day median into its two component windows: 3 days to set up the account + 7 more to complete it."
+    },
+    {
+      "obs_id": "ui_claim_049",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Rescheduling a phone interview (S25)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S25",
+      "quote": "You must contact us at least one day before your interview date and time. We can only change your interview time if there is an open time slot.",
+      "date": "2026-09-15",
+      "notes": "EDD's declared page; the applicant-side notice requirement for A21/A22 rework."
+    },
+    {
+      "obs_id": "ui_claim_050",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Missed-interview recovery (S25)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S25",
+      "quote": "If you missed your scheduled interview, you can call back on the same day and a customer service representative will be able to assist you.",
+      "date": "2026-09-15",
+      "notes": "Same-day recovery path is the fastest branch of A22's rework edge; the alternative is EDD deciding on the record with no further chance to be heard."
+    },
+    {
+      "obs_id": "ui_claim_051",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting-period mechanics restated on benefits guide (S48)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 7,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S48",
+      "quote": "California law requires every person to serve a one week UNPAID waiting period. There is only one waiting period required during each 52 week claim year. The waiting week is usually the first otherwise payable week in your benefit year.",
+      "date": "2026-09-15",
+      "notes": "DE 1275A benefits guide; restates A17's 7-day figure with the added detail that it is bounded to one per 52-week claim year."
+    },
+    {
+      "obs_id": "ui_claim_052",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Time from filing to first phone interview (S36)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S36",
+      "quote": "About a week later, I was scheduled for a phone interview due to \"eligibility concerns.\"",
+      "date": "2025-11-26",
+      "notes": "Selection bias toward claimants who had trouble; not representative of clean claims."
+    },
+    {
+      "obs_id": "ui_claim_053",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Gap between repeat phone interviews (S36)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S36",
+      "quote": "Two weeks later, I get invited to another phone interview for the same reasons... Two weeks go by and no more payments come.",
+      "date": "2025-11-26",
+      "notes": "Same claimant went through 3 separate interview cycles at ~2-week intervals; selection-biased toward a difficult case."
+    },
+    {
+      "obs_id": "ui_claim_054",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Unpublished internal SLA: 10 business days after interview to decision (S37)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 3,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "They have 10 business days after the interview to submit a decision. If that passes you call and ask for a manager.",
+      "date": "2026-01-29",
+      "notes": "Cited independently in at least 3 threads (S37, S38, and a third); appears on no EDD or Auditor page -- looks like an unpublished phone-rep talking point."
+    },
+    {
+      "obs_id": "ui_claim_055",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "EDD phone rep confirms 10 business day post-interview SLA (S38)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S38",
+      "quote": "I know I called the agents said they technically (EDD) have 10 business days to respond, starting after my interview.",
+      "date": "2026-04-17",
+      "notes": "Corroborates S37's unpublished SLA."
+    },
+    {
+      "obs_id": "ui_claim_056",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Community rule of thumb for when to follow up (S38)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S38",
+      "quote": "If you don't notice payment in 14 days after the interview I'd set about calling.",
+      "date": "2026-04-17",
+      "notes": "Folk heuristic that happens to land on the federal 14-day/waiting-week benchmark (S6) -- some claimants have informally absorbed the DOL standard."
+    },
+    {
+      "obs_id": "ui_claim_057",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Total time pending on identity-verification issue (S39)",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S39",
+      "quote": "My case has been pending for almost 2 months due to having to verify my ID.",
+      "date": "2026-08-10",
+      "notes": "Selection-biased: claimant posting because the case is stuck."
+    },
+    {
+      "obs_id": "ui_claim_058",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Mail non-receipt / disqualification / re-send cycle (S39)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S39",
+      "quote": "I sent documents about two weeks after applying and they were never received, I got a letter saying I was disqualified... each time I call it's a different story",
+      "date": "2026-08-10",
+      "notes": "Illustrates the A08/A09/A10 mail-based identity document cycle the gold file could only describe qualitatively."
+    },
+    {
+      "obs_id": "ui_claim_059",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "EDD-quoted application-to-determination window (S40)",
+      "value": {
+        "elapsed_days": 12,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S40",
+      "quote": "even after finally completing my application submission on March 10th, EDD still asked me to give until March 22nd to receive notice of determination and then another 7-10 days after the first payment has been deposited before receiving the benefits card.",
+      "date": "2024-03-23",
+      "notes": "The 12-day figure is EDD's own verbal estimate to this claimant, not a published SLA; the claimant reports the date had already passed with no notice."
+    },
+    {
+      "obs_id": "ui_claim_060",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Gap between first deposit and physical benefits card arrival (S40)",
+      "value": {
+        "elapsed_days": 9,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          10
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S40",
+      "quote": "another 7-10 days after the first payment has been deposited before receiving the benefits card",
+      "date": "2024-03-23",
+      "notes": "Money Network (vendor) card mailing lag after the electronic deposit; not modeled as a separate gold activity."
+    },
+    {
+      "obs_id": "ui_claim_061",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Wait for a CUIAB hearing date after appealing (S41)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S41",
+      "quote": "I finally received a hearing date that's in 2 weeks. It will be a telephone hearing.",
+      "date": "2025-11-04",
+      "notes": "Consistent with the 10-day statutory minimum hearing notice (A30/S15)."
+    },
+    {
+      "obs_id": "ui_claim_062",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "scheduling",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Open CUIAB case with no hearing date set after 1 month (S43)",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S43",
+      "quote": "I received my case number and CUIAB account access a month ago and I have been checking but there is no hearing date/time or deadlines. It just says case status is open.",
+      "date": "2024-04-24",
+      "notes": "Discrepancy flagged in notes.md: does not match the Appeals Procedure Manual's FIFO unilateral-scheduling description; may be a portal UX quirk."
+    },
+    {
+      "obs_id": "ui_claim_063",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Per-specialist daily claims throughput during a volume surge (S55)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S55",
+      "quote": "I do about 200 claims per day and I'm not even the fastest specialist. I'm middle of the pack.",
+      "date": "2026-01-14",
+      "notes": "Probable staff-insider account (u/TundraFlame); caveat per notes.md -- likely describes an SDI/PFL surge more than UI specifically, since shared EDD field-office staff serve both programs. Not a duration per se (throughput), recorded because it bounds per-case touch_days indirectly (~1/200 day if taken at face value)."
+    },
+    {
+      "obs_id": "ui_claim_064",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Certification auto-stops after 30 days of no certifying",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1b60b9q",
+      "quote": "They stop sending them if you haven't certified in 30 days",
+      "date": "2024-03-04",
+      "notes": "Comment thread, r/Unemployment. Describes the system's own lapse rule for continued claims (A18), not stated in any EDD gold document we hold."
+    },
+    {
+      "obs_id": "ui_claim_065",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "fiscal",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Minimum time to recover cross-program overpayment offset",
+      "value": {
+        "elapsed_days": 180,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1c3f80c",
+      "quote": "be forewarned when it goes this far there is a good chance they may get multiple monies from different sources and it will take you at least 6 months to get extra monies back.",
+      "date": "2024-04-13",
+      "notes": "Comment, r/Unemployment. About recovering money after a cross-program (UI/DI) overpayment offset; single commenter's experience, n=1."
+    },
+    {
+      "obs_id": "ui_claim_066",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Call-center hold time to reach a live agent",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.02,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1d2z1ce",
+      "quote": "It takes 30 minutes of continuous calling to reach them.",
+      "date": "2024-05-29",
+      "notes": "Not tied to a single processing step -- general phone-channel access friction; agency_class/task_type left null since no specific unit is named."
+    },
+    {
+      "obs_id": "ui_claim_067",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview decision notified via school-verification callback",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1k9i0oo",
+      "quote": "told me I would be notified within 10 business days after they contacted my school to confirm everything.",
+      "date": "2025-04-27",
+      "notes": "A fourth independent thread repeating the unpublished 10-business-day SLA seen at S37/S38, in a student-claimant eligibility context."
+    },
+    {
+      "obs_id": "ui_claim_068",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Certification cadence confirmed by claimant community",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1k9i0oo",
+      "quote": "then you'll certify like usual 2 weeks after your last certification.",
+      "date": "2025-04-27",
+      "notes": "Community confirmation of the 14-day cadence in gold A18."
+    },
+    {
+      "obs_id": "ui_claim_069",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiting-period determination made 6 months into an active claim",
+      "value": {
+        "elapsed_days": 180,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1pu5r3m",
+      "quote": "It just didn't make sense that the waiting period would be done 6 months after the claim started.",
+      "date": "2025-12-23",
+      "notes": "Anomalous case: EDD retroactively flagged a week as the statutory waiting week (A17) six months after the claim began, contradicting the 'first otherwise-payable week' rule (S48)."
+    },
+    {
+      "obs_id": "ui_claim_070",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "14-day guidance vs. ~1 month actual wait",
+      "value": {
+        "elapsed_days": 28,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1q6u4xe",
+      "quote": "Everything I've read says to allow 14 days to process, but it's been almost a month at this point.",
+      "date": "2026-01-07",
+      "notes": "Illustrates the gap between the 14-day figure claimants read (S6/A25) and measured experience."
+    },
+    {
+      "obs_id": "ui_claim_071",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Certification pending for 3 days before clearing",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qczf35",
+      "quote": "My recent certification had been pending for 3 days.",
+      "date": "2026-01-14",
+      "notes": "Short-side data point for continued-claim certification processing."
+    },
+    {
+      "obs_id": "ui_claim_072",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview decision window, 'up to 10 days' (repeat)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qqjenc",
+      "quote": "It takes up to 10 days for a decision to be made.",
+      "date": "2026-01-29",
+      "notes": "Fifth independent thread repeating the ~10-day post-interview decision figure."
+    },
+    {
+      "obs_id": "ui_claim_073",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "third_party",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Employer 10-day response window, community-repeated",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qqjenc",
+      "quote": "The employer has 10 days to answer back as to the nature of your separation.",
+      "date": "2026-01-29",
+      "notes": "Claimant-community restatement of the UIC \u00a71327 window already captured at statutory tier (A12/S3)."
+    },
+    {
+      "obs_id": "ui_claim_074",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview decision window, '10 business days' (sixth thread)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qqjenc",
+      "quote": "They have 10 business days to enter a decision",
+      "date": "2026-01-29",
+      "notes": "Sixth independent thread repeating this unpublished SLA."
+    },
+    {
+      "obs_id": "ui_claim_075",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview decision, 'up to 10 days to finalize judgement'",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1so5upf",
+      "quote": "It can take up to 10 days to finalize judgement.",
+      "date": "2026-04-17",
+      "notes": "Same thread as S38, additional comment not captured in sources.json's condensed extraction."
+    },
+    {
+      "obs_id": "ui_claim_076",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Fast-track decision for simple layoffs",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1so5upf",
+      "quote": "Usually if it is a layoff it will be decided in one day.",
+      "date": "2026-04-17",
+      "notes": "Same thread as S38; suggests uncontested layoff separations resolve far faster than the 10-day figure quoted for contested cases."
+    },
+    {
+      "obs_id": "ui_claim_077",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Mail-in ID verification turnaround, ~10 days",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1sxbr4r",
+      "quote": "If you are mailing in ID verification proof... about 10 days.",
+      "date": "2026-04-27",
+      "notes": "Distinct claimant, same ~10-day figure as the mail identity-document cycle (S39, A08/A09)."
+    },
+    {
+      "obs_id": "ui_claim_078",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Interview rescheduled after EDD failed to call",
+      "value": {
+        "elapsed_days": 17,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1t34ik8",
+      "quote": "had my edd phone interview on 4/5 they never called reschedule it for 4/22",
+      "date": "2026-05-04",
+      "notes": "17-day rework gap on the A21/A22 missed-interview edge, caused by the agency (not the claimant) failing to call."
+    },
+    {
+      "obs_id": "ui_claim_079",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Interview repeatedly rescheduled by employer",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1t34ik8",
+      "quote": "Ive had myself as long as 30 days bc the employer kept rescheduling.",
+      "date": "2026-05-04",
+      "notes": "Employer-side (third_party) rescheduling drags out A22 far beyond the ~1-week typical lead time (S36)."
+    },
+    {
+      "obs_id": "ui_claim_080",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Typical interview scheduling lead time, community estimate",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1t34ik8",
+      "quote": "But it should be 2 weeks usually.",
+      "date": "2026-05-04",
+      "notes": "Slightly longer than S36's 'about a week' estimate for the same A21 scheduling step."
+    },
+    {
+      "obs_id": "ui_claim_081",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Site's stated review time vs. actual pending time",
+      "value": {
+        "elapsed_days": 13,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          2,
+          3
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tc5wod",
+      "quote": "The site says reviews usually take 2-3 business days, but mine was still pending after almost 2 weeks.",
+      "date": "2026-05-13",
+      "notes": "range_days holds the site's stated 2-3 day estimate; elapsed_days holds this claimant's actual ~13-day wait."
+    },
+    {
+      "obs_id": "ui_claim_082",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "RESEA recovery: mail/fax Eligibility Questionnaire within 10 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tcfhz9",
+      "quote": "the person told me... I should be recieving a letter with instructions and to fill it out (Eligibility Questionnaire) I did and instructions after completed to mail or fax within 10 days",
+      "date": "2026-05-13",
+      "notes": "Distinct recovery path after a missed mandatory RESEA appointment; matches the questionnaire deadline pattern (S25) but in a rework context (A16 -> A20)."
+    },
+    {
+      "obs_id": "ui_claim_083",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Next-day disqualification after questionnaire submitted",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tcfhz9",
+      "quote": "the next day I went online to myedd and I had 1 week pending and then it was updated to Disqualification",
+      "date": "2026-05-13",
+      "notes": "Fast decision turnaround (1 day) once the questionnaire was actually completed, contrasting with the up-to-10-day figures for other paths."
+    },
+    {
+      "obs_id": "ui_claim_084",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Community-repeated 'about 3 weeks' full-process estimate",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u2zm14",
+      "quote": "It takes about 3 weeks to fully process your application approval or not.",
+      "date": "2026-06-11",
+      "notes": "Repeats EDD's own declared 3-week figure (D6/timing_gold) in claimant-to-claimant advice."
+    },
+    {
+      "obs_id": "ui_claim_085",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Request-to-inbox turnaround for a document request",
+      "value": {
+        "elapsed_days": 4,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          3,
+          4
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ud2r6x",
+      "quote": "I sent in request and it showed up in inbox 3/4 days later for me to complete",
+      "date": "2026-06-23",
+      "notes": "A distinct, smaller-scale document-request turnaround not captured elsewhere."
+    },
+    {
+      "obs_id": "ui_claim_086",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "New certification date set 2 weeks out after phone resolution",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ud2r6x",
+      "quote": "Spoke to them on the phone, they sent my payment and set my new certification date 2 weeks out.",
+      "date": "2026-06-23",
+      "notes": "Confirms the 14-day certification cadence (A18) is enforced even after an ad hoc phone resolution."
+    },
+    {
+      "obs_id": "ui_claim_087",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Total appeal resolution time including rework interview",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1uk676n",
+      "quote": "It took me 3 months total to get all resolved, including another interview after judge phone hearing. Then you got all your money at once.",
+      "date": "2026-07-01",
+      "notes": "End-to-end appeal figure (~90 days) sits between gold's 51-day (A32) and 58-day (A34) per-level averages if summed; complementary community data point."
+    },
+    {
+      "obs_id": "ui_claim_088",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Letter-stated mail-ID deadline, 5-10 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          5,
+          10
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1uu46hb",
+      "quote": "They wanted my identification through the mail within 5-10 days from the date on the letter (6/26)",
+      "date": "2026-07-12",
+      "notes": "Slightly different framing (a range, not a flat 10) from the identity-document deadline seen at S39/A08-A09."
+    },
+    {
+      "obs_id": "ui_claim_089",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Direct deposit within 2 days after phone-resolved eligibility issues",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1uu46hb",
+      "quote": "All of my eligibly, questions, and delays were resolved and a direct deposit was in my account in 2 days.",
+      "date": "2026-07-12",
+      "notes": "Fast payment turnaround once a live phone call actually resolved the pending issues."
+    },
+    {
+      "obs_id": "ui_claim_090",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Disqualification period of a minimum five weeks",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 35,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1uz9r3q",
+      "quote": "Chances are: they will receive one more week of benefits and then be disqualified for a minimum of five weeks.",
+      "date": "2026-07-17",
+      "notes": "A different disqualification-duration figure than the 1-week RESEA penalty seen at 1tcfhz9; likely a different violation type (not distinguished by the source)."
+    },
+    {
+      "obs_id": "ui_claim_091",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Fast first-payment case: claim to first payment in 7 days",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1v2td8j",
+      "quote": "My claim began 6/29, and on 7/6 I got my first payment",
+      "date": "2026-07-21",
+      "notes": "Measured elapsed time (claim-start date to first-payment date) far below the 21-day median (A25); shows real variance."
+    },
+    {
+      "obs_id": "ui_claim_092",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Video-interview link sent a few days before appointment",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1v8mpkp",
+      "quote": "You will receive a Zoom or Microsoft Teams link in your personal email a few days before your appointment.",
+      "date": "2026-07-28",
+      "notes": "A video-call variant of the phone-interview scheduling notice (A21)."
+    },
+    {
+      "obs_id": "ui_claim_093",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Actual post-interview decision in ~2 days, vs. 10-day estimate shown",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1visyrr",
+      "quote": "After the interview the claim tracker changed to \"phone interview period passed allow 10 days to make a decision\" and about two days later it changed to waiting period served for week one, and paid for week two.",
+      "date": "2026-08-08",
+      "notes": "Direct contrast between the system's own displayed 10-day estimate and this claimant's actual ~2-day resolution."
+    },
+    {
+      "obs_id": "ui_claim_094",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview SLA restated as 'about 2 weeks' (community)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          10,
+          14
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1vp5v3s",
+      "quote": "I wanted to clarify they have 10 business days to submit their decision. So about 2 weeks.",
+      "date": "2026-08-15",
+      "notes": "Community's own rough conversion of 10 business days into calendar time (~2 weeks)."
+    },
+    {
+      "obs_id": "ui_claim_095",
+      "slug": "ui_claim",
+      "jurisdiction": "State of California (EDD / CUIAB)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-interview 10-business-day SLA, eighth independent thread",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w7fxj7",
+      "quote": "They have 10 business days to submit their decision.",
+      "date": "2026-09-04",
+      "notes": "By count, at least 8 independent threads (2024-2026) repeat this unpublished figure -- strong convergent evidence of a real internal SLA never published by EDD."
+    }
+  ],
+  "coverage": {
+    "total_observations": 95,
+    "observations_by_evidence_tier": {
+      "designed_document": 17,
+      "verifiable_official": 14,
+      "statutory": 20,
+      "community_reported": 44
+    },
+    "distinct_step_keys": 46,
+    "gold_steps_without_duration_evidence": [
+      {
+        "activity": "A01",
+        "name": "Gather claim information before filing",
+        "reason": "no quoted duration anywhere; purely applicant prep time"
+      },
+      {
+        "activity": "A03",
+        "name": "ID.me automated identity verification (online filers)",
+        "reason": "gold source:'none'; no SLA published for automated ID.me turnaround"
+      },
+      {
+        "activity": "A04",
+        "name": "ID.me video call with trusted referee (failed automated match)",
+        "reason": "no duration published or reported for the video-call escalation path"
+      },
+      {
+        "activity": "A08",
+        "name": "Mail notice requesting additional identity documents",
+        "reason": "no lead time published for when this notice goes out relative to A07"
+      },
+      {
+        "activity": "A09",
+        "name": "Claimant returns requested identity documents",
+        "reason": "applicant-side action; no typical turnaround published or reported"
+      },
+      {
+        "activity": "A10",
+        "name": "Disqualify claim for non-return of documents",
+        "reason": "no day-count for 'promptly' / 'timely' judged non-response"
+      },
+      {
+        "activity": "A11",
+        "name": "Fraud-report triage (UI Integrity and Legislation Unit)",
+        "reason": "no throughput or turnaround time published for fraud-report handoff"
+      },
+      {
+        "activity": "A16",
+        "name": "RESEA automated profiling selection",
+        "reason": "no timing published for when/how fast the algorithmic selection runs"
+      },
+      {
+        "activity": "A19",
+        "name": "Investigate certifications that don't match original filing",
+        "reason": "gold quote confirms indefinite hold ('does not pay ... until it resolves') but gives no day-count"
+      },
+      {
+        "activity": "A28",
+        "name": "CUIAB registers appeal, prepares case file",
+        "reason": "no turnaround published between EDD forwarding a case and CUIAB registering it"
+      },
+      {
+        "activity": "A29",
+        "name": "Calendar the hearing (FIFO queue)",
+        "reason": "no queue-wait figure published between registration and a hearing date being set (only the resulting >=10-day notice window, captured at A30, is known)"
+      }
+    ]
+  }
+}

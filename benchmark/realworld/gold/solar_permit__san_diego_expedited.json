@@ -1,0 +1,1460 @@
+{
+ "model_id": "RW__solar_permit__san_diego_expedited",
+ "source": "designed",
+ "jurisdiction": "City of San Diego, CA",
+ "implementer": "City of San Diego -- Development Services Department (self-issued 'Photovoltaic - SB 379 Permit', no plan review, Accela portal + Scout plan validation), with SDG&E's Rule 21 / Solar Billing Plan interconnection desk",
+ "process": "Residential rooftop PV (and paired storage) on San Diego's own locally designed checklist/template path: a self-issued no-plan-review electrical permit for qualifying single-family, duplex and townhouse systems up to 38.4 kW AC, the DSD inspection sequence, and the legally separate SDG&E interconnection track ending in energization approval.",
+ "gold_tier": "designed+observed",
+ "gold_date": "2026-09-15",
+ "gold_documents": [
+  {
+   "id": "S46",
+   "title": "Residential Rooftop-Mounted Solar PV Permit | City of San Diego Development Services Department",
+   "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+   "saved_as": "corpus/realworld/solar_permit/raw/sandiego_solar_pv_permit_program_page.txt",
+   "tier": "declared",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "declared-tier anchor: the self-issued no-plan-review eligibility criteria, the five-step application sequence, Scout validation and the Accela submission point"
+  },
+  {
+   "id": "S47",
+   "title": "Information Bulletin 301 - How to Obtain a Permit for the Installation of Solar Photovoltaic (PV) Systems",
+   "url": "https://www.sandiego.gov/development-services/forms-publications/information-bulletins/301",
+   "saved_as": "corpus/realworld/solar_permit/raw/sandiego_infobulletin301_solarpv.txt",
+   "tier": "declared",
+   "kind": "fee_schedule",
+   "date": "fetched 2026-09-15",
+   "role": "primary designed-tier local instrument: Information Bulletin 301 -- the three service options, the full fee schedule, the structural/fire/zoning/historic review triggers, the required inspection list, and the SDG&E energization handoff"
+  },
+  {
+   "id": "S48",
+   "title": "How to Submit/Create Projects Online - Solar Photovoltaic Permits (User Guide)",
+   "url": "https://www.sandiego.gov/sites/default/files/dsd_pv_user_guide.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/sandiego_pv_userguide.txt",
+   "tier": "declared",
+   "kind": "form",
+   "date": "fetched 2026-09-15",
+   "role": "designed-tier procedure: the DSD electronic-submittal user guide -- Scout pre-validation rules, digital-plan requirements, and the 'Updates Required' vs 'Recheck Required' rework states with the Project Issues Report"
+  },
+  {
+   "id": "S49",
+   "title": "Residential Solar Photovoltaic Systems Inspection Guidelines",
+   "url": "https://www.sandiego.gov/sites/default/files/legacy/development-services/pdf/pvinspectionguidelines.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/sandiego_pv_inspection_guidelines.txt",
+   "tier": "declared",
+   "kind": "checklist",
+   "date": "fetched 2026-09-15",
+   "role": "designed-tier procedure: Residential Solar PV Systems Inspection Guidelines -- the roof-mount vs ground-mount inspection sequences, the per-section inspector checklist, placard duties and the 2:00 p.m. utility re-energization deadline"
+  },
+  {
+   "id": "S1",
+   "title": "Government Code section 65850.5 (expedited, streamlined permitting for small residential rooftop solar energy systems)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.5&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_5.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2020-01-01",
+   "role": "statute: Gov. Code 65850.5 (AB 2188 / AB 754) -- the checklist mandate, deemed-complete rule, nondiscretionary approval, written correction notice and single consolidated inspection"
+  },
+  {
+   "id": "S2",
+   "title": "Government Code section 65850.52 (SB 379 (2022): mandatory online automated permitting platform, e.g. SolarAPP+)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.52&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_52.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2024-01-01",
+   "role": "statute: Gov. Code 65850.52 (SB 379) -- the 38.4 kW AC cap San Diego's permit type is named after, CEC compliance reporting, and the explicit carve-out of utility interconnection"
+  },
+  {
+   "id": "S162",
+   "title": "Customer Generation | San Diego Gas & Electric",
+   "url": "https://www.sdge.com/more-information/customer-generation",
+   "saved_as": "corpus/realworld/solar_permit/raw/sdge_customer_generation_page.txt",
+   "tier": "designed",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "SDG&E declared interconnection channel: residential rooftop solar under the Solar Billing Plan interconnects through the online interconnection portal"
+  },
+  {
+   "id": "S163",
+   "title": "Electric Rule 21 | San Diego Gas & Electric",
+   "url": "https://www.sdge.com/more-information/customer-generation/electric-rule-21",
+   "saved_as": "corpus/realworld/solar_permit/raw/sdge_rule21_page.txt",
+   "tier": "designed",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "SDG&E Rule 21 page: the Fast Track draft-agreement commitment (15 business days), the $800 non-refundable Interconnection Request fee for exporting Rule 21 generator projects, and the meter-panel warning plaque requirement"
+  },
+  {
+   "id": "S166",
+   "title": "Solar Billing Plan | San Diego Gas & Electric",
+   "url": "https://www.sdge.com/solar/solar-billing-plan",
+   "saved_as": "corpus/realworld/solar_permit/raw/sdge_solar_billing_plan_page.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "SDG&E Solar Billing Plan page: the residential tariff (EVTOU5) the interconnection lands on"
+  },
+  {
+   "id": "S167",
+   "title": "Solar Contractor Support Center | San Diego Gas & Electric",
+   "url": "https://www.sdge.com/residential/solar/solar-contractor-support-center",
+   "saved_as": "corpus/realworld/solar_permit/raw/sdge_solar_contractor_support_page.txt",
+   "tier": "designed",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "SDG&E Solar Contractor Support Center: the contractor-facing entry point whose 'Process Overview' tab is JavaScript-rendered and therefore unreadable"
+  },
+  {
+   "id": "S150",
+   "title": "Electric Rule 21: Generating Facility Interconnections",
+   "url": "https://www.cpuc.ca.gov/rule21",
+   "saved_as": "corpus/realworld/solar_permit/raw/cpuc_rule21_page.txt",
+   "tier": "declared",
+   "kind": "regulation",
+   "date": "fetched 2026-09-15",
+   "role": "CPUC Rule 21 program page: D.20-09-035 interconnection timeline-reporting mandate and its exclusion of sub-30 kVA NEM systems"
+  },
+  {
+   "id": "S38",
+   "title": "SolarAPP+ Performance Review (2024 Data)",
+   "url": "https://docs.nlr.gov/docs/fy26osti/95050.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_performance_review_2024.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2026-01-29",
+   "role": "observed: SolarAPP+ Performance Review (2024 data, NLR) -- the traditional-permit baselines San Diego's non-automated path should be compared against"
+  },
+  {
+   "id": "S48b",
+   "title": "SolarTRACE Dataset (v. 9-9-2025)",
+   "url": "https://data.nlr.gov/system/files/160/1763653965-SolarTRACE%20Dataset%20v9-9-2025.xlsx",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_dataset_2025-09-09.xlsx",
+   "tier": "observed",
+   "kind": "dataset",
+   "date": "2025-09-09",
+   "role": "observed: SolarTRACE dataset (v. 2025-09-09) -- San Diego city x SDG&E phase medians by year and system type, San Diego's median permit cost, inspections-required count, and the flags recording that San Diego has no instant permitting"
+  },
+  {
+   "id": "S43b",
+   "title": "Residential and Small Commercial Solar Photovoltaic and Storage Permitting, Inspection, and Interconnection Timelines: A Retrospective Review (2017-2023)",
+   "url": "https://www.osti.gov/servlets/purl/3011864 (also https://docs.nlr.gov/docs/fy25osti/...)",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_retrospective_review_2017_2023.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2024-01-01",
+   "role": "observed: SolarTRACE retrospective (2017-2023) -- national/CA total project time context and the 2023 California PTO-phase deterioration"
+  },
+  {
+   "id": "S20",
+   "title": "California Solar Permitting Guidebook: Improving Permit Review and Approval for Small Solar Systems (4th Edition, Winter 2019, Updated)",
+   "url": "https://lci.ca.gov/wp-content/uploads/20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/guidebook_ca_solar_permitting_4th_ed.pdf (+ .txt)",
+   "tier": "designed",
+   "kind": "sop",
+   "date": "2019-02-26",
+   "role": "designed: California Solar Permitting Guidebook 4th ed. -- the expedited-permitting and inspection-scheduling recommendations San Diego's checklist path is measured against, and the statement that interconnection is a wholly separate track"
+  }
+ ],
+ "actors": [
+  {
+   "id": "installer",
+   "name": "Contractor or owner-builder (the de facto applicant)",
+   "dept": "private"
+  },
+  {
+   "id": "homeowner",
+   "name": "Homeowner / customer of record",
+   "dept": "--"
+  },
+  {
+   "id": "sd_permit_desk",
+   "name": "Permit intake and issuance (Accela DSD Permits portal)",
+   "dept": "Development Services Department"
+  },
+  {
+   "id": "sd_plan_reviewer",
+   "name": "Plan reviewer (engaged only when scope exceeds the no-plan-review limits)",
+   "dept": "Development Services Department"
+  },
+  {
+   "id": "sd_inspector",
+   "name": "DSD field inspector",
+   "dept": "Development Services Department"
+  },
+  {
+   "id": "sdge",
+   "name": "Interconnection desk (Rule 21 / Solar Billing Plan online interconnection portal)",
+   "dept": "San Diego Gas & Electric"
+  },
+  {
+   "id": "cec",
+   "name": "California Energy Commission",
+   "dept": "state agency (recipient of SB 379 compliance and statistics reports)"
+  }
+ ],
+ "activities": [
+  {
+   "id": "A01",
+   "name": "Check the system against the Information Bulletin 301 no-plan-review criteria",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "proposed system design",
+    "Information Bulletin 301 eligibility criteria"
+   ],
+   "artifacts_out": [
+    "service-option determination (Option 1 self-issued / Option 2 plan review / Option 3 building permit)"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Self-check by the contractor; no published duration."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1) (locally adopted checklist); threshold matches Gov. Code 65850.52(b)(1)(A)",
+   "evidence": [
+    {
+     "doc": "S46",
+     "quote": "Self-issued permits with no plan review are available for qualifying single-family, duplex, or townhouse installations designed per the approved template.",
+     "page_or_section": "San Diego program page, Overview"
+    },
+    {
+     "doc": "S46",
+     "quote": "System does not exceed 38.4 kW AC maximum output",
+     "page_or_section": "San Diego program page, Eligibility criteria 1"
+    },
+    {
+     "doc": "S47",
+     "quote": "Single-family, duplex, or townhouse roof-mounted PV systems qualify for streamlined processing",
+     "page_or_section": "IB 301, Service Options -> Option 1 No Plan Review (Self-Issued)"
+    },
+    {
+     "doc": "S2",
+     "quote": "no larger than 38.4 kilowatts alternating current nameplate rating",
+     "page_or_section": "Gov. Code 65850.52(b)(1)(A)"
+    }
+   ],
+   "notes": "San Diego's permit type is literally named after the statute -- the Accela record is 'Photovoltaic - SB 379 Permit' -- yet the city runs its own template/checklist system and no SolarAPP+ reference appears anywhere in its materials. The 38.4 kW AC ceiling is taken from Gov. Code 65850.52, not from 65850.5's 10 kW checklist definition."
+  },
+  {
+   "id": "A02",
+   "name": "Prepare the plan set from the Residential Solar PV Project Plan Template",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "IB-301 plan template",
+    "site plan",
+    "roof plan with weight calculations",
+    "single-line electrical diagram",
+    "manufacturer specifications with UL listings"
+   ],
+   "artifacts_out": [
+    "Solar Photovoltaic Building Construction Plans"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(2) (standard plans per the Guidebook)",
+   "evidence": [
+    {
+     "doc": "S46",
+     "quote": "Review and incorporate elements from the Residential Solar PV Project Plan Template into design; upload Building Construction Plans and specifications.",
+     "page_or_section": "San Diego program page, Application process step 3"
+    },
+    {
+     "doc": "S48",
+     "quote": "Plans must use the PV Template provided in Information Bulletin 301 (IB-301).",
+     "page_or_section": "PV User Guide, Rules 4"
+    },
+    {
+     "doc": "S20",
+     "quote": "Use of a standard plan to describe the proposed solar PV project in the permit application.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    }
+   ]
+  },
+  {
+   "id": "A03",
+   "name": "Validate the PDF plan set in the Scout application before submitting",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "PDF plan set",
+    "Scout electronic-plan-review validator"
+   ],
+   "artifacts_out": [
+    "Scout pass/fail result"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S46",
+     "quote": "Validate PDF documents using Scout (https://scout-epr.eplansoftreview.com/#!/scout).",
+     "page_or_section": "San Diego program page, Application process step 4"
+    },
+    {
+     "doc": "S48",
+     "quote": "Check all plans in the Scout Application to make sure that the plans are acceptable to submit",
+     "page_or_section": "PV User Guide, Rules 1"
+    },
+    {
+     "doc": "S48",
+     "quote": "Any plans submitted that fail the Scout Application will result in delays in processing.",
+     "page_or_section": "PV User Guide, Rules 1"
+    }
+   ],
+   "notes": "A locally invented pre-submittal gate with no statutory analogue: San Diego pushes format validation onto the applicant with its own tooling, which is the checklist-path counterpart to what SolarAPP+ automates on the compliance side."
+  },
+  {
+   "id": "A04",
+   "name": "Create the project in the Accela portal and select the 'Photovoltaic - SB 379 Permit' record type",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "street address or parcel number",
+    "detailed scope of work",
+    "applicant type"
+   ],
+   "artifacts_out": [
+    "PRJ project record"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(2) (electronic submittal)",
+   "evidence": [
+    {
+     "doc": "S46",
+     "quote": "Apply for the permit at http://aca.accela.com/SANDIEGO and upload completed PDF documents.",
+     "page_or_section": "San Diego program page, Application process step 5"
+    },
+    {
+     "doc": "S48",
+     "quote": "Only Single-family home PV systems should be submitted through the Photovoltaic application.",
+     "page_or_section": "PV User Guide, Creating a Project step 7"
+    },
+    {
+     "doc": "S48",
+     "quote": "All new projects, corrections and construction changes need to be submitted electronically.",
+     "page_or_section": "PV User Guide, Rules 3"
+    }
+   ]
+  },
+  {
+   "id": "A05",
+   "name": "Upload the plans, project contact form, specification sheets and workers' compensation declaration, and certify the application",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "Building Construction Plans",
+    "Project Contact Information Form (DS-345)",
+    "specification sheets",
+    "workers' compensation declaration"
+   ],
+   "artifacts_out": [
+    "submitted permit application"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(2) (electronic signature accepted in lieu of a wet signature)",
+   "evidence": [
+    {
+     "doc": "S48",
+     "quote": "Specifications must be a separate submittal document from the plans.",
+     "page_or_section": "PV User Guide, Specification Requirements 1"
+    },
+    {
+     "doc": "S47",
+     "quote": "Application documents (when required): Hazardous Materials Reporting Form (DS-165) for multi-family or battery projects; regional hazardous materials questionnaire",
+     "page_or_section": "IB 301, Submittal Requirements"
+    },
+    {
+     "doc": "S1",
+     "quote": "shall allow for electronic submittal of a permit application and associated documentation, and shall authorize the electronic signature on all forms",
+     "page_or_section": "Gov. Code 65850.5(g)(2)"
+    }
+   ]
+  },
+  {
+   "id": "A06",
+   "name": "Return the submittal as 'Updates Required' for a missing document or missing information; applicant resubmits",
+   "actor": "sd_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "incomplete submittal"
+   ],
+   "artifacts_out": [
+    "email notice and 'Updates Required' project status"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A05",
+    "reason": "submittal missing a required document or information; non-conforming digital plans are returned"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1) (written correction notice detailing all deficiencies)",
+   "evidence": [
+    {
+     "doc": "S48",
+     "quote": "If you submit plans that are missing a document or information, you are required to resubmit.",
+     "page_or_section": "PV User Guide, Updates Required step 1"
+    },
+    {
+     "doc": "S48",
+     "quote": "Failure to submit correctly will result in the submittal being returned, which will delay review.",
+     "page_or_section": "PV User Guide, Plan Requirements 7"
+    },
+    {
+     "doc": "S1",
+     "quote": "Upon receipt of an incomplete application, a city, county, or city and county shall issue a written correction notice detailing all deficiencies in the application",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    }
+   ]
+  },
+  {
+   "id": "A07",
+   "name": "Perform plan review where the scope exceeds the no-plan-review limits",
+   "actor": "sd_plan_reviewer",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "plan set",
+    "structural calculations where triggered"
+   ],
+   "artifacts_out": [
+    "plan-check approval or Project Issues Report"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "No San Diego-published turnaround. National traditional-permit median review time was 7 business days in 2024, p90 29 business days (SolarTRACE 2023, national)."
+   },
+   "fee": {
+    "amount": 154.2,
+    "currency": "USD",
+    "when": "at plan-check submittal (non-refundable)",
+    "source": "S47, IB 301 fee schedule, single-family/duplex/townhouse 'With Plan Review - Plan Check'",
+    "note": "Charged only on the plan-review tier; the self-issued Option 1 path pays no plan-check fee. Express plan check is 1.5x plus an administrative charge and is unavailable for single-family/duplex."
+   },
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(b) (review limited to health and safety requirements)",
+   "evidence": [
+    {
+     "doc": "S47",
+     "quote": "Option 2 - Plan Review (Non-Building Permit): Systems not qualifying for no-review option but requiring electrical permit only",
+     "page_or_section": "IB 301, Service Options -> Option 2"
+    },
+    {
+     "doc": "S48",
+     "quote": "If the scope of work exceeds any requirements stated within IB-301 for no plan reviewer required, a review will be required.",
+     "page_or_section": "PV User Guide, Rules -> PLEASE NOTE"
+    },
+    {
+     "doc": "S47",
+     "quote": "Structural plans required when: alterations to a structure are required for support/attachment; system weight exceeds six pounds per square foot",
+     "page_or_section": "IB 301, Submittal Requirements -> Technical plans"
+    }
+   ]
+  },
+  {
+   "id": "A08",
+   "name": "Issue a Project Issues Report ('Recheck Required'); applicant corrects and resubmits for recheck",
+   "actor": "sd_plan_reviewer",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "plan-check comments"
+   ],
+   "artifacts_out": [
+    "Project Issues Report",
+    "'Recheck Required' project status"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A05",
+    "reason": "plan-check comments require corrected plans and a recheck"
+   },
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(g)(1)",
+   "evidence": [
+    {
+     "doc": "S48",
+     "quote": "Look for the Project Issues Report. View or download these items to assist you in submitting for a recheck.",
+     "page_or_section": "PV User Guide, Recheck Required step 6"
+    },
+    {
+     "doc": "S48",
+     "quote": "Once your project is in review, you will receive an email if your plans require corrections or if your permit has been issued.",
+     "page_or_section": "PV User Guide, Creating a Project step 16"
+    }
+   ]
+  },
+  {
+   "id": "A09",
+   "name": "Route the project to zoning, historic, fire-access, structural and hazardous-materials reviewers where triggered",
+   "actor": "sd_plan_reviewer",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "project characteristics (historic designation, structural modification, ESS, fire access)"
+   ],
+   "artifacts_out": [
+    "discipline review clearances"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Battery/ESS plan review and inspection are billed at an hourly rate, so their duration is variable by construction and not published as a figure."
+   },
+   "fee": {
+    "amount": null,
+    "currency": "USD",
+    "when": "hourly for battery/ESS review and inspection",
+    "source": "S47, IB 301 Additional fees",
+    "note": "IB 301 states an hourly fee applies to battery/ESS plan reviews and inspections but publishes no rate; a $12.16 mapping fee applies where relevant."
+   },
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(a) (bars design review for aesthetic purposes; historic review survives as a health-and-safety-adjacent carve-out in San Diego's own bulletin)",
+   "evidence": [
+    {
+     "doc": "S47",
+     "quote": "Zoning review required for projects needing building/combination permits; Historic review required if property is a designated historical resource or in a historic district",
+     "page_or_section": "IB 301, Submittal Requirements -> Additional reviews"
+    },
+    {
+     "doc": "S47",
+     "quote": "Fire access requirements per California Fire Code Section 1205.2.",
+     "page_or_section": "IB 301, Submittal Requirements -> Additional reviews"
+    },
+    {
+     "doc": "S47",
+     "quote": "Battery/ESS review and inspection - hourly fee for plan reviews and inspections",
+     "page_or_section": "IB 301, Fee Schedule -> Additional fees"
+    }
+   ],
+   "notes": "Classified applicant_inferable: IB 301 tells the applicant these reviews exist and when they trigger, but the internal routing, sequencing and hand-back between disciplines is never described, and the applicant only sees elapsed time."
+  },
+  {
+   "id": "A10",
+   "name": "Pay the invoiced fees; the permit issues",
+   "actor": "sd_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "invoice for record PMT-XXXXXXX",
+    "fee payment by e-check or credit card"
+   ],
+   "artifacts_out": [
+    "issued electrical permit (Photovoltaic - SB 379)",
+    "inspection record card"
+   ],
+   "timing": {
+    "median_days": 14,
+    "p90_days": 29,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023 median AHJ permit time = 14.0 business days (n=1,677) -- the slowest among California's highest-volume AHJs that year, despite the self-issued no-plan-review design. 2022 was 4.0 and 2024 was 0.0 (n=40). p90 is the national 2023 AHJ-permit-review value (29)."
+   },
+   "fee": {
+    "amount": 275.8,
+    "currency": "USD",
+    "when": "on invoice, before permit issuance",
+    "source": "S47, IB 301 fee schedule, 'No Plan Review (First System/Inverter Inspection)'",
+    "note": "The self-issued tier pays the inspection fee only. SolarTRACE independently records San Diego's median residential 1-10 kW permit cost as $268.80, close to but not identical with the published $275.80. A $12.16 mapping fee applies where relevant, and plan-check and administrative fees are non-refundable."
+   },
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b) (administrative approval through issuance of a permit)",
+   "evidence": [
+    {
+     "doc": "S47",
+     "quote": "No Plan Review (First System/Inverter Inspection): $275.80",
+     "page_or_section": "IB 301, Fee Schedule -> Single-Family/Duplex/Townhouse Systems"
+    },
+    {
+     "doc": "S47",
+     "quote": "Mapping fee (if applicable): $12.16",
+     "page_or_section": "IB 301, Fee Schedule -> Additional fees"
+    },
+    {
+     "doc": "S47",
+     "quote": "Plan check fees and other administrative fees are non-refundable.",
+     "page_or_section": "IB 301, Fee Schedule -> Note"
+    },
+    {
+     "doc": "S48",
+     "quote": "Verify that the record has the status: 'Application Pending Payment' or Approved Upon Final Payment",
+     "page_or_section": "PV User Guide, Pay Fees step 4"
+    }
+   ]
+  },
+  {
+   "id": "A11",
+   "name": "Install the system",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "issued permit",
+    "approved plans"
+   ],
+   "artifacts_out": [
+    "installed PV (and paired storage) system"
+   ],
+   "timing": {
+    "median_days": 16,
+    "p90_days": 68,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "California statewide median install phase (last approval -> install complete), 0-10 kW PV-only, 2023 = 16 business days; p90 is the national 2023 figure (68), no CA p90 is published."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "It is the contractor or owner's responsibility to schedule and coordinate all required inspections and obtain approvals before concealing any work.",
+     "page_or_section": "Inspection Guidelines, opening paragraph"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Business days between last approval and installation complete.",
+     "page_or_section": "Information sheet, variable description for 'Install Phase (approve-install)'"
+    }
+   ]
+  },
+  {
+   "id": "A12",
+   "name": "Schedule the required inspections and make the site ready",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "permit number",
+    "approved plans and inspection record card on site",
+    "CAL-OSHA-compliant ladder"
+   ],
+   "artifacts_out": [
+    "scheduled inspection appointments"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "San Diego publishes no scheduling SLA; the Guidebook recommends next business day, else within five days."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h) (inspection 'done in a timely manner')",
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "Approved plans, inspection record card and manufacturers' installation instructions shall be made available on site.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S49",
+     "quote": "A ladder complying with CAL-OSHA requirements shall be made available and secured in place for the inspection.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S20",
+     "quote": "Provide for on-site inspection during the next business day after notification that the solar system has been installed. If next business day is not possible, schedule inspection within five days.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    }
+   ]
+  },
+  {
+   "id": "A13",
+   "name": "Inspect rough electrical for concealed wiring and array bonding and grounding (roof-mounted sequence)",
+   "actor": "sd_inspector",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "installed wiring and racking",
+    "approved plans"
+   ],
+   "artifacts_out": [
+    "rough-electrical and bonding/grounding sign-off"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h) (in tension: the statute requires only one inspection for eligible small systems)",
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "Rough electrical for concealed wiring",
+     "page_or_section": "Inspection Guidelines, B. Roof-Mounted Systems 1"
+    },
+    {
+     "doc": "S49",
+     "quote": "Array bonding and grounding",
+     "page_or_section": "Inspection Guidelines, B. Roof-Mounted Systems 2"
+    },
+    {
+     "doc": "S47",
+     "quote": "Required inspections may include: electrical underground; electrical rough; electrical final; structural-foundation; structural-rough; structural-final.",
+     "page_or_section": "IB 301, Inspection Process"
+    }
+   ],
+   "notes": "A live contradiction in San Diego's own published record, and a deliberate scoring target. The Inspection Guidelines and IB 301 both enumerate multiple inspections (rough, bonding/grounding, final), while Gov. Code 65850.5(h) requires only one for an expedited-eligible small system and SolarTRACE records 'Number of Inspections Required' = 1 for the San Diego AHJ. Whether the rough stage is waived in practice on the self-issued path is not recoverable from any document here."
+  },
+  {
+   "id": "A14",
+   "name": "Inspect the complete system (modules, panel, wire terminations, grounding, service equipment, labels)",
+   "actor": "sd_inspector",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "installed system",
+    "approved plans",
+    "SDG&E letter of approval where a separate utility disconnect is required"
+   ],
+   "artifacts_out": [
+    "final inspection approval"
+   ],
+   "timing": {
+    "median_days": 4,
+    "p90_days": 52,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023 inspection phase (install complete -> last passed inspection) median = 4.0 business days (16.0 in 2022, 3.0 in 2024); PV+storage 4.0. p90 is the national 2023 inspection-phase value (52); no AHJ-level percentile is published."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h)",
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "Final inspection of the complete system including modules, panel, wire terminations, grounding, etc.",
+     "page_or_section": "Inspection Guidelines, B. Roof-Mounted Systems 3"
+    },
+    {
+     "doc": "S49",
+     "quote": "The service equipment and its verifiable bus rating shall be adequate and properly sized for the designed PV source.",
+     "page_or_section": "Inspection Guidelines, I.B Service Equipment"
+    },
+    {
+     "doc": "S49",
+     "quote": "When a separate utility disconnect is required, a San Diego Gas and Electric (SDG&E) letter of approval shall be available on site.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S1",
+     "quote": "only one inspection shall be required, which shall be done in a timely manner and may include a consolidated inspection",
+     "page_or_section": "Gov. Code 65850.5(h)"
+    }
+   ]
+  },
+  {
+   "id": "A15",
+   "name": "Correct the deficiency (or file a construction change to approved plans) and obtain a re-inspection",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "inspector's correction notice",
+    "construction change submittal where the installation differs from approved plans"
+   ],
+   "artifacts_out": [
+    "corrected installation",
+    "re-inspection request"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "No San Diego duration published. National incidence for traditional (non-automated) permits: about 35% of PV-only projects and 29% of PV+storage projects failed at least one inspection in 2024."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A14",
+    "reason": "failed inspection, or the installation differs from the approved plans and requires a construction change"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h) (a subsequent inspection is authorized and need not meet the timeliness rule)",
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "Installation of equipment shall be per the approved plans. If the installation differs from the approved plans, a construction change may be required.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S48",
+     "quote": "If you submit plans that require a recheck, you are required to resubmit.",
+     "page_or_section": "PV User Guide, Recheck Required step 1"
+    },
+    {
+     "doc": "S1",
+     "quote": "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized",
+     "page_or_section": "Gov. Code 65850.5(h)"
+    },
+    {
+     "doc": "S38",
+     "quote": "About 31% of all SolarAPP+ projects failed an inspection at least once, compared to 35% of traditional projects.",
+     "page_or_section": "p. 10, sec. 3.2 AHJ Inspection Impacts"
+    }
+   ]
+  },
+  {
+   "id": "A16",
+   "name": "Coordinate a scheduled-outage inspection against the utility's 2:00 p.m. re-energization deadline (service upgrades only)",
+   "actor": "sd_inspector",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "scheduled SDG&E outage",
+    "installed, grounded and bonded service equipment",
+    "City of San Diego Circuit Card and SDG&E service order"
+   ],
+   "artifacts_out": [
+    "inspection clearance to re-energize the service equipment"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Same-day, inside a fixed window: power is disconnected at 8:00 a.m. and City approval to re-energize must be issued by 2:00 p.m."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "The deadline established by the utility for receiving City approval to re-energize service equipment is 2:00 P.M.",
+     "page_or_section": "Inspection Guidelines, I.G Service Upgrades Involving Scheduled Outages"
+    },
+    {
+     "doc": "S49",
+     "quote": "For projects with an electrical service upgrade, a SDG&E service order and completed City of San Diego Circuit Card shall be available on site.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S49",
+     "quote": "Due to the narrow timeframe between the 8:00A.M. disconnection of power and the 2:00P.M. approval deadline",
+     "page_or_section": "Inspection Guidelines, I.G Service Upgrades Involving Scheduled Outages"
+    }
+   ],
+   "notes": "The one place where the city inspection and the utility are coupled inside a single day. It is a tightly choreographed cross-organisational step that exists only for panel/service upgrades, and it is the highest-variance branch in the San Diego model."
+  },
+  {
+   "id": "A17",
+   "name": "Install the self-generation placard and utility-disconnect labelling",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "placard stock",
+    "San Diego Area Electrical Newsletter interpretations"
+   ],
+   "artifacts_out": [
+    "affixed placards and labels"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(f)(3) (California Electrical Code compliance)",
+   "evidence": [
+    {
+     "doc": "S49",
+     "quote": "Install a placard for all customer self-generating electrical equipment as required by the California Electrical Code and in compliance with the San Diego Area Electrical Newsletter.",
+     "page_or_section": "Inspection Guidelines, I.B Service Equipment"
+    },
+    {
+     "doc": "S49",
+     "quote": "All required labels must be properly fixed in place.",
+     "page_or_section": "Inspection Guidelines, I.A General"
+    },
+    {
+     "doc": "S163",
+     "quote": "Example of a warning plaque which SDG&E and the local permitting agencies require to be placed on each customer's meter panel",
+     "page_or_section": "SDG&E Electric Rule 21 page"
+    }
+   ]
+  },
+  {
+   "id": "A18",
+   "name": "Notify SDG&E that final inspection approval has been granted for all related City permits",
+   "actor": "sd_permit_desk",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "final inspection approval across all related City of San Diego permits"
+   ],
+   "artifacts_out": [
+    "notification to SDG&E that the City has finaled the permit"
+   ],
+   "timing": {
+    "median_days": 2,
+    "p90_days": 22,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "National post-inspection phase (last inspection -> PTO request) median 2 business days, p90 22, 0-10 kW PV-only, 2023. IB 301 describes this handoff in the passive voice and never says who sends it, when, or how."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(g) (interconnection preserved as a separate track)",
+   "evidence": [
+    {
+     "doc": "S47",
+     "quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.",
+     "page_or_section": "IB 301, Inspection Process"
+    },
+    {
+     "doc": "S2",
+     "quote": "This section does not limit or otherwise affect the generator interconnection requirements and approval process",
+     "page_or_section": "Gov. Code 65850.52(g)"
+    },
+    {
+     "doc": "S20",
+     "quote": "This interconnection approval must be granted before a solar PV installation is allowed to operate and is completely separate from local government approval for the solar installation.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ],
+   "notes": "Classified applicant_inferable, not staff_only, purely because IB 301 mentions it -- but in a passive construction ('SDG&E will be notified') that conceals the actor, the trigger and the latency. This is the load-bearing seam between the two tracks in San Diego, and it is the least-documented step in the whole model."
+  },
+  {
+   "id": "A19",
+   "name": "Submit the SDG&E interconnection application through the online interconnection portal",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "system and equipment details",
+    "customer account information",
+    "evidence of final City inspection clearance"
+   ],
+   "artifacts_out": [
+    "SDG&E interconnection request"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No residential turnaround published. SolarTRACE records SDG&E's application response-time requirement as 'Voluntary' at 1 business day, and notes SDG&E requires no pre-install approval to build."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21",
+   "evidence": [
+    {
+     "doc": "S162",
+     "quote": "Residential rooftop solar, solar + storage, or stand-alone storage under the",
+     "page_or_section": "SDG&E Customer Generation page, Distribution System -> Solar Billing Plan"
+    },
+    {
+     "doc": "S162",
+     "quote": "Non-NBT generating/storage facilities (subject to California Rule 21), either exporting or non-exporting projects, interconnection is made to SDG&E using the",
+     "page_or_section": "SDG&E Customer Generation page"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Whether the utility requires an approval to build/pre-install interconnection application.",
+     "page_or_section": "Information sheet, variable description for 'Approval To Build Required From Utility Before Install'"
+    }
+   ],
+   "notes": "Fee deliberately left null. SDG&E's published $800 non-refundable Interconnection Request Fee attaches to Rule 21 exporting generator projects that file an Interconnection Request, not to a residential Solar Billing Plan rooftop interconnection; no SDG&E page states a residential interconnection fee either way. Assigning $800 here would be a scope error."
+  },
+  {
+   "id": "A20",
+   "name": "Review the interconnection request and issue a draft generator interconnection agreement",
+   "actor": "sdge",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "interconnection request",
+    "distribution capacity data"
+   ],
+   "artifacts_out": [
+    "draft Generator Interconnection Agreement"
+   ],
+   "timing": {
+    "median_days": 15,
+    "p90_days": null,
+    "source": "utility tariff",
+    "unit": "business_days",
+    "note": "SDG&E commits to providing a draft Generator Interconnection Agreement within fifteen (15) business days of the applicant's request for Fast Track generator projects. Whether that clause governs a residential Solar Billing Plan rooftop interconnection is not stated anywhere public."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. F.2.e",
+   "evidence": [
+    {
+     "doc": "S163",
+     "quote": "SDG&E shall provide Applicant with a draft Generator Interconnection Agreement for Applicant's signature within fifteen (15) business days of Applicant's request.",
+     "page_or_section": "SDG&E Electric Rule 21 page, Fast Track Generation Interconnection Agreement"
+    },
+    {
+     "doc": "S150",
+     "quote": "D.20-09-035 did not mandate reporting for net energy metering (NEM) systems smaller than 30 kVA",
+     "page_or_section": "CPUC Rule 21 page, D.20-09-035 discussion"
+    }
+   ]
+  },
+  {
+   "id": "A21",
+   "name": "Execute the interconnection agreement",
+   "actor": "homeowner",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "draft Generator Interconnection Agreement"
+   ],
+   "artifacts_out": [
+    "executed interconnection agreement"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21",
+   "evidence": [
+    {
+     "doc": "S163",
+     "quote": "Applicants for Fast Track generator projects that choose to proceed to a Generation Interconnection Agreement shall notify SDG&E, in compliance with the provisions of Rule 21 section F.2.e.",
+     "page_or_section": "SDG&E Electric Rule 21 page"
+    },
+    {
+     "doc": "S166",
+     "quote": "Residential customers on the Solar Billing Plan have a Time-of-Use (EVTOU5) plan.",
+     "page_or_section": "SDG&E Solar Billing Plan page, Solar Pricing Plan for Residential Customers"
+    }
+   ]
+  },
+  {
+   "id": "A22",
+   "name": "Grant SDG&E energization approval / Permission to Operate",
+   "actor": "sdge",
+   "visibility": "applicant_facing",
+   "occasion": "mail",
+   "artifacts_in": [
+    "executed interconnection agreement",
+    "City final inspection approval"
+   ],
+   "artifacts_out": [
+    "Permission to Operate / energization approval"
+   ],
+   "timing": {
+    "median_days": 7,
+    "p90_days": 48,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023: final interconnection request -> PTO median 7.0 business days (2.0 in 2022, 2.0 in 2024); PV+storage 9.0. p90 is the national 2023 final-interconnection-phase value (48). SDG&E publishes no plain-language PTO turnaround of its own anywhere -- this median is the only evidence of its actual speed."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21",
+   "evidence": [
+    {
+     "doc": "S47",
+     "quote": "The system is not approved to energize until SDG&E approval is obtained.",
+     "page_or_section": "IB 301, Inspection Process"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Median business days between final interconnection request to the utility and granting of permission to operate (PTO); i.e., final request to go-live date.",
+     "page_or_section": "Information sheet, variable description for 'Median Final IX to PTO'"
+    },
+    {
+     "doc": "S20",
+     "quote": "The Public Utilities Code requires that all electric utilities respond within 30 working days after receiving a completed application for interconnection.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ]
+  },
+  {
+   "id": "A23",
+   "name": "Self-certify SB 379 compliance to the California Energy Commission and report permit statistics annually",
+   "actor": "sd_permit_desk",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "permit counts and system characteristics",
+    "CEC reporting guidelines"
+   ],
+   "artifacts_out": [
+    "compliance report and annual statistics filing to the CEC",
+    "self-certification when applying for CEC funds"
+   ],
+   "timing": {
+    "median_days": 365,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Annual, within one year of implementing the platform; the reporting duty sunsets 2034-06-30."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(d), (e)(1), (f)",
+   "evidence": [
+    {
+     "doc": "S2",
+     "quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+     "page_or_section": "Gov. Code 65850.52(d)"
+    },
+    {
+     "doc": "S2",
+     "quote": "shall self-certify its compliance with this section when applying for funds from the Energy Commission",
+     "page_or_section": "Gov. Code 65850.52(f)"
+    },
+    {
+     "doc": "S2",
+     "quote": "shall annually report to the Energy Commission pursuant to those guidelines within one year of implementing the online, automated solar permitting system",
+     "page_or_section": "Gov. Code 65850.52(e)(1)"
+    }
+   ],
+   "notes": "The only staff_only activity in this model, and the only one with no applicant-facing trace anywhere in San Diego's materials. Its presence here is also San Diego's sharpest unanswered question: the city named its permit type after SB 379 but implemented its own checklist rather than an automated platform, so what it certified to the CEC -- and whether the CEC accepted a template-based self-issued permit as an 'online, automated permitting platform' -- is unknown."
+  }
+ ],
+ "edges": [
+  {
+   "from": "A01",
+   "to": "A02",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A02",
+   "to": "A03",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A03",
+   "to": "A04",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A04",
+   "to": "A05",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A05",
+   "to": "A06",
+   "type": "rework",
+   "condition": "submittal incomplete or digital plans non-conforming"
+  },
+  {
+   "from": "A06",
+   "to": "A05",
+   "type": "rework",
+   "condition": "applicant resubmits the missing documents"
+  },
+  {
+   "from": "A05",
+   "to": "A07",
+   "type": "optional",
+   "condition": "scope exceeds the IB-301 no-plan-review limits"
+  },
+  {
+   "from": "A07",
+   "to": "A08",
+   "type": "rework",
+   "condition": "plan check produces comments"
+  },
+  {
+   "from": "A08",
+   "to": "A05",
+   "type": "rework",
+   "condition": "applicant resubmits corrected plans for recheck"
+  },
+  {
+   "from": "A07",
+   "to": "A09",
+   "type": "optional",
+   "condition": "zoning, historic, fire-access, structural or ESS review triggered"
+  },
+  {
+   "from": "A09",
+   "to": "A10",
+   "type": "sequence",
+   "condition": "discipline clearances obtained"
+  },
+  {
+   "from": "A07",
+   "to": "A10",
+   "type": "sequence",
+   "condition": "plan check approved"
+  },
+  {
+   "from": "A05",
+   "to": "A10",
+   "type": "sequence",
+   "condition": "Option 1 self-issued: no plan review required"
+  },
+  {
+   "from": "A10",
+   "to": "A11",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A11",
+   "to": "A12",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A12",
+   "to": "A13",
+   "type": "sequence",
+   "condition": "roof-mounted sequence: rough electrical before concealment"
+  },
+  {
+   "from": "A13",
+   "to": "A14",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A12",
+   "to": "A14",
+   "type": "sequence",
+   "condition": "self-issued path where no rough inspection is called"
+  },
+  {
+   "from": "A12",
+   "to": "A16",
+   "type": "optional",
+   "condition": "project includes an electrical service upgrade requiring a scheduled outage"
+  },
+  {
+   "from": "A16",
+   "to": "A14",
+   "type": "sequence",
+   "condition": "service equipment cleared to re-energize; remaining work inspected later"
+  },
+  {
+   "from": "A11",
+   "to": "A17",
+   "type": "sequence",
+   "condition": "placards and labels affixed as part of installation"
+  },
+  {
+   "from": "A17",
+   "to": "A14",
+   "type": "handoff",
+   "condition": "labels verified at final inspection"
+  },
+  {
+   "from": "A14",
+   "to": "A15",
+   "type": "rework",
+   "condition": "inspection failed"
+  },
+  {
+   "from": "A15",
+   "to": "A14",
+   "type": "rework",
+   "condition": "re-inspection"
+  },
+  {
+   "from": "A14",
+   "to": "A18",
+   "type": "sequence",
+   "condition": "final inspection approved for all related City permits"
+  },
+  {
+   "from": "A10",
+   "to": "A19",
+   "type": "optional",
+   "condition": "contractor may open the SDG&E interconnection track in parallel with permitting"
+  },
+  {
+   "from": "A18",
+   "to": "A19",
+   "type": "handoff",
+   "condition": "City notification reaches SDG&E"
+  },
+  {
+   "from": "A19",
+   "to": "A20",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A20",
+   "to": "A21",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A21",
+   "to": "A22",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A22",
+   "to": "A23",
+   "type": "handoff",
+   "condition": "permit counted in the annual CEC filing"
+  }
+ ],
+ "terminal_artifact": "Permission to Operate letter",
+ "terminal_artifact_note": "SDG&E's own materials never use the phrase 'Permission to Operate' for a residential rooftop interconnection; IB 301 calls it 'SDG&E approval' to energize, and SolarTRACE measures the phase as 'Final IX to PTO'. The canonical name is used here for cross-model comparability.",
+ "denial_rate": null,
+ "denial_rate_note": "Not published. Gov. Code 65850.5(b) makes approval nondiscretionary, so on the self-issued Option 1 path there is effectively no denial decision at all -- the permit issues on payment. The functional analogues of denial are the two rework states San Diego names ('Updates Required' and 'Recheck Required'), whose rates are not reported anywhere.",
+ "timing_gold": {
+  "end_to_end_median_days": 49,
+  "end_to_end_scope": "permit submission -> final passed inspection, business days, traditional (non-automated) permits, 29 AHJs nationally (2024). San Diego is a traditional-review AHJ by SolarTRACE's own coding ('Online Instant Permitting' = No in 2022, 2024 and 2025), so the traditional arm is the applicable baseline; no San Diego-specific end-to-end figure exists.",
+  "p90_days": null,
+  "end_to_end_to_pto_median_days": 72,
+  "end_to_end_to_pto_p90_days": 181,
+  "end_to_end_to_pto_scope": "permit submission -> PTO approved, business days, 0-10 kW PV-only, 2023, national, all permitting paths pooled (SolarTRACE n=56,582). No San Diego-only permit-to-PTO figure exists.",
+  "source": "SolarTRACE 2025-09-09 dataset (S48b) for San Diego x SDG&E phase medians, median permit cost and the no-instant-permitting flags; Performance Review 2024 (S38) for the traditional-permit baselines; IB 301 (S47) for fees and the energization gate.",
+  "quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.",
+  "per_phase": {
+   "permit": {
+    "median_days": 14,
+    "p90_days": 29,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023 median AHJ permit time = 14.0 business days (n=1,677 installs) -- the slowest among California's highest-volume AHJs that year, and twice the 7-day national traditional median, despite San Diego advertising a self-issued permit with no plan review. 2022 was 4.0 and 2024 was 0.0, but the 2024 cell rests on only 40 installs. PV+storage: 9.0 (2022), 10.0 (2023), 0.0 (2024). p90 is the national 2023 AHJ-permit-review value."
+   },
+   "inspection": {
+    "median_days": 4,
+    "p90_days": 52,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023: install complete -> last passed inspection median 4.0 business days, a sharp improvement on 16.0 in 2022; PV+storage 4.0. SolarTRACE records 'Number of Inspections Required' = 1 and 'Rough-In Inspection Required' = 0 for San Diego, which contradicts the multi-stage sequence in the city's own Inspection Guidelines and IB 301. p90 is the national 2023 inspection-phase value."
+   },
+   "interconnection": {
+    "median_days": 7,
+    "p90_days": 48,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "San Diego city x SDG&E, 0-10 kW PV-only, 2023: final interconnection request -> PTO median 7.0 business days (2.0 in both 2022 and 2024); PV+storage 9.0. SDG&E states no plain-language residential PTO turnaround on any statically fetchable page -- its Rule 21 tariff PDF is unreachable and its contractor 'Process Overview' tab is JavaScript-rendered -- so this observed median is the only evidence of SDG&E's actual speed. The one published SDG&E clock, 15 business days for a draft Fast Track agreement, addresses a different product."
+   }
+  },
+  "additional_verified_quotes": [
+   {
+    "doc": "S47",
+    "quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained."
+   },
+   {
+    "doc": "S38",
+    "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits"
+   },
+   {
+    "doc": "S48b",
+    "quote": "Flag (Yes / No) for whether an AHJ has an online, instant permitting system for standard residential projects."
+   },
+   {
+    "doc": "S48b",
+    "quote": "Flag (1 Yes / 0 No / NA for no data available) for whether a rough-in (partially installed) inspection is required by the AHJ."
+   },
+   {
+    "doc": "S163",
+    "quote": "SDG&E shall provide Applicant with a draft Generator Interconnection Agreement for Applicant's signature within fifteen (15) business days of Applicant's request."
+   }
+  ]
+ },
+ "known_gaps": [
+  "San Diego was substituted for San Jose, the originally assigned 'own checklist' city, because the entire sanjoseca.gov domain returned HTTP 403 (Akamai edge block) to every fetch attempt and Wayback lookups were rate-limited. San Diego has a far richer directly fetchable trail, but it is a different market (SDG&E rather than PG&E territory) and the substitution should be carried into any cross-jurisdiction comparison.",
+  "The observed permit median contradicts the declared design and nothing here resolves it. San Diego advertises a self-issued, no-plan-review permit, yet SolarTRACE's 2023 median AHJ permit time for the city is 14 business days -- the slowest of California's high-volume AHJs. Nothing in IB 301, the User Guide or the program page explains the gap. Candidate explanations that the corpus cannot separate: SolarTRACE pools all PV permit types at AHJ level (so plan-review-tier and building-permit projects are mixed in), the Scout pre-validation and 'Updates Required' loop may consume calendar time before a reviewable submittal exists, or 2023 was a NEM 2.0 deadline surge year. Which of these dominates is the single biggest unsettled question in this model.",
+  "San Diego's own documents disagree about how many inspections are required. The Inspection Guidelines list rough electrical, array bonding/grounding and final for roof-mounted systems, and IB 301 enumerates up to six possible inspections, while Gov. Code 65850.5(h) requires only one consolidated inspection for an expedited-eligible small system and SolarTRACE records 'Number of Inspections Required' = 1 with no rough-in for the AHJ. A13's existence on the self-issued path is therefore genuinely uncertain.",
+  "SDG&E's residential PTO process is undocumented end to end. No SDG&E page states a residential PTO turnaround, no residential interconnection fee is published, and the internal review steps between application and energization approval are invisible. A19-A22 are the thinnest-evidenced activities in this model; the $800 Interconnection Request Fee on SDG&E's Rule 21 page belongs to exporting Rule 21 generator projects and was deliberately not assigned to A19.",
+  "The published fee and the observed fee differ. IB 301 sets the no-plan-review inspection fee at $275.80; SolarTRACE records San Diego's median residential 1-10 kW permit cost as $268.80. The gap is small but means fee error is scorable against two defensible targets.",
+  "CPUC Decision D.20-09-035 requires each IOU to report interconnection timeline metrics quarterly, but the CPUC's own page states it 'did not mandate reporting for net energy metering (NEM) systems smaller than 30 kVA' -- exactly the residential population modelled here. The richest potential observed dataset on SDG&E's interconnection speed is therefore structurally absent.",
+  "Several one-hop applicant documents were not fetched within budget: the Residential Solar PV Project Plan Template, the PDF document requirements, and the 'How to Schedule Inspection for PV Systems' sheet. The last of these is the one place a San Diego inspection-scheduling SLA might exist; A12's timing is null because of it.",
+  "San Diego runs no SolarAPP+ integration at all, so this model has no automated-platform counterpart to Oakland's A03/A05. That absence is the intended disentanglement contrast between the two city models and should not be scored as a missing activity."
+ ],
+ "notes": "Why this is the gold for San Diego: the city publishes its designed tier almost in full. IB 301 (fee schedule, service tiers, review triggers, inspection list), the electronic-submittal User Guide (the 'Updates Required' and 'Recheck Required' rework states, the Project Issues Report, the Scout gate) and the Inspection Guidelines (per-section inspector checklist, placard duties, the 2:00 p.m. outage choreography) together expose procedure that most jurisdictions keep internal. The consequence is a deliberate and informative asymmetry against the Oakland model: San Diego has exactly one staff_only activity (A23, the CEC filings), because almost everything else a solver would expect to be hidden is in a published bulletin. Three structural points. (1) The self-issued design means there is no approval decision on the main path -- A05 flows straight to A10 and the permit issues on payment -- so the plan-review activities (A07-A09) are genuinely optional branches, not the spine. (2) The permit track and the interconnection track are legally distinct under Gov. Code 65850.52(g), and A18 is the seam; uniquely among these three models the City, not the contractor, is described as notifying the utility, but IB 301 says so in a passive construction that names no actor and no latency. (3) The declared design and the observed record openly conflict on both permit speed (self-issued vs a 14-business-day 2023 median) and inspection count (one consolidated inspection in statute and SolarTRACE vs a multi-stage sequence in the city's own guidelines); both conflicts are preserved rather than reconciled, and are flagged in known_gaps as scoring targets. gold_tier is 'designed+observed' because the graph is designed-tier while every timing figure is records-derived; per-tier scoring should treat the process model as designed-only. Document ids are the corpus source_ids from corpus/realworld/solar_permit/sources.json.",
+ "quote_verification": "All 74 evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions in corpus/realworld/solar_permit/, after Unicode NFKC normalisation and folding of curly quotes/apostrophes, en/em dashes, non-breaking spaces, ellipses and PDF ligatures (fi/fl/ff), and after collapsing all whitespace (PDF text extractions wrap mid-sentence, so quotes are contiguous in the normalised stream rather than on one line of the .txt). Quotes from the PG&E Rule 21 tariff additionally required stripping the right-margin change bars that pdftotext emits at end of line. Quotes attributed to S48b are cell text read from the SolarTRACE .xlsx (Information sheet variable descriptions) via openpyxl, not from a .txt. Every quote is 40 words or fewer. 0 unverified quotes."
+}

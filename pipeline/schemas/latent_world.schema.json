@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LatentWorld",
+  "description": "Synthetic-world spec for one judgment predicate: a latent severity axis with anchored descriptions, context fields for realistic rendering, and a population prior for band-mass weighting. Probes sweep the axis (psychophysics); realism enters only through the population prior, which is a placeholder until calibrated to real data.",
+  "type": "object",
+  "required": ["world_id", "predicate", "axes"],
+  "properties": {
+    "world_id": { "type": "string" },
+    "predicate": {
+      "type": "object",
+      "required": ["text", "cite"],
+      "properties": {
+        "text": { "type": "string", "description": "The judgment predicate under measurement, quoted." },
+        "cite": { "type": "string" },
+        "rule_id": { "type": "string" },
+        "tree_node": { "type": "string", "description": "Node id in a compiled tree this predicate corresponds to, if any." }
+      }
+    },
+    "axes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "anchors"],
+        "properties": {
+          "name": { "type": "string" },
+          "range": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+          "anchors": {
+            "type": "array",
+            "minItems": 3,
+            "description": "Concrete condition descriptions pinned to axis positions. Renderers interpolate between bracketing anchors; vignettes must never state theta numerically.",
+            "items": {
+              "type": "object",
+              "required": ["theta", "description"],
+              "properties": {
+                "theta": { "type": "number" },
+                "description": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "context_fields": {
+      "type": "array",
+      "description": "Realism knobs orthogonal to the axis (unit type, region). Varied so measured cutoffs are not artifacts of one vignette style.",
+      "items": {
+        "type": "object",
+        "required": ["name", "values"],
+        "properties": {
+          "name": { "type": "string" },
+          "values": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "population": {
+      "type": "object",
+      "description": "Prior over theta for band-mass weighting. PLACEHOLDER until calibrated to real data (assessor/inspection records).",
+      "properties": {
+        "distribution": { "enum": ["uniform", "beta"] },
+        "alpha": { "type": "number" },
+        "beta": { "type": "number" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

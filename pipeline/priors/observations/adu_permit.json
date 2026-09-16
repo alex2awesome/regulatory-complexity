@@ -1,0 +1,1759 @@
+{
+ "slug": "adu_permit",
+ "generated_date": "2026-09-15",
+ "coverage": {
+  "observations_by_evidence_tier": {
+   "statutory": 9,
+   "designed_document": 19,
+   "verifiable_official": 2,
+   "inferred": 1,
+   "community_reported": 13
+  },
+  "distinct_step_keys": 24,
+  "step_key_counts": [
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 10
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "mid_city"
+    },
+    "n_observations": 7
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 2
+   },
+   {
+    "step_key": {
+     "agency_class": "applicant",
+     "task_type": "correction_cycle",
+     "channel": "online",
+     "blocking_party": "applicant",
+     "cadence": "continuous",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 2
+   },
+   {
+    "step_key": {
+     "agency_class": "front_counter",
+     "task_type": "intake_screen",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 2
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 2
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "decision",
+     "channel": "internal",
+     "blocking_party": "agency",
+     "cadence": "weekly",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 2
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "intake_screen",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "state"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "notice",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "state"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "state"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "decision",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "state"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "hearing_officer",
+     "task_type": "appeal",
+     "channel": "hearing",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "state"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "issuance",
+     "channel": "counter",
+     "blocking_party": "agency",
+     "cadence": "on_request",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "specialist_referral",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "specialist_referral",
+     "task_type": "correction_cycle",
+     "channel": "online",
+     "blocking_party": "applicant",
+     "cadence": "continuous",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "applicant",
+     "task_type": "correction_cycle",
+     "channel": "online",
+     "blocking_party": "applicant",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "applicant",
+     "task_type": "decision",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "front_counter",
+     "task_type": "issuance",
+     "channel": "counter",
+     "blocking_party": "agency",
+     "cadence": "on_request",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "intake_screen",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "statutory_clock",
+     "jurisdiction_class": "mid_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "issuance",
+     "channel": "counter",
+     "blocking_party": "agency",
+     "cadence": "biweekly_or_monthly_cycle",
+     "jurisdiction_class": "large_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "small_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "utility",
+     "task_type": "referral",
+     "channel": "mail",
+     "blocking_party": "third_party",
+     "cadence": "on_request",
+     "jurisdiction_class": "county"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "applicant",
+     "task_type": "document_review",
+     "channel": "online",
+     "blocking_party": "applicant",
+     "cadence": "continuous",
+     "jurisdiction_class": "mid_city"
+    },
+    "n_observations": 1
+   },
+   {
+    "step_key": {
+     "agency_class": "plan_review",
+     "task_type": "issuance",
+     "channel": "online",
+     "blocking_party": "agency",
+     "cadence": "continuous",
+     "jurisdiction_class": "mid_city"
+    },
+    "n_observations": 1
+   }
+  ],
+  "gold_steps_without_duration_evidence": [
+   {
+    "model_id": "RW__adu_permit__city_of_san_jose",
+    "jurisdiction": "City of San José, CA",
+    "activity_id": "A06",
+    "activity_name": "Obtain the water-flow letter and hydrant map from the water company"
+   },
+   {
+    "model_id": "RW__adu_permit__city_of_san_jose",
+    "jurisdiction": "City of San José, CA",
+    "activity_id": "A12",
+    "activity_name": "Sequence the concurrent building and fire reviews and set their per-discipline due dates"
+   },
+   {
+    "model_id": "RW__adu_permit__city_of_san_jose",
+    "jurisdiction": "City of San José, CA",
+    "activity_id": "A21",
+    "activity_name": "Field inspections against the ADU Inspection Checklist (Bulletin 213)"
+   },
+   {
+    "model_id": "RW__adu_permit__city_of_san_jose",
+    "jurisdiction": "City of San José, CA",
+    "activity_id": "A23",
+    "activity_name": "Final building inspection approved"
+   },
+   {
+    "model_id": "RW__adu_permit__city_of_san_jose",
+    "jurisdiction": "City of San José, CA",
+    "activity_id": "A26",
+    "activity_name": "Review and preapprove a vendor's standard ADU plans (a separate vendor-facing pipeline)"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A10",
+    "activity_name": "Wait on interdepartmental dependencies with no systematic tracking"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A12",
+    "activity_name": "Issue specific and comprehensive Plan Check Comments telling the applicant exactly what must change"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A15",
+    "activity_name": "Obtain the written approvals that gate issuance (well & septic, health officer, zoning, grading, stormwater, fire, encroachment, water/sewer clearance)"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A21",
+    "activity_name": "Pay a published private firm for third-party plan check on an expedited basis"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A24",
+    "activity_name": "Field inspections at foundation pouring, framing, electrical installation and final completion"
+   },
+   {
+    "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+    "jurisdiction": "County of Sonoma, CA (unincorporated)",
+    "activity_id": "A25",
+    "activity_name": "Halt the project and require corrections when non-compliance is found at inspection"
+   }
+  ],
+  "notes": "adu_permit's underlying corpus is genuinely thin on measured cycle times: both gold models state outright that no end-to-end duration distribution exists for ADU permitting at any of the three implementer cities (San José, Sonoma County, Oakland, Berkeley, Sacramento all appear only via targets, statutory ceilings, or n=1 community reports). Field inspection (task_type=inspection) has ZERO duration evidence at any tier across both gold models and the entire reddit/sources corpus for this slug — the single largest structural gap. A fresh keyword sweep of all 135 reddit posts not already curated into sources.json (170 total minus 35 curated) found no additional on-topic duration statements beyond noise/contamination, consistent with the corpus's own recon notes."
+ },
+ "observations": [
+  {
+   "obs_id": "adu_permit_001",
+   "slug": "adu_permit",
+   "jurisdiction": "State of California (statewide statutory clock, Gov. Code § 66317)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "intake_screen",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "state"
+   },
+   "step_label": "ADU completeness determination (statewide statutory clock)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "S1",
+   "quote": "provide written notice of this determination to the applicant not later than 15 business days after the permitting agency received the application.",
+   "date": "2026-01-01",
+   "notes": "Ceiling, not a measurement. Applies to every CA permitting agency reviewing an ADU application; San José's own process page never mentions it (a known availability gap per the gold model)."
+  },
+  {
+   "obs_id": "adu_permit_002",
+   "slug": "adu_permit",
+   "jurisdiction": "State of California (statewide statutory clock, Gov. Code § 66317)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "notice",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "state"
+   },
+   "step_label": "Deemed-complete backstop if the 15-business-day completeness clock is missed",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "S1",
+   "quote": "If a permitting agency does not make a timely determination as required by this paragraph, the application or resubmitted application shall be deemed to be complete for the purposes of this section.",
+   "date": "2026-01-01",
+   "notes": "Same 15-business-day figure as the prior observation, framed as the backstop rather than the primary clock. Recorded separately because it is a distinct process step (a notice/consequence, not the review itself)."
+  },
+  {
+   "obs_id": "adu_permit_003",
+   "slug": "adu_permit",
+   "jurisdiction": "State of California (statewide statutory clock, Gov. Code § 66317)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "state"
+   },
+   "step_label": "ADU ministerial approve/deny (statewide statutory clock)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 60,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "S1",
+   "quote": "The permitting agency shall either approve or deny the application to create or serve an accessory dwelling unit within 60 days from the date the permitting agency receives a completed application.",
+   "date": "2026-01-01",
+   "notes": "60 CALENDAR days (not business days) — distinct from Sonoma's AB 2234 60-BUSINESS-day backstop for large projects; the two clock sets must not be conflated (per the Sonoma gold's own scope_boundary warning). Clock tolls if the applicant requests a delay."
+  },
+  {
+   "obs_id": "adu_permit_004",
+   "slug": "adu_permit",
+   "jurisdiction": "State of California (statewide statutory clock, Gov. Code § 66317)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "decision",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "state"
+   },
+   "step_label": "Deemed-approved backstop if the 60-day ministerial clock is missed",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 60,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "S1",
+   "quote": "If the local agency has not approved or denied the completed application within 60 days, the application shall be deemed approved.",
+   "date": "2026-01-01",
+   "notes": "Independently corroborated by a California resident's own accurate lay restatement of this clock (R24, 2026-07-25): \"Cities must approve or deny in 60 days, no hearings, checklist review only\" — community-side confirmation that the ceiling is understood, not a personal delay experience."
+  },
+  {
+   "obs_id": "adu_permit_005",
+   "slug": "adu_permit",
+   "jurisdiction": "State of California (statewide statutory clock, Gov. Code § 66317)",
+   "step_key": {
+    "agency_class": "hearing_officer",
+    "task_type": "appeal",
+    "channel": "hearing",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "state"
+   },
+   "step_label": "Appeal of a denial or incompleteness determination to the governing body/planning commission",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 60,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "S1",
+   "quote": "A permitting agency on the appeal shall provide a final written determination by not later than 60 business days after receipt of the applicant's written appeal.",
+   "date": "2026-01-01",
+   "notes": "No source in this corpus reports an actual appeal being filed or its real elapsed time for any of the three implementer cities."
+  },
+  {
+   "obs_id": "adu_permit_006",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "issuance",
+    "channel": "counter",
+    "blocking_party": "agency",
+    "cadence": "on_request",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Preapproved-ADU same-day permit issuance at the scheduled plan review meeting",
+   "value": {
+    "elapsed_days": 0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S7",
+   "quote": "If the site-specific plan and related documents are accurate and complete, permits may be issued on the same day of the scheduled plan review meeting.",
+   "date": "2026-06-03",
+   "notes": "A declared capability, not a measured outcome — San José publishes no share of preapproved projects that actually achieve same-day issuance. Excludes projects with a deferred site-specific structural submittal, which 'may take longer.'"
+  },
+  {
+   "obs_id": "adu_permit_007",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Architectural/structural plan review, first round (nearest non-ADU analogue: new single-family residence)",
+   "value": {
+    "elapsed_days": 20,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "date": "2026-02-13",
+   "notes": "NOT ADU-specific. San José's table explicitly excludes the ADU Service appointment track and has no ADU row; used here only as the nearest analogue category, working days (excludes weekends/holidays)."
+  },
+  {
+   "obs_id": "adu_permit_008",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "correction_cycle",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Architectural/structural plan review, subsequent round after resubmittal (nearest non-ADU analogue)",
+   "value": {
+    "elapsed_days": 10,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "date": "2026-02-13",
+   "notes": "NOT ADU-specific, same caveat as the first-round figure. Table row order is architectural/structural, MEP, fire (first round/subsequent each)."
+  },
+  {
+   "obs_id": "adu_permit_009",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Mechanical/electrical/plumbing (MEP) plan review, first round (nearest non-ADU analogue)",
+   "value": {
+    "elapsed_days": 10,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "date": "2026-02-13",
+   "notes": "NOT ADU-specific; same table row, MEP columns. City's table excludes the ADU Service track."
+  },
+  {
+   "obs_id": "adu_permit_010",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "correction_cycle",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "MEP plan review, subsequent round after resubmittal (nearest non-ADU analogue)",
+   "value": {
+    "elapsed_days": 5,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "date": "2026-02-13",
+   "notes": "NOT ADU-specific, same caveat."
+  },
+  {
+   "obs_id": "adu_permit_011",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "specialist_referral",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Fire Protection Division plan review, first round",
+   "value": {
+    "elapsed_days": 10,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "The time frames in the table reflect the typical time required by the Fire Protection Division staff, regardless of the submittal service used.",
+   "date": "2026-02-13",
+   "notes": "The one figure in this table San José states explicitly applies 'regardless of the submittal service used' — i.e. it is the closest thing to a genuinely ADU-applicable published target in the whole table (the other disciplines' figures are excluded for ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_012",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "specialist_referral",
+    "task_type": "correction_cycle",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Fire Protection Division plan review, subsequent round after resubmittal",
+   "value": {
+    "elapsed_days": 5,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "S8",
+   "quote": "The time frames in the table reflect the typical time required by the Fire Protection Division staff, regardless of the submittal service used.",
+   "date": "2026-02-13",
+   "notes": "Same fire-specific applicability note as the first-round figure."
+  },
+  {
+   "obs_id": "adu_permit_013",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "intake_screen",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Permit Intake completeness review (AB 2234 general post-entitlement clock, not ADU-specific)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "permit agencies are required to review a permit application for completeness within 15 business days and completed applications must then be assessed for code and ordinance compliance within 30 business days.",
+   "date": "2025-05",
+   "notes": "AB 2234 (Gov. Code §65913.3) is Sonoma's GENERAL post-entitlement clock, not ADU-specific; it runs alongside and is shorter than Gov. Code §66317's ADU-specific 15-business-day/60-calendar-day clocks (see state-level observations). D1 (grand jury) quotes the bill; the bill text itself (D4) was not held by this recon."
+  },
+  {
+   "obs_id": "adu_permit_014",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "correction_cycle",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Resubmittal after an incompleteness notice resets the 15-business-day completeness clock",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "AB 2234 makes it clear that if an applicant is informed that documentation is incomplete or inadequate, the 15-day clock resets.",
+   "date": "2025-05",
+   "notes": "Each cure-and-resubmit cycle restarts the 15-day clock from zero; no cap on the number of cycles is stated."
+  },
+  {
+   "obs_id": "adu_permit_015",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Multi-division plan check after plan-check-fee payment (AB 2234, <25 housing units)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 30,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "Payment of this plan check fee triggers a second clock under AB 2234: review the plans and issue the permit within 30 business days or tell the applicant why it isn't acceptable.",
+   "date": "2025-05",
+   "notes": "The single most consequential designed detail in this model: the clock starts on FEE PAYMENT, not on submittal or acceptance — an applicant who delays payment delays their own statutory protection. Nothing in the statute states this; it is a Sonoma administrative design choice."
+  },
+  {
+   "obs_id": "adu_permit_016",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "decision",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Deemed-approved/considered-accepted backstop if Permit Sonoma misses the AB 2234 review deadline",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 30,
+    "range_days": [
+     30,
+     60
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "statutory",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "If a local agency does not adhere to the 30- or 60- business day limit for reviewing applications, the application is deemed approved under certain conditions.",
+   "date": "2025-05",
+   "notes": "30 business days for projects under 25 housing units (the ADU case); 60 business days for 25 or more. No Sonoma applicant-facing document was fetched confirming whether Permit Sonoma discloses this right to applicants."
+  },
+  {
+   "obs_id": "adu_permit_017",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Actual staff working time on a residential plan check (touch time only)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": 0.75,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "a typical residential construction plan check takes 4-8 hours of staff time",
+   "date": "2025-05",
+   "notes": "TOUCH time only (4-8 hours ≈ 0.5-1 working day), anecdotal — 'Accela does not capture real processing times' so this is interview-derived, not measured. Pairs with the elapsed-time observation below as this corpus's clearest touch-vs-queue illustration."
+  },
+  {
+   "obs_id": "adu_permit_018",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Elapsed time for the same plan check to work through the system (queue-dominated)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     28,
+     84
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "If a permit plan check takes 4-8-12 hours, why does it take 4-8-12 weeks to work its way through the system?",
+   "date": "2025-05",
+   "notes": "4-8-12 weeks = 28-84 days elapsed vs. 4-8 hours (~0.5-1 day) of touch time — nearly all of the gap is queue_days, but no queue-only figure is separately published; this is the grand jury's own rhetorical framing of the gap, not a statistical distribution (n=1 characterisation, not a sampled median)."
+  },
+  {
+   "obs_id": "adu_permit_019",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Building Permit average days to review (June 2023 baseline, agency self-report)",
+   "value": {
+    "elapsed_days": 71,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 68% reduction claimed; December-2024 value lost to OCR. Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_020",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Encroachment Permit average days to review (June 2023 baseline, agency self-report)",
+   "value": {
+    "elapsed_days": 49,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 55% reduction claimed; December-2024 value lost to OCR. Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_021",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Grading Permit average days to review (June 2023 baseline, agency self-report)",
+   "value": {
+    "elapsed_days": 82,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 50% reduction claimed; December-2024 value of 41 days survives OCR (recorded separately). Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_022",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Grading Permit average days to review (December 2024, agency self-report)",
+   "value": {
+    "elapsed_days": 41,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 50% reduction from the June-2023 baseline of 82 days. Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_023",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Septic Permit average days to review (June 2023 baseline, agency self-report)",
+   "value": {
+    "elapsed_days": 98,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 79% reduction claimed; December-2024 value lost to OCR. Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_024",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Well Permit average days to review (June 2023 baseline, agency self-report)",
+   "value": {
+    "elapsed_days": 123,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 85% reduction claimed; December-2024 value of 18 days survives OCR (recorded separately). Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_025",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Well Permit average days to review (December 2024, agency self-report)",
+   "value": {
+    "elapsed_days": 18,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+   "date": "2024-02",
+   "notes": "Value comes from D1's reconstruction of a Feb-2024 Board-update table (not itself a verbatim quote); 85% reduction from the June-2023 baseline of 123 days — the largest claimed improvement of any division. Treat as an agency self-report, unaudited — D1's Finding F4 disputes reliability, and two different aggregate reduction figures (57% vs 67%) appear in adjacent quotations of the same underlying document. Not ADU-specific (Permit Sonoma does not disaggregate ADUs)."
+  },
+  {
+   "obs_id": "adu_permit_026",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "intake_screen",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Measured compliance with the 15-business-day completeness deadline (grand jury record review)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 7000,
+   "evidence_tier": "verifiable_official",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "failed to review applications for completeness and acceptability within the 15-day limit a handful of times - out of more than 7,000 permit applications",
+   "date": "2024",
+   "notes": "A compliance RATE against the ceiling, not a duration distribution — but genuinely measured (grand jury manual review), unlike the anecdotal touch/elapsed figures above. n=7,000+ 2024 permit applications (all types, not ADU-specific)."
+  },
+  {
+   "obs_id": "adu_permit_027",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Measured compliance with the 30-business-day plan-check deadline (grand jury record review)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 30,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1100,
+   "evidence_tier": "verifiable_official",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "fewer than 20 of ~1,100 permit applications requiring plan check failed to meet the AB 2234 requirements. All of the failures were permits that required review by multiple departments",
+   "date": "2024",
+   "notes": "Manual review of 5,000+ task-status records for February and October 2024. All failures involved multi-department review — corroborates the interdepartmental-coordination gap (A10) as the actual failure driver, not raw workload. n=~1,100 (all permit types, not ADU-specific)."
+  },
+  {
+   "obs_id": "adu_permit_028",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "decision",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "weekly",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Express Permit ad hoc cross-division review, fall-2024 first trial",
+   "value": {
+    "elapsed_days": 0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 6,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "half a dozen permit applications were reviewed and issued in an afternoon, saving weeks of time for applicants with no additional work on Permit Sonoma's part",
+   "date": "2025-05",
+   "notes": "Self-reported by the Express Permit team, unaudited. One engineer from each plan-check division reviews together and approves on the spot for routine applications."
+  },
+  {
+   "obs_id": "adu_permit_029",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "decision",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "weekly",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Express Permit ad hoc cross-division review, sustained weekly pilot throughput",
+   "value": {
+    "elapsed_days": 0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 9,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "beyond the 8-10 typically processed during the current pilot",
+   "date": "2025-05",
+   "notes": "8-10 permits per weekly session during the pilot (vs. 'half a dozen' at the fall-2024 first trial) — same-session issuance sustained over multiple weeks, illustrating the taxonomy's 'weekly' cadence directly."
+  },
+  {
+   "obs_id": "adu_permit_030",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "issuance",
+    "channel": "counter",
+    "blocking_party": "agency",
+    "cadence": "on_request",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Over-the-counter issuance for minor work with no structural modification (no plan check)",
+   "value": {
+    "elapsed_days": 0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "designed_document",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "Building permits for minor work, such as a re-roof, new water heater, electric upgrade or other work that does not involve any structural modification, can be issued over the counter.",
+   "date": "2025-05",
+   "notes": "Bypasses plan check entirely. The eligibility list for this track is itself unpublished (D1 had to reconstruct it from six months of issued permits) — a genuine availability gap distinct from the duration figure itself."
+  },
+  {
+   "obs_id": "adu_permit_031",
+   "slug": "adu_permit",
+   "jurisdiction": "County of Sonoma, CA (unincorporated area)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "System-wide average time-in-process, all Permit Sonoma permit types (order-of-magnitude estimate)",
+   "value": {
+    "elapsed_days": 40,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "inferred",
+   "source_id": "RW__adu_permit__sonoma_county_permit_sonoma#D1",
+   "quote": "At any given time, PS has a thousand or more permits in some stage of completion, is working on 500-1,000 new applications every month",
+   "date": "2025-05",
+   "notes": "COMPUTED BY US, not stated by D1: Little's Law estimate = WIP ÷ throughput ≈ 1,000 permits ÷ 750/month ≈ 1.3 months ≈ 40 days. Aggregates ALL Permit Sonoma permit types (not ADU-specific), and assumes steady-state arrivals=completions, which D1's own 2024 backlog-reduction narrative suggests was not true during this period — treat as an order-of-magnitude sanity check only, not a citable figure."
+  },
+  {
+   "obs_id": "adu_permit_032",
+   "slug": "adu_permit",
+   "jurisdiction": "Sacramento, CA area (r/Sacramento; city vs. county not specified by poster)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Custom-design ADU: builder signing to city plan approval",
+   "value": {
+    "elapsed_days": 105,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R1",
+   "quote": "December–January: Felt like very little progress (this part was frustrating but a lot of back and forth between them and the city plus holiday dead zones)... Mid-February: Plans approved by the city",
+   "date": "2026-04-27",
+   "notes": "Single self-selected reddit report; selection-biased toward whatever the poster found noteworthy (here, actually a fairly positive account: 'After approval: Everything moved FAST'). ~3.5 months late-Nov signing to mid-Feb approval; not isolated from design/back-and-forth time."
+  },
+  {
+   "obs_id": "adu_permit_033",
+   "slug": "adu_permit",
+   "jurisdiction": "Sacramento, CA area (r/Sacramento)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "intake_screen",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Community judgment on the practical impact of the 15-business-day SB 543 completeness clock",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 15,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R4",
+   "quote": "The 15 day permitting thing really isn't that big of a deal because most builders need to get all their d[ocuments ready anyway]",
+   "date": "2026-07-24",
+   "notes": "Single self-selected reddit comment; not a personal delay experience but a real-world judgment that the statutory ceiling rarely binds because applicant-side prep already takes longer."
+  },
+  {
+   "obs_id": "adu_permit_034",
+   "slug": "adu_permit",
+   "jurisdiction": "City of San José, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "issuance",
+    "channel": "counter",
+    "blocking_party": "agency",
+    "cadence": "biweekly_or_monthly_cycle",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Monthly in-person walk-in day for same-day approval of certain ADU plans",
+   "value": {
+    "elapsed_days": 0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R12",
+   "quote": "At this point you can actually go in one Tuesday a month and get certain plans approved in a single day for an EDU, so it's gone down.",
+   "date": "2022-03-24",
+   "notes": "Single self-selected reddit report; selection-biased. Describes an appointment cadence not named in any San José declared-tier source (S6-S9) — a genuine availability gap this quote fills. 'EDU' appears to be the poster's typo/shorthand for ADU."
+  },
+  {
+   "obs_id": "adu_permit_035",
+   "slug": "adu_permit",
+   "jurisdiction": "unspecified San Francisco Bay Area city, CA (not named by poster; non-ADU permit)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Room addition permit and approval wait (non-ADU, same-region comparator)",
+   "value": {
+    "elapsed_days": 270,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R19",
+   "quote": "just waiting for the permits and approvals would take around nine months at best",
+   "date": "2024-05-20",
+   "notes": "NOT an ADU permit — a general residential room-addition permit in an unnamed Bay Area city. Included only as a same-region queue-time comparator, not scored against the ADU-specific gold process directly. Single self-selected report, selection-biased toward delay."
+  },
+  {
+   "obs_id": "adu_permit_036",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Berkeley, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "small_city"
+   },
+   "step_label": "Detached ADU permit application to permit issuance",
+   "value": {
+    "elapsed_days": 180,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R20",
+   "quote": "I need a permit, so I need to wait another 6 months",
+   "date": "2024-06-22",
+   "notes": "Single self-selected reddit report; selection-biased toward delay. Poster contrasts with their own already-issued attached-ADU permit in the same thread."
+  },
+  {
+   "obs_id": "adu_permit_037",
+   "slug": "adu_permit",
+   "jurisdiction": "unspecified California city (not named by poster)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Overall ADU project, city side of permitting/inspection described as slow",
+   "value": {
+    "elapsed_days": 180,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R22",
+   "quote": "the city has been absolutely useless and extremely slow in the permitting/inspection process. Spent endless hours on the phone with city workers who are completely clueless and always give the go around.",
+   "date": "2025-09-23",
+   "notes": "Single self-selected reddit report; strong selection bias toward dissatisfaction. Jurisdiction not confirmed; ~6 months is the poster's own framing of the overall (design+permit+inspection) timeline, not isolated agency review time."
+  },
+  {
+   "obs_id": "adu_permit_038",
+   "slug": "adu_permit",
+   "jurisdiction": "unincorporated San Lorenzo, Alameda County, CA (Ora Loma Sanitary District)",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "referral",
+    "channel": "mail",
+    "blocking_party": "third_party",
+    "cadence": "on_request",
+    "jurisdiction_class": "county"
+   },
+   "step_label": "Sanitary-district sewage-plan sign-off, running independently of the county building permit",
+   "value": {
+    "elapsed_days": 180,
+    "touch_days": null,
+    "queue_days": 30,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R25",
+   "quote": "Started the process of getting a permit for our sewage plan way back in February but jeez has it been an absolute hassle to get anything back... It's been about a month since my last correspondence with them.",
+   "date": "2026-08-25",
+   "notes": "Single self-selected reddit report, ongoing/unresolved at time of posting (180 days is a lower bound: February to the August-25 post date). queue_days=30 is time since the applicant's last correspondence. The applicant's county building-permit structural review had already cleared — only this special-district sign-off, on its own independent clock, was stuck."
+  },
+  {
+   "obs_id": "adu_permit_039",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "NEW-construction garage-conversion ADU: application to permit issuance",
+   "value": {
+    "elapsed_days": 540,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R26",
+   "quote": "I also managed the process and our permit took 18 months to come through due to the application going in to a blackhole at every step of the process.",
+   "date": "2025-07-15",
+   "notes": "Single self-selected reddit report; the single longest user-reported ADU permit-issuance time in this corpus. Explicitly distinguished by the recon from the SAME thread's OP amnesty/legalization timeline (~2 years), which is out of scope for this slug and excluded. Oakland new-construction ADUs over $100k also require a separate EBMUD sewer-lateral certification (no duration stated for that sub-step specifically)."
+  },
+  {
+   "obs_id": "adu_permit_040",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Garage-to-ADU conversion on a lot-line structure, still pending",
+   "value": {
+    "elapsed_days": 365,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R27",
+   "quote": "Trying to convert to an ADU, Oakland wants a Survey and it is not cheap at all. Been a year since trying to get permit.",
+   "date": "2025-10-10",
+   "notes": "Single self-selected reddit report; still pending/unresolved at post date, so 365 days is a lower bound, not a completed elapsed time. Selection-biased toward delay."
+  },
+  {
+   "obs_id": "adu_permit_041",
+   "slug": "adu_permit",
+   "jurisdiction": "unspecified California (poster does not name a city; total project incl. delivery/construction)",
+   "step_key": {
+    "agency_class": null,
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Prefab ADU delivery: full project completion",
+   "value": {
+    "elapsed_days": 365,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "community_reported",
+   "source_id": "R28",
+   "quote": "Going the prefab route... will be the smoothest, and least expensive... Building on site, or using “pre-approved plans” will be more expensive, more variables and will take longer to get through the permitting process.",
+   "date": "2025-11-04",
+   "notes": "Heavily caveated: this is a TOTAL project timeline (design + factory build + delivery + final on-site permitting), not an isolated plan-review or inspection duration — factory units are pre-inspected before shipping, leaving only prep/final attachment for the city to review on site. No comparable number given for the slower site-built/pre-approved-plan alternative. agency_class set to null: this figure spans multiple actors (factory build, delivery, city plan review/inspection) with no single agency_class applicable."
+  },
+  {
+   "obs_id": "adu_permit_042",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Sacramento, CA (per a secondary/unverified blog aggregator describing the Shelf Ready preapproved-plan program)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Custom-design ADU plan approval (secondary-source claim)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     90,
+     120
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "community_reported",
+   "source_id": "X1",
+   "quote": "Permits are usually approved in three to four months, and faster with a preapproved plan, since the city must decide within 60 days of a complete application.",
+   "date": null,
+   "notes": "LOWEST-CONFIDENCE entries in this file: X1/X2 are secondary/unverified blog aggregators restating official program claims, not primary user accounts and not a direct quote from any city page — sources.json itself flags them 'unverified.' No publish date recovered."
+  },
+  {
+   "obs_id": "adu_permit_043",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Sacramento, CA (per secondary-source description; see X1 caveat)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "issuance",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Preapproved/shelf-ready plan check (secondary-source claim)",
+   "value": {
+    "elapsed_days": 5,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "community_reported",
+   "source_id": "X2",
+   "quote": "Pre-approved plans have already cleared plan check, so they move faster through review... roughly 30 days for custom plans.",
+   "date": null,
+   "notes": "LOWEST-CONFIDENCE: secondary/unverified blog aggregator, not a primary source. 'As little as a few business days' rendered here as 5 elapsed days (a rough midpoint)."
+  },
+  {
+   "obs_id": "adu_permit_044",
+   "slug": "adu_permit",
+   "jurisdiction": "City of Sacramento, CA (per secondary-source description; see X1 caveat)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Custom-design plan check, non-preapproved (secondary-source claim)",
+   "value": {
+    "elapsed_days": 30,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 0,
+   "evidence_tier": "community_reported",
+   "source_id": "X2",
+   "quote": "Pre-approved plans have already cleared plan check, so they move faster through review... roughly 30 days for custom plans.",
+   "date": null,
+   "notes": "LOWEST-CONFIDENCE: secondary/unverified blog aggregator, not a primary source. Companion figure to the preapproved-path observation above."
+  }
+ ]
+}

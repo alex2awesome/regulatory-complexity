@@ -1,0 +1,207 @@
+{
+ "version": 2,
+ "created": "2026-09-15",
+ "rationale": "A duration prior needs more than (agency, task). A step's elapsed time decomposes into TOUCH time (someone working) and QUEUE time (waiting for someone to start), and those obey different laws: touch time scales with task type and artifact complexity; queue time scales with backlog, batching cadence, and who is holding the ball. Two steps with the same (agency, task) but different cadence (a daily cashiering batch vs a monthly council hearing) have incomparable durations. So the unit is a 6-tuple.",
+ "step_key": [
+  "agency_class",
+  "task_type",
+  "channel",
+  "blocking_party",
+  "cadence",
+  "jurisdiction_class"
+ ],
+ "agency_class": {
+  "front_counter": "permit center, intake window, records counter \u2014 receives and screens",
+  "plan_review": "technical review of submitted documents (building, planning, environmental health plan check)",
+  "field_inspection": "an inspector physically visiting or examining",
+  "background_check": "a records/eligibility check against databases (DOJ, FBI, IEVS, state registry)",
+  "caseworker": "an assigned individual adjudicating an application with interviews (benefits, licensing)",
+  "specialist_referral": "a second department consulted (fire, health, assessor, utility, county)",
+  "utility": "an investor-owned or municipal utility acting outside the agency (interconnection, PTO)",
+  "third_party": "a licensed private actor the rule relies on (contractor inspection, certifier, commissary)",
+  "legislative_body": "council, board, commission acting on a cycle",
+  "hearing_officer": "an adjudicator of appeals or fines",
+  "records_unit": "records management, archiving, disclosure (CPRA units)",
+  "fiscal": "cashiering, fee reconciliation, billing",
+  "state_agency": "a state-level licensing or benefits agency acting on its own clock",
+  "federal_agency": "a federal agency (USCIS, FBI, DOL-supervised)"
+ },
+ "task_type": {
+  "intake_screen": "completeness / eligibility screening of a submittal",
+  "document_review": "substantive review of plans or evidence",
+  "inspection": "physical examination against a standard",
+  "reinspection": "re-examination after corrections",
+  "records_check": "query of databases or files about a person or parcel",
+  "interview": "a scheduled conversation to establish facts",
+  "test_or_exam": "an examination the applicant must pass",
+  "decision": "granting, denying, or conditioning",
+  "notice": "producing and sending a required communication",
+  "scheduling": "assigning an appointment or queue slot",
+  "payment": "collecting or reconciling money",
+  "issuance": "producing the terminal artifact",
+  "correction_cycle": "applicant fixing and resubmitting",
+  "appeal": "review of a decision by another body",
+  "recordkeeping": "filing, archiving, registry maintenance, reporting",
+  "referral": "routing a case to another actor and awaiting return",
+  "interconnection": "utility authorization to operate"
+ },
+ "channel": [
+  "counter",
+  "online",
+  "mail",
+  "site_visit",
+  "phone",
+  "hearing",
+  "internal",
+  "automated"
+ ],
+ "blocking_party": {
+  "agency": "the clock runs on the agency; the applicant is waiting",
+  "applicant": "the clock runs on the applicant (gather documents, schedule, correct)",
+  "third_party": "a contractor, utility, or certifier holds the ball",
+  "shared": "both must act (e.g. an interview requires both to appear)"
+ },
+ "cadence": {
+  "continuous": "worked as it arrives",
+  "daily_batch": "processed in a daily cycle (cashiering, overnight batch)",
+  "weekly": "a weekly queue or route",
+  "biweekly_or_monthly_cycle": "a scheduled body (council, board, hearing calendar)",
+  "on_request": "happens only when the applicant asks",
+  "statutory_clock": "duration fixed or capped by law rather than by work"
+ },
+ "jurisdiction_class": [
+  "small_city",
+  "mid_city",
+  "large_city",
+  "county",
+  "state",
+  "federal",
+  "utility_territory"
+ ],
+ "duration_fields": {
+  "touch_days": "working time once started (often hours; record as fractional days)",
+  "queue_days": "time from ready-to-start until started",
+  "elapsed_days": "queue + touch, what an applicant experiences",
+  "statutory_cap_days": "the legal ceiling if any",
+  "p50_p90": "report median and p90 where n permits"
+ },
+ "evidence_tier": {
+  "verifiable_official": "an agency's own published statistic, dataset, or audited figure",
+  "designed_document": "a staff report, SOP, manual, or consultant study stating an intended duration",
+  "statutory": "a clock written into law (a ceiling, not a measurement)",
+  "community_reported": "user reports (reddit, forums) \u2014 colloquial, selection-biased toward delay",
+  "inferred": "computed by us from records (e.g. permit-log timestamps)"
+ },
+ "observation_schema": {
+  "obs_id": "string",
+  "slug": "process slug",
+  "jurisdiction": "string",
+  "step_key": {
+   "agency_class": "",
+   "task_type": "",
+   "channel": "",
+   "blocking_party": "",
+   "cadence": "",
+   "jurisdiction_class": ""
+  },
+  "step_label": "what the step is called locally",
+  "value": {
+   "elapsed_days": null,
+   "touch_days": null,
+   "queue_days": null,
+   "statutory_cap_days": null,
+   "range_days": [
+    null,
+    null
+   ],
+   "p50": null,
+   "p90": null
+  },
+  "n": "number of cases behind the number (1 for a single user report)",
+  "evidence_tier": "one of evidence_tier",
+  "source_id": "sources.json source_id or gold document id",
+  "quote": "verbatim, <= 40 words",
+  "date": "YYYY-MM-DD of the observation or document",
+  "notes": "caveats: selection bias, stale, disputed by another source"
+ },
+ "agency_level": {
+  "local": "a city, county or district body",
+  "state": "a state agency or board",
+  "federal": "a federal agency",
+  "private": "a licensed contractor, utility or other non-government actor"
+ },
+ "agency_role": {
+  "intake": "receives and screens",
+  "review": "reviews submitted documents",
+  "inspection": "examines in the field",
+  "verification": "checks records or databases",
+  "adjudication": "decides a case, usually with an interview",
+  "referral": "routes to another body",
+  "records": "holds, discloses and retains records",
+  "fiscal": "collects and reconciles money",
+  "appeal": "hears appeals",
+  "legislative": "acts on a public calendar",
+  "utility": "authorises interconnection",
+  "third_party": "a private actor the rule relies on",
+  "unspecified": "the source names an organisational level but no function"
+ },
+ "agency_class_split": {
+  "front_counter": {
+   "level": "local",
+   "role": "intake"
+  },
+  "plan_review": {
+   "level": "local",
+   "role": "review"
+  },
+  "field_inspection": {
+   "level": "local",
+   "role": "inspection"
+  },
+  "background_check": {
+   "level": "state",
+   "role": "verification"
+  },
+  "caseworker": {
+   "level": "local",
+   "role": "adjudication"
+  },
+  "specialist_referral": {
+   "level": "local",
+   "role": "referral"
+  },
+  "records_unit": {
+   "level": "local",
+   "role": "records"
+  },
+  "fiscal": {
+   "level": "local",
+   "role": "fiscal"
+  },
+  "hearing_officer": {
+   "level": "local",
+   "role": "appeal"
+  },
+  "legislative_body": {
+   "level": "local",
+   "role": "legislative"
+  },
+  "utility": {
+   "level": "private",
+   "role": "utility"
+  },
+  "third_party": {
+   "level": "private",
+   "role": "third_party"
+  },
+  "state_agency": {
+   "level": "state",
+   "role": "unspecified"
+  },
+  "federal_agency": {
+   "level": "federal",
+   "role": "unspecified"
+  }
+ },
+ "note_v2": "agency_class mixed organisational level with functional role (state_agency names a level, plan_review names a role). Level and role are now separate dimensions; agency_class is kept for continuity and agency_class_split maps it onto the two."
+}

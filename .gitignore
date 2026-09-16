@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+examples/*/
+!examples/.gitkeep
+dashboard/out/
+runs/*
+!runs/README.md
+benchmark/synth/worlds/*/truth/log/*.jsonl

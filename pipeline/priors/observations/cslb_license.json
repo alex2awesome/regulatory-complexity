@@ -1,0 +1,2088 @@
+{
+  "slug": "cslb_license",
+  "observations": [
+    {
+      "obs_id": "cslb_license_001",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C05 Queue application, pull for processing by a technician",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 14,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 28
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "The documents are processed in the order of date received. The information below reflects the dates we are currently working on for each document type. This information is updated weekly.",
+      "date": "2026-09-14",
+      "notes": "Derived (not published) from the gap between the page's snapshot date and the 'date being worked on' for Exam Applications; a queue lag, not a directly stated stage duration (gold known_gaps)."
+    },
+    {
+      "obs_id": "cslb_license_002",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C07 Inform applicant within 60 days: complete/referred or deficient",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 60,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "The Board shall inform an applicant in writing within 60 days of receipt whether the application is complete and has been referred for examination or is deficient and what specific information is required.",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation."
+    },
+    {
+      "obs_id": "cslb_license_003",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "correction_cycle",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C10 Resubmit corrected application within 90 days of return",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L6",
+      "quote": "The applicant fails to return the application rejected by the board for insufficiency or incompleteness within 90 days from the date of original notice or rejection.",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7074(a)(5); one of three independent 90-day applicant clocks in this process."
+    },
+    {
+      "obs_id": "cslb_license_004",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C10 Board re-decides a resubmitted application within 5 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "When an application is returned which was previously rejected for deficiencies, the Board shall decide within 5 days of receipt whether the application is complete and accepted for filing.",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation."
+    },
+    {
+      "obs_id": "cslb_license_005",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C16 DOJ/FBI criminal history record check",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          2,
+          90
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "DOJ and FBI typically provide responses to CSLB within two days of an applicant being fingerprinted, but occasionally the results are delayed.",
+      "date": "2025-12-11",
+      "notes": "Matches the taxonomy's own worked example exactly. Most delays resolved within 30 days; some continue to 90+ days when court records must be obtained."
+    },
+    {
+      "obs_id": "cslb_license_006",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C17 Review CORI, evaluate license eligibility case by case",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "Criminal Background Unit| Date Being Worked On ... All Applications| 08/24/2026",
+      "date": "2026-09-14",
+      "notes": "Derived from the CBU's weekly queue-lag snapshot (~3 weeks behind); over 40,000 records processed with ~5,700 flagged for a criminal history report (G1)."
+    },
+    {
+      "obs_id": "cslb_license_007",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C18 Field investigation of claimed experience (minimum 3% of applications)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 60,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "The periods specified in subsection (3) and (4) shall be extended by a period of 60 days, if the application must be investigated.",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation. Disposition Jan-Oct 2025: 236 investigated, 115 approved, 44 pulled, 73 denied (31% denial rate within this branch), 1 appeal."
+    },
+    {
+      "obs_id": "cslb_license_008",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C21 Mandatory 21-day wait before rescheduling a failed exam",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 21,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "D6",
+      "quote": "If you fail the Law and Business examination and/or your trade examination, you must wait 21 calendar days to pay and reschedule your exam.",
+      "date": "2026-09-15",
+      "notes": "69% average first-time passage rate (G2, FY2017-18) sets how often this clock is hit."
+    },
+    {
+      "obs_id": "cslb_license_009",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C23 Notify applicant of issuance eligibility within 15 days of approval",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L4",
+      "quote": "the registrar, within 15 days after approval of the application, shall notify the applicant that a license may be issued to him on payment of the initial license fee",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7072; one of only two hard day-counts written directly into the statute itself (the other is inside Section 7074)."
+    },
+    {
+      "obs_id": "cslb_license_010",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C24 File $25,000 contractor bond and workers'-comp proof within 90 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L6",
+      "quote": "The applicant, after having been notified to do so, fails to file within 90 days from the date of the notice any bond or lawful money or cashier's check",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7074(a)(3); second of three independent 90-day applicant clocks."
+    },
+    {
+      "obs_id": "cslb_license_011",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "payment",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C25 Pay initial license fee within 90 days of notice",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L6",
+      "quote": "The applicant for an original license, after having been notified to do so, fails to pay the initial license fee within 90 days from the date of the notice.",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7074(a)(2); third of three independent 90-day applicant clocks."
+    },
+    {
+      "obs_id": "cslb_license_012",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C26 Review final fees/documents and issue the license",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 28,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "Issuance Unit| Date Being Worked On ... Final fees, documents received| 08/17/2026",
+      "date": "2026-09-14",
+      "notes": "Derived queue-lag figure (gold known_gaps flags this as a queue lag, not a stage duration). BPC Section 7072 requires issuance once the fee is paid; former Section 827(a)(3) formerly set a 115-day decide-after-referral standard (see timing_gold_secondary)."
+    },
+    {
+      "obs_id": "cslb_license_013",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C29 18-month window to pass the exam after acceptance",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 548,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L6",
+      "quote": "The applicant or the examinee for the applicant has failed to achieve a passing grade in the qualifying examination within 18 months after the application has been deemed acceptable by the board.",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7074(a)(1); extendable up to 90 days for a documented medical emergency, or one exam reschedule without fee."
+    },
+    {
+      "obs_id": "cslb_license_014",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Denial or probationary-license-in-lieu-of-denial, 30-day show-cause",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L5",
+      "quote": "the registrar shall notify the applicant to show cause within 30 days why the probationary license should not be revoked",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7073(e); the probationary-license option appears on no applicant-facing CSLB page (gold notes)."
+    },
+    {
+      "obs_id": "cslb_license_015",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "C20 Law & Business and trade exams (3.5 hours each)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.146,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D6",
+      "quote": "You will be given 3 -1/2 hours to complete each examination.",
+      "date": "2026-09-15",
+      "notes": "Administered by PSI; results given before the candidate leaves the test site."
+    },
+    {
+      "obs_id": "cslb_license_016",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "End-to-end, original license with exam: min/median/max",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          11,
+          726
+        ],
+        "p50": 253,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "Application for Original License, with Examination Minimum: 11 days Median: 253 days Maximum: 726 days",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation. This is gold timing_gold. Includes both Board processing time and applicant-controlled time (returned applications, exam failures/no-shows, bond and fee filing)."
+    },
+    {
+      "obs_id": "cslb_license_017",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "End-to-end, original license without exam (waiver track): min/median/max",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1,
+          349
+        ],
+        "p50": 48,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "Application for Original License, without Examination Minimum: 1 day Median: 48 days Maximum: 349 days",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation. gold timing_gold_secondary #1; median is roughly 1/5th of the with-exam track, isolating the cost of the exam-scheduling lane."
+    },
+    {
+      "obs_id": "cslb_license_018",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "What the min/median/max figures include (methodological note)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G1",
+      "quote": "These periods include not only the Board's processing time, but also the time for which the applicant is responsible",
+      "date": "2025-12-11",
+      "notes": "gold timing_gold_secondary #2; explains why the 253-day median cannot be decomposed into board-controlled vs. applicant-controlled time (gold known_gaps)."
+    },
+    {
+      "obs_id": "cslb_license_019",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Weighted-average days to original application approval, FY2014-15 to FY2017-18",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          132,
+          141
+        ],
+        "p50": 135,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G2",
+      "quote": "Average Days to Original Application Approval (All - Complete/Incomplete) 132 141",
+      "date": "2019-02-26",
+      "notes": "gold timing_gold_secondary #3; pre-dates the repealed-regulation table and shows the median has likely grown substantially since (135 vs. the 2025 packet's 253)."
+    },
+    {
+      "obs_id": "cslb_license_020",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Statutory and former-regulatory clocks bundled together",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G1",
+      "quote": "The Board shall decide within 115 days after a complete application has been referred for examination whether an applicant meets the requirements for licensure",
+      "date": "2025-12-11",
+      "notes": "gold timing_gold_secondary #5; the 115-day figure is itself from repealed former 16 CCR Section 827(a)(3) -- Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation."
+    },
+    {
+      "obs_id": "cslb_license_021",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Default 1-year reapply wait after a denial or revocation",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 365,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S8",
+      "quote": "which shall be one year from the effective date of the decision or service of notice under subdivision (b) of Section 485, unless the board prescribes an earlier date.",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7070."
+    },
+    {
+      "obs_id": "cslb_license_022",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Reapply date after a crime-based denial can run up to 5 years",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1825,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S12",
+      "quote": "The date set by the registrar shall not be more than five years from the effective date of the decision",
+      "date": "2026-09-15",
+      "notes": "BPC Section 7073(b); the registrar has discretion between the 1-year default (S8) and this 5-year ceiling."
+    },
+    {
+      "obs_id": "cslb_license_023",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Out-of-state hard-copy fingerprint cards take 3-6 months or longer",
+      "value": {
+        "elapsed_days": 135,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          90,
+          180
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S26",
+      "quote": "the processing time required for hard copy fingerprint cards is substantially longer than Live Scan fingerprinting, taking three to six months or longer.",
+      "date": "2026-09-15",
+      "notes": "CSLB's own fingerprinting checklist; the slow alternative to C16's 2-30-day Live Scan norm, relevant to out-of-state applicants without local Live Scan access."
+    },
+    {
+      "obs_id": "cslb_license_024",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Bond Unit queue lag",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 12,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S29",
+      "quote": "Contractor Bonds| 09/02/2026",
+      "date": "2026-09-14",
+      "notes": "Same weekly Processing Times page as C05/C26, for the separate Bond Unit queue tied to C24."
+    },
+    {
+      "obs_id": "cslb_license_025",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Waiver Applications queue lag (no-exam track)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 14,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S29",
+      "quote": "Waiver Applications| 08/31/2026",
+      "date": "2026-09-14",
+      "notes": "Parallel queue to C05's exam-application lag, for the waiver/no-exam track that feeds the 48-day median license."
+    },
+    {
+      "obs_id": "cslb_license_026",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Additional Classification, with exam: min/median/max",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          20,
+          617
+        ],
+        "p50": 96,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S36",
+      "quote": "Application for Additional Classification, with Examination Minimum 20 days",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation. Distinct license action (adding a classification to an existing license) not modeled in this gold file, which covers only the original-license track."
+    },
+    {
+      "obs_id": "cslb_license_027",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Home Improvement Salesperson registration: min/median/max",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1,
+          53
+        ],
+        "p50": 8,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S36",
+      "quote": "Minimum: 1 day Median: 8 days Maximum: 53 days",
+      "date": "2025-12-11",
+      "notes": "Sourced from the min/median/max (or day-count) table in the December 11, 2025 board packet, quoting former 16 CCR Section 827, which was repealed effective 2025-12-02 (its authorizing statute, Gov. Code Section 15376, had itself been repealed in 2003). The figure is CSLB's own historical performance number but is no longer legally anchored to any current regulation. A different registration type entirely (not a contractor's license), included in the same repealed-regulation table."
+    },
+    {
+      "obs_id": "cslb_license_028",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Application approved for exam within about 2 weeks (S37)",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "Within two weeks, my application was approved and I was given the approval to take my exams.",
+      "date": "2024-08-14",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_029",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Applicant-side bond shopping: 'a couple months' to find the best bond (S37)",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "I take a couple months to find the best bond suited for my business... I send in my bond and initial license fee ($200) in July of this year (2024).",
+      "date": "2024-08-14",
+      "notes": "Applicant-controlled time, not CSLB processing time -- illustrates the gold's own caveat that the min/median/max figures mix both."
+    },
+    {
+      "obs_id": "cslb_license_030",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CSLB's own stated normal issuance turnaround after documents received (S37)",
+      "value": {
+        "elapsed_days": 18,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          21
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "The processing and issuance of a license takes about 2-3 weeks.",
+      "date": "2024-08-14",
+      "notes": "Cited by the applicant as CSLB's own verbal/written estimate, not found on a declared CSLB page in this corpus."
+    },
+    {
+      "obs_id": "cslb_license_031",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Documents received but stuck at 'supervisor review' beyond 3 weeks (S37)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "a status update on my application on the CSLB website shows that my application was sent to a supervisor for review... a mistake was made on the CSLB side of things. But they failed to inform me of that mistake.",
+      "date": "2024-08-14",
+      "notes": "Reveals a 'supervisor review' stage and a named, reassignable 'program technician' role, neither on any CSLB declared page (gold known_gaps)."
+    },
+    {
+      "obs_id": "cslb_license_032",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Counterexample: mailing application to issued license in 5 weeks (S37)",
+      "value": {
+        "elapsed_days": 35,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S37",
+      "quote": "I went from mailing in application to issued license in 5 weeks.",
+      "date": "2024-08-14",
+      "notes": "Fast-side counterexample in the same thread as the stuck-in-supervisor-review case above; shows the wide real variance the 11-726 day range (timing_gold) implies."
+    },
+    {
+      "obs_id": "cslb_license_033",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Experience-years cannot be reused for an additional classification; discovered after 'a few months' (S41)",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S41",
+      "quote": "After few months tho, the technician sent me an email saying I cannot reuse the 4 years (2019-2023) of qualifying experience for an additional license",
+      "date": "2026-09-15",
+      "notes": "Rule not stated on any declared-tier CSLB page held in this corpus (gold known_gaps)."
+    },
+    {
+      "obs_id": "cslb_license_034",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-exam issuance took 2-3 months in problem cases (S44)",
+      "value": {
+        "elapsed_days": 75,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          60,
+          90
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S44",
+      "quote": "I've seen others post on here that had issues (as in the cslb just forgot about the applicant's application or something) say that it took 2 to 3 months after passing the exam??!!?!!",
+      "date": "2026-09-15",
+      "notes": "Second-hand report of others' experience, but consistent with S37's own stuck-in-review case."
+    },
+    {
+      "obs_id": "cslb_license_035",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Exam scheduling wait quoted as '6 months possible' vs. '4-6 weeks' online (S49)",
+      "value": {
+        "elapsed_days": 35,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          28,
+          42
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 3,
+      "evidence_tier": "community_reported",
+      "source_id": "S49",
+      "quote": "Do you have any sense of how long it'll take to be scheduled for the test? I was told 6 months is possible but internet says 4-6 weeks.",
+      "date": "2024-02-02",
+      "notes": "n_reports=3 in sources.json; wide disagreement between a CSLB-side verbal estimate (6 months) and community lore (4-6 weeks)."
+    },
+    {
+      "obs_id": "cslb_license_036",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Application approval to test-scheduling eligibility: ~2 months (S49)",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S49",
+      "quote": "You're looking at 2 months for the application approval process to even schedule the test lol",
+      "date": "2024-02-02",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_037",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Approval to actual exam appointment: 2-6 weeks depending on local PSI availability (S49)",
+      "value": {
+        "elapsed_days": 28,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          42
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 2,
+      "evidence_tier": "community_reported",
+      "source_id": "S49",
+      "quote": "Should be 4-6 weeks after your application is approved ... About 2-6 weeks, depends on your area's availability, the soonest appointment for me was 2 weeks out",
+      "date": "2024-02-02",
+      "notes": "n_reports=2."
+    },
+    {
+      "obs_id": "cslb_license_038",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "correction_cycle",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "90-day correction window corroborated first-hand, with no guidance on how to correct (S50)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S50",
+      "quote": "Apparently I have 90 days to get the information corrected. Yet they haven't notified me about how to correct the application, or anything like that, they just pointed it out.",
+      "date": "2024-07-24",
+      "notes": "Same statutory clock as gold C10; this applicant reports CSLB flagging the deficiency without explaining the fix."
+    },
+    {
+      "obs_id": "cslb_license_039",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Acceptance to exam-date window: 'three weeks or three months' depending on cohort (S51)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          90
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S51",
+      "quote": "When the cslb accepted my application and gave me test dates I had three weeks or three months to take the test.",
+      "date": "2025-04-15",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_040",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "90-day Live Scan submission window: extensions of about a month grantable on request (S52)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S52",
+      "quote": "They will usually grant extensions. Call/email and ask, you can probably get another month",
+      "date": "2025-05-17",
+      "notes": "Same clock as gold C15; the on-request extension is not documented on any CSLB declared page."
+    },
+    {
+      "obs_id": "cslb_license_041",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Extra review triggered by a flagged prior file: 'three extra months' (S53)",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S53",
+      "quote": "I had a dropped felony charge from when I was 18 show up and it took them three extra months to sort my details and approve my license.",
+      "date": "2025-06-05",
+      "notes": "One of the re-sweep's five most informative quotes; also confirms bond/insurance must be purchased before final clearance, win or lose."
+    },
+    {
+      "obs_id": "cslb_license_042",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Random experience-audit incidence corroborated (S53)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S53",
+      "quote": "I have read that a random number of applications get pulled for further review.",
+      "date": "2025-06-05",
+      "notes": "Corroborates 16 CCR Section 824's 3% floor without adding a duration figure."
+    },
+    {
+      "obs_id": "cslb_license_043",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Low-friction case: application to license in about 5 weeks (S56)",
+      "value": {
+        "elapsed_days": 35,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S56",
+      "quote": "the whole process was very fast and easy for me, I got it done in about five weeks, but that's because I sweat it and had everything prepared",
+      "date": "2025-07-07",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_044",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "End-to-end range across six independent posters: ~3 weeks to ~4 months (S57)",
+      "value": {
+        "elapsed_days": 75,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          120
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 6,
+      "evidence_tier": "community_reported",
+      "source_id": "S57",
+      "quote": "I got mine in like 3-4 weeks ... only took like 6-8 weeks tops ... a solid 3 months from submission ... like 4 months and 1 of those was legitimately because the next available test was a month away.",
+      "date": "2025-07-11",
+      "notes": "n_reports=6, the widest first-hand end-to-end spread in this corpus (>5x)."
+    },
+    {
+      "obs_id": "cslb_license_045",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "background_check",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Certifier's own fingerprint/background clearance took ~7 weeks (S57)",
+      "value": {
+        "elapsed_days": 49,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S57",
+      "quote": "My fingerprint took forever to get approved, but that's not their fault. I just signed off on someone and they took 7 weeks",
+      "date": "2025-07-11",
+      "notes": "About the certifier's own background check, not the primary applicant's -- every named individual on the application is separately fingerprinted (gold C12)."
+    },
+    {
+      "obs_id": "cslb_license_046",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "'Approximately 2 to 3 months to get a test date' (S57)",
+      "value": {
+        "elapsed_days": 75,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          60,
+          90
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S57",
+      "quote": "It takes approximately 2 to 3 months to get a test date.",
+      "date": "2025-07-11",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_047",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Post-COVID backlog: 10-month wait for an in-person exam slot (S59)",
+      "value": {
+        "elapsed_days": 300,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S59",
+      "quote": "I had to wait like 10 months to get my in person exam.",
+      "date": "2025-07-22",
+      "notes": "Longest documented wait in either sweep of this corpus; an outlier against S49/S57's weeks-to-a-few-months range."
+    },
+    {
+      "obs_id": "cslb_license_048",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "90-day window to file for License Continuance after a licensee's death (S61)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S61",
+      "quote": "You only have 90 days to continue a relative's license. Here's the form 13L-14 Request for License Continuance",
+      "date": "2025-08-02",
+      "notes": "A newly-found administrative 90-day clock distinct from the three in BPC Section 7074 (gold C10/C24/C25); suggests 90 days is CSLB's default grace period across several unrelated triggers."
+    },
+    {
+      "obs_id": "cslb_license_049",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "records_check",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Mechanism behind the random experience audit: staff called employers directly (S65)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S65",
+      "quote": "Yeah, so they do audit a small percentage of the candidates at random.",
+      "date": "2025-11-13",
+      "notes": "Re-sweep's first description anywhere in this corpus of the actual audit mechanism (calling listed employers), not just its rate/disposition statistics."
+    },
+    {
+      "obs_id": "cslb_license_050",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "90 days to replace a departed qualifying individual (RMO/RME), extension available (S66)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S66",
+      "quote": "I already have my own insurance and bond, and I have 90 days to replace my previous qualifier. ... I'll qualify for an extension.",
+      "date": "2025-12-01",
+      "notes": "Third independent 90-day administrative clock found in this corpus (16 CCR Section 823(b)); on-request extensions undocumented anywhere applicant-facing."
+    },
+    {
+      "obs_id": "cslb_license_051",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Clean case with no audits/investigations: application to license in about 4 months (S72)",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S72",
+      "quote": "Got my license last week, and I'm stoked. B-General Building. No audits/investigations.",
+      "date": "2026-09-07",
+      "notes": "Submitted 2026-05-15 per the thread's own dating; slower than S56/S37's 5-week counterexamples despite having no audit branch triggered, illustrating baseline queue variance alone."
+    },
+    {
+      "obs_id": "cslb_license_052",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Passed Law & Business exam reusable for 5 years on an additional classification (S76)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1825,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S76",
+      "quote": "your test scores are good for 5 years so if you passed the business exam in the last 5 years you dont have to do that again",
+      "date": "2026-09-14",
+      "notes": "Not modeled in gold (which covers only the original-license track); relevant to the Additional Classification track (S36's 20/96/617-day figures)."
+    },
+    {
+      "obs_id": "cslb_license_053",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "counter",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "DBA/FBN prerequisite: filed in ~10 minutes, but requires 4 consecutive weeks of newspaper publication (S77)",
+      "value": {
+        "elapsed_days": 28,
+        "touch_days": 0.007,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S77",
+      "quote": "I need a DBA in order to get a general contractors license because the corporation name isn't specific to contractor or builder work.",
+      "date": "2023-08-10",
+      "notes": "A pre-application prerequisite outside CSLB's own process (county clerk, not CSLB), but part of the real-world time-to-license for an entity applicant; DBA itself is valid 5 years once granted."
+    },
+    {
+      "obs_id": "cslb_license_054",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "8 exam attempts before passing, with no apparent cap enforced (S79)",
+      "value": {
+        "elapsed_days": 168,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S79",
+      "quote": "I took the test 8 times for my pass. Keep your head down and hit the practice exams you will get it",
+      "date": "2024-06-28",
+      "notes": "elapsed_days is a floor computed from 8 attempts x the mandatory 21-day wait between retries (C21); the actual elapsed time is likely longer once PSI scheduling lag is added."
+    },
+    {
+      "obs_id": "cslb_license_055",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "scheduling",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Commercial exam-prep school's 6-month scheduling guarantee window (S85)",
+      "value": {
+        "elapsed_days": 180,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S85",
+      "quote": "I think they give you six months to schedule the test otherwise they don't guarantee it or something like that",
+      "date": "2025-03-23",
+      "notes": "A school policy (pass guarantee), not a CSLB rule -- distinct from CSLB's own 18-month exam-eligibility window (C29)."
+    },
+    {
+      "obs_id": "cslb_license_056",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "correction_cycle",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Inadequate experience documentation: 'a few weeks' to resubmit, shorter than the general 90-day cure window (S93)",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          28
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "S93",
+      "quote": "If they don't like your verification of work experience, they'll just tell you you need to resubmit and give you a few weeks to do so, no big deal.",
+      "date": "2025-11-04",
+      "notes": "Distinct from and shorter than the general 90-day incomplete-application cure window (C10); specific to experience-verification deficiencies."
+    },
+    {
+      "obs_id": "cslb_license_057",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Program technician's own error sat undiscovered for 7 months",
+      "value": {
+        "elapsed_days": 210,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1es9xkw",
+      "quote": "My program technician admitted that she was at fault and made a mistake 7 months ago and stated that it shouldve been something corrected 7 months ago before I was approved to even take an exam.",
+      "date": "2024-08-14",
+      "notes": "Same thread as S37 (comment not captured in sources.json's condensed extraction); the error would have run until the applicant's 18-month window (C29) expired had the applicant not escalated."
+    },
+    {
+      "obs_id": "cslb_license_058",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Program technician fixed the error 2 weeks after applicant escalation",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1es9xkw",
+      "quote": "Why was it until I contacted the CSLB only to be ignored and neglected did the program technician finally respond telling me she had to correct the mistake two weeks after on August 13th?",
+      "date": "2024-08-14",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_059",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CSLB phone line: connected to a live agent in under 10 minutes",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.007,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1es9xkw",
+      "quote": "Got a guy on the line in under 10 minutes.",
+      "date": "2024-08-14",
+      "notes": "Contrasts with the much longer hold times reported elsewhere in this benchmark's other slugs (EDD, CalFresh); CSLB's phone access appears comparatively fast."
+    },
+    {
+      "obs_id": "cslb_license_060",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Email reply from CSLB staff within a few hours",
+      "value": {
+        "elapsed_days": 0.2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1es9xkw",
+      "quote": "Sent him an email to confirm what we talked about, and got a reply back within a few hours.",
+      "date": "2024-08-14",
+      "notes": ""
+    },
+    {
+      "obs_id": "cslb_license_061",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": null,
+        "channel": "counter",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Contractor's bond obtained from a surety in about 2 hours",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.083,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1lo31qz",
+      "quote": "Not sure about Cali but my bond took two hours to get.",
+      "date": "2025-06-30",
+      "notes": "Fast-side counterexample to S37's 'a couple months' bond-shopping report; bond-acquisition speed is applicant/surety-controlled, not CSLB's clock. task_type left null -- no taxonomy task_type covers a private surety transaction."
+    },
+    {
+      "obs_id": "cslb_license_062",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Exam duration reported as roughly 2.5 hours in, still going",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.104,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:9duk4e",
+      "quote": "Just when you've been there 2 1/2 hours and are freezing cold and your blood sugar is low and you think you're almost done, the last section was a \"practical\" where you had the electrical plans of a commercial building with labels on the panels",
+      "date": "2018-09-07",
+      "notes": "Older post (2018); trade-specific practical section extended the sitting well past the midpoint of the official 3.5-hour allotment (C20)."
+    },
+    {
+      "obs_id": "cslb_license_063",
+      "slug": "cslb_license",
+      "jurisdiction": "State of California (CSLB)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Total time at the test site: 'the entire 5 hours or so'",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.208,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:9duk4e",
+      "quote": "I was there for the entire 5 hours or so they give you.",
+      "date": "2018-09-07",
+      "notes": "Exceeds the declared 3.5-hour-per-exam figure (C20/D6); likely reflects sitting both the Law & Business and trade exams back-to-back in one visit."
+    }
+  ],
+  "coverage": {
+    "total_observations": 63,
+    "observations_by_evidence_tier": {
+      "verifiable_official": 15,
+      "statutory": 10,
+      "designed_document": 2,
+      "community_reported": 36
+    },
+    "distinct_step_keys": 31,
+    "gold_steps_without_duration_evidence": [
+      {
+        "activity": "C01-C03",
+        "name": "Determine classification, designate qualifier, obtain a certifier",
+        "reason": "no duration published or reported; purely applicant/certifier prep time before any CSLB clock starts"
+      },
+      {
+        "activity": "C04",
+        "name": "Submit application + $450 fee",
+        "reason": "gold timing is 0/0 by construction (filing is instant); no separate duration evidence"
+      },
+      {
+        "activity": "C06",
+        "name": "Mail acknowledgment letter with Application Fee Number and PIN",
+        "reason": "no lead time published for this specific mailing"
+      },
+      {
+        "activity": "C08",
+        "name": "Registrar's Section 826 equivalence discretion ('comparable knowledge/training')",
+        "reason": "staff-only, uncriteria'd judgment call; no duration published anywhere (gold known_gaps)"
+      },
+      {
+        "activity": "C09",
+        "name": "Return insufficient/incomplete application",
+        "reason": "no lead time published for how long CSLB takes to issue the return notice itself (only the applicant's downstream 90-day cure window, C10, is documented)"
+      },
+      {
+        "activity": "C11-C14",
+        "name": "Accept/post application, mail Live Scan packet, mail exam-scheduling notice, get fingerprinted",
+        "reason": "content and sequencing documented but no step has a published duration"
+      },
+      {
+        "activity": "C19",
+        "name": "Self-schedule and pay PSI for exams",
+        "reason": "the applicant's own scheduling action; wait time to an available slot is covered only indirectly via reddit (S49/S51/S57/S59), never by CSLB itself"
+      },
+      {
+        "activity": "C22",
+        "name": "Complete asbestos open-book exam and submit verification form",
+        "reason": "no duration published or reported anywhere in this corpus"
+      },
+      {
+        "activity": "C27",
+        "name": "Send reminder letters for inactive applications",
+        "reason": "no lead time published for when reminders go out relative to inactivity onset"
+      },
+      {
+        "activity": "C28",
+        "name": "Classify unresolved applications as pending at fiscal-year close",
+        "reason": "a periodic administrative snapshot, not a per-case duration"
+      },
+      {
+        "activity": "C30 (denial branch)",
+        "name": "Deny the application (as opposed to the probationary-license branch, which has its own 30-day show-cause clock)",
+        "reason": "no duration published for how long the denial decision itself takes once a referral for denial is received"
+      }
+    ]
+  }
+}

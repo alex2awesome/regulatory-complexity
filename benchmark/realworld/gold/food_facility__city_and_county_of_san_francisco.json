@@ -1,0 +1,1337 @@
+{
+  "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+  "source": "designed",
+  "jurisdiction": "City and County of San Francisco, CA",
+  "implementer": "City and County of San Francisco — DPH Environmental Health Branch (Food Safety Program), plus the multi-agency permit bundle (DBI, SFFD, Planning, SFPUC, TTX, County Clerk, Weights & Measures)",
+  "process": "Opening a new fixed retail food facility (restaurant/bar/market): DPH plan check inside the DBI building-permit submittal, construction inspections, Health Permit to Operate / Certificate of Sanitation, and the post-opening placard/inspection cycle.",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "Improving San Francisco's restaurant permitting processes (Office of the Controller, City Services Auditor, City Performance Unit memorandum, REISSUED September 18, 2015)",
+      "url": "https://sfcontroller.org/sites/default/files/Documents/Auditing/SFBP%20Recommendations%20FINAL.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/sf_controller_sfbp_recommendations.pdf, corpus/realworld/food_facility/raw/sf_controller_sfbp_recommendations.txt",
+      "tier": "designed",
+      "date": "2015-09-18",
+      "role": "primary designed-tier source: inter-agency gating of the DPH food permit, consolidated-billing back office, system inventory, applicant survey, DBI permit-duration analysis"
+    },
+    {
+      "id": "D2",
+      "title": "Get a health permit to open a restaurant, bar, or other retail food location (SF.gov / DPH Environmental Health)",
+      "url": "https://www.sf.gov/get-health-permit-open-restaurant-bar-or-other-retail-food-location",
+      "saved_as": "corpus/realworld/food_facility/raw/sf_gov_get_permit.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "declared-tier: health permit application channel and lead time"
+    },
+    {
+      "id": "D3",
+      "title": "Plan Check - Guide to building and remodeling a food facility (SF.gov / DPH Environmental Health)",
+      "url": "https://www.sf.gov/plan-check-guide-building-and-remodeling-food-facility",
+      "saved_as": "corpus/realworld/food_facility/raw/sf_gov_plan_check_guide.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "declared-tier: the Permit Center routing-station model, plan review fee, 80%/final inspections"
+    },
+    {
+      "id": "D4",
+      "title": "Guide to opening a restaurant (SF.gov / Office of Small Business)",
+      "url": "https://www.sf.gov/guide-opening-restaurant",
+      "saved_as": "corpus/realworld/food_facility/raw/sf_gov_guide_opening_restaurant.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "declared-tier: the only SF page that sequences the health permit against other agencies' processes"
+    },
+    {
+      "id": "D5",
+      "title": "Get restaurant health inspection results (SF.gov / DPH Environmental Health)",
+      "url": "https://www.sf.gov/get-restaurant-health-inspection-results",
+      "saved_as": "corpus/realworld/food_facility/raw/sf_gov_inspection_results.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "declared-tier: post-opening inspection cadence and placard posting"
+    },
+    {
+      "id": "D6",
+      "title": "Cal. Health & Safety Code §§ 114380, 114381, 114390, 113709 (California Retail Food Code)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=114380",
+      "saved_as": null,
+      "tier": "statute",
+      "date": "current through Stats. 2025 Ch. 616 (AB 671)",
+      "role": "mandated-element reference only (not fetched to raw/ in Wave 1); used for element_ref, never quoted"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant / prospective food facility operator",
+      "dept": "—"
+    },
+    {
+      "id": "osb",
+      "name": "Office of Small Business",
+      "dept": "Office of the City Administrator"
+    },
+    {
+      "id": "planning",
+      "name": "Planning Department (Planning Information Center)",
+      "dept": "SF Planning"
+    },
+    {
+      "id": "dph_plan_reviewer",
+      "name": "Health plan reviewer (Plan Check, Permit Center counters 82/83)",
+      "dept": "DPH Environmental Health Branch"
+    },
+    {
+      "id": "dph_ehb",
+      "name": "Environmental Health Branch — Food Safety Program",
+      "dept": "Department of Public Health"
+    },
+    {
+      "id": "dbi",
+      "name": "Department of Building Inspection (San Francisco Permit Center)",
+      "dept": "DBI"
+    },
+    {
+      "id": "sffd",
+      "name": "San Francisco Fire Department",
+      "dept": "SFFD"
+    },
+    {
+      "id": "sfpuc",
+      "name": "San Francisco Public Utilities Commission",
+      "dept": "SFPUC"
+    },
+    {
+      "id": "ttx",
+      "name": "Treasurer / Tax Collector",
+      "dept": "TTX"
+    },
+    {
+      "id": "clerk",
+      "name": "Office of the County Clerk",
+      "dept": "County Clerk"
+    },
+    {
+      "id": "wm",
+      "name": "Weights & Measures division",
+      "dept": "DPH Environmental Health Branch"
+    },
+    {
+      "id": "abc",
+      "name": "California Department of Alcoholic Beverage Control",
+      "dept": "state agency (outside the SF process)"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Consult the Office of Small Business for permitting help",
+      "actor": "osb",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "business concept"
+      ],
+      "artifacts_out": [
+        "one-on-one permitting counseling"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Reach out to the Office of Small Business for one-on-one help with your new restaurant.",
+          "page_or_section": "Guide to opening a restaurant → Get started"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Check the location's zoning before signing a lease",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "candidate address"
+      ],
+      "artifacts_out": [
+        "zoning determination for the site"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Even if there was previously a restaurant at a location, check the location's zoning because it may have operated without approval.",
+          "page_or_section": "Guide to opening a restaurant → Find a location for your restaurant"
+        },
+        {
+          "doc": "D1",
+          "quote": "Planning and zoning is often the most time-consuming step of opening a new restaurant.",
+          "page_or_section": "p. 10, Recommendation 3"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Get preliminary zoning advice from the Planning Information Center (preliminary zoning affidavit)",
+      "actor": "planning",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "proposed use and site"
+      ],
+      "artifacts_out": [
+        "preliminary zoning affidavit"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Planning Department strongly encourages new businesses to proactively approach them via the Planning Information Center for advice very early in the permitting process",
+          "page_or_section": "p. 10, Recommendation 3"
+        },
+        {
+          "doc": "D1",
+          "quote": "Planning has distributed a preliminary zoning affidavit so that other departments can refer applicants to Planning early, but its use is not widespread.",
+          "page_or_section": "p. 6, Finding A.i"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Request a pre-lease site evaluation from DPH plan review (and consult SFFD)",
+      "actor": "dph_plan_reviewer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "site evaluation request e-mail to dph.planreview@sfgov.org"
+      ],
+      "artifacts_out": [
+        "site evaluation findings (sprinklers, hoods, exits, capacity)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Request a Site Evaluation by emailing dph.planreview@sfgov.org",
+          "page_or_section": "Guide to opening a restaurant → Determine if you need to make changes to your space"
+        },
+        {
+          "doc": "D4",
+          "quote": "Check this even if the location was a restaurant before. It may have operated without permits, or with outdated equipment.",
+          "page_or_section": "Guide to opening a restaurant → Determine if you need to make changes to your space"
+        },
+        {
+          "doc": "D2",
+          "quote": "If you wish to lease an existing food facility, you may contact the Health Department for a site evaluation before leasing the business.",
+          "page_or_section": "Get a health permit → What to know"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Register the business with the Treasurer/Tax Collector (Business Registration Certificate)",
+      "actor": "ttx",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "business registration application"
+      ],
+      "artifacts_out": [
+        "Business Registration Certificate",
+        "BAN (business account number)",
+        "LIN (location ID number)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Critical-to-open permits from these departments include TTX New Business Registration, DBI Building Permit, DPH Food Permit to Operate, and SFFD Place of Assembly Permit.",
+          "page_or_section": "p. 9, Recommendation 2"
+        },
+        {
+          "doc": "D4",
+          "quote": "If you register your business before choosing a final location, you will have to update your registration with the new address.",
+          "page_or_section": "Guide to opening a restaurant → Set up your business"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "File a Fictitious Business Name with the County Clerk",
+      "actor": "clerk",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "FBN filing"
+      ],
+      "artifacts_out": [
+        "Fictitious Business Name registration"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "you must file a Fictitious Business Name (FBN) with the SF Office of the County Clerk",
+          "page_or_section": "Guide to opening a restaurant → Choose and file a business name"
+        },
+        {
+          "doc": "D1",
+          "quote": "Several departments expressed a public awareness concern: applicants might not know they exist and therefore do not apply for their permits.",
+          "page_or_section": "p. 6, Finding A.ii ('low-awareness' permits)"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Prepare construction plans to DPH food-facility guidelines",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "construction plan guidelines"
+      ],
+      "artifacts_out": [
+        "scaled construction floor plans and specifications"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Get your construction plans ready for City review. Plans must be drawn to scale and look professional.",
+          "page_or_section": "Plan Check → Know the steps, Step 1"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Submit the building-permit application at the Permit Center with \"health\" as a routing station",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "construction floor plans and specifications",
+        "building permit application"
+      ],
+      "artifacts_out": [
+        "filed building permit application with DPH routing"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Make sure \"health\" is included as a routing station with your application.",
+          "page_or_section": "Plan Check → Submit your plans"
+        },
+        {
+          "doc": "D3",
+          "quote": "Make an appointment to meet with Building Inspection. Follow the instructions for submitting your plan.",
+          "page_or_section": "Plan Check → Know the steps, Step 2"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "DBI routes the application to the required review stations and other City agencies",
+      "actor": "dbi",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed building permit application"
+      ],
+      "artifacts_out": [
+        "routing assignments to DPH, DPW, Planning, SFPUC and others"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Your digital documents will be routed for review with the appropriate City agencies.",
+          "page_or_section": "Plan Check → Or submit plans online"
+        },
+        {
+          "doc": "D1",
+          "quote": "The DBI Building Permit requires a complex series of handoffs to DPW, Planning, SFPUC, and other departments.",
+          "page_or_section": "p. 6, Finding A.i"
+        },
+        {
+          "doc": "D3",
+          "quote": "After you submit all of your required documents, you can check on the status of building permits online.",
+          "page_or_section": "Plan Check → Check permit status (basis for 'inferable': status, not the routing chain, is visible)"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Pay the DPH plan review fee (separate from the Building Inspection fee)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "DPH plan review invoice"
+      ],
+      "artifacts_out": [
+        "paid plan review fee"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "at the Permit Center appointment or after online submission",
+        "note": "amount not stated on the page; applicant is pointed to the food plan review fee schedule (not captured in Wave 1)"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(e) (fees sufficient to cover actual expenses)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The Health Department collects a fee for reviewing plans. It is separate from the Building Inspection fees.",
+          "page_or_section": "Plan Check → Plan Review Fee"
+        },
+        {
+          "doc": "D3",
+          "quote": "Pay at Counter 83 at the Permit Center.",
+          "page_or_section": "Plan Check → Plan Review Fee, Pay in person"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "DPH plan review of the food-facility plans; correction comments to the applicant",
+      "actor": "dph_plan_reviewer",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "routed plans and specifications",
+        "paid plan review fee"
+      ],
+      "artifacts_out": [
+        "plan review comments",
+        "approved food facility plans"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "no measured turnaround published by SF DPH; the 20-business-day statutory ceiling in HSC 114380(a) is the only number available and is not a performance figure"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A07",
+        "reason": "plan corrections required before approval"
+      },
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The process for getting a building permit includes review by the Department of Public Health.",
+          "page_or_section": "Plan Check → Submit your plans"
+        },
+        {
+          "doc": "D3",
+          "quote": "You'll be directed at the Permit Center to stations like Public Health. Staff will guide you in next steps.",
+          "page_or_section": "Plan Check → Know the steps, Step 3"
+        },
+        {
+          "doc": "D1",
+          "quote": "Permits of high complexity, where the applicant should speak with a knowledgeable staff member, such as the DPH Certificate of Sanitation",
+          "page_or_section": "p. 14, Recommendation 6"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "SFPUC water/wastewater capacity-charge assessment",
+      "actor": "sfpuc",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "prior and proposed water use for the site"
+      ],
+      "artifacts_out": [
+        "capacity charge assessment / estimate"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "assessed before opening",
+        "note": "'This fee can be high, especially if your location was not previously a restaurant' (D4); no amount published on the page"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "If your business will use more water than the previous business or resident, you may have to pay a capacity charge to the SF Public Utilities Commission (SFPUC).",
+          "page_or_section": "Guide to opening a restaurant → Prepare your space"
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Install approved grease-capture equipment",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "approved plans"
+      ],
+      "artifacts_out": [
+        "installed grease trap or interceptor"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Install approved grease-capture equipment (i.e. traps or interceptors) in your kitchen to prevent clogged pipes and sewer backups.",
+          "page_or_section": "Guide to opening a restaurant → Prepare your space"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Tenant-improvement construction under the issued building permit",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "approved plans",
+        "building permit"
+      ],
+      "artifacts_out": [
+        "built-out food facility"
+      ],
+      "timing": {
+        "median_days": 7,
+        "p90_days": null,
+        "source": "D1 Appendix B, DBI FY04-14 permit records: median application-to-issue turnaround for projects up to $100,000 (all permit types, not restaurant-specific) — this is the DBI permit-issuance clock, not the construction duration"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Most tenant improvements - even small ones - require a permit",
+          "page_or_section": "Guide to opening a restaurant → Prepare your space"
+        },
+        {
+          "doc": "D1",
+          "quote": "projects with costs up to $100,000 have a median turnaround time of seven calendar days",
+          "page_or_section": "p. 18, Appendix B"
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Construction / pre-final inspection at 80 percent complete",
+      "actor": "dph_plan_reviewer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "inspection request to the assigned health plan reviewer"
+      ],
+      "artifacts_out": [
+        "pre-final inspection result"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published; applicant must request the visit at least 2 weeks ahead (D3)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Construction or Pre-final inspection Once work is 80 percent finished (including plumbing, walls, floor, and ceiling finishes)",
+          "page_or_section": "Plan Check → Set up site inspections"
+        },
+        {
+          "doc": "D3",
+          "quote": "Contact your health plan reviewer at least 2 weeks in advance to set up your site inspections.",
+          "page_or_section": "Plan Check → Set up site inspections"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Final inspection when construction is complete",
+      "actor": "dph_plan_reviewer",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "completed construction",
+        "inspection request"
+      ],
+      "artifacts_out": [
+        "final inspection sign-off"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A14",
+        "reason": "construction deficiencies found at inspection"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Final inspection When construction is complete",
+          "page_or_section": "Plan Check → Set up site inspections"
+        },
+        {
+          "doc": "D3",
+          "quote": "Get help with final inspections to open your business",
+          "page_or_section": "Plan Check → Set up site inspections"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Obtain food safety manager certification and food handler cards",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "course and exam"
+      ],
+      "artifacts_out": [
+        "Food Safety Manager Certificate",
+        "food handler cards"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "at certification",
+        "note": "D1: payment for the Food Safety Manager Certificate requires two separate money orders even though the EHB provides all these services"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 113947",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "At least 1 person has to be certified as a food safety manager.",
+          "page_or_section": "Get a health permit → What to do, step 2"
+        },
+        {
+          "doc": "D1",
+          "quote": "payment for the Food Safety Manager Certificate requires two separate money orders",
+          "page_or_section": "p. 13, Finding B.iii"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Apply for the Health Permit to Operate (online application requiring BAN, LIN and federal taxpayer ID)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Business Registration Certificate",
+        "proof of workers' compensation insurance",
+        "proof of food safety certification",
+        "menu or floor plan (depending on business type)"
+      ],
+      "artifacts_out": [
+        "filed health permit application"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "two declared lead times that disagree: 'at least 1 month before you open' (D2) vs 'within 6-8 weeks of your planned open date' (D4)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(a)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "Apply for a Health Permit at least 1 month before you open a: Restaurant Bar Food market Bakery",
+          "page_or_section": "Get a health permit → What to know"
+        },
+        {
+          "doc": "D2",
+          "quote": "Fill out the online health permit application Have ready your: Business account number, or BAN Location ID number, or LIN Federal taxpayer ID",
+          "page_or_section": "Get a health permit → What to do, step 3"
+        },
+        {
+          "doc": "D4",
+          "quote": "Apply for your Health Permit to Operate Apply within 6-8 weeks of your planned open date.",
+          "page_or_section": "Guide to opening a restaurant → Food and alcohol"
+        },
+        {
+          "doc": "D4",
+          "quote": "You'll need to include proof of Worker’s Compensation Insurance, proof of Food Safety Certification, and a Business Registration Certificate.",
+          "page_or_section": "Guide to opening a restaurant → Food and alcohol"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "SFFD referral approval feeding the food permit",
+      "actor": "sffd",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "DPH referral"
+      ],
+      "artifacts_out": [
+        "approved SFFD referral"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The DPH Certificate of Sanitation/Food Permit To Operate involves approved referrals from SFFD and Planning, as well as successfully completed construction (i.e., building permit), if applicable.",
+          "page_or_section": "p. 6, Finding A.i"
+        }
+      ],
+      "visibility_check": "No SF.gov page in corpus/realworld/food_facility/raw/ states that the health permit depends on an SFFD referral. D4 mentions SFFD only as an optional pre-lease consult about sprinklers/hoods/exits; D2 and D3 do not mention SFFD at all. Hence staff_only."
+    },
+    {
+      "id": "A20",
+      "name": "Planning referral approval feeding the food permit",
+      "actor": "planning",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "DPH referral"
+      ],
+      "artifacts_out": [
+        "approved Planning referral"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The DPH Certificate of Sanitation/Food Permit To Operate involves approved referrals from SFFD and Planning, as well as successfully completed construction (i.e., building permit), if applicable.",
+          "page_or_section": "p. 6, Finding A.i"
+        },
+        {
+          "doc": "D1",
+          "quote": "No departmental approval is more critical than Planning Department.",
+          "page_or_section": "p. 10, Recommendation 3"
+        }
+      ],
+      "visibility_check": "No SF.gov page in raw/ states the health permit is gated on a Planning referral; D4 frames Planning only as a pre-lease zoning check by the applicant. Hence staff_only."
+    },
+    {
+      "id": "A21",
+      "name": "Health permit held in queue pending SFFD and Planning approvals",
+      "actor": "dph_ehb",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed health permit application",
+        "pending referrals"
+      ],
+      "artifacts_out": [
+        "held application (no status artifact to the applicant)"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not measured; the audit's own finding is that few departments could supply quantitative permit-duration data"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Anecdotally, many health permits are held while awaiting approval from SFFD and Planning.",
+          "page_or_section": "p. 6, Finding A.i"
+        },
+        {
+          "doc": "D1",
+          "quote": "I submitted something to the department of health and it's just sitting there, and I've got no idea of the status.",
+          "page_or_section": "p. 16, Appendix A (survey respondent)"
+        }
+      ],
+      "visibility_check": "The hold itself is invisible: the audit records an applicant complaining they cannot see status at DPH, and no SF.gov page in raw/ describes a hold state. Hence staff_only."
+    },
+    {
+      "id": "A22",
+      "name": "Consolidated billing of the permit fee through the Treasurer/Tax Collector",
+      "actor": "ttx",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "DPH permit fee record"
+      ],
+      "artifacts_out": [
+        "consolidated bill (TTX, DPH, EC, SFPD, SFFD)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Four departments – EC, SFPD, SFFD, and DPH – have joined together to consolidate their permit billing with the Treasurer/Tax Collector.",
+          "page_or_section": "p. 7, Finding A.iii"
+        },
+        {
+          "doc": "D1",
+          "quote": "while fees for the certificate of sanitation/permit to operate are included in a consolidated bill, Weights and Measures permit fees must be submitted separately by mail",
+          "page_or_section": "p. 13, Finding B.iii"
+        }
+      ],
+      "visibility_check": "No SF.gov page in raw/ mentions consolidated billing or the five participating departments; D2 points only to the 'EHB Fee Schedule'. Hence staff_only."
+    },
+    {
+      "id": "A23",
+      "name": "Permit withheld because business-change data was not propagated across the billing departments",
+      "actor": "dph_ehb",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "stale business name/ownership/closure record"
+      ],
+      "artifacts_out": [
+        "withheld permit"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A18",
+        "reason": "unreconciled business-change or billing record; applicant must re-establish registration data"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "when existing businesses change names, change ownership, or close, that information is not always propagated appropriately across departments",
+          "page_or_section": "p. 7, Finding A.iii"
+        },
+        {
+          "doc": "D1",
+          "quote": "some businesses have avoided paying license fees, and others have had permits withheld, particularly at DPH",
+          "page_or_section": "p. 7, Finding A.iii"
+        }
+      ],
+      "visibility_check": "This failure mode appears in no applicant-facing SF document in raw/. D2 mentions that an ownership-structure change requires a new permit but not that permits get withheld over data desynchronisation. Hence staff_only."
+    },
+    {
+      "id": "A24",
+      "name": "Record and track the permit in the Environmental Health Department (EHD) database",
+      "actor": "dph_ehb",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "approved permit record"
+      ],
+      "artifacts_out": [
+        "EHD database entry (supplemented by Microsoft Access/Excel)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "DPH main tracking database for health permitting",
+          "page_or_section": "p. 19, Appendix C: Permit-Related System Inventory, row 'Environmental Health Department (EHD)' — table cell; the Description and System columns interleave in the extracted .txt, so this string is contiguous in the PDF layout only"
+        },
+        {
+          "doc": "D1",
+          "quote": "Appropriate for small-scale data tracking without advanced business needs",
+          "page_or_section": "p. 19, Appendix C, Microsoft Access row (used by DPH and W&M) — table cell; columns interleave in the extracted .txt"
+        }
+      ],
+      "visibility_check": "No applicant-facing SF document in raw/ names any DPH system of record. Hence staff_only."
+    },
+    {
+      "id": "A25",
+      "name": "Issue the Certificate of Sanitation / Food Permit to Operate",
+      "actor": "dph_ehb",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "passed final inspection",
+        "approved referrals",
+        "paid fees"
+      ],
+      "artifacts_out": [
+        "Certificate of Sanitation / Food Permit to Operate"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(a)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "You must have a permit with the health department to open and run your retail food facility in San Francisco.",
+          "page_or_section": "Get a health permit → service description"
+        },
+        {
+          "doc": "D1",
+          "quote": "New restaurants must get approval from at least six different government agencies before they can open, including DBI, DPH, SFFD, and TTX.",
+          "page_or_section": "p. 9, Recommendation 2"
+        }
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Register point-of-sale systems and weighing/measuring devices with Weights & Measures",
+      "actor": "wm",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "device registration form"
+      ],
+      "artifacts_out": [
+        "W&M device / POS registration"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "mailed separately from the consolidated bill",
+        "note": "D1: W&M fees must be submitted separately by mail even though the DPH Environmental Health Branch provides all these services"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Weights and Measures (W&M): Point-of-Sale and Device Registrations",
+          "page_or_section": "p. 6, Finding A.ii (list of 'low-awareness' permits)"
+        },
+        {
+          "doc": "D1",
+          "quote": "When health inspectors visit businesses, as part of the inspection they could also check that all point-of-sale systems and weighing and measuring devices are registered with W&M",
+          "page_or_section": "p. 9, Recommendation 2 (proposed, not current, integration)"
+        }
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Post the placard and all required postings at the facility",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "issued placard",
+        "required notices"
+      ],
+      "artifacts_out": [
+        "posted placard and notices"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 113709 (local option on evaluation/grading systems)",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Restaurants have to post their placard where you can clearly view it.",
+          "page_or_section": "Get restaurant health inspection results → What to know"
+        },
+        {
+          "doc": "D4",
+          "quote": "Post all required posters and permits including, but not limited to, No Smoking signs, minimum wage information, and health inspection results",
+          "page_or_section": "Guide to opening a restaurant → After opening"
+        }
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "Routine, unscheduled and complaint-driven inspections after opening; weekly publication of results",
+      "actor": "dph_ehb",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "operating facility",
+        "complaints"
+      ],
+      "artifacts_out": [
+        "inspection result",
+        "updated placard",
+        "public database record"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "SF publishes no inspection interval; only a qualitative cadence ('on a routine basis')"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114390",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Locations are checked: On a routine basis At other unscheduled times When there is a complaint",
+          "page_or_section": "Get restaurant health inspection results → What to know"
+        },
+        {
+          "doc": "D5",
+          "quote": "We update this database every week.",
+          "page_or_section": "Get restaurant health inspection results → What to do, step 1"
+        }
+      ]
+    },
+    {
+      "id": "A29",
+      "name": "Obtain a liquor license from the state Department of Alcoholic Beverage Control",
+      "actor": "abc",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "ABC application"
+      ],
+      "artifacts_out": [
+        "liquor license (Type 41 / Type 47)"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "D4: 3-6 months for a new license; 75 days on average for a transfer (ABC's own published figures, restated by SF)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Be prepared to wait 3-6 months for your liquor license to be issued.",
+          "page_or_section": "Guide to opening a restaurant → Food and alcohol"
+        },
+        {
+          "doc": "D4",
+          "quote": "Transfers take 75 days on average.",
+          "page_or_section": "Guide to opening a restaurant → Food and alcohol"
+        }
+      ],
+      "disentanglement_note": "Included deliberately as a boundary case: ABC is a state agency on a separate statute and clock. A solver that folds ABC timing into the SF DPH food-permit timeline has made a disentanglement error, not a coverage gain."
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "optional",
+      "condition": "applicant uses OSB counseling"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "optional",
+      "condition": "applicant or another department refers the applicant to Planning"
+    },
+    {
+      "from": "A02",
+      "to": "A04",
+      "type": "optional",
+      "condition": "applicant requests a pre-lease site evaluation"
+    },
+    {
+      "from": "A02",
+      "to": "A05",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A05",
+      "to": "A06",
+      "type": "optional",
+      "condition": "business operates under a name other than the owner's"
+    },
+    {
+      "from": "A05",
+      "to": "A07",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A04",
+      "to": "A07",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A07",
+      "to": "A08",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A08",
+      "to": "A09",
+      "type": "handoff",
+      "condition": "DBI intake routes the application"
+    },
+    {
+      "from": "A09",
+      "to": "A10",
+      "type": "handoff",
+      "condition": "DPH station issues the plan review fee"
+    },
+    {
+      "from": "A10",
+      "to": "A11",
+      "type": "sequence",
+      "condition": "fee paid"
+    },
+    {
+      "from": "A11",
+      "to": "A07",
+      "type": "rework",
+      "condition": "plan review comments require plan corrections"
+    },
+    {
+      "from": "A09",
+      "to": "A12",
+      "type": "optional",
+      "condition": "water use exceeds the prior occupancy"
+    },
+    {
+      "from": "A11",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "plans approved"
+    },
+    {
+      "from": "A11",
+      "to": "A14",
+      "type": "sequence",
+      "condition": "plans approved by all required agencies"
+    },
+    {
+      "from": "A13",
+      "to": "A14",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A14",
+      "to": "A15",
+      "type": "sequence",
+      "condition": "work 80 percent finished"
+    },
+    {
+      "from": "A15",
+      "to": "A16",
+      "type": "sequence",
+      "condition": "construction complete"
+    },
+    {
+      "from": "A16",
+      "to": "A14",
+      "type": "rework",
+      "condition": "deficiencies found at final inspection"
+    },
+    {
+      "from": "A05",
+      "to": "A17",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A17",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "certifications in hand"
+    },
+    {
+      "from": "A16",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "construction signed off"
+    },
+    {
+      "from": "A18",
+      "to": "A19",
+      "type": "handoff",
+      "condition": "DPH refers the application to SFFD"
+    },
+    {
+      "from": "A18",
+      "to": "A20",
+      "type": "handoff",
+      "condition": "DPH refers the application to Planning"
+    },
+    {
+      "from": "A18",
+      "to": "A21",
+      "type": "sequence",
+      "condition": "referrals outstanding"
+    },
+    {
+      "from": "A19",
+      "to": "A21",
+      "type": "handoff",
+      "condition": "SFFD approval returned"
+    },
+    {
+      "from": "A20",
+      "to": "A21",
+      "type": "handoff",
+      "condition": "Planning approval returned"
+    },
+    {
+      "from": "A21",
+      "to": "A22",
+      "type": "sequence",
+      "condition": "referrals approved; fee billed"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "optional",
+      "condition": "business-change or billing record is unreconciled"
+    },
+    {
+      "from": "A23",
+      "to": "A18",
+      "type": "rework",
+      "condition": "applicant must correct registration/billing data before the permit issues"
+    },
+    {
+      "from": "A22",
+      "to": "A24",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A24",
+      "to": "A25",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A25",
+      "to": "A26",
+      "type": "optional",
+      "condition": "facility uses POS or weighing/measuring devices"
+    },
+    {
+      "from": "A25",
+      "to": "A27",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A27",
+      "to": "A28",
+      "type": "sequence",
+      "condition": "facility open"
+    },
+    {
+      "from": "A05",
+      "to": "A29",
+      "type": "optional",
+      "condition": "facility will serve alcohol"
+    }
+  ],
+  "terminal_artifact": "Certificate of Sanitation / Food Permit to Operate (with a posted placard after the first inspection)",
+  "denial_rate": null,
+  "denial_rate_note": "Not documented. D1 reports volume only — 'at least 300 Food Permit applications were submitted annually the last few years' (classes H24, H25, H26) — with no approval/denial split.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "end_to_end_mean_days": 86,
+    "p90_days": null,
+    "source": "D1 (2015 CSA memo), applicant survey: 244 invitations to people who approached the Office of Small Business for help starting a food business 2013-07-01..2015-06-30, 15 valid responses. Self-reported means, not agency transaction records; no median and no percentile available.",
+    "quote": "The average new food business took nearly three months to open, with another month after opening to complete permitting.",
+    "secondary_quotes": [
+      {
+        "quote": "In this survey, business owners reported that permitting processes took four months to complete on average.",
+        "page_or_section": "p. 9, Recommendation 1"
+      },
+      {
+        "quote": "The average new restaurant required 86 days to open",
+        "page_or_section": "p. 12, 'Survey highlights' sidebar — the sidebar text reflows in the extracted PDF text, so this string is contiguous in the layout but interleaved in the .txt"
+      },
+      {
+        "quote": "26 hours of permitting work",
+        "page_or_section": "p. 12, 'Survey highlights' sidebar"
+      },
+      {
+        "quote": "In this review, few departments were readily able to provide quantitative data on the average time to obtain a permit.",
+        "page_or_section": "p. 8, Recommendation 1 — the audit's own statement that stage-level timing does not exist"
+      }
+    ],
+    "scope": "Whole multi-agency bundle (all departments) for a new restaurant, not the DPH food permit alone. No SF source published in Wave 1 gives a DPH-only cycle time.",
+    "staleness_warning": "2015 vintage. The Permit Center co-location and online submission that D1 recommended appear to have since been implemented (visible in D3's 2026 text), so these durations are evidence of the designed problem in 2015, not a current SLA."
+  },
+  "known_gaps": [
+    "Appendix D of D1 — the per-permit process maps and written summaries, including the DPH Certificate of Sanitation map — is not in the extracted text (the .txt ends at p. 20, the appendix cover page). The richest sequencing artifact in the gold document is therefore unread; so is Figure 1, the end-to-end cross-department map on p. 5.",
+    "The 'Permit application timelines' bar chart on p. 8 (average and longest time per permit, including DPH Food Permit to Operate) is an image; no numeric values survive in the extracted text. This is the one place a DPH-specific duration may exist.",
+    "The DPH plan review fee amount is not captured: the food plan review fee schedule linked from D3 was not fetched in Wave 1. Fee error cannot be scored for SF.",
+    "SF's placard categories / score bands are not confirmed from a primary source. The 'Restaurant health inspection posters and what they mean' page 404'd on fetch (saved as sf_gov_placards.txt, a Not Found page) and the data.sf.gov LIVES dataset page is JS-rendered.",
+    "No measured DPH plan-check or permit-issuance turnaround exists in any source. The 20-business-day figure in HSC 114380 is a statutory ceiling; D1's own Recommendation 1 exists because the measurement does not.",
+    "Mobile food facilities are out of this model's scope (SF runs a separate 5-classification MFF track with public-right-of-way vs. private-property branches; see sf_gov_mobile_guide.txt and sf_gov_food_truck_guide.txt). A separate gold model would be needed.",
+    "The declared SF.gov pages were fetched as HTML-to-text with the site navigation repeated four times before the body; quotes here were taken from the body after the last 'Find contacts' marker. A solver reading the raw .txt sees the same content but must strip the chrome.",
+    "Sibling-process contamination risk for scoring: the SF food permit sits next to the DBI building permit, the SFFD Place of Assembly permit, and the ABC liquor license. A29 is included as a labelled boundary case."
+  ],
+  "notes": "Why this is the gold for SF: the 2015 Controller/CSA memo is the only public document that states the DPH food permit is gated on two other departments' sign-off. Nothing on sf.gov says this. The whole applicant-facing footprint presents the health permit as a single-department deliverable with a 1-month (D2) or 6-8-week (D4) lead time — a contradiction between two live city pages that is itself a scoring target. Six activities (A19-A24) are staff_only and all six come from D1 alone: the SFFD and Planning referrals, the hold state, consolidated billing, the withheld-permit failure mode, and the EHD system of record. Structural note for cross-county comparison: SF folds DPH plan review *inside* the DBI single-Permit-Center submittal as a routing station (A08/A09), whereas LA County and San Diego County take EH plan check as a direct, separate submittal to the health department. gold_tier is 'designed+observed' because the process model is designed-tier while two timing figures are records-derived: the DBI FY04-14 permit-duration analysis (Appendix B, observed but not restaurant-specific) and the applicant survey (n=15, self-reported). Reported per-tier scores should treat the process model as designed-only.",
+  "quote_verification": "All evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions, after normalising whitespace, curly quotes/dashes and PDF ligatures (fi/fl/ff). Quotes drawn from PDF tables or from the flowchart's multi-column layout are contiguous in `pdftotext -raw` output rather than in the `-layout` .txt saved in corpus/; those are marked in their page_or_section. 0 unverified quotes."
+}

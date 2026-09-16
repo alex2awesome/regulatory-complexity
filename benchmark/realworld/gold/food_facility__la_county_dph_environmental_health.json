@@ -1,0 +1,1388 @@
+{
+  "model_id": "RW__food_facility__la_county_dph_environmental_health",
+  "source": "designed",
+  "jurisdiction": "County of Los Angeles, CA (unincorporated area plus 85 of 88 incorporated cities; DPH-EH does not serve Long Beach, Pasadena or Vernon)",
+  "implementer": "Los Angeles County Department of Public Health — Environmental Health Division (Plan Check Program; Permits and Licensing Program; district offices)",
+  "process": "New construction or modification of a retail food facility: EH plan check, building-and-safety sequencing, construction inspections, Public Health Permit issuance, and the post-opening routine inspection / letter-grade cycle.",
+  "gold_tier": "designed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "New Construction and Modification Retail Food Facility Permitting/Plan Check Process (Plan Check & Permitting Guide, Environmental Health Division, 8/2026)",
+      "url": "https://publichealth.lacounty.gov/eh/docs/inspection/new-construction-modification-retail-food-facility-permitting-process-en.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_new_construction_process.pdf, corpus/realworld/food_facility/raw/lac_new_construction_process.txt",
+      "tier": "declared",
+      "date": "2026-08",
+      "role": "the nine-box spine of the whole process; the clearest single visual of the sequence. NOTE: the saved .txt is a `pdftotext -layout` extraction in which the three flowchart columns interleave line-by-line; box text quoted here is contiguous in `pdftotext -raw` output and in the PDF layout."
+    },
+    {
+      "id": "D2",
+      "title": "How to Obtain a Restaurant (Food Facility) Permit (LA County DPH Environmental Health)",
+      "url": "http://publichealth.lacounty.gov/eh/inspection/how-to-obtain-restaurant-food-facility-permit.htm",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_how_to_obtain_permit.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "the 'Plan Submission Procedure' narrative, including the explicit rule that Building & Safety approvals must precede the EH final inspection"
+    },
+    {
+      "id": "D3",
+      "title": "Retail Food Facility Plan Check (LA County DPH Environmental Health)",
+      "url": "http://publichealth.lacounty.gov/eh/inspection/retail-plan-check.htm",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_retail_plan_check.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "program scope, the three excluded cities, and the document hub (fee schedule, AB 671 FAQ, construction guideline)"
+    },
+    {
+      "id": "D4",
+      "title": "Restaurant and Retail Food Inspection (LA County DPH Environmental Health)",
+      "url": "http://www.publichealth.lacounty.gov/EH/inspection/restaurant-retail-food-inspection.htm",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_restaurant_inspection.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "an unusually SOP-like public page: the before/during/after inspection procedure written in the imperative ('Health inspectors will:'), plus the compliance-date table"
+    },
+    {
+      "id": "D5",
+      "title": "Obtaining a Public Health Permit/License — Get a Permit (LA County DPH Environmental Health)",
+      "url": "http://publichealth.lacounty.gov/eh/about/permit.htm",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_get_a_permit.txt",
+      "tier": "declared",
+      "date": "fetched 2026-09-15",
+      "role": "how the permit application itself reaches the applicant (handed over by the plan checker at the final inspection) and the do-not-pay-before-invoice rule"
+    },
+    {
+      "id": "D6",
+      "title": "AB 671 — Accelerated Restaurant Building Plan Review: California Retail Food Code: Tenant Improvements (Frequently Asked Questions), February 2026",
+      "url": "https://publichealth.lacounty.gov/eh/docs/faq/ab-671-plan-review-tenant-improvements-faq-en.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_ab671_faq.pdf, corpus/realworld/food_facility/raw/lac_ab671_faq.txt",
+      "tier": "designed",
+      "date": "2026-02",
+      "role": "EXTRACTION NOTE: the saved .txt preserves the PDF's ﬁ/ﬂ/ﬀ ligatures ('deﬁnition', 'diﬀerence'), so literal string matching against quotes here requires ligature normalisation. A designed-tier document in an applicant-facing FAQ costume: it invents the 'resubmittal' vs 'change of scope' taxonomy that decides which statutory clock applies, and publishes the Department's own 'complete plan' criteria"
+    },
+    {
+      "id": "D7",
+      "title": "FY 2026-2027 Public Health and Financial Management Fee Schedule (LA County DPH Environmental Health), report #6002 run 08/18/2026",
+      "url": "https://publichealth.lacounty.gov/eh/docs/permit/public-health-financial-management-fee-schedule.pdf",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_fee_schedule.pdf, corpus/realworld/food_facility/raw/lac_fee_schedule.txt",
+      "tier": "declared",
+      "date": "FY 2026-2027",
+      "role": "plan check and annual health permit fee tiers, including the expedited tier"
+    },
+    {
+      "id": "D8",
+      "title": "Restaurant and Food Market Inspections (Los Angeles County Civil Grand Jury, 1999 final report)",
+      "url": "http://grandjury.co.la.ca.us/gjury99/REPORtgj-17.htm",
+      "saved_as": "corpus/realworld/food_facility/raw/lac_grandjury1999_restaurant.txt",
+      "tier": "designed",
+      "date": "1999",
+      "role": "the only source for inspector capacity, district structure, the exit-conference procedure, and the fact that the letter-grade ordinance is a city-by-city option. 27 years old: structure is corroborated by D4, headcounts are not current."
+    },
+    {
+      "id": "D9",
+      "title": "Cal. Health & Safety Code §§ 114380 (as amended by AB 671, Stats. 2025 Ch. 616), 114381, 114390, 113709, 113947",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=114380",
+      "saved_as": null,
+      "tier": "statute",
+      "date": "operative 2026-01-01",
+      "role": "mandated-element reference only (statute text not fetched to raw/ in Wave 1); used for element_ref, never quoted"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant / prospective food facility operator",
+      "dept": "—"
+    },
+    {
+      "id": "regional_planning",
+      "name": "LA County Department of Regional Planning, or the city's planning department",
+      "dept": "Regional Planning / city planning"
+    },
+    {
+      "id": "plan_check",
+      "name": "Plan Check Program (Environmental Health HQ, 5050 Commerce Dr., Baldwin Park)",
+      "dept": "DPH Environmental Health Division"
+    },
+    {
+      "id": "building_safety",
+      "name": "Local Building & Safety Department (city or county)",
+      "dept": "Building & Safety"
+    },
+    {
+      "id": "permits_licensing",
+      "name": "Permits and Licensing Program",
+      "dept": "DPH Environmental Health Division"
+    },
+    {
+      "id": "district_office",
+      "name": "District office / Environmental Health Specialist (inspector)",
+      "dept": "DPH Environmental Health Division"
+    },
+    {
+      "id": "other_agencies",
+      "name": "CDFA, FDA, USDA (referral recipients)",
+      "dept": "state / federal"
+    },
+    {
+      "id": "city_council",
+      "name": "City council of an incorporated city in LA County",
+      "dept": "city legislative body"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Verify the use is allowed in that zoning area with LA County Regional Planning or the city planning department",
+      "actor": "regional_planning",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "proposed site and use"
+      ],
+      "artifacts_out": [
+        "zoning verification",
+        "list of other local requirements (e.g. grease interceptors, ADA)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Submit plans to the LA County Department of Regional Planning or your city’s planning department to verify whether the food facility is allowed in that zoning area.",
+          "page_or_section": "flowchart box 1, 'CONTACT LA COUNTY DEPARTMENT OF REGIONAL PLANNING OR YOUR CITY’S EQUIVALENT'"
+        },
+        {
+          "doc": "D2",
+          "quote": "Contact your local planning/building department for permission to construct a restaurant at your chosen location and identify other local regulations",
+          "page_or_section": "Plan Submission Procedure, step 1"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Download the Retail Construction Guideline and prepare plans plus specification sheets",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Retail Construction Guideline",
+        "local building and safety requirements"
+      ],
+      "artifacts_out": [
+        "floor plans",
+        "equipment/ventilation/water-heater/finish specification sheets"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "Professionally drawn plans are best and will make the approval process much easier.",
+          "page_or_section": "Plan Submission Procedure, step 2"
+        },
+        {
+          "doc": "D2",
+          "quote": "Along with your plans, submit specification sheets for equipment, ventilation systems, water heaters, and finish materials for floors and walls.",
+          "page_or_section": "Plan Submission Procedure, step 2"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Submit plans and documents to the Plan Check Program (by mail, in person, or online via a secured link)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Plan Check Application",
+        "one set of plans drawn to scale",
+        "equipment plan and sinks",
+        "mechanical/plumbing/electrical plans if applicable",
+        "manufacturer specification sheets",
+        "complete menu"
+      ],
+      "artifacts_out": [
+        "filed plan check submittal"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "One set of plans drawn to scale, including: Plan Check Application Equipment plan and sinks Mechanical plan (if applicable) Plumbing plan (if applicable) Electrical (if applicable)",
+          "page_or_section": "flowchart box 2, 'SUBMIT PLANS & DOCUMENTS TO THE PLAN CHECK PROGRAM'"
+        },
+        {
+          "doc": "D1",
+          "quote": "Submit plans and pay by credit/debit card or e‑check. Email for secured link:",
+          "page_or_section": "'PLAN SUBMISSION & PAYMENT METHODS' panel, Online"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Plan Check Program issues the plan check invoice",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed plan check submittal"
+      ],
+      "artifacts_out": [
+        "plan check invoice"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "An invoice will be provided. Pay fees to begin the plan review process.",
+          "page_or_section": "flowchart box 3, 'PAY PLAN CHECK FEES'"
+        },
+        {
+          "doc": "D5",
+          "quote": "Do not send a payment for a Public Health Permit or License unless you have received an invoice from Public Health.",
+          "page_or_section": "Payment and Questions"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Pay plan check fees — standard or expedited tier — to start the review clock",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "plan check invoice"
+      ],
+      "artifacts_out": [
+        "paid plan check fee",
+        "started review clock"
+      ],
+      "timing": null,
+      "fee": {
+        "amount_range": "restaurant standard plan check $1,044 (0-500 SF) to $2,723 (10,000+ SF); expedited $1,566 to $4,085 for the same tiers; remodel ≤300 SF $315 standard / $473 expedited",
+        "when": "before plan review begins",
+        "basis": "square footage of the food facility or the area being remodeled",
+        "includes": "two plan reviews and two inspections",
+        "note": "The expedited tier is ~1.5x the standard fee for the same square-footage tier and buys a 10-business-day instead of 20-business-day initial review. No LA page frames this as paying to move up the queue; the fact is only reconstructible by reading D1's timing line against D7's fee rows."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(e) (fees sufficient to cover actual expenses of administering and enforcing)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Plan Check Fee: This fee includes two plan reviews and two inspections. The amount is determined by the square footage of the food facility or the area being remodeled.",
+          "page_or_section": "flowchart 'FEES TO EXPECT' panel"
+        },
+        {
+          "doc": "D7",
+          "quote": "1701 PC - RESTAURANT (0 - 500 SF) $1,044.00",
+          "page_or_section": "p. 4 of 17, PLAN CHECK - FOOD"
+        },
+        {
+          "doc": "D7",
+          "quote": "1771 PC - EXPEDITED - RESTAURANT (0-500 SF) $1,566.00",
+          "page_or_section": "PLAN CHECK - FOOD (expedited block)"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Screen the submittal against the Department's own 'complete plan' criteria",
+      "actor": "plan_check",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed plan check submittal",
+        "paid fee"
+      ],
+      "artifacts_out": [
+        "complete / incomplete determination"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "The bill does not define a complete plan, and its interpretation is left to each jurisdiction.",
+          "page_or_section": "Q6, 'What is the definition of a \"complete plan\"?'"
+        },
+        {
+          "doc": "D1",
+          "quote": "Common causes of delay include incomplete or missing submission of the following: Plans Equipment schedule Manufacturer specification sheets Water heater location Menu",
+          "page_or_section": "'COMMON REASON THAT DELAY THE PLAN CHECK PROCESS' panel"
+        }
+      ],
+      "visibility_check": "Not staff_only: the Department publishes its own reasonable-person 'complete plan' list in D6 (a public FAQ linked from D3) and the delay causes in D1. What stays hidden is whether the internal reviewer checklist matches that published list — recorded in known_gaps, not as a separate activity."
+    },
+    {
+      "id": "A07",
+      "name": "Initial plan review — 20 business days standard, 10 business days expedited; deemed approved if missed",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "complete plan submittal"
+      ],
+      "artifacts_out": [
+        "plan approval",
+        "or correction comments / correction letter"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "No measured turnaround is published. 20 business days is the HSC 114380 statutory ceiling (plans deemed approved if missed); 10 business days is LA County's own expedited service level, not a statutory one."
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A08",
+        "reason": "revisions required; applicant must correct and resubmit"
+      },
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114380(a), (f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The initial plan is reviewed within 20 business days for standard processing and 10 business days for expedited processing.",
+          "page_or_section": "flowchart box 4, 'INITIAL PLAN REVIEW'"
+        },
+        {
+          "doc": "D6",
+          "quote": "Plans are *deemed approved if no action is taken within 20 business days on a complete submittal.",
+          "page_or_section": "p. 3 of 3, Restaurant Tenant Improvement Plan Review Timeline table, Initial Review row, Notes column — table cell; the four columns interleave line-by-line in the extracted .txt, so this string is contiguous in the PDF layout only"
+        },
+        {
+          "doc": "D6",
+          "quote": "Have there been any changes to the initial plan review turnaround time? No. Initial plan reviews should still be completed within 20 business days.",
+          "page_or_section": "Q5"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Make corrections and resubmit three copies of the same plans",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "correction comments"
+      ],
+      "artifacts_out": [
+        "revised plans (three copies)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "If revisions are required, make corrections and resubmit three copies of the same plans.",
+          "page_or_section": "flowchart box 4, 'INITIAL PLAN REVIEW'"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Classify the revision as a 'resubmittal' (10 business days) or a 'change of scope' (20 business days) and notify the applicant",
+      "actor": "plan_check",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "revised plans",
+        "prior correction letter"
+      ],
+      "artifacts_out": [
+        "classification and clock assignment",
+        "notice to the applicant if the review will take up to 20 business days"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "on corrections due to scope changes or incomplete work",
+        "note": "D1: 'Additional fees apply for corrections due to scope changes or incomplete work.' Amount not published in D1 or D7."
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "Resubmittals address only the items identified by the environmental health department as needed corrections. Resubmittals should be reviewed within 10 business days.",
+          "page_or_section": "Q9"
+        },
+        {
+          "doc": "D6",
+          "quote": "The applicant will be notified as soon as possible that the revised plans may require up to 20 business days for review, as they are not a resubmittal subject to the 10-business day review timeline.",
+          "page_or_section": "Q10"
+        },
+        {
+          "doc": "D6",
+          "quote": "Code does not state that deemed approval applies to resubmittals. Open to interpretation.",
+          "page_or_section": "p. 3 of 3, Timeline table, Resubmittal row, Notes column — table cell; columns interleave line-by-line in the extracted .txt"
+        }
+      ],
+      "visibility_check": "Not staff_only: the taxonomy and its worked examples are published in D6, which D3 links publicly, and the applicant is notified of the classification. But the taxonomy exists nowhere in the statute — HSC 114380(f) says only 'resubmittal' — so this is the sharpest mandated/designed seam in the model."
+    },
+    {
+      "id": "A10",
+      "name": "Review revised plans within 10 business days (resubmittal) or 20 business days (change of scope)",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "revised plans",
+        "classification"
+      ],
+      "artifacts_out": [
+        "approved plans",
+        "or further correction comments"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "ceiling only: 10 business days for resubmittals (no deemed-approval backstop), 20 for change of scope (deemed approved if missed)"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A08",
+        "reason": "further corrections required — the loop can repeat"
+      },
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114380(f)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Corrected plans will be reviewed within 10 business days.",
+          "page_or_section": "flowchart box 4, 'INITIAL PLAN REVIEW'"
+        },
+        {
+          "doc": "D6",
+          "quote": "Change-of scope revisions will be reviewed within 20 business days.",
+          "page_or_section": "Q9"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Refer the plans to another agency (CDFA, FDA, USDA) when the added equipment requires it",
+      "actor": "other_agencies",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "revised plans with new equipment"
+      ],
+      "artifacts_out": [
+        "external agency referral"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "Adding equipment requiring referral to other agencies (CDFA, FDA, USDA)",
+          "page_or_section": "Q9, 'Examples of Change of Scope' bullet list"
+        }
+      ],
+      "visibility_check": "Appears only as one bullet inside a change-of-scope example list in a public FAQ — never presented as a process step on any program page. Labelled applicant_inferable rather than staff_only because it is in a publicly linked document."
+    },
+    {
+      "id": "A12",
+      "name": "Submit EH-approved plans to the local Building & Safety Department and obtain permits before construction",
+      "actor": "building_safety",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "EH-approved plans"
+      ],
+      "artifacts_out": [
+        "building permits and approvals"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Submit approved plans to the local Building & Safety Department. Obtain permits and approvals before construction begins.",
+          "page_or_section": "flowchart box 5, 'BUILDING & SAFETY APPROVAL'"
+        },
+        {
+          "doc": "D2",
+          "quote": "Submit your plans for approval to the EH Plan Check Program; then submit the plans to your local building and safety office for approval.",
+          "page_or_section": "Plan Submission Procedure, step 3"
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Begin construction",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "approved plans",
+        "building permits"
+      ],
+      "artifacts_out": [
+        "built-out facility"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Begin construction.",
+          "page_or_section": "flowchart box 6, 'BEGIN CONSTRUCTION'"
+        },
+        {
+          "doc": "D2",
+          "quote": "After approvals, you may begin construction. Several inspections may be needed during construction.",
+          "page_or_section": "Plan Submission Procedure, step 3"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Preliminary inspection by the Plan Check Program at 80 percent complete",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "inspection request"
+      ],
+      "artifacts_out": [
+        "preliminary inspection result"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A13",
+        "reason": "construction deficiencies found at the preliminary inspection"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Schedule a preliminary inspection with the Plan Check Program when the project is 80% complete.",
+          "page_or_section": "flowchart box 6, 'BEGIN CONSTRUCTION'"
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Plan checker hands over the Public Health Permit Application at the final-inspection request; applicant completes it with identity/entity documents",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "request for final inspection"
+      ],
+      "artifacts_out": [
+        "Public Health Permit Application",
+        "Driver's License/ID or Certificate of Limited Partnership or LLP Registration or Articles of Incorporation/Organization",
+        "Employer Tax Identification Number (EIN)",
+        "other agencies' business permits/licenses"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(a)",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Once plans are approved, construction is completed, and you are requesting the final inspection, a permit application will be provided by the plan checker.",
+          "page_or_section": "New Facilities"
+        },
+        {
+          "doc": "D5",
+          "quote": "Complete the application and provide it to the plan checker along with the required documents during the final construction inspection.",
+          "page_or_section": "New Facilities"
+        },
+        {
+          "doc": "D1",
+          "quote": "Submit a Public Health Permit Application. Obtain necessary business permits/licenses from city, state, and local agencies.",
+          "page_or_section": "flowchart box 7, 'SUBMIT DOCUMENTS'"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Complete construction and obtain final approval from Building & Safety (Certificate of Occupancy or signed building inspection card)",
+      "actor": "building_safety",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "completed construction"
+      ],
+      "artifacts_out": [
+        "Certificate of Occupancy or signed building inspection card"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Obtain final approval from the Building & Safety Department. Provide proof of a Certificate of Occupancy or a signed building inspection card.",
+          "page_or_section": "flowchart box 8, 'FINAL INSPECTION'"
+        },
+        {
+          "doc": "D2",
+          "quote": "Remember, you must obtain all approvals from your local building and safety office prior to your final inspection with EH Plan Check.",
+          "page_or_section": "Plan Submission Procedure, step 5"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Final inspection by the Plan Check Program; conditional approval to operate",
+      "actor": "plan_check",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "Building & Safety final approval",
+        "completed Public Health Permit Application"
+      ],
+      "artifacts_out": [
+        "construction approval",
+        "conditional approval to operate"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A13",
+        "reason": "deficiencies found at the final inspection"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Schedule a final inspection with the Plan Check Program for construction approval.",
+          "page_or_section": "flowchart box 8, 'FINAL INSPECTION'"
+        },
+        {
+          "doc": "D1",
+          "quote": "Obtain conditional approval to operate from the Plan Check Program.",
+          "page_or_section": "flowchart box 8, 'FINAL INSPECTION'"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Pay the invoice for the Public Health Permit",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Public Health Permit invoice"
+      ],
+      "artifacts_out": [
+        "paid annual permit fee"
+      ],
+      "timing": null,
+      "fee": {
+        "amount_range": "restaurant annual health permit $319 (0-30 seats, low risk) to $1,438 (151+ seats, high risk)",
+        "when": "after the final inspection, on invoice",
+        "basis": "type of business and seating capacity, times a low/moderate/high risk factor",
+        "note": "D7 also lists separate '(OII)' rows per facility type at $330-$440 for restaurants, whose meaning is not explained anywhere in the captured corpus."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(e)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Health Permit Fee: This annual fee varies depending on the type of business and seating capacity.",
+          "page_or_section": "flowchart 'FEES TO EXPECT' panel"
+        },
+        {
+          "doc": "D7",
+          "quote": "1630 RESTAURANT (0-30) SEATS LOW RISK $319.00",
+          "page_or_section": "p. 3 of 17, food facility permit block"
+        },
+        {
+          "doc": "D7",
+          "quote": "1641 RESTAURANT (151 + ) SEATS HIGH RISK $1,438.00",
+          "page_or_section": "p. 3 of 17, food facility permit block"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Public Health Permit is issued; the facility may open for business",
+      "actor": "permits_licensing",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "paid permit fee",
+        "conditional approval to operate"
+      ],
+      "artifacts_out": [
+        "Public Health Permit/License (posted conspicuously at the facility)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114381(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The Public Health Permit is issued. Your food facility may open for business.",
+          "page_or_section": "flowchart box 9, 'PAY PUBLIC HEALTH PERMIT FEE'"
+        },
+        {
+          "doc": "D2",
+          "quote": "After payment of the Public Health Permit fee is made, the permit will be issued.",
+          "page_or_section": "Plan Submission Procedure, step 5"
+        }
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Assign the permitted facility to one of the Department's inspection districts",
+      "actor": "district_office",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "issued permit record"
+      ],
+      "artifacts_out": [
+        "district assignment and inspector caseload entry"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "These facilities are located in 21 districts.",
+          "page_or_section": "Findings ¶1"
+        },
+        {
+          "doc": "D8",
+          "quote": "Each \"Ride-Along\" was in a different district of the county.",
+          "page_or_section": "Methodology"
+        }
+      ],
+      "visibility_check": "D2 and D5 tell an applicant to 'Contact the District Office closest to your restaurant' but no LA page in raw/ describes how a facility is assigned to a district or that there are 21 of them; the district count and structure appear only in D8. Hence staff_only."
+    },
+    {
+      "id": "A21",
+      "name": "Schedule the routine inspection cycle against available inspector capacity",
+      "actor": "district_office",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "district caseload",
+        "authorized inspector positions"
+      ],
+      "artifacts_out": [
+        "routine inspection schedule"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "D8 (1999): ~36,000 restaurants and food markets inspected every six months county-wide. 27 years old and almost certainly stale; no current cadence is published by LA County."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114390",
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "There are about 36,000 restaurants and food markets in Los Angeles County that have to be inspected every six months, and if a problem is identified, a repeat inspection is performed.",
+          "page_or_section": "Findings ¶1"
+        },
+        {
+          "doc": "D8",
+          "quote": "The Department of Environmental Health is authorized to fund 140 inspectors. Not all positions are always filled, adding to the heavy load the present cadre carries.",
+          "page_or_section": "Findings ¶1"
+        }
+      ],
+      "visibility_check": "Neither the inspection interval nor any staffing figure appears on any current LA County page in raw/. D4 describes what happens during an inspection but never how often one occurs. Hence staff_only."
+    },
+    {
+      "id": "A22",
+      "name": "Routine inspection opening: identification, statement of purpose, consent to enter non-public areas, ownership and permit verification against the database",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "Public Health I.D. Card or driver's license and business card"
+      ],
+      "artifacts_out": [
+        "verified ownership and permit record",
+        "verified operator e-mail address"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114390",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Introduce himself/herself and provide proper identification (i.e., Public Health I.D. Card or a driver's license and business card)",
+          "page_or_section": "Before Inspection → Greeting and Information Verification"
+        },
+        {
+          "doc": "D4",
+          "quote": "Verify the current Public Health Permit/License (PHP/L) with the Person in Charge (PIC) against the information in our database.",
+          "page_or_section": "Before Inspection → Greeting and Information Verification"
+        }
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Schedule a Compliance Review when the operator denies or delays entry",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "refused or delayed entry"
+      ],
+      "artifacts_out": [
+        "scheduled Compliance Review"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A22",
+        "reason": "entry denied or delayed; inspection re-attempted after a Compliance Review"
+      },
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114390 (refusing entry is itself a violation)",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "The restaurant operator can deny or delay entry into food facility, then the health inspector will schedule a Compliance Review with the operator",
+          "page_or_section": "Before Inspection → Greeting and Information Verification"
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Risk-based walkthrough: highest-risk area first, immediate correction of Major Critical Risk Factors, CFPM and food-handler verification, posting verification",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "operating facility"
+      ],
+      "artifacts_out": [
+        "observed violations classified by risk",
+        "on-the-spot employee training"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code §§ 114390, 113947",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Our health inspector will proceed directly to the area of the food facility with the highest risk operations (food preparation area) and conduct a visual overview of the area.",
+          "page_or_section": "During Inspection"
+        },
+        {
+          "doc": "D4",
+          "quote": "Verify the facility complies with posting requirements (such as Grade or Score Card, Public Notification Card, required signs) and disclosure requirements",
+          "page_or_section": "During Inspection → Health Inspectors will:"
+        }
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Complete the Food Official Inspection Report (FOIR) and deliver it to the owner/PIC",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "inspection findings"
+      ],
+      "artifacts_out": [
+        "Food Official Inspection Report (FOIR), emailed and printed on request or when the grade is below 'A'"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 114390 (written inspection report required)",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Email a copy of the Food Official Inspection Report (FOIR) to owner/PIC.",
+          "page_or_section": "After Inspection → Health Inspectors will:"
+        },
+        {
+          "doc": "D4",
+          "quote": "Inspection results in grade less than an \"A\"",
+          "page_or_section": "After Inspection → conditions requiring same-day printed FOIR"
+        }
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Closing (exit) conference with the Person In Charge to review findings and correction guidance",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "FOIR"
+      ],
+      "artifacts_out": [
+        "correction guidance",
+        "re-inspection timetable"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Conduct a closing conference with the Person In Charge to review inspection findings. The inspector shall provide the Person In Charge an opportunity to ask questions",
+          "page_or_section": "After Inspection → Health Inspectors will:"
+        },
+        {
+          "doc": "D8",
+          "quote": "At the conclusion of the inspection an \"exit conference\" discussed the inspection and any negative findings to be included in the report, along with guidelines for correcting the noted deficiencies",
+          "page_or_section": "Findings ¶1 (1999 — the same procedure, 27 years earlier)"
+        }
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Post or update the grade or score card according to the adopted ordinance",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "inspection score"
+      ],
+      "artifacts_out": [
+        "posted letter grade or score card",
+        "or Notice of Closure sign"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Health & Safety Code § 113709 (grading is a local-government option, not a state requirement)",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Post or update the grade or score card according to the adopted ordinance",
+          "page_or_section": "After Inspection → Health Inspectors will:"
+        },
+        {
+          "doc": "D8",
+          "quote": "Los Angeles County Ordinance 97-0071, effective January 14, 1998, provides for the inspection of Food Service Facilities in Los Angeles County",
+          "page_or_section": "Findings ¶5"
+        }
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "Incorporated city council adopts or rejects County Ordinance 97-0071 (letter-grade posting), determining whether grading applies at all in that city",
+      "actor": "city_council",
+      "visibility": "staff_only",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "County Ordinance 97-0071"
+      ],
+      "artifacts_out": [
+        "city council action adopting or rejecting the posting requirement"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 113709",
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "but allows for the incorporated cities within its boundaries to enact the provisions, or reject these service standards by city council action",
+          "page_or_section": "Findings ¶5"
+        },
+        {
+          "doc": "D8",
+          "quote": "The cities that have rejected the adoption of L. A. County Ordinance 97-0071 are: Avalon, Baldwin Park, Hawthorne, La Habra Heights, Signal Hill, and South Pasadena.",
+          "page_or_section": "Findings ¶5"
+        }
+      ],
+      "visibility_check": "D4 says grades are posted 'according to the adopted ordinance' and never that adoption is a city-by-city option; no LA page in raw/ lists which cities opted out. The 1999 counts (51 of 88 adopted, 6 rejected) are certainly stale, but the *optionality* is the durable, invisible fact. Hence staff_only."
+    },
+    {
+      "id": "A29",
+      "name": "Schedule a re-inspection under the compliance-date rules (14 days after an uncorrected Major Critical Risk Factor; 14-30 days otherwise)",
+      "actor": "district_office",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "classified violations",
+        "facility inspection and violation history"
+      ],
+      "artifacts_out": [
+        "compliance date and scheduled re-inspection"
+      ],
+      "timing": {
+        "median_days": 14,
+        "p90_days": 30,
+        "source": "D4 compliance-date table (rule, not measured performance): Major Critical Risk Factors → reinspection within 14 days; non-repeat minor factors and GRP → next routine inspection or 14-30 calendar days"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A22",
+        "reason": "violations requiring verification of correction"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "Corrective action required prior to end of inspection. Inspector shall schedule a reinspection within 14 days to determine ongoing compliance.",
+          "page_or_section": "Compliance Dates table, Major Critical Risk Factors row"
+        },
+        {
+          "doc": "D4",
+          "quote": "Next routine inspection or 14-30 calendar days depending on urgency of violations.",
+          "page_or_section": "Compliance Dates table, Non-Repeat Minor Critical Risk Factors and GRP row"
+        }
+      ]
+    },
+    {
+      "id": "A30",
+      "name": "Suspend the Public Health Permit/License for an uncorrected Major Critical Risk Factor or for nonpayment",
+      "actor": "permits_licensing",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "uncorrected imminent health hazard, or unpaid permit fee"
+      ],
+      "artifacts_out": [
+        "permit suspension",
+        "Notice of Closure sign"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Health & Safety Code § 114381 (a valid permit is required to be open for business)",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "A Major Critical Risk Factor that is not corrected by the end of the inspection shall result in suspension of the Public Health Permit/License",
+          "page_or_section": "Compliance Dates"
+        },
+        {
+          "doc": "D4",
+          "quote": "permit suspension (i.e., imminent health hazard or nonpayment of Public Health Permit/License )",
+          "page_or_section": "After Inspection → conditions requiring same-day printed FOIR"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "sequence",
+      "condition": "use allowed in the zoning area"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A03",
+      "to": "A04",
+      "type": "handoff",
+      "condition": "Plan Check Program receives the submittal"
+    },
+    {
+      "from": "A04",
+      "to": "A05",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A05",
+      "to": "A06",
+      "type": "sequence",
+      "condition": "fee paid — review may begin"
+    },
+    {
+      "from": "A06",
+      "to": "A07",
+      "type": "sequence",
+      "condition": "submittal treated as a complete plan"
+    },
+    {
+      "from": "A07",
+      "to": "A08",
+      "type": "rework",
+      "condition": "revisions required"
+    },
+    {
+      "from": "A08",
+      "to": "A09",
+      "type": "handoff",
+      "condition": "revised plans received"
+    },
+    {
+      "from": "A09",
+      "to": "A10",
+      "type": "sequence",
+      "condition": "clock assigned"
+    },
+    {
+      "from": "A09",
+      "to": "A11",
+      "type": "optional",
+      "condition": "added equipment requires an external referral"
+    },
+    {
+      "from": "A10",
+      "to": "A08",
+      "type": "rework",
+      "condition": "further corrections required"
+    },
+    {
+      "from": "A07",
+      "to": "A12",
+      "type": "sequence",
+      "condition": "plans approved on the first review"
+    },
+    {
+      "from": "A10",
+      "to": "A12",
+      "type": "sequence",
+      "condition": "plans approved after revision"
+    },
+    {
+      "from": "A12",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "building permits obtained"
+    },
+    {
+      "from": "A13",
+      "to": "A14",
+      "type": "sequence",
+      "condition": "project 80 percent complete"
+    },
+    {
+      "from": "A14",
+      "to": "A13",
+      "type": "rework",
+      "condition": "deficiencies found"
+    },
+    {
+      "from": "A14",
+      "to": "A15",
+      "type": "sequence",
+      "condition": "applicant requests the final inspection"
+    },
+    {
+      "from": "A13",
+      "to": "A16",
+      "type": "sequence",
+      "condition": "construction complete"
+    },
+    {
+      "from": "A16",
+      "to": "A17",
+      "type": "sequence",
+      "condition": "Building & Safety final approval in hand — mandatory precedence"
+    },
+    {
+      "from": "A15",
+      "to": "A17",
+      "type": "sequence",
+      "condition": "permit application and documents handed to the plan checker at the final inspection"
+    },
+    {
+      "from": "A17",
+      "to": "A13",
+      "type": "rework",
+      "condition": "deficiencies found at the final inspection"
+    },
+    {
+      "from": "A17",
+      "to": "A18",
+      "type": "sequence",
+      "condition": "conditional approval to operate granted; permit invoiced"
+    },
+    {
+      "from": "A18",
+      "to": "A19",
+      "type": "sequence",
+      "condition": "fee paid"
+    },
+    {
+      "from": "A19",
+      "to": "A20",
+      "type": "handoff",
+      "condition": "permit record passes from Plan Check to the district office"
+    },
+    {
+      "from": "A20",
+      "to": "A21",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A21",
+      "to": "A22",
+      "type": "sequence",
+      "condition": "routine inspection due"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "optional",
+      "condition": "operator denies or delays entry"
+    },
+    {
+      "from": "A23",
+      "to": "A22",
+      "type": "rework",
+      "condition": "inspection re-attempted after the Compliance Review"
+    },
+    {
+      "from": "A22",
+      "to": "A24",
+      "type": "sequence",
+      "condition": "entry granted"
+    },
+    {
+      "from": "A24",
+      "to": "A25",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A25",
+      "to": "A26",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A26",
+      "to": "A27",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A28",
+      "to": "A27",
+      "type": "sequence",
+      "condition": "grading applies only where the city has adopted Ordinance 97-0071"
+    },
+    {
+      "from": "A26",
+      "to": "A29",
+      "type": "optional",
+      "condition": "violations require a compliance date"
+    },
+    {
+      "from": "A29",
+      "to": "A22",
+      "type": "rework",
+      "condition": "re-inspection"
+    },
+    {
+      "from": "A24",
+      "to": "A30",
+      "type": "optional",
+      "condition": "Major Critical Risk Factor not corrected before the end of the inspection"
+    },
+    {
+      "from": "A19",
+      "to": "A30",
+      "type": "optional",
+      "condition": "nonpayment of the Public Health Permit/License"
+    }
+  ],
+  "terminal_artifact": "Public Health Permit/License for the food facility (annual, posted conspicuously), plus a posted letter grade or score card after the first routine inspection in cities that adopted Ordinance 97-0071",
+  "denial_rate": null,
+  "denial_rate_note": "Not documented. LA County publishes no plan-check rejection rate, no permit denial rate, and no closure count. D8's 1999 sample of nine restaurants (two demoted a grade, one A→C) is an eleven-facility ride-along observation, not a rate.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "p90_days": null,
+    "source": "No end-to-end figure exists for LA County in any Wave 1 source. Every number LA publishes is a statutory ceiling or a service-level target, not measured performance. The only stage-level rule set is: 20 business days initial review (statutory, deemed approved if missed); 10 business days for the expedited fee tier (county service level); 10 business days for a resubmittal (statutory under AB 671, with no deemed-approval backstop); 20 business days for a change of scope.",
+    "quote": "The initial plan is reviewed within 20 business days for standard processing and 10 business days for expedited processing.",
+    "secondary_quotes": [
+      {
+        "quote": "Plans are *deemed approved if no action is taken within 20 business days on a complete submittal.",
+        "page_or_section": "D6, p. 3 of 3, timeline table, Initial Review row, Notes column (table cell; columns interleave in the extracted .txt)"
+      },
+      {
+        "quote": "Code does not state that deemed approval applies to resubmittals. Open to interpretation.",
+        "page_or_section": "D6, p. 3 of 3, timeline table, Resubmittal row, Notes column (table cell; columns interleave in the extracted .txt) — the county flagging its own unresolved reading of AB 671"
+      },
+      {
+        "quote": "There are about 36,000 restaurants and food markets in Los Angeles County that have to be inspected every six months, and if a problem is identified, a repeat inspection is performed.",
+        "page_or_section": "D8, Findings ¶1 (1999; the only inspection-cadence figure anywhere in the corpus, and 27 years old)"
+      }
+    ],
+    "scope": "Stage ceilings for the EH plan-check segment only. The Building & Safety segment (A12, A16) is run by 85+ separate city building departments and has no county-level clock at all.",
+    "staleness_warning": "D8's cadence and staffing numbers are from 1999. Treat the six-month interval as structural evidence that a routine cycle exists, not as a current interval."
+  },
+  "known_gaps": [
+    "No measured plan-check turnaround, backlog, or queue depth for LA County. The 20/10-business-day figures are ceilings; nothing in the corpus reports what actually happens.",
+    "Current inspector staffing and vacancy rate: unknown. The only figure in the whole corpus ('authorized to fund 140 inspectors... Not all positions are always filled') is from 1999.",
+    "Whether the internal reviewer checklist matches the 'complete plan' list published in D6 cannot be verified from outside; D6 itself concedes interpretation is left to each jurisdiction.",
+    "The dollar amount of the 'additional fees... for corrections due to scope changes or incomplete work' (A09) is not in D1 or D7.",
+    "The meaning of the '(OII)' fee rows in D7 (RESTAURANT LOW/MOD/HIGH RISK (OII), $330-$440) is never explained in any captured document.",
+    "Current adoption status of Ordinance 97-0071 across LA County's 88 cities is unknown; only the 1999 snapshot survives (51 adopted, 6 rejected, 3 residential-only cities not applicable).",
+    "AB 671 took effect 2026-01-01 and D6 is dated February 2026, so no post-implementation evidence exists on whether the resubmittal/change-of-scope taxonomy changed outcomes.",
+    "Mobile food facilities are out of scope here; LA runs a separate commissary-gated MFF track with its own random commissary-use verification inspections (see lac_mobile_plan_check.txt). A separate gold model would be needed.",
+    "Scope boundary for disentanglement scoring: MEHKO, cottage food (Class A/B) and community-event temporary food facilities are separate LA County tracks with their own fee codes and application deadlines (D5, D7), not variants of this process.",
+    "D1's saved .txt interleaves the flowchart's three columns line-by-line. Quotes here reflect box text (reproducible with `pdftotext -raw`). A solver reading only the .txt faces a genuine extraction obstacle — which is itself a realistic condition, not a defect to fix in the gold."
+  ],
+  "notes": "Why this LA model has only 3 staff_only activities while the SF model has 6: LA County publishes an unusual amount of its own procedure. D4 is written in the staff imperative ('Health inspectors will: ... Wash their hands prior to commencing the inspection') and includes the compliance-date rule table, so the whole inspection sequence that would be an SOP elsewhere is public here. What remains genuinely invisible in LA is not sequence but *capacity and jurisdiction*: which of 21 districts a facility lands in (A20), how the routine cycle is rationed against unfilled inspector positions (A21), and whether the letter-grade ordinance even applies in the city the facility sits in (A28). Two structural contrasts worth scoring against the SF model: (1) LA's EH plan check is a direct, separate submittal to the health department, and the EH final inspection is deliberately sequenced *after* all city Building & Safety approvals ('you must obtain all approvals from your local building and safety office prior to your final inspection with EH Plan Check'), whereas SF folds DPH review inside the single DBI Permit Center submittal; (2) LA sells a queue position — the expedited tier costs about 1.5x and halves the review ceiling — a fact no LA page states in words and that is only recoverable by reading D1's timing line against D7's fee rows. The sharpest mandated/designed seam is A09: HSC 114380(f) as amended by AB 671 says only 'resubmittal', and LA County invented the resubmittal-vs-change-of-scope taxonomy, with worked examples, to operationalise it — San Diego County independently published a near-identical taxonomy, which the public record cannot distinguish from shared CDPH/CCDEH guidance.",
+  "quote_verification": "All evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions, after normalising whitespace, curly quotes/dashes and PDF ligatures (fi/fl/ff). Quotes drawn from PDF tables or from the flowchart's multi-column layout are contiguous in `pdftotext -raw` output rather than in the `-layout` .txt saved in corpus/; those are marked in their page_or_section. 0 unverified quotes."
+}

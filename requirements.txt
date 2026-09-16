@@ -1,0 +1,4 @@
+# Core (offline stack + codex/glm backends use stdlib only)
+jsonschema>=4.21
+# Optional: only needed for --backend anthropic
+# anthropic>=0.40

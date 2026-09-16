@@ -1,0 +1,36 @@
+{
+  "_comment": "Per-provenance-class effort priors. These are PLACEHOLDER PRIORS, deliberately coarse, to be replaced class-by-class with data: PRA/OIRA ICR burden-hour inventory (reginfo.gov) for form-filling hours; published permit fee schedules for dollars; permit-record timestamps for wait; market quotes for professional artifacts. Every number here should eventually carry a citation in 'basis'.",
+  "classes": {
+    "a": {
+      "label": "known offhand / self-attestation",
+      "hours": 0.1, "dollars": 0, "wait_days": 0, "trips": 0,
+      "basis": "prior: answering a form question"
+    },
+    "b": {
+      "label": "document already in household records",
+      "hours": 0.5, "dollars": 0, "wait_days": 0, "trips": 0,
+      "basis": "prior: locate + copy an existing document (deed, utility bill, dated photo)"
+    },
+    "c": {
+      "label": "document requested from an institution",
+      "hours": 2, "dollars": 25, "wait_days": 10, "trips": 1,
+      "basis": "prior: records request (permit history, assessor record); fee and wait vary by agency — EMPIRICAL"
+    },
+    "d": {
+      "label": "artifact the applicant must create",
+      "hours": 6, "dollars": 0, "wait_days": 0, "trips": 0,
+      "basis": "prior: site plan / floor sketch / written description drawn by a layperson"
+    },
+    "e": {
+      "label": "artifact a paid professional must create",
+      "hours": 3, "dollars": 600, "wait_days": 21, "trips": 1,
+      "basis": "prior: licensed contractor/engineer inspection or letter; market quotes needed — EMPIRICAL"
+    },
+    "f": {
+      "label": "government act (inspection, appointment)",
+      "hours": 4, "dollars": 150, "wait_days": 30, "trips": 1,
+      "basis": "prior: scheduling + hosting an inspection + fee; permit-record timestamps are the validation data — EMPIRICAL"
+    }
+  },
+  "sensitivity_note": "sensitive=true demands carry a psychological/legal-exposure cost with no scalar prior; report their count separately, never fold into hours."
+}

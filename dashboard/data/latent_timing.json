@@ -1,0 +1,4042 @@
+{
+ "built": "2026-09-15",
+ "model": "Duration is continuous and right-skewed, so the family is LogNormal: log D ~ Normal(mu, sigma^2). Key-level means are partially pooled toward their (agency_class, task_type) family by empirical Bayes, which is the Gaussian layer that lets thin keys borrow strength. Statutory caps are policy, not observations: they are excluded from the fit and re-enter as a derived P(exceed).",
+ "selection_gamma": 0.0,
+ "gamma_from_n_keys": 4,
+ "median_log_ratio_community_over_official": -0.466,
+ "selection_gamma_note": "not identified: pooled community evidence is FASTER than official, the wrong sign for selection. Most likely the two measure different segments of the process. No tilt applied.",
+ "half_life_years": 3.0,
+ "n_step_keys": 86,
+ "rows": [
+  {
+   "agency_class": "federal_agency",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "federal",
+   "mu": 5.3651,
+   "sigma": 0.7568,
+   "median_days": 213.8,
+   "p90_days": 563.9,
+   "n_anchors": 14,
+   "weight_total": 16.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 13,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 134.8,
+    "since_year": 2026,
+    "n_recent": 7,
+    "ratio_recent_to_all": 0.63
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "example_quote": "USCIS processing times for N-400 range from 8.0 mo to 26.0 mo across all field offices (full range; source-row average 11.5-14.8 mo)",
+   "pooled": {
+    "family": "federal_agency/records_check",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.02,
+    "mu_pooled": 5.3383,
+    "median_days_pooled": 208.2,
+    "ci68_days": [
+     172.6,
+     251.0
+    ],
+    "ci95_days": [
+     144.2,
+     300.5
+    ],
+    "moved_by_factor": 0.97
+   }
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "mu": 2.6348,
+   "sigma": 0.8573,
+   "median_days": 13.9,
+   "p90_days": 41.8,
+   "n_anchors": 13,
+   "weight_total": 10.76,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 12,
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": 0.186,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 15.0,
+    "since_year": 2025,
+    "n_recent": 7,
+    "ratio_recent_to_all": 1.08
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "DOJ examines its own records and authorized state hospital records to determine if a purchaser is prohibited from firearm possession under state or federal law.",
+   "pooled": {
+    "family": "background_check/records_check",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.332,
+    "mu_pooled": 2.5932,
+    "median_days_pooled": 13.4,
+    "ci68_days": [
+     10.8,
+     16.6
+    ],
+    "ci95_days": [
+     8.8,
+     20.3
+    ],
+    "moved_by_factor": 0.96,
+    "p_exceed_cap_pooled": 0.173
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 1.9713,
+   "sigma": 0.15,
+   "median_days": 7.2,
+   "p90_days": 8.7,
+   "n_anchors": 11,
+   "weight_total": 10.79,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 11,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 5.2,
+    "since_year": 2026,
+    "n_recent": 6,
+    "ratio_recent_to_all": 0.73
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "They have 10 business days after the interview to submit a decision. If that passes you call and ask for a manager.",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.004,
+    "mu_pooled": 1.9737,
+    "median_days_pooled": 7.2,
+    "ci68_days": [
+     6.7,
+     7.7
+    ],
+    "ci95_days": [
+     6.3,
+     8.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 3.7375,
+   "sigma": 0.4286,
+   "median_days": 42.0,
+   "p90_days": 72.7,
+   "n_anchors": 9,
+   "weight_total": 10.5,
+   "n_official": 1,
+   "n_designed": 8,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 38.9,
+    "since_year": 2024,
+    "n_recent": 5,
+    "ratio_recent_to_all": 0.93
+   },
+   "flags": [],
+   "touch_median_days": 0.75,
+   "queue_median_days": null,
+   "slugs": [
+    "adu_permit",
+    "food_facility"
+   ],
+   "example_quote": "a typical residential construction plan check takes 4-8 hours of staff time",
+   "pooled": {
+    "family": "plan_review/document_review",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.013,
+    "mu_pooled": 3.7324,
+    "median_days_pooled": 41.8,
+    "ci68_days": [
+     36.6,
+     47.6
+    ],
+    "ci95_days": [
+     32.3,
+     54.1
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.9536,
+   "sigma": 1.1299,
+   "median_days": 52.1,
+   "p90_days": 221.8,
+   "n_anchors": 8,
+   "weight_total": 13.61,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 3,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 31.4,
+    "since_year": 2025,
+    "n_recent": 4,
+    "ratio_recent_to_all": 0.6
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cslb_license",
+    "ui_claim"
+   ],
+   "example_quote": "Application for Original License, with Examination Minimum: 11 days Median: 253 days Maximum: 726 days",
+   "pooled": {
+    "family": "unspecified/unspecified",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.48,
+    "mu_pooled": 3.6995,
+    "median_days_pooled": 40.4,
+    "ci68_days": [
+     32.4,
+     50.4
+    ],
+    "ci95_days": [
+     26.2,
+     62.3
+    ],
+    "moved_by_factor": 0.78
+   }
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "records_check",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "federal",
+   "mu": 2.6753,
+   "sigma": 0.7106,
+   "median_days": 14.5,
+   "p90_days": 36.1,
+   "n_anchors": 8,
+   "weight_total": 8.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 8,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 13.8,
+    "since_year": 2026,
+    "n_recent": 4,
+    "ratio_recent_to_all": 0.95
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "example_quote": "4-28 days from receipt; many applicants now get a reuse notice the same day as the receipt notice",
+   "pooled": {
+    "family": "federal_agency/records_check",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.035,
+    "mu_pooled": 2.7219,
+    "median_days_pooled": 15.2,
+    "ci68_days": [
+     11.9,
+     19.5
+    ],
+    "ci95_days": [
+     9.4,
+     24.7
+    ],
+    "moved_by_factor": 1.05
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 1.6545,
+   "sigma": 2.0751,
+   "median_days": 5.2,
+   "p90_days": 74.7,
+   "n_anchors": 7,
+   "weight_total": 5.83,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 6,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 3.6,
+    "since_year": 2025,
+    "n_recent": 4,
+    "ratio_recent_to_all": 0.69
+   },
+   "flags": [],
+   "touch_median_days": 0.0,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "LA County already had an alternative application process called \"end-to-end\" in which a CalFresh applicant could place a call, connect to a worker, complete an application over the phone, and receive ",
+   "pooled": {
+    "family": "caseworker/interview",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.678,
+    "mu_pooled": 1.6545,
+    "median_days_pooled": 5.2,
+    "ci68_days": [
+     3.2,
+     8.5
+    ],
+    "ci95_days": [
+     2.0,
+     13.6
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "scheduling",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "federal",
+   "mu": 3.7312,
+   "sigma": 0.3822,
+   "median_days": 41.7,
+   "p90_days": 68.1,
+   "n_anchors": 7,
+   "weight_total": 7.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 7,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 50.6,
+    "since_year": 2026,
+    "n_recent": 4,
+    "ratio_recent_to_all": 1.21
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "example_quote": "USCIS must not schedule an applicant for the administration of the Oath of Allegiance if USCIS receives or identifies disqualifying derogatory information.",
+   "pooled": {
+    "family": "federal_agency/scheduling",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.056,
+    "mu_pooled": 3.7312,
+    "median_days_pooled": 41.7,
+    "ci68_days": [
+     36.3,
+     48.0
+    ],
+    "ci95_days": [
+     31.7,
+     54.9
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 2.6748,
+   "sigma": 0.3234,
+   "median_days": 14.5,
+   "p90_days": 22.0,
+   "n_anchors": 7,
+   "weight_total": 8.33,
+   "n_official": 1,
+   "n_designed": 3,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 13.8,
+    "since_year": 2026,
+    "n_recent": 4,
+    "ratio_recent_to_all": 0.95
+   },
+   "flags": [
+    "community and official disagree by 0.3x \u2014 likely different segments measured, not only selection bias"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "if your payments have been pending for more than two weeks because of an eligibility issue, we may process a conditional payment as we continue reviewing the issue",
+   "pooled": {
+    "family": "state_agency/payment",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.201,
+    "mu_pooled": 2.7072,
+    "median_days_pooled": 15.0,
+    "ci68_days": [
+     13.6,
+     16.6
+    ],
+    "ci95_days": [
+     12.3,
+     18.2
+    ],
+    "moved_by_factor": 1.03
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 5.0648,
+   "sigma": 0.15,
+   "median_days": 158.3,
+   "p90_days": 191.9,
+   "n_anchors": 6,
+   "weight_total": 5.01,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 6,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 274.6,
+    "since_year": 2025,
+    "n_recent": 3,
+    "ratio_recent_to_all": 1.73
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "adu_permit"
+   ],
+   "example_quote": "December\u2013January: Felt like very little progress (this part was frustrating but a lot of back and forth between them and the city plus holiday dead zones)... Mid-February: Plans approved by the city",
+   "pooled": {
+    "family": "plan_review/document_review",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.008,
+    "mu_pooled": 5.0519,
+    "median_days_pooled": 156.3,
+    "ci68_days": [
+     141.5,
+     172.7
+    ],
+    "ci95_days": [
+     128.6,
+     190.0
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.6934,
+   "sigma": 0.1582,
+   "median_days": 40.2,
+   "p90_days": 49.2,
+   "n_anchors": 6,
+   "weight_total": 4.15,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 6,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 60.4,
+    "since_year": 2024,
+    "n_recent": 3,
+    "ratio_recent_to_all": 1.5
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": 28.0,
+   "slugs": [
+    "cslb_license"
+   ],
+   "example_quote": "Issuance Unit| Date Being Worked On ... Final fees, documents received| 08/17/2026",
+   "pooled": {
+    "family": "state_agency/issuance",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.007,
+    "mu_pooled": 3.6819,
+    "median_days_pooled": 39.7,
+    "ci68_days": [
+     35.6,
+     44.3
+    ],
+    "ci95_days": [
+     32.1,
+     49.2
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "decision",
+   "channel": "counter",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "mu": 2.3718,
+   "sigma": 1.4119,
+   "median_days": 10.7,
+   "p90_days": 65.4,
+   "n_anchors": 6,
+   "weight_total": 4.39,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 5,
+   "statutory_cap_days": 29.5,
+   "p_exceed_cap": 0.237,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 4.5,
+    "since_year": 2025,
+    "n_recent": 3,
+    "ratio_recent_to_all": 0.42
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "An 'Undetermined Notice' shall be generated when 30 days have passed since the original transaction date and the Department is unable to determine a purchaser's eligibility",
+   "pooled": {
+    "family": "third_party/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.565,
+    "mu_pooled": 2.3718,
+    "median_days_pooled": 10.7,
+    "ci68_days": [
+     6.9,
+     16.7
+    ],
+    "ci95_days": [
+     4.5,
+     25.6
+    ],
+    "moved_by_factor": 1.0,
+    "p_exceed_cap_pooled": 0.237
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "inspection",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 0.4852,
+   "sigma": 1.8711,
+   "median_days": 1.6,
+   "p90_days": 17.9,
+   "n_anchors": 6,
+   "weight_total": 15.0,
+   "n_official": 1,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 1.6,
+    "since_year": 2026,
+    "n_recent": 3,
+    "ratio_recent_to_all": 0.98
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "An inspection will be scheduled within two (2) business days of a request.",
+   "pooled": {
+    "family": "third_party/inspection",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.4,
+    "mu_pooled": 0.4852,
+    "median_days_pooled": 1.6,
+    "ci68_days": [
+     1.1,
+     2.4
+    ],
+    "ci95_days": [
+     0.8,
+     3.4
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 3.5608,
+   "sigma": 0.15,
+   "median_days": 35.2,
+   "p90_days": 42.7,
+   "n_anchors": 6,
+   "weight_total": 13.5,
+   "n_official": 0,
+   "n_designed": 3,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "37 (2024) / 33 (2023) / 38 (2022) business days for SolarAPP+ vs. 49 / 47.5 / 51 business days traditional",
+   "pooled": {
+    "family": "field_inspection/inspection",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.007,
+    "mu_pooled": 3.5523,
+    "median_days_pooled": 34.9,
+    "ci68_days": [
+     32.8,
+     37.1
+    ],
+    "ci95_days": [
+     31.0,
+     39.3
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 2.6774,
+   "sigma": 1.0577,
+   "median_days": 14.5,
+   "p90_days": 56.4,
+   "n_anchors": 5,
+   "weight_total": 4.33,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 4,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 13.9,
+    "since_year": 2025,
+    "n_recent": 3,
+    "ratio_recent_to_all": 0.96
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "the average time to determination for applicants in the treatment group (including those who used the flexible interview line and those who did not) was 15 days, compared to just under 19 days for app",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.181,
+    "mu_pooled": 2.6616,
+    "median_days_pooled": 14.3,
+    "ci68_days": [
+     9.0,
+     22.7
+    ],
+    "ci95_days": [
+     5.8,
+     35.3
+    ],
+    "moved_by_factor": 0.98
+   }
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "issuance",
+   "channel": "hearing",
+   "blocking_party": "shared",
+   "cadence": "biweekly_or_monthly_cycle",
+   "jurisdiction_class": "federal",
+   "mu": 3.7841,
+   "sigma": 1.3671,
+   "median_days": 44.0,
+   "p90_days": 253.7,
+   "n_anchors": 5,
+   "weight_total": 5.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 5,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 23.7,
+    "since_year": 2026,
+    "n_recent": 3,
+    "ratio_recent_to_all": 0.54
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "example_quote": "2 days to 9.5+ weeks and counting; one case cancelled outright with no stated reason",
+   "pooled": {
+    "family": "federal_agency/issuance",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.516,
+    "mu_pooled": 3.7841,
+    "median_days_pooled": 44.0,
+    "ci68_days": [
+     28.8,
+     67.3
+    ],
+    "ci95_days": [
+     19.1,
+     101.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 2.4779,
+   "sigma": 0.1993,
+   "median_days": 11.9,
+   "p90_days": 15.4,
+   "n_anchors": 4,
+   "weight_total": 3.17,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 4,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 11.8,
+    "since_year": 2025,
+    "n_recent": 2,
+    "ratio_recent_to_all": 0.99
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Last I heard the state (because they get mailed from Albany) was about a week or two behind- and we usually tell people it will come in about 10-14 days.",
+   "pooled": {
+    "family": "third_party/issuance",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.043,
+    "mu_pooled": 2.4779,
+    "median_days_pooled": 11.9,
+    "ci68_days": [
+     10.5,
+     13.5
+    ],
+    "ci95_days": [
+     9.4,
+     15.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "large_city",
+   "mu": 4.5821,
+   "sigma": 0.3416,
+   "median_days": 97.7,
+   "p90_days": 151.4,
+   "n_anchors": 4,
+   "weight_total": 9.0,
+   "n_official": 2,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": 10.0,
+   "p_exceed_cap": 1.0,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 39.6,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 0.41
+   },
+   "flags": [
+    "the fitted distribution exceeds the 10-day statutory cap 100% of the time"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "designed \u2014 SF Admin. Code \u00a767.21(a) (10 days) read with Gov. Code \u00a77922.535 (10 + 14). Observed: SFPD's MuckRock average is 157 days (D7).",
+   "pooled": {
+    "family": "records_unit/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.007,
+    "mu_pooled": 4.59,
+    "median_days_pooled": 98.5,
+    "ci68_days": [
+     87.9,
+     110.3
+    ],
+    "ci95_days": [
+     78.9,
+     123.0
+    ],
+    "moved_by_factor": 1.01,
+    "p_exceed_cap_pooled": 1.0
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.576,
+   "sigma": 0.1582,
+   "median_days": 35.7,
+   "p90_days": 43.8,
+   "n_anchors": 4,
+   "weight_total": 2.85,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 4,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 39.7,
+    "since_year": 2025,
+    "n_recent": 2,
+    "ratio_recent_to_all": 1.11
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cslb_license"
+   ],
+   "example_quote": "Do you have any sense of how long it'll take to be scheduled for the test? I was told 6 months is possible but internet says 4-6 weeks.",
+   "pooled": {
+    "family": "third_party/scheduling",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.048,
+    "mu_pooled": 3.5469,
+    "median_days_pooled": 34.7,
+    "ci68_days": [
+     30.5,
+     39.5
+    ],
+    "ci95_days": [
+     26.9,
+     44.7
+    ],
+    "moved_by_factor": 0.97
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 0.8047,
+   "sigma": 0.8047,
+   "median_days": 2.2,
+   "p90_days": 6.3,
+   "n_anchors": 4,
+   "weight_total": 9.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "the California Energy Commission equipment lists to perform automated calculations that assess compliance with code requirements",
+   "pooled": {
+    "family": "state_agency/document_review",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.077,
+    "mu_pooled": 0.8778,
+    "median_days_pooled": 2.4,
+    "ci68_days": [
+     1.9,
+     3.1
+    ],
+    "ci95_days": [
+     1.5,
+     4.0
+    ],
+    "moved_by_factor": 1.08
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 2.7726,
+   "sigma": 1.129,
+   "median_days": 16.0,
+   "p90_days": 68.0,
+   "n_anchors": 4,
+   "weight_total": 12.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 16.0,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 1.0
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "Installation practices, workmanship, and adherence to the approved design are then verified by Oakland inspectors.",
+   "pooled": {
+    "family": "third_party/document_review",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.68,
+    "mu_pooled": 2.7726,
+    "median_days_pooled": 16.0,
+    "ci68_days": [
+     13.3,
+     19.2
+    ],
+    "ci95_days": [
+     11.1,
+     23.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 2.1719,
+   "sigma": 1.5648,
+   "median_days": 8.8,
+   "p90_days": 65.2,
+   "n_anchors": 4,
+   "weight_total": 12.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 8.8,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 1.0
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "If an inspection is required, only one inspection shall be required and performed by the Bureau of Building for small residential rooftop solar energy systems eligible for expedited review.",
+   "pooled": {
+    "family": "field_inspection/inspection",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.283,
+    "mu_pooled": 2.2288,
+    "median_days_pooled": 9.3,
+    "ci68_days": [
+     6.3,
+     13.6
+    ],
+    "ci95_days": [
+     4.4,
+     19.7
+    ],
+    "moved_by_factor": 1.06
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 5.8999,
+   "sigma": 0.15,
+   "median_days": 365.0,
+   "p90_days": 442.4,
+   "n_anchors": 4,
+   "weight_total": 9.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 365.0,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 1.0
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+   "pooled": {
+    "family": "state_agency/recordkeeping",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.005,
+    "mu_pooled": 5.8959,
+    "median_days_pooled": 363.5,
+    "ci68_days": [
+     337.5,
+     391.6
+    ],
+    "ci95_days": [
+     314.2,
+     420.6
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 3.7514,
+   "sigma": 1.2388,
+   "median_days": 42.6,
+   "p90_days": 208.3,
+   "n_anchors": 4,
+   "weight_total": 12.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 42.6,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 1.0
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits",
+   "pooled": {
+    "family": "front_counter/decision",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.719,
+    "mu_pooled": 3.8019,
+    "median_days_pooled": 44.8,
+    "ci68_days": [
+     37.1,
+     54.1
+    ],
+    "ci95_days": [
+     30.9,
+     64.9
+    ],
+    "moved_by_factor": 1.05
+   }
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "interconnection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 3.0546,
+   "sigma": 0.3466,
+   "median_days": 21.2,
+   "p90_days": 33.1,
+   "n_anchors": 4,
+   "weight_total": 9.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "normally not later than 30 business days after complete application + signed interconnection agreement + final AHJ inspection clearance",
+   "pooled": {
+    "family": "utility/interconnection",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.037,
+    "mu_pooled": 3.0546,
+    "median_days_pooled": 21.2,
+    "ci68_days": [
+     18.9,
+     23.8
+    ],
+    "ci95_days": [
+     17.0,
+     26.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 2.088,
+   "sigma": 0.6499,
+   "median_days": 8.1,
+   "p90_days": 18.6,
+   "n_anchors": 4,
+   "weight_total": 3.79,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 4,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": {
+    "recent_median_days": 6.5,
+    "since_year": 2026,
+    "n_recent": 2,
+    "ratio_recent_to_all": 0.8
+   },
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "About a week later, I was scheduled for a phone interview due to \"eligibility concerns.\"",
+   "pooled": {
+    "family": "caseworker/scheduling",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.69,
+    "mu_pooled": 2.0356,
+    "median_days_pooled": 7.7,
+    "ci68_days": [
+     6.4,
+     9.2
+    ],
+    "ci95_days": [
+     5.3,
+     11.0
+    ],
+    "moved_by_factor": 0.95
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "mu": 3.6322,
+   "sigma": 0.3268,
+   "median_days": 37.8,
+   "p90_days": 57.5,
+   "n_anchors": 3,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 3,
+   "n_community": 0,
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": 0.76,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "the fitted distribution exceeds the 30-day statutory cap 76% of the time"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Denials of applications due to missed interviews can only occur on the 30th day following the application date or the first business day after the 30th day if the 30th day falls on a weekend or holida",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.02,
+    "mu_pooled": 3.6115,
+    "median_days_pooled": 37.0,
+    "ci68_days": [
+     31.8,
+     43.1
+    ],
+    "ci95_days": [
+     27.5,
+     49.9
+    ],
+    "moved_by_factor": 0.98,
+    "p_exceed_cap_pooled": 0.74
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "phone",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 1.1758,
+   "sigma": 0.15,
+   "median_days": 3.2,
+   "p90_days": 3.9,
+   "n_anchors": 3,
+   "weight_total": 2.74,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "community and official disagree by 0.2x \u2014 likely different segments measured, not only selection bias"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Applicants who received information about flexible interviews and who called the flexible interview line received a benefit determination roughly seven days sooner than those in the control group",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.015,
+    "mu_pooled": 1.1975,
+    "median_days_pooled": 3.3,
+    "ci68_days": [
+     2.9,
+     3.8
+    ],
+    "ci95_days": [
+     2.5,
+     4.3
+    ],
+    "moved_by_factor": 1.02
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 1.406,
+   "sigma": 0.5446,
+   "median_days": 4.1,
+   "p90_days": 8.2,
+   "n_anchors": 3,
+   "weight_total": 3.09,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "EBT card by mail in one week",
+   "pooled": {
+    "family": "caseworker/issuance",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.215,
+    "mu_pooled": 1.406,
+    "median_days_pooled": 4.1,
+    "ci68_days": [
+     3.1,
+     5.4
+    ],
+    "ci95_days": [
+     2.4,
+     7.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 4.973,
+   "sigma": 0.15,
+   "median_days": 144.5,
+   "p90_days": 175.1,
+   "n_anchors": 3,
+   "weight_total": 9.0,
+   "n_official": 3,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "150 days",
+   "pooled": {
+    "family": "records_unit/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.003,
+    "mu_pooled": 4.9753,
+    "median_days_pooled": 144.8,
+    "ci68_days": [
+     134.4,
+     156.0
+    ],
+    "ci95_days": [
+     125.1,
+     167.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "channel": "counter",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "mu": 2.3661,
+   "sigma": 0.15,
+   "median_days": 10.7,
+   "p90_days": 12.9,
+   "n_anchors": 3,
+   "weight_total": 2.38,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 3,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": 28.0,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "Basspro does the 11 days because the law is technically 10 24 hour periods (from when the DROS is submitted I think) and they were having problems with people coming in on the 10th day",
+   "pooled": {
+    "family": "third_party/scheduling",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.057,
+    "mu_pooled": 2.4007,
+    "median_days_pooled": 11.0,
+    "ci68_days": [
+     9.6,
+     12.7
+    ],
+    "ci95_days": [
+     8.4,
+     14.5
+    ],
+    "moved_by_factor": 1.04
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "test_or_exam",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 4.8077,
+   "sigma": 2.1396,
+   "median_days": 122.4,
+   "p90_days": 1900.0,
+   "n_anchors": 3,
+   "weight_total": 4.19,
+   "n_official": 0,
+   "n_designed": 3,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility"
+   ],
+   "example_quote": "The certification is valid for five years from the issue date.",
+   "pooled": {
+    "family": "third_party/test_or_exam",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.757,
+    "mu_pooled": 4.8077,
+    "median_days_pooled": 122.4,
+    "ci68_days": [
+     73.2,
+     204.9
+    ],
+    "ci95_days": [
+     44.6,
+     335.9
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 4.5861,
+   "sigma": 0.1552,
+   "median_days": 98.1,
+   "p90_days": 119.7,
+   "n_anchors": 3,
+   "weight_total": 0.71,
+   "n_official": 3,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility"
+   ],
+   "example_quote": "The average new restaurant required 86 days to open",
+   "pooled": {
+    "family": "plan_review/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.125,
+    "mu_pooled": 4.5861,
+    "median_days_pooled": 98.1,
+    "ci68_days": [
+     79.6,
+     120.9
+    ],
+    "ci95_days": [
+     65.1,
+     147.8
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "federal",
+   "mu": 4.4324,
+   "sigma": 0.3268,
+   "median_days": 84.1,
+   "p90_days": 127.9,
+   "n_anchors": 3,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 3,
+   "statutory_cap_days": 120.0,
+   "p_exceed_cap": 0.139,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "example_quote": "Decide within 120 days of the initial examination - approve, continue, or deny; miss the mark and applicant may petition the district court.",
+   "pooled": {
+    "family": "federal_agency/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.092,
+    "mu_pooled": 4.4324,
+    "median_days_pooled": 84.1,
+    "ci68_days": [
+     70.3,
+     100.7
+    ],
+    "ci95_days": [
+     59.1,
+     119.7
+    ],
+    "moved_by_factor": 1.0,
+    "p_exceed_cap_pooled": 0.139
+   }
+  },
+  {
+   "agency_class": "hearing_officer",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.9747,
+   "sigma": 0.15,
+   "median_days": 53.2,
+   "p90_days": 64.5,
+   "n_anchors": 3,
+   "weight_total": 0.56,
+   "n_official": 3,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "claimants at the first level had to wait an average of 51 days from the time EDD received their appeals until the appeals board mailed its decision letters",
+   "pooled": {
+    "family": "hearing_officer/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.125,
+    "mu_pooled": 3.9747,
+    "median_days_pooled": 53.2,
+    "ci68_days": [
+     43.2,
+     65.6
+    ],
+    "ci95_days": [
+     35.3,
+     80.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 2.6492,
+   "sigma": 0.3466,
+   "median_days": 14.1,
+   "p90_days": 22.0,
+   "n_anchors": 2,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "adu_permit"
+   ],
+   "example_quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "pooled": {
+    "family": "plan_review/document_review",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.029,
+    "mu_pooled": 2.6698,
+    "median_days_pooled": 14.4,
+    "ci68_days": [
+     11.9,
+     17.6
+    ],
+    "ci95_days": [
+     9.8,
+     21.2
+    ],
+    "moved_by_factor": 1.02
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "correction_cycle",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 1.956,
+   "sigma": 0.3466,
+   "median_days": 7.1,
+   "p90_days": 11.0,
+   "n_anchors": 2,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "adu_permit"
+   ],
+   "example_quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+   "pooled": {
+    "family": "plan_review/correction_cycle",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.103,
+    "mu_pooled": 1.956,
+    "median_days_pooled": 7.1,
+    "ci68_days": [
+     5.8,
+     8.5
+    ],
+    "ci95_days": [
+     4.9,
+     10.3
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 2.4515,
+   "sigma": 0.1671,
+   "median_days": 11.6,
+   "p90_days": 14.4,
+   "n_anchors": 2,
+   "weight_total": 2.69,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Your county worker may ask for \"proof\", like your ID, income, or housing and utility costs. You can upload documents online to your BenefitsCal account, mail them, or drop them off at your county offi",
+   "pooled": {
+    "family": "unspecified/unspecified",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.155,
+    "mu_pooled": 2.6021,
+    "median_days_pooled": 13.5,
+    "ci68_days": [
+     11.9,
+     15.3
+    ],
+    "ci95_days": [
+     10.6,
+     17.2
+    ],
+    "moved_by_factor": 1.16
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "payment",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "mu": 1.4118,
+   "sigma": 0.5425,
+   "median_days": 4.1,
+   "p90_days": 8.2,
+   "n_anchors": 2,
+   "weight_total": 2.0,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": 3.0,
+   "p_exceed_cap": 0.718,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "the fitted distribution exceeds the 3-day statutory cap 72% of the time",
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "all reasonable efforts must be made to interview the applicant, verify the applicant's identity, and issue ES benefits on the same day but no later than three days from the date of application",
+   "pooled": {
+    "family": "caseworker/payment",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.296,
+    "mu_pooled": 1.4118,
+    "median_days_pooled": 4.1,
+    "ci68_days": [
+     3.0,
+     5.7
+    ],
+    "ci95_days": [
+     2.2,
+     7.7
+    ],
+    "moved_by_factor": 1.0,
+    "p_exceed_cap_pooled": 0.718
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 2.506,
+   "sigma": 0.2796,
+   "median_days": 12.3,
+   "p90_days": 17.5,
+   "n_anchors": 2,
+   "weight_total": 2.29,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "The Initial Application Denial Before the 30th Day Waiver allows counties to deny an initial application prior to the 30th day when an applicant fails to provide mandatory and/or questionable verifica",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.028,
+    "mu_pooled": 2.5084,
+    "median_days_pooled": 12.3,
+    "ci68_days": [
+     10.2,
+     14.7
+    ],
+    "ci95_days": [
+     8.6,
+     17.6
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 3.8921,
+   "sigma": 0.9212,
+   "median_days": 49.0,
+   "p90_days": 159.6,
+   "n_anchors": 2,
+   "weight_total": 1.94,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "community and official disagree by 6.3x \u2014 likely different segments measured, not only selection bias",
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "the average time to determination for applicants in the treatment group ... was 15 days, compared to just under 19 days for applicants in the control group",
+   "pooled": {
+    "family": "unspecified/unspecified",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.812,
+    "mu_pooled": 3.5127,
+    "median_days_pooled": 33.5,
+    "ci68_days": [
+     25.2,
+     44.7
+    ],
+    "ci95_days": [
+     19.1,
+     58.9
+    ],
+    "moved_by_factor": 0.68
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 2.7116,
+   "sigma": 1.0036,
+   "median_days": 15.1,
+   "p90_days": 54.5,
+   "n_anchors": 2,
+   "weight_total": 2.19,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "your SAR 7 is due by October 5th (and is considered late if not submitted by October 11th)...You have until November 30th to complete your SAR 7 and restore benefits.",
+   "pooled": {
+    "family": "records_unit/notice",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.721,
+    "mu_pooled": 3.2161,
+    "median_days_pooled": 24.9,
+    "ci68_days": [
+     17.4,
+     35.7
+    ],
+    "ci95_days": [
+     12.4,
+     50.3
+    ],
+    "moved_by_factor": 1.66
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "appeal",
+   "channel": "hearing",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 3.916,
+   "sigma": 0.3575,
+   "median_days": 50.2,
+   "p90_days": 79.4,
+   "n_anchors": 2,
+   "weight_total": 2.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Appeals do not usually take three months for food stamps. They typically take a few weeks, not months.",
+   "pooled": {
+    "family": "unspecified/appeal",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.154,
+    "mu_pooled": 3.916,
+    "median_days_pooled": 50.2,
+    "ci68_days": [
+     39.8,
+     63.3
+    ],
+    "ci95_days": [
+     31.8,
+     79.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "large_city",
+   "mu": 7.6917,
+   "sigma": 0.15,
+   "median_days": 2190.0,
+   "p90_days": 2654.2,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "An 'Immediate Disclosure Request' -- the Sunshine Ordinance's fastest, next-business-day-response track (Sec. 67.25) -- has instead gone unresolved for 6+ years",
+   "pooled": {
+    "family": "records_unit/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.004,
+    "mu_pooled": 7.6832,
+    "median_days_pooled": 2171.6,
+    "ci68_days": [
+     1982.6,
+     2378.7
+    ],
+    "ci95_days": [
+     1816.6,
+     2596.1
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "referral",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "mu": 6.593,
+   "sigma": 0.15,
+   "median_days": 730.0,
+   "p90_days": 884.7,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "two requests have been open 19 months and 2 years respectively with nothing released",
+   "pooled": {
+    "family": "records_unit/referral",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.023,
+    "mu_pooled": 6.593,
+    "median_days_pooled": 730.0,
+    "ci68_days": [
+     667.0,
+     798.9
+    ],
+    "ci95_days": [
+     611.7,
+     871.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "mu": 3.1772,
+   "sigma": 0.15,
+   "median_days": 24.0,
+   "p90_days": 29.1,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "The law requires 'prompt access to public records.'",
+   "pooled": {
+    "family": "state_agency/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.027,
+    "mu_pooled": 3.1499,
+    "median_days_pooled": 23.3,
+    "ci68_days": [
+     21.3,
+     25.5
+    ],
+    "ci95_days": [
+     19.6,
+     27.8
+    ],
+    "moved_by_factor": 0.97
+   }
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "automated",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 1.4928,
+   "sigma": 1.3851,
+   "median_days": 4.4,
+   "p90_days": 26.3,
+   "n_anchors": 2,
+   "weight_total": 3.17,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "community and official disagree by 24.5x \u2014 likely different segments measured, not only selection bias",
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cslb_license"
+   ],
+   "example_quote": "DOJ and FBI typically provide responses to CSLB within two days of an applicant being fingerprinted, but occasionally the results are delayed.",
+   "pooled": {
+    "family": "background_check/records_check",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.815,
+    "mu_pooled": 2.3216,
+    "median_days_pooled": 10.2,
+    "ci68_days": [
+     7.3,
+     14.2
+    ],
+    "ci95_days": [
+     5.3,
+     19.6
+    ],
+    "moved_by_factor": 2.29
+   }
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.349,
+   "sigma": 0.5919,
+   "median_days": 28.5,
+   "p90_days": 60.8,
+   "n_anchors": 2,
+   "weight_total": 3.79,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "community and official disagree by 4.3x \u2014 likely different segments measured, not only selection bias",
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cslb_license"
+   ],
+   "example_quote": "Criminal Background Unit| Date Being Worked On ... All Applications| 08/24/2026",
+   "pooled": {
+    "family": "background_check/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.209,
+    "mu_pooled": 3.349,
+    "median_days_pooled": 28.5,
+    "ci68_days": [
+     21.7,
+     37.3
+    ],
+    "ci95_days": [
+     16.8,
+     48.4
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 2.5645,
+   "sigma": 0.2704,
+   "median_days": 13.0,
+   "p90_days": 18.4,
+   "n_anchors": 2,
+   "weight_total": 2.13,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cslb_license",
+    "food_facility"
+   ],
+   "example_quote": "Sent him an email to confirm what we talked about, and got a reply back within a few hours.",
+   "pooled": {
+    "family": "state_agency/issuance",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.02,
+    "mu_pooled": 2.5544,
+    "median_days_pooled": 12.9,
+    "ci68_days": [
+     10.7,
+     15.5
+    ],
+    "ci95_days": [
+     9.0,
+     18.4
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "test_or_exam",
+   "channel": "counter",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "mu": 0.0,
+   "sigma": 0.2704,
+   "median_days": 1.0,
+   "p90_days": 1.4,
+   "n_anchors": 2,
+   "weight_total": 2.38,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "after 24 hours have elapsed, they may take a different version of the FSC test without any additional fee (one free retest)",
+   "pooled": {
+    "family": "front_counter/test_or_exam",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.081,
+    "mu_pooled": 0.0,
+    "median_days_pooled": 1.0,
+    "ci68_days": [
+     0.8,
+     1.2
+    ],
+    "ci95_days": [
+     0.7,
+     1.4
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "mu": 3.4012,
+   "sigma": 1.0986,
+   "median_days": 30.0,
+   "p90_days": 122.6,
+   "n_anchors": 2,
+   "weight_total": 1.59,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "Was advised to do the California Firearm Eligibility Check/ LiveScan ... after 3 months, I got a letter in the mail saying I was denied.",
+   "pooled": {
+    "family": "background_check/records_check",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.847,
+    "mu_pooled": 2.6462,
+    "median_days_pooled": 14.1,
+    "ci68_days": [
+     10.0,
+     19.8
+    ],
+    "ci95_days": [
+     7.2,
+     27.5
+    ],
+    "moved_by_factor": 0.47
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "third_party",
+   "cadence": "on_request",
+   "jurisdiction_class": "state",
+   "mu": 2.7506,
+   "sigma": 0.8047,
+   "median_days": 15.7,
+   "p90_days": 43.9,
+   "n_anchors": 2,
+   "weight_total": 2.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "dros_firearm"
+   ],
+   "example_quote": "My shops been down for a week now.",
+   "pooled": {
+    "family": "third_party/intake_screen",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.481,
+    "mu_pooled": 2.7506,
+    "median_days_pooled": 15.7,
+    "ci68_days": [
+     10.4,
+     23.6
+    ],
+    "ci95_days": [
+     7.0,
+     35.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "reinspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "county",
+   "mu": 2.6391,
+   "sigma": 0.2974,
+   "median_days": 14.0,
+   "p90_days": 20.5,
+   "n_anchors": 2,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility"
+   ],
+   "example_quote": "Corrective action required prior to end of inspection. Inspector shall schedule a reinspection within 14 days to determine ongoing compliance.",
+   "pooled": {
+    "family": "field_inspection/reinspection",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.078,
+    "mu_pooled": 2.6391,
+    "median_days_pooled": 14.0,
+    "ci68_days": [
+     11.9,
+     16.5
+    ],
+    "ci95_days": [
+     10.1,
+     19.3
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "recordkeeping",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "daily_batch",
+   "jurisdiction_class": "county",
+   "mu": 0.0,
+   "sigma": 0.15,
+   "median_days": 1.0,
+   "p90_days": 1.2,
+   "n_anchors": 2,
+   "weight_total": 1.47,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility"
+   ],
+   "example_quote": "To be clear, if you are in CA, you Must store vehicle there - every night after an event - this is actually the main reason for the commissary.",
+   "pooled": {
+    "family": "third_party/recordkeeping",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.089,
+    "mu_pooled": 0.0,
+    "median_days_pooled": 1.0,
+    "ci68_days": [
+     0.8,
+     1.2
+    ],
+    "ci95_days": [
+     0.7,
+     1.4
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "notice",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 3.6465,
+   "sigma": 0.15,
+   "median_days": 38.3,
+   "p90_days": 46.5,
+   "n_anchors": 2,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility"
+   ],
+   "example_quote": "Apply for a Health Permit at least 1 month before you open a: Restaurant Bar Food market Bakery",
+   "pooled": {
+    "family": "plan_review/notice",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.045,
+    "mu_pooled": 3.6465,
+    "median_days_pooled": 38.3,
+    "ci68_days": [
+     33.8,
+     43.5
+    ],
+    "ci95_days": [
+     29.9,
+     49.1
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "channel": "site_visit",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 1.3863,
+   "sigma": 2.0014,
+   "median_days": 4.0,
+   "p90_days": 52.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "food_facility",
+    "solar_permit"
+   ],
+   "example_quote": "Locations are checked: On a routine basis, At other unscheduled times, When there is a complaint",
+   "pooled": {
+    "family": "field_inspection/inspection",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.564,
+    "mu_pooled": 1.9426,
+    "median_days_pooled": 7.0,
+    "ci68_days": [
+     4.1,
+     12.0
+    ],
+    "ci95_days": [
+     2.4,
+     20.1
+    ],
+    "moved_by_factor": 1.74
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 1.9459,
+   "sigma": 1.1356,
+   "median_days": 7.0,
+   "p90_days": 30.0,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "Once PG&E receives the completed documentation from a contractor, it typically takes five to 10 business days (maximum of 30 business days) for a project to receive permission to operate.",
+   "pooled": {
+    "family": "state_agency/issuance",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.144,
+    "mu_pooled": 1.961,
+    "median_days_pooled": 7.1,
+    "ci68_days": [
+     4.3,
+     11.7
+    ],
+    "ci95_days": [
+     2.7,
+     18.8
+    ],
+    "moved_by_factor": 1.02
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 2.6391,
+   "sigma": 0.5682,
+   "median_days": 14.0,
+   "p90_days": 29.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "No Plan Review (First System/Inverter Inspection): $275.80",
+   "pooled": {
+    "family": "state_agency/payment",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.518,
+    "mu_pooled": 2.7412,
+    "median_days_pooled": 15.5,
+    "ci68_days": [
+     13.2,
+     18.2
+    ],
+    "ci95_days": [
+     11.3,
+     21.3
+    ],
+    "moved_by_factor": 1.11
+   }
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "channel": "site_visit",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 2.7726,
+   "sigma": 1.129,
+   "median_days": 16.0,
+   "p90_days": 68.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "It is the contractor or owner's responsibility to schedule and coordinate all required inspections and obtain approvals before concealing any work.",
+   "pooled": {
+    "family": "third_party/document_review",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.809,
+    "mu_pooled": 2.7726,
+    "median_days_pooled": 16.0,
+    "ci68_days": [
+     13.1,
+     19.6
+    ],
+    "ci95_days": [
+     10.8,
+     23.7
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 0.6931,
+   "sigma": 1.8711,
+   "median_days": 2.0,
+   "p90_days": 22.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is",
+   "pooled": {
+    "family": "state_agency/inspection",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.921,
+    "mu_pooled": 0.6931,
+    "median_days_pooled": 2.0,
+    "ci68_days": [
+     1.6,
+     2.5
+    ],
+    "ci95_days": [
+     1.3,
+     3.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 2.7081,
+   "sigma": 0.15,
+   "median_days": 15.0,
+   "p90_days": 18.2,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "SDG&E shall provide Applicant with a draft Generator Interconnection Agreement for Applicant's signature within fifteen (15) business days of Applicant's request.",
+   "pooled": {
+    "family": "state_agency/document_review",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.013,
+    "mu_pooled": 2.696,
+    "median_days_pooled": 14.8,
+    "ci68_days": [
+     13.3,
+     16.5
+    ],
+    "ci95_days": [
+     12.1,
+     18.2
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 1.9459,
+   "sigma": 1.5023,
+   "median_days": 7.0,
+   "p90_days": 48.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "The system is not approved to energize until SDG&E approval is obtained.",
+   "pooled": {
+    "family": "state_agency/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.557,
+    "mu_pooled": 2.0707,
+    "median_days_pooled": 7.9,
+    "ci68_days": [
+     5.3,
+     11.9
+    ],
+    "ci95_days": [
+     3.6,
+     17.6
+    ],
+    "moved_by_factor": 1.13
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 5.8999,
+   "sigma": 0.15,
+   "median_days": 365.0,
+   "p90_days": 442.4,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+   "pooled": {
+    "family": "state_agency/recordkeeping",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.01,
+    "mu_pooled": 5.8919,
+    "median_days_pooled": 362.1,
+    "ci68_days": [
+     326.0,
+     402.1
+    ],
+    "ci95_days": [
+     294.8,
+     444.7
+    ],
+    "moved_by_factor": 0.99
+   }
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "shared",
+   "cadence": "continuous",
+   "jurisdiction_class": "large_city",
+   "mu": 3.8918,
+   "sigma": 1.0196,
+   "median_days": 49.0,
+   "p90_days": 181.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is",
+   "pooled": {
+    "family": "front_counter/decision",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.776,
+    "mu_pooled": 3.8373,
+    "median_days_pooled": 46.4,
+    "ci68_days": [
+     38.1,
+     56.5
+    ],
+    "ci95_days": [
+     31.5,
+     68.3
+    ],
+    "moved_by_factor": 0.95
+   }
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 1.9459,
+   "sigma": 1.1091,
+   "median_days": 7.0,
+   "p90_days": 29.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "Review of the application to install a solar energy system shall be limited to the building official's review of whether it meets all health and safety requirements of local, state, and federal law.",
+   "pooled": {
+    "family": "plan_review/document_review",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.134,
+    "mu_pooled": 2.1346,
+    "median_days_pooled": 8.5,
+    "ci68_days": [
+     5.5,
+     12.9
+    ],
+    "ci95_days": [
+     3.7,
+     19.3
+    ],
+    "moved_by_factor": 1.21
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "channel": "counter",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 1.3863,
+   "sigma": 1.5458,
+   "median_days": 4.0,
+   "p90_days": 29.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "A city or county shall administratively approve applications to install solar energy systems through the issuance of a building permit or similar nondiscretionary permit.",
+   "pooled": {
+    "family": "state_agency/decision",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.571,
+    "mu_pooled": 1.834,
+    "median_days_pooled": 6.3,
+    "ci68_days": [
+     4.1,
+     9.5
+    ],
+    "ci95_days": [
+     2.8,
+     14.1
+    ],
+    "moved_by_factor": 1.56
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "inspection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 0.6931,
+   "sigma": 1.8711,
+   "median_days": 2.0,
+   "p90_days": 22.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+   "pooled": {
+    "family": "state_agency/inspection",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.921,
+    "mu_pooled": 0.6931,
+    "median_days_pooled": 2.0,
+    "ci68_days": [
+     1.6,
+     2.5
+    ],
+    "ci95_days": [
+     1.3,
+     3.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "decision",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 2.3026,
+   "sigma": 1.224,
+   "median_days": 10.0,
+   "p90_days": 48.0,
+   "n_anchors": 2,
+   "weight_total": 6.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "shall normally be processed not later than thirty (30) Business Days following Distribution Provider's receipt",
+   "pooled": {
+    "family": "utility/decision",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.416,
+    "mu_pooled": 2.3026,
+    "median_days_pooled": 10.0,
+    "ci68_days": [
+     6.8,
+     14.6
+    ],
+    "ci95_days": [
+     4.7,
+     21.1
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 0.0,
+   "sigma": 0.15,
+   "median_days": 1.0,
+   "p90_days": 1.2,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "same day for over-the-counter; 1-3 business days for electronic applications",
+   "pooled": {
+    "family": "state_agency/issuance",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.006,
+    "mu_pooled": 0.0133,
+    "median_days_pooled": 1.0,
+    "ci68_days": [
+     0.9,
+     1.1
+    ],
+    "ci95_days": [
+     0.8,
+     1.2
+    ],
+    "moved_by_factor": 1.01
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "interconnection",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 4.7274,
+   "sigma": 0.15,
+   "median_days": 113.0,
+   "p90_days": 137.0,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "median 113 days",
+   "pooled": {
+    "family": "state_agency/interconnection",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.031,
+    "mu_pooled": 4.7274,
+    "median_days_pooled": 113.0,
+    "ci68_days": [
+     101.9,
+     125.4
+    ],
+    "ci95_days": [
+     92.2,
+     138.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 1.6094,
+   "sigma": 0.15,
+   "median_days": 5.0,
+   "p90_days": 6.1,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "typically 5-10 business days, maximum 30 business days",
+   "pooled": {
+    "family": "utility/intake_screen",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.031,
+    "mu_pooled": 1.6094,
+    "median_days_pooled": 5.0,
+    "ci68_days": [
+     4.5,
+     5.5
+    ],
+    "ci95_days": [
+     4.1,
+     6.1
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "utility",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "mid_city",
+   "mu": 2.7081,
+   "sigma": 0.15,
+   "median_days": 15.0,
+   "p90_days": 18.2,
+   "n_anchors": 2,
+   "weight_total": 4.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "solar_permit"
+   ],
+   "example_quote": "15 business days each stage; Supplemental Review 20 business days ($2,500 fee)",
+   "pooled": {
+    "family": "utility/document_review",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.031,
+    "mu_pooled": 2.7081,
+    "median_days_pooled": 15.0,
+    "ci68_days": [
+     13.5,
+     16.6
+    ],
+    "ci95_days": [
+     12.2,
+     18.4
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "document_review",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.0445,
+   "sigma": 0.15,
+   "median_days": 21.0,
+   "p90_days": 25.5,
+   "n_anchors": 2,
+   "weight_total": 1.94,
+   "n_official": 2,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "claims that need work history review are almost always delayed by 21 days, and often longer",
+   "pooled": {
+    "family": "caseworker/document_review",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.069,
+    "mu_pooled": 3.0445,
+    "median_days_pooled": 21.0,
+    "ci68_days": [
+     18.0,
+     24.5
+    ],
+    "ci95_days": [
+     15.5,
+     28.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "recordkeeping",
+   "channel": "online",
+   "blocking_party": "applicant",
+   "cadence": "biweekly_or_monthly_cycle",
+   "jurisdiction_class": "state",
+   "mu": 2.6391,
+   "sigma": 0.15,
+   "median_days": 14.0,
+   "p90_days": 17.0,
+   "n_anchors": 2,
+   "weight_total": 2.29,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "Certifying is the process of answering basic questions every two weeks to tell us you're still unemployed and eligible to receive benefit payments.",
+   "pooled": {
+    "family": "unspecified/recordkeeping",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.059,
+    "mu_pooled": 2.6391,
+    "median_days_pooled": 14.0,
+    "ci68_days": [
+     12.1,
+     16.2
+    ],
+    "ci95_days": [
+     10.6,
+     18.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 4.7824,
+   "sigma": 0.8447,
+   "median_days": 119.4,
+   "p90_days": 352.5,
+   "n_anchors": 2,
+   "weight_total": 0.98,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": 35.0,
+   "p_exceed_cap": 0.927,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "community and official disagree by 8.6x \u2014 likely different segments measured, not only selection bias",
+    "the fitted distribution exceeds the 35-day statutory cap 93% of the time",
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "To meet federal timeliness standards, EDD must make at least 80 percent of its determinations within 21 days after it becomes aware of any issues that have the potential to affect the claimant's eligi",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.379,
+    "mu_pooled": 3.9524,
+    "median_days_pooled": 52.1,
+    "ci68_days": [
+     26.7,
+     101.3
+    ],
+    "ci95_days": [
+     14.1,
+     192.0
+    ],
+    "moved_by_factor": 0.44,
+    "p_exceed_cap_pooled": 0.681
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "state",
+   "mu": 2.8418,
+   "sigma": 0.2027,
+   "median_days": 17.1,
+   "p90_days": 22.2,
+   "n_anchors": 2,
+   "weight_total": 3.0,
+   "n_official": 0,
+   "n_designed": 2,
+   "n_community": 0,
+   "statutory_cap_days": 45.0,
+   "p_exceed_cap": 0.0,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "Percentage of first payments issued\u2014days following end of first compensable week ... 14 days, waiting week States ... 87 [intrastate] 70 [interstate] ... 35 days, all States ... 93 [intrastate] 78 [in",
+   "pooled": {
+    "family": "state_agency/payment",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.25,
+    "mu_pooled": 2.8404,
+    "median_days_pooled": 17.1,
+    "ci68_days": [
+     15.3,
+     19.1
+    ],
+    "ci95_days": [
+     13.8,
+     21.3
+    ],
+    "moved_by_factor": 1.0,
+    "p_exceed_cap_pooled": 0.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.5397,
+   "sigma": 0.7861,
+   "median_days": 34.5,
+   "p90_days": 94.4,
+   "n_anchors": 2,
+   "weight_total": 1.32,
+   "n_official": 1,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "When a claimant has waited more than 21 days after submitting an application for either processing of payment or disqualification, EDD considers that claim as part of its backlog.",
+   "pooled": {
+    "family": "state_agency/recordkeeping",
+    "family_n_keys": 3,
+    "shrinkage_toward_family": 0.303,
+    "mu_pooled": 4.0166,
+    "median_days_pooled": 55.5,
+    "ci68_days": [
+     31.4,
+     98.3
+    ],
+    "ci95_days": [
+     18.1,
+     170.1
+    ],
+    "moved_by_factor": 1.61
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 1.9361,
+   "sigma": 0.15,
+   "median_days": 6.9,
+   "p90_days": 8.4,
+   "n_anchors": 2,
+   "weight_total": 2.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "You will have three days to set up your account and seven more days to fill out the online questionnaire.",
+   "pooled": {
+    "family": "caseworker/scheduling",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.286,
+    "mu_pooled": 1.9578,
+    "median_days_pooled": 7.1,
+    "ci68_days": [
+     6.3,
+     8.0
+    ],
+    "ci95_days": [
+     5.6,
+     9.0
+    ],
+    "moved_by_factor": 1.02
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "records_check",
+   "channel": "mail",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 2.4708,
+   "sigma": 0.1682,
+   "median_days": 11.8,
+   "p90_days": 14.7,
+   "n_anchors": 2,
+   "weight_total": 2.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "I sent documents about two weeks after applying and they were never received, I got a letter saying I was disqualified... each time I call it's a different story",
+   "pooled": {
+    "family": "caseworker/records_check",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.067,
+    "mu_pooled": 2.4708,
+    "median_days_pooled": 11.8,
+    "ci68_days": [
+     10.2,
+     13.8
+    ],
+    "ci95_days": [
+     8.8,
+     16.0
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 3.1884,
+   "sigma": 0.15,
+   "median_days": 24.2,
+   "p90_days": 29.4,
+   "n_anchors": 2,
+   "weight_total": 2.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 2,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "ui_claim"
+   ],
+   "example_quote": "Everything I've read says to allow 14 days to process, but it's been almost a month at this point.",
+   "pooled": {
+    "family": "state_agency/payment",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.333,
+    "mu_pooled": 3.0709,
+    "median_days_pooled": 21.6,
+    "ci68_days": [
+     19.0,
+     24.5
+    ],
+    "ci95_days": [
+     16.7,
+     27.8
+    ],
+    "moved_by_factor": 0.89
+   }
+  },
+  {
+   "agency_class": "front_counter",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 0.0,
+   "sigma": 0.7,
+   "median_days": 1.0,
+   "p90_days": 2.5,
+   "n_anchors": 1,
+   "weight_total": 1.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "The application date is the first business day the application was received by the Department of Public Social Services (DPSS).",
+   "pooled": {
+    "family": "front_counter/intake_screen",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.483,
+    "mu_pooled": 0.0,
+    "median_days_pooled": 1.0,
+    "ci68_days": [
+     0.7,
+     1.5
+    ],
+    "ci95_days": [
+     0.4,
+     2.2
+    ],
+    "moved_by_factor": 1.0
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "notice",
+   "channel": "mail",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "mu": 3.4012,
+   "sigma": 0.7,
+   "median_days": 30.0,
+   "p90_days": 73.6,
+   "n_anchors": 1,
+   "weight_total": 1.5,
+   "n_official": 0,
+   "n_designed": 1,
+   "n_community": 0,
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": 0.5,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "Applicants determined to be ineligible must be sent a NOA denying the application no later than 30 days following the application date.",
+   "pooled": {
+    "family": "caseworker/notice",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.483,
+    "mu_pooled": 3.4012,
+    "median_days_pooled": 30.0,
+    "ci68_days": [
+     19.9,
+     45.3
+    ],
+    "ci95_days": [
+     13.4,
+     67.1
+    ],
+    "moved_by_factor": 1.0,
+    "p_exceed_cap_pooled": 0.5
+   }
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "channel": "internal",
+   "blocking_party": "applicant",
+   "cadence": "continuous",
+   "jurisdiction_class": "county",
+   "mu": 1.3863,
+   "sigma": 0.7,
+   "median_days": 4.0,
+   "p90_days": 9.8,
+   "n_anchors": 1,
+   "weight_total": 1.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": 60.0,
+   "p_exceed_cap": 0.0,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "The HH is entitled to choose to file a new application or have CalFresh benefits restored if the HH provides the mandatory verification that caused the denial between the 31st and 60th day following t",
+   "pooled": {
+    "family": "caseworker/decision",
+    "family_n_keys": 7,
+    "shrinkage_toward_family": 0.295,
+    "mu_pooled": 1.7415,
+    "median_days_pooled": 5.7,
+    "ci68_days": [
+     3.2,
+     10.3
+    ],
+    "ci95_days": [
+     1.8,
+     18.1
+    ],
+    "moved_by_factor": 1.43,
+    "p_exceed_cap_pooled": 0.0
+   }
+  },
+  {
+   "agency_class": "unspecified",
+   "task_type": "unspecified",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "statutory_clock",
+   "jurisdiction_class": "county",
+   "mu": 3.4012,
+   "sigma": 0.7,
+   "median_days": 30.0,
+   "p90_days": 73.6,
+   "n_anchors": 1,
+   "weight_total": 1.0,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": 30.0,
+   "p_exceed_cap": 0.5,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "calfresh"
+   ],
+   "example_quote": "The normal processing timeframe for an application is 30 calendar days. A determination of eligibility on a submitted application must be made as soon as administratively possible, but no later than 3",
+   "pooled": {
+    "family": "unspecified/unspecified",
+    "family_n_keys": 4,
+    "shrinkage_toward_family": 0.828,
+    "mu_pooled": 3.4206,
+    "median_days_pooled": 30.6,
+    "ci68_days": [
+     22.9,
+     40.9
+    ],
+    "ci95_days": [
+     17.3,
+     54.0
+    ],
+    "moved_by_factor": 1.02,
+    "p_exceed_cap_pooled": 0.511
+   }
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "channel": "online",
+   "blocking_party": "agency",
+   "cadence": "on_request",
+   "jurisdiction_class": "large_city",
+   "mu": 4.1109,
+   "sigma": 0.7,
+   "median_days": 61.0,
+   "p90_days": 149.6,
+   "n_anchors": 1,
+   "weight_total": 3.0,
+   "n_official": 1,
+   "n_designed": 0,
+   "n_community": 0,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": null,
+   "slugs": [
+    "cpra_request"
+   ],
+   "example_quote": "observed \u2014 D8 Flock/ALPR request: nine sequential deferrals 2025-03-20 \u2192 2026-10-20, ~2 months apart",
+   "pooled": {
+    "family": "records_unit/notice",
+    "family_n_keys": 2,
+    "shrinkage_toward_family": 0.479,
+    "mu_pooled": 3.776,
+    "median_days_pooled": 43.6,
+    "ci68_days": [
+     32.6,
+     58.4
+    ],
+    "ci95_days": [
+     24.6,
+     77.3
+    ],
+    "moved_by_factor": 0.72
+   }
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "intake_screen",
+   "channel": "internal",
+   "blocking_party": "agency",
+   "cadence": "continuous",
+   "jurisdiction_class": "state",
+   "mu": 4.0943,
+   "sigma": 0.7,
+   "median_days": 60.0,
+   "p90_days": 147.1,
+   "n_anchors": 1,
+   "weight_total": 0.63,
+   "n_official": 0,
+   "n_designed": 0,
+   "n_community": 1,
+   "statutory_cap_days": null,
+   "p_exceed_cap": null,
+   "selection_shift_applied": 0.0,
+   "drift": null,
+   "flags": [
+    "thin evidence: treat as indicative, not a distribution"
+   ],
+   "touch_median_days": null,
+   "queue_median_days": 14.0,
+   "slugs": [
+    "cslb_license"
+   ],
+   "example_quote": "The documents are processed in the order of date received. The information below reflects the dates we are currently working on for each document type. This information is updated weekly.",
+   "pooled": {
+    "family": "state_agency/intake_screen",
+    "family_n_keys": 1,
+    "shrinkage_toward_family": 0.583,
+    "mu_pooled": 4.0943,
+    "median_days_pooled": 60.0,
+    "ci68_days": [
+     38.2,
+     94.3
+    ],
+    "ci95_days": [
+     24.7,
+     145.5
+    ],
+    "moved_by_factor": 1.0
+   }
+  }
+ ]
+}

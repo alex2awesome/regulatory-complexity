@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "statute_truth",
+  "description": "State statute: the mandated skeleton and the choices it leaves open (DESIGN.md).",
+  "type": "object",
+  "required": [
+    "stat_id",
+    "state",
+    "cite",
+    "title",
+    "domain",
+    "sections",
+    "skeleton",
+    "open_choices",
+    "version"
+  ],
+  "properties": {
+    "stat_id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "cite": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "unpermitted_unit_amnesty",
+        "str_registration",
+        "sidewalk_vending",
+        "tree_removal",
+        "home_business",
+        "mobile_food",
+        "solar_auto_permit",
+        "rental_inspection",
+        "backyard_hens",
+        "special_event",
+        "well_permit",
+        "contractor_registration"
+      ]
+    },
+    "shape": {
+      "enum": [
+        "prescriptive",
+        "mid",
+        "minimal"
+      ]
+    },
+    "bill": {
+      "type": "string"
+    },
+    "enacted": {
+      "type": "string"
+    },
+    "operative": {
+      "type": "string"
+    },
+    "legislative_history": {
+      "type": "string"
+    },
+    "committee": {
+      "type": "string"
+    },
+    "state_agency": {
+      "type": "string"
+    },
+    "applicability": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sec",
+          "kind",
+          "content_spec"
+        ],
+        "properties": {
+          "sec": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "purpose",
+              "definition",
+              "mandate",
+              "option",
+              "timeline",
+              "fee",
+              "appeal",
+              "preemption",
+              "record"
+            ]
+          },
+          "content_spec": {
+            "type": "string"
+          },
+          "mandated_element": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "skeleton": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "element_id",
+          "kind",
+          "name",
+          "optional",
+          "actor_role",
+          "must_precede"
+        ],
+        "properties": {
+          "element_id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "application",
+              "notice",
+              "checklist_publication",
+              "inspection",
+              "third_party_option",
+              "decision",
+              "fee",
+              "fee_waiver",
+              "appeal",
+              "timeline",
+              "record",
+              "correction",
+              "public_hearing",
+              "referral"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "shot_clock_days": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "actor_role": {
+            "enum": [
+              "applicant",
+              "agency",
+              "third_party",
+              "public"
+            ]
+          },
+          "must_precede": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "text_anchor": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "open_choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "choice_id",
+          "what"
+        ],
+        "properties": {
+          "choice_id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "what": {
+            "type": "string"
+          },
+          "constraint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer"
+    },
+    "lookalike_of": {
+      "type": "string"
+    },
+    "differences_from_lookalike": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

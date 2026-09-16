@@ -1,0 +1,273 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,microtype,rotating}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\nd}[1]{\ensuremath{#1}}
+\newcommand{\obsmark}{\textsc{obs}}
+\newcommand{\latmark}{\textsc{lat}}
+\newcommand{\glbmark}{\textsc{glb}}
+\title{A generative model of administrative process evidence}
+\author{Regulatory complexity programme}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{What the model is for}
+
+Given a statute and whatever the public can find about how some jurisdiction runs it, we want the
+process: who does what, in what order, how long each step takes, what it costs, and which steps exist at
+all. None of that is observed. What is observed is a pile of documents that disclose parts of it
+selectively --- a programme page tells an applicant what to do and never mentions the back office; an
+audit describes the back office and never mentions the fee; a forum post describes one person's wait.
+
+The model below is the generative story for how that evidence comes to exist, so that inference can run
+backwards from evidence to process. Two properties drive every design choice. First, \textbf{disclosure
+is selective and the selection depends on the latent variable}: a step's visibility determines which
+kinds of document mention it, so absence of evidence is informative and its strength depends on what
+kind of document is silent. Second, \textbf{the observable is never the process}: it is a claim in a
+document, or a duration someone reported, filtered through an extractor with its own error rate.
+
+\begin{sidewaysfigure}[p]
+  \centering
+  \resizebox{\textheight}{!}{\input{plate_diagram.tex}}
+  \input{plate_diagram_caption.tex}
+\end{sidewaysfigure}
+
+\section{The joint distribution}
+
+\begin{align*}
+p(\cdot) =\;&
+ p(\Phi)\,p(\alpha_\tau)\,p(\mu_f,\tau^2)\,p(\tau^2_w)\,p(\pi)\,p(\varepsilon)\,p(\alpha)
+ && \text{globals}\\[2pt]
+ &\textstyle\prod_s p(E_s,c_e,\prec_s,O_s) && \text{statute (observed)}\\[2pt]
+ &\textstyle\prod_j p(A_j)\,p(L_j)\,p(F_j)\prod_d p(\delta_d)p(\rho_d)p(\kappa_d)p(\psi_d)
+ && \text{jurisdiction, departments}\\[2pt]
+ &\textstyle\prod_{js} p(R_{js}\mid O_s,L_j)\;p(Z_{js}\mid E_s,R_{js},\alpha)
+ && \text{local rule, which steps exist}\\[2pt]
+ &\textstyle\prod_{i\in Z_{js}} p(\tau_i\mid E_s)\,p(a_i\mid \tau_i,A_j,\Phi,L_j)\,p(b_i\mid\tau_i)\,
+   p(v_i\mid a_i,b_i) && \text{step identity}\\
+ &\qquad \times\; p(W_i\mid\alpha_\tau,\delta_d)\,p(Q_i\mid\rho_d,\kappa_d,b_i)\,
+   p(\mu_{it},\sigma_i\mid Q_i,W_i,\mu_f,\tau^2,\tau^2_w,c_e,\psi_d) && \text{step timing}\\
+ &\qquad \times\; p(f_i\mid F_j)\,p(\prec\mid\prec_s) && \text{fee, order}\\[2pt]
+ &\textstyle\prod_n p(p_n\mid\prec)\,p(R_n)\prod_i p(T_{ni}\mid\mu_{it},\sigma_i)\,
+   p(Y_n\mid T)\,p(S_n\mid Y_n) && \text{cases, selection}\\[2pt]
+ &\textstyle\prod_m p(k_m)p(t_m)\,p(C_m\mid Z,a_i,v_i,f_i,k_m,\pi)\,
+   p(y_m\mid T,S,\mu_{it},k_m)\,p(g_m\mid C_m,y_m,\varepsilon_k) && \text{documents, extraction}
+\end{align*}
+
+\section{Every node in the hierarchy}
+
+\obsmark\ observed, \latmark\ latent, \glbmark\ global parameter shared across all statutes and
+jurisdictions. ``Status'' says whether that part is implemented in code today.
+
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.0cm}>{\centering\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{5.5cm}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Type} & \textbf{Parents $\rightarrow$ children} &
+\textbf{Support, family, and what informs it} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Type} & \textbf{Parents $\rightarrow$ children} &
+\textbf{Support, family, and what informs it} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Global parameters}} --- outside every plate; the transferable part
+of the model}\\[3pt]
+\nd{\alpha_\tau} & act-type touch time & \glbmark & --- $\rightarrow W_i$ &
+Real vector over act types. Normal, hierarchical. How long the work itself takes, before any queue.\\
+\nd{\Phi} & act-to-agency affinity & \glbmark & --- $\rightarrow a_i$ &
+Row-stochastic matrix, act type $\times$ agency role; Dirichlet rows. \emph{Measured:} 8 of 14 act types
+carry real information about the role, $0.66$ bits on average; issuance and intake screening carry none.\\
+\nd{\mu_f,\tau^2} & step-key family location and spread & \glbmark & --- $\rightarrow \mu_{it}$ &
+Normal--Inverse-Gamma. The partial-pooling layer. \emph{Posterior:} $\tau^2$ mean $0.92$, 90\,\% CI
+$[0.51,1.42]$.\\
+\nd{\tau^2_w} & drift rate & \glbmark & --- $\rightarrow \mu_{it}$ &
+Positive; Inverse-Gamma. Variance per year of the latent walk. Currently fixed, not estimated.\\
+\nd{\pi} & disclosure propensity & \glbmark & --- $\rightarrow C_m$ &
+$\pi(k,v,F)\in[0,1]$ per document kind $k$, visibility $v$, field $F$; Beta, hierarchical. The heart of
+the model: it makes silence informative. \emph{Not yet estimated} --- calibratable on the synthetic world.\\
+\nd{\varepsilon_k} & extractor error & \glbmark & --- $\rightarrow g_m$ &
+Sensitivity and false-positive rate per document kind; Beta. Treats the language model as a noisy
+instrument rather than an oracle. \emph{Not yet estimated.}\\
+\nd{\alpha} & new-step rate & \glbmark & --- $\rightarrow Z_{js}$ &
+Positive; Gamma. Concentration governing how readily a fresh step is posited. Controls over-splitting,
+which is the current fit's worst failure.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Statute plate}} $s=1\dots S$ --- entirely observed; this is the law
+as written}\\[3pt]
+\nd{E_s} & mandated skeleton & \obsmark & --- $\rightarrow Z_{js},\tau_i$ &
+Set of required elements with kinds (application, inspection, decision, notice, appeal\dots). Read
+directly from the statute text.\\
+\nd{c_e} & shot clocks & \obsmark & --- $\rightarrow \mu_{it}$ &
+Days, per element, where the law sets one. \textbf{A policy, not an observation of practice} --- it never
+enters the duration fit and re-enters only as $P(\text{exceed})$.\\
+\nd{\prec_s} & precedence & \obsmark & --- $\rightarrow \prec$ &
+Partial order the statute imposes between elements.\\
+\nd{O_s} & open choices & \obsmark & --- $\rightarrow R_{js}$ &
+What the statute leaves to the jurisdiction: fee amount, administering department, extra steps.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Jurisdiction plate}} $j=1\dots J$}\\[3pt]
+\nd{A_j} & department roster & \obsmark & --- $\rightarrow a_i$ &
+The institutions that exist here. Observed where a directory is published, otherwise latent. Publishing
+it converts actor attribution from open-vocabulary generation into selection with a chance baseline.\\
+\nd{L_j} & template lineage & \latmark & --- $\rightarrow R_{js},a_i$ &
+Which jurisdiction this one copied. Induces correlation between jurisdictions, so $J$ implementations are
+not $J$ independent draws.\\
+\nd{F_j} & fee instrument & \latmark & --- $\rightarrow f_i$ &
+The resolution or ordinance that sets fees, with its own adoption date.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Department plate}} $d=1\dots D_j$ --- practice parameters shared by
+every step that department owns; this is what correlates steps in one lane}\\[3pt]
+\nd{\delta_d} & speed effect & \latmark & --- $\rightarrow W_i$ &
+Real; Normal random effect. Some departments are simply faster at the same act.\\
+\nd{\rho_d} & utilisation & \latmark & --- $\rightarrow Q_i$ &
+$[0,1)$; Beta. Queueing load. Waiting time grows sharply as it approaches one.\\
+\nd{\kappa_d} & batching cadence & \latmark & --- $\rightarrow Q_i$ &
+Categorical: continuous, daily batch, weekly, monthly calendar. Imposes a floor on waiting that has
+nothing to do with how long the work takes.\\
+\nd{\psi_d} & clock compliance & \latmark & --- $\rightarrow \mu_{it}$ &
+$[0,1]$; Beta. Probability this department meets a statutory clock. \emph{Measured:} $0.53$ overall,
+and it tracks how mechanical the task is.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Programme plate}} $(j,s)$ --- one statute as one jurisdiction runs
+it; the unit the benchmark is built on}\\[3pt]
+\nd{R_{js}} & local rule & \latmark & $O_s,L_j \rightarrow Z_{js}$ &
+The ordinance or policy resolving the statute's open choices, with a version history.\\
+\nd{Z_{js}} & which steps exist & \latmark & $E_s,R_{js},\alpha \rightarrow a_i, C_m$ &
+A \emph{partition}, not a fixed list: the number of steps is inferred. \textbf{Caveat:} the
+nonparametric posterior on cluster count is known to be inconsistent, so this should be reframed as a
+population size under a detection model.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Step plate}} $i\in Z_{js}$}\\[3pt]
+\nd{\tau_i} & act type & \latmark & $E_s \rightarrow a_i,b_i$ &
+Categorical over 17 kinds of act (intake screen, document review, inspection, decision, notice\dots).\\
+\nd{a_i} & actor & \latmark & $\tau_i,A_j,\Phi,L_j,Z_{js} \rightarrow v_i,C_m$ &
+Categorical over $A_j$. \emph{Measured:} documents name it for only $36\%$ of steps, so the prior does
+most of the work.\\
+\nd{b_i} & blocking party & \latmark & $\tau_i \rightarrow v_i,Q_i$ &
+Who is waiting: agency, applicant, third party, or both. \textbf{Switches which queue model applies},
+and without it delay cannot be attributed.\\
+\nd{v_i} & visibility & \latmark & $a_i,b_i \rightarrow C_m$ &
+Applicant-facing, applicant-inferable, or staff-only. Determines what any document is likely to say.\\
+\nd{W_i} & touch time & \latmark & $\alpha_\tau,\delta_d \rightarrow \mu_{it}$ &
+Positive. Time someone is actually working. Scales with the act and the department.\\
+\nd{Q_i} & queue time & \latmark & $\rho_d,\kappa_d,b_i \rightarrow \mu_{it}$ &
+Positive. Time waiting for someone to start. Scales with load and batching. \textbf{Separated from $W_i$
+because the two have different parents} --- conflating them is why a duration cannot be read off an act.\\
+\nd{f_i} & fee & \latmark & $F_j \rightarrow C_m$ &
+Non-negative. \textbf{An administered constant with observation noise, not a draw} --- it becomes a
+random variable only \emph{across} jurisdictions. \emph{Measured:} stated for $9\%$ of steps.\\
+\nd{\mu_{it},\sigma_i} & log-duration state and shape & \latmark &
+$Q_i,W_i,\mu_f,\tau^2,\tau^2_w,c_e,\psi_d \rightarrow T_{ni}, y_m$ &
+$\log D \sim \mathcal N(\mu_{it},\sigma_i^2)$; log-normal because durations are positive, multiplicative
+and right-tailed. $\mu$ carries a time index and walks; $\sigma$ has its own hierarchy so thin keys
+inherit a shape. \emph{Implemented and validated.}\\
+\nd{\prec} & realised order & \latmark & $\prec_s \rightarrow p_n$ &
+Partial order over steps, including rework loops. The least developed part of the model.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Case plate}} $n=1\dots N_{js}$ --- individual applicants; the
+mechanism that turns a process into evidence}\\[3pt]
+\nd{p_n} & path & \latmark & $\prec \rightarrow T_{ni}$ &
+The branch this applicant took. A trace is a linear extension of the true partial order, which is how
+traces identify order.\\
+\nd{R_n} & rework rounds & \latmark & --- $\rightarrow T_{ni}$ &
+Count; Geometric or Negative-Binomial. Repeated failure to pass a check.\\
+\nd{T_{ni}} & realised duration & \latmark & $\mu_{it},\sigma_i,p_n,R_n \rightarrow Y_n,y_m$ &
+Positive, indexed by \emph{both} case and step --- the reason it needs a step sub-plate inside the case
+plate. This is what an applicant actually experiences.\\
+\nd{Y_n} & outcome & \latmark & $T_{ni} \rightarrow S_n$ &
+Categorical: approved, denied, abandoned.\\
+\nd{S_n} & posts about it & \latmark & $Y_n \rightarrow y_m$ &
+Bernoulli. Complaint selection: a delayed or denied applicant is far likelier to write about it.
+\textbf{Caveat:} our measured community-to-official ratio has the \emph{wrong sign} for a pure selection
+story, which points to estimand mismatch --- the two sides time different intervals.\\[6pt]
+
+\multicolumn{5}{@{}p{\textwidth}@{}}{\textbf{\textsc{Document plate}} $m=1\dots M$ --- everything we can actually read}\\[3pt]
+\nd{k_m} & document kind & \latmark & $\pi \rightarrow C_m$ &
+Categorical over 18 kinds: programme page, form, fee schedule, ordinance, staff report, audit, SOP,
+forum thread, and so on. Selects which disclosure propensity applies.\\
+\nd{t_m} & date & \obsmark & --- $\rightarrow C_m$ &
+When it was published. Makes a contradiction between two sources potentially \emph{drift} rather than
+error.\\
+\nd{C_m} & claims & \obsmark & $Z,a_i,v_i,f_i,k_m,\pi,t_m \rightarrow y_m$ &
+What the document asserts: that a step exists, who performs it, what it costs, what comes next ---
+\textbf{and, as data, what it is silent about}.\\
+\nd{y_m} & reported duration & \obsmark & $T_{ni},S_n,\mu_{it},C_m \rightarrow g_m$ &
+A number of days, which may be a \emph{sample} from a case, a \emph{summary statistic} of the
+distribution, an \emph{interval}, or a \emph{legal cap} --- four different likelihoods that must not be
+pooled.\\
+\nd{g_m} & extracted package & \obsmark & $C_m,y_m,\varepsilon_k \rightarrow$ (terminal) &
+The structured record our extractor produces. \textbf{The only thing we ever truly hold}, and the leaf of
+the model: nothing is downstream of it.\\
+\end{longtable}
+
+\section{Priors in, posteriors out}
+
+\begin{table}[h]\centering\small
+\begin{tabular}{@{}p{5.4cm}p{4.2cm}p{5.2cm}@{}}
+\toprule
+\textbf{Posterior} & \textbf{Form} & \textbf{Status} \\
+\midrule
+does step $i$ exist & Beta-Binomial, denominator = documents that \emph{could have} disclosed it &
+not built; needs $\pi$ \\
+how many steps there are & population size under a detection model & not built; the nonparametric
+cluster count is inconsistent \\
+which department owns $i$ & Categorical over $A_j$, with $\Phi$ as prior and $\varepsilon_k$ as noise &
+metric built, model not \\
+duration $\mu_{it},\sigma_i$ & log-normal, filtered at any date, with intervals & \textbf{built and
+validated} \\
+$P(\text{exceed the shot clock})$ & derived from the fit and $c_e$ & \textbf{built} \\
+order $i\prec i'$ & from traces as linear extensions & not built \\
+$\pi,\varepsilon$ (nuisance) & Beta, identified on the synthetic world & not built --- highest value \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{What the machinery is worth, measured}
+
+Leave-one-out, so nothing is scored on data it was fitted to.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Predicting a step kind never observed} & median $|\log$ error$|$ & factor off \\
+\midrule
+global median of the corpus & \textbf{0.705} & $2.02\times$ \\
+family median (naive pooling) & 1.181 & $3.26\times$ \\
+empirical Bayes & 0.850 & $2.34\times$ \\
+hierarchical posterior & 0.959 & $2.61\times$ \\
+\midrule
+\textbf{Estimating a step kind we do have evidence for} & & \\
+\midrule
+global median (no step model) & 0.837 & \\
+the key's own median & 0.453 & \\
+shrunk toward its family & \textbf{0.437} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three conclusions, stated plainly because two of them are unflattering. \textbf{The hierarchy does not
+transfer}: for a step kind never seen, quoting the median of the whole corpus beats it. \textbf{Knowing
+the step kind is the real win} --- it cuts error by $46\%$ --- and that is not Bayesian, it is just the
+right covariates; shrinkage adds a further $3.6\%$. \textbf{What the Bayesian layer uniquely buys is
+calibration}: its 90\,\% intervals cover $84\%$ of held-out truths, and no point estimator offers an
+interval at all.
+
+A separate comparison against a language model reading a specific programme's documents is
+\emph{not} a fair contest and should not be reported as one. On the 16 real steps where both produce a
+number, the model is closer on 14 --- but it is reading the duration out of the same sentence the gold
+was extracted from, so it is recalling a stated fact, not predicting. The honest division is by coverage:
+the language model supplied a duration for 19 of 451 gold steps, about $4\%$ of the process, because for
+the rest no document states one. The prior can supply one for every step whose kind is identifiable.
+They are complementary --- read what is written, predict what is not.
+
+\end{document}

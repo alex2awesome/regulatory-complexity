@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "tasks",
+  "description": "Benchmark tasks: one per target process, five information conditions.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "task_id",
+      "world",
+      "jur",
+      "stat_id",
+      "prompt",
+      "conditions"
+    ],
+    "properties": {
+      "task_id": {
+        "type": "string"
+      },
+      "world": {
+        "type": "string"
+      },
+      "jur": {
+        "type": "string"
+      },
+      "jurisdiction": {
+        "type": "string"
+      },
+      "stat_id": {
+        "type": "string"
+      },
+      "program_name": {
+        "type": "string"
+      },
+      "prompt": {
+        "type": "string"
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "gold": {
+        "type": "object"
+      },
+      "n_activities": {
+        "type": "integer"
+      },
+      "n_actors": {
+        "type": "integer"
+      }
+    }
+  }
+}

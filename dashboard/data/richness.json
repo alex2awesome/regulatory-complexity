@@ -1,0 +1,528 @@
+{
+ "built": "2026-09-15",
+ "method": "Chao1 per visibility stratum, summed; capture occasion = a distinct source document",
+ "gold": [
+  {
+   "model": "adu_permit__city_of_san_jose",
+   "n_activities": 30,
+   "observed": 30,
+   "estimated_stratified": 76.6,
+   "unseen_stratified": 46.6,
+   "estimated_pooled": 87.6,
+   "unseen_pooled": 57.6,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 22,
+     "estimated": 58.1,
+     "f1": 17,
+     "f2": 4,
+     "unseen": 36.1
+    },
+    "staff_only": {
+     "observed": 4,
+     "estimated": 10.0,
+     "f1": 4,
+     "f2": 0,
+     "unseen": 6.0
+    },
+    "applicant_inferable": {
+     "observed": 4,
+     "estimated": 8.5,
+     "f1": 3,
+     "f2": 1,
+     "unseen": 4.5
+    }
+   }
+  },
+  {
+   "model": "adu_permit__sonoma_county_permit_sonoma",
+   "n_activities": 29,
+   "observed": 29,
+   "estimated_stratified": 93.5,
+   "unseen_stratified": 64.5,
+   "estimated_pooled": 86.6,
+   "unseen_pooled": 57.6,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 15,
+     "estimated": 57.2,
+     "f1": 13,
+     "f2": 2,
+     "unseen": 42.2
+    },
+    "staff_only": {
+     "observed": 11,
+     "estimated": 31.2,
+     "f1": 9,
+     "f2": 2,
+     "unseen": 20.2
+    },
+    "applicant_inferable": {
+     "observed": 3,
+     "estimated": 5.0,
+     "f1": 2,
+     "f2": 1,
+     "unseen": 2.0
+    }
+   }
+  },
+  {
+   "model": "calfresh__la_county_dpss",
+   "n_activities": 31,
+   "observed": 31,
+   "estimated_stratified": 51.1,
+   "unseen_stratified": 20.1,
+   "estimated_pooled": 47.1,
+   "unseen_pooled": 16.1,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 23,
+     "estimated": 30.6,
+     "f1": 11,
+     "f2": 8,
+     "unseen": 7.6
+    },
+    "staff_only": {
+     "observed": 6,
+     "estimated": 18.5,
+     "f1": 5,
+     "f2": 1,
+     "unseen": 12.5
+    },
+    "applicant_inferable": {
+     "observed": 2,
+     "estimated": 2.0,
+     "f1": 1,
+     "f2": 0,
+     "unseen": 0.0
+    }
+   }
+  },
+  {
+   "model": "calfresh__santa_clara_county_ssa",
+   "n_activities": 24,
+   "observed": 24,
+   "estimated_stratified": 53.0,
+   "unseen_stratified": 29.0,
+   "estimated_pooled": 51.0,
+   "unseen_pooled": 27.0,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 15,
+     "estimated": 25.0,
+     "f1": 10,
+     "f2": 5,
+     "unseen": 10.0
+    },
+    "staff_only": {
+     "observed": 7,
+     "estimated": 25.0,
+     "f1": 6,
+     "f2": 1,
+     "unseen": 18.0
+    },
+    "applicant_inferable": {
+     "observed": 2,
+     "estimated": 3.0,
+     "f1": 2,
+     "f2": 0,
+     "unseen": 1.0
+    }
+   }
+  },
+  {
+   "model": "cpra_request__city_county_sf",
+   "n_activities": 27,
+   "observed": 27,
+   "estimated_stratified": 61.0,
+   "unseen_stratified": 34.0,
+   "estimated_pooled": 63.8,
+   "unseen_pooled": 36.8,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 18,
+     "estimated": 30.0,
+     "f1": 12,
+     "f2": 6,
+     "unseen": 12.0
+    },
+    "applicant_inferable": {
+     "observed": 2,
+     "estimated": 3.0,
+     "f1": 2,
+     "f2": 0,
+     "unseen": 1.0
+    },
+    "staff_only": {
+     "observed": 7,
+     "estimated": 28.0,
+     "f1": 7,
+     "f2": 0,
+     "unseen": 21.0
+    }
+   }
+  },
+  {
+   "model": "cpra_request__lapd",
+   "n_activities": 25,
+   "observed": 25,
+   "estimated_stratified": 55.1,
+   "unseen_stratified": 30.1,
+   "estimated_pooled": 48.1,
+   "unseen_pooled": 23.1,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 14,
+     "estimated": 22.1,
+     "f1": 9,
+     "f2": 5,
+     "unseen": 8.1
+    },
+    "applicant_inferable": {
+     "observed": 4,
+     "estimated": 5.0,
+     "f1": 2,
+     "f2": 2,
+     "unseen": 1.0
+    },
+    "staff_only": {
+     "observed": 7,
+     "estimated": 28.0,
+     "f1": 7,
+     "f2": 0,
+     "unseen": 21.0
+    }
+   }
+  },
+  {
+   "model": "cslb_license__cslb",
+   "n_activities": 30,
+   "observed": 30,
+   "estimated_stratified": 32.8,
+   "unseen_stratified": 2.8,
+   "estimated_pooled": 31.0,
+   "unseen_pooled": 1.0,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 21,
+     "estimated": 21.3,
+     "f1": 3,
+     "f2": 16,
+     "unseen": 0.3
+    },
+    "applicant_inferable": {
+     "observed": 6,
+     "estimated": 6.5,
+     "f1": 1,
+     "f2": 1,
+     "unseen": 0.5
+    },
+    "staff_only": {
+     "observed": 3,
+     "estimated": 5.0,
+     "f1": 2,
+     "f2": 1,
+     "unseen": 2.0
+    }
+   }
+  },
+  {
+   "model": "dros_firearm__ca_doj_bof_dealer",
+   "n_activities": 30,
+   "observed": 30,
+   "estimated_stratified": 58.1,
+   "unseen_stratified": 28.1,
+   "estimated_pooled": 46.4,
+   "unseen_pooled": 16.4,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 19,
+     "estimated": 24.6,
+     "f1": 10,
+     "f2": 9,
+     "unseen": 5.6
+    },
+    "staff_only": {
+     "observed": 7,
+     "estimated": 25.0,
+     "f1": 6,
+     "f2": 1,
+     "unseen": 18.0
+    },
+    "applicant_inferable": {
+     "observed": 4,
+     "estimated": 8.5,
+     "f1": 3,
+     "f2": 1,
+     "unseen": 4.5
+    }
+   }
+  },
+  {
+   "model": "food_facility__city_and_county_of_san_francisco",
+   "n_activities": 29,
+   "observed": 29,
+   "estimated_stratified": 51.2,
+   "unseen_stratified": 22.2,
+   "estimated_pooled": 43.7,
+   "unseen_pooled": 14.7,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 22,
+     "estimated": 29.2,
+     "f1": 12,
+     "f2": 10,
+     "unseen": 7.2
+    },
+    "applicant_inferable": {
+     "observed": 1,
+     "estimated": 1.0,
+     "f1": 0,
+     "f2": 1,
+     "unseen": 0.0
+    },
+    "staff_only": {
+     "observed": 6,
+     "estimated": 21.0,
+     "f1": 6,
+     "f2": 0,
+     "unseen": 15.0
+    }
+   }
+  },
+  {
+   "model": "food_facility__la_county_dph_environmental_health",
+   "n_activities": 30,
+   "observed": 30,
+   "estimated_stratified": 39.7,
+   "unseen_stratified": 9.7,
+   "estimated_pooled": 39.1,
+   "unseen_pooled": 9.1,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 24,
+     "estimated": 28.7,
+     "f1": 11,
+     "f2": 13,
+     "unseen": 4.7
+    },
+    "applicant_inferable": {
+     "observed": 3,
+     "estimated": 5.0,
+     "f1": 2,
+     "f2": 1,
+     "unseen": 2.0
+    },
+    "staff_only": {
+     "observed": 3,
+     "estimated": 6.0,
+     "f1": 3,
+     "f2": 0,
+     "unseen": 3.0
+    }
+   }
+  },
+  {
+   "model": "food_facility__san_diego_county_dehq_food_and_housing",
+   "n_activities": 29,
+   "observed": 29,
+   "estimated_stratified": 35.6,
+   "unseen_stratified": 6.6,
+   "estimated_pooled": 34.6,
+   "unseen_pooled": 5.6,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 25,
+     "estimated": 28.6,
+     "f1": 10,
+     "f2": 14,
+     "unseen": 3.6
+    },
+    "staff_only": {
+     "observed": 3,
+     "estimated": 6.0,
+     "f1": 3,
+     "f2": 0,
+     "unseen": 3.0
+    },
+    "applicant_inferable": {
+     "observed": 1,
+     "estimated": 1.0,
+     "f1": 0,
+     "f2": 1,
+     "unseen": 0.0
+    }
+   }
+  },
+  {
+   "model": "n400_naturalization__uscis_field_office",
+   "n_activities": 30,
+   "observed": 30,
+   "estimated_stratified": 46.6,
+   "unseen_stratified": 16.6,
+   "estimated_pooled": 43.1,
+   "unseen_pooled": 13.1,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 20,
+     "estimated": 27.6,
+     "f1": 11,
+     "f2": 8,
+     "unseen": 7.6
+    },
+    "staff_only": {
+     "observed": 8,
+     "estimated": 17.0,
+     "f1": 6,
+     "f2": 2,
+     "unseen": 9.0
+    },
+    "applicant_inferable": {
+     "observed": 2,
+     "estimated": 2.0,
+     "f1": 0,
+     "f2": 1,
+     "unseen": 0.0
+    }
+   }
+  },
+  {
+   "model": "solar_permit__oakland_solarapp",
+   "n_activities": 25,
+   "observed": 25,
+   "estimated_stratified": 25.5,
+   "unseen_stratified": 0.5,
+   "estimated_pooled": 25.2,
+   "unseen_pooled": 0.2,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 19,
+     "estimated": 19.0,
+     "f1": 0,
+     "f2": 9,
+     "unseen": 0.0
+    },
+    "staff_only": {
+     "observed": 3,
+     "estimated": 3.2,
+     "f1": 1,
+     "f2": 2,
+     "unseen": 0.2
+    },
+    "applicant_inferable": {
+     "observed": 3,
+     "estimated": 3.2,
+     "f1": 1,
+     "f2": 2,
+     "unseen": 0.2
+    }
+   }
+  },
+  {
+   "model": "solar_permit__san_diego_expedited",
+   "n_activities": 23,
+   "observed": 23,
+   "estimated_stratified": 23.7,
+   "unseen_stratified": 0.7,
+   "estimated_pooled": 23.6,
+   "unseen_pooled": 0.6,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 19,
+     "estimated": 19.2,
+     "f1": 2,
+     "f2": 12,
+     "unseen": 0.2
+    },
+    "applicant_inferable": {
+     "observed": 3,
+     "estimated": 3.5,
+     "f1": 1,
+     "f2": 1,
+     "unseen": 0.5
+    },
+    "staff_only": {
+     "observed": 1,
+     "estimated": 1.0,
+     "f1": 1,
+     "f2": 0,
+     "unseen": 0.0
+    }
+   }
+  },
+  {
+   "model": "solar_permit__traditional_generic_ca",
+   "n_activities": 25,
+   "observed": 25,
+   "estimated_stratified": 26.3,
+   "unseen_stratified": 1.3,
+   "estimated_pooled": 26.0,
+   "unseen_pooled": 1.0,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 20,
+     "estimated": 20.8,
+     "f1": 4,
+     "f2": 10,
+     "unseen": 0.8
+    },
+    "applicant_inferable": {
+     "observed": 3,
+     "estimated": 3.0,
+     "f1": 0,
+     "f2": 2,
+     "unseen": 0.0
+    },
+    "staff_only": {
+     "observed": 2,
+     "estimated": 2.5,
+     "f1": 1,
+     "f2": 1,
+     "unseen": 0.5
+    }
+   }
+  },
+  {
+   "model": "ui_claim__edd",
+   "n_activities": 34,
+   "observed": 34,
+   "estimated_stratified": 41.5,
+   "unseen_stratified": 7.5,
+   "estimated_pooled": 40.5,
+   "unseen_pooled": 6.5,
+   "per_stratum": {
+    "applicant_facing": {
+     "observed": 22,
+     "estimated": 28.2,
+     "f1": 10,
+     "f2": 8,
+     "unseen": 6.2
+    },
+    "staff_only": {
+     "observed": 4,
+     "estimated": 4.2,
+     "f1": 1,
+     "f2": 3,
+     "unseen": 0.2
+    },
+    "applicant_inferable": {
+     "observed": 8,
+     "estimated": 9.1,
+     "f1": 3,
+     "f2": 4,
+     "unseen": 1.1
+    }
+   }
+  }
+ ],
+ "fit": {
+  "dir": "runs/incremental/real_dros",
+  "observed": 86,
+  "estimated": 150.5,
+  "f1": 44,
+  "f2": 15,
+  "unseen": 64.5,
+  "se": 26.8,
+  "caveat": "unstratified and therefore unreliable: an incremental fit carries no visibility label per node, and its over-splitting turns duplicates into extra singletons, which inflates f1 and so inflates the estimate"
+ }
+}

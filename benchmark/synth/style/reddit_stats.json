@@ -1,0 +1,74 @@
+{
+ "adu_permit": {
+  "n_posts": 84,
+  "post_words_median": 105.0,
+  "comment_words_median": 31,
+  "comments_per_post_median": 5.0,
+  "share_posts_with_timing": 0.15476190476190477,
+  "share_comments_with_timing": 0.021660649819494584
+ },
+ "calfresh": {
+  "n_posts": 143,
+  "post_words_median": 138,
+  "comment_words_median": 29,
+  "comments_per_post_median": 5,
+  "share_posts_with_timing": 0.43356643356643354,
+  "share_comments_with_timing": 0.0992313067784766
+ },
+ "cpra_request": {
+  "n_posts": 58,
+  "post_words_median": 113.5,
+  "comment_words_median": 18,
+  "comments_per_post_median": 4.0,
+  "share_posts_with_timing": 0.1206896551724138,
+  "share_comments_with_timing": 0.014293006636038795
+ },
+ "cslb_license": {
+  "n_posts": 35,
+  "post_words_median": 109,
+  "comment_words_median": 28,
+  "comments_per_post_median": 2,
+  "share_posts_with_timing": 0.11428571428571428,
+  "share_comments_with_timing": 0.05429864253393665
+ },
+ "dros_firearm": {
+  "n_posts": 132,
+  "post_words_median": 126.0,
+  "comment_words_median": 22,
+  "comments_per_post_median": 12.0,
+  "share_posts_with_timing": 0.4090909090909091,
+  "share_comments_with_timing": 0.04903260005300822
+ },
+ "food_facility": {
+  "n_posts": 238,
+  "post_words_median": 153.5,
+  "comment_words_median": 24,
+  "comments_per_post_median": 4.0,
+  "share_posts_with_timing": 0.19327731092436976,
+  "share_comments_with_timing": 0.035311248634874406
+ },
+ "n400_naturalization": {
+  "n_posts": 114,
+  "post_words_median": 120.0,
+  "comment_words_median": 18.0,
+  "comments_per_post_median": 4.0,
+  "share_posts_with_timing": 0.4298245614035088,
+  "share_comments_with_timing": 0.06800870511425462
+ },
+ "solar_permit": {
+  "n_posts": 139,
+  "post_words_median": 258,
+  "comment_words_median": 36.0,
+  "comments_per_post_median": 9,
+  "share_posts_with_timing": 0.5467625899280576,
+  "share_comments_with_timing": 0.08009909165978531
+ },
+ "ui_claim": {
+  "n_posts": 91,
+  "post_words_median": 114,
+  "comment_words_median": 23.0,
+  "comments_per_post_median": 4,
+  "share_posts_with_timing": 0.42857142857142855,
+  "share_comments_with_timing": 0.11133603238866396
+ }
+}

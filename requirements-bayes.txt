@@ -1,0 +1,7 @@
+# Optional joint Bayesian hierarchy and its validation suite.
+# Keep separate from the existing stdlib-first extraction/scoring stack.
+numpy>=1.26,<3
+scipy>=1.12,<2
+jsonschema>=4.21
+pytest>=8
+# Optional speedup, not required: numba (tested with 0.61.2 / NumPy 2.2.6).

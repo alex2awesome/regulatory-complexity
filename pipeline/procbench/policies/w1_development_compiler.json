@@ -1,0 +1,11 @@
+{
+  "default_case_sampling": "unselected",
+  "calendar": {
+    "calendar_days_per_business_day": 1.4,
+    "description": "Development sensitivity convention: five working days per seven calendar days; no holidays or exact start date. Not measured from W1."
+  },
+  "rounding_fallback": "reported_unit",
+  "event_aliases": {},
+  "retain_unsupported": true,
+  "residual_reference": {"median_days": 7.0, "log_scale": 3.0}
+}

@@ -1,0 +1,585 @@
+{
+  "model_id": "calfresh__santa_clara_county_ssa",
+  "source": "designed",
+  "jurisdiction": "Santa Clara County, California",
+  "implementer": "Santa Clara County Social Services Agency, Department of Employment and Benefit Services (DEBS)",
+  "stat_id": "CALFRESH_APPLICATION_63_301",
+  "statute_cite": "7 C.F.R. § 273.2; 7 U.S.C. § 2020(e)(2)(C); Cal. Welf. & Inst. Code §§ 18912(a), 18914; MPP Div. 63 (63-300.5, 63-301, 63-301.32, 63-301.4, 63-301.44)",
+  "program_name": "CalFresh processing time frames, delayed processing and recertification delayed processing, as written for county eligibility staff",
+  "gold_tier": "designed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "G1",
+      "title": "Santa Clara County CalFresh Program Handbook, \"Processing Time Frames [63-301]\" (includes Missed Initial Interview [63-301.32], Verification [63-300.51], Intake Decision Chart, Delayed Action: 2nd 30 Days [63-301.4], Delay Beyond 60 Days [63-301.44], Cause of Delay Chart)",
+      "url": "https://stgenssa.sccgov.org/debs/program_handbooks/calfresh/assets/CalFresh/Application/PrcsgTimeFrm.htm",
+      "saved_as": "corpus/realworld/calfresh/raw/S19.txt"
+    },
+    {
+      "id": "G2",
+      "title": "Santa Clara County CalFresh Program Handbook, \"Delayed Processing\" (Recertification): timely/untimely applications, county-caused, client-caused and joint delays, telephonic-signature procedure chart and worked scenarios",
+      "url": "https://stgenssa.sccgov.org/debs/program_handbooks/calfresh/assets/CalFresh/Recertification/DelydProc.htm",
+      "saved_as": "corpus/realworld/calfresh/raw/S20.txt"
+    },
+    {
+      "id": "G3",
+      "title": "CDSS All County Letter 16-14, \"Expedited Service Entitlement and Application Processing for CalFresh\" (February 29, 2016)",
+      "url": "https://www.cdss.ca.gov/lettersnotices/entres/getinfo/acl/2016/16-14.pdf",
+      "saved_as": "corpus/realworld/calfresh/raw/S15.txt"
+    },
+    {
+      "id": "D1",
+      "title": "GetCalFresh.org, \"CalFresh FAQs — Eligibility, Interviews & Case Status\" (declared applicant-facing; the common front door for Santa Clara applicants alongside BenefitsCal)",
+      "url": "https://www.getcalfresh.org/en/faq/",
+      "saved_as": "corpus/realworld/calfresh/raw/S25.txt"
+    },
+    {
+      "id": "D2",
+      "title": "GetCalFresh.org, \"How to Apply for CalFresh in California – Steps & Timeline\" (declared applicant-facing)",
+      "url": "https://www.getcalfresh.org/en/howtoapply/",
+      "saved_as": "corpus/realworld/calfresh/raw/S11.txt"
+    },
+    {
+      "id": "L1",
+      "title": "7 C.F.R. § 273.2 (Office operations and application processing)",
+      "url": "https://www.law.cornell.edu/cfr/text/7/273.2",
+      "saved_as": "corpus/realworld/calfresh/raw/S1.txt"
+    }
+  ],
+  "actors": [
+    {"id": "applicant", "name": "Applicant or recertifying household (\"client\" / \"HH\" in the handbook)", "dept": null, "type": "external"},
+    {"id": "ssbs", "name": "SSBS — the eligibility-determination classification the handbook addresses in the imperative", "dept": "Santa Clara County SSA, DEBS", "type": "county"},
+    {"id": "clerical", "name": "Clerical (case reassignment)", "dept": "Santa Clara County SSA, DEBS", "type": "county"},
+    {"id": "central_support", "name": "Central Support Services (outbound Yearly Review Letter, Statement of Facts and informational packet)", "dept": "Santa Clara County SSA, DEBS", "type": "county"},
+    {"id": "calsaws", "name": "CalSAWS (the statewide automated welfare system of record; appointment categories, system-generated NOMI, automatic discontinuance)", "dept": null, "type": "system"}
+  ],
+  "activities": [
+    {
+      "id": "H01",
+      "name": "Send the appointment notice and enter the interview appointment in the system",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["filed application"],
+      "artifacts_out": ["appointment notice (SCD 130TS for telephonic signature)", "appointment entered in CalSAWS"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(e)(3)",
+      "evidence": [
+        {"doc": "G2", "quote": "Send an Appointment Notice (SCD 130TS) and enter the TS appointment in the system", "page_or_section": "Telephonic Signature (TS) chart, step 1"},
+        {"doc": "D2", "quote": "You'll get a notice in the mail with your interview date, time, and how to join the interview.", "page_or_section": "How to apply, step 5"}
+      ]
+    },
+    {
+      "id": "H02",
+      "name": "Complete the intake interview on the scheduled date and capture the telephonic signature",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["appointment notice (SCD 130TS for telephonic signature)"],
+      "artifacts_out": ["completed interview", "captured telephonic signature"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "MPP § 63-300.4",
+      "evidence": [
+        {"doc": "G2", "quote": "Complete the TS interview on the scheduled date", "page_or_section": "Telephonic Signature (TS) chart, step 2"},
+        {"doc": "D1", "quote": "Households must complete an eligibility interview. A county worker will call you, but you can also request an in-person interview.", "page_or_section": "What does the process look like"}
+      ]
+    },
+    {
+      "id": "H03",
+      "name": "Send the CF 386 Notice of Missed Interview when the applicant fails to complete the initial intake interview",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["appointment notice (SCD 130TS for telephonic signature)"],
+      "artifacts_out": ["CF 386 Notice of Missed Interview (NOMI)"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "H01", "reason": "applicant missed the initial intake interview and must contact the county to reschedule"},
+      "optional": true,
+      "element_ref": "MPP § 63-301.32",
+      "evidence": [
+        {"doc": "G1", "quote": "When the applicant fails to complete the initial intake interview, send the household a NOMI CF 386.", "page_or_section": "Missed Initial Interview [63-301.32]"},
+        {"doc": "G2", "quote": "NOMI is sent by the system", "page_or_section": "Telephonic Signature chart, Delayed Processing with Missed Interview, step 3"}
+      ]
+    },
+    {
+      "id": "H04",
+      "name": "Send a text or email reminder on the same day the NOMI goes out",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["CF 386 Notice of Missed Interview (NOMI)"],
+      "artifacts_out": ["reminder text or email"],
+      "timing": {"median_days": 0, "p90_days": 1, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G2", "quote": "The SSBS sends a text/email reminder on the same day.", "page_or_section": "Telephonic Signature chart, Delayed Processing with Missed Interview, step 4"},
+        {"doc": "G2", "quote": "NOMI reminder text is sent to the household on March 26", "page_or_section": "Client-Caused & County-Caused Delay, Example Scenario 1"}
+      ]
+    },
+    {
+      "id": "H05",
+      "name": "Schedule a second appointment when the household contacts the county within 30 days of the application date",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["CF 386 Notice of Missed Interview (NOMI)"],
+      "artifacts_out": ["second appointment"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-301.32",
+      "evidence": [
+        {"doc": "G1", "quote": "If the household contacts the county to request another appointment within 30 days of the application date, then schedule a second appointment.", "page_or_section": "Missed Initial Interview [63-301.32]"}
+      ]
+    },
+    {
+      "id": "H06",
+      "name": "Review the case against the three conditions for a second appointment after day 30 (documented contact within 30 days, missed initial interview, request after 30 but within 60 days)",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["client contact on a denied case"],
+      "artifacts_out": ["decision that the household meets or fails all three requirements"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-301.32",
+      "evidence": [
+        {"doc": "G1", "quote": "A second appointment must be scheduled within 60 days of the application date if thereis documentary evidence that the household contacted the county within 30 days of the application date", "page_or_section": "Missed Initial Interview [63-301.32]"},
+        {"doc": "G1", "quote": "If No, the case remains denied. Advise the client to reapply for CalFresh and add a journal entry about the client contact.", "page_or_section": "Missed Initial Interview, step 1"}
+      ]
+    },
+    {
+      "id": "H07",
+      "name": "Request Clerical to reassign the case and re-open the intake task",
+      "actor": "clerical",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["decision that the household meets all three requirements"],
+      "artifacts_out": ["reassigned case", "re-opened intake task"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G1", "quote": "Request Clerical to reassign the case, if applicable. Re-open the intake task.", "page_or_section": "Missed Initial Interview, steps 2-3"}
+      ]
+    },
+    {
+      "id": "H08",
+      "name": "Schedule the second appointment in CalSAWS under the Telephone Interview category to prevent a second NOMI from being sent out",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["re-opened intake task"],
+      "artifacts_out": ["second appointment scheduled in CalSAWS"],
+      "timing": {"median_days": null, "p90_days": 60, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G1", "quote": "Schedule a second appointment within 60 days of the application date in CalSAWS using the Telephone Interview category to prevent a second NOMI from being sent out. Refer to Chewable Byte 2023-15: How to Schedule an Appointment.", "page_or_section": "Missed Initial Interview, step 4"},
+        {"doc": "G1", "quote": "Reminder: If a client misses the second appointment, a second NOMI is not required.", "page_or_section": "Missed Initial Interview, step 4"}
+      ]
+    },
+    {
+      "id": "H09",
+      "name": "Add a journal entry recording the client contact and that the household meets all three requirements",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["client contact on a denied case"],
+      "artifacts_out": ["journal entry"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G1", "quote": "Add a journal entry about the client contact and that the household meets all three requirements above.", "page_or_section": "Missed Initial Interview, step 5"},
+        {"doc": "G2", "quote": "Enter the type of delay and the reason in the case record", "page_or_section": "Telephonic Signature chart, step 3"}
+      ]
+    },
+    {
+      "id": "H10",
+      "name": "Rescind the denial after the interview is completed and process the application using the original application date",
+      "actor": "ssbs",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["completed interview", "denied case"],
+      "artifacts_out": ["rescinded denial", "application processed from the original application date"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "H14", "reason": "second interview completed within 60 days of the application date after a missed-interview denial"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G1", "quote": "Rescind the denial after the interview is completed. Process the application using the original application date.", "page_or_section": "Missed Initial Interview, steps 6-7"},
+        {"doc": "G1", "quote": "Important: If the household does not request a second interview within 30 days of the application date due to admnistrative delay and is determined eligible, the household is eligible to benefits back to original date of application.", "page_or_section": "Missed Initial Interview"}
+      ]
+    },
+    {
+      "id": "H11",
+      "name": "Verify the nine mandatory items before certification (gross non-exempt income, non-citizen status, identity, Social Security numbers, residency, medical expenses, child support obligation and actual payments, sponsored non-citizens, disability)",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["completed interview"],
+      "artifacts_out": ["mandatory verification on file"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "MPP § 63-300.5(e)",
+      "evidence": [
+        {"doc": "G1", "quote": "The SSBS must verify the following information prior to certification for households initially applying: Gross Non-exempt Income, Non-citizen Status, Identity, Social Security Numbers, Residency, Medical Expenses", "page_or_section": "Mandatory Verification"},
+        {"doc": "G1", "quote": "Verification is the use of third-party information or documentation to establish the accuracy of statements on the application.", "page_or_section": "Verification [63-300.51]"}
+      ]
+    },
+    {
+      "id": "H12",
+      "name": "Request the missing verification, inform the household of the 10-day standard in writing, and assist the household to obtain it",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["completed interview"],
+      "artifacts_out": ["CW 2200 request for verification with a due date"],
+      "timing": {"median_days": 10, "p90_days": 10, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-300.5(i); 7 C.F.R. § 273.2(f)",
+      "evidence": [
+        {"doc": "G1", "quote": "The household was informed of the 10-day standard in writing and was notified at the interview of the due date by which the household must provide any missing verification", "page_or_section": "Denial of Applications due to Verification"},
+        {"doc": "G1", "quote": "The SSBS assisted the household, if necessary, to obtain verification.", "page_or_section": "Denial of Applications due to Verification"},
+        {"doc": "G2", "quote": "CW2200 is sent to the household with a due date to provide verifications by April 7", "page_or_section": "County-Caused delay, Example Scenario 1"}
+      ]
+    },
+    {
+      "id": "H13",
+      "name": "Advise the household it may have eligibility determined without a deduction when deduction verification would delay approval past the 30-day limit",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["CW 2200 request for verification with a due date"],
+      "artifacts_out": ["household election to wait or not wait for deduction verification"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-300.5",
+      "evidence": [
+        {"doc": "G1", "quote": "If obtaining verification of a deduction (shelter, dependent care, child support expense, or medical expense) may delay benefit approval beyond the normal 30-day limit, the SSBS must advise the household", "page_or_section": "Missing Verification of Deductions [63-300.5]"},
+        {"doc": "G1", "quote": "Benefits may be approved prior to obtaining the verification of a deduction, but benefits may not be approved prior to obtaining an item considered a mandatory verification", "page_or_section": "Missing Verification of Deductions, Note"}
+      ]
+    },
+    {
+      "id": "H14",
+      "name": "Approve the application and make benefits available as soon as possible but no later than 30 days from the application date",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["mandatory verification on file"],
+      "artifacts_out": ["approved certification with benefits available"],
+      "timing": {"median_days": null, "p90_days": 30, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(g)(1); MPP § 63-301",
+      "evidence": [
+        {"doc": "G1", "quote": "Eligible households that complete the application process must be approved and have benefits available to them as soon as possible, but no later than 30 days from the application date.", "page_or_section": "Processing Time Frames [63-301]"},
+        {"doc": "D1", "quote": "Your county has 30 days to approve or deny your case.", "page_or_section": "How quickly will I get benefits?"}
+      ]
+    },
+    {
+      "id": "H15",
+      "name": "Deny the application on or before the 30th day for failure to provide verification, only after the interview was held, the 10-day standard was given in writing, and assistance was offered",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["CW 2200 request for verification with a due date"],
+      "artifacts_out": ["denial notice"],
+      "timing": {"median_days": 30, "p90_days": 30, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "7 C.F.R. § 273.2(g)(3)",
+      "evidence": [
+        {"doc": "G1", "quote": "Deny the application on or before the 30th day if the household fails to provide missing verification(s), only when all of the following actions have been taken", "page_or_section": "Denial of Applications due to Verification"},
+        {"doc": "G1", "quote": "If the applicant household has been determined ineligible, a denial notice must be sent by the 30th day.", "page_or_section": "Processing Time Frames [63-301]"}
+      ]
+    },
+    {
+      "id": "H16",
+      "name": "Apply the Intake Decision Chart to decide which months to approve or deny from the interview month and the months of eligibility",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["mandatory verification on file", "completed interview"],
+      "artifacts_out": ["month-by-month approve/deny decision"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G1", "quote": "Use the chart below to determine the required action based on the household's eligibility and the month when the initial interview occurs.", "page_or_section": "Intake Decision Chart"},
+        {"doc": "G1", "quote": "Deny benefits for 1st & 2nd months. Take a new application (or photocopy original application and have applicant sign it again for the 3rd month). Approve 3rd month.", "page_or_section": "Intake Decision Chart, 2nd Month row"}
+      ]
+    },
+    {
+      "id": "H17",
+      "name": "Classify the processing delay as administrative or household under the Cause of Delay Chart",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["case not determined within 30 days"],
+      "artifacts_out": ["delay classification (county or household, first and second 30 days)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-301.4",
+      "evidence": [
+        {"doc": "G1", "quote": "If the County does not determine a household's eligibility and provides an opportunity to participate within 30 days of the date the application was filed, it is considered a delayed action.", "page_or_section": "Delayed Action: 2nd 30 Days [63-301.4]"},
+        {"doc": "G1", "quote": "The following chart illustrates the month(s) of benefits a household may be eligible to receive depending upon the cause of the delay; administrative or household.", "page_or_section": "Cause of Delay Chart"},
+        {"doc": "G1", "quote": "The delay will be the fault of the household when the household has missed the first interview and the second interview is scheduled within 20 days after the application is filed but before the 30th day", "page_or_section": "Household Delay"}
+      ]
+    },
+    {
+      "id": "H18",
+      "name": "Send the CF 377.1A Notice of Denial or Pending Status by the 30th day and hold the case pending for an additional 30 days",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["delay classification (county or household, first and second 30 days)"],
+      "artifacts_out": ["CF 377.1A Notice of Denial or Pending Status"],
+      "timing": {"median_days": 30, "p90_days": 30, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-301.4",
+      "evidence": [
+        {"doc": "G1", "quote": "A notice of pending status must be sent to the household by the 30th day following the date the application was filed. The notice must indicate any action necessary by the household to complete the application process.", "page_or_section": "Administrative Delay Procedures"},
+        {"doc": "G1", "quote": "The No Change NOA, \"Notice of Denial or Pending Status\" (CF 377.1A) is used to inform the household of pending status.", "page_or_section": "Administrative Delay Procedures"},
+        {"doc": "G1", "quote": "When a delay in the initial 30-day application processing period is due to administrative reasons, such as a backlog, the application should NOT be denied on the 30th day", "page_or_section": "Administrative Delay Procedures"}
+      ]
+    },
+    {
+      "id": "H19",
+      "name": "Act on the pended application during the second 30-day period: approve with retroactive benefits from the month of application, prorate from the date of compliance, or deny at the end of the second 30 days",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["CF 377.1A Notice of Denial or Pending Status"],
+      "artifacts_out": ["approval with retroactive or prorated benefits, or a second-period denial"],
+      "timing": {"median_days": null, "p90_days": 60, "source": "official"},
+      "fee": null,
+      "rework": {"back_to": "H14", "reason": "household completes the application during the second 30-day period"},
+      "optional": true,
+      "element_ref": "MPP § 63-301.4",
+      "evidence": [
+        {"doc": "G1", "quote": "Households found eligible during the second 30 days are eligible to retroactive benefits from the month of application.", "page_or_section": "Administrative Delay Procedures"},
+        {"doc": "G1", "quote": "No retroactive benefits for the month of application will be issued when the household was at fault in the first 30 days but completes the application in the second 30 days and is eligible.", "page_or_section": "Household Delay Procedures"},
+        {"doc": "G1", "quote": "If the household fails to take the required action by the date specified on the notice of action, then the application can be denied at the end of the second 30 days. No additional notice is required", "page_or_section": "Administrative Delay Procedures"}
+      ]
+    },
+    {
+      "id": "H20",
+      "name": "Deny at the end of 60 days and require a new application when the household is at fault, with no entitlement to lost benefits even if the county caused the initial delay",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["CF 377.1A Notice of Denial or Pending Status"],
+      "artifacts_out": ["60-day denial", "requirement to file a new application"],
+      "timing": {"median_days": 60, "p90_days": 60, "source": "official"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-301.44",
+      "evidence": [
+        {"doc": "G1", "quote": "If the household is at fault for not completing the application process by the end of the second 30-day period, the application must be denied.", "page_or_section": "Delay Beyond 60 Days [63-301.44], Household Delay"},
+        {"doc": "G1", "quote": "The household is not entitled to any lost benefits, even if the initial delay was the fault of the county.", "page_or_section": "Delay Beyond 60 Days, Household Delay Procedures"}
+      ]
+    },
+    {
+      "id": "H21",
+      "name": "Keep the case pending beyond 60 days, notify the household what is still needed, and restore benefits per the Intake Decision Chart when the county is at fault",
+      "actor": "ssbs",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["delay classification (county at fault at 60 days)"],
+      "artifacts_out": ["case held pending", "restored benefits"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "H14", "reason": "county-caused delay at the end of 60 days; the case remains pending rather than being denied"},
+      "optional": true,
+      "element_ref": "MPP § 63-301.44",
+      "evidence": [
+        {"doc": "G1", "quote": "When the county is at fault for not completing the application process at the end of the 60 days, the case will remain pending.", "page_or_section": "Delay Beyond 60 Days, Administrative Delay"},
+        {"doc": "G1", "quote": "The household must be notified as to what information is needed to complete the application. If determined eligible, benefits must be restored according to the chart.", "page_or_section": "Delay Beyond 60 Days, Administrative Delay Procedures"}
+      ]
+    },
+    {
+      "id": "H22",
+      "name": "Send the recertification appointment letter, complete the interview, capture the telephonic signature, and have Central Support Services mail the Yearly Review Letter (SCD 2303), the Statement of Facts and the informational packet",
+      "actor": "central_support",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": ["application for recertification (CF 37)"],
+      "artifacts_out": ["completed recertification interview", "Yearly Review Letter (SCD 2303)", "Statement of Facts", "informational packet"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G2", "quote": "Central Support Services sends the completed Yearly Review Letter (SCD 2303), Statement of Facts, and the informational packet to the client.", "page_or_section": "Telephonic Signature chart, step 5"},
+        {"doc": "G2", "quote": "Any application for recertification submitted on or before the 15th day of the final month of the certification period is considered timely.", "page_or_section": "Timely and Untimely Application"}
+      ]
+    },
+    {
+      "id": "H23",
+      "name": "Determine the recertification delay type (county-caused, client-caused, or both) and prorate or restore benefits accordingly",
+      "actor": "ssbs",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["recertification processed outside the normal timeline"],
+      "artifacts_out": ["delay type recorded in the case record", "proration or restoration decision"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G2", "quote": "Delays are categorized as follows: (1) County-caused delays, (2) client-caused delays, and (3) client and county-caused delays.", "page_or_section": "Application Processing delays"},
+        {"doc": "G2", "quote": "In general, if the household caused the delay, benefits are prorated from the date of compliance, if county-caused the delay, benefits are provided for the full month.", "page_or_section": "Application Processing delays"}
+      ]
+    },
+    {
+      "id": "H24",
+      "name": "Rescind the automatic discontinuance and provide a full month's allotment within five days when the county caused the recertification delay",
+      "actor": "ssbs",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["proration or restoration decision", "verification provided after discontinuance"],
+      "artifacts_out": ["rescinded discontinuance", "full-month allotment", "approval Notice of Action"],
+      "timing": {"median_days": 5, "p90_days": 5, "source": "official"},
+      "fee": null,
+      "rework": {"back_to": "H14", "reason": "county-caused recertification delay; the case is rescinded and treated as a complete recertification"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "G2", "quote": "The worker will rescind the discontinuance as complete recertification and provides a full allotment of benefits for April within five days", "page_or_section": "County-Caused delay, Example Scenario 1"},
+        {"doc": "G2", "quote": "the county must continue to process the case and provide a full month's benefit allotment for the first month of the new certification period as soon as administratively possible", "page_or_section": "County-Caused Delay"}
+      ]
+    }
+  ],
+  "edges": [
+    {"from": "H01", "to": "H02", "type": "sequence"},
+    {"from": "H01", "to": "H03", "type": "rework", "condition": "applicant did not complete the initial intake interview"},
+    {"from": "H03", "to": "H04", "type": "sequence"},
+    {"from": "H03", "to": "H05", "type": "rework", "condition": "household contacts the county within 30 days of the application date"},
+    {"from": "H05", "to": "H02", "type": "rework"},
+    {"from": "H03", "to": "H15", "type": "sequence", "condition": "household never reschedules; denial on the 30th day"},
+    {"from": "H15", "to": "H06", "type": "rework", "condition": "client with a denied case contacts the county"},
+    {"from": "H06", "to": "H07", "type": "sequence", "condition": "all three requirements met"},
+    {"from": "H07", "to": "H08", "type": "sequence"},
+    {"from": "H08", "to": "H09", "type": "sequence"},
+    {"from": "H09", "to": "H02", "type": "rework"},
+    {"from": "H02", "to": "H10", "type": "sequence", "condition": "second interview completed on a previously denied case"},
+    {"from": "H10", "to": "H14", "type": "rework"},
+    {"from": "H02", "to": "H11", "type": "sequence"},
+    {"from": "H11", "to": "H12", "type": "sequence", "condition": "mandatory verification missing"},
+    {"from": "H12", "to": "H13", "type": "optional", "condition": "the missing item is a deduction rather than a mandatory item"},
+    {"from": "H13", "to": "H14", "type": "sequence", "condition": "household elects not to wait for deduction verification"},
+    {"from": "H12", "to": "H11", "type": "rework", "condition": "verification provided by the due date"},
+    {"from": "H11", "to": "H16", "type": "sequence"},
+    {"from": "H16", "to": "H14", "type": "sequence", "condition": "eligible in one or more months"},
+    {"from": "H16", "to": "H15", "type": "sequence", "condition": "ineligible in the first and second months"},
+    {"from": "H12", "to": "H15", "type": "sequence", "condition": "verification not provided by the 30th day"},
+    {"from": "H14", "to": "H17", "type": "optional", "condition": "not determined within 30 days of filing"},
+    {"from": "H17", "to": "H18", "type": "sequence"},
+    {"from": "H18", "to": "H19", "type": "sequence"},
+    {"from": "H19", "to": "H14", "type": "rework", "condition": "household completes the application in the second 30 days"},
+    {"from": "H19", "to": "H20", "type": "sequence", "condition": "household at fault at the end of 60 days"},
+    {"from": "H19", "to": "H21", "type": "sequence", "condition": "county at fault at the end of 60 days"},
+    {"from": "H21", "to": "H14", "type": "rework"},
+    {"from": "H14", "to": "H22", "type": "sequence", "condition": "certification period ending; recertification due"},
+    {"from": "H22", "to": "H23", "type": "optional", "condition": "recertification processed outside the normal timeline"},
+    {"from": "H23", "to": "H24", "type": "sequence", "condition": "county-caused delay"},
+    {"from": "H24", "to": "H14", "type": "rework"}
+  ],
+  "terminal_artifact": "Approved CalFresh certification with benefits available to the household, dated from the original application date, a prorated compliance date, or the second 30-day period depending on the recorded cause of delay",
+  "denial_rate": null,
+  "denial_rate_notes": "Santa Clara County publishes no approval or denial rate, and no audit, grand-jury report or consultant study of Santa Clara CalFresh processing was located. CDSS's CalFresh Data Dashboard reports county-level timeliness monthly for all 58 counties, but only behind a Tableau session or Excel download that was not pulled, so this model carries no measured outcome rate at all.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "p90": 30,
+    "source": "official (regulatory ceiling only; no measured median exists for this county)",
+    "quote": "Eligible households that complete the application process must be approved and have benefits available to them as soon as possible, but no later than 30 days from the application date."
+  },
+  "timing_gold_secondary": [
+    {
+      "what": "Second 30-day (pending) period and the 60-day outer limit",
+      "value": "case held pending for an additional 30 days after a CF 377.1A notice by day 30; denial at the end of the second 30 days if the household is at fault, case remains pending past 60 days if the county is at fault",
+      "source": "official",
+      "doc": "G1",
+      "quote": "The case must be held \"pending\" for an additional 30 days."
+    },
+    {
+      "what": "Second appointment after a missed initial interview",
+      "value": "within 30 days of the application date on household request; within 60 days where the three documented conditions are met",
+      "source": "official",
+      "doc": "G1",
+      "quote": "Schedule a second appointment within 60 days of the application date in CalSAWS using the Telephone Interview category to prevent a second NOMI from being sent out."
+    },
+    {
+      "what": "Verification window",
+      "value": "10 days from the date the verification was requested, with the SSBS required to assist a household that cannot obtain it",
+      "source": "official",
+      "doc": "G1",
+      "quote": "The SSBS must allow 10 DAYS from the date the verification was requested."
+    },
+    {
+      "what": "Rescission turnaround after a county-caused recertification delay",
+      "value": "full allotment provided within five days of the household providing verification",
+      "source": "official",
+      "doc": "G2",
+      "quote": "The worker will rescind the discontinuance as complete recertification and provides a full allotment of benefits for April within five days"
+    },
+    {
+      "what": "Expedited service (not covered in Santa Clara's Processing Time Frames chapter)",
+      "value": "3 calendar days (California) versus the 7-day federal floor",
+      "source": "official",
+      "doc": "G3",
+      "quote": "Process applications for households entitled to ES within three calendar days [the current federal mandate is seven days under 7 Code of Federal Regulations (CFR) Section 273.2 (i)(3)(i)]."
+    }
+  ],
+  "known_gaps": [
+    "This model has no observed tier at all. Every timing figure is a regulatory ceiling or a worked-example interval from the handbook; there is no measured median, no county timeliness percentage, and no approval or denial rate. gold_tier is 'designed' for exactly that reason, and scores against it should not be pooled with the LA County model, which has a randomized-trial median.",
+    "The handbook chapters held here cover processing time frames, missed interviews, verification and delayed processing. They do not cover intake filing channels, the application packet, expedited-service screening, or the interview content — so this gold model starts at the appointment notice rather than at filing, and is a partial model of the county's process by construction. A solver that correctly describes Santa Clara's filing and ES screening will score as hallucinating against it.",
+    "Expedited service is absent from the Santa Clara chapters entirely. The 3-day state deadline is carried here only from CDSS ACL 16-14 (G3), and how Santa Clara operationalizes it (same-day interviews, EBT card pick-up versus mail, who screens) is not documented.",
+    "'SSBS' is used throughout the handbook without expansion in the pages held, so the actor label is the county's own abbreviation rather than a verified job classification.",
+    "The internal job aid the handbook depends on is not public: 'Chewable Byte 2023-15: How to Schedule an Appointment' is cited by number as the authority for the appointment-category trick that suppresses a second NOMI, and its content is unavailable. The same is true of the 'Verification', 'Benefit Proration' and 'Responsibility for Obtaining Verification' pages it cross-references.",
+    "Whether CalSAWS behaviour described here (system-generated NOMI, automatic discontinuance effective the last day of the certification month, appointment categories) is county-configurable or statewide is unresolved, so it is not safe to transfer these activities to another county's model.",
+    "The Intake Decision Chart (H16) and Cause of Delay Chart (H17) are decision tables, not activities: this schema records that the decision is made and by whom, but cannot express the month-by-month approve/deny matrix or the four-cell fault matrix that actually determine the household's benefit start date. That is a real loss of the gold document's content.",
+    "No applicant-facing Santa Clara County document was retrieved for this slug, so the visibility check for staff_only labels was run against the CalFresh slug's shared applicant-facing corpus (GetCalFresh and the SF and Sacramento county pages), not against Santa Clara's own public pages. A Santa Clara public page could in principle mention one of these steps.",
+    "G2's telephonic-signature chart is the clearest procedural artifact in either chapter, but it is written for recertification and is applied here to recertification only; whether the same TS chart governs initial applications is not stated."
+  ],
+  "notes": "Second gold model for the calfresh slug, supporting the county-variation comparison the benchmark needs: LA County DPSS and Santa Clara County SSA implement the same statewide mandate (7 C.F.R. § 273.2, MPP Div. 63) with different internal machinery, and CDSS ACL 16-14 documents that this divergence was already known to the state in 2016 — the letter exists because a CDSS-convened workgroup of counties, SAWS consortia, CBOs and advocates had to reconcile inconsistent county business processes for expedited service. What Santa Clara's handbook adds that LA's ePolicy does not: it names the case-management system of record (CalSAWS) and an internal job aid by number (Chewable Byte 2023-15), it publishes two decision tables (Intake Decision Chart, Cause of Delay Chart) that decide the household's benefit start date, it names a separate Clerical function for case reassignment and a Central Support Services unit for outbound recertification mail, and it spells out the second-30-day pending mechanism (CF 377.1A) and the fault-allocation rules that follow from it. Visibility discipline: an activity is labelled staff_only only after confirming the term appears in no applicant-facing document in corpus/realworld/calfresh/raw/ (checked: CalSAWS, Chewable Byte, Intake Decision Chart, Cause of Delay Chart, clerical, journal, Statement of Facts, CF 377.1A, supervisor — none appear). The seven staff_only activities are H06 (the three-condition test for a late second appointment), H07 (Clerical reassignment and intake-task reopening), H08 (the CalSAWS appointment category that suppresses a second NOMI), H09 (journal entry), H16 (Intake Decision Chart), H17 (delay classification) and H23 (recertification delay typing). Note the pattern: in both CalFresh models the staff-only layer is overwhelmingly about classification and record-keeping that silently decides how much money the household gets and from what date — not about extra work the applicant could see and wait for."
+}

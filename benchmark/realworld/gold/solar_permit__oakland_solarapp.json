@@ -1,0 +1,1620 @@
+{
+ "model_id": "RW__solar_permit__oakland_solarapp",
+ "source": "designed",
+ "jurisdiction": "City of Oakland, CA",
+ "implementer": "City of Oakland -- Bureau of Building, Department of Planning and Building (SolarAPP+ automated path, Accela Online Permit Center), with Oakland Fire Prevention Bureau, the SolarAPP+ platform (SolarAPP Foundation / NLR), and PG&E's Electric Rule 21 interconnection desk",
+ "process": "Residential rooftop PV (and paired storage) on the SolarAPP+ automated path: instant automated plan review and same-day permit issuance, one consolidated building-and-fire inspection, then the legally separate PG&E Rule 21 interconnection track ending in a Permission to Operate letter.",
+ "gold_tier": "designed+observed",
+ "gold_date": "2026-09-15",
+ "gold_documents": [
+  {
+   "id": "S40",
+   "title": "Solar Energy Systems & Facilities | City of Oakland, CA",
+   "url": "https://www.oaklandca.gov/services/apply-for-solar-energy-systems-facilities",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_apply_for_solar_program_page.txt",
+   "tier": "declared",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "declared-tier anchor: Oakland's two-pathway solar program page; the SolarAPP+ six-step applicant sequence, eligibility restrictions, ESS/fire referral, Accela record type"
+  },
+  {
+   "id": "S42",
+   "title": "Quicker Solar Permits Now Available with SolarAPP+",
+   "url": "https://www.oaklandca.gov/news/quicker-solar-permits-now-available-with-solarapp",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_solarapp_news_release.txt",
+   "tier": "declared",
+   "kind": "other",
+   "date": "fetched 2026-09-15",
+   "role": "designed/declared: city news release giving the pre-SolarAPP+ baseline (2,375 permits, 5-7 days) and the closed initial rollout to Oakland's top five installers"
+  },
+  {
+   "id": "S44",
+   "title": "Ordinance No. 13332 C.M.S. - Chapter 15.33 Residential Rooftop Solar Requirements (final adopted text)",
+   "url": "https://oakland.legistar1.com/oakland/attachments/f7b2ee85-c839-4036-9fb3-c7d13ae67044.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_ord_15.33_finaltext.txt",
+   "tier": "designed",
+   "kind": "local_ordinance",
+   "date": "2015-10-20",
+   "role": "primary designed-tier local instrument: Ordinance No. 13332 C.M.S., OMC Ch. 15.33 -- same-day/1-3-business-day issuance, one consolidated building+fire inspection, 2-business-day inspection scheduling, written correction notice"
+  },
+  {
+   "id": "S43",
+   "title": "Agenda Report: An Ordinance Implementing AB 2188 Formalizing Streamlined Residential Solar Permitting Procedures (Matter 14-1225)",
+   "url": "https://oakland.legistar1.com/oakland/attachments/0e118da0-f8a6-47f1-b775-8360a35052ac.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_ord_15.33_staffreport.txt",
+   "tier": "designed",
+   "kind": "staff_report",
+   "date": "2015-09-15",
+   "role": "designed-tier staff report behind Ch. 15.33: the soft-cost rationale, the Bureau of Building/Fire Prevention consolidation deal, East Bay Green Corridor -> Guidebook -> AB 2188 lineage"
+  },
+  {
+   "id": "S41",
+   "title": "Application for Solar Facilities and Self Certification Checklist",
+   "url": "https://www.oaklandca.gov/files/assets/city/v/2/planning-amp-building/documents/pc/forms-and-apps/solar-system-application_self-certification-checklist.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_selfcert_checklist.txt",
+   "tier": "declared",
+   "kind": "checklist",
+   "date": "fetched 2026-09-15",
+   "role": "declared-tier fallback: Oakland's own self-certification checklist for SolarAPP+-ineligible (ground-mounted/ballasted/elevated) systems"
+  },
+  {
+   "id": "S27",
+   "title": "What types of systems are eligible for SolarAPP+ review?",
+   "url": "https://help.gosolarapp.org/article/43-what-types-of-systems-are-eligible-for-solarapp-review",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_eligibility_checklist.txt",
+   "tier": "designed",
+   "kind": "checklist",
+   "date": "fetched 2026-09-15",
+   "role": "the literal coded eligibility gate: SolarAPP+ system-eligibility thresholds and exclusions"
+  },
+  {
+   "id": "S32",
+   "title": "How is compliance checked by the portal during the permitting process?",
+   "url": "https://help.gosolarapp.org/article/110-how-is-compliance-checked-by-the-portal-during-the-permitting-process",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_compliance_checking_process.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "the coded process itself: what the portal asks, that it cross-references the CEC equipment lists, that errors are auto-rejected, and that the output IS the printed building permit"
+  },
+  {
+   "id": "S29",
+   "title": "What is SolarAPP+?",
+   "url": "https://help.gosolarapp.org/article/37-what-is-solarapp",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_faq_overview_help_article37.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "SolarAPP+ output artifacts: 'an instant permit and inspection checklist'"
+  },
+  {
+   "id": "S28",
+   "title": "How do I register my AHJ for SolarAPP+?",
+   "url": "https://help.gosolarapp.org/article/215-how-do-i-register-my-ahj-for-solarapp",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_jurisdiction_registration_guide.txt",
+   "tier": "designed",
+   "kind": "sop",
+   "date": "fetched 2026-09-15",
+   "role": "staff-facing AHJ registration/configuration guide -- the back office of adopting SolarAPP+ (integrated vs standalone, geographic/code settings, fire-review policy, Open vs Closed pilot scope and default partner contractors)"
+  },
+  {
+   "id": "S30",
+   "title": "What's on the SolarAPP+ inspection checklist?",
+   "url": "https://help.gosolarapp.org/article/89-whats-on-the-solarapp-inspection-checklist",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_inspection_checklist_overview.txt",
+   "tier": "designed",
+   "kind": "checklist",
+   "date": "fetched 2026-09-15",
+   "role": "SolarAPP+ inspection checklist structure (the artifact that replaces a plan set at inspection)"
+  },
+  {
+   "id": "S31",
+   "title": "How do inspectors access the inspection checklist?",
+   "url": "https://help.gosolarapp.org/article/57-how-do-inspectors-access-the-inspection-checklist",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_inspection_checklist_access.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "staff-facing: how inspectors obtain the current checklist version (print / desktop / QR code on the Approval Document)"
+  },
+  {
+   "id": "S33",
+   "title": "How do inspections work if no plan set is submitted?",
+   "url": "https://help.gosolarapp.org/article/51-how-do-inspections-work-if-no-planset-is-submitted",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_inspection_no_planset_approval_doc.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "staff-facing: how inspection works with no plan set; version-currency duty; pass/fail against minimum specs"
+  },
+  {
+   "id": "S2",
+   "title": "Government Code section 65850.52 (SB 379 (2022): mandatory online automated permitting platform, e.g. SolarAPP+)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.52&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_52.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2024-01-01",
+   "role": "statute: Gov. Code 65850.52 (SB 379) -- the automated-platform mandate, 38.4 kW cap, CEC compliance reporting, and the explicit carve-out of utility interconnection"
+  },
+  {
+   "id": "S1",
+   "title": "Government Code section 65850.5 (expedited, streamlined permitting for small residential rooftop solar energy systems)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.5&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_5.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2020-01-01",
+   "role": "statute: Gov. Code 65850.5 (AB 2188 / AB 754) -- checklist, deemed-complete rule, nondiscretionary approval, single consolidated inspection, correction notice"
+  },
+  {
+   "id": "S38",
+   "title": "SolarAPP+ Performance Review (2024 Data)",
+   "url": "https://docs.nlr.gov/docs/fy26osti/95050.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_performance_review_2024.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2026-01-29",
+   "role": "observed: SolarAPP+ Performance Review (2024 data, NLR) -- instant issuance vs 7-day traditional median, 37 vs 49 business days permit-to-passed-inspection, inspection failure rates and causes"
+  },
+  {
+   "id": "S37",
+   "title": "SolarAPP+ Performance Review (2023 Data)",
+   "url": "https://www.osti.gov/servlets/purl/2373099 (also https://docs.nlr.gov/docs/fy24osti/89618.pdf)",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_performance_review_2023.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2024-06-10",
+   "role": "observed: SolarAPP+ Performance Review (2023 data, NREL) -- the integrated-pathway mechanics footnote and 2023 revision volumes"
+  },
+  {
+   "id": "S34",
+   "title": "What is SolarAPP+'s impact on jurisdictions?",
+   "url": "https://help.gosolarapp.org/article/222-what-is-solarapp-impact-on-jurisdictions",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_impact_on_jurisdictions.txt",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "fetched 2026-09-15",
+   "role": "observed: SolarAPP+ pilot-era impact summary (permit review 9 days -> zero; 37% lower inspection-failure likelihood)"
+  },
+  {
+   "id": "S48b",
+   "title": "SolarTRACE Dataset (v. 9-9-2025)",
+   "url": "https://data.nlr.gov/system/files/160/1763653965-SolarTRACE%20Dataset%20v9-9-2025.xlsx",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_dataset_2025-09-09.xlsx",
+   "tier": "observed",
+   "kind": "dataset",
+   "date": "2025-09-09",
+   "role": "observed: SolarTRACE dataset (v. 2025-09-09) -- Oakland city x PG&E phase medians by year and system type, Oakland's median permit cost, inspections-required count, and the SolarAPP+ instant-permitting flags"
+  },
+  {
+   "id": "S43b",
+   "title": "Residential and Small Commercial Solar Photovoltaic and Storage Permitting, Inspection, and Interconnection Timelines: A Retrospective Review (2017-2023)",
+   "url": "https://www.osti.gov/servlets/purl/3011864 (also https://docs.nlr.gov/docs/fy25osti/...)",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_retrospective_review_2017_2023.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2024-01-01",
+   "role": "observed: SolarTRACE retrospective (2017-2023) -- national/CA total project time context and the 2023 California PTO-phase deterioration"
+  },
+  {
+   "id": "S153",
+   "title": "Net Energy Metering Program | PG&E",
+   "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_nem_program_page.txt",
+   "tier": "designed",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "PG&E declared interconnection process: two-step A&A + Standard NEM application, the 'five to 10 business days (maximum of 30)' PTO figure, automated network-capacity check, do-not-energize rule"
+  },
+  {
+   "id": "S155",
+   "title": "Contractor Resources | PG&E",
+   "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/contractor-resources.html",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_contractor_resources_page.txt",
+   "tier": "designed",
+   "kind": "faq",
+   "date": "fetched 2026-09-15",
+   "role": "PG&E contractor guidance: final-permit upload requirement, engineering-review avoidance tips, NEM meter / random post-install inspection, turn-on walkthrough"
+  },
+  {
+   "id": "S158",
+   "title": "Interconnection Checklist -- Standard NEM Application (SNEM) for YourProjects Portal",
+   "url": "https://www.pge.com/content/dam/pge/docs/about/doing-business-with-pge/interconnection-checklist.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_interconnection_readiness_checklist.pdf",
+   "tier": "designed",
+   "kind": "checklist",
+   "date": "fetched 2026-09-15",
+   "role": "PG&E Standard NEM readiness checklist: the exact documentary preconditions, including the scanned final building permit/inspection certificate"
+  },
+  {
+   "id": "S151",
+   "title": "Electric Rule No. 21 -- Generating Facility Interconnections (PG&E Tariff)",
+   "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_RULES_21.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_rule21_tariff.pdf",
+   "tier": "declared",
+   "kind": "regulation",
+   "date": "2025-08-29",
+   "role": "utility tariff: PG&E Electric Rule 21 -- the 30-business-day PTO clock and the final-electric-inspection-clearance precondition"
+  },
+  {
+   "id": "S150",
+   "title": "Electric Rule 21: Generating Facility Interconnections",
+   "url": "https://www.cpuc.ca.gov/rule21",
+   "saved_as": "corpus/realworld/solar_permit/raw/cpuc_rule21_page.txt",
+   "tier": "declared",
+   "kind": "regulation",
+   "date": "fetched 2026-09-15",
+   "role": "CPUC Rule 21 program page: D.20-09-035 interconnection timeline-reporting mandate and its exclusion of sub-30 kVA NEM systems"
+  },
+  {
+   "id": "S20",
+   "title": "California Solar Permitting Guidebook: Improving Permit Review and Approval for Small Solar Systems (4th Edition, Winter 2019, Updated)",
+   "url": "https://lci.ca.gov/wp-content/uploads/20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/guidebook_ca_solar_permitting_4th_ed.pdf (+ .txt)",
+   "tier": "designed",
+   "kind": "sop",
+   "date": "2019-02-26",
+   "role": "designed: California Solar Permitting Guidebook 4th ed. (the document 65850.5(g)(2) names) -- expedited-permitting and inspection-scheduling recommendations, and the statement that interconnection is a wholly separate track"
+  }
+ ],
+ "actors": [
+  {
+   "id": "installer",
+   "name": "California-licensed solar contractor (the de facto applicant)",
+   "dept": "private"
+  },
+  {
+   "id": "homeowner",
+   "name": "Homeowner / customer of record",
+   "dept": "--"
+  },
+  {
+   "id": "solarapp",
+   "name": "SolarAPP+ automated permitting platform",
+   "dept": "SolarAPP Foundation (built by NREL, now National Laboratory of the Rockies)"
+  },
+  {
+   "id": "oakland_permit_desk",
+   "name": "Permit desk / Online Permit Center (Accela)",
+   "dept": "Bureau of Building, Department of Planning and Building"
+  },
+  {
+   "id": "oakland_plan_reviewer",
+   "name": "Plan reviewer (standard path only; bypassed for SolarAPP+-eligible systems)",
+   "dept": "Bureau of Building"
+  },
+  {
+   "id": "oakland_inspector",
+   "name": "Building inspector (performs the consolidated building + fire inspection)",
+   "dept": "Bureau of Building"
+  },
+  {
+   "id": "oakland_fire",
+   "name": "Fire Prevention Bureau",
+   "dept": "Oakland Fire Department"
+  },
+  {
+   "id": "pge",
+   "name": "Electric Generation Interconnection desk (Standard NEM / Solar Billing Plan)",
+   "dept": "Pacific Gas and Electric Company"
+  },
+  {
+   "id": "cec",
+   "name": "California Energy Commission",
+   "dept": "state agency (recipient of SB 379 compliance and statistics reports)"
+  }
+ ],
+ "activities": [
+  {
+   "id": "A01",
+   "name": "Verify the system against the SolarAPP+ eligibility checklist",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "proposed system design",
+    "SolarAPP+ eligibility checklist",
+    "Oakland eligibility restrictions"
+   ],
+   "artifacts_out": [
+    "go/no-go eligibility determination (SolarAPP+ path vs. standard plan-review path)"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Self-check by the contractor; no published duration."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1) (checklist) + 65850.52(b)(2) (ineligible configurations need not use the platform)",
+   "evidence": [
+    {
+     "doc": "S27",
+     "quote": "Systems <= 38.4 kW provided they meet certain installation characteristics",
+     "page_or_section": "help.gosolarapp.org art. 43, Electrical Limits"
+    },
+    {
+     "doc": "S27",
+     "quote": "ground-mounted, multi-family, commercial, community/utility-scaled, and ballasted systems fall outside SolarAPP+ scope",
+     "page_or_section": "help.gosolarapp.org art. 43, Exclusions"
+    },
+    {
+     "doc": "S40",
+     "quote": "Main dwelling rooftop only; permitted, residential structures; California-licensed contractors only; no ballasted systems; battery backup allowed; no building-integrated photovoltaic systems (BIPV).",
+     "page_or_section": "Oakland program page, Pathway 1 -> Eligibility requirements"
+    },
+    {
+     "doc": "S2",
+     "quote": "A city, county, or city and county is not required to permit an application for a residential solar energy system",
+     "page_or_section": "Gov. Code 65850.52(b)(2)"
+    }
+   ]
+  },
+  {
+   "id": "A02",
+   "name": "Register on SolarAPP+ with the contractor licence and enter the system design data",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "CSLB contractor licence",
+    "component part numbers and certifications",
+    "site conditions",
+    "installation method"
+   ],
+   "artifacts_out": [
+    "SolarAPP+ application record"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Same-session data entry; the platform is available 24/7 (Performance Review 2024 fn. 4)."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(b)(1)(A)",
+   "evidence": [
+    {
+     "doc": "S32",
+     "quote": "a standard set of questions...regarding component parts and certifications, site conditions, installation methods, and other essential details",
+     "page_or_section": "help.gosolarapp.org art. 110, What is Checked"
+    },
+    {
+     "doc": "S40",
+     "quote": "Visit SolarAPP+ website (gosolarapp.org) and register with contractor license information.",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 1"
+    },
+    {
+     "doc": "S32",
+     "quote": "Applicants must upload \"specification sheets and listing certifications...as part of the SolarAPP+ permit application and verified by the inspector.\"",
+     "page_or_section": "help.gosolarapp.org art. 110, Documentation Requirements"
+    }
+   ]
+  },
+  {
+   "id": "A03",
+   "name": "Automated code-compliance review against the California Energy Commission equipment lists",
+   "actor": "solarapp",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "SolarAPP+ application record",
+    "CEC equipment lists",
+    "AHJ code/geographic configuration"
+   ],
+   "artifacts_out": [
+    "code-compliance determination"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "Median permit review duration for SolarAPP+ projects was zero days; fewer than 0.1% took longer than 30 business days."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(b)(1)(A) ('verifies code compliance ... in real time')",
+   "evidence": [
+    {
+     "doc": "S32",
+     "quote": "the California Energy Commission equipment lists to perform automated calculations that assess compliance with code requirements",
+     "page_or_section": "help.gosolarapp.org art. 110, What is Checked"
+    },
+    {
+     "doc": "S2",
+     "quote": "The platform verifies code compliance and issues permits in real time or allows the city, county, or city and county to issue permits in real time to a licensed contractor",
+     "page_or_section": "Gov. Code 65850.52(b)(1)(A)"
+    },
+    {
+     "doc": "S38",
+     "quote": "the median permit review duration for SolarAPP+ projects was zero days for both project types",
+     "page_or_section": "p. 8, sec. 3.1 AHJ Permit Review Impacts"
+    }
+   ]
+  },
+  {
+   "id": "A04",
+   "name": "Automatic rejection of application errors; contractor corrects and resubmits the design",
+   "actor": "solarapp",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "failed compliance determination"
+   ],
+   "artifacts_out": [
+    "rejection with the failing inputs identified",
+    "revised SolarAPP+ application"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No duration published. Volume proxy: 2,879 revisions on 18,906 projects across 150 AHJs in 2023 (~15%), including revisions made during inspection."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A02",
+    "reason": "automated compliance check rejects errors/inconsistencies; permit cannot issue until the application is complete and code compliant"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1) (written correction notice analogue)",
+   "evidence": [
+    {
+     "doc": "S32",
+     "quote": "application errors and inconsistencies are rejected automatically",
+     "page_or_section": "help.gosolarapp.org art. 110, Permit Issuance"
+    },
+    {
+     "doc": "S32",
+     "quote": "Permits cannot be issued until \"an application...is complete and code compliant.\"",
+     "page_or_section": "help.gosolarapp.org art. 110, Permit Issuance"
+    },
+    {
+     "doc": "S37",
+     "quote": "In 2023, 668 contractors submitted 18,906 projects and completed 2,879 revisions on these projects (including revisions during inspection) within the SolarAPP+ platform across 150 AHJs",
+     "page_or_section": "p. 9, sec. 3.1 AHJ Permit Volume"
+    }
+   ]
+  },
+  {
+   "id": "A05",
+   "name": "Issue the SolarAPP+ approval number, Approval Document and site-specific inspection checklist",
+   "actor": "solarapp",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "passing compliance determination"
+   ],
+   "artifacts_out": [
+    "SolarAPP+ approval number",
+    "Approval Document (with QR code)",
+    "site-specific inspection checklist"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "Instant for code-compliant applications."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(a)(4) ('produces code-compliant approvals')",
+   "evidence": [
+    {
+     "doc": "S29",
+     "quote": "an instant permit and inspection checklist",
+     "page_or_section": "help.gosolarapp.org art. 37, How it works"
+    },
+    {
+     "doc": "S40",
+     "quote": "Enter project details and receive approval number (via solarapp.nrel.gov).",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 2"
+    },
+    {
+     "doc": "S33",
+     "quote": "collects all the same information that would be shown in a graphical plan and presents that information in a consistent manner for all participating contractors",
+     "page_or_section": "help.gosolarapp.org art. 51, Overview"
+    }
+   ]
+  },
+  {
+   "id": "A06",
+   "name": "Apply in Oakland's Online Permit Center (Accela) using the SolarAPP+ approval number",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "SolarAPP+ approval number",
+    "site address and project details"
+   ],
+   "artifacts_out": [
+    "Oakland building permit application record (Building/Residential/SolarPV/SolarApp)"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "Oakland runs the 'integrated' pathway: SolarAPP+ issues the approval documents, Oakland's own software issues the permit instantly once fees are paid."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(2) (electronic submittal and electronic signature)",
+   "evidence": [
+    {
+     "doc": "S40",
+     "quote": "Apply through Oakland's Online Permit Center (Accela) using the approval number.",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 3"
+    },
+    {
+     "doc": "S37",
+     "quote": "The contractors then complete their payments in the AHJ's existing software, and that software issues the final permit instantly.",
+     "page_or_section": "p. 8, footnote 3 (integrated vs standalone onboarding)"
+    },
+    {
+     "doc": "S1",
+     "quote": "shall allow for electronic submittal of a permit application and associated documentation, and shall authorize the electronic signature on all forms",
+     "page_or_section": "Gov. Code 65850.5(g)(2)"
+    }
+   ]
+  },
+  {
+   "id": "A07",
+   "name": "Attach the SolarAPP+ documents and the Contractors Declaration Form",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "Approval Document",
+    "Contractors Declaration Form"
+   ],
+   "artifacts_out": [
+    "complete Oakland permit submittal"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1)",
+   "evidence": [
+    {
+     "doc": "S40",
+     "quote": "Attach SolarAPP+ documents and Contractors Declaration Form.",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 4"
+    },
+    {
+     "doc": "S28",
+     "quote": "Integrated Model: configure instant workflow in existing permitting software incl. a SolarAPP+ Approval ID field, enable document uploads",
+     "page_or_section": "help.gosolarapp.org art. 215, Integration-Specific Requirements"
+    }
+   ]
+  },
+  {
+   "id": "A08",
+   "name": "Pay the permit fee online; the building permit issues instantly and is printed by the applicant",
+   "actor": "oakland_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "complete Oakland permit submittal",
+    "fee payment"
+   ],
+   "artifacts_out": [
+    "issued Oakland building permit",
+    "inspection record"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "Oakland's own promise for the non-automated expedited path was same-day over the counter or 1-3 business days electronic; SolarAPP+ collapses this to same-day. Counter-evidence: SolarTRACE's AHJ-wide median for Oakland was 9 business days in 2023 and 10 in 2024 (all permit types pooled)."
+   },
+   "fee": {
+    "amount": 385.0,
+    "currency": "USD",
+    "when": "before permit issuance, online",
+    "source": "S48b, 'Median Permit Cost' = median cost for a residential 1-10 kW permit, Oakland city",
+    "note": "Oakland does not itemise the SolarAPP+ permit fee on its own program page; $385 is SolarTRACE's observed median residential permit cost for the AHJ, not a published Oakland fee schedule line. The SolarAPP+ platform itself is free to the AHJ."
+   },
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b) + OMC 15.33.090(A)",
+   "evidence": [
+    {
+     "doc": "S40",
+     "quote": "Pay online and receive permit.",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 5"
+    },
+    {
+     "doc": "S32",
+     "quote": "Once approved, applicants proceed to paying their fee and printing the building permit.",
+     "page_or_section": "help.gosolarapp.org art. 110, Permit Issuance"
+    },
+    {
+     "doc": "S44",
+     "quote": "shall approve the application and issue a building permit or other nondiscretionary permit on the same day for over-the-counter applications (or within 1-3 business days for electronic applications)",
+     "page_or_section": "OMC 15.33.090(A) (Ordinance No. 13332 C.M.S., Exhibit A)"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Median cost for a residential, 1-10-kW permit.",
+     "page_or_section": "Information sheet, variable description for 'Median Permit Cost'"
+    }
+   ]
+  },
+  {
+   "id": "A09",
+   "name": "Obtain Fire Prevention Bureau approval for an energy storage system above the code-bulletin threshold",
+   "actor": "oakland_fire",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "ESS capacity and siting details"
+   ],
+   "artifacts_out": [
+    "Fire Prevention Bureau approval"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(g)(1) ('in consultation with the local fire department') + 65850.5(h) (separate fire safety inspection where no delegation agreement)",
+   "evidence": [
+    {
+     "doc": "S40",
+     "quote": "Require Fire Prevention Bureau approval if capacity exceeds specified thresholds.",
+     "page_or_section": "Oakland program page, Additional requirements -> Energy Storage Systems"
+    },
+    {
+     "doc": "S28",
+     "quote": "Fire Department Review: whether fire departments review solar/battery projects, issue separate permits, conduct plan reviews, collect fees.",
+     "page_or_section": "help.gosolarapp.org art. 215, Required Configuration Steps"
+    }
+   ]
+  },
+  {
+   "id": "A10",
+   "name": "Register and configure Oakland as a SolarAPP+ AHJ (integrated model, code years, wind/seismic/snow parameters, local ordinance deviations, fire-review policy)",
+   "actor": "oakland_permit_desk",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "AHJ registration form",
+    "local code amendments",
+    "geographic hazard parameters",
+    "Accela configuration"
+   ],
+   "artifacts_out": [
+    "configured SolarAPP+ jurisdiction profile",
+    "Pilot Launch Meeting"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "SolarAPP+ markets integration with existing government software 'in under a week'; no Oakland-specific duration exists."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(b)(1)",
+   "evidence": [
+    {
+     "doc": "S28",
+     "quote": "Geographic Specifications: wind speed, seismic design category, snow load, ambient temperature ranges (Celsius); verified via dialog.",
+     "page_or_section": "help.gosolarapp.org art. 215, Required Configuration Steps"
+    },
+    {
+     "doc": "S28",
+     "quote": "Local Ordinances: deviations from state/model codes, ordinance numbers/language/hyperlinks/departmental contacts.",
+     "page_or_section": "help.gosolarapp.org art. 215, Required Configuration Steps"
+    },
+    {
+     "doc": "S28",
+     "quote": "Jurisdictions verify \"Local Settings Completion\" and \"Integration Settings Completion\" show 100% progress.",
+     "page_or_section": "help.gosolarapp.org art. 215, Final Submission"
+    }
+   ],
+   "notes": "Purely back-office. This activity is invisible from every Oakland applicant-facing page; it is recoverable only from the SolarAPP+ jurisdiction-registration guide, whose stated audience is AHJ staff. No Oakland council or administrative record of the SolarAPP+ adoption decision exists (Legistar checked and empty) -- in sharp contrast to the 2015 checklist ordinance."
+  },
+  {
+   "id": "A11",
+   "name": "Restrict the SolarAPP+ path to enrolled installers (Closed pilot scope; Oakland launched with its top five by permit volume)",
+   "actor": "oakland_permit_desk",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "installer permit-volume ranking",
+    "pilot scope setting"
+   ],
+   "artifacts_out": [
+    "list of contractors allowed to use the Oakland SolarAPP+ record type"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S42",
+     "quote": "For this initial rollout, the City of Oakland started with its top five solar installers by permit volume in the last fiscal year: Tesla, SunRun, Freedom Forever, Semper Solaris, and Kota Energy Group.",
+     "page_or_section": "Oakland news release, Initial rollout"
+    },
+    {
+     "doc": "S28",
+     "quote": "Pilot scope: Open (all verified contractors) or Closed (specified contractors + default partners: Sunrun, Tesla, Sunpower, Freedom Forever).",
+     "page_or_section": "help.gosolarapp.org art. 215, Pilot Launch Configuration"
+    }
+   ],
+   "notes": "Classified applicant_inferable rather than staff_only because a public city news release names the five installers; an excluded contractor discovers the restriction by being unable to select the SolarAPP+ record type. The configuration knob behind it (Open vs Closed scope, plus SolarAPP+'s four default partner contractors) is visible only in the staff-facing registration guide."
+  },
+  {
+   "id": "A12",
+   "name": "Install the system",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "issued building permit",
+    "approved SolarAPP+ design"
+   ],
+   "artifacts_out": [
+    "installed PV (and paired storage) system"
+   ],
+   "timing": {
+    "median_days": 16,
+    "p90_days": 68,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "California statewide median install phase (last approval -> install complete), 0-10 kW PV-only, 2023 = 16 business days; p90 is the national 2023 figure (68), no CA p90 is published."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S42",
+     "quote": "Installation practices, workmanship, and adherence to the approved design are then verified by Oakland inspectors.",
+     "page_or_section": "Oakland news release, How it works"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Business days between last approval and installation complete.",
+     "page_or_section": "Information sheet, variable description for 'Install Phase (approve-install)'"
+    }
+   ]
+  },
+  {
+   "id": "A13",
+   "name": "Request the inspection (self-scheduled through the permit portal / mobile app)",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "permit number",
+    "notice that installation is complete"
+   ],
+   "artifacts_out": [
+    "scheduled inspection appointment"
+   ],
+   "timing": {
+    "median_days": 2,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Oakland's ordinance promises scheduling within 2 business days of a request; the Guidebook recommends next business day, else within five days. Neither figure is an observed measurement."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "OMC 15.33.090(D); Gov. Code 65850.5(h)",
+   "evidence": [
+    {
+     "doc": "S44",
+     "quote": "An inspection will be scheduled within two (2) business days of a request.",
+     "page_or_section": "OMC 15.33.090(D)"
+    },
+    {
+     "doc": "S40",
+     "quote": "Schedule inspection via mobile app.",
+     "page_or_section": "Oakland program page, Pathway 1 -> Process step 6"
+    },
+    {
+     "doc": "S20",
+     "quote": "Provide for on-site inspection during the next business day after notification that the solar system has been installed. If next business day is not possible, schedule inspection within five days.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    }
+   ]
+  },
+  {
+   "id": "A14",
+   "name": "Confirm the current version of the SolarAPP+ inspection checklist before inspecting (QR code on the Approval Document)",
+   "actor": "oakland_inspector",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "Approval Document QR code",
+    "AHJ permitting software"
+   ],
+   "artifacts_out": [
+    "current site-specific inspection checklist"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S33",
+     "quote": "Before inspecting, officials must confirm they are using the current checklist version",
+     "page_or_section": "help.gosolarapp.org art. 51, The Inspection Checklist"
+    },
+    {
+     "doc": "S31",
+     "quote": "scan a QR code located on the Approval Document",
+     "page_or_section": "help.gosolarapp.org art. 57, Onsite Digital"
+    },
+    {
+     "doc": "S33",
+     "quote": "an installer could correct an installation mistake prior to the inspection and update the permit virtually through the AHJ portal",
+     "page_or_section": "help.gosolarapp.org art. 51, The Inspection Checklist"
+    }
+   ],
+   "notes": "Staff-facing: both source articles are addressed to jurisdictions and inspectors, and no Oakland or applicant-facing document mentions the version-currency duty or the QR-code mechanism. It matters because an installer can silently revise the approved design after the inspector has printed a checklist."
+  },
+  {
+   "id": "A15",
+   "name": "Perform the single consolidated building-and-fire inspection against the SolarAPP+ inspection checklist",
+   "actor": "oakland_inspector",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "site-specific inspection checklist",
+    "installed system",
+    "permit/inspection record"
+   ],
+   "artifacts_out": [
+    "pass/fail result per checklist item"
+   ],
+   "timing": {
+    "median_days": 7,
+    "p90_days": 52,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "Oakland city x PG&E, 0-10 kW PV-only, 2023 inspection phase (install complete -> last passed inspection) median = 7.0 business days (n=262 installs); PV+storage = 7.5. p90 is the national 2023 inspection-phase figure (52); no AHJ-level p90 is published."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h); OMC 15.33.090(C)-(D)",
+   "evidence": [
+    {
+     "doc": "S44",
+     "quote": "If an inspection is required, only one inspection shall be required and performed by the Bureau of Building for small residential rooftop solar energy systems eligible for expedited review.",
+     "page_or_section": "OMC 15.33.090(C)"
+    },
+    {
+     "doc": "S44",
+     "quote": "Inspections for permit requirements of the Uniform Fire Code Section 105.7 shall be performed by the Bureau of Building as part of this inspection.",
+     "page_or_section": "OMC 15.33.090(C)"
+    },
+    {
+     "doc": "S30",
+     "quote": "The purpose of the SolarAPP+ inspection checklist is to provide detailed information to the jurisdiction and the inspector on what attributes constitute a code compliant PV system.",
+     "page_or_section": "help.gosolarapp.org art. 89"
+    },
+    {
+     "doc": "S33",
+     "quote": "equipment has been installed per plan by matching the displayed site specific values to installed equipment",
+     "page_or_section": "help.gosolarapp.org art. 51, Key Differences from Traditional Inspections"
+    }
+   ]
+  },
+  {
+   "id": "A16",
+   "name": "Correct the deficiency and obtain a re-inspection",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "correction notice / failed checklist items"
+   ],
+   "artifacts_out": [
+    "corrected installation",
+    "re-inspection request"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "No duration published. Incidence: about 31% of SolarAPP+ PV-only projects failed at least one inspection in 2024 (35% of traditional); 28% for PV+storage. 79% of SolarAPP+ failures were code-compliance issues, 10% pure rescheduling."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A15",
+    "reason": "failed inspection (code compliance, installation not matching the SolarAPP+ checklist, or missing on-site checklist)"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h) (a subsequent inspection is authorized and is not bound by the timeliness rule); OMC 15.33.090(D)",
+   "evidence": [
+    {
+     "doc": "S44",
+     "quote": "If a small residential rooftop solar energy system fails inspection, subsequent inspections deemed necessary by the City are authorized",
+     "page_or_section": "OMC 15.33.090(D)"
+    },
+    {
+     "doc": "S38",
+     "quote": "About 31% of all SolarAPP+ projects failed an inspection at least once, compared to 35% of traditional projects.",
+     "page_or_section": "p. 10, sec. 3.2 AHJ Inspection Impacts"
+    },
+    {
+     "doc": "S38",
+     "quote": "About 79% of the projects cited code compliance issues as the primary failure reason.",
+     "page_or_section": "p. 10, sec. 3.2 AHJ Inspection Impacts"
+    },
+    {
+     "doc": "S34",
+     "quote": "SolarAPP+ projects are about 37% less likely to fail inspections than similar traditional projects.",
+     "page_or_section": "help.gosolarapp.org art. 222, Inspection Quality"
+    }
+   ]
+  },
+  {
+   "id": "A17",
+   "name": "Final the permit and record the final electric inspection clearance",
+   "actor": "oakland_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "passed inspection result"
+   ],
+   "artifacts_out": [
+    "finaled building permit / final electric inspection clearance with final approval date and signature"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b)",
+   "evidence": [
+    {
+     "doc": "S158",
+     "quote": "Scanned PDF of final building permit/inspection certificate indicating the following:",
+     "page_or_section": "PG&E SNEM Interconnection Checklist, Interconnection Application section"
+    },
+    {
+     "doc": "S155",
+     "quote": "Include a copy of the final building permit/inspection certificate that clearly indicates that final inspection for the solar or renewable installation has been performed.",
+     "page_or_section": "PG&E Contractor Resources -> Tips for the Interconnection application"
+    }
+   ],
+   "notes": "Oakland publishes no separate 'certificate of compliance' artifact for solar; the operative downstream artifact is the finaled permit / inspection clearance, which exists in this model because PG&E's tariff and readiness checklist demand it by name."
+  },
+  {
+   "id": "A18",
+   "name": "Submit PG&E's Agreement and Customer Authorization (A&A) form with the customer's signature",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "customer's PG&E energy statement (service agreement ID, meter ID)",
+    "rate-schedule election",
+    "system size (CEC-AC rating)"
+   ],
+   "artifacts_out": [
+    "signed A&A form authorising the contractor to act for the customer"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "PG&E sequences this before the interconnection application but does not publish a duration. Contractors commonly file it in parallel with the permit application, not after it."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13 (NEM/NBT applicants)",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "Complete the Agreement and Customer Authorization (A&A) form. It must be signed and submitted before continuing to Step 2.",
+     "page_or_section": "PG&E NEM program page, Applying for Standard NEM-required documentation, Step 1"
+    },
+    {
+     "doc": "S158",
+     "quote": "to electronically sign the Agreement and Customer Authorization and to expedite receipt of Permission to Operate letter upon PG&E approval",
+     "page_or_section": "PG&E SNEM Interconnection Checklist, Agreement and Customer Authorization section"
+    }
+   ]
+  },
+  {
+   "id": "A19",
+   "name": "Submit the Standard NEM / Solar Billing Plan interconnection application in PG&E's YourProjects portal",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "signed A&A form",
+    "CEC-approved equipment selections",
+    "single-line diagram (if the generated one is wrong)",
+    "CSLB consumer-protection documents"
+   ],
+   "artifacts_out": [
+    "PG&E interconnection request (Form 79-1151B-02)"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b (element 1: completed interconnection request)",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "By obtaining the customer's signature, the contractor is also authorized to submit the Standard Net Energy Metering (NEM) Interconnection Application (Form 79-1151B-02) on the customer's behalf",
+     "page_or_section": "PG&E NEM program page, Obtain authorization to represent a customer"
+    },
+    {
+     "doc": "S155",
+     "quote": "Clearly identify the modules being installed using the list of California Energy Commission (CEC)-approved equipment that appears in the drop-down menu of the application",
+     "page_or_section": "PG&E Contractor Resources -> Tips for the Interconnection application"
+    }
+   ]
+  },
+  {
+   "id": "A20",
+   "name": "Automated network-capacity / Rule 21 engineering screening, with a variance request or engineering review if triggered",
+   "actor": "pge",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "interconnection request data",
+    "Electric Rule 21 Engineering Decision Tree",
+    "AC Disconnect and Variance Logic"
+   ],
+   "artifacts_out": [
+    "screening result: clear, variance required, or engineering review / distribution upgrade required"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "PG&E warns only that upgrades 'may incur a cost and add additional time to the project timeline'; no duration is published for residential screening."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "CPUC Electric Rule 21 (Fast Track / supplemental review screens)",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "The PG&E online interconnection tool will perform this check automatically by utilizing the",
+     "page_or_section": "PG&E NEM program page, Check network capacity"
+    },
+    {
+     "doc": "S153",
+     "quote": "In a few cases, PG&E's engineering system review may determine that additional system upgrades are necessary to support the renewable system.",
+     "page_or_section": "PG&E NEM program page, How long does the process take? -> Note"
+    },
+    {
+     "doc": "S155",
+     "quote": "An engineering review will be prompted by putting a three-phase system on a single-phase service, or a single-phase system greater than 20 percent of the transformer nameplate",
+     "page_or_section": "PG&E Contractor Resources -> Insight on the engineering review"
+    }
+   ]
+  },
+  {
+   "id": "A21",
+   "name": "Execute the generator interconnection agreement (customer electronic signature)",
+   "actor": "homeowner",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "draft NEM/NBT generator interconnection agreement"
+   ],
+   "artifacts_out": [
+    "executed interconnection agreement"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "utility tariff",
+    "unit": "business_days",
+    "note": "No residential turnaround is published; the tariff counts the signed agreement as one of the three preconditions that start the 30-business-day PTO clock."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b (element 2: completed signed generator interconnection agreement)",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "a completed signed NEM-1, NEM-2, or NBT-1 Generator Interconnection Agreement",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S153",
+     "quote": "Use the PG&E DocuSign electronic signature functionality and route it electronically to the customer.",
+     "page_or_section": "PG&E NEM program page, Alternatively, apply using pdf download"
+    }
+   ]
+  },
+  {
+   "id": "A22",
+   "name": "Upload the finaled Oakland building permit / final electric inspection clearance to PG&E",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "finaled building permit showing generating facility address, scope of work, final approval date and signature"
+   ],
+   "artifacts_out": [
+    "complete interconnection package; the 30-business-day PTO clock starts"
+   ],
+   "timing": {
+    "median_days": 2,
+    "p90_days": 22,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "National post-inspection phase (last inspection -> PTO request) median 2 business days, p90 22, 0-10 kW PV-only, 2023. This is the load-bearing seam between the permitting track and the interconnection track."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b (element 3: evidence of final electric inspection clearance); Gov. Code 65850.52(g)",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S2",
+     "quote": "This section does not limit or otherwise affect the generator interconnection requirements and approval process",
+     "page_or_section": "Gov. Code 65850.52(g)"
+    },
+    {
+     "doc": "S20",
+     "quote": "This interconnection approval must be granted before a solar PV installation is allowed to operate and is completely separate from local government approval for the solar installation.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ]
+  },
+  {
+   "id": "A23",
+   "name": "NEM meter exchange, or a randomly selected post-installation utility inspection",
+   "actor": "pge",
+   "visibility": "applicant_inferable",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "meter record",
+    "interconnection package"
+   ],
+   "artifacts_out": [
+    "NEM-capable meter installed / post-installation inspection result"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "CPUC Electric Rule 21",
+   "evidence": [
+    {
+     "doc": "S155",
+     "quote": "Most customers installing a solar or renewable energy system will not require an on-site inspection performed by PG&E prior to receiving permission to operate.",
+     "page_or_section": "PG&E Contractor Resources -> Inform customers of possible inspections"
+    },
+    {
+     "doc": "S155",
+     "quote": "Customers who do not currently have a smart meter will need an inspection to install a NEM meter prior to PG&E issuing permission to operate.",
+     "page_or_section": "PG&E Contractor Resources -> Inform customers of possible inspections -> Note"
+    }
+   ]
+  },
+  {
+   "id": "A24",
+   "name": "Issue the Permission to Operate letter; the system may then be energised",
+   "actor": "pge",
+   "visibility": "applicant_facing",
+   "occasion": "mail",
+   "artifacts_in": [
+    "complete interconnection request",
+    "executed interconnection agreement",
+    "final electric inspection clearance"
+   ],
+   "artifacts_out": [
+    "Permission to Operate letter"
+   ],
+   "timing": {
+    "median_days": 7,
+    "p90_days": 30,
+    "source": "utility tariff",
+    "unit": "business_days",
+    "note": "PG&E's declared figure is 'typically five to 10 business days (maximum of 30 business days)' after complete contractor documentation; the tariff commits to 'normally ... not later than thirty (30) Business Days'. Observed: SolarTRACE's Oakland x PG&E final-IX-to-PTO median was 12 business days in 2023 (5 in 2022, 4 in 2024), i.e. worse than the declared typical range in the NEM 2.0->3.0 transition year."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "Once PG&E receives the completed documentation from a contractor, it typically takes five to 10 business days (maximum of 30 business days) for a project to receive permission to operate.",
+     "page_or_section": "PG&E NEM program page, How long does the process take? -> Timeline"
+    },
+    {
+     "doc": "S151",
+     "quote": "shall normally be processed not later than thirty (30) Business Days following Distribution Provider's receipt",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S153",
+     "quote": "Never turn on the solar or renewable energy system before receiving the permission to operate (PTO) letter from PG&E.",
+     "page_or_section": "PG&E NEM program page (repeated on the Contractor Resources page as a Rule 21 obligation)"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Median business days between final interconnection request to the utility and granting of permission to operate (PTO); i.e., final request to go-live date.",
+     "page_or_section": "Information sheet, variable description for 'Median Final IX to PTO'"
+    }
+   ]
+  },
+  {
+   "id": "A25",
+   "name": "Report compliance and annual residential solar permit statistics to the California Energy Commission",
+   "actor": "oakland_permit_desk",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "permit counts and system characteristics",
+    "CEC reporting guidelines"
+   ],
+   "artifacts_out": [
+    "compliance report and annual statistics filing to the CEC",
+    "self-certification when applying for CEC funds"
+   ],
+   "timing": {
+    "median_days": 365,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Annual, within one year of implementing the platform; the reporting duty sunsets 2034-06-30."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(d), (e)(1), (f)",
+   "evidence": [
+    {
+     "doc": "S2",
+     "quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+     "page_or_section": "Gov. Code 65850.52(d)"
+    },
+    {
+     "doc": "S2",
+     "quote": "shall annually report to the Energy Commission pursuant to those guidelines within one year of implementing the online, automated solar permitting system",
+     "page_or_section": "Gov. Code 65850.52(e)(1)"
+    },
+    {
+     "doc": "S43",
+     "quote": "Failure to comply with the requirements of AB 2188 may result in the City's inability to receive funds from California Energy Commission renewable energy grant and incentive programs.",
+     "page_or_section": "Oakland staff report, Background/Legislative History, p. 2"
+    }
+   ],
+   "notes": "Staff-only: no Oakland or SolarAPP+ applicant-facing page mentions the CEC compliance or statistics filings. It is the mechanism that makes an AHJ's adoption decision legible to the state, and it is the only reason a public count of SolarAPP+ permits per jurisdiction can exist at all."
+  }
+ ],
+ "edges": [
+  {
+   "from": "A01",
+   "to": "A02",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A02",
+   "to": "A03",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A03",
+   "to": "A04",
+   "type": "rework",
+   "condition": "automated check finds errors or non-compliance"
+  },
+  {
+   "from": "A04",
+   "to": "A02",
+   "type": "rework",
+   "condition": "contractor revises the design inputs and resubmits"
+  },
+  {
+   "from": "A03",
+   "to": "A05",
+   "type": "sequence",
+   "condition": "application is complete and code compliant"
+  },
+  {
+   "from": "A05",
+   "to": "A06",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A06",
+   "to": "A07",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A07",
+   "to": "A08",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A07",
+   "to": "A09",
+   "type": "optional",
+   "condition": "energy storage capacity exceeds the Fire Prevention Bureau threshold"
+  },
+  {
+   "from": "A09",
+   "to": "A08",
+   "type": "sequence",
+   "condition": "fire approval obtained"
+  },
+  {
+   "from": "A10",
+   "to": "A01",
+   "type": "handoff",
+   "condition": "Oakland must be a configured SolarAPP+ AHJ before any contractor can use the path"
+  },
+  {
+   "from": "A10",
+   "to": "A11",
+   "type": "sequence",
+   "condition": "pilot scope is set during configuration"
+  },
+  {
+   "from": "A11",
+   "to": "A02",
+   "type": "handoff",
+   "condition": "only enrolled contractors can submit"
+  },
+  {
+   "from": "A08",
+   "to": "A12",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A12",
+   "to": "A13",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A13",
+   "to": "A14",
+   "type": "handoff",
+   "condition": "inspector prepares for the appointment"
+  },
+  {
+   "from": "A14",
+   "to": "A15",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A13",
+   "to": "A15",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A15",
+   "to": "A16",
+   "type": "rework",
+   "condition": "inspection failed"
+  },
+  {
+   "from": "A16",
+   "to": "A15",
+   "type": "rework",
+   "condition": "re-inspection"
+  },
+  {
+   "from": "A15",
+   "to": "A17",
+   "type": "sequence",
+   "condition": "inspection passed"
+  },
+  {
+   "from": "A08",
+   "to": "A18",
+   "type": "optional",
+   "condition": "contractor may open the PG&E interconnection track at any time; Rule 21 does not require the permit first"
+  },
+  {
+   "from": "A18",
+   "to": "A19",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A19",
+   "to": "A20",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A20",
+   "to": "A21",
+   "type": "sequence",
+   "condition": "screening clear or variance resolved"
+  },
+  {
+   "from": "A17",
+   "to": "A22",
+   "type": "handoff",
+   "condition": "finaled permit becomes available to the interconnection track"
+  },
+  {
+   "from": "A21",
+   "to": "A22",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A22",
+   "to": "A23",
+   "type": "optional",
+   "condition": "no smart meter, or the application is randomly selected for post-installation inspection"
+  },
+  {
+   "from": "A23",
+   "to": "A24",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A22",
+   "to": "A24",
+   "type": "sequence",
+   "condition": "all three Rule 21 D.13.b preconditions received"
+  },
+  {
+   "from": "A24",
+   "to": "A25",
+   "type": "handoff",
+   "condition": "permit counted in the annual CEC filing"
+  }
+ ],
+ "terminal_artifact": "Permission to Operate letter",
+ "denial_rate": null,
+ "denial_rate_note": "Structurally near zero and not published. Gov. Code 65850.5(b) makes approval nondiscretionary -- review is 'limited to the building official's review of whether it meets all health and safety requirements' -- so the only denial route is a substantial-evidence finding of specific, adverse impact that forces a use permit. On the SolarAPP+ path the analogue of denial is automated rejection of a non-compliant application (A04), which is a rework loop, not a decision. Neither Oakland nor SolarAPP+ publishes a rejection rate.",
+ "timing_gold": {
+  "end_to_end_median_days": 37,
+  "end_to_end_scope": "permit submission -> final passed inspection, business days, all SolarAPP+ permits, 29 AHJs nationally (2024). This is the only end-to-end figure that isolates the SolarAPP+ path; it stops short of PTO.",
+  "p90_days": null,
+  "end_to_end_to_pto_median_days": 72,
+  "end_to_end_to_pto_p90_days": 181,
+  "end_to_end_to_pto_scope": "permit submission -> PTO approved, business days, 0-10 kW PV-only, 2023, national, all permitting paths pooled (SolarTRACE n=56,582). No SolarAPP+-only or Oakland-only permit-to-PTO figure exists.",
+  "source": "Performance Review 2024 (S38) for the SolarAPP+ path; SolarTRACE 2025-09-09 dataset (S48b) for Oakland x PG&E phase medians and for the permit-to-PTO total; PG&E Rule 21 tariff and NEM page (S151, S153) for the interconnection commitment.",
+  "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits",
+  "per_phase": {
+   "permit": {
+    "median_days": 0,
+    "p90_days": null,
+    "unit": "business_days",
+    "source": "Performance Review 2024",
+    "note": "Instant issuance for code-compliant applications; median SolarAPP+ permit review duration = 0 days, versus a 7-day median for traditional permits in the same 33 AHJs. Oakland's own pre-SolarAPP+ baseline was an average of 5-7 days across 2,375 permits in 2022, and the city advertises a 5-day average saving. CONFLICT: SolarTRACE's Oakland-city AHJ-wide median permit time was 9 business days in 2023 and 10 in 2024 for 0-10 kW PV-only, because SolarTRACE pools all permit types at the AHJ level rather than isolating the SolarAPP+ record type (Oakland's 2024 PV+storage figure is 0.0)."
+   },
+   "inspection": {
+    "median_days": 7,
+    "p90_days": 52,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "Oakland city x PG&E, 0-10 kW PV-only, 2023: install complete -> last passed inspection median 7.0 business days (n=262), down from 20.5 in 2022; PV+storage 7.5. p90 is the national 2023 inspection-phase value; no AHJ-level percentile is published. Oakland's ordinance promises scheduling within 2 business days of a request and exactly one consolidated inspection; SolarTRACE independently records 'Number of Inspections Required' = 1 for Oakland."
+   },
+   "interconnection": {
+    "median_days": 12,
+    "p90_days": 48,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "Oakland city x PG&E, 0-10 kW PV-only, 2023: final interconnection request -> PTO median 12.0 business days (5.0 in 2022, 4.0 in 2024). PG&E's declared figure is 5-10 business days typical, maximum 30; its tariff says 'normally not later than thirty (30) Business Days'. p90 is the national 2023 final-interconnection-phase value (48), which more than doubled from 2022 (30) -- the SolarTRACE retrospective attributes the national deterioration mainly to California's 2023 NEM 2.0 -> NEM 3.0 surge."
+   }
+  },
+  "additional_verified_quotes": [
+   {
+    "doc": "S38",
+    "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits"
+   },
+   {
+    "doc": "S38",
+    "quote": "nearly all SolarAPP+ permits were issued the same day as the application, compared to a median duration of 7 days for traditional permits"
+   },
+   {
+    "doc": "S42",
+    "quote": "In 2022, the City of Oakland issued 2,375 solar permits, taking an average of 5-7 days to issue."
+   },
+   {
+    "doc": "S43b",
+    "quote": "the recent uptick in final interconnection/PTO timelines is primarily due to a significant increase in 2023 timelines in California"
+   },
+   {
+    "doc": "S48b",
+    "quote": "The number of different inspections required by the AHJ, which may include building, electrical, fire, and rough-in inspections."
+   }
+  ]
+ },
+ "known_gaps": [
+  "No record of Oakland's decision to adopt SolarAPP+ exists. Legistar/Granicus were searched and returned nothing; the 2015 checklist ordinance (Ordinance No. 13332 C.M.S.) has a full staff report and council vote, but the SolarAPP+ rollout appears to have been pure administrative action. A10 and A11 are therefore reconstructed from SolarAPP+'s generic AHJ-registration guide, not from any Oakland document.",
+  "The Oakland SolarAPP+ permit fee is not published. Oakland's program page says 'Pay online and receive permit' without an amount, and Sacramento County's page likewise states a SolarAPP+/NREL processing fee exists without quantifying it. The $385 in A08 is SolarTRACE's observed median residential 1-10 kW permit cost for the Oakland AHJ, not an Oakland fee-schedule line; fee error should be scored against it only with that caveat.",
+  "SolarTRACE's Oakland timing rows cannot separate SolarAPP+ permits from traditional ones -- its AHJ-level medians pool both. That is why Oakland's SolarTRACE permit median (9 business days in 2023) contradicts the platform-level median of 0. The two sources measure different populations, and no Oakland-specific SolarAPP+-only permit-time figure exists in any source.",
+  "2024 SolarTRACE cells for Oakland rest on 14 PV-only installs and 31 PV+storage installs, far below the 2022-2023 volumes; the dataset was completed 2025-09-09 and 2024 coverage is plainly partial. The 2024 column should not be read as a trend.",
+  "Oakland's system-size ceiling is stated inconsistently across its own documents: the news release says 'standard residential systems under 15kW DC', SolarAPP+'s eligibility article says <= 38.4 kW, Gov. Code 65850.52 caps the mandate at 38.4 kW AC, and Gov. Code 65850.5's checklist definition caps at 10 kW AC. Which number Oakland's Accela record type actually enforces is not recoverable.",
+  "PG&E's residential interconnection back office is invisible. The tariff gives a 30-business-day outer bound and the NEM page a 5-10-day typical range, but nothing documents the internal steps between receipt and PTO. CPUC Decision D.20-09-035 requires quarterly timeline reporting on 19 metrics, yet the CPUC's own page states it 'did not mandate reporting for net energy metering (NEM) systems smaller than 30 kVA' -- exactly the population in this model.",
+  "A14's premise -- that an installer can revise an approved design after an inspector has printed the checklist -- is documented only as a SolarAPP+ platform capability. Whether Oakland inspectors actually re-scan the QR code in the field is unknown, and the failure mode it guards against (inspecting against a superseded checklist) would be invisible in every dataset here.",
+  "Oakland runs a second, non-SolarAPP+ path for ground-mounted, ballasted, elevated, BIPV and commercial systems, gated on its own self-certification checklist (S41: structural calculations, attachment-point weight, WKS1 referral, Planning Code 17.120.050 noise standards) plus a Green Halo recycling plan. That path is out of scope for this model and is the natural sibling-disentanglement distractor for scoring."
+ ],
+ "notes": "Why this is the gold for Oakland: the SolarAPP+ platform documentation IS the coded process, so the 'designed tier' here is unusually literal -- A03's compliance engine, A05's Approval Document and A15's site-specific checklist are software outputs, not staff behaviours, and help.gosolarapp.org article 110 states plainly that there is no separate approval artifact because 'applicants proceed to paying their fee and printing the building permit.' Three structural points a solver must get right. (1) The permit track and the interconnection track are legally distinct: Gov. Code 65850.52(g) preserves interconnection untouched, and A22 (uploading the finaled permit to PG&E) is the single load-bearing seam -- PG&E's tariff will not start its 30-business-day clock without the AHJ's final electric inspection clearance, so instant permitting cannot by itself deliver a fast PTO. (2) Oakland's 2015 ordinance already encoded most of what SolarAPP+ automates (same-day OTC or 1-3 business days, one consolidated building+fire inspection, 2-business-day inspection scheduling, written correction notice), so the SolarAPP+ delta in Oakland is smaller than the national SolarAPP+-vs-traditional contrast suggests -- the city's own claim is 5 days saved off a 5-7 day baseline. (3) The three staff_only activities (A10 AHJ configuration, A14 checklist-version currency, A25 CEC reporting) all come from documents whose audience is staff, and none has any Oakland-published counterpart. gold_tier is 'designed+observed' because the graph is designed-tier while every timing figure is records-derived (SolarTRACE project-level data, NLR Performance Review AHJ submissions); per-tier scoring should treat the process model as designed-only. Document ids are the corpus source_ids from corpus/realworld/solar_permit/sources.json, so every evidence span is traceable to a fetched file.",
+ "quote_verification": "All 76 evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions in corpus/realworld/solar_permit/, after Unicode NFKC normalisation and folding of curly quotes/apostrophes, en/em dashes, non-breaking spaces, ellipses and PDF ligatures (fi/fl/ff), and after collapsing all whitespace (PDF text extractions wrap mid-sentence, so quotes are contiguous in the normalised stream rather than on one line of the .txt). Quotes from the PG&E Rule 21 tariff additionally required stripping the right-margin change bars that pdftotext emits at end of line. Quotes attributed to S48b are cell text read from the SolarTRACE .xlsx (Information sheet variable descriptions) via openpyxl, not from a .txt. Every quote is 40 words or fewer. 0 unverified quotes."
+}

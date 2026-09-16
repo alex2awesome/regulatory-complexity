@@ -1,0 +1,1455 @@
+{
+  "model_id": "RW__adu_permit__city_of_san_jose",
+  "source": "designed",
+  "jurisdiction": "City of San José, CA",
+  "implementer": "City of San José — Department of Planning, Building and Code Enforcement (Development Services Permit Center: Building Division, Planning Division, Fire Protection Division; ADU Ally team)",
+  "process": "Obtaining a building permit for a NEW accessory dwelling unit or JADU under the state ministerial-approval statute (Gov. Code §§ 66314-66331), through San José's six declared steps and its internal three-phase SJePlans review pipeline, plus the preapproved-ADU same-day alternative track and the back-office annual reporting that attaches to every permit.",
+  "scope_boundary": "NOT the AB 2533 unpermitted-unit amnesty program (Gov. Code § 66311.7; see corpus/ab2533/ and LADBS Information Bulletin P/BC 2026-161). NOT tiny homes on wheels (San José Bulletin 291) and NOT multifamily-lot ADUs (routed to the ADU Ally team, a different path).",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "ADU Project Process (City of San José, Development Services Permit Center — Accessory Dwelling Units)",
+      "url": "https://www.sanjoseca.gov/business/development-services-permit-center/accessory-dwelling-units-adus/adu-plan-review-permit-process",
+      "saved_as": "corpus/realworld/adu_permit/raw/S6_sj_adu_plan_review_permit_process.txt",
+      "tier": "declared",
+      "date": "Wayback capture 2026-01-14",
+      "role": "the spine: six declared applicant steps plus the internal three-phase SJePlans pipeline (Prescreen Review → Plan Review → Issuance Review). EXTRACTION NOTE: saved as Wayback-sourced markdown, so inline link syntax and ** bold markers interrupt some sentences; quotes here are contiguous after stripping markdown link targets."
+    },
+    {
+      "id": "D2",
+      "title": "Preapproved ADUs (City of San José)",
+      "url": "https://www.sanjoseca.gov/business/development-services-permit-center/accessory-dwelling-units-adus/preapproved-adus",
+      "saved_as": "corpus/realworld/adu_permit/raw/S7_sj_preapproved_adus.txt",
+      "tier": "declared",
+      "date": "Wayback capture 2026-06-03",
+      "role": "the alternative track: dedicated review team, same-day issuance claim, and the vendor plan-preapproval pipeline (approved vs. 'currently under review')"
+    },
+    {
+      "id": "D3",
+      "title": "Plan Review Time Frames (City of San José Building Division, Standard Plan Review)",
+      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/building-permit-services/standard-plan-review-service/plan-review-time-frames",
+      "saved_as": "corpus/realworld/adu_permit/raw/S8_sj_plan_review_time_frames.txt",
+      "tier": "declared",
+      "date": "last updated 2026-02-13",
+      "role": "the only published per-discipline working-day targets — and the gold's sharpest absence: the table has no ADU row and explicitly excludes non-Standard-Plan-Review services"
+    },
+    {
+      "id": "D4",
+      "title": "ADU Permit Activity Dashboards (City of San José, Planning Division — Development Data)",
+      "url": "https://www.sanjoseca.gov/your-government/departments-offices/planning-building-code-enforcement/planning-division/development-data/permit-statistics-reports/adu-permit-activity",
+      "saved_as": "corpus/realworld/adu_permit/raw/S9_sj_adu_permit_activity_dashboards.txt",
+      "tier": "observed",
+      "date": "Wayback capture 2026-06-03",
+      "role": "observed-tier volume (submitted / permitted / completed by year and quarter, by size, by council district) — but only as embedded PowerBI reports whose numbers are not scrapable from the page"
+    },
+    {
+      "id": "D5",
+      "title": "Council Memorandum — Annual Progress Report on the Implementation of the San José General Plan Housing Element (calendar year 2025), File 26-284",
+      "url": "https://sanjose.legistar.com/View.ashx?GUID=01D2B6DC-DA99-4ABB-B7C2-101BB24D5E8C&ID=15313175&M=F",
+      "saved_as": "corpus/realworld/adu_permit/raw/S10_sj_apr2025_housing_element_memo.txt",
+      "tier": "designed",
+      "date": "2026-03-02",
+      "role": "primary designed-tier source: observed permit and application counts, plus the back-office affordability-survey methodology behind the numbers San José reports to HCD/ABAG"
+    },
+    {
+      "id": "D6",
+      "title": "Staff Report PP25-001 — Amendment to Title 19 (Subdivisions) and Various Sections of Title 20 (Zoning Code) of the San José Municipal Code for Compliance with State Law and to Streamline Regulations, File 25-1336",
+      "url": "https://sanjose.legistar.com/View.ashx?G=920296E4-80BE-4CA2-A78F-32C5EFCF78AF&GUID=1078659B-5588-4BA4-94E6-2739A38893BA&ID=15013227&M=F",
+      "saved_as": "corpus/realworld/adu_permit/raw/S11_sj_pp25-001_staff_report.txt",
+      "tier": "designed",
+      "date": "2025-12-05 (Planning Commission hearing 2025-11-19)",
+      "role": "the local-rule layer: which San José Municipal Code sections carry the ADU standards (Ch. 20.80 Parts 2.75/2.76, § 20.80.176 'Streamlined Approval', Ch. 20.195 'Ministerial Approvals') and how a new state bill cascades into a local amendment"
+    },
+    {
+      "id": "D7",
+      "title": "Cal. Gov. Code § 66317 (ADU approvals; as amended by Stats. 2025 Ch. 520 (SB 543), effective 2026-01-01)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=66317&lawCode=GOV",
+      "saved_as": "corpus/realworld/adu_permit/raw/S1_govcode_66317.txt",
+      "tier": "statute",
+      "date": "operative 2026-01-01",
+      "role": "the mandated skeleton: 15-business-day completeness determination with deemed-complete backstop, 60-day ministerial approve-or-deny with deemed-approved backstop, itemised denial, tolling, 60-business-day appeal"
+    },
+    {
+      "id": "D8",
+      "title": "Accessory Dwelling Unit Handbook (California Department of Housing and Community Development, March 2026 update)",
+      "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+      "saved_as": "corpus/realworld/adu_permit/raw/S5_hcd_adu_handbook_2026-03.txt",
+      "tier": "designed",
+      "date": "2026-03",
+      "role": "the state's own reading of the mandated skeleton, including the Certificate of Occupancy requirement that San José's own process page never mentions"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant / property owner (or the designated ePlan Applicant)",
+      "dept": "—"
+    },
+    {
+      "id": "adu_ally",
+      "name": "ADU Ally team (Permit Center concierge)",
+      "dept": "Planning, Building and Code Enforcement"
+    },
+    {
+      "id": "planner",
+      "name": "City planner / Supervising Planner",
+      "dept": "Planning Division"
+    },
+    {
+      "id": "permit_specialist",
+      "name": "City Permit Specialist",
+      "dept": "Development Services Permit Center"
+    },
+    {
+      "id": "plan_reviewer",
+      "name": "Plan reviewer (architectural, structural, mechanical, electrical, plumbing)",
+      "dept": "Building Division"
+    },
+    {
+      "id": "fire",
+      "name": "Fire Protection Division reviewer",
+      "dept": "San José Fire Department"
+    },
+    {
+      "id": "inspector",
+      "name": "Building inspector",
+      "dept": "Building Division"
+    },
+    {
+      "id": "env_services",
+      "name": "Construction & Demolition Diversion program staff",
+      "dept": "Environmental Services Department"
+    },
+    {
+      "id": "preapproved_team",
+      "name": "Dedicated Preapproved ADU review team",
+      "dept": "Development Services Permit Center"
+    },
+    {
+      "id": "housing_staff",
+      "name": "Housing / Planning staff preparing the Annual Progress Report",
+      "dept": "Housing Department and Planning Division"
+    },
+    {
+      "id": "water_company",
+      "name": "Water company (third party)",
+      "dept": "utility"
+    },
+    {
+      "id": "county_recorder",
+      "name": "County of Santa Clara Recorder's Office",
+      "dept": "county"
+    },
+    {
+      "id": "hcd_abag",
+      "name": "California HCD and ABAG (state/regional reporting recipients)",
+      "dept": "state / regional"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Determine which ADU track applies (tiny home on wheels, JADU, preapproved program, multifamily lot)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "project description"
+      ],
+      "artifacts_out": [
+        "track determination (or an e-mail to the ADU Ally team)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Is your ADU project part of a multifamily lot (not Single-family residential lot or duplex lot)?",
+          "page_or_section": "ADU Project Process → First:"
+        },
+        {
+          "doc": "D1",
+          "quote": "If you have questions about the ADU permitting process, please reach out to our ADU",
+          "page_or_section": "CONTACT → ADU Ally, adu.ally@sanjoseca.gov, 408-793-5302"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Complete the ADU Universal Checklist to confirm the property is eligible",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "ADU Universal Checklist"
+      ],
+      "artifacts_out": [
+        "completed checklist",
+        "eligibility confirmation"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "San José Municipal Code Ch. 20.80 Part 2.75 (Accessory Dwelling Units)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Please complete the checklist to see if you are eligible to have an ADU permitted on your property.",
+          "page_or_section": "STEP # 1"
+        },
+        {
+          "doc": "D1",
+          "quote": "It is highly recommended that homeowners, designers, and construction professionals complete the ADU Universal Checklist to understand the key considerations that affect an ADU project.",
+          "page_or_section": "STEP # 1"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Get basic zoning information by phone or e-mail from the Planning Division (no plan review)",
+      "actor": "planner",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "property address and question"
+      ],
+      "artifacts_out": [
+        "verbal or e-mail zoning information"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "call 408-535-3555 and request to speak with a planner during the Planning Division’s",
+          "page_or_section": "STEP # 1 → Get Basic Feedback from a City Planner"
+        },
+        {
+          "doc": "D1",
+          "quote": "This service does not include plan review.",
+          "page_or_section": "STEP # 1 → Get Basic Feedback from a City Planner"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Request a preliminary virtual meeting with a planner for project-specific plan feedback",
+      "actor": "planner",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "completed ADU Universal Checklist",
+        "property address",
+        "proposed site plan, floor plan and elevations",
+        "lot measurements",
+        "City-allowance vs. State-allowance election"
+      ],
+      "artifacts_out": [
+        "preliminary planner feedback",
+        "invoice at the Planning hourly rate"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 398,
+        "unit": "per hour",
+        "minimum": "30 minutes",
+        "when": "invoiced after the preliminary meeting",
+        "note": "the only fee San José publishes as a rate rather than a schedule amount anywhere in this process"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The preliminary meeting will be invoiced at the Planning Division’s hourly rate of $398/hour, with a 30-minute minimum.",
+          "page_or_section": "STEP # 1 → Get Basic Feedback from a City Planner"
+        },
+        {
+          "doc": "D1",
+          "quote": "Identify if you are choosing either the City allowance or State allowance option",
+          "page_or_section": "STEP # 1, required contents of the preliminary-meeting request"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Prepare the ADU construction plans against the named bulletins and directives",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Bulletin 211 ADU Building Plan Requirements",
+        "Building Division Directive #B-007 / #B-002 (detached ADU fire separation distance)",
+        "Bulletin 213 ADU Inspection Checklist",
+        "Building Division Note 34 (JADUs)",
+        "Fire Requirements Checklist for ADUs"
+      ],
+      "artifacts_out": [
+        "ADU construction plan set",
+        "Title 24 energy calculations and CalGreen checklist",
+        "geotechnical investigation report as applicable"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66314 (objective standards only)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "We recommend working with an experienced professional to prepare your construction plans. ADU plans involve many technical codes",
+          "page_or_section": "STEP # 2"
+        },
+        {
+          "doc": "D1",
+          "quote": "Reading these documents can help you avoid the frustrating and costly experience of having to alter your design after you already invested in creating plans:",
+          "page_or_section": "STEP # 2"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Obtain the water-flow letter and hydrant map from the water company",
+      "actor": "water_company",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "request to the water company"
+      ],
+      "artifacts_out": [
+        "letter stating flow data at the hydrant closest to the lot",
+        "hydrant map"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published; the City identifies this as a recurring delay driver and tells applicants to start it early"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "A letter from your Water Company stating flow data at the hydrant closest to your lot;",
+          "page_or_section": "STEP # 4, required submittal package contents"
+        },
+        {
+          "doc": "D1",
+          "quote": "Projects are often delayed because applicants do not get this letter.",
+          "page_or_section": "STEP # 4 (followed by 'Do this early in your project to reduce delays.')"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Run the Application Wizard and create an SJPermits.org account",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "project scope"
+      ],
+      "artifacts_out": [
+        "identified permitting path",
+        "SJPermits.org account",
+        "application record"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "STEP # 3: Start your online application",
+          "page_or_section": "STEP # 3 heading"
+        },
+        {
+          "doc": "D1",
+          "quote": "to determine the right permitting path",
+          "page_or_section": "STEP # 3 (Application Wizard)"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Designate the \"ePlan Applicant\" who alone may upload documents and answer plan review comments",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "property address",
+        "scope of work"
+      ],
+      "artifacts_out": [
+        "designated ePlan Applicant",
+        "auto-emailed SJePlans account setup instructions"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "You will choose the project property address, provide a scope of work, and assign the “ePlan Applicant” who will be responsible for uploading all plans and documents and responding to all plan review comments.",
+          "page_or_section": "STEP # 3"
+        },
+        {
+          "doc": "D1",
+          "quote": "Only the ePlan Applicant can upload documents to",
+          "page_or_section": "STEP # 4"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Upload the complete ADU submittal package to SJePlans",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "ADU plan set",
+        "Title 24 / CalGreen checklists",
+        "geotechnical report as applicable",
+        "water-flow letter and hydrant map",
+        "Form 302 Address Assignment Request (owner-signed)",
+        "Form 312 ADU Property Owner Declaration (owner-signed) or Form 313 JADU Deed Restriction Agreement"
+      ],
+      "artifacts_out": [
+        "submitted SJePlans package"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66317(a)(2)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Before you upload, have your complete ADU Submittal Package ready.",
+          "page_or_section": "STEP # 4"
+        },
+        {
+          "doc": "D1",
+          "quote": "City staff will NOT process inaccurate or incomplete plans!",
+          "page_or_section": "STEP # 4"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Prescreen Review: a City Permit Specialist confirms the application is ready for plan review and issues the initial plan review invoice",
+      "actor": "permit_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "submitted SJePlans package"
+      ],
+      "artifacts_out": [
+        "ready-for-review determination",
+        "initial plan review invoice"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "San José publishes no prescreen turnaround; the statutory ceiling is 15 business days for a written completeness determination under Gov. Code § 66317(a)(2)(A), which D1 never mentions"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66317(a)(2)(A)-(B)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "a City Permit Specialist will confirm that the application is ready for plan review and issue an invoice for the initial plan review fees",
+          "page_or_section": "STEP # 5 → Prescreen Review"
+        },
+        {
+          "doc": "D1",
+          "quote": "The plan review process in SJePlans has three phases:",
+          "page_or_section": "STEP # 5: Submittal Process"
+        },
+        {
+          "doc": "D7",
+          "quote": "shall determine whether an application to create or serve an accessory dwelling unit is complete and provide written notice of this determination to the applicant not later than 15 business days",
+          "page_or_section": "§ 66317(a)(2)(A) — the mandated element this phase implements"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Pay the initial plan review invoice; the project is routed to a plan reviewer",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "initial plan review invoice"
+      ],
+      "artifacts_out": [
+        "paid initial plan review fee",
+        "project assigned to a plan reviewer"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "after Prescreen Review, before plan review begins",
+        "note": "San José splits the fee in two — an initial plan review invoice here and 'residual plan review fees' at Issuance Review (A15) — so an applicant cannot know the total at submittal. No ADU fee amount is published in any captured source."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66317(a)(3) (a local agency may charge a fee to reimburse implementation costs)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Upon payment,, the project will be routed to a plan reviewer.",
+          "page_or_section": "STEP # 5 → Prescreen Review (the doubled comma is in the source)"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "Sequence the concurrent building and fire reviews and set their per-discipline due dates",
+      "actor": "permit_specialist",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "assigned project",
+        "discipline routing"
+      ],
+      "artifacts_out": [
+        "per-discipline review assignments and internal due dates"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "D3 publishes first-round and subsequent-round working-day targets per discipline (e.g. new single-family residence: 20 / 10 architectural-structural, 10 / 5 MEP, 10 / 5 fire) but has NO ADU row and no combined cross-discipline target, and explicitly excludes services other than Standard Plan Review — so the schedule actually applied to an ADU is unpublished"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The time frames in the table pertain only to projects submitted through the",
+          "page_or_section": "Plan Review Time Frames → scope disclaimer (Standard Plan Review only)"
+        },
+        {
+          "doc": "D3",
+          "quote": "The time frames in the table reflect the typical time required by the Fire Protection Division staff, regardless of the submittal service used.",
+          "page_or_section": "Plan Review Time Frames → fire protection and hazmat"
+        },
+        {
+          "doc": "D3",
+          "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+          "page_or_section": "TABLE A, SINGLE-FAMILY/DUPLEX PROJECTS — the nearest analogue row; there is no ADU row"
+        }
+      ],
+      "visibility_check": "No San José document in corpus/realworld/adu_permit/raw/ states what review clock an ADU project runs on. D1 describes the three phases with no durations at all; D3 gives durations but excludes the ADU track and omits an ADU row. The activity must occur (multiple disciplines are reviewed) but its parameters are invisible. Hence staff_only."
+    },
+    {
+      "id": "A13",
+      "name": "Plan Review: reviewers examine the plans and issue comments in SJePlans",
+      "actor": "plan_reviewer",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "assigned plan set"
+      ],
+      "artifacts_out": [
+        "plan review comments in SJePlans",
+        "e-mail notification to the ePlan Applicant"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "no measured cycle time for ADUs is published by San José; the statutory ceiling is 60 calendar days from a complete application to approve or deny, with deemed approval if missed (Gov. Code § 66317(a)(3))"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A14",
+        "reason": "comments require a response and, if needed, a resubmittal"
+      },
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66317(a)(1), (a)(3), (b)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "All communication is via SJePlans and notifications will be sent to the ePlan applicant’s email.",
+          "page_or_section": "STEP # 5 → Plan Review"
+        },
+        {
+          "doc": "D7",
+          "quote": "The permitting agency shall either approve or deny the application to create or serve an accessory dwelling unit within 60 days from the date the permitting agency receives a completed application",
+          "page_or_section": "§ 66317(a)(3)"
+        },
+        {
+          "doc": "D8",
+          "quote": "Yes. If an applicant would like to request a delay on their application for any reason, they may do so. The 60-day period to approve or deny the permit shall be tolled for the period of the delay.",
+          "page_or_section": "HCD Handbook FAQ, 'Can an applicant delay the 60-day timeline?'"
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "ePlan Applicant responds to comments and resubmits plans for each cycle of review",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "plan review comments"
+      ],
+      "artifacts_out": [
+        "comment responses",
+        "resubmitted plan set"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Gov. Code § 66317(a)(2)(C)-(E)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The ePlan Applicant will respond to the Plan Reviewer's comments in SJePlans and, if needed, resubmit plans through SJePlans for each cycle of review.",
+          "page_or_section": "STEP # 5 → Plan Review"
+        },
+        {
+          "doc": "D7",
+          "quote": "the permitting agency shall not require the application to include an item that was not included in the list required by subparagraph (B)",
+          "page_or_section": "§ 66317(a)(2)(D) — the no-new-demands rule on resubmittal"
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Issuance Review after plans are approved, conditioned on payment of all final invoices",
+      "actor": "permit_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "approved plans"
+      ],
+      "artifacts_out": [
+        "permit issuance review",
+        "final invoices"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "After plans are approved, a permit issuance review will be conducted once the following final invoices are paid:",
+          "page_or_section": "STEP # 5 → Issuance Review"
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Pay residual plan review fees, inspection fees, the building permit application fee, school fees and parkland fees",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "final invoices",
+        "Bulletin 310 Building Permit Application Fee",
+        "Bulletin 311 Owner-Builder Acknowledgement (as applicable)",
+        "School Fees",
+        "Parkland Fees"
+      ],
+      "artifacts_out": [
+        "all fees paid"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "at Issuance Review, after plan approval",
+        "components": [
+          "residual plan review fees (including taxes)",
+          "inspection fees (including taxes)",
+          "building permit application fee (Bulletin 310)",
+          "school fees",
+          "parkland fees"
+        ],
+        "note": "Five separate fee components land only after plan approval. No amount for any of them is published in any Wave 1 source, so fee error is unscoreable for San José."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Residual plan review fees (including taxes)",
+          "page_or_section": "STEP # 5 → Issuance Review, final invoice list"
+        },
+        {
+          "doc": "D1",
+          "quote": "Bulletin 311 – Owner-Builder Acknowledgement and Verification of Information Form",
+          "page_or_section": "STEP # 5 → Issuance Review, final invoice list"
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Building permit issued; permit card and approved plans released through SJePlans",
+      "actor": "permit_specialist",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "completed issuance review",
+        "all fees paid"
+      ],
+      "artifacts_out": [
+        "ADU building permit",
+        "job permit card",
+        "approved plans"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 66317(a)(1) (ministerial, no discretionary review or hearing)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "building permit will be issued. You will be notified via email that your permit card and approved plans are available through SJePlans.",
+          "page_or_section": "STEP # 5 → Issuance Review"
+        },
+        {
+          "doc": "D7",
+          "quote": "A permit application for an accessory dwelling unit shall be considered and approved ministerially without discretionary review or a hearing",
+          "page_or_section": "§ 66317(a)(1)"
+        }
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Record the JADU deed restriction with the County Recorder via the assigned City Supervising Planner (wet signature required)",
+      "actor": "county_recorder",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Form 313 JADU Deed Restriction Agreement, wet-signed"
+      ],
+      "artifacts_out": [
+        "recorded JADU deed restriction"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Per County of Santa Clara County Recorder's Office, the JADU Deed Restriction Agreement is required to have a wet signature.",
+          "page_or_section": "STEP # 4, Form 313 note"
+        },
+        {
+          "doc": "D1",
+          "quote": "mail it to the address on the Agreement with attention to your assigned City Supervising Planner.",
+          "page_or_section": "STEP # 4, Form 313 note"
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Assign a City Supervising Planner to the project",
+      "actor": "planner",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "application record"
+      ],
+      "artifacts_out": [
+        "assigned Supervising Planner"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "with attention to your assigned City Supervising Planner",
+          "page_or_section": "STEP # 4, Form 313 note — the only place the existence of a per-project assigned Supervising Planner surfaces"
+        }
+      ],
+      "visibility_check": "No San José document in raw/ describes the assignment of a Supervising Planner, names the role in any process step, or tells the applicant who theirs is. The role leaks only from a parenthetical mailing instruction for one optional form. Hence staff_only."
+    },
+    {
+      "id": "A20",
+      "name": "Construction; contractor schedules inspection appointments",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "issued building permit",
+        "approved plans",
+        "job permit card"
+      ],
+      "artifacts_out": [
+        "constructed ADU"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Once the building permit is issued, construction can begin. Your contractor should",
+          "page_or_section": "STEP # 6: construction & inspections"
+        }
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Field inspections against the ADU Inspection Checklist (Bulletin 213)",
+      "actor": "inspector",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "completed Bulletin 213 ADU Inspection Checklist",
+        "approved plans",
+        "job permit card"
+      ],
+      "artifacts_out": [
+        "inspection results on the permit card"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A20",
+        "reason": "corrections required at inspection"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "For a successful inspection, present the completed",
+          "page_or_section": "STEP # 6"
+        },
+        {
+          "doc": "D1",
+          "quote": "along with the approval plans and job permit card to the inspector.",
+          "page_or_section": "STEP # 6"
+        }
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Construction & Demolition Diversion review and sign-off before the Building Final Inspection",
+      "actor": "env_services",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "CDD review and sign-off application"
+      ],
+      "artifacts_out": [
+        "CDD sign-off"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Construction and Demolition Diversion Review and sign-off application",
+          "page_or_section": "STEP # 6 → Final Inspection"
+        },
+        {
+          "doc": "D1",
+          "quote": "before scheduling a Building Final Inspection.",
+          "page_or_section": "STEP # 6 → Final Inspection"
+        }
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Final building inspection approved",
+      "actor": "inspector",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "CDD sign-off",
+        "completed construction"
+      ],
+      "artifacts_out": [
+        "approved final inspection"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A20",
+        "reason": "final inspection not approved"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Once construction is complete and the final building inspection is approved, congratulations, your ADU is ready for moving in!",
+          "page_or_section": "STEP # 6 → Final Inspection"
+        },
+        {
+          "doc": "D8",
+          "quote": "Yes, property owners must obtain a Certificate of Occupancy from the local agency prior to any residential occupancy of an ADU or JADU",
+          "page_or_section": "HCD Handbook FAQ, 'Do ADUs need a Certificate of Occupancy?' — a mandated element D1 never mentions"
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Preapproved-ADU alternative track: submit a site-specific plan against a City-preapproved standard plan for same-day issuance",
+      "actor": "preapproved_team",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "a vendor's City-preapproved standard plan",
+        "site-specific plan showing the location of the preapproved ADU"
+      ],
+      "artifacts_out": [
+        "building permit, potentially issued the same day"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": null,
+        "source": "D2's own claim: permits 'may be issued on the same day of the scheduled plan review meeting' if the site-specific plan and documents are accurate and complete; a deferred site-specific structural submittal takes longer. This is a declared capability, not a measured outcome — San José publishes no share of preapproved projects that actually issue same-day."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Gov. Code § 65852.27 (AB 1332, preapproved ADU plans)",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "If the site-specific plan and related documents are accurate and complete, permits may be issued on the same day of the scheduled plan review meeting.",
+          "page_or_section": "Preapproved ADUs → intro"
+        },
+        {
+          "doc": "D2",
+          "quote": "Applicants are still required to submit a site-specific plan that shows the location of the preapproved ADU.",
+          "page_or_section": "Preapproved ADUs → intro"
+        },
+        {
+          "doc": "D2",
+          "quote": "Exception: Projects with a deferred site-specific structural submittal may take longer to review.",
+          "page_or_section": "Preapproved ADUs → intro"
+        }
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Route preapproved-ADU projects to the dedicated Preapproved ADU review team",
+      "actor": "preapproved_team",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "preapproved-track application"
+      ],
+      "artifacts_out": [
+        "assignment to the specialised review team"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "The program is supported by a dedicated City review team that specializes in Preapproved ADU projects, helping to further expedite approvals and guide applicants through the process.",
+          "page_or_section": "Preapproved ADUs → intro"
+        }
+      ],
+      "visibility_check": "Declared on D2 that a dedicated team exists, so not staff_only; but nothing states how or when a project is routed to it, so the routing itself is only inferable."
+    },
+    {
+      "id": "A26",
+      "name": "Review and preapprove a vendor's standard ADU plans (a separate vendor-facing pipeline)",
+      "actor": "plan_reviewer",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "vendor standard plan set",
+        "Preapproval ADU Vendor Application"
+      ],
+      "artifacts_out": [
+        "preapproved standard plan listed on the City page, or a plan still 'currently under review'"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "not published; the page shows only which vendor plans are approved and which are pending"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Gov. Code § 65852.27",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "are in various stages of the review process and are",
+          "page_or_section": "Preapproved ADUs → 'currently under review, preapproved plans'"
+        },
+        {
+          "doc": "D2",
+          "quote": "not currently eligible for expedited review",
+          "page_or_section": "Preapproved ADUs → 'currently under review, preapproved plans'"
+        }
+      ],
+      "visibility_check": "The existence and current state of this pipeline is public (the page lists approved vs. pending vendor plans), but no duration, criteria, or queue position is published; an applicant can only infer progress by watching the list change. Hence applicant_inferable rather than staff_only."
+    },
+    {
+      "id": "A27",
+      "name": "Deemed-complete / deemed-approved backstop if the City misses the 15-business-day or 60-day clock",
+      "actor": "applicant",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "elapsed statutory clock with no City determination"
+      ],
+      "artifacts_out": [
+        "application deemed complete, or deemed approved"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "statutory: 15 business days (completeness) and 60 calendar days (approve or deny)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Gov. Code § 66317(a)(2)(F), (a)(3)",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "If a permitting agency does not make a timely determination as required by this paragraph, the application or resubmitted application shall be deemed to be complete for the purposes of this section.",
+          "page_or_section": "§ 66317(a)(2)(F)"
+        },
+        {
+          "doc": "D7",
+          "quote": "If the local agency has not approved or denied the completed application within 60 days, the application shall be deemed approved.",
+          "page_or_section": "§ 66317(a)(3)"
+        },
+        {
+          "doc": "D8",
+          "quote": "An ADU permit application is “deemed complete” when the permitting agency fails to make a timely written completeness determination within 15 business days",
+          "page_or_section": "HCD Handbook FAQ, 'When is an ADU permit application \"deemed complete\" without formal review?'"
+        }
+      ],
+      "visibility_check": "Neither backstop appears anywhere in San José's declared process (D1, D2, D3). An applicant can only learn of the right from the statute or the HCD handbook — hence applicant_inferable from state sources, and a live candidate for an availability-gap measurement."
+    },
+    {
+      "id": "A28",
+      "name": "Appeal an incompleteness determination or a denial in writing to the governing body or planning commission",
+      "actor": "applicant",
+      "visibility": "applicant_inferable",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "written appeal"
+      ],
+      "artifacts_out": [
+        "final written determination"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "statutory ceiling: final written determination not later than 60 business days after receipt of the written appeal"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A13",
+        "reason": "appeal sustained; application returns to review"
+      },
+      "optional": true,
+      "element_ref": "Cal. Gov. Code § 66317(d)",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "the permitting agency shall provide a process for the applicant to appeal that decision in writing to the governing body of the agency",
+          "page_or_section": "§ 66317(d)(1)"
+        },
+        {
+          "doc": "D7",
+          "quote": "A permitting agency on the appeal shall provide a final written determination by not later than 60 business days after receipt of the applicant’s written appeal.",
+          "page_or_section": "§ 66317(d)(2)"
+        }
+      ],
+      "visibility_check": "San José's ADU pages describe no appeal route at all. The right and its clock are recoverable only from the statute or the HCD handbook."
+    },
+    {
+      "id": "A29",
+      "name": "Send the voluntary ADU affordability survey to applicants who submitted or obtained a permit",
+      "actor": "housing_staff",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "list of 2024-2025 ADU permit applicants and holders"
+      ],
+      "artifacts_out": [
+        "survey responses (90 to date, under 10% of permits)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Staff created a voluntary survey in March 2024 to collect data on ADU affordability levels.",
+          "page_or_section": "p. 11, ADU section"
+        },
+        {
+          "doc": "D5",
+          "quote": "The survey was sent to applicants who submitted or obtained an ADU permit in 2024 or 2025. Thus far, staff have received 90 responses.",
+          "page_or_section": "p. 11, ADU section"
+        },
+        {
+          "doc": "D5",
+          "quote": "The responses account for less than 10% of the ADU permits submitted and permitted.",
+          "page_or_section": "p. 11, ADU section"
+        }
+      ],
+      "visibility_check": "Nothing about this survey appears on any San José ADU program page in raw/; it surfaces only because a state-mandated annual report to Council discloses its methodology. An applicant who received the survey would see the survey but not that it exists as a process step, nor its response rate. Hence staff_only."
+    },
+    {
+      "id": "A30",
+      "name": "Impute ADU affordability by ABAG methodology and file the Annual Progress Report with HCD/ABAG",
+      "actor": "housing_staff",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "permit counts",
+        "survey responses",
+        "ABAG ADU affordability methodology (30/30/30/10)"
+      ],
+      "artifacts_out": [
+        "Annual Progress Report tables reporting ADUs as affordable units",
+        "Council memorandum"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Gov. Code § 65400 (housing element annual progress report)",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "The methodology sets the affordability levels at: 30% very low-income; 30% low-income; 30% moderate-income; and 10% above moderate-income.",
+          "page_or_section": "p. 11, ADU section"
+        },
+        {
+          "doc": "D5",
+          "quote": "Staff will continue to collect data to determine future affordability levels and to work with the ABAG to develop the future ADU affordability methodology.",
+          "page_or_section": "p. 11, ADU section"
+        }
+      ],
+      "visibility_check": "Every ADU permit an applicant obtains is counted into a state filing and assigned an imputed affordability level the applicant never sees and did not report. Invisible from every applicant-facing page; recoverable only from the Legistar record. Hence staff_only."
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "sequence",
+      "condition": "project is a standard ADU or JADU on a single-family or duplex lot"
+    },
+    {
+      "from": "A01",
+      "to": "A24",
+      "type": "optional",
+      "condition": "project uses the preapproved-ADU program"
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "optional",
+      "condition": "applicant wants basic zoning information"
+    },
+    {
+      "from": "A02",
+      "to": "A04",
+      "type": "optional",
+      "condition": "applicant wants project-specific planner feedback"
+    },
+    {
+      "from": "A02",
+      "to": "A05",
+      "type": "sequence",
+      "condition": "eligibility confirmed"
+    },
+    {
+      "from": "A04",
+      "to": "A05",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A05",
+      "to": "A06",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A05",
+      "to": "A07",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A07",
+      "to": "A08",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A08",
+      "to": "A09",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A06",
+      "to": "A09",
+      "type": "sequence",
+      "condition": "water-flow letter in hand"
+    },
+    {
+      "from": "A09",
+      "to": "A10",
+      "type": "handoff",
+      "condition": "Upload and Submit task completed"
+    },
+    {
+      "from": "A10",
+      "to": "A11",
+      "type": "sequence",
+      "condition": "application ready for plan review; invoice issued"
+    },
+    {
+      "from": "A10",
+      "to": "A27",
+      "type": "optional",
+      "condition": "no written completeness determination within 15 business days"
+    },
+    {
+      "from": "A11",
+      "to": "A12",
+      "type": "handoff",
+      "condition": "fee paid; project routed"
+    },
+    {
+      "from": "A12",
+      "to": "A13",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A10",
+      "to": "A19",
+      "type": "handoff",
+      "condition": "project assigned to a Supervising Planner"
+    },
+    {
+      "from": "A13",
+      "to": "A14",
+      "type": "rework",
+      "condition": "plan review comments issued"
+    },
+    {
+      "from": "A14",
+      "to": "A13",
+      "type": "rework",
+      "condition": "resubmittal triggers another cycle of review"
+    },
+    {
+      "from": "A13",
+      "to": "A15",
+      "type": "sequence",
+      "condition": "plans approved"
+    },
+    {
+      "from": "A13",
+      "to": "A27",
+      "type": "optional",
+      "condition": "no approval or denial within 60 days of a complete application"
+    },
+    {
+      "from": "A13",
+      "to": "A28",
+      "type": "optional",
+      "condition": "application denied or determined incomplete"
+    },
+    {
+      "from": "A28",
+      "to": "A13",
+      "type": "rework",
+      "condition": "appeal sustained"
+    },
+    {
+      "from": "A15",
+      "to": "A16",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A16",
+      "to": "A17",
+      "type": "sequence",
+      "condition": "all outstanding review items resolved and fees paid"
+    },
+    {
+      "from": "A09",
+      "to": "A18",
+      "type": "optional",
+      "condition": "project is a JADU"
+    },
+    {
+      "from": "A19",
+      "to": "A18",
+      "type": "handoff",
+      "condition": "deed restriction mailed to the assigned Supervising Planner"
+    },
+    {
+      "from": "A17",
+      "to": "A20",
+      "type": "sequence",
+      "condition": "permit issued"
+    },
+    {
+      "from": "A24",
+      "to": "A20",
+      "type": "sequence",
+      "condition": "preapproved-track permit issued"
+    },
+    {
+      "from": "A25",
+      "to": "A24",
+      "type": "handoff",
+      "condition": "project routed to the dedicated team"
+    },
+    {
+      "from": "A26",
+      "to": "A24",
+      "type": "sequence",
+      "condition": "a vendor plan must be preapproved before an applicant can use it"
+    },
+    {
+      "from": "A20",
+      "to": "A21",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A21",
+      "to": "A20",
+      "type": "rework",
+      "condition": "corrections required"
+    },
+    {
+      "from": "A21",
+      "to": "A22",
+      "type": "sequence",
+      "condition": "construction nearing completion"
+    },
+    {
+      "from": "A22",
+      "to": "A23",
+      "type": "sequence",
+      "condition": "CDD sign-off obtained"
+    },
+    {
+      "from": "A23",
+      "to": "A20",
+      "type": "rework",
+      "condition": "final inspection not approved"
+    },
+    {
+      "from": "A17",
+      "to": "A29",
+      "type": "handoff",
+      "condition": "applicant enters the annual reporting population"
+    },
+    {
+      "from": "A29",
+      "to": "A30",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A30",
+      "to": "A30",
+      "type": "sequence",
+      "condition": "annual cycle"
+    }
+  ],
+  "terminal_artifact": "ADU building permit (plus the approved plans and job permit card in SJePlans), with an approved final building inspection; the state also requires a Certificate of Occupancy before residential occupancy (Gov. Code § 66328), which San José's process page never mentions",
+  "denial_rate": null,
+  "denial_rate_note": "Not documented as a rate. D5 gives the two raw counts from which a naive proxy could be built for 2025 — 625 ADU applications submitted and 502 ADU building permits issued — but the two are not a cohort (a 2025 permit may come from a 2024 application), so their ratio is not a denial rate and should not be scored as one. A 10% year-over-year decline in issuance (558 → 502) is reported with no causal explanation.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "p90_days": null,
+    "source": "No cycle-time distribution exists for San José ADU permits. D4's dashboards publish volume only, and as embedded PowerBI reports whose numbers are not scrapable. D3's working-day targets are targets, exclude the ADU service track, and have no ADU row. The only enforceable numbers are the statutory clocks: 15 business days (completeness determination, deemed complete if missed), 60 calendar days (ministerial approve-or-deny, deemed approved if missed, tolled on applicant request), 60 business days (appeal determination).",
+    "quote": "The permitting agency shall either approve or deny the application to create or serve an accessory dwelling unit within 60 days from the date the permitting agency receives a completed application",
+    "observed_counts": {
+      "adu_permits_issued_2025": 502,
+      "adu_permits_issued_2024": 558,
+      "adu_applications_submitted_2025": 625,
+      "multi_year_average_permits_per_year": "approximately 500",
+      "quote": "In 2025, the City issued 502 ADU Building permits, a 10% decrease from 558 in 2024.",
+      "source": "D5, p. 11 (Annual Progress Report memorandum to Council, 2026-03-02)"
+    },
+    "declared_targets": {
+      "nearest_analogue_row": "new single-family residence: 20 working days first round / 10 subsequent (architectural + structural), 10 / 5 (mechanical, electrical, plumbing), 10 / 5 (fire protection)",
+      "quote": "New single-family residence | 20 | 10 | 10 | 5 | 10 | 5",
+      "caveat": "D3 has no ADU row at all and states the table 'pertain[s] only to projects submitted through the' Standard Plan Review service; ADUs run through a separate ADU Service appointment track. Using this row as an ADU target is an inference, not a published figure."
+    },
+    "preapproved_track": {
+      "claim": "same-day permit issuance at the scheduled plan review meeting, if the site-specific plan and documents are accurate and complete",
+      "quote": "Same-day Permit Issuance Available!",
+      "caveat": "a declared capability; no measured share of preapproved projects that actually issue same-day is published"
+    },
+    "scope": "The statutory 60-day clock covers only complete-application-to-decision. Design and pre-submittal preparation — including the water-flow letter that the City itself names as the commonest delay — is outside every clock and every published figure."
+  },
+  "known_gaps": [
+    "No measured ADU cycle time at any stage. San José publishes volume (D4) and targets (D3) but never an elapsed-time distribution, and D3 has no ADU row.",
+    "San José's declared process never mentions the 15-business-day written completeness determination, the 60-day ministerial clock, the deemed-complete/deemed-approved backstops, or the appeal right — all four are mandated by Gov. Code § 66317. This is the model's central availability gap, not an omission in the gold.",
+    "San José's process page ends at 'your ADU is ready for moving in!' and never mentions the Certificate of Occupancy that Gov. Code § 66328 requires before occupancy (D8).",
+    "No ADU fee amount is published anywhere in Wave 1 except the $398/hour preliminary-meeting rate. The five Issuance-Review fee components (residual plan review, inspection, building permit application, school, parkland) are named but never priced, so fee error is unscoreable for San José.",
+    "The PowerBI dashboards (D4) are the observed tier and their underlying numbers were not extracted; only D5's narrative counts survive.",
+    "Why ADU permit issuance fell 10% from 2024 to 2025 is stated but unexplained; D5 offers only a generic reference to state-law compliance and 'permit process enhancements'.",
+    "Nothing describes how the Prescreen Review decides an application is 'ready for plan review' — i.e. San José's operative completeness criteria — beyond 'City staff will NOT process inaccurate or incomplete plans!'",
+    "Whether and how the § 66317(a)(3) tolling and bundled-new-primary-dwelling provisions are invoked in practice is unknown.",
+    "The ADU Service appointment track (linked from D1's sidebar as 'ADU Service' under Building Permit Services) was not captured in Wave 1; it is the track D3 excludes, so the single most relevant timing document is missing.",
+    "D1 and D2 are Wayback-sourced markdown; inline link syntax and ** bold markers interrupt several sentences in the saved .txt, so some quotes here are deliberately short fragments that are contiguous in the source.",
+    "Disentanglement boundary: AB 2533 amnesty legalisation of a pre-2020 unpermitted unit is a separate track (HCD itself lists AB 2533 as a distinct entry; LADBS runs a separate SOP for it). A solver that mixes amnesty steps into this model has made a disentanglement error."
+  ],
+  "notes": "Why San José is the strongest ADU gold: its own program page publishes what is functionally a back-office routing sequence — the three-phase SJePlans pipeline of Prescreen Review → Plan Review → Issuance Review, with the fee split across two of the three phases — and its Legistar record supplies both observed permit counts and the affordability-imputation methodology behind them. The five staff_only activities split into two kinds. Two are per-case and invisible: the assignment of a Supervising Planner (A19), which leaks only from a mailing instruction on one optional JADU form, and the internal sequencing and due-dating of the concurrent building and fire reviews (A12), whose parameters are unpublished for ADUs specifically because D3 excludes the ADU track. Three are downstream of the applicant entirely: the affordability survey (A29) and the ABAG-methodology imputation and HCD filing (A30) mean every ADU permit is silently counted into a state report and assigned an affordability level the owner never stated. The gold's most useful property for ceiling measurement is a clean four-way absence: the statute mandates a 15-business-day completeness notice, a 60-day decision, two deemed-approval backstops and an appeal route, and San José's declared footprint mentions none of them (A10, A13, A27, A28). A solver working from declared_only can reconstruct San José's pipeline in fine detail and still miss every enforceable clock — exactly the availability term this benchmark is built to isolate. gold_tier is 'designed+observed': the process model is designed-tier, while the 2025 permit and application counts in D5 and the volume dashboards in D4 are records-derived.",
+  "quote_verification": "All evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions, after normalising whitespace, curly quotes/dashes, PDF ligatures (fi/fl/ff) and hyphen-at-line-break. D1 and D2 are Wayback-sourced markdown, so a few quotes are short fragments chosen because inline link syntax interrupts the surrounding sentence. 0 unverified quotes."
+}

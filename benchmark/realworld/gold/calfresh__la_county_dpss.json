@@ -1,0 +1,1448 @@
+{
+  "model_id": "calfresh__la_county_dpss",
+  "source": "designed",
+  "jurisdiction": "Los Angeles County, California",
+  "implementer": "Los Angeles County Department of Public Social Services (DPSS), CalFresh Intake",
+  "stat_id": "CALFRESH_APPLICATION_63_300",
+  "statute_cite": "7 C.F.R. § 273.2; 7 U.S.C. § 2020(e)(2)(C); Cal. Welf. & Inst. Code §§ 18900, 18912(a), 18914; MPP Div. 63 (63-300, 63-301, 63-804.4)",
+  "program_name": "CalFresh (SNAP) initial application: filing, expedited-service screening, interactive interview, verification, and eligibility determination",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "G1",
+      "title": "LA County DPSS ePolicy, \"63-300 Application Process\" (CalFresh, Office Operations; release date 12/31/2025, last updated 01-22-2026) — the county's own eligibility-staff procedure manual",
+      "url": "https://my.dpss.lacounty.gov/public/en/home/epolicy/program/calfresh/application-process.html",
+      "saved_as": "corpus/realworld/_gold/raw/dpss_epolicy_calfresh_63-300_application_process.txt"
+    },
+    {
+      "id": "G2",
+      "title": "CDSS All County Letter 16-14, \"Expedited Service Entitlement and Application Processing for CalFresh\" (February 29, 2016)",
+      "url": "https://www.cdss.ca.gov/lettersnotices/entres/getinfo/acl/2016/16-14.pdf",
+      "saved_as": "corpus/realworld/calfresh/raw/S15.txt"
+    },
+    {
+      "id": "G3",
+      "title": "Code for America, \"Think Big, Start Small: How Implementing Flexible Interviews Improves Benefit Delivery\" (December 22, 2021) — randomized trial plus 80+ hours shadowing LA County case-opening clerks, eligibility workers and supervisors",
+      "url": "https://codeforamerica.org/news/think-big-start-small-how-implementing-flexible-interviews-improves-benefit-delivery/",
+      "saved_as": "corpus/realworld/calfresh/raw/S21.txt"
+    },
+    {
+      "id": "G4",
+      "title": "LA County DPSS ePolicy, \"CalFresh Restoration of Eligibility and Benefits\" (last updated 10-02-2025)",
+      "url": "https://my.dpss.lacounty.gov/public/en/home/epolicy/program/calfresh/restoration-eligibility-benefits.html",
+      "saved_as": "corpus/realworld/calfresh/raw/S24.txt"
+    },
+    {
+      "id": "D1",
+      "title": "GetCalFresh.org, \"CalFresh FAQs — Eligibility, Interviews & Case Status\" (declared applicant-facing)",
+      "url": "https://www.getcalfresh.org/en/faq/",
+      "saved_as": "corpus/realworld/calfresh/raw/S25.txt"
+    },
+    {
+      "id": "D2",
+      "title": "GetCalFresh.org, \"How to Apply for CalFresh in California – Steps & Timeline\" (declared applicant-facing)",
+      "url": "https://www.getcalfresh.org/en/howtoapply/",
+      "saved_as": "corpus/realworld/calfresh/raw/S11.txt"
+    },
+    {
+      "id": "L1",
+      "title": "7 C.F.R. § 273.2 (Office operations and application processing)",
+      "url": "https://www.law.cornell.edu/cfr/text/7/273.2",
+      "saved_as": "corpus/realworld/calfresh/raw/S1.txt"
+    },
+    {
+      "id": "L2",
+      "title": "7 U.S.C. § 2020 (Administration; expedited-service entitlement at (e)(2)(C))",
+      "url": "https://www.law.cornell.edu/uscode/text/7/2020",
+      "saved_as": "corpus/realworld/calfresh/raw/S2.txt"
+    },
+    {
+      "id": "L3",
+      "title": "Cal. Welf. & Inst. Code § 18900 et seq. (CalFresh)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=WIC&sectionNum=18900.",
+      "saved_as": "corpus/realworld/calfresh/raw/S3.txt"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant household (head of household, spouse, other responsible adult member, or authorized representative)",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "assister",
+      "name": "Community-based or faith-based organization, CalFresh application assister, or GetCalFresh.org digital assister",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "dpss_csc",
+      "name": "Customer Service Center / district office reception (lobby greeter, receptionist, volunteer, kiosk staff)",
+      "dept": "LA County DPSS",
+      "type": "county"
+    },
+    {
+      "id": "dpss_clerical",
+      "name": "Case-opening clerk (application logging, ES screening, case assignment)",
+      "dept": "LA County DPSS",
+      "type": "county"
+    },
+    {
+      "id": "dpss_ew",
+      "name": "Eligibility staff / eligibility worker",
+      "dept": "LA County DPSS",
+      "type": "county"
+    },
+    {
+      "id": "dpss_supervisor",
+      "name": "Eligibility supervisor (agency conference)",
+      "dept": "LA County DPSS",
+      "type": "county"
+    },
+    {
+      "id": "dpss_ebt",
+      "name": "EBT issuance (card and PIN mailing or district-office pick-up)",
+      "dept": "LA County DPSS",
+      "type": "county"
+    },
+    {
+      "id": "data_interfaces",
+      "name": "Electronic verification interfaces (MEDS, The Work Number, TAG, IEVS, Child Support Verification System, PVS)",
+      "dept": null,
+      "type": "system"
+    }
+  ],
+  "activities": [
+    {
+      "id": "F01",
+      "name": "Inform the household of its right to file an application the same day it contacts the office, and of the availability of expedited service",
+      "actor": "dpss_csc",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [],
+      "artifacts_out": [
+        "oral notice of same-day filing right and ES availability"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Cal. Welf. & Inst. Code § 18912(a)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "HHs must be advised of their right to file an application on the same day of their inquiry to avoid any loss in benefits.",
+          "page_or_section": "Treatment of Recording the Application Date"
+        },
+        {
+          "doc": "G2",
+          "quote": "W&I Code 18912 (a) requires CWDs to orally inform each applicant household of the availability of ES.",
+          "page_or_section": "IV. Informing Applicants of the Availability of Expedited Service, p. 3"
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "Issue the CalFresh Intake application packet (CF 285, NVRA Voter Preference Form, CF LA 100 trafficking flyer, PUB 275, voter registration card, GEN 1365, PA 2457, SAR 7A, SAR 7 Addendum, sample SAR 7, CF 377.11E, PUB 13, ADA PUB 4, EBT 2, EBT 23, TEMP 2214, PA 2126, CSF 100, CW 2223)",
+      "actor": "dpss_csc",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "request for a CalFresh-only application"
+      ],
+      "artifacts_out": [
+        "CalFresh Intake application packet"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "When a potential applicant calls the Customer Service Center (CSC), visits a district office, or attends an outreach event to request a CalFresh-only application, the following forms must be included in the CalFresh Intake application packet",
+          "page_or_section": "Treatment of CalFresh Application Packet"
+        },
+        {
+          "doc": "G1",
+          "quote": "When the form is not available in the applicant's preferred language, provide the English version along with the GEN 1365, Notice of Language Services, to the applicant.",
+          "page_or_section": "Treatment of CalFresh Application Packet, Note"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "File the application (in person at any district office, by mail, fax, telephone, online via BenefitsCal, through a CBO/FBO, an application assister, or outreach)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "CalFresh Intake application packet"
+      ],
+      "artifacts_out": [
+        "filed application (CF 285, CF 285A, SAWS 1, SAWS 2 PLUS, CF 485 or CF 37)"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": 0,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(c)(1)(iii)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The applicant is not required to visit the district office to file an application.",
+          "page_or_section": "Treatment of CalFresh Application Packet"
+        },
+        {
+          "doc": "G2",
+          "quote": "the application will be considered complete as long as the form contains the applicant's name, address, and signature or the signature of their authorized representative (AR)",
+          "page_or_section": "II. Application Submission, p. 2-3"
+        },
+        {
+          "doc": "G1",
+          "quote": "Los Angeles County applicants have the option to be served in the district office of their choice, even if the HH does not reside within the district's geographic servicing area",
+          "page_or_section": "No Wrong Door Policy"
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "name": "Date-stamp the application and record the application date (post-dated to the next business day for weekends, holidays and after-hours receipt)",
+      "actor": "dpss_clerical",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed application"
+      ],
+      "artifacts_out": [
+        "recorded application date (day zero)"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": 1,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "MPP § 11-601",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The application date is the first business day the application was received by the Department of Public Social Services (DPSS). Applications received on weekends, holidays, or after business hours will be post-dated for the next business day.",
+          "page_or_section": "Treatment of Recording the Application Date"
+        },
+        {
+          "doc": "G1",
+          "quote": "The mail-in application date will be the date when the district office receives it. The application must be date stamped the day it is received.",
+          "page_or_section": "Treatment of Recording the Application Date"
+        },
+        {
+          "doc": "G1",
+          "quote": "The normal processing timeframe for an application is 30 calendar days ... The day the application is received is considered day zero.",
+          "page_or_section": "Definitions, Normal Processing"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "name": "Screen every filed application for expedited-service entitlement against the three criteria, reviewing the entire application rather than only the ES screening questions",
+      "actor": "dpss_clerical",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "recorded application date (day zero)"
+      ],
+      "artifacts_out": [
+        "ES entitlement determination (entitled / not entitled / insufficient information)"
+      ],
+      "timing": {
+        "median_days": 1,
+        "p90_days": 1,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(i)(2); MPP §§ 63-301.511, .512, .513",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "All CalFresh applications submitted must be evaluated for ES entitlement.",
+          "page_or_section": "Treatment of ES Processing"
+        },
+        {
+          "doc": "G2",
+          "quote": "The CWD shall be responsible for screening all applications for ES as they are filed.",
+          "page_or_section": "V. Screening All Applications for Expedited Service, p. 4"
+        },
+        {
+          "doc": "G2",
+          "quote": "If the CWD has a receptionist, volunteer, or other employee that is responsible for screening applications, they should screen to see if the household meets one of the ES criteria",
+          "page_or_section": "V. Screening, p. 4"
+        },
+        {
+          "doc": "G2",
+          "quote": "The CWDs shall not limit ES screening to specific questions on the application. The entire application should be reviewed for ES criteria",
+          "page_or_section": "V. Screening, p. 4"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "name": "Offer an agency conference with an eligibility supervisor, scheduled within two working days of request, to informally resolve a dispute over ES entitlement",
+      "actor": "dpss_supervisor",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "ES entitlement determination (not entitled)"
+      ],
+      "artifacts_out": [
+        "agency conference outcome"
+      ],
+      "timing": {
+        "median_days": 2,
+        "p90_days": 2,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "F05",
+        "reason": "agency conference resolves the ES dispute in the household's favor"
+      },
+      "optional": true,
+      "element_ref": "MPP § 63-804.4; 7 C.F.R. § 273.15(d)",
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "state regulation requires that counties offer an agency conference, described in MPP 63-804.4 and 7 CFR 273.15 (d).",
+          "page_or_section": "Agency Conference for Households Not Entitled to ES, p. 6"
+        },
+        {
+          "doc": "G2",
+          "quote": "The agency conference shall be scheduled within two working days of the request, unless the household requests that it be scheduled later",
+          "page_or_section": "Agency Conference, p. 6"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "name": "Assign the case to an eligibility worker through the intermediary clerical steps",
+      "actor": "dpss_clerical",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "ES entitlement determination"
+      ],
+      "artifacts_out": [
+        "case assigned to an eligibility worker"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G3",
+          "quote": "Eligibility workers contact clients only after a case is assigned to them. Because of the intermediary clerical steps, this means there is a delay between the moment the client applies and when they get a call.",
+          "page_or_section": "Learning about missed interviews"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "name": "Schedule the interview and send the GEN 102 Appointment Letter carrying the flexible-appointment language",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "case assigned to an eligibility worker"
+      ],
+      "artifacts_out": [
+        "GEN 102 Appointment Letter with date and time"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(e)(3)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The GEN 102, Appointment Letter obsoletes the CSF 156, Appointment Letter.",
+          "page_or_section": "What Changed?"
+        },
+        {
+          "doc": "G1",
+          "quote": "To allow flexibility in CalFresh interview scheduling to support applicants in completing their interviews, the flexible appointment language must be added to the GEN 102.",
+          "page_or_section": "What Changed?"
+        },
+        {
+          "doc": "L1",
+          "quote": "schedule all interviews as promptly as possible to insure eligible households receive an opportunity to participate within 30 days after the application is filed.",
+          "page_or_section": "§ 273.2(e)(3)"
+        },
+        {
+          "doc": "D2",
+          "quote": "You'll get a notice in the mail with your interview date, time, and how to join the interview.",
+          "page_or_section": "How to apply, step 5"
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "name": "Telephone the household to conduct the interview, leaving a CDSS-approved confidentiality-preserving voicemail script when there is no answer",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "GEN 102 Appointment Letter with date and time"
+      ],
+      "artifacts_out": [
+        "contact attempt documented in the case file"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "F09",
+        "reason": "no answer; workers call multiple times in a row and leave a series of voicemails because clients see \"scam likely\" in the caller ID"
+      },
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "CWDs should develop scripts to ensure that specific information is provided when leaving a message for the household.",
+          "page_or_section": "VI. Scheduling Interviews, p. 8"
+        },
+        {
+          "doc": "G2",
+          "quote": "The CWD must document in the case file when the call was made to the household and what information was left, including the date and time of the interview.",
+          "page_or_section": "VI. Scheduling Interviews, p. 8"
+        },
+        {
+          "doc": "G3",
+          "quote": "Workers believe clients don't pick up because they see \"scam likely\" in the caller ID. They create their own workarounds, often calling multiple times in a row and leaving a series of voicemails.",
+          "page_or_section": "Learning about missed interviews"
+        },
+        {
+          "doc": "D1",
+          "quote": "Calls from the county may come from a blocked, unknown, or \"Spam Likely\" number.",
+          "page_or_section": "I missed my interview, how do I reschedule?"
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "name": "Offer the flexible \"end-to-end\" interview line so the applicant can call in and complete the interview and receive a determination in a single call",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "case assigned to an eligibility worker"
+      ],
+      "artifacts_out": [
+        "completed interview on the applicant's own schedule"
+      ],
+      "timing": {
+        "median_days": 15,
+        "p90_days": null,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G3",
+          "quote": "LA County already had an alternative application process called \"end-to-end\" in which a CalFresh applicant could place a call, connect to a worker, complete an application over the phone, and receive a determination—all within a single phone call.",
+          "page_or_section": "Think big, start small"
+        },
+        {
+          "doc": "G3",
+          "quote": "54% of treatment group members called the end-to-end line rather than following the status quo interview process",
+          "page_or_section": "Improve outcomes: key findings"
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "name": "Conduct the interactive interview by telephone in the applicant's preferred language (face-to-face only on request, if the applicant is in the district office, if another program requires it, or to clarify a condition of eligibility)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "GEN 102 Appointment Letter with date and time"
+      ],
+      "artifacts_out": [
+        "completed interactive interview",
+        "telephonic signature and system-generated SAWS 2 PLUS copy"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "MPP § 63-300.4; 7 C.F.R. § 273.2(e)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "All HHs must be interviewed prior to determining CalFresh Program eligibility. Eligibility staff must ensure that an interactive interview (whether face-to-face or telephonically) is conducted in the applicant's preferred language.",
+          "page_or_section": "Interview Process"
+        },
+        {
+          "doc": "G1",
+          "quote": "CalFresh Intake interviews must be completed via telephone, whenever possible.",
+          "page_or_section": "Interview Process"
+        },
+        {
+          "doc": "G1",
+          "quote": "If the applicant's identity cannot be verified by the current acceptable verification requirement, and the provided identity verification is visibly altered, staff must schedule a face-to-face interview",
+          "page_or_section": "Treatment of ES Processing, Note"
+        },
+        {
+          "doc": "D1",
+          "quote": "Households must complete an eligibility interview. A county worker will call you, but you can also request an in-person interview.",
+          "page_or_section": "What does the process look like"
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "name": "Review the mandated at-interview list with the applicant (ES rules, IRT limit, CF LA 100, sample SAR 7, SAR 7A, SAR 7 Addendum, Rights and Responsibilities, voter registration, work registration) and play or read the R&R script",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview"
+      ],
+      "artifacts_out": [
+        "R&R acknowledgment",
+        "copies of R&R, sample SAR 7, SAR 7A, SAR 7 Addendum, CF LA 100 and voter registration information"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "At the time of the interactive interview, the following must be reviewed with the applicant: ES rules; IRT Limit; CF LA 100; Sample SAR 7; SAR 7A; SAR 7 ADDENDUM; Rights & Responsibilities (R&R)",
+          "page_or_section": "Interview Process"
+        },
+        {
+          "doc": "G1",
+          "quote": "During the interactive interview, the HH must listen to an audio file or hear the Eligibility staff read the script of the R&R in their applicant's preferred language.",
+          "page_or_section": "Interview Process"
+        }
+      ]
+    },
+    {
+      "id": "F13",
+      "name": "Determine work-registration status and screen for the ABAWD time limit (CF 377.11E)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview"
+      ],
+      "artifacts_out": [
+        "work-registration status",
+        "ABAWD exemption screening result"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "MPP § 63-410.2",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Work registration status must be determined at the initial application and every 12 months thereafter.",
+          "page_or_section": "Work Registration Requirement"
+        },
+        {
+          "doc": "G1",
+          "quote": "Note: The Statewide ABAWD Time Limit Waiver has expired on November 2, 2025. However, implementation of the ABAWD Time-Limit will not occur until June 1, 2026.",
+          "page_or_section": "Interview Process, mandatory mid-period reports"
+        }
+      ]
+    },
+    {
+      "id": "F14",
+      "name": "Send the CF 386 Notice of Missed Interview when the household fails to keep the scheduled interactive interview",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "GEN 102 Appointment Letter with date and time"
+      ],
+      "artifacts_out": [
+        "CF 386 Notice of Missed Interview (NOMI)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "p_trigger": 0.31,
+        "back_to": "F08",
+        "reason": "household must contact the county to schedule another interview and be interviewed within 30 days of the application date; one in three LA applications were denied for a missed interview"
+      },
+      "optional": true,
+      "element_ref": "MPP § 63-300.46",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "HHs that fail to keep their scheduled interactive interview must be sent a CF 386, Notice of Missed Interview (NOMI).",
+          "page_or_section": "Missed Interview Denial"
+        },
+        {
+          "doc": "G3",
+          "quote": "missed interviews drove the low approval rate, with one in three applications in Los Angeles County denied for this procedural reason",
+          "page_or_section": "Identifying the problem"
+        },
+        {
+          "doc": "G2",
+          "quote": "The CWD can send out a Notice of Missed Interview (NOMI) if the applicant/recipient is a \"no show\" for their first scheduled interview on the day of the missed interview or the next day.",
+          "page_or_section": "VI. Scheduling Interviews, p. 8"
+        }
+      ]
+    },
+    {
+      "id": "F15",
+      "name": "Check all available electronic sources (MEDS, The Work Number, TAG, IEVS, Child Support Verification System, PVS) before requesting any missing verification",
+      "actor": "data_interfaces",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview"
+      ],
+      "artifacts_out": [
+        "electronic verification results",
+        "list of verification items still missing"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Eligibility staff must not send a request for missing verification unless they have first checked all available electronic sources and determined whether the applicant's statement is an allowable option.",
+          "page_or_section": "What Changed?"
+        },
+        {
+          "doc": "G1",
+          "quote": "Electronic sources of verification include, but are not limited to: Medi-Cal Eligibility Data System (MEDS); The Work Number; Timesheet At-A-Glance (TAG) ... The Income and Eligibility Verification System (IEVS); Child Support Verification System; and/or Payment Verification System (PVS).",
+          "page_or_section": "Verification"
+        }
+      ]
+    },
+    {
+      "id": "F16",
+      "name": "Notify every applicant in writing at application that information available through IEVS will be requested, used and may need to be verified when discrepancies are found",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "filed application"
+      ],
+      "artifacts_out": [
+        "written IEVS notice"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "All CalFresh program applicants must be notified in writing at the time of application that information available through IEVS will be requested and used and may need to be verified when discrepancies are found.",
+          "page_or_section": "IEVS Interface"
+        }
+      ]
+    },
+    {
+      "id": "F17",
+      "name": "Issue the CW 2200 Request for Verification in writing after the interview, allowing ten calendar days (extended to the next business day if day ten is a weekend or holiday)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "list of verification items still missing"
+      ],
+      "artifacts_out": [
+        "CW 2200 Request for Verification with a due date"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": 10,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "7 C.F.R. § 273.2(f); MPP § 63-300.5",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Any requests for mandatory verification from the applicant must be made in writing after conducting the interview. The HH must be provided with the CW 2200 to request mandatory verification.",
+          "page_or_section": "Verification"
+        },
+        {
+          "doc": "G1",
+          "quote": "Verification cannot be requested prior to the initial interactive interview. An application cannot be denied if the requested verification is not mandatory.",
+          "page_or_section": "Denial"
+        },
+        {
+          "doc": "L1",
+          "quote": "at least 10 days to provide required verification",
+          "page_or_section": "§ 273.2(f)"
+        }
+      ]
+    },
+    {
+      "id": "F18",
+      "name": "Submit the requested verification (upload to BenefitsCal, mail, fax, or drop off at the county office)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "CW 2200 Request for Verification with a due date"
+      ],
+      "artifacts_out": [
+        "submitted verification documents"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Your county worker may ask for \"proof\", like your ID, income, or housing and utility costs. You can upload documents online to your BenefitsCal account, mail them, or drop them off at your county office.",
+          "page_or_section": "What does the process look like"
+        }
+      ]
+    },
+    {
+      "id": "F19",
+      "name": "Verify identity and issue expedited-service benefits the same day but no later than three calendar days from the application date, postponing all other verification",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "ES entitlement determination (entitled)",
+        "completed interactive interview",
+        "identity verification"
+      ],
+      "artifacts_out": [
+        "approved ES benefits posted to the EBT account"
+      ],
+      "timing": {
+        "median_days": 3,
+        "p90_days": 3,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Cal. Welf. & Inst. Code § 18914 (AB 2384, AB 1359); 7 C.F.R. § 273.2(i)(3)(i)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "all reasonable efforts must be made to interview the applicant, verify the applicant's identity, and issue ES benefits on the same day but no later than three days from the date of application",
+          "page_or_section": "Treatment of ES Processing"
+        },
+        {
+          "doc": "G2",
+          "quote": "For determination of aid for ES entitled applicants, the only verification needed is Identification at the time the application is processed for ES",
+          "page_or_section": "Verification Requirements for ES, p. 10"
+        },
+        {
+          "doc": "G2",
+          "quote": "If the statutory required three day timeframe has lapsed ... CWDs shall continue the ES process to meet the seven day (federal) ES timeframe for issuing benefits.",
+          "page_or_section": "I. Background, p. 2"
+        },
+        {
+          "doc": "L1",
+          "quote": "not later than the seventh calendar day following the date an application was filed.",
+          "page_or_section": "§ 273.2(i)(3)(i)"
+        }
+      ]
+    },
+    {
+      "id": "F20",
+      "name": "Restart the three-day ES clock from the date of discovery when ES entitlement surfaces at the interview or later in the application process",
+      "actor": "dpss_ew",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview"
+      ],
+      "artifacts_out": [
+        "late ES determination with a new day-one"
+      ],
+      "timing": {
+        "median_days": 3,
+        "p90_days": 3,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "F19",
+        "reason": "late determination of ES entitlement; the clock starts from the date of discovery"
+      },
+      "optional": true,
+      "element_ref": "MPP § 63-301.533; 7 C.F.R. § 273.2(i)(3)(iv)",
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "the ES time clock starts from the date the CWD became aware the household was entitled to ES processing (this is the date of discovery)",
+          "page_or_section": "Late Determination of ES Entitlement, p. 6"
+        }
+      ]
+    },
+    {
+      "id": "F21",
+      "name": "Mail a Notice of Action telling the household to submit the postponed verification timely to prevent discontinuance",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "approved ES benefits posted to the EBT account"
+      ],
+      "artifacts_out": [
+        "Notice of Action on postponed verification"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "If ES is being approved and there is postponed verification, a Notice of Action (NOA) will be mailed to the HH informing the HH to submit the missing verification(s) timely to prevent discontinuance.",
+          "page_or_section": "Treatment of ES Processing"
+        }
+      ]
+    },
+    {
+      "id": "F22",
+      "name": "Determine eligibility, compute the allotment and authorize benefits within 30 calendar days following the application date",
+      "actor": "dpss_ew",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview",
+        "submitted verification documents",
+        "electronic verification results"
+      ],
+      "artifacts_out": [
+        "eligibility determination and benefit allotment"
+      ],
+      "timing": {
+        "median_days": 19,
+        "p90_days": 30,
+        "source": "audit"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 C.F.R. § 273.2(g)(1); MPP § 63-301",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "When the HH is found ineligible for ES after the interactive interview, the application must be processed within 30 days following the application date.",
+          "page_or_section": "Approval"
+        },
+        {
+          "doc": "G3",
+          "quote": "the average time to determination for applicants in the treatment group (including those who used the flexible interview line and those who did not) was 15 days, compared to just under 19 days for applicants in the control group",
+          "page_or_section": "Improve outcomes: key findings"
+        },
+        {
+          "doc": "L1",
+          "quote": "no later than 30 calendar days following the date the application was filed",
+          "page_or_section": "§ 273.2(g)(1)"
+        }
+      ]
+    },
+    {
+      "id": "F23",
+      "name": "Issue the approval Notice of Action stating the allotment, number of eligible members, certification period and IRT limit, with the PA 6190 \"What's Next?\" flyer and the right to appeal",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "eligibility determination and benefit allotment"
+      ],
+      "artifacts_out": [
+        "approval Notice of Action",
+        "PA 6190 \"What's Next?\" flyer"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "the HH must be given an adequate NOA notifying them of the benefit allotment, number of eligible HH members, certification period, Income Reporting Threshold (IRT) limit, the PA 6190, \"What's Next?\" Flyer, and their right to appeal",
+          "page_or_section": "Approval"
+        },
+        {
+          "doc": "G1",
+          "quote": "Applications received after the 15th of the month and found eligible for CalFresh benefits must receive the initial and subsequent month of CalFresh benefits, upon the approval of the application.",
+          "page_or_section": "Treatment of ES Processing"
+        }
+      ]
+    },
+    {
+      "id": "F24",
+      "name": "Post benefits to the EBT account and issue the EBT card and PIN separately by mail, or arrange pick-up at the district office",
+      "actor": "dpss_ebt",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "eligibility determination and benefit allotment"
+      ],
+      "artifacts_out": [
+        "EBT card",
+        "PIN",
+        "benefits posted and available for spending"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "7 U.S.C. § 2020(e)(2)(C)",
+      "evidence": [
+        {
+          "doc": "G2",
+          "quote": "County agencies must mail or have EBT cards available for pick-up (and post benefits to the EBT account, issue a PIN number, and provide all the training) in time to ensure that the recipient can access his/her benefits",
+          "page_or_section": "Timeliness Standards, p. 12"
+        },
+        {
+          "doc": "D1",
+          "quote": "If approved, you will receive an Electronic Benefit Transfer (EBT) card to access your funds. Your PIN will be mailed separately.",
+          "page_or_section": "What does the process look like"
+        }
+      ]
+    },
+    {
+      "id": "F25",
+      "name": "Send a denial Notice of Action no later than 30 days following the application date (or the first business day after, when day 30 falls on a weekend or holiday)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "eligibility determination (ineligible)"
+      ],
+      "artifacts_out": [
+        "denial Notice of Action"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 31,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "7 C.F.R. § 273.2(g)(3)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Applicants determined to be ineligible must be sent a NOA denying the application no later than 30 days following the application date.",
+          "page_or_section": "Denial"
+        },
+        {
+          "doc": "G3",
+          "quote": "only 6% of LA applications were denied for ineligibility",
+          "page_or_section": "Identifying the problem"
+        }
+      ]
+    },
+    {
+      "id": "F26",
+      "name": "Deny before the 30th day under the Early Denial waiver when mandatory or questionable verification is not provided within 10 calendar days of a written CW 2200 request",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "CW 2200 Request for Verification with a due date"
+      ],
+      "artifacts_out": [
+        "early denial Notice of Action"
+      ],
+      "timing": {
+        "median_days": 10,
+        "p90_days": 30,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-300.4 (Initial Application Denial Before the 30th Day Waiver, extended through April 30, 2029)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The Initial Application Denial Before the 30th Day Waiver allows counties to deny an initial application prior to the 30th day when an applicant fails to provide mandatory and/or questionable verification within 10 calendar days from the date requested",
+          "page_or_section": "Denial"
+        },
+        {
+          "doc": "G1",
+          "quote": "Note: The Early Denial waiver was extended through April 30, 2029.",
+          "page_or_section": "Denial"
+        }
+      ]
+    },
+    {
+      "id": "F27",
+      "name": "Deny for a missed interview only on the 30th day following the application date (or the first business day after)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "CF 386 Notice of Missed Interview (NOMI)"
+      ],
+      "artifacts_out": [
+        "missed-interview denial Notice of Action"
+      ],
+      "timing": {
+        "median_days": 30,
+        "p90_days": 31,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "MPP § 63-300.46",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Denials of applications due to missed interviews can only occur on the 30th day following the application date or the first business day after the 30th day if the 30th day falls on a weekend or holiday.",
+          "page_or_section": "Missed Interview Denial"
+        },
+        {
+          "doc": "G2",
+          "quote": "If the household fails to contact the CWD to scheduled or keep their second interview under normal 30-day processing and time has run out for processing the application by the 30th day, the CWD must deny the application",
+          "page_or_section": "Notice of Missed Interview, p. 9"
+        }
+      ]
+    },
+    {
+      "id": "F28",
+      "name": "Re-open the application and issue benefits from the original application date when the mandatory verification arrives within 30 days of the application date",
+      "actor": "dpss_ew",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "early denial Notice of Action",
+        "submitted verification documents"
+      ],
+      "artifacts_out": [
+        "re-opened application",
+        "benefits issued from the original application date"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "F22",
+        "reason": "mandatory verification provided after the 10-day deadline but within 30 days of the application date"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The HH's application must be re-opened (if otherwise eligible), and benefits must be issued from the original date of application.",
+          "page_or_section": "Denial, verification provided within 30 days"
+        }
+      ]
+    },
+    {
+      "id": "F29",
+      "name": "Restore eligibility and prorate benefits from the compliance date when the mandatory verification arrives between the 31st and 60th day (household may instead file a new application)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "denial Notice of Action",
+        "submitted verification documents"
+      ],
+      "artifacts_out": [
+        "restored eligibility with prorated benefits (CF 388 Notice of Action)"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 60,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "F22",
+        "reason": "mandatory verification provided between the 31st and 60th day following the application date; applies only to failure-to-provide denials"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The HH is entitled to choose to file a new application or have CalFresh benefits restored if the HH provides the mandatory verification that caused the denial between the 31st and 60th day following the application date.",
+          "page_or_section": "Definitions, Restoration of Eligibility and Benefits"
+        },
+        {
+          "doc": "G1",
+          "quote": "Eligible HHs who have their CalFresh eligibility restored are considered new applicants. If the HHs circumstances have changed since the interview date, ES rules must be applied.",
+          "page_or_section": "Denial"
+        },
+        {
+          "doc": "G4",
+          "quote": "The reason(s) for the case discontinuance must be fully resolved before re-establishing eligibility. Accordingly, the HH's benefits will be prorated from the date the HH takes the required action to re-establish eligibility.",
+          "page_or_section": "CalFresh Restoration of Eligibility and Benefits"
+        }
+      ]
+    },
+    {
+      "id": "F30",
+      "name": "Document the interview, the contacts and the basis for any negative action on the case Journal page",
+      "actor": "dpss_ew",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed interactive interview",
+        "contact attempt documented in the case file"
+      ],
+      "artifacts_out": [
+        "Journal page entries supporting the action"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "A denial is not valid if the case record does not support the denial through documentation on the Journal page and/or verification.",
+          "page_or_section": "Denial"
+        }
+      ]
+    },
+    {
+      "id": "F31",
+      "name": "Record a voluntary withdrawal before the eligibility determination and provide the CW 10 Notice of Withdrawn Application (no signature required)",
+      "actor": "dpss_ew",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "filed application"
+      ],
+      "artifacts_out": [
+        "CW 10 Notice of Withdrawn Application"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Form CW 10, Notice of Withdrawn Application must be provided or mailed to the applicant. The applicant is not required to sign any withdrawal forms. The HH may verbally state their option to withdraw.",
+          "page_or_section": "Application Disposition, Withdrawal"
+        },
+        {
+          "doc": "G1",
+          "quote": "An application cannot be canceled if a case number has already been assigned. Once filed, it can only be denied based on eligibility factors or withdrawn per the applicant's voluntary request prior to an eligibility determination.",
+          "page_or_section": "Treatment of Cancellation"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "F01",
+      "to": "F02",
+      "type": "sequence"
+    },
+    {
+      "from": "F02",
+      "to": "F03",
+      "type": "sequence"
+    },
+    {
+      "from": "F03",
+      "to": "F04",
+      "type": "handoff"
+    },
+    {
+      "from": "F04",
+      "to": "F05",
+      "type": "sequence"
+    },
+    {
+      "from": "F05",
+      "to": "F06",
+      "type": "optional",
+      "condition": "household not entitled to ES and disputes that determination"
+    },
+    {
+      "from": "F06",
+      "to": "F05",
+      "type": "rework",
+      "condition": "agency conference resolves the dispute"
+    },
+    {
+      "from": "F05",
+      "to": "F07",
+      "type": "sequence",
+      "condition": "not entitled to ES, or insufficient information; routed for normal 30-day processing"
+    },
+    {
+      "from": "F05",
+      "to": "F19",
+      "type": "sequence",
+      "condition": "entitled to ES"
+    },
+    {
+      "from": "F07",
+      "to": "F08",
+      "type": "sequence"
+    },
+    {
+      "from": "F07",
+      "to": "F10",
+      "type": "optional",
+      "condition": "GetCalFresh-assisted applicant offered the flexible interview line"
+    },
+    {
+      "from": "F08",
+      "to": "F09",
+      "type": "sequence"
+    },
+    {
+      "from": "F09",
+      "to": "F11",
+      "type": "sequence"
+    },
+    {
+      "from": "F10",
+      "to": "F11",
+      "type": "sequence"
+    },
+    {
+      "from": "F09",
+      "to": "F14",
+      "type": "rework",
+      "condition": "household did not keep the scheduled interview"
+    },
+    {
+      "from": "F14",
+      "to": "F08",
+      "type": "rework",
+      "condition": "household contacts the county to reschedule"
+    },
+    {
+      "from": "F14",
+      "to": "F27",
+      "type": "sequence",
+      "condition": "household never reschedules or misses the second interview"
+    },
+    {
+      "from": "F11",
+      "to": "F12",
+      "type": "sequence"
+    },
+    {
+      "from": "F12",
+      "to": "F13",
+      "type": "sequence"
+    },
+    {
+      "from": "F11",
+      "to": "F20",
+      "type": "optional",
+      "condition": "ES entitlement discovered at the interview"
+    },
+    {
+      "from": "F20",
+      "to": "F19",
+      "type": "rework"
+    },
+    {
+      "from": "F03",
+      "to": "F16",
+      "type": "sequence"
+    },
+    {
+      "from": "F13",
+      "to": "F15",
+      "type": "sequence"
+    },
+    {
+      "from": "F15",
+      "to": "F17",
+      "type": "sequence",
+      "condition": "mandatory verification still missing after electronic sources are checked"
+    },
+    {
+      "from": "F17",
+      "to": "F18",
+      "type": "sequence"
+    },
+    {
+      "from": "F18",
+      "to": "F22",
+      "type": "sequence"
+    },
+    {
+      "from": "F15",
+      "to": "F22",
+      "type": "sequence",
+      "condition": "all mandatory items verified electronically"
+    },
+    {
+      "from": "F19",
+      "to": "F21",
+      "type": "optional",
+      "condition": "ES approved with postponed verification"
+    },
+    {
+      "from": "F19",
+      "to": "F24",
+      "type": "sequence"
+    },
+    {
+      "from": "F21",
+      "to": "F17",
+      "type": "sequence"
+    },
+    {
+      "from": "F22",
+      "to": "F23",
+      "type": "sequence",
+      "condition": "eligible"
+    },
+    {
+      "from": "F23",
+      "to": "F24",
+      "type": "sequence"
+    },
+    {
+      "from": "F22",
+      "to": "F25",
+      "type": "sequence",
+      "condition": "ineligible"
+    },
+    {
+      "from": "F17",
+      "to": "F26",
+      "type": "sequence",
+      "condition": "mandatory verification not provided within 10 calendar days"
+    },
+    {
+      "from": "F26",
+      "to": "F28",
+      "type": "rework",
+      "condition": "verification arrives within 30 days of the application date"
+    },
+    {
+      "from": "F25",
+      "to": "F29",
+      "type": "rework",
+      "condition": "verification arrives between the 31st and 60th day"
+    },
+    {
+      "from": "F28",
+      "to": "F22",
+      "type": "rework"
+    },
+    {
+      "from": "F29",
+      "to": "F22",
+      "type": "rework"
+    },
+    {
+      "from": "F11",
+      "to": "F30",
+      "type": "sequence"
+    },
+    {
+      "from": "F03",
+      "to": "F31",
+      "type": "optional",
+      "condition": "applicant withdraws before the eligibility determination"
+    }
+  ],
+  "terminal_artifact": "Approved CalFresh certification with benefits posted to an EBT account (card and PIN mailed separately, or picked up at the district office), plus an approval Notice of Action stating the allotment, household size, certification period and IRT limit",
+  "denial_rate": 0.52,
+  "denial_rate_notes": "From G3: LA County's average CalFresh approval rate was 48 percent before the flexible-interview work (DPSS set a goal of 60 percent), implying a 52 percent denial rate; one in three applications were denied for a missed interview while only 6 percent were denied for ineligibility. The randomized trial moved approval from 58 percent (control) to 61 percent (treatment) among GetCalFresh-assisted applicants, so the 48 percent baseline and the 58/61 percent trial figures are different populations and should not be mixed.",
+  "timing_gold": {
+    "end_to_end_median_days": 19,
+    "p90": 30,
+    "source": "audit (randomized controlled trial of LA County applicants assisted by GetCalFresh, reported by Code for America with researchers at NYU and the Federal Reserve Bank of New York)",
+    "quote": "the average time to determination for applicants in the treatment group (including those who used the flexible interview line and those who did not) was 15 days, compared to just under 19 days for applicants in the control group"
+  },
+  "timing_gold_secondary": [
+    {
+      "what": "Statutory and regulatory ceiling for normal processing",
+      "value": "30 calendar days from the application date, with day zero being the day the application is received",
+      "source": "official",
+      "doc": "G1",
+      "quote": "The normal processing timeframe for an application is 30 calendar days. A determination of eligibility on a submitted application must be made as soon as administratively possible, but no later than 30 calendar days following the application date."
+    },
+    {
+      "what": "Expedited service: California's own deadline is stricter than the federal floor",
+      "value": "3 calendar days (state, AB 2384 as amended by AB 1359) versus 7 calendar days (federal floor, 7 C.F.R. § 273.2(i)(3)(i)); a weekend counts as one calendar day and a day-three holiday or weekend pulls the deadline to the preceding business day",
+      "source": "official",
+      "doc": "G2",
+      "quote": "Process applications for households entitled to ES within three calendar days [the current federal mandate is seven days under 7 Code of Federal Regulations (CFR) Section 273.2 (i)(3)(i)]."
+    },
+    {
+      "what": "Effect of the flexible interview line on the applicants who used it",
+      "value": "a determination roughly seven days sooner than control, and 6 percent more likely to be enrolled (an 11 percent increase in the approval rate)",
+      "source": "audit",
+      "doc": "G3",
+      "quote": "Applicants who received information about flexible interviews and who called the flexible interview line received a benefit determination roughly seven days sooner than those in the control group"
+    },
+    {
+      "what": "Verification window",
+      "value": "10 calendar days from the written CW 2200 request, extended to the next business day if day ten is a weekend or holiday",
+      "source": "official",
+      "doc": "G1",
+      "quote": "HHs must be allowed ten calendar days to provide the requested verification(s)."
+    }
+  ],
+  "known_gaps": [
+    "No per-stage timing exists for LA County. G3's 15-day and 19-day figures are end-to-end time-to-determination for one population (GetCalFresh-assisted applicants, in a 2020-2021 pilot), not stage medians. The gold therefore gives statutory deadlines for most activities and a measured median only for F22. CDSS's CalFresh Data Dashboard publishes monthly county timeliness but only behind a Tableau session or Excel download, which was not pulled.",
+    "The queue between filing and first worker contact (F07) has no published duration. G3 establishes that the delay exists and is caused by intermediary clerical steps, but neither G1 nor G3 says how long it is, which is precisely the interval a claimant experiences as silence.",
+    "G1 does not name the case-management system. Only Santa Clara County's public handbook names CalSAWS; whether LA runs the identical statewide platform is not settled by any document held here, so the system actor (data_interfaces) is modelled by its interfaces rather than by the system of record.",
+    "Whether the flexible \"end-to-end\" interview line (F10) still operates, and whether it was extended beyond GetCalFresh-assisted applicants, is unresolved. G3 reports full rollout to GetCalFresh applicants in May 2021 and no later designed-tier document confirms the current state; G1's 2025 revision only adds 'flexible appointment language' to the GEN 102, which may or may not be the same intervention.",
+    "Supervisory gates are not documented. G2 establishes the eligibility supervisor's role in the agency conference (F06), but nothing in G1 or G2 describes supervisor authorization thresholds, second review of denials, or the reopening of auto-closed cases, which county eligibility workers describe in user reports. Those reports are excluded from this gold file.",
+    "Several activities are applicant_facing in the sense that the applicant receives an artifact, yet appear in no applicant-facing document in the slug's raw/ corpus: F01 (same-day filing right), F02 (the 19-form intake packet), F06 (the agency conference right), F12 (the mandated at-interview review list and R&R script), F13 (ABAWD screening), F14 (the CF 386 NOMI), F16 (the written IEVS notice), F17 (the CW 2200 by name), F21, F26, F27, F28, F29 and F31 (the CW 10). A solver working from the public footprint can recover the interview, the 10-day proof request, the 30-day clock, the 3-day ES path and the EBT card, and essentially nothing else on this list. That asymmetry is the measurement this task exists for, and it also means the applicant-visible recall denominator is much larger than the declared footprint suggests.",
+    "F05 is modelled as one screening activity, but G2 makes clear the screening channel differs by intake route (mail/fax/drop-off/online screened from the application text; telephone and in-person screened during the interview), and the ES-criteria arithmetic (standard utility allowance treatment, liquid-resource counting under Modified Categorical Eligibility) is a decision procedure this schema cannot express.",
+    "The gold covers the initial application only. Recertification, the SAR 7 semi-annual report, and the discontinuance-restoration waiver lane are governed by separate chapters (G4 for restoration) and are excluded; the SAR 7 timeline a household actually experiences is in D1 and in Santa Clara's handbook, not here.",
+    "G2 is from 2016 and G3 describes 2019-2021 operations, while G1 is current to 01-22-2026. Where they disagree the gold follows G1, but the three documents are not a single snapshot, and G2's ES scripts and forms (DFA 296/296X reporting) have since been superseded."
+  ],
+  "notes": "Gold for the (calfresh, LA County DPSS) task. Designed-tier spine: G1, LA County's own eligibility-staff procedure manual, published live and unauthenticated on the DPSS ePolicy portal and written in the imperative to 'Eligibility staff' — the exact register of back-office gold, with form numbers, clocks and system interfaces a household never sees. G2 (CDSS All County Letter 16-14) supplies the expedited-service spine, the state-versus-federal deadline gap, the agency-conference right, the voicemail scripts and the EBT timeliness rule; it also documents that CDSS had to convene a stakeholder workgroup because county business processes for expedited service were inconsistent, which is the direct evidence that this process varies by county under one statewide mandate. G3 (Code for America) supplies the only measured end-to-end timing and the only account of the clerical-to-worker handoff, from 80+ hours shadowing LA case-opening clerks, eligibility workers, supervisors and office leadership. Declared applicant-facing documents (D1, D2) anchor the five steps an applicant can actually see. Visibility discipline: an activity is labelled staff_only only after confirming that the term appears in no applicant-facing document in corpus/realworld/calfresh/raw/ (checked: 'screen' as ES screening, 'date stamp', 'clerical', 'assign', 'IEVS', 'MEDS', 'electronic source', 'Journal', 'agency conference', 'supervisor', 'CW 2200', 'CF 386', 'GEN 102', 'ABAWD', 'work registration', 'end-to-end', 'flexible' — none appear). The five staff_only activities are F04 (date-stamping and application-date recording), F05 (ES screening), F07 (clerical case assignment), F15 (the mandatory electronic-source check before any verification request) and F30 (Journal-page documentation as a validity condition for a denial). F20 (restarting the ES clock from the date of discovery) is also staff_only: the household cannot observe which clock it is on. Gold-error risk to note: the 19-day median in timing_gold is the control arm of a 2020-2021 randomized trial on GetCalFresh-assisted applicants, which is a selected, digitally-assisted population and probably faster than the LA average; the 48 percent baseline approval rate in denial_rate comes from a different period again."
+}

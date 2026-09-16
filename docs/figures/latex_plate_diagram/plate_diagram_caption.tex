@@ -1,0 +1,25 @@
+% Suggested caption for the plate diagram. Every symbol in the figure is glossed here, so the figure
+% can stand alone in a paper without the reader hunting through the text.
+\caption{%
+\textbf{How an administrative process comes to be, and how evidence about it is generated.}
+Shaded nodes are observed, unshaded latent, dashed circles are parameters shared across every statute,
+jurisdiction and document. Dashed edges mark a policy or selection relation rather than a plain draw.
+A statute fixes a mandated skeleton $E_s$ with shot clocks $c_e$ and precedence $\prec_s$, and leaves
+choices $O_s$ open. A jurisdiction resolves them into a local rule $R_{js}$, sometimes by copying a
+neighbour ($L_j$), and that rule together with the skeleton determines which steps exist, $Z_{js}$ ---
+a partition, so the number of steps is inferred rather than assumed. Each step draws an actor $a_i$ from
+the jurisdiction's department roster $A_j$ under a shared act-to-agency affinity $\Phi$; an act type
+$\tau_i$; which party waits, $b_i$; and a visibility $v_i$. Duration splits in two because the halves
+have different parents: touch time $W_i$ follows the act type and the department's speed $\delta_d$,
+while queue time $Q_i$ follows the department's load $\rho_d$ and batching cadence $\kappa_d$, with
+$b_i$ selecting which queue applies. Together they give a drifting log-duration $(\mu_{it},\sigma_i)$,
+partially pooled toward a step-key family $(\mu_f,\tau^2)$ and walking at rate $\tau^2_w$; a shot clock
+enters only through the department's compliance $\psi_d$, never as a cap. Each case realises its own
+durations $T_{ni}$ along a path, and a delayed or denied case is far likelier to be posted about
+($S_n$). A document of kind $k_m$ and date $t_m$ discloses a subset of what is true, at a propensity
+$\pi$ that depends on its kind and the step's visibility; the extractor then reports it with its own
+error rate $\varepsilon_k$. The three observed quantities are therefore a document's claims $C_m$, any
+duration it reports $y_m$, and the structured package $g_m$ we extract from it --- never the process
+itself.%
+}
+\label{fig:plate}

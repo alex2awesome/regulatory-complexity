@@ -1,0 +1,261 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,microtype,rotating}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+% First argument is a machine-checkable node ID; all drawn variables have an entry.
+\newcommand{\entry}[5]{\ensuremath{#2} & #3 & #4 & #5 \\[5pt]}
+\title{A simplified Bayesian model of process evidence and burden}
+\author{Regulatory complexity programme}
+\date{September 16, 2026}
+\begin{document}
+\maketitle
+
+\section{The object of inference}
+The object is a distribution over plausible operating processes, not a vote
+over documents and not a duration estimate with extra labels. We separate
+uncertainty about the process from variation between cases and uncertainty in
+the evidence. Timing is central: calendar elapsed time, applicant work-hours,
+and agency work-hours are different quantities with different likelihoods.
+Unmeasured labor is unknown, not zero and not a conversion from waiting days.
+
+The unit is a jurisdiction $j$, programme $p$, and version $v$. These indices
+are suppressed inside the diagram. The pilot fits one static version; the
+version index does not imply that a temporal transition model is implemented.
+The step inventory includes back-office activities and standing obligations;
+the route model determines which of them a particular case encounters.
+An activity is a coherent actor's work operation with a meaningful output, not a
+sentence or an automatic legal state through inaction. Repetition is indexed by
+$r$ and does not create a new activity type.
+
+\begin{figure}[p]
+\centering
+\resizebox{.92\textwidth}{!}{\input{plate_diagram.tex}}
+\input{plate_diagram_caption.tex}
+\end{figure}
+
+\section{Target joint distribution}
+Condition on available case metadata $X=\{X_n\}$ and document metadata
+$D=\{D_m\}$. Missing metadata must be represented as latent rather than silently
+filled. Bundled nodes collect related quantities without asserting their
+independence. Write $a=\{a_i\}$, $\theta=\{\theta_i\}$ and
+$\Lambda=\{(\lambda_i,v_i)\}$. The arrows correspond to
+\begin{align*}
+p(\cdot\mid X,D)={}&p(\eta)p(\alpha\mid\eta)p(\beta\mid\eta)p(\psi)p(\varepsilon)
+ p(N\mid\eta)p(\mathcal A\mid\eta)p(G\mid N,\eta)\\
+&\times\prod_{i=1}^{N}p(a_i\mid\mathcal A,G)
+ p(\theta_i\mid G,a_i,\alpha,\beta,\eta)p(\lambda_i,v_i\mid G,\eta)\\
+&\times\prod_n p(R_n\mid G,X_n)
+ p(E_n\mid R_n,a,\theta)\,
+ \delta_{f_u(E_n)}(B_n^u)\,
+ \delta_{f_a(E_n)}(B_n^a)\\
+&\times\prod_m p(Z_m\mid G,\Lambda,D_m,\psi,R,E)
+ p(C_m\mid Z_m,D_m,\psi,G,\mathcal A,a,\theta,E)
+ p(Y_m\mid C_m,\varepsilon).
+\end{align*}
+Here $R_n$ includes case characteristics needed to generate visits, and $E_n$
+is the collection of visit variables $E_{nir}$, including scheduling and actor
+metadata needed for burden accounting. $E,R$ denote the
+collections of cases potentially described by sources. For non-case sources
+the case-specific parents are inactive. $\delta_{f(x)}$ is a point mass at the
+deterministic function $f(x)$, not another stochastic burden model. Shared
+source effects in $\psi$ represent dependence within a source family. Copies
+must also be deduplicated or linked to a shared underlying claim; a common
+reporting offset alone does not remove duplicate measurement noise. The
+$E\to Z_m$ edge permits duration-dependent reporting (for example,
+long delays being more likely to be mentioned); outcome-dependent reporting also
+uses $R$. Neither selection mechanism is identified in the V4 fit.
+We condition on the acquired corpus; modeling the search/retrieval
+policy and nonpublication is an extension, not an assumption of random sampling.
+
+\section{Every term in the diagram}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{6.2cm}>{\raggedright\arraybackslash}p{5.7cm}@{}}
+\toprule Symbol & Type & Definition and support & V4 status / evidence \\
+\midrule\endfirsthead
+\toprule Symbol & Type & Definition and support & V4 status / evidence \\
+\midrule\endhead
+\bottomrule\endfoot
+\entry{eta}{\eta}{Shared}{Structural and burden hyperparameters: finite count,
+agency/task heterogeneity and duration/effort distributions.}{V4 learns the global
+log-duration location, agency/task/step scales and case spread. Hyperpriors and
+unidentified coverage assumptions remain explicit; no held-out truth is fitted.}
+\entry{alpha}{\alpha_g}{Latent}{Organization $g$'s task-adjusted log-duration effect,
+shared across activities and programs. $g$ indexes canonical organization identities;
+actor $a_i$ selects the corresponding effect.}{Jointly learned in V4. Task reports
+inform their agency and other tasks at that agency. Work-hour effects are fitted
+separately when observed; elapsed delay is not staff productivity.}
+\entry{beta}{\beta_t}{Latent}{Task-type $t$'s log-duration effect, shared across
+agencies and programs; task type is part of $G$.}{Jointly learned in V4 with agency
+and activity residual effects. Multiple tasks per agency and crossed task types
+are needed to disentangle these components.}
+\entry{N}{N}{Latent}{Total distinct activity count, including activities with no
+detected mention. Nonnegative integer.}{Represented inventory plus a sampled,
+truncated geometric number of undocumented stages. This is an explicit sensitivity
+prior, not learned document coverage. Distinct from repeated visits.}
+\entry{G}{G}{Latent}{Finite graph: step identities, semantic operation descriptions,
+applicability, precedence, alternatives, and rework links. Base precedence is a
+DAG; repeat links are separate.}{Semantic inventory fixed by a source-only LLM audit.
+Finite precedence completions sampled; conditional route prevalence has explicit
+priors. Complex branching, repeated execution and abandonment are not fitted.}
+\entry{A}{\mathcal A}{Latent}{Finite set of participating organization identities,
+roles and aliases. Directories provide evidence, not a guaranteed complete roster.}{Uses
+quote-supported actor roles and distinctive aliases within a jurisdiction.
+Conditional on the LLM's organization mapping; no full organization hierarchy or
+posterior over entirely unlisted agencies.}
+\entry{a}{a_i}{Latent}{Responsible actor for step $i$, categorical over
+$\mathcal A$ plus external participants. Executing and receiving roles may differ.}{Fixed
+by the validated semantic interpretation in V4. Agency effects are inferred, but
+uncertain actor identity and multiple responsible roles remain extensions.}
+\entry{theta}{\theta_i}{Latent}{Step burden parameters: log-median $\mu_i$ and case
+spread $\sigma_i$ for elapsed days; separate work-hour parameters for payer and
+agency; conditional fee schedule; input, payment and encounter rules.}{Elapsed
+time fitted on a grid in V3; V4 jointly samples an agency/task/step hierarchy.
+Work-hour channels have separate likelihoods and priors. No staffing/queue
+decomposition is inferred. V4 retains fees in the evidence ledger.}
+\entry{lambda}{\lambda_i,v_i}{Latent}{Step disclosure intensity $\lambda_i>0$ and
+visibility stratum $v_i\in\{\mathrm{public},\mathrm{internal}\}$. Together with
+document-kind exposure these generate mention counts.}{Target only in V4: coverage
+and disclosure selection are not identified. V3 used an assumed Gamma intensity
+and visibility mixture; V4 reports count-prior sensitivity explicitly.}
+\entry{X}{X_n}{Observed}{Case attributes: payer/project type, relevant conditions,
+and start period. Unknown attributes would be latent.}{Quote-supported case/cohort
+inclusions, exclusions and directly observed work constrain routes. Other conditional
+frequencies use uncalibrated priors; no representative cohort model is claimed.}
+\entry{R}{R_n}{Latent}{Case route and outcome, including visited steps, correction
+rounds, and precedence/parallel scheduling. A route can end in approval, denial
+or abandonment.}{V4 fits DAG schedules and conditional operations. Multiple
+decision operations are alternative endpoints. Observed outcomes condition cases/cohorts;
+unknown population proportions have a logistic-Normal prior. Repeated visits and
+abandonment are not fitted.}
+\entry{E}{E_{nir}}{Latent}{Visit $r$ to step $i$ by case $n$: begin/end times,
+elapsed days, payer and agency labor-hours, cash transaction, and encounter
+identity. Includes actor identity for attribution.}{Actual latent case durations
+are jointly fitted to the same case's totals and breakdowns. Population durations
+are integrated by Sobol quadrature. Labor is fitted separately when measured;
+transaction and repeated-visit accounting remains outside V4.}
+\entry{Bu}{B_n^u}{Derived}{Payer vector: calendar delay, hands-on hours,
+out-of-pocket payments, trips/contacts, repeat submissions and sensitive
+disclosures. $u$ means user/payer.}{V4 emits elapsed time and modeled operation
+counts; work-hours when observed. Fees, trips, sensitive disclosures, and repeat
+visits are not claimed as fitted burden totals.}
+\entry{Ba}{B_n^a}{Derived}{Agency vector: agency work-hours by organization,
+task executions, handoffs/rework and operating cost where measured. $a$ means
+agency, not the actor variable $a_i$.}{Represented agency operations and organization
+counts emitted. A separate staff-hours likelihood uses reported effort (including
+a J1/S01 two-hour cost-study estimate). Agency-specific labor allocations are
+weakly identified. Operating costs and standing overhead are not fitted.}
+\entry{D}{D_m}{Observed}{Document metadata: kind, jurisdiction, relevant interval,
+publication date, timing scope, statistic type, and known source family.}{Known
+fields retained; missing scope is flagged. Explicit historical/hypothetical reports
+are excluded from current-process fitting, not dynamically modeled. Publication
+date alone does not identify the period measured.}
+\entry{Z}{Z_m}{Latent}{Which steps or segments document $m$ mentions and the
+mapping of each assertion to them. Empty/spurious references are allowed.}{V4 fixes
+step/segment mappings from quote-validated LLM interpretation. Granularity audits
+preserve every original mapping. Entirely undisclosed stages remain prior-sensitive.}
+\entry{C}{C_m}{Latent}{What the source actually asserts: existence, actor, order,
+fees, individual waits, reported summaries, effort and normative rules. This is
+not automatically a correct claim about the process.}{Typed interval likelihoods
+fit realized waits and summaries, with shared source offsets and a contamination
+component. Executed segments, selected cohorts and clock-start milestones have
+explicit semantics. Raw-text interpretation error is not calibrated; caps/targets
+never enter realized-duration likelihoods.}
+\entry{Y}{Y_m}{Observed}{Extracted per-document structured claims with supporting
+quotes and provenance. This is the instrument output, not a gold process.}{V4 uses
+public-document interpretation and the backward-compatible process-evidence/3 contract.
+No solver answers, truth processes, ceilings, or hidden specifications enter fitting.}
+\entry{psi}{\psi}{Shared}{Disclosure exposure by kind and visibility; source
+fidelity and bias; case-report selection; shared source-family effects.}{Shared
+source-family timing offsets jointly learned; exact known copies deduplicated.
+The offset prior is sensitivity-tested. Complaint selection, unknown copying,
+document exposure and domain-transfer calibration remain unidentified.}
+\entry{epsilon}{\varepsilon}{Shared}{Extractor sensitivity, false positives,
+field confusion and numeric interpretation errors, conditional on field/kind.}{Not
+separately identified from source error: quote validation is not semantic
+calibration. Robust reporting error does not replace audited extraction labels.}
+\end{longtable}
+\normalsize
+
+\section{Timing and two burden channels}
+Elapsed duration satisfies $\log D_{nir}\sim\mathcal N(\mu_i,\sigma_i^2)$ in the
+first version. Work-hours $H_{nir}^u,H_{nir}^a$ have separate positive distributions
+when observed. A reported population median informs $\mu_i$, not an individual
+case draw. For a sample median based on $s$ independent log-normal cases, the
+large-sample log-median variance is approximately $\pi\sigma_i^2/(2s)$, to which
+reporting uncertainty must be added. Unknown $s$ does not imply a precise median.
+Intervals use interval likelihoods; zero-day reports are rounded intervals.
+Business days are not silently converted to calendar days. Legal caps and
+service targets are retained as normative metadata, never as realized waits.
+
+Elapsed case time follows the realized prerequisite schedule, with parallel
+branches overlapping. Hands-on hours sum work events, not waiting days.
+Flat fees are charged once per transaction, per-visit fees on each applicable
+visit, and shared encounters are counted once. Standing agency overhead is
+reported separately from per-case effort; converting it to a per-case allocation
+requires workload and time-horizon assumptions.
+
+\section{What is actually implemented}
+The target joint above is \emph{not} claimed as a fully fitted model.
+The historical V3 pilot uses a modular (cut) posterior:
+structure and actor inference from name/relationship evidence; typed timing
+and fee inference conditional on each structure; then case simulation. Timing
+does not feed back into entity resolution. Disclosure, source reliability and
+extractor error are not jointly identified. A posterior under these assumptions
+is not a demonstration of calibration.
+
+V4 replaces the timing cut with joint inference over agency/task/activity effects,
+latent case durations, source offsets, finite schedule completions and undocumented
+stage counts. Both total and step reports observe the same latent case. Typical
+and population-summary claims observe summaries of the route distribution. Thus
+information can propagate upward to agencies and downward to unmeasured tasks.
+Semantic entity reconciliation remains an upstream LLM instrument with a strict,
+quote-validated schema; its output is not treated as an error-calibrated posterior.
+Source-only context and clock audits keep selected-cohort reports separate from
+unconditional claims, share known outcomes across a case, and preserve segment
+timing outside the initial route. A clock beginning after an operation excludes
+that completed operation's duration. None of these audits sees benchmark truth.
+The glossary describes V4 status against the broader target model. Exact scope,
+diagnostics and residual limitations are documented in
+\texttt{docs/2026-09-16-bayesian-process-v4.md}.
+
+The V4 elapsed hierarchy is
+\[
+ \mu_i=m+\alpha_{a_i}+\beta_{t(i)}+\gamma_{p(i)}+\delta_i,
+ \qquad \log D_{ni}=\mu_i+c_n+\sigma z_{ni}.
+\]
+Here $m$ is the global log-duration location; $t(i)$ and $p(i)$ identify task type
+and program; $\gamma_p$ is a program effect; $\delta_i$ is an activity residual;
+$c_n$ is a shared case shock; and $z_{ni}\sim\mathcal N(0,1)$ is independent
+case-step variation. These are components of the bundled $\eta,\theta_i,E_{nir}$
+nodes, not additional unlabeled diagram nodes. Conditional scale priors and all
+likelihood approximations are explicit in the implementation document.
+
+The count model explicitly distinguishes detected steps from undisclosed steps.
+Burden for wholly undisclosed steps is weakly identified: V4 gives those stages
+explicit prior-predictive durations and reports sensitivity, rather than treating
+them as zero-duration additions. Agency counts remain conditional on resolved
+labels; the number of completely unlisted agencies is not inferred.
+The implementation does not turn these limits into invented precision.
+
+\section{Evaluation and scoring correction}
+The historical V3 pilot used ten cached document extractions for W1/J1/S03. Gold was loaded
+only after posterior files have been written. It is not an equal-information
+head-to-head with the one-pass LLM: the legacy cache omits process-level claims.
+The runner records seeds, configuration, source hashes, posterior draws, count
+sensitivity and basic chain diagnostics. It also rescores eight saved oracle
+and three saved search runs, preserving the original scores.
+
+The scorer now reads \texttt{process\_timing.median\_days}; it no longer substitutes
+a sum of step medians for missing end-to-end predictions. Across the saved runs,
+the corrected median multiplicative end-to-end error is approximately $1.075$
+for oracle documents and $1.321$ for search, instead of $1.545$ and $2.387$.
+Those are point-prediction measurements, not posterior calibration results.
+The V4 protocol and subsequent results are documented separately in
+\texttt{docs/2026-09-16-bayesian-process-v4-protocol.md} and
+\texttt{docs/2026-09-16-bayesian-process-v4-results.md}. No benchmark victory is assumed here.
+\end{document}

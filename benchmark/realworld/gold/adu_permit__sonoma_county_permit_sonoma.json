@@ -1,0 +1,1648 @@
+{
+  "model_id": "RW__adu_permit__sonoma_county_permit_sonoma",
+  "source": "designed",
+  "jurisdiction": "County of Sonoma, CA — unincorporated area only (the nine cities are separate Authorities Having Jurisdiction and are outside this model)",
+  "implementer": "Permit Sonoma (formerly the Permit and Resource Management Department, ordained by Sonoma County Ordinance 4906 in 1995) — Permit Intake plus six plan-check divisions: Building, Engineering, Well & Septic, Planning, Fire-referral review, Code Enforcement",
+  "process": "Post-entitlement residential construction permit review under AB 2234 (2022): intake completeness determination, plan-check fee payment as clock trigger, multi-division plan check (serial → parallel), plan check comments and resubmittal, permit issuance, field inspection; plus the over-the-counter, express-permit, third-party plan check and self-certification alternative tracks, and the workflow-instrumentation layer that decides whether any of it can be measured.",
+  "scope_boundary": "This is the county building-permit review machinery an ADU application runs through in unincorporated Sonoma County. It is NOT an ADU-specific process: the grand jury did not separate ADUs from other residential permits, and Permit Sonoma's AB 2234 clocks (15 business days completeness / 30 business days review for <25 units) are the general post-entitlement clocks, which run alongside — and are shorter than — the ADU-specific Gov. Code § 66317 clocks (15 business days completeness / 60 calendar days ministerial decision). A solver must not conflate the two clock sets. The report also explicitly excluded inspections and code enforcement from its scope.",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "ocr_disclaimer": "The source PDF is a poor scan. Every quote in this file carries the OCR-corrected text in `quote` and, where correction was needed, the corresponding string from the saved .txt in `ocr_raw` plus a list of what was changed in `ocr_corrections`. CONVENTION: `ocr_raw` reproduces the .txt characters exactly except that line breaks and runs of whitespace are collapsed to single spaces; a hyphen at a line break therefore appears as '4- 8' where the .txt has '4-\\n8'. Corrections are confined to obvious character-level scanning errors (l↔1, 6↔th, rn↔m, digit substitutions, dropped spaces). No wording, number or claim was inferred or reconstructed beyond that; where a number could not be recovered with confidence it is recorded as unrecoverable in known_gaps rather than guessed.",
+  "gold_documents": [
+    {
+      "id": "D1",
+      "title": "Permit Sonoma 2025 — Management Review is a Beginning not an End (2024-2025 Sonoma County Civil Grand Jury final report, May 2025)",
+      "url": "https://sonoma.courts.ca.gov/system/files/grand-jury/permit-sonoma-2025.pdf",
+      "saved_as": "corpus/realworld/_gold/raw/gj_sonoma_2025_permit_sonoma.pdf, corpus/realworld/_gold/raw/gj_sonoma_2025_permit_sonoma.txt",
+      "tier": "designed",
+      "date": "2025-05",
+      "role": "the entire gold. 23 pages. Method: 20+ interviews with Permit Sonoma staff and leadership, third-party contractors and service providers; analysis of 50,000+ permit-application data records; a manual review of 5,000+ permit review task-status records for February and October 2024. OCR-degraded scan — see ocr_disclaimer."
+    },
+    {
+      "id": "D2",
+      "title": "Berry Dunn McNeil & Parker LLC, management review of Permit Sonoma (delivered to the Sonoma County Board of Supervisors 2023-01-31; 15 recommendations in three categories)",
+      "url": null,
+      "saved_as": null,
+      "tier": "designed",
+      "date": "2023-01-31",
+      "role": "NOT HELD. The consultant study whose recommendations D1 audits; its content reaches this gold only through D1's quotation and paraphrase. Retrieving it would be the single highest-value next fetch for this model."
+    },
+    {
+      "id": "D3",
+      "title": "Permit Sonoma management update to the Board of Supervisors (February 2024), quoted in D1",
+      "url": null,
+      "saved_as": null,
+      "tier": "designed",
+      "date": "2024-02",
+      "role": "NOT HELD as a document; quoted verbatim inside D1. Source of the agency's own self-reported per-division average-days-to-review table and the '57% reduction' / '67% reduction' figures that D1 reproduces and then partially disputes."
+    },
+    {
+      "id": "D4",
+      "title": "AB 2234 (Rivas, Grayson), Post-entitlement Phase Permits, signed 2022-09-28, effective 2023-01-01 (Gov. Code § 65913.3)",
+      "url": null,
+      "saved_as": null,
+      "tier": "statute",
+      "date": "2023-01-01",
+      "role": "statute text NOT HELD. D1's Appendix I is a summary of the bill's key provisions and is the source used here; it is the grand jury's characterisation, not the statutory text, and quotes attributed to D4 below are in fact quotes from D1's Appendix I."
+    },
+    {
+      "id": "D5",
+      "title": "Sonoma County Code ch. 7, Sec. 7-5 (Building permit required), reproduced as Appendix 2 of D1",
+      "url": null,
+      "saved_as": null,
+      "tier": "local_ordinance",
+      "date": "current as reproduced in 2025",
+      "role": "the local rule: the written-approval preconditions (well & septic, health officer, zoning, grading, stormwater, fire, encroachment, water/sewer clearance) that gate permit issuance. Reproduced inside D1, Appendix 2."
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant (homeowner, builder or design professional)",
+      "dept": "—"
+    },
+    {
+      "id": "permit_intake",
+      "name": "Permit Intake technicians",
+      "dept": "Permit Sonoma"
+    },
+    {
+      "id": "plan_checker",
+      "name": "Plan check engineer / plan checker",
+      "dept": "Permit Sonoma (Building, Engineering, Well & Septic, Planning divisions)"
+    },
+    {
+      "id": "well_septic",
+      "name": "Well and Septic section",
+      "dept": "Permit Sonoma"
+    },
+    {
+      "id": "express_team",
+      "name": "Express Permit team (ad hoc; one engineer from each plan check division)",
+      "dept": "Permit Sonoma"
+    },
+    {
+      "id": "senior_manager",
+      "name": "Senior manager maintaining the Microsoft Access reporting workaround",
+      "dept": "Permit Sonoma"
+    },
+    {
+      "id": "ps_management",
+      "name": "Permit Sonoma senior management",
+      "dept": "Permit Sonoma"
+    },
+    {
+      "id": "third_party",
+      "name": "Private engineering firm providing plan check (nine published; three under contract to PS)",
+      "dept": "third party"
+    },
+    {
+      "id": "inspector",
+      "name": "Building inspector",
+      "dept": "Permit Sonoma inspections"
+    },
+    {
+      "id": "consultant",
+      "name": "Fee-study consultant (2021) / Berry Dunn (2023)",
+      "dept": "third party"
+    },
+    {
+      "id": "bos",
+      "name": "Sonoma County Board of Supervisors and County Executive",
+      "dept": "county governing body"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Determine the applicable requirements for the proposed work (construction code, zoning, septic capacity and potentially dozens of related conditions)",
+      "actor": "permit_intake",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "description of proposed work"
+      ],
+      "artifacts_out": [
+        "list of applicable requirements",
+        "document review requirements explained to the applicant"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Sonoma County Code § 7-5(b), (e)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Permit Sonoma's basic workflow is the same: determine the list of applicable requirements; check the plans to see if they're compliant; inform the applicant of any identified issues and request resubmission of conforming plans",
+          "page_or_section": "p. 5, 'How does Permit Sonoma Do What It Does?'",
+          "ocr_raw": "Permit Sonoma's basic workflow is the same: determine the list of applicable requirements; check the plans to see if they're complian! inform the applicant ofany identified issues and request resubmission of conforming plans",
+          "ocr_corrections": [
+            "'complian!' → 'compliant;'",
+            "'ofany' → 'of any'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "The Permit Intake department is the PS gateway for all new permit applications and is also the department tasked with explaining document review requirements to prospective permit applicants.",
+          "page_or_section": "p. 7, Requirement 1",
+          "ocr_raw": "The Permit Intake departsnent is the PS gateway for all new permit applications and is also the department tasked with explaining doanment review requirerents to prospective permit applicants.",
+          "ocr_corrections": [
+            "'departsnent' → 'department'",
+            "'doanment' → 'document'",
+            "'requirerents' → 'requirements'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Submit the permit application and plans electronically to Permit Intake",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "application",
+        "plans (electronic since 2020; paper before that)"
+      ],
+      "artifacts_out": [
+        "filed application in Accela"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234 online submission requirement)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "PS switched almost immediately to electronic submission of (formerly paper) plans.",
+          "page_or_section": "p. 5, Covid transition",
+          "ocr_raw": "PS switched almost immediately to electronic submission of (fonnerly paper) plans.",
+          "ocr_corrections": [
+            "'fonnerly' → 'formerly'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "At any given time, PS has a thousand or more permits in some stage of completion, is working on 500-1,000 new applications every month",
+          "page_or_section": "p. 6",
+          "ocr_raw": "At any given time, PS has a thousand ormore permits in some stage of completion, is working on 500-1,000 new applications every month",
+          "ocr_corrections": [
+            "'ormore' → 'or more'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Permit Intake reviews the application for documentary completeness within 15 business days and either accepts it or returns it with specific notice of insufficiency",
+      "actor": "permit_intake",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed application"
+      ],
+      "artifacts_out": [
+        "acceptance",
+        "or notice of insufficiency with a list of missing information"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "business_day_ceiling": 15,
+        "source": "AB 2234 statutory ceiling. Observed compliance from D1's own record review: Permit Intake missed the 15-day limit 'a handful of times' out of more than 7,000 permit applications in 2024 — a rate, not a duration; no distribution of actual intake durations exists."
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234); Cal. Gov. Code § 66317(a)(2) also applies to an ADU application",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Assembly Bill AB 2234 establishes a simple requirement: permit agencies are required to review a permit application for completeness within 15 business days and completed applications must then be assessed for code and ordinance compliance within 30 business days.",
+          "page_or_section": "p. 6, 'Processing Permit Applications Faster'",
+          "ocr_raw": "Assembly Biit AB2l34 establishes a simple requirement permit agencies are required to review a permit application for completeness wi6in l5 (brsiness days and coryleted applications must then be assessed for code and ordinance compliance within 30 business days.",
+          "ocr_corrections": [
+            "'Assembly Biit AB2l34' → 'Assembly Bill AB 2234'",
+            "'requirement permit' → 'requirement: permit'",
+            "'wi6in l5 (brsiness days' → 'within 15 business days'",
+            "'coryleted' → 'completed'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "failed to review applications for completeness and acceptability within the 15-day limit a handful of times - out of more than 7,000 permit applications",
+          "page_or_section": "pp. 7-8, Requirement 1",
+          "ocr_raw": "failed to review applications for completeness and acceptabiliry wrthtu the I5-day limit a handful of times - out ofmore than 7,000 pemil applications",
+          "ocr_corrections": [
+            "'acceptabiliry' → 'acceptability'",
+            "'wrthtu the I5-day' → 'within the 15-day'",
+            "'ofmore' → 'of more'",
+            "'pemil' → 'permit'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Applicant cures the insufficiency and resubmits; the 15-business-day completeness clock resets",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "notice of insufficiency"
+      ],
+      "artifacts_out": [
+        "cured application",
+        "reset 15-day clock"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A03",
+        "reason": "documentation incomplete or inadequate"
+      },
+      "optional": true,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "AB 2234 makes it clear that if an applicant is informed that documentation is incomplete or inadequate, the 15-day clock resets.",
+          "page_or_section": "p. 8, Requirement 1",
+          "ocr_raw": "A82234 makes it clear that if an applicant is infonned that documentation is incomplete or inadequate, the l5-day clock resets.",
+          "ocr_corrections": [
+            "'A82234' → 'AB 2234'",
+            "'infonned' → 'informed'",
+            "'l5-day' → '15-day'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Extract Permit Intake records from Accela into a homebuilt Microsoft Access database to compute intake and acceptance dates, because Accela does not record the clock reset",
+      "actor": "senior_manager",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "inconsistent Accela intake records"
+      ],
+      "artifacts_out": [
+        "Access-computed intake/acceptance dates",
+        "management performance information",
+        "flags on applications nearing the 15-day limit"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Permit Sonoma's Accela system doesn't reflect the reset so PS Permit Intake's Accela data can't be used \"as is\" to report permit acceptance performance versus AB 2234 requirements.",
+          "page_or_section": "p. 8, Requirement 1",
+          "ocr_raw": "Permit Sonoma's Accela system doesn't reflect the reset so PS Permit Intake's Accela data can't be used \"as is\" to repoft permit acceptance performance versus AB2234 requirements.",
+          "ocr_corrections": [
+            "'repoft' → 'report'",
+            "'AB2234' → 'AB 2234'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "Permit Intake records are extracted from Accela and inserted into a homebuilt Microsoft Access database, wherein a series of scripts and queries converts the inconsistent Accela data into a form that allows for Intake and Acceptance date calculations.",
+          "page_or_section": "p. 8, Requirement 1",
+          "ocr_raw": "Permit Intake records are exkacted ftom Accela and inserted into a homebuilt Microsoft Access database, wherein a series ofscripts and queries converts tfoe inconsistent Accela data into a form that allows for Intake and Acceptance date calculations.",
+          "ocr_corrections": [
+            "'exkacted ftom' → 'extracted from'",
+            "'ofscripts' → 'of scripts'",
+            "'tfoe' → 'the'"
+          ]
+        }
+      ],
+      "visibility_check": "No applicant-facing Sonoma document was fetched in Wave 1 (see known_gaps), so the check rests on D1's own account: this workaround exists precisely because the system of record cannot produce the number, it is described as one senior manager's personal construction, and D1 notes its integrity 'is neither audited nor auditable'. It cannot be visible to an applicant. Hence staff_only."
+    },
+    {
+      "id": "A06",
+      "name": "Invoice and collect the plan check fee; payment triggers the 30-business-day AB 2234 review clock",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "accepted application"
+      ],
+      "artifacts_out": [
+        "paid plan check fee",
+        "started 30-business-day clock"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "after acceptance, before plan check begins",
+        "basis": "2021 consultant fee study dividing total department costs by total hours worked (see A20); averaged, not per-permit",
+        "note": "The clock-start event is a fee payment, not the application date — so an applicant who delays payment delays their own statutory protection. This is the single most consequential designed detail in the model and appears in no statute."
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234); Sonoma County Code § 7-5(a)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Payment of this plan check fee triggers a second clock under AB 2234: review the plans and issue the permit within 30 business days or tell the applicant why it isn't acceptable.",
+          "page_or_section": "p. 8, Requirement 2",
+          "ocr_raw": "Payment of this plan check fee triggers a second clock under AB2234: review the plans and issue the permit srithin 30 business days or tell the applicant why it isn't acceptable.",
+          "ocr_corrections": [
+            "'AB2234' → 'AB 2234'",
+            "'srithin' → 'within'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "After a plan is accepted by Permit Intake technicians, applicants are required (in most cases) to pay for the time it will take Permit Sonoma to review the details of the proposed work",
+          "page_or_section": "p. 8, Requirement 2",
+          "ocr_raw": "After a plan is accepted by Permit Intake technicians, applicants are required (in most cases) to pay for the ti'ne it will take Permit Sonoma to review the details of the proposed work",
+          "ocr_corrections": [
+            "\"ti'ne\" → 'time'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Charge a plan check processing fee even where no plan check is required",
+      "actor": "applicant",
+      "visibility": "applicant_inferable",
+      "occasion": "online",
+      "artifacts_in": [
+        "application requiring no plan check"
+      ],
+      "artifacts_out": [
+        "collected plan check processing fee with no plan check performed"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "at application",
+        "note": "289 of 525 building permit applications in the February 2025 activity report required no plan check but were still charged a plan check processing fee; D1 adds that 25-50% of the remainder are solar panel and battery installations with largely routine designs (source text reads 'and25-5(P/o', OCR-corrected to 'and 25-50%')"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "the majority of Permit Sonoma building permit applications (289 of 525) require no plan check - but still charge a plan check processing fee",
+          "page_or_section": "p. 13, self-certification discussion (February 2025 Permit Sonoma activity report)",
+          "ocr_raw": "the majority of Permit Sonoma building permit apptcations (289 of 525) require no plan check - but still charge a plnn sfueck processing fe e",
+          "ocr_corrections": [
+            "'apptcations' → 'applications'",
+            "'plnn sfueck' → 'plan check'",
+            "'fe e' → 'fee'"
+          ]
+        }
+      ],
+      "visibility_check": "An applicant can see they paid a plan check fee and that no plan check occurred, so the charge is inferable; what is invisible is that this is the majority case. Labelled applicant_inferable rather than staff_only."
+    },
+    {
+      "id": "A08",
+      "name": "Route the application to the applicable plan check divisions and publish the assigned reviewers' names and contact details in Accela",
+      "actor": "permit_intake",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "accepted application",
+        "paid fee"
+      ],
+      "artifacts_out": [
+        "division assignments",
+        "assigned reviewer names and phone/e-mail visible to the applicant",
+        "Accela status record"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Sonoma County Code § 7-5(b), (e)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "One HUGE improvement: customers can see the names and phone numbers/email addresses of the individuals assigned to process their permit applications so they know who to contact when questions arise or when the review process is stalled.",
+          "page_or_section": "p. 9, BD Recommendation: Integrate Procedural Steps Into the Accela Workflow",
+          "ocr_raw": "One HUGE improvement customers can see the names and phone numbers/email addresses of the individuals assigned to process thet permit applications so they know who to contact when questions arise or when the review process is stalled.",
+          "ocr_corrections": [
+            "'improvement customers' → 'improvement: customers'",
+            "'thet' → 'their'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "every aspect of PS's interaction with permit plans and applicants is (supposed to be) noticed and tracked in Accela so that staff, management and applicants can see their application status at any moment",
+          "page_or_section": "p. 6",
+          "ocr_raw": "every aspect ofPS's interaction with permitplans and applicants is (supposod to be) noticed and tracked in Accela so that staff, management and applicants can see their application staErs at any momen!",
+          "ocr_corrections": [
+            "'ofPS's' → 'of PS's'",
+            "'permitplans' → 'permit plans'",
+            "'supposod' → 'supposed'",
+            "'staErs' → 'status'",
+            "'momen!' → 'moment'"
+          ]
+        }
+      ],
+      "visibility_check": "Not staff_only: D1 records that assigned-reviewer identity and status are now visible to applicants in Accela. What remains invisible is the dependency structure between divisions — carved out as A10."
+    },
+    {
+      "id": "A09",
+      "name": "Multi-division plan check for code, zoning, stormwater, erosion control, septic capacity and other conditions within 30 business days",
+      "actor": "plan_checker",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "routed plans",
+        "paid plan check fee"
+      ],
+      "artifacts_out": [
+        "approval",
+        "or Plan Check Comments"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "business_day_ceiling": 30,
+        "staff_hours_per_plan_check": "4-8 (anecdotal; 4-8-12 in the report's own later phrasing)",
+        "elapsed_weeks": "4-8-12 (the report's own framing of the gap)",
+        "source": "D1: staff-hour estimates are anecdotal because Accela does not capture real processing times; elapsed weeks are the grand jury's characterisation, not a measured distribution. No median or percentile exists."
+      },
+      "fee": null,
+      "rework": {
+        "back_to": "A12",
+        "reason": "plans not compliant; comments issued and resubmission requested"
+      },
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234); Sonoma County Code § 7-5",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "applications may need to be checked for conformance with local zoning, availability of septic capacity, and potentially dozens of related conditions",
+          "page_or_section": "p. 5",
+          "ocr_raw": "applications may need to be checked for conformace with local zoning, availability of septic capacity, and potentially dozens ofrelated conditions",
+          "ocr_corrections": [
+            "'conformace' → 'conformance'",
+            "'ofrelated' → 'of related'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "How long does it actually take to do a plan check? Anecdotal statements in interviews and data recorded by some plan checkers suggests that a typical residential construction plan check takes 4-8 hours of staff time",
+          "page_or_section": "p. 16, 'What Questions About Permit Sonoma Weren't Answered?'",
+          "ocr_raw": "How long does it actually take to do a plan check? Anecdotal statements in interviews and data recorded by some plan checkers suggests that a typical residential conso:rctionplan check takes 4- 8 hours of staff time",
+          "ocr_corrections": [
+            "'conso:rctionplan' → 'construction plan'",
+            "'4- 8' → '4-8'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Wait on interdepartmental dependencies with no systematic tracking — permits get \"lost\" while each division waits for another to act",
+      "actor": "plan_checker",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "multi-division permit with unresolved prerequisites"
+      ],
+      "artifacts_out": [
+        "stalled permit",
+        "systemic delay"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "unmeasurable by construction: Accela records the date each department finishes but has no recognition of the joint 30-business-day obligation, so the wait is invisible even to PS management"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "When multiple departments are required to review the plans, Accela records the date when each department does its work, but there is no systemic recognition of the requirement for all departments to complete their work within 30 business days",
+          "page_or_section": "p. 8, Requirement 2",
+          "ocr_raw": "When multiple deparhents are required to review tte plans, Accela records the date when each department does its work, but there is no systemic recognition of the requirement for all departrrents to complete their work wiftin 30 business days",
+          "ocr_corrections": [
+            "'deparhents' → 'departments'",
+            "'tte' → 'the'",
+            "'departrrents' → 'departments'",
+            "'wiftin' → 'within'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "This shortcoming results in systemic delays and is also the reason that sometimes permits get \"lost\" while each department waits for another department to act.",
+          "page_or_section": "p. 10, Develop Systemic Awareness of Interdepartmental Collaboration Requirements",
+          "ocr_raw": "This shortcoming results in systemic delrys and is also the reason that sometimes permits get \"lost\" while each department waits for another departuent to acl",
+          "ocr_corrections": [
+            "'delrys' → 'delays'",
+            "'departuent' → 'department'",
+            "'acl' → 'act.'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "Currently, no individual or department within Permit Sonoma is tasked with ensuring that all necessary inter-department work proceeds on a timely basis.",
+          "page_or_section": "p. 10",
+          "ocr_raw": "Currently, no individual or department within Permit Sonoma is tasked with ensuring that all necessary inter{epartment work proceeds on a timely basis.",
+          "ocr_corrections": [
+            "'inter{epartment' → 'inter-department'"
+          ]
+        }
+      ],
+      "visibility_check": "By the report's own account this wait is invisible to PS management and to the Board of Supervisors, let alone to an applicant; the grand jury spent 'many, many hours' and failed to find any programmatic way to measure it. Hence staff_only."
+    },
+    {
+      "id": "A11",
+      "name": "Post a \"Read Me\" comment in Accela as the only mechanism for communicating an interdepartmental dependency",
+      "actor": "plan_checker",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "a prerequisite another division must satisfy"
+      ],
+      "artifacts_out": [
+        "free-text \"Read Me\" comment in Accela"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The Accela system currently tracks task status within each department but has no facilities (other than engineers posting \"Read Me\" comments) for communicating interdepartmental dependencies.",
+          "page_or_section": "p. 10",
+          "ocr_raw": "The Accela system curenfly tracks task status within each deparhent but has no facilities (other than engineen posting \"Read Me\" comments) for comuunicating interdepartuental dependencies.",
+          "ocr_corrections": [
+            "'curenfly' → 'currently'",
+            "'deparhent' → 'department'",
+            "'engineen' → 'engineers'",
+            "'comuunicating' → 'communicating'",
+            "'interdepartuental' → 'interdepartmental'"
+          ]
+        }
+      ],
+      "visibility_check": "An internal free-text convention between engineers inside the workflow system. Nothing in the applicant-facing record could disclose it; it surfaces only because the grand jury interviewed staff. Hence staff_only."
+    },
+    {
+      "id": "A12",
+      "name": "Issue specific and comprehensive Plan Check Comments telling the applicant exactly what must change",
+      "actor": "plan_checker",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "non-compliant plans"
+      ],
+      "artifacts_out": [
+        "Plan Check Comments"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "the interval from 'Plan Check Fee Paid' to 'comprehensive Plan Check Comments sent' is precisely the interval Accela does not reliably track — the instrumentation gap sits exactly on the statutory clock"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234, written explanation with code references required for a denial)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "These \"Plan Check Comments\" are required to be specific and comprehensive, such that an applicant knows exactly what changes need to be made to application documents for successful plan resubmission.",
+          "page_or_section": "p. 8, Requirement 2",
+          "ocr_raw": "These *Plan Check Comments\" are required to be specific and coryr*ensivg such that an applicant knows exactly what changes need to be made to application documents for successful plao resubmission-",
+          "ocr_corrections": [
+            "'*Plan' → '\"Plan'",
+            "'coryr*ensivg' → 'comprehensive,'",
+            "'plao' → 'plan'",
+            "trailing '-' → '.'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "PS's Accela system implementation doesn't include management reporting that reliably tracks the amount of time between the \"Plan Check Fee Paid\" date and the date when comprehensive Plan Check Comments are sent.",
+          "page_or_section": "p. 8, Requirement 2",
+          "ocr_raw": "PS's Accela system implementation doesn't include manageraent reporting that reliably tracks the amount of time between the \"Plan Check Fee Paid\" date and lhe date when comprehensive Plan Check Comments are sent.",
+          "ocr_corrections": [
+            "'manageraent' → 'management'",
+            "'lhe' → 'the'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Apply a personal, non-standardised, non-public review checklist",
+      "actor": "plan_checker",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "plans under review"
+      ],
+      "artifacts_out": [
+        "review against the individual reviewer's own checklist"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234 requires cities to develop and publish objective checklists — the mandate this activity fails)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "almost everyone in Permit Intake and the six plan check departments uses a personal checklist to review application documents, but there is no universal checklist that is used department-wide in any PS department",
+          "page_or_section": "p. 9, BD Recommendation: Establish Standard Operating Procedures",
+          "ocr_raw": "ahnost everyone in Permit Intake and the six plan check departments uses a personal checklist to review application documents, but there is no universal checklist that is used department-wide in any PS deparhent",
+          "ocr_corrections": [
+            "'ahnost' → 'almost'",
+            "'deparhent' → 'department'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "While almost all Permit Sonoma plan checkers have a checklist they use to conduct their reviews, they all use different checklists and none of those checklists are public",
+          "page_or_section": "p. 13, BD Recommendation: Third Party Plan Check, item 3",
+          "ocr_raw": "While almost all Permit Sonoma plan checkers have a checklist they use to conduct their reviews, li ey all use dfferent chedtlists and noae of those checklists are public",
+          "ocr_corrections": [
+            "'li ey' → 'they'",
+            "'dfferent chedtlists' → 'different checklists'",
+            "'noae' → 'none'"
+          ]
+        },
+        {
+          "doc": "D4",
+          "quote": "Cities must develop and publish objective checklists detailing permit application requirements, ensuring clarity for developers.",
+          "page_or_section": "D1 Appendix I, Key Provisions of AB 2234, item '3. Standardized Checklists'",
+          "ocr_raw": "Cities must develop and publish objective checkli*s detailing permit ryplication requirements, ensring clarity for dwelopers.",
+          "ocr_corrections": [
+            "'checkli*s' → 'checklists'",
+            "'ryplication' → 'application'",
+            "'ensring' → 'ensuring'",
+            "'dwelopers' → 'developers'"
+          ]
+        }
+      ],
+      "visibility_check": "Explicitly stated to be non-public ('none of those checklists are public'). This is the clearest staff_only activity in the model and a direct contradiction of an AB 2234 mandate. Hence staff_only."
+    },
+    {
+      "id": "A14",
+      "name": "Resubmit conforming plans",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Plan Check Comments"
+      ],
+      "artifacts_out": [
+        "resubmitted conforming plans"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "inform the applicant of any identified issues and request resubmission of conforming plans; or issue the permit when everything looks good.",
+          "page_or_section": "p. 5",
+          "ocr_raw": "inform the applicant ofany identified issues and request resubmission of conforming plans; or issue the permit when everything looks good.",
+          "ocr_corrections": [
+            "'ofany' → 'of any'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Obtain the written approvals that gate issuance (well & septic office/field clearance, health officer, zoning, grading and drainage, stormwater, fire, road encroachment, water/sewer clearance)",
+      "actor": "well_septic",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "plans and site conditions"
+      ],
+      "artifacts_out": [
+        "office clearance, field clearance, or issued well and septic permit",
+        "zoning/grading/stormwater clearances",
+        "fire service agency approval where applicable"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Sonoma County Code § 7-5(b), (c), (e)",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Permits shall not be issued by the permit and resource management department for work which includes any of the following, unless and until written approval has been received",
+          "page_or_section": "D1 Appendix 2, Sonoma County Code Sec. 7-5(b)",
+          "ocr_raw": "Permits shall not be issued by the permit and resource manrgement de.partment for work which includes any of the following, unless and until written approval has been received",
+          "ocr_corrections": [
+            "'manrgement de.partment' → 'management department'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "a building permit might require a well and septic permit that calls for additional leach field capacity-which requires agreement by Engineering that the site can be graded",
+          "page_or_section": "p. 10, worked dependency example",
+          "ocr_raw": "a building pemrit might require a well and septic permit that calls for additional leach field capacity-which requires agreement by Engineering that the site can be graded",
+          "ocr_corrections": [
+            "'pemrit' → 'permit'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Issue the permit once all conditions are met",
+      "actor": "plan_checker",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "approved plans",
+        "all written clearances",
+        "paid fees"
+      ],
+      "artifacts_out": [
+        "building permit"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "county development fee must be paid before issuance",
+        "note": "Sonoma County Code § 7-5(g): the permit 'shall not be issued unless and until the development fee has been paid'"
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "Sonoma County Code § 7-5(a), (g)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Permits can't be issued until all conditions are met and when they involve multiple PS departments, each department needs to be systematically aware of outstanding tasks that must be completed before other departments can finish their work.",
+          "page_or_section": "p. 10",
+          "ocr_raw": "Permits can't be issued until all conditions are mel and when they involve multiple PS departuents, each deprhnent needs to be systematically aware of outsrrnding tasks that must be completed before other deparhents can finish their work.",
+          "ocr_corrections": [
+            "'mel' → 'met'",
+            "'departuents' → 'departments'",
+            "'deprhnent' → 'department'",
+            "'outsrrnding' → 'outstanding'",
+            "'deparhents' → 'departments'"
+          ]
+        },
+        {
+          "doc": "D5",
+          "quote": "No person, firm or corporation shall erect, construct, enlarge, alter, repair, move, improve, convert or demolish any building or structure in the unincorporated area of this county",
+          "page_or_section": "D1 Appendix 2, Sonoma County Code Sec. 7-5(a)",
+          "ocr_raw": "No person, firm or corporation $all erect, construct, enlarge, alter, repair, move, improvg convert or demoli$ any building or structure in the unincorporated area of this cor.rnty",
+          "ocr_corrections": [
+            "'$all' → 'shall'",
+            "'improvg' → 'improve,'",
+            "'demoli$' → 'demolish'",
+            "'cor.rnty' → 'county'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Deemed-approved backstop: the application is considered accepted if Permit Sonoma misses the AB 2234 deadlines",
+      "actor": "applicant",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "elapsed statutory clock with no agency action"
+      ],
+      "artifacts_out": [
+        "application considered accepted / deemed approved"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": null,
+        "source": "statutory: 30 business days for projects with fewer than 25 housing units, 60 business days for 25 or more (per D1's Appendix I summary)"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "by law, if a permitting agency doesn't do its job consistent with the requirements of AB 2234, the application will be considered accepted.",
+          "page_or_section": "p. 6",
+          "ocr_raw": "by law, if a permining agency doesa't do its job consistent with the requirements of AB2 2 34, the application will be considered accepted.",
+          "ocr_corrections": [
+            "'permining' → 'permitting'",
+            "\"doesa't\" → \"doesn't\"",
+            "'AB2 2 34' → 'AB 2234'"
+          ]
+        },
+        {
+          "doc": "D4",
+          "quote": "If a local agency does not adhere to the 30- or 60- business day limit for reviewing applications, the application is deemed approved under certain conditions.",
+          "page_or_section": "D1 Appendix I",
+          "ocr_raw": "Ifa local agenry does not adhere to the 30- or 60- business day limit for reviewing applications, the applicdion is deemed approved under certain conditioos.",
+          "ocr_corrections": [
+            "'Ifa' → 'If a'",
+            "'agenry' → 'agency'",
+            "'applicdion' → 'application'",
+            "'conditioos' → 'conditions'"
+          ]
+        }
+      ],
+      "visibility_check": "No Sonoma applicant-facing document was fetched, so it cannot be confirmed whether Permit Sonoma discloses this right; D1 does not say that it does. Labelled applicant_inferable because the right is recoverable from the statute, which any applicant may read."
+    },
+    {
+      "id": "A18",
+      "name": "Over-the-counter issuance without plan check for minor work",
+      "actor": "permit_intake",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "application for minor work with no structural modification"
+      ],
+      "artifacts_out": [
+        "permit issued over the counter"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": null,
+        "source": "issued at the counter; D1 gives no duration but the path bypasses plan check entirely"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Building permits for minor work, such as a re-roof, new water heater, electric upgrade or other work that does not involve any structural modification, can be issued over the counter.",
+          "page_or_section": "p. 11 (D1 quoting the Permit Sonoma website — one of only two such sentences on the entire site)",
+          "ocr_raw": "\"Building permits for minor worlq su€h as a re+oof, new water heater, electric upgrade or other work that does not invohre arry structural modifkation, can be issued over the counter.\"",
+          "ocr_corrections": [
+            "'worlq su€h' → 'work, such'",
+            "'re+oof' → 're-roof'",
+            "'invohre arry' → 'involve any'",
+            "'modifkation' → 'modification'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "Residential Service...400 amp or less: No plans required. Can be issued over the counter with no plan check.",
+          "page_or_section": "p. 11 (D1 quoting the Permit Sonoma website)",
+          "ocr_raw": "'Residential Service-..4o0 amp or less: No plans required. Can be issued over the counter with no plan check.\"",
+          "ocr_corrections": [
+            "'Service-..4o0' → 'Service...400'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Maintain the unpublished internal list of work eligible for over-the-counter issuance, with no formal process to add to it",
+      "actor": "ps_management",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "practice accumulated across permits actually issued"
+      ],
+      "artifacts_out": [
+        "an effective OTC eligibility list that exists only in practice (recoverable only by reviewing 6 months of issued permits)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code § 65913.3 (AB 2234 objective-checklist publication mandate)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "That's all. No form and certainly not a complete list of work that can be permitted over the counter.",
+          "page_or_section": "p. 11, BD Recommendation: Over the Counter Permitting",
+          "ocr_raw": "That's all. No forrn and certainly not a complete list of work that can be permitted over the counter.",
+          "ocr_corrections": [
+            "'forrn' → 'form'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "Here is a more complete list of work that may be permitted \"over the counter\" without plan check required (obtained by reviewing actual permits issued over a 6-month period)",
+          "page_or_section": "p. 11",
+          "ocr_raw": "Here is a more complete list of wor{< that may be penritted \"over the counter\" without plan check required (obtained by reviewing actual pennits issued over a 6-month period)",
+          "ocr_corrections": [
+            "'wor{<' → 'work'",
+            "'penritted' → 'permitted'",
+            "'pennits' → 'permits'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "no one in authority has plans to actually add OTC permit types to the list. Nor is there a formal process to submit additional types of OTC permit recommendations.",
+          "page_or_section": "p. 11",
+          "ocr_raw": "za one in authority has plans to actually add OIC permit Wes to the list. Nor is there a formal process to submit additional types of OTC permit recommendations.",
+          "ocr_corrections": [
+            "'za one' → 'no one'",
+            "'OIC permit Wes' → 'OTC permit types'"
+          ]
+        }
+      ],
+      "visibility_check": "The grand jury searched the Permit Sonoma website, found ten documents and two sentences, and had to reconstruct the real eligibility list from six months of issued permits. Grand Jury Finding F8 states PS 'does not provide information to the public about over the counter and express permit review requirements and opportunities in a manner that is easily accessible and comprehensive.' Hence staff_only."
+    },
+    {
+      "id": "A20",
+      "name": "Express Permit review: an ad hoc team with one engineer from each plan check division passes the plans around one (virtual) room and approves on the spot",
+      "actor": "express_team",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "routine building permit application"
+      ],
+      "artifacts_out": [
+        "permit approved in a single session"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": null,
+        "throughput": "half a dozen permits reviewed and issued in one afternoon in the fall-2024 first trial; 8-10 typically processed per weekly session during the pilot",
+        "source": "D1, self-reported by the Express Permit team; no audited measurement"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "put someone from every department responsible for reviewing routine building permit applications in the same room, (virtually) pass the plans around the room to see whether any department has material concerns, and (finding none) approve the permit on the spot!",
+          "page_or_section": "p. 12, BD Recommendation: Express Permit Review",
+          "ocr_raw": "put someone from every departrrent responsible for reviewing routine building permit applications in the same room, (virtually) pass the plans around the room to see whether any department has material concerns, and (finding none) appmve the permit on the spot!",
+          "ocr_corrections": [
+            "'departrrent' → 'department'",
+            "'appmve' → 'approve'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "half a dozen permit applications were reviewed and issued in an afternoon, saving weeks of time for applicants with no additional work on Permit Sonoma's part",
+          "page_or_section": "p. 12",
+          "ocr_raw": "half a dozen permit applications were reviewed and issued ia an afternoon, saving weeb of rime for applicants with no additional work on Permit Sonoma's parl",
+          "ocr_corrections": [
+            "'ia' → 'in'",
+            "'weeb of rime' → 'weeks of time'",
+            "'parl' → 'part'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "beyond the 8-10 typically processed during the current pilot",
+          "page_or_section": "p. 12",
+          "ocr_raw": "beyond the 8-10 typically processed during the current pilot",
+          "ocr_corrections": []
+        }
+      ],
+      "visibility_check": "An internal, ad hoc, weekly meeting. Grand Jury Finding F8 records that PS does not publish its express-permit requirements accessibly, and Recommendation R5 orders it to. An applicant whose permit went through Express Permit would experience only unexplained speed. Hence staff_only."
+    },
+    {
+      "id": "A21",
+      "name": "Pay a published private firm for third-party plan check on an expedited basis",
+      "actor": "third_party",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "plans",
+        "applicant payment to the third party"
+      ],
+      "artifacts_out": [
+        "third-party plan review"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": null,
+        "when": "paid directly to the third party",
+        "note": "incremental to (somewhat reduced) plan check fees charged by Permit Sonoma — i.e. the applicant pays twice to go faster"
+      },
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "It also published a list of nine third parties that applicants can pay to review plans on an expedited basis. The cost of third party review is incremental to (somewhat reduced) plan check fees charged by Permit Sonoma.",
+          "page_or_section": "p. 14, BD Recommendation: Third Party Plan Check",
+          "ocr_raw": "It also published a list of nine third parties that applicanb can pay to review plans on an expedited basis. The cost of lhird party review is incremental to (somewhat reduced) plan check fees charged by Permit Sonoma.",
+          "ocr_corrections": [
+            "'applicanb' → 'applicants'",
+            "'lhird' → 'third'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Contract private engineering firms to burn down the plan-check backlog",
+      "actor": "ps_management",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "plan-check backlog"
+      ],
+      "artifacts_out": [
+        "backlog reduced to a level on-staff reviewers can handle (by year-end 2024)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "It contracted with three private engineering firms and, by year-end 2024, had reduced the backlog to levels that Permit Sonoma management can handle using on-staff reviewers.",
+          "page_or_section": "p. 14, BD Recommendation: Third Party Plan Check",
+          "ocr_raw": "It contracted with three private engineering firms and, by year-en d 2024 , had reduced the backlog to levels that Permit Sonoma management cau handle using on-staff reviewers.",
+          "ocr_corrections": [
+            "'year-en d 2024 ,' → 'year-end 2024,'",
+            "'cau' → 'can'"
+          ]
+        }
+      ],
+      "visibility_check": "A procurement and capacity decision. Distinct from A21 (which the applicant chooses and pays for): here PS pays the firm and the applicant's file may be reviewed off-site without the applicant electing it. Nothing in the public record would disclose which files went out. Hence staff_only."
+    },
+    {
+      "id": "A23",
+      "name": "Self-certify completed roofing-material replacement work after the fact under an over-the-counter permit",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "OTC permit for roofing replacement"
+      ],
+      "artifacts_out": [
+        "self-certification of completed work in lieu of a County inspection"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Permit Sonoma allows over-the-counter permitting for roofing material replacement, with self-certification of the work after it's done, and a majority of roofing replacement is already being done this way.",
+          "page_or_section": "p. 13, BD Recommendation: Self-certification",
+          "ocr_raw": "Permit Sonoma allows over-the-counter permitting for roofing material replacemen! with self-certification of the work after it's done, and a majority of roofing replacement is already being done this way.",
+          "ocr_corrections": [
+            "'replacemen!' → 'replacement,'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "the Authority Having Jurisdiction (i.e. Permit Sonoma in our case) retains the right to inspect.",
+          "page_or_section": "p. 13",
+          "ocr_raw": "the Authority Having Jurisdiction (i.e. Permit Sonoma in our case) retains the rQlr, to inspecL",
+          "ocr_corrections": [
+            "'rQlr,' → 'right'",
+            "'inspecL' → 'inspect.'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Field inspections at foundation pouring, framing, electrical installation and final completion",
+      "actor": "inspector",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "issued permit",
+        "approved plans"
+      ],
+      "artifacts_out": [
+        "inspection records"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Sonoma County Code § 7-5(f) (no work shall be covered before it has been duly inspected and approved)",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "Inspectors visit the site at various stages of construction, including foundation pouring, framing, electrical installation, and final completion, to ensure everything is up to standard.",
+          "page_or_section": "p. 3, Background: 'How Does a Permit Agency Ensure That Buildings Comply with the Building Code?'",
+          "ocr_raw": "Inspectors visit the site at various stages of construction, including foundation pouring, framing, electical installation, and final completion, to ensure everything is up to standard.",
+          "ocr_corrections": [
+            "'electical' → 'electrical'"
+          ]
+        }
+      ],
+      "coverage_warning": "D1 explicitly excluded inspections from its scope ('This study did not review how Permit Sonoma conducts inspections or code enforcement. In hindsight it was a significant omission'), so A24 and A25 rest on the report's generic background description of how permit agencies work, not on any Sonoma-specific finding. Treat them as low-confidence."
+    },
+    {
+      "id": "A25",
+      "name": "Halt the project and require corrections when non-compliance is found at inspection",
+      "actor": "inspector",
+      "visibility": "applicant_facing",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "non-compliant work"
+      ],
+      "artifacts_out": [
+        "stop-work / correction requirement"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "A24",
+        "reason": "corrections required before the project can move forward"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "If non-compliance is found during inspections, the construction project may be halted, and corrections will be required before the project can move forward.",
+          "page_or_section": "p. 3, Background",
+          "ocr_raw": "If non-compliance is found during inspectiom, the constmction project may be halted, and corrections will be required before the project can move forward.",
+          "ocr_corrections": [
+            "'inspectiom' → 'inspections'",
+            "'constmction' → 'construction'"
+          ]
+        }
+      ],
+      "coverage_warning": "See A24: inspections were outside D1's scope."
+    },
+    {
+      "id": "A26",
+      "name": "Record an estimate of 'time on task' in Accela — done by some plan checkers, required of none, reviewed by no one",
+      "actor": "plan_checker",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completed review task"
+      ],
+      "artifacts_out": [
+        "partial, unaudited time-on-task data in Accela"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "A rudimentary implementation of this time tracking capability was added to Accela, and some (but not all) plan checkers include their estimate of the 'time on task' in their Accela data.",
+          "page_or_section": "p. 14, third Berry Dunn recommendation category",
+          "ocr_raw": "A rudimentary implementtion of this time tracking capability was added to Accela\" and some (but not all) plan checkers include their estimate of the 'time on task' in theL Accela data.",
+          "ocr_corrections": [
+            "'implementtion' → 'implementation'",
+            "'Accela\"' → 'Accela,'",
+            "'theL' → 'their'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "However, there is no systematic management review of the data, nor is there any systemic requirement that this data be recorded for every permit",
+          "page_or_section": "p. 14",
+          "ocr_raw": "However, there is no systematic maoagement review of the data, nor is there any systemic requirement that this data be recorded for every permit",
+          "ocr_corrections": [
+            "'maoagement' → 'management'"
+          ]
+        }
+      ],
+      "visibility_check": "Internal timekeeping that PS itself does not compile. Grand Jury Recommendation R1 orders PS to require it by October 2025, which is direct evidence it was not required at the time. Hence staff_only."
+    },
+    {
+      "id": "A27",
+      "name": "Produce the agency's performance reports via one self-taught senior manager's Microsoft Access queries",
+      "actor": "senior_manager",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Accela extracts"
+      ],
+      "artifacts_out": [
+        "the principal performance reports shown to senior management, the Board of Supervisors and the public"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "the principal reports telling senior management (and the public) how Permit Sonoma is performing are created by a single skillful but self-taught senior manager who creates data queries using Microsoft Access",
+          "page_or_section": "p. 14, 'Metrics, metrics, metrics'",
+          "ocr_raw": "fte principal reports telling seaior maoagemeat (and the public) how Permit Sonoma is performing are created by a single skillful but self-taught senior manager who creates data queries using Microsoft Access",
+          "ocr_corrections": [
+            "'fte' → 'the'",
+            "'seaior maoagemeat' → 'senior management'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "if and when that singular senior manager retires or chooses another path, the entire corpus of Permit Sonoma management metrics will need to be refactored.",
+          "page_or_section": "p. 14",
+          "ocr_raw": "if and when that singular senior manager retires or chooses another path. the entire corpus of Permit Sonoma management meEics will need to be refactored.",
+          "ocr_corrections": [
+            "'path.' → 'path,'",
+            "'meEics' → 'metrics'"
+          ]
+        }
+      ],
+      "visibility_check": "A single-person dependency behind every published performance figure, including those reported to the Board of Supervisors. Invisible in the reports themselves. Hence staff_only."
+    },
+    {
+      "id": "A28",
+      "name": "Set plan check fees from a 2021 consultant fee study that divides total department cost by total hours worked rather than measuring per-permit effort",
+      "actor": "consultant",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "total department costs",
+        "total hours worked"
+      ],
+      "artifacts_out": [
+        "averaged fee schedule in which a rework-heavy applicant pays the same as a fully compliant one"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Sonoma County ordinance and state law requirement that fees cover only actual costs incurred",
+      "evidence": [
+        {
+          "doc": "D1",
+          "quote": "The consultant applied a legal but not particularly thoughtful, formula which basically divided total department costs by total hours worked. The resultant fees aren't based on actual time spent on permit processing.",
+          "page_or_section": "p. 17, 'Why do permits cost as much as they do'",
+          "ocr_raw": "The consultant applied a legal but not particularly thoughtful, fonnula which basically divided total deparbnent costs by total hours worked- The rcsultant fees aren't based on actual time spent on perrnit processing.",
+          "ocr_corrections": [
+            "'fonnula' → 'formula'",
+            "'deparbnent' → 'department'",
+            "'worked-' → 'worked.'",
+            "'rcsultant' → 'resultant'",
+            "'perrnit' → 'permit'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "Bad actors who require multiple reviews or excessive amounts of plan rework (or submit design changes in the middle of the review) are often charged the same amount as applicants who submit a fully compliant",
+          "page_or_section": "p. 16",
+          "ocr_raw": "Bad actors who require multiple reviews or excessive amounts of plan rework (or submit design changes in the middle of the review) are often charged the same amount as applicants who submit a fully complien!",
+          "ocr_corrections": [
+            "'complien!' → 'compliant'"
+          ]
+        }
+      ],
+      "visibility_check": "The fee schedule is public; the method behind it, and the fact that it does not reflect the work done on any particular permit, appear only in the grand jury's interviews and its reading of the 2021 fee study. Hence staff_only."
+    },
+    {
+      "id": "A29",
+      "name": "Report progress and permit-processing performance to the Board of Supervisors",
+      "actor": "ps_management",
+      "visibility": "staff_only",
+      "occasion": "hearing",
+      "artifacts_in": [
+        "Access-generated metrics",
+        "Berry Dunn recommendation task tracker"
+      ],
+      "artifacts_out": [
+        "Board of Supervisors update claiming a 57% (elsewhere 67%) reduction in processing times and completion of tasks the grand jury found incomplete"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+          "page_or_section": "quoted in D1, p. 6 (Permit Sonoma management update to the Board of Supervisors, February 2024)",
+          "ocr_raw": "\"ln aggregate, the result is a 57% reduction in processing times acro6s the department's most co.nmon permit tlpes without comprornisirE critical comdiance reviews that keep orr community safe.\"",
+          "ocr_corrections": [
+            "'ln' → 'In'",
+            "'acro6s' → 'across'",
+            "'co.nmon permit tlpes' → 'common permit types'",
+            "'comprornisirE' → 'compromising'",
+            "'comdiance' → 'compliance'",
+            "'orr' → 'our'"
+          ]
+        },
+        {
+          "doc": "D1",
+          "quote": "PS has made an excellent plan to achieve these recommendations. Victory was declared prematurely, however: there is still meaningful work to be done",
+          "page_or_section": "p. 17, Conclusions",
+          "ocr_raw": "PS has done a fine job of accepting and interpreting the Berry Dunn report recommendations and made an excellentp/an to achievethese recommendations Victory was declared premahrrely, however: there is still meaningfirl work to be done",
+          "ocr_corrections": [
+            "'excellentp/an to achievethese recommendations Victory' → 'excellent plan to achieve these recommendations. Victory'",
+            "'premahrrely' → 'prematurely'",
+            "'meaningfirl' → 'meaningful'"
+          ]
+        }
+      ],
+      "visibility_check": "The Board update is a public agenda item, but this is an agency-to-governing-body reporting activity with no applicant-facing surface at all, and its central claim is one the grand jury partially disputes. Labelled staff_only on the visibility test (an applicant sees nothing of it), with the caveat that the artifact itself is public."
+    }
+  ],
+  "edges": [
+    {
+      "from": "A01",
+      "to": "A02",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A02",
+      "to": "A03",
+      "type": "handoff",
+      "condition": "Permit Intake receives the application"
+    },
+    {
+      "from": "A03",
+      "to": "A04",
+      "type": "rework",
+      "condition": "documentation incomplete or inadequate"
+    },
+    {
+      "from": "A04",
+      "to": "A03",
+      "type": "rework",
+      "condition": "cured application; 15-day clock resets"
+    },
+    {
+      "from": "A03",
+      "to": "A05",
+      "type": "handoff",
+      "condition": "intake record needs date reconstruction outside Accela"
+    },
+    {
+      "from": "A03",
+      "to": "A06",
+      "type": "sequence",
+      "condition": "application accepted; plan check required"
+    },
+    {
+      "from": "A03",
+      "to": "A07",
+      "type": "optional",
+      "condition": "application requires no plan check"
+    },
+    {
+      "from": "A03",
+      "to": "A18",
+      "type": "optional",
+      "condition": "minor work with no structural modification"
+    },
+    {
+      "from": "A06",
+      "to": "A08",
+      "type": "handoff",
+      "condition": "fee paid; 30-business-day clock running"
+    },
+    {
+      "from": "A08",
+      "to": "A09",
+      "type": "sequence",
+      "condition": ""
+    },
+    {
+      "from": "A08",
+      "to": "A20",
+      "type": "optional",
+      "condition": "routine application selected for the Express Permit pilot"
+    },
+    {
+      "from": "A08",
+      "to": "A22",
+      "type": "optional",
+      "condition": "backlog routed to a contracted private firm"
+    },
+    {
+      "from": "A09",
+      "to": "A10",
+      "type": "optional",
+      "condition": "review requires more than one division"
+    },
+    {
+      "from": "A10",
+      "to": "A11",
+      "type": "sequence",
+      "condition": "a dependency must be communicated"
+    },
+    {
+      "from": "A11",
+      "to": "A09",
+      "type": "handoff",
+      "condition": "the other division acts on the Read Me comment"
+    },
+    {
+      "from": "A09",
+      "to": "A13",
+      "type": "sequence",
+      "condition": "reviewer applies their own checklist"
+    },
+    {
+      "from": "A09",
+      "to": "A12",
+      "type": "rework",
+      "condition": "plans not compliant"
+    },
+    {
+      "from": "A12",
+      "to": "A14",
+      "type": "rework",
+      "condition": "applicant must resubmit conforming plans"
+    },
+    {
+      "from": "A14",
+      "to": "A09",
+      "type": "rework",
+      "condition": "resubmittal enters another review cycle"
+    },
+    {
+      "from": "A09",
+      "to": "A15",
+      "type": "sequence",
+      "condition": "written clearances required before issuance"
+    },
+    {
+      "from": "A21",
+      "to": "A09",
+      "type": "optional",
+      "condition": "applicant elects third-party plan check in lieu of PS review"
+    },
+    {
+      "from": "A15",
+      "to": "A16",
+      "type": "sequence",
+      "condition": "all written approvals received"
+    },
+    {
+      "from": "A09",
+      "to": "A16",
+      "type": "sequence",
+      "condition": "plans compliant"
+    },
+    {
+      "from": "A20",
+      "to": "A16",
+      "type": "sequence",
+      "condition": "permit approved on the spot"
+    },
+    {
+      "from": "A09",
+      "to": "A17",
+      "type": "optional",
+      "condition": "agency misses the 15- or 30-business-day deadline"
+    },
+    {
+      "from": "A03",
+      "to": "A17",
+      "type": "optional",
+      "condition": "agency misses the 15-business-day completeness deadline"
+    },
+    {
+      "from": "A16",
+      "to": "A24",
+      "type": "sequence",
+      "condition": "construction begins"
+    },
+    {
+      "from": "A18",
+      "to": "A23",
+      "type": "optional",
+      "condition": "roofing-material replacement permitted over the counter"
+    },
+    {
+      "from": "A18",
+      "to": "A24",
+      "type": "sequence",
+      "condition": "inspection still required for most OTC work"
+    },
+    {
+      "from": "A24",
+      "to": "A25",
+      "type": "optional",
+      "condition": "non-compliance found"
+    },
+    {
+      "from": "A25",
+      "to": "A24",
+      "type": "rework",
+      "condition": "corrections completed; re-inspection"
+    },
+    {
+      "from": "A09",
+      "to": "A26",
+      "type": "sequence",
+      "condition": "some reviewers log time on task"
+    },
+    {
+      "from": "A26",
+      "to": "A27",
+      "type": "handoff",
+      "condition": "data extracted into Access"
+    },
+    {
+      "from": "A05",
+      "to": "A27",
+      "type": "handoff",
+      "condition": "intake dates feed the same Access reporting"
+    },
+    {
+      "from": "A27",
+      "to": "A29",
+      "type": "handoff",
+      "condition": "reports go to the Board of Supervisors"
+    },
+    {
+      "from": "A28",
+      "to": "A06",
+      "type": "sequence",
+      "condition": "the fee schedule the invoice is drawn from"
+    },
+    {
+      "from": "A28",
+      "to": "A07",
+      "type": "sequence",
+      "condition": "the same schedule charges a plan check fee where no plan check occurs"
+    },
+    {
+      "from": "A29",
+      "to": "A19",
+      "type": "sequence",
+      "condition": "Recommendations R4/R5 order PS to publish the OTC and express-permit requirements it currently does not"
+    }
+  ],
+  "terminal_artifact": "Sonoma County building permit for the unincorporated-area structure, followed by passed field inspections (Sonoma County Code § 7-5 also warns that acquiring a building permit 'does not relieve the permittee of the responsibility for acquiring any other state and local permits required for the activity')",
+  "denial_rate": null,
+  "denial_rate_note": "Not documented. D1 reports permit volumes (13,260 total Permit Sonoma permits in 2024; 11,926 excluding vacation-rental licences) and AB 2234 compliance-failure counts, but no denial or rejection rate. Notably, the report's framing is that permits are not denied so much as delayed or 'lost' — the failure mode is duration, not refusal.",
+  "timing_gold": {
+    "end_to_end_median_days": null,
+    "p90_days": null,
+    "source": "No end-to-end distribution exists, and D1's central finding is that it cannot exist with the current instrumentation: Grand Jury Finding F3 is that 'the Civil Grand Jury was unable to conclusively verify AB 2234 compliance because Permit Sonoma workflow systems do not reliably and consistently capture elapsed time for permit reviews.' This is the strongest gold/observed seam in the whole corpus — the agency's own system of record cannot produce the number its statutory obligation is defined in.",
+    "quote": "If a permit plan check takes 4-8-12 hours, why does it take 4-8-12 weeks to work its way through the system?",
+    "quote_ocr_raw": "If a permit plan check takes 4- 8-12 hours, why does it take 4-E-12 weeks to work i6 way thmugh fte system?",
+    "quote_ocr_corrections": [
+      "'4- 8-12' → '4-8-12'",
+      "'4-E-12' → '4-8-12'",
+      "'i6 way thmugh fte' → 'its way through the'"
+    ],
+    "statutory_clocks": {
+      "completeness": "15 business days (AB 2234), with the clock resetting on each cure",
+      "plan_check": "30 business days post-acceptance for projects under 25 housing units; 60 business days for 25 or more",
+      "clock_start": "the plan-check clock starts on PAYMENT of the plan check fee, not on application or acceptance — a designed detail, not a statutory one",
+      "backstop": "deemed approved / considered accepted if missed",
+      "note": "These are the AB 2234 post-entitlement clocks. An ADU application in Sonoma County is additionally subject to Gov. Code § 66317's 15-business-day completeness and 60-CALENDAR-day ministerial decision clocks; D1 never mentions § 66317 and the two clock sets must not be conflated."
+    },
+    "agency_self_reported": {
+      "table": "Average Days to Review, June 2023 → December 2024, with percent reduction: Building Permit 71 → [Dec-2024 value lost to OCR], 68% reduction; Encroachment Permit 49 → [lost], 55%; Grading Permit 82 → 41, 50%; Septic Permit 98 → [lost], 79%; Well Permit 123 → 18, 85%; average reduction 67%",
+      "quote": "In aggregate, the result is a 57% reduction in processing times across the department's most common permit types without compromising critical compliance reviews that keep our community safe.",
+      "internal_inconsistency": "The February 2024 Board update quoted on D1 p. 6 says 57%; the table footer and the update's own conclusion quoted on D1 p. 7 say 67% ('the average 67% reduction in permit response times'). Two different reduction figures for the same claim, in adjacent quotations from the same agency document. Do not reconcile them — report both.",
+      "provenance_warning": "These are agency self-reports generated by the single-person Access workaround (A27), and D1's Finding F4 is that PS 'is not able to factually report permit review and approval throughput because its workflow tracking systems are not capturing data on a consistent and reportable basis.' Treat the percentages as claims, not measurements."
+    },
+    "grand_jury_observed": {
+      "intake_compliance": "Permit Intake missed the 15-business-day limit 'a handful of times' out of more than 7,000 permit applications in 2024",
+      "plan_check_compliance": "fewer than 20 of about 1,100 permit applications requiring plan check failed to meet the AB 2234 requirements across February and October 2024, from a manual review of more than 5,000 task-status records; all failures were permits requiring review by multiple departments",
+      "quote": "fewer than 20 of ~1,100 permit applications requiring plan check failed to meet the AB 2234 requirements. All of the failures were permits that required review by multiple departments",
+      "quote_ocr_raw": "lhat fewer than 20 of -1,100 permit applications requiring plan check failed to meet the AB2234 rcquirements. All of the failures were permits that required review by multiple departnents;",
+      "quote_ocr_corrections": [
+        "'lhat' → 'that' (dropped from quote)",
+        "'-1,100' → '~1,100'",
+        "'AB2234 rcquirements' → 'AB 2234 requirements'",
+        "'departnents;' → 'departments'"
+      ],
+      "note": "These are compliance RATES against a ceiling, not durations. They are genuinely observed (record-level review) and are the only observed-tier timing evidence in this model."
+    },
+    "express_permit_track": "half a dozen permits reviewed and issued in a single afternoon at the fall-2024 first trial; 8-10 per weekly session during the pilot — self-reported by the team, unaudited",
+    "volume": "13,260 total Permit Sonoma permits in 2024 (11,926 excluding vacation-rental licences); 500-1,000 new applications per month; a thousand or more permits in some stage of completion at any time"
+  },
+  "known_gaps": [
+    "NO applicant-facing Sonoma County documents were fetched in Wave 1. corpus/realworld/ holds no permitsonoma.org pages, fee schedule, or Accela citizen-portal capture. The instruction to confirm a staff_only label against an applicant-facing document in raw/ therefore cannot be executed for this model; every visibility_check instead rests on D1's own explicit statements about what applicants and the public can see (notably Finding F8 and the OTC website search on p. 11). This is the single most important caveat on this file and the first gap to close.",
+    "The Berry Dunn management review (D2) is not held. Its 15 recommendations reach this gold only through the grand jury's summary.",
+    "AB 2234's statutory text (D4) is not held. All AB 2234 quotes here are from D1's Appendix I summary — the grand jury's characterisation of the bill, which may not track the enacted language. A solver scored against these quotes is being scored against a secondary source.",
+    "Two columns of the agency's Average-Days-to-Review table are unrecoverable from the OCR: the December 2024 values for Building Permit, Encroachment Permit and Septic Permit. The June 2023 baselines (71, 49, 82, 98, 123) and the percent reductions (68%, 55%, 50%, 79%, 85%) survive; the Dec-2024 values could be back-computed from them but that would be inference, so they are left blank.",
+    "The Permit Sonoma Annual Activity Report table on D1 p. 4 is OCR-corrupted in the subtotal rows (the Building Division subtotals for 2023 and 2024 print as '4,773' and '4,642' but the component rows sum to 8,775 and 8,642; the 2023 Well & Septic subtotal prints as '1,172' against components summing to 1,472). Division-level counts should not be used from this file without re-extracting the PDF.",
+    "The report explicitly excluded inspections and code enforcement from its scope, calling the omission 'significant'. A24 and A25 therefore rest on a generic background description rather than on Sonoma-specific findings, and code enforcement — which D1 calls 'an opaque intersection of authority' it is 'not clear... is worthy of the applause that most other PS divisions deserve' — is absent from this model entirely.",
+    "No ADU-specific anything: the grand jury did not disaggregate ADUs, and Gov. Code § 66317 is never mentioned in the report. Whether Permit Sonoma administers the ADU-specific 60-calendar-day ministerial clock, and how it interacts with the AB 2234 30-business-day clock, is unknown.",
+    "No fee amounts at all. D1 discusses fee methodology but reproduces no schedule.",
+    "Actual plan-check duration is unknown by construction — 'the Accela system doesn't capture (or require staff to record) real processing times' — so the '4-8 hours of staff time' figure is anecdotal and the '4-8-12 weeks' elapsed figure is the grand jury's framing, not a measurement.",
+    "Which six divisions constitute 'the department's six divisions' is stated as a count in the quoted Board update and named piecemeal across the report (Planning, Building, Engineering, Well & Septic, Code Enforcement, plus Permit Intake and fire-referral review); no single authoritative division list appears.",
+    "Recommendation deadlines R1-R13 run from October 2025 to July 2026, i.e. mostly past as of this gold_date (2026-09-15), but no response or follow-up document was fetched. Whether PS published the OTC list (R4), the express-permit requirements (R5), the SOPs (R10) or the annual performance report (R12) is unknown — and if it did, several staff_only labels here would now be wrong."
+  ],
+  "notes": "Why Sonoma and not Santa Cruz: the brief asked for the richest county grand-jury report, and Sonoma wins on actor-by-actor sequence and on named clock-start events. Sonoma supplies the internal mechanism — Permit Intake as the single gateway, fee payment as the AB 2234 clock trigger, the serial→parallel plan-check change across six divisions, the Accela instrumentation gap sitting exactly on the statutory interval, the Access shadow database, the personal non-public checklists, and the Express Permit team. Santa Cruz's comparable report (corpus/realworld/_gold/raw/gj_santacruz_2025_permitting.txt) is richer in per-case narrative and has one excellent invisible dispatch rule (14 days on the aging report → send the file to an outside plan-check firm) but is weaker on sequence; it would make a good second county model.\n\nEleven of 29 activities are staff_only, the highest share of the four models in this batch, and they cluster in one place: the measurement layer. A05, A26 and A27 are the instrumentation; A10 and A11 are the interdepartmental coordination the instrumentation fails to capture; A13 and A19 are the criteria that were supposed to be published and are not; A20 and A22 are capacity mechanisms the applicant benefits from without knowing; A28 is the fee method; A29 is the reporting that closes the loop back to the Board with a figure the grand jury disputes. The instructive property for this project is that the hidden layer here is not a hidden *step* in the applicant's path — it is the absence of any reliable record of the path, which makes the statutory obligation formally unverifiable. Grand Jury Finding F3 states this outright. That is a different species of opacity from SF's held permits or San José's silent affordability imputation, and it is the reason this model is worth its OCR cost.\n\nThe single most transferable designed detail: the AB 2234 plan-check clock starts on PAYMENT of the plan check fee. Nothing in the statute says that. An applicant who does not know it cannot know when their own protection begins, and a solver reconstructing this process from declared sources would almost certainly start the clock at submittal or at acceptance.\n\ngold_tier is 'designed+observed': the process model is designed-tier from interviews and document review, while the compliance rates (a handful of misses out of 7,000+ intakes; fewer than 20 of ~1,100 plan checks) come from the grand jury's own review of 50,000+ data records and 5,000+ task-status records.",
+  "quote_verification": "All 54 `ocr_raw` strings in this file were machine-verified as verbatim substrings of corpus/realworld/_gold/raw/gj_sonoma_2025_permit_sonoma.txt after collapsing whitespace and normalising curly quotes/dashes (the `ocr_raw` convention in ocr_disclaimer). 0 unverified. The `quote` fields are the OCR-corrected readings of those strings; every character-level change is itemised in the adjacent `ocr_corrections` list, so a scorer can work from either the corrected text or the raw scan."
+}

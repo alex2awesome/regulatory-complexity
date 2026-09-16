@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RuleIntake",
+  "description": "Structured six-question intake for a rule. Every answer must be grounded in quoted spans. Intake records HYPOTHESES to be tested by the pipeline, never measurements — in particular it must not rate vagueness or codability (that is measured behaviorally, by compilation divergence).",
+  "type": "object",
+  "required": ["rule_id", "citation", "affected", "inputs", "process", "outcomes"],
+  "properties": {
+    "rule_id": { "type": "string" },
+    "citation": { "type": "string" },
+    "affected": {
+      "type": "object",
+      "description": "Q1: who does the rule affect?",
+      "required": ["populations"],
+      "properties": {
+        "populations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["who", "role", "span"],
+            "properties": {
+              "who": { "type": "string" },
+              "role": { "enum": ["regulated_party", "beneficiary", "implementing_agency", "third_party"] },
+              "span": { "type": "string", "description": "Verbatim quote establishing this." },
+              "size_estimate": { "type": "string", "description": "Rough magnitude if estimable; flag EMPIRICAL if it needs data." }
+            }
+          }
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "description": "Q2 + Q3: what inputs does the process require, and who collects/produces each?",
+      "items": {
+        "type": "object",
+        "required": ["input", "supplier", "span"],
+        "properties": {
+          "input": { "type": "string" },
+          "supplier": { "type": "string" },
+          "collector": { "type": "string", "description": "Who receives/verifies it." },
+          "span": { "type": "string" }
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "description": "Q4 + Q5: the decision-making process. Structural description only; codability hypotheses go in predicate_inventory and are tested later.",
+      "required": ["steps"],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step", "actor"],
+            "properties": {
+              "step": { "type": "string" },
+              "actor": { "type": "string" },
+              "span": { "type": "string" }
+            }
+          }
+        },
+        "handoffs": { "type": "integer", "description": "Count of actor-to-actor transfers in the happy path." },
+        "predicate_inventory": {
+          "type": "array",
+          "description": "Every condition the process turns on, with an untested hypothesis about its character.",
+          "items": {
+            "type": "object",
+            "required": ["predicate", "span", "hypothesis"],
+            "properties": {
+              "predicate": { "type": "string" },
+              "span": { "type": "string" },
+              "hypothesis": {
+                "enum": ["objective", "judgment", "reference"],
+                "description": "PREDICTION ONLY — the divergence experiment is the measurement."
+              }
+            }
+          }
+        },
+        "external_references": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Provisions this rule delegates to (the reference graph frontier)."
+        }
+      }
+    },
+    "outcomes": {
+      "type": "object",
+      "description": "Q6: outcome space, communication, and recourse.",
+      "required": ["possible_outcomes"],
+      "properties": {
+        "possible_outcomes": { "type": "array", "items": { "type": "string" } },
+        "communicated_by": { "type": "string" },
+        "appeal_path": { "type": "string", "description": "Recourse if denied; 'none stated' if the text is silent." },
+        "span": { "type": "string" }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "description": "Anything the text does not settle, typed by what would settle it.",
+      "items": {
+        "type": "object",
+        "required": ["question", "flag"],
+        "properties": {
+          "question": { "type": "string" },
+          "flag": { "enum": ["REF", "LOCAL", "EMPIRICAL", "TACIT"] }
+        }
+      }
+    }
+  }
+}

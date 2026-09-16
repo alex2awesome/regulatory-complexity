@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CasePanel",
+  "description": "A panel of synthetic (later: real) cases to run through compiled rules. Fields must match the union of the compilations' input schemas. Demographics ride along so harm and burden can be reported distributionally.",
+  "type": "object",
+  "required": ["panel_id", "generation", "cases"],
+  "properties": {
+    "panel_id": { "type": "string" },
+    "generation": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": {
+          "enum": ["fuzz", "llm_coverage", "llm_adversarial", "calibrated", "real"],
+          "description": "fuzz = random from input schema (no API); llm_coverage = diverse realistic cases; llm_adversarial = generated to split two compilations; calibrated = matched to real marginals (ACS/assessor); real = actual records."
+        },
+        "detail": { "type": "string" }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "facts"],
+        "properties": {
+          "case_id": { "type": "string" },
+          "facts": {
+            "type": "object",
+            "description": "field name -> value, matching the compilation input schema.",
+            "additionalProperties": true
+          },
+          "demographics": {
+            "type": "object",
+            "description": "Optional; for distributional reporting only — must never appear in any predicate's inputs.",
+            "properties": {
+              "income_bracket": { "type": "string" },
+              "tenure": { "enum": ["owner", "renter"] },
+              "primary_language": { "type": "string" },
+              "household_size": { "type": "integer" },
+              "narrative": { "type": "string", "description": "One-line human story for witness exhibits." }
+            }
+          }
+        }
+      }
+    }
+  }
+}

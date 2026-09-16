@@ -1,0 +1,1555 @@
+{
+  "model_id": "cslb_license__cslb",
+  "source": "designed",
+  "jurisdiction": "State of California (statewide)",
+  "implementer": "Contractors State License Board (CSLB), Department of Consumer Affairs",
+  "stat_id": "BPC_7065_7074",
+  "statute_cite": "Cal. Bus. & Prof. Code §§ 7065-7074; 16 C.C.R. §§ 824-827",
+  "program_name": "Original contractor's license (Class A / B / B-2 / C specialty), examination-required track, with the examination-waiver and random experience-audit branches",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {
+      "id": "G1",
+      "title": "CSLB Quarterly Board Meeting Packet, December 11, 2025 (board minutes, Licensing Program Update, Enforcement Program Update, Section 100 rulemakings)",
+      "url": "https://cslb.ca.gov/Resources/BoardPackets/2025/Dec11_MeetingPacket_ada.pdf",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_boardpacket_dec2025.txt"
+    },
+    {
+      "id": "G2",
+      "title": "Background Paper for the Contractors State License Board, Joint Sunset Review Oversight Hearing, Senate Business, Professions and Economic Development Committee and Assembly Business and Professions Committee (February 26, 2019)",
+      "url": "https://abp.assembly.ca.gov/sites/abp.assembly.ca.gov/files/CSLB%20Sunset%20Background%20Paper.pdf",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_sunset_background_paper.txt"
+    },
+    {
+      "id": "G3",
+      "title": "CSLB Processing Times (weekly \"date being worked on\" by internal unit; snapshot as of 09/14/2026)",
+      "url": "https://www.cslb.ca.gov/onlineservices/processingtimes/processingtimes.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_processing_times.txt"
+    },
+    {
+      "id": "G4",
+      "title": "CSLB Board Packet Item D: Senate Bill 1455 (Ashby) — CSLB Sunset Extension Bill (June 19, 2024)",
+      "url": "https://cslb.ca.gov/Resources/BoardPackets/2024/Item%20D%20Senate%20Bill%201455.pdf",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_boardpacket_sb1455.txt"
+    },
+    {
+      "id": "D1",
+      "title": "CSLB, \"Apply for a Contractors License - Exam Required\" (9-step index)",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_exam_required_apply.txt"
+    },
+    {
+      "id": "D2",
+      "title": "CSLB, \"Step 1: Before Applying for the Examination\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Before_Applying_For_License.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_step1_before_applying.txt"
+    },
+    {
+      "id": "D3",
+      "title": "CSLB, \"Step 2: Applying for the Examination\"",
+      "url": "https://web.cslb.ca.gov/contractors/applicants/contractors_license/Exam_Application/Applying_For_License.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_applying_for_exam.txt"
+    },
+    {
+      "id": "D4",
+      "title": "CSLB, \"Step 3: Qualifying Experience for the Examination\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Experience_For_Exam.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_step3_experience_for_exam.txt"
+    },
+    {
+      "id": "D5",
+      "title": "CSLB, \"Step 4: My Original Exam Application was Returned for Correction\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Application_Returned.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_step4_application_returned.txt"
+    },
+    {
+      "id": "D6",
+      "title": "CSLB, \"Step 5: My Original Exam Application was Accepted\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Application_Accepted.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_step5_application_accepted.txt"
+    },
+    {
+      "id": "D7",
+      "title": "CSLB, \"Step 6: Get Fingerprinted/Live Scan\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Get_Fingerprinted_-_Live_Scan.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_fingerprint_livescan.txt"
+    },
+    {
+      "id": "D8",
+      "title": "CSLB, \"Fingerprinting, Disclosure, and Background Review\" FAQ",
+      "url": "https://www.cslb.ca.gov/about_Us/faqs/fingerprint_q_and_a.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_fingerprint_faq.txt"
+    },
+    {
+      "id": "D9",
+      "title": "CSLB, Application for Original Contractor License (Form 13A-1, rev. 01/2026), including the cover letter and \"Random Application and Experience Review\" instructions",
+      "url": "https://www.cslb.ca.gov/resources/formsandapplications/applicationfororiginalcontractorslicense.pdf",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_13A1_application.txt"
+    },
+    {
+      "id": "D10",
+      "title": "CSLB, \"Get Licensed to Build: A Guide to Becoming a California Licensed Contractor\" (2021-2025 ed.)",
+      "url": "https://cslb.ca.gov/Resources/GuidesAndPublications/GetLicensedToBuild_ENG0525_ADA.pdf",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_GetLicensedToBuild.txt"
+    },
+    {
+      "id": "D11",
+      "title": "CSLB, \"Step 9: Check Exam Application Status\"",
+      "url": "https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Check_Application_Status.aspx",
+      "saved_as": "corpus/realworld/cslb_license/raw/cslb_step9_check_status.txt"
+    },
+    {
+      "id": "L1",
+      "title": "Cal. Bus. & Prof. Code § 7065 (written examination; qualifying individual)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7065",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7065.txt"
+    },
+    {
+      "id": "L2",
+      "title": "Cal. Bus. & Prof. Code § 7066 (application verified and accompanied by the fee)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7066",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7066.txt"
+    },
+    {
+      "id": "L3",
+      "title": "Cal. Bus. & Prof. Code § 7069 (fingerprints; DOJ and FBI criminal history record check)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7069",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7069.txt"
+    },
+    {
+      "id": "L4",
+      "title": "Cal. Bus. & Prof. Code § 7072 (15-day post-approval issuance notice)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7072",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7072.txt"
+    },
+    {
+      "id": "L5",
+      "title": "Cal. Bus. & Prof. Code § 7073 (denial grounds and procedure; probationary license in lieu of denial)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7073",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7073.txt"
+    },
+    {
+      "id": "L6",
+      "title": "Cal. Bus. & Prof. Code § 7074 (when an application becomes void: 18 months and three 90-day clocks)",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=7074",
+      "saved_as": "corpus/realworld/cslb_license/raw/bpc-7074.txt"
+    },
+    {
+      "id": "L7",
+      "title": "16 C.C.R. § 824 (Application Investigation Required — comprehensive field investigation of a minimum of 3%)",
+      "url": "https://www.law.cornell.edu/regulations/california/16-CCR-824",
+      "saved_as": "corpus/realworld/cslb_license/raw/ccr_824.txt"
+    },
+    {
+      "id": "L8",
+      "title": "16 C.C.R. § 825 (Experience Requirement of Applicant — four of the last ten years)",
+      "url": "https://www.law.cornell.edu/regulations/california/16-CCR-825",
+      "saved_as": "corpus/realworld/cslb_license/raw/ccr_825.txt"
+    },
+    {
+      "id": "L9",
+      "title": "16 C.C.R. § 826 (Registrar to Pass on Experience — comparable knowledge, training and/or experience)",
+      "url": "https://www.law.cornell.edu/regulations/california/16-CCR-826",
+      "saved_as": "corpus/realworld/cslb_license/raw/ccr_826.txt"
+    }
+  ],
+  "actors": [
+    {
+      "id": "applicant",
+      "name": "Applicant business entity and its qualifying individual (\"qualifier\")",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "certifier",
+      "name": "Certifier of work experience (employer, contractor, foreman, fellow journeyman, union representative, building inspector, architect, engineer or homeowner with firsthand knowledge)",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "cslb_original_apps",
+      "name": "Original Applications Unit (exam and waiver applications; program technicians)",
+      "dept": "CSLB Licensing Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "cslb_registrar",
+      "name": "Registrar of Contractors",
+      "dept": "CSLB",
+      "type": "state_agency"
+    },
+    {
+      "id": "cslb_cbu",
+      "name": "Criminal Background Unit",
+      "dept": "CSLB Licensing Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "cslb_issuance",
+      "name": "Issuance Unit (final fees and documents received)",
+      "dept": "CSLB Licensing Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "cslb_bond",
+      "name": "Bond Unit (contractor bonds, qualifier bonds)",
+      "dept": "CSLB Licensing Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "cslb_field_investigator",
+      "name": "Enforcement field application investigator (experience verification program)",
+      "dept": "CSLB Enforcement Division",
+      "type": "state_agency"
+    },
+    {
+      "id": "psi",
+      "name": "PSI Exams (contracted examination vendor; computer-assisted testing centers, six days a week)",
+      "dept": null,
+      "type": "vendor"
+    },
+    {
+      "id": "livescan_operator",
+      "name": "Live Scan operator (police or sheriff department or public Live Scan site)",
+      "dept": null,
+      "type": "external"
+    },
+    {
+      "id": "doj_fbi",
+      "name": "California Department of Justice and Federal Bureau of Investigation",
+      "dept": null,
+      "type": "other_agency"
+    },
+    {
+      "id": "surety",
+      "name": "Surety / bonding company",
+      "dept": null,
+      "type": "external"
+    }
+  ],
+  "activities": [
+    {
+      "id": "C01",
+      "name": "Determine whether the work requires a license and which single classification to apply for",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [],
+      "artifacts_out": [
+        "chosen license classification"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "You may apply for only one license classification at a time if you are required to take the examination. After your original license is issued, you may apply for additional classifications",
+          "page_or_section": "Step 2: Original Exam Application"
+        },
+        {
+          "doc": "D2",
+          "quote": "All businesses or individuals who construct or alter any building ... must be licensed by the California Contractors State License Board (CSLB) if the project requires a building permit",
+          "page_or_section": "Step 1: Who must be licensed as a contractor?"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "name": "Designate a qualifying individual with four of the last ten years of journey-level, foreman, supervising-employee or contractor experience in the class",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "chosen license classification"
+      ],
+      "artifacts_out": [
+        "designated qualifier"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "16 C.C.R. § 825(a)",
+      "evidence": [
+        {
+          "doc": "L8",
+          "quote": "Every applicant for a contractor's license must have had, within the last 10 years immediately preceding the filing of the application, not less than four years experience as a journeyman, foreman, supervising employee or contractor",
+          "page_or_section": "§ 825(a)"
+        },
+        {
+          "doc": "D4",
+          "quote": "You must have at least four (4) years of experience, in the class you are applying for, to qualify to take the examination.",
+          "page_or_section": "Step 3: Experience Requirements"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "name": "Obtain a certifier with firsthand knowledge to sign the Certification of Work Experience (form 13A-11)",
+      "actor": "certifier",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "designated qualifier"
+      ],
+      "artifacts_out": [
+        "Certification of Work Experience (13A-11)",
+        "Project List (13A-64) for owner-builder experience"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "16 C.C.R. § 824",
+      "evidence": [
+        {
+          "doc": "D4",
+          "quote": "The person verifying your claim must have firsthand knowledge of your experience--that is, they must have observed the work that you have done--and must complete the experience certification portion of the application.",
+          "page_or_section": "Step 3: Experience Requirements"
+        },
+        {
+          "doc": "D3",
+          "quote": "The Certification of Work Experience form 13A-11 must be used to report and confirm the journey level work experience. No additional experience verification will be accepted after the application has been accepted",
+          "page_or_section": "Step 2: Original Exam Application"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "name": "Submit the Application for Original Contractor License (13A-1) with the non-refundable $450 application processing fee",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Certification of Work Experience (13A-11)"
+      ],
+      "artifacts_out": [
+        "filed original exam application"
+      ],
+      "timing": {
+        "median_days": 0,
+        "p90_days": 0,
+        "source": "official"
+      },
+      "fee": {
+        "amount": 450,
+        "when": "with the application",
+        "label": "application processing fee",
+        "refundable": false
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7066",
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "Submit the application, the $450 application processing fee, and all required documents",
+          "page_or_section": "Step 2: Original Exam Application"
+        },
+        {
+          "doc": "D5",
+          "quote": "The application fee is a processing fee and is earned as soon as the application is received at CSLB. Whether or not the application is approved, the fee is not refundable.",
+          "page_or_section": "Step 4"
+        },
+        {
+          "doc": "L2",
+          "quote": "The application shall be made on a form prescribed by the registrar in accordance with the rules and regulations adopted by the board and shall be accompanied by the fee fixed by this chapter.",
+          "page_or_section": "§ 7066"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "name": "Queue the application and pull it for processing by a technician in order of date received",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "filed original exam application"
+      ],
+      "artifacts_out": [
+        "application assigned to a program technician"
+      ],
+      "timing": {
+        "median_days": 14,
+        "p90_days": 28,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "\"Weeks to process\" refers to the average number of weeks before an application or document is initially pulled for processing by a technician after it arrives at CSLB.",
+          "page_or_section": "Licensing Program Update, Weeks to Process, p. 165"
+        },
+        {
+          "doc": "G3",
+          "quote": "The documents are processed in the order of date received. The information below reflects the dates we are currently working on for each document type. This information is updated weekly.",
+          "page_or_section": "CSLB Processing Times as of 09/14/2026"
+        },
+        {
+          "doc": "G3",
+          "quote": "Original Applications Unit| Date Being Worked On ... Exam Applications| 08/31/2026",
+          "page_or_section": "CSLB Processing Times as of 09/14/2026"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "name": "Mail the acknowledgment letter carrying the Application Fee Number and a four-digit PIN for status checks",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "filed original exam application"
+      ],
+      "artifacts_out": [
+        "letter of acknowledgment",
+        "Application Fee Number",
+        "PIN"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D3",
+          "quote": "The CSLB will send you a letter of acknowledgment. This letter will contain two important numbers: an Application Fee Number and a four-digit Personal Identification (PIN) Number",
+          "page_or_section": "Step 2: CSLB will acknowledge receipt of your application"
+        },
+        {
+          "doc": "D11",
+          "quote": "Using your Application Fee Number and your PIN (Personal Identification Number) provided on your acknowledgement letter, you can do an application status check of your original exam application.",
+          "page_or_section": "Step 9: Check Exam Application Status"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "name": "Review the application for completeness and inform the applicant in writing within 60 days whether it is complete and referred for examination or deficient",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "application assigned to a program technician"
+      ],
+      "artifacts_out": [
+        "completeness decision"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 60,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "former 16 C.C.R. § 827(a)(1) (repealed effective 2025-12-02)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "The Board shall inform an applicant in writing within 60 days of receipt whether the application is complete and has been referred for examination or is deficient and what specific information is required.",
+          "page_or_section": "Section 100 Rulemakings, former § 827(a)(1), p. 117"
+        },
+        {
+          "doc": "G2",
+          "quote": "Pursuant to Title 16, § 827 of the California Code of Regulations, the CSLB is required to inform an applicant within 60 days of receipt of an application if the application is complete or deficient.",
+          "page_or_section": "Application Processing, p. 8"
+        },
+        {
+          "doc": "D9",
+          "quote": "Please be aware that nearly half of all applications submitted to CSLB are inaccurate or incomplete and must be returned for correction.",
+          "page_or_section": "13A-1 cover letter"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "name": "Pass on the claimed experience: determine whether the applicant lacks the specific experience but has comparable knowledge, training and/or experience equivalent to it",
+      "actor": "cslb_registrar",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "Certification of Work Experience (13A-11)",
+        "official sealed transcripts"
+      ],
+      "artifacts_out": [
+        "experience determination"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "16 C.C.R. § 826",
+      "evidence": [
+        {
+          "doc": "L9",
+          "quote": "The Registrar may determine that an applicant who does not have the specific experience required in Section 825 has some comparable knowledge, training, and/or experience which is equivalent to the required experience.",
+          "page_or_section": "§ 826"
+        },
+        {
+          "doc": "G2",
+          "quote": "Veterans Application Assistance: Provides assistance with expedited application processing to veteran applicants. Staff evaluates military experience, training and education to meet experience requirements for licensure.",
+          "page_or_section": "Licensing units, p. 8"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "name": "Return the insufficient or incomplete application for correction",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "completeness decision (deficient)"
+      ],
+      "artifacts_out": [
+        "returned application with notice of deficiencies"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "p_trigger": 0.5,
+        "back_to": "C04",
+        "reason": "application inaccurate or incomplete; nearly half of all applications are returned for correction"
+      },
+      "optional": true,
+      "element_ref": "BPC § 7074(a)(5)",
+      "evidence": [
+        {
+          "doc": "D5",
+          "quote": "Your application will be returned to you if it is insufficient or incomplete. You must provide any missing information, make corrections, and resubmit your application within 90 days from the date it was returned.",
+          "page_or_section": "Step 4"
+        },
+        {
+          "doc": "G2",
+          "quote": "If an application is not complete (missing information), licensing staff must return the application for corrections thereby extending the process.",
+          "page_or_section": "Application Processing, p. 8"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "name": "Resubmit the corrected application within 90 days of the return notice (the Board then decides within 5 days whether it is complete)",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "returned application with notice of deficiencies"
+      ],
+      "artifacts_out": [
+        "corrected application"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 90,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "BPC § 7074(a)(5); former 16 C.C.R. § 827(a)(2)",
+      "evidence": [
+        {
+          "doc": "L6",
+          "quote": "The applicant fails to return the application rejected by the board for insufficiency or incompleteness within 90 days from the date of original notice or rejection.",
+          "page_or_section": "§ 7074(a)(5)"
+        },
+        {
+          "doc": "G1",
+          "quote": "When an application is returned which was previously rejected for deficiencies, the Board shall decide within 5 days of receipt whether the application is complete and accepted for filing.",
+          "page_or_section": "Section 100 Rulemakings, former § 827(a)(2), p. 117"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "name": "Accept the application as complete (\"post\" it), starting the 18-month examination window",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "completeness decision (complete)"
+      ],
+      "artifacts_out": [
+        "posted application"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7074(a)(1)",
+      "evidence": [
+        {
+          "doc": "D9",
+          "quote": "After an application has been accepted by CSLB as complete (also known as \"posted\"), the applicant will be sent instructions on the process for obtaining and submitting fingerprints, as required by law.",
+          "page_or_section": "13A-1 cover letter"
+        },
+        {
+          "doc": "L6",
+          "quote": "The applicant or the examinee for the applicant has failed to achieve a passing grade in the qualifying examination within 18 months after the application has been deemed acceptable by the board.",
+          "page_or_section": "§ 7074(a)(1)"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "name": "Mail the Live Scan packet with the Request for Live Scan Service (form BCII 8016) to every individual listed on the application",
+      "actor": "cslb_cbu",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "posted application"
+      ],
+      "artifacts_out": [
+        "Fingerprinting Live Scan packet",
+        "Request for Live Scan Service (BCII 8016)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7069(b)",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "each individual listed on the application is sent instructions on the process for obtaining and submitting fingerprints and a \"Request for Live Scan Service\" (form BCII 8016)",
+          "page_or_section": "Step 6: How do I get fingerprinted?"
+        },
+        {
+          "doc": "L3",
+          "quote": "As part of an application for a contractor's license, the board shall require an applicant to furnish a full set of fingerprints for purposes of conducting a criminal history record check.",
+          "page_or_section": "§ 7069(b)"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "name": "Mail the Notice to Schedule an Examination once the application is reviewed and considered acceptable",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "posted application"
+      ],
+      "artifacts_out": [
+        "Notice to Schedule an Examination"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "You will receive a Notice to Schedule an Examination. You will be responsible for self-scheduling each test and paying the associated fees directly through PSI.",
+          "page_or_section": "Step 5"
+        },
+        {
+          "doc": "D10",
+          "quote": "If exams are required, CSLB will give you an exam date after the application is initially reviewed and considered acceptable, which means no corrections or additional information is needed.",
+          "page_or_section": "Get Licensed to Build, Q8"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "name": "Get fingerprinted at a Live Scan site and pay the $32 DOJ and $17 FBI processing fees plus the site's rolling fee",
+      "actor": "livescan_operator",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "Request for Live Scan Service (BCII 8016)"
+      ],
+      "artifacts_out": [
+        "electronic fingerprint submission to DOJ"
+      ],
+      "timing": null,
+      "fee": {
+        "amount": 49,
+        "when": "at the Live Scan site, plus a variable rolling fee set by the site",
+        "label": "DOJ ($32) and FBI ($17) fingerprint processing fees",
+        "refundable": false
+      },
+      "rework": {
+        "p_trigger": null,
+        "back_to": "C14",
+        "reason": "fingerprint image quality rejected; a second attempt is required, and a second rejection triggers a DOJ/FBI name check"
+      },
+      "optional": false,
+      "element_ref": "BPC § 7069",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "you are required to pay the Live Scan operator the $49 fingerprint processing fee ($32 for DOJ and $17 for FBI), as well as the Live Scan site \"rolling\" fee",
+          "page_or_section": "Step 6: Is there a cost for fingerprinting?"
+        },
+        {
+          "doc": "D8",
+          "quote": "Fingerprint submissions may be rejected if there is a problem with quality of the fingerprint image— whether Live Scan or hard copy cards.",
+          "page_or_section": "Fingerprinting FAQ"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "name": "Submit the third copy of the Request for Live Scan Service to CSLB within 90 days of receiving the packet",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "Request for Live Scan Service (BCII 8016)"
+      ],
+      "artifacts_out": [
+        "proof of Live Scan submission on file"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 90,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7074(a)(3)",
+      "evidence": [
+        {
+          "doc": "D7",
+          "quote": "You must submit the third copy of the form to CSLB within 90 days after you receive the packet that contained the Request for Live Scan Service form. Failure to do so may result in your application being voided.",
+          "page_or_section": "Step 6"
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "name": "Run the DOJ and FBI criminal history record check and return criminal offender record information to CSLB",
+      "actor": "doj_fbi",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "electronic fingerprint submission to DOJ"
+      ],
+      "artifacts_out": [
+        "DOJ record response",
+        "criminal offender record information (CORI) where a record exists"
+      ],
+      "timing": {
+        "median_days": 2,
+        "p90_days": 30,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7069(b)",
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "DOJ and FBI typically provide responses to CSLB within two days of an applicant being fingerprinted, but occasionally the results are delayed.",
+          "page_or_section": "Licensing Program Update, Fingerprinting/Criminal Background Unit Statistics, p. 170"
+        },
+        {
+          "doc": "G1",
+          "quote": "Most delays are resolved within 30 days; however, some continue for up to 90 days or longer because DOJ and FBI may need to obtain court records.",
+          "page_or_section": "Licensing Program Update, p. 170"
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "name": "Review the criminal offender record information and evaluate license eligibility case by case",
+      "actor": "cslb_cbu",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "criminal offender record information (CORI)"
+      ],
+      "artifacts_out": [
+        "background clearance or referral for denial"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7069(a)",
+      "evidence": [
+        {
+          "doc": "D8",
+          "quote": "Each license applicant is evaluated on a case-by-case basis to determine license eligibility. A criminal conviction or formal license discipline does not automatically preclude an applicant from CSLB licensure.",
+          "page_or_section": "Fingerprinting FAQ, License Applicants Who Were Convicted of a Crime"
+        },
+        {
+          "doc": "G3",
+          "quote": "Criminal Background Unit| Date Being Worked On ... All Applications| 08/24/2026",
+          "page_or_section": "CSLB Processing Times as of 09/14/2026"
+        },
+        {
+          "doc": "G1",
+          "quote": "criminal background staff processed over 40,000 records, identifying about 5,700 with criminal history reports",
+          "page_or_section": "Board Meeting Minutes, Licensing and Testing Program Update, p. 47"
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "name": "Conduct a comprehensive field investigation of claimed experience on a minimum of 3 percent of all applications, contacting the certifier and other parties",
+      "actor": "cslb_field_investigator",
+      "visibility": "applicant_inferable",
+      "occasion": "site_visit",
+      "artifacts_in": [
+        "posted application",
+        "Certification of Work Experience (13A-11)"
+      ],
+      "artifacts_out": [
+        "experience verification disposition (approved, pulled, denied)"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 60,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "p_trigger": 0.31,
+        "back_to": "C03",
+        "reason": "claimed experience not supportable by documentation satisfactory to the Board; 73 of 236 investigated applications were denied January-October 2025"
+      },
+      "optional": true,
+      "element_ref": "16 C.C.R. § 824",
+      "evidence": [
+        {
+          "doc": "L7",
+          "quote": "In addition to a review and verification of all applications for licensure, the Registrar shall conduct a comprehensive field investigation of a minimum of 3% of all such applications.",
+          "page_or_section": "§ 824"
+        },
+        {
+          "doc": "G1",
+          "quote": "The experience verification program investigated 236 applications, approving 115, pulling 44, denying 73, and receiving one appeal",
+          "page_or_section": "Board Meeting Minutes, Enforcement Program Update, p. 43"
+        },
+        {
+          "doc": "G1",
+          "quote": "The periods specified in subsection (3) and (4) shall be extended by a period of 60 days, if the application must be investigated.",
+          "page_or_section": "Section 100 Rulemakings, former § 827(a)(5), p. 117"
+        },
+        {
+          "doc": "D10",
+          "quote": "A randomly selected percentage of applications undergo additional investigation of work experience claims ... CSLB cannot issue the license until this process is complete",
+          "page_or_section": "Get Licensed to Build, Q9"
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "name": "Self-schedule and pay PSI directly for the Law and Business and trade examinations",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "Notice to Schedule an Examination"
+      ],
+      "artifacts_out": [
+        "scheduled examination appointment"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7065(a)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "To make the examination procedure more convenient for applicants, testing is performed at PSI Exams. PSI has locations throughout the state and offer testing six days a week.",
+          "page_or_section": "Step 5: Where are the examinations given?"
+        },
+        {
+          "doc": "L1",
+          "quote": "the registrar shall investigate, classify, and qualify applicants for contractors' licenses by written examination",
+          "page_or_section": "§ 7065(a)"
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "name": "Administer the Law and Business and trade examinations by computer-assisted testing (3 1/2 hours each; results given before the candidate leaves the test site)",
+      "actor": "psi",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": [
+        "scheduled examination appointment"
+      ],
+      "artifacts_out": [
+        "pass or fail result"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7065(a)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "You will be given 3 -1/2 hours to complete each examination.",
+          "page_or_section": "Step 5: How long does the examination take?"
+        },
+        {
+          "doc": "D6",
+          "quote": "Test-takers receive their score results before they leave the test site.",
+          "page_or_section": "Step 5: When will I know if I passed?"
+        },
+        {
+          "doc": "G1",
+          "quote": "over 58,000 exams administered by PSI between August 2024 and July 2025",
+          "page_or_section": "Board Meeting Minutes, testing program update, p. 47"
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "name": "Pay PSI and reschedule a failed examination after a 21-calendar-day wait, within the 18-month eligibility window",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": [
+        "fail result"
+      ],
+      "artifacts_out": [
+        "rescheduled examination appointment"
+      ],
+      "timing": {
+        "median_days": 21,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": {
+        "p_trigger": 0.31,
+        "back_to": "C19",
+        "reason": "examination failed; 69 percent is the average first-time passage rate"
+      },
+      "optional": true,
+      "element_ref": "BPC § 7074(a)(1)",
+      "evidence": [
+        {
+          "doc": "D6",
+          "quote": "If you fail the Law and Business examination and/or your trade examination, you must wait 21 calendar days to pay and reschedule your exam.",
+          "page_or_section": "Step 5"
+        },
+        {
+          "doc": "G2",
+          "quote": "69% is the average passage rate for all examinations in FY 2017-2018 for first-time test takers",
+          "page_or_section": "Examinations, p. 12"
+        }
+      ]
+    },
+    {
+      "id": "C22",
+      "name": "Complete the asbestos open-book examination and submit the verification form before licensure",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "posted application"
+      ],
+      "artifacts_out": [
+        "asbestos open-book examination verification form"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7058.5",
+      "evidence": [
+        {
+          "doc": "D2",
+          "quote": "All new applicants for a license must complete the asbestos open-book examination if it has not been done previously. The examination and verification form must be completed and submitted to the CSLB prior to licensure.",
+          "page_or_section": "Step 1: Requirements for Asbestos"
+        }
+      ]
+    },
+    {
+      "id": "C23",
+      "name": "Notify the applicant within 15 days of approval that a license may be issued on payment of the initial license fee, and request the remaining issuance documents",
+      "actor": "cslb_registrar",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "pass result",
+        "background clearance",
+        "experience verification disposition"
+      ],
+      "artifacts_out": [
+        "notice of eligibility for issuance",
+        "request for documents and initial license fee"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 15,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7072",
+      "evidence": [
+        {
+          "doc": "L4",
+          "quote": "the registrar, within 15 days after approval of the application, shall notify the applicant that a license may be issued to him on payment of the initial license fee",
+          "page_or_section": "§ 7072"
+        },
+        {
+          "doc": "D10",
+          "quote": "Once you pass the exam, CSLB will complete its processing of the application. During this time, staff will take a more detailed look at your application to further ensure all requirements are met before issuing the license.",
+          "page_or_section": "Get Licensed to Build, Q8"
+        }
+      ]
+    },
+    {
+      "id": "C24",
+      "name": "File the $25,000 contractor's bond (plus a $25,000 qualifying individual's bond for RME/RMO-qualified licenses) and proof of workers' compensation insurance or exemption within 90 days of the notice",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "request for documents and initial license fee",
+        "surety bond from a bonding company"
+      ],
+      "artifacts_out": [
+        "contractor bond on file",
+        "workers' compensation certificate or exemption"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 90,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC §§ 7071.5, 7071.6, 7074(a)(3)",
+      "evidence": [
+        {
+          "doc": "D9",
+          "quote": "All contractors must have a $25,000 contractor's bond on file with CSLB. (BPC section 7071.6)",
+          "page_or_section": "13A-1 instructions, Bond requirements"
+        },
+        {
+          "doc": "L6",
+          "quote": "The applicant, after having been notified to do so, fails to file within 90 days from the date of the notice any bond or lawful money or cashier's check",
+          "page_or_section": "§ 7074(a)(3)"
+        },
+        {
+          "doc": "D10",
+          "quote": "necessary bonds, and proof of workers' compensation and/or liability insurance, if appropriate",
+          "page_or_section": "Get Licensed to Build, Step 7: License Issued"
+        }
+      ]
+    },
+    {
+      "id": "C25",
+      "name": "Pay the initial license fee ($200 sole owner, $350 non-sole owner, good for two years) within 90 days of the notice",
+      "actor": "applicant",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "request for documents and initial license fee"
+      ],
+      "artifacts_out": [
+        "initial license fee paid"
+      ],
+      "timing": {
+        "median_days": null,
+        "p90_days": 90,
+        "source": "official"
+      },
+      "fee": {
+        "amount": 200,
+        "when": "within 90 days of the issuance notice",
+        "label": "initial license fee (sole owner; $350 non-sole owner), covers two years",
+        "refundable": false
+      },
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7074(a)(2)",
+      "evidence": [
+        {
+          "doc": "D10",
+          "quote": "including an initial license fee of $200 for a sole owner or $350 for a non-sole owner (good for two years)",
+          "page_or_section": "Get Licensed to Build, Step 7: License Issued"
+        },
+        {
+          "doc": "L6",
+          "quote": "The applicant for an original license, after having been notified to do so, fails to pay the initial license fee within 90 days from the date of the notice.",
+          "page_or_section": "§ 7074(a)(2)"
+        }
+      ]
+    },
+    {
+      "id": "C26",
+      "name": "Review the final fees and issuance documents received and issue the license",
+      "actor": "cslb_issuance",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": [
+        "contractor bond on file",
+        "workers' compensation certificate or exemption",
+        "initial license fee paid",
+        "asbestos open-book examination verification form"
+      ],
+      "artifacts_out": [
+        "issued contractor license"
+      ],
+      "timing": {
+        "median_days": 28,
+        "p90_days": null,
+        "source": "official"
+      },
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "BPC § 7072; former 16 C.C.R. § 827(a)(3)",
+      "evidence": [
+        {
+          "doc": "G3",
+          "quote": "Issuance Unit| Date Being Worked On ... Final fees, documents received| 08/17/2026",
+          "page_or_section": "CSLB Processing Times as of 09/14/2026"
+        },
+        {
+          "doc": "G1",
+          "quote": "The Board shall decide within 115 days after a complete application has been referred for examination whether an applicant meets the requirements for licensure",
+          "page_or_section": "Section 100 Rulemakings, former § 827(a)(3), p. 117"
+        },
+        {
+          "doc": "L4",
+          "quote": "when the initial license fee is paid, shall issue a license to him permitting him to engage in business as a contractor under the terms of this chapter",
+          "page_or_section": "§ 7072"
+        }
+      ]
+    },
+    {
+      "id": "C27",
+      "name": "Send reminder letters to applicants whose applications are inactive (incomplete applications, unscheduled exams, exam failures, unmet requirements)",
+      "actor": "cslb_original_apps",
+      "visibility": "applicant_facing",
+      "occasion": "mail",
+      "artifacts_in": [
+        "posted application (inactive)"
+      ],
+      "artifacts_out": [
+        "reminder letter"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "C19",
+        "reason": "applicant has not scheduled or passed the examination or has not met issuance requirements"
+      },
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "Staff identified reasons for delays, including incomplete applications, unscheduled exams, exam failures, and unmet requirements, and are sending reminder letters to address inactivity.",
+          "page_or_section": "Board Meeting Minutes, Licensing and Testing Program Update, p. 47"
+        }
+      ]
+    },
+    {
+      "id": "C28",
+      "name": "Classify each unresolved application as pending at fiscal-year close under one of four internal reasons",
+      "actor": "cslb_original_apps",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "posted application (unresolved)"
+      ],
+      "artifacts_out": [
+        "pending-application count reported to the Board"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "per_case": false,
+      "evidence": [
+        {
+          "doc": "G1",
+          "quote": "An application may be classified as pending because: The applicant does not pass the exam but is still within the 18-month window during which they may retest.",
+          "page_or_section": "Licensing Program Update, pending-application footnote, p. 167"
+        },
+        {
+          "doc": "G1",
+          "quote": "The application is in the experience verification process. The application is not yet cleared by CSLB's Criminal Background Unit.",
+          "page_or_section": "Licensing Program Update, p. 167"
+        },
+        {
+          "doc": "G1",
+          "quote": "Over 50,000 applications were received in fiscal year 2024–2025, with 24,000 licenses issued and 19,000 still pending.",
+          "page_or_section": "Board Meeting Minutes, p. 47"
+        }
+      ]
+    },
+    {
+      "id": "C29",
+      "name": "Void the application when the 18-month examination window or any 90-day clock lapses (extendable up to 90 days for a documented medical emergency)",
+      "actor": "cslb_registrar",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": [
+        "posted application (clock lapsed)"
+      ],
+      "artifacts_out": [
+        "voided application (fee forfeited; not returned to the applicant)"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": {
+        "back_to": "C04",
+        "reason": "voided application cannot be reinstated; the applicant must file a new application with a new fee"
+      },
+      "optional": true,
+      "element_ref": "BPC § 7074",
+      "evidence": [
+        {
+          "doc": "L6",
+          "quote": "The void date on an application may be extended up to 90 days or one examination may be rescheduled without a fee upon documented evidence by the applicant",
+          "page_or_section": "§ 7074(b)"
+        },
+        {
+          "doc": "D9",
+          "quote": "Delays can last several weeks or even months and possibly result in the application being deemed abandoned and becoming void and the application fee being forfeited.",
+          "page_or_section": "13A-1 cover letter"
+        }
+      ]
+    },
+    {
+      "id": "C30",
+      "name": "Deny the application, or issue a probationary license in lieu of denial with a 30-day show-cause period before revocation",
+      "actor": "cslb_registrar",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": [
+        "referral for denial",
+        "experience verification disposition (denied)"
+      ],
+      "artifacts_out": [
+        "notice of denial with earliest reapplication date and rehabilitation criteria",
+        "or probationary license with terms and conditions"
+      ],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "BPC § 7073",
+      "evidence": [
+        {
+          "doc": "L5",
+          "quote": "In lieu of denying licensure as authorized under this section, the registrar may issue an applicant a probationary license with terms and conditions.",
+          "page_or_section": "§ 7073(e)"
+        },
+        {
+          "doc": "L5",
+          "quote": "the registrar shall notify the applicant to show cause within 30 days why the probationary license should not be revoked",
+          "page_or_section": "§ 7073(e)"
+        },
+        {
+          "doc": "L5",
+          "quote": "The date set by the registrar shall not be more than five years from the effective date of the decision",
+          "page_or_section": "§ 7073(b)"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "C01",
+      "to": "C02",
+      "type": "sequence"
+    },
+    {
+      "from": "C02",
+      "to": "C03",
+      "type": "sequence"
+    },
+    {
+      "from": "C03",
+      "to": "C04",
+      "type": "sequence"
+    },
+    {
+      "from": "C04",
+      "to": "C05",
+      "type": "handoff"
+    },
+    {
+      "from": "C04",
+      "to": "C06",
+      "type": "sequence"
+    },
+    {
+      "from": "C05",
+      "to": "C07",
+      "type": "sequence"
+    },
+    {
+      "from": "C07",
+      "to": "C08",
+      "type": "sequence"
+    },
+    {
+      "from": "C08",
+      "to": "C09",
+      "type": "sequence",
+      "condition": "application deficient or experience not established"
+    },
+    {
+      "from": "C09",
+      "to": "C10",
+      "type": "rework",
+      "condition": "applicant corrects and resubmits within 90 days"
+    },
+    {
+      "from": "C10",
+      "to": "C07",
+      "type": "rework"
+    },
+    {
+      "from": "C09",
+      "to": "C29",
+      "type": "sequence",
+      "condition": "not resubmitted within 90 days"
+    },
+    {
+      "from": "C08",
+      "to": "C11",
+      "type": "sequence",
+      "condition": "application complete and experience accepted"
+    },
+    {
+      "from": "C11",
+      "to": "C12",
+      "type": "sequence"
+    },
+    {
+      "from": "C11",
+      "to": "C13",
+      "type": "sequence"
+    },
+    {
+      "from": "C11",
+      "to": "C18",
+      "type": "optional",
+      "condition": "selected for the minimum 3 percent field investigation"
+    },
+    {
+      "from": "C11",
+      "to": "C22",
+      "type": "sequence"
+    },
+    {
+      "from": "C12",
+      "to": "C14",
+      "type": "sequence"
+    },
+    {
+      "from": "C14",
+      "to": "C15",
+      "type": "sequence"
+    },
+    {
+      "from": "C14",
+      "to": "C16",
+      "type": "handoff"
+    },
+    {
+      "from": "C16",
+      "to": "C17",
+      "type": "handoff"
+    },
+    {
+      "from": "C13",
+      "to": "C19",
+      "type": "sequence"
+    },
+    {
+      "from": "C19",
+      "to": "C20",
+      "type": "sequence"
+    },
+    {
+      "from": "C20",
+      "to": "C21",
+      "type": "rework",
+      "condition": "examination failed"
+    },
+    {
+      "from": "C21",
+      "to": "C19",
+      "type": "rework"
+    },
+    {
+      "from": "C20",
+      "to": "C23",
+      "type": "sequence",
+      "condition": "both examinations passed"
+    },
+    {
+      "from": "C17",
+      "to": "C23",
+      "type": "handoff",
+      "condition": "background cleared"
+    },
+    {
+      "from": "C18",
+      "to": "C23",
+      "type": "handoff",
+      "condition": "experience verified"
+    },
+    {
+      "from": "C18",
+      "to": "C03",
+      "type": "rework",
+      "condition": "claimed experience not supportable"
+    },
+    {
+      "from": "C23",
+      "to": "C24",
+      "type": "sequence"
+    },
+    {
+      "from": "C23",
+      "to": "C25",
+      "type": "sequence"
+    },
+    {
+      "from": "C24",
+      "to": "C26",
+      "type": "sequence"
+    },
+    {
+      "from": "C25",
+      "to": "C26",
+      "type": "sequence"
+    },
+    {
+      "from": "C22",
+      "to": "C26",
+      "type": "sequence"
+    },
+    {
+      "from": "C11",
+      "to": "C27",
+      "type": "optional",
+      "condition": "application inactive"
+    },
+    {
+      "from": "C27",
+      "to": "C19",
+      "type": "rework"
+    },
+    {
+      "from": "C11",
+      "to": "C28",
+      "type": "optional",
+      "condition": "unresolved at fiscal-year close"
+    },
+    {
+      "from": "C20",
+      "to": "C29",
+      "type": "optional",
+      "condition": "18-month examination window lapsed"
+    },
+    {
+      "from": "C25",
+      "to": "C29",
+      "type": "optional",
+      "condition": "initial license fee or issuance documents not filed within 90 days"
+    },
+    {
+      "from": "C17",
+      "to": "C30",
+      "type": "optional",
+      "condition": "criminal history substantially related to the qualifications, functions or duties of a contractor"
+    },
+    {
+      "from": "C18",
+      "to": "C30",
+      "type": "optional",
+      "condition": "experience claims denied after field investigation"
+    }
+  ],
+  "terminal_artifact": "Issued California contractor's license in the applied-for classification, valid two years (or, on the adverse branch, a notice of denial with the earliest reapplication date, or a probationary license)",
+  "denial_rate": null,
+  "denial_rate_notes": "No overall application denial rate is published. The one measured disposition rate in the gold documents is for the experience-verification branch only: of 236 applications investigated by the Enforcement field application investigator January 1 - October 31, 2025, 115 were approved, 44 pulled, 73 denied and 1 appealed — a 31 percent denial rate within that branch, which covers a minimum of 3 percent of all applications. For scale, G1 reports over 50,000 applications received in FY2024-25 with 24,000 licenses issued and 19,000 still pending at year end, so the ratio of issuance to receipt is not a denial rate either.",
+  "timing_gold": {
+    "end_to_end_median_days": 253,
+    "p90": null,
+    "source": "official (CSLB's own two-year performance figures, published in former 16 C.C.R. § 827(a)(6)(A) and reproduced verbatim in the December 11, 2025 board packet after the regulation's repeal)",
+    "quote": "Application for Original License, with Examination Minimum: 11 days Median: 253 days Maximum: 726 days"
+  },
+  "timing_gold_secondary": [
+    {
+      "what": "Original license, without examination (waiver / no-exam track)",
+      "value": "minimum 1 day, median 48 days, maximum 349 days",
+      "source": "official",
+      "doc": "G1",
+      "quote": "Application for Original License, without Examination Minimum: 1 day Median: 48 days Maximum: 349 days"
+    },
+    {
+      "what": "What the min/median/max figures include",
+      "value": "both Board processing time and applicant-controlled time (returned applications, exam failures and no-shows, bond and fee filing)",
+      "source": "official",
+      "doc": "G1",
+      "quote": "These periods include not only the Board's processing time, but also the time for which the applicant is responsible"
+    },
+    {
+      "what": "Weighted-average days to original application approval (complete and incomplete)",
+      "value": "132 days (FY2014-15), 141 (FY2015-16), 135 (FY2016-17), 135 (FY2017-18)",
+      "source": "official",
+      "doc": "G2",
+      "quote": "Average Days to Original Application Approval (All – Complete/Incomplete) 132 141"
+    },
+    {
+      "what": "Queue lag before an original exam application is first pulled for processing",
+      "value": "1.5 to 4.0 weeks by month, November 2024 through October 2025; about two weeks in the 09/14/2026 snapshot",
+      "source": "official",
+      "doc": "G1",
+      "quote": "Nutt noted processing times remain close to four weeks despite staff absences, with cross-training and requests for additional positions helping manage the workload."
+    },
+    {
+      "what": "Statutory and former-regulatory clocks",
+      "value": "60 days to notify complete/deficient; 5 days to re-decide a returned application; 115 days after referral to examination to decide licensure; +60 days if the application must be investigated; 15 days after approval to notify of issuance eligibility; 18 months to pass the exam; three separate 90-day applicant clocks",
+      "source": "official",
+      "doc": "G1",
+      "quote": "The Board shall decide within 115 days after a complete application has been referred for examination whether an applicant meets the requirements for licensure"
+    }
+  ],
+  "known_gaps": [
+    "The two best timing figures in this gold file are legally dead. Former 16 C.C.R. §§ 827 and 828 — the source of the 11/253/726-day and 1/48/349-day min-median-max figures and of the 60-day, 115-day, 5-day and 45-day clocks — were repealed effective December 2, 2025, nine days before the board packet that reproduces them. The repeal rationale is that their authorizing statute, Gov. Code § 15376, was itself repealed in 2003. The numbers describe 'the Board's past two years performance' as of some unstated vintage and CSLB no longer publishes an end-to-end figure of any kind, only the weekly per-unit 'date being worked on'.",
+    "Selection criteria for the 3 percent experience audit (C18) are nowhere public. Only the floor rate (16 C.C.R. § 824), the aggregate FY disposition counts (G1), and the fact of randomness (D9, D10) are documented; nothing says what triggers selection or what an applicant's odds are.",
+    "No gold document explains what happens between a passed exam and issuance beyond G1's queue lag. In particular the 'supervisor review' stage after document submission, and the assignment and reassignment of a file between named program technicians, appear only in a single detailed user report (r/Contractor, August 2024) and in no CSLB document; both are therefore excluded from this gold file, which is a known under-count of the issuance lane.",
+    "C05 and C26 timing is derived, not published. The 14-day and 28-day medians are computed from the difference between the page's snapshot date (09/14/2026) and the 'date being worked on' per unit (08/31/2026 for exam applications, 08/17/2026 for the Issuance Unit). That is a queue lag, not a stage duration, and a solver that reports it as a stage duration is not wrong in the way the score will assume.",
+    "The 44 'pulled' applications in the experience-verification statistics are not defined anywhere in G1; whether 'pulled' means withdrawn by the applicant, pulled from the queue by staff, or referred elsewhere is unresolved, so the rework probability on C18 (0.31, computed as 73/236) may be misattributed.",
+    "Licensing-unit staffing is not broken out. G1 reports Enforcement Division vacancies (26 of 228 positions) but nothing equivalent for the Original Applications, Criminal Background or Issuance units, so no gold document connects the weekly queue lag to staffing.",
+    "Nothing explains why the with-exam median (253 days) is more than five times the without-exam median (48 days) beyond the obvious scheduling of an examination; no gold document decomposes the 253 days into board-controlled and applicant-controlled time even though it explicitly says the figure mixes both.",
+    "The registrar's equivalence discretion under 16 C.C.R. § 826 (C08) has no published criteria. The declared pages publish a fixed credit table (1.5 years for an A.A., 2 years for a four-year degree, 3 years for a completed apprenticeship) but not the discretionary standard the regulation actually grants.",
+    "Fee amounts are current as of the 2021 fee-schedule bulletin and the 2021-2025 handbook; the $450 application fee and $200/$350 initial fee were cross-checked between D3, D10 and the fee schedule but no gold document dates them.",
+    "The whole process is contingent on a recurring sunset bill: G4 states CSLB would have ceased to exist on January 1, 2025 had SB 1455 failed."
+  ],
+  "notes": "Gold for the (cslb_license, CSLB) task, covering the examination-required original-license track with the returned-for-correction, experience-audit, exam-failure, void and denial branches. Designed-tier spine: G1 (December 11, 2025 board packet) supplies the min/median/max processing-time table quoted from the just-repealed 16 C.C.R. § 827, the 'weeks to process' definition and per-unit series, the DOJ/FBI response-time behaviour, the experience-verification dispositions, and the four internal reasons an application counts as pending; G2 (2019 joint sunset review background paper) supplies the 60/115-day clocks, the four-year average-days-to-approval series, and the named licensing units including Veterans Application Assistance; G3 (weekly Processing Times page) is the official observed instrument and the only public evidence that the Original Applications, Criminal Background and Issuance Units exist as separate queues. Declared CSLB pages and forms (D1-D11) anchor the applicant-facing steps. Visibility discipline: an activity is labelled staff_only only after checking that no applicant-facing document in corpus/realworld/cslb_license/raw/ mentions it. The three staff_only activities are C08 (the registrar's § 826 equivalence discretion — 'comparable' appears in no applicant-facing CSLB page in this sense), C28 (fiscal-year-close pending classification — the four reasons appear only in G1), and C30 (denial and the probationary-license-in-lieu-of-denial option — 'probationary license' appears in no applicant-facing CSLB page; the only occurrences of 'probation' on those pages are about criminal parole and probation). Several activities that look staff-only are deliberately not: C05 (queue by date received) and C26 (Issuance Unit review) are applicant_inferable because G3, a public CSLB page, publishes the date each unit is working on; C16/C17 (DOJ/FBI check and CORI review) are applicant_inferable because D7 and D8 describe the check and the case-by-case eligibility evaluation; C18 (the 3 percent field investigation) is applicant_inferable because both D9 and D10 warn applicants that a randomly selected percentage undergo additional investigation. C27 (reminder letters for inactive applications) is an unusual case worth flagging for the benchmark: it is applicant_facing — the applicant receives the letter — yet it appears in no declared CSLB document, only in G1's board minutes. Not everything an applicant can see is published."
+}

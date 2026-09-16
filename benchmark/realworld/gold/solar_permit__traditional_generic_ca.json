@@ -1,0 +1,1511 @@
+{
+ "model_id": "RW__solar_permit__traditional_generic_ca",
+ "source": "designed",
+ "jurisdiction": "generic California AHJ (traditional review)",
+ "implementer": "generic California city or county building department running a non-automated, checklist-and-plan-review permitting process under Gov. Code 65850.5, plus the investor-owned utility interconnection desk under CPUC Electric Rule 21 (PG&E used as the exemplar tariff)",
+ "process": "Residential rooftop PV (and paired storage) on the non-automated path: application and completeness screening against a locally adopted checklist, staff plan check across structural, electrical and fire disciplines with correction/resubmittal loops, nondiscretionary permit issuance, a single consolidated final inspection with a re-inspection loop, and the legally separate utility interconnection track ending in a Permission to Operate letter.",
+ "gold_tier": "designed+observed",
+ "gold_date": "2026-09-15",
+ "gold_documents": [
+  {
+   "id": "S1",
+   "title": "Government Code section 65850.5 (expedited, streamlined permitting for small residential rooftop solar energy systems)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.5&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_5.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2020-01-01",
+   "role": "primary statutory skeleton: Gov. Code 65850.5 (AB 2188 (2014), as amended by AB 754 (2019)) -- nondiscretionary administrative approval, the eligibility checklist, the deemed-complete rule, the written correction notice, the use-permit exception, the appeal route, and the single-consolidated-inspection rule"
+  },
+  {
+   "id": "S20",
+   "title": "California Solar Permitting Guidebook: Improving Permit Review and Approval for Small Solar Systems (4th Edition, Winter 2019, Updated)",
+   "url": "https://lci.ca.gov/wp-content/uploads/20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/guidebook_ca_solar_permitting_4th_ed.pdf (+ .txt)",
+   "tier": "designed",
+   "kind": "sop",
+   "date": "2019-02-26",
+   "role": "primary designed-tier playbook: the California Solar Permitting Guidebook 4th ed. (Winter 2019) -- the document Gov. Code 65850.5(g)(2) names by statute. Supplies the review-time and inspection-scheduling recommendations, the multi-discipline plan-review description, the model ordinance language, and the statement that utility interconnection is a wholly separate track"
+  },
+  {
+   "id": "S2",
+   "title": "Government Code section 65850.52 (SB 379 (2022): mandatory online automated permitting platform, e.g. SolarAPP+)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=65850.52&lawCode=GOV",
+   "saved_as": "corpus/realworld/solar_permit/raw/govcode_65850_52.txt",
+   "tier": "statute",
+   "kind": "statute",
+   "date": "2024-01-01",
+   "role": "statute: Gov. Code 65850.52 (SB 379 (2022)) -- the automated-platform mandate whose compliance deadlines define what counts as a laggard 'traditional review' AHJ after 2023/2024, plus the CEC self-certification and annual-reporting duties and the interconnection carve-out"
+  },
+  {
+   "id": "S38",
+   "title": "SolarAPP+ Performance Review (2024 Data)",
+   "url": "https://docs.nlr.gov/docs/fy26osti/95050.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_performance_review_2024.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2026-01-29",
+   "role": "observed baseline: SolarAPP+ Performance Review (2024 data, NLR) -- the traditional (non-automated) arm of every comparison: 7-day median permit review, 49 business days permit-to-passed-inspection, 35% PV-only inspection failure rate, and the long right tail (12% of traditional permits over 30 business days)"
+  },
+  {
+   "id": "S37",
+   "title": "SolarAPP+ Performance Review (2023 Data)",
+   "url": "https://www.osti.gov/servlets/purl/2373099 (also https://docs.nlr.gov/docs/fy24osti/89618.pdf)",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_performance_review_2023.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2024-06-10",
+   "role": "observed baseline: SolarAPP+ Performance Review (2023 data, NREL) -- the 2023 traditional-permit review median and the caution that the SolarAPP+/traditional comparison does not control for confounders"
+  },
+  {
+   "id": "S34",
+   "title": "What is SolarAPP+'s impact on jurisdictions?",
+   "url": "https://help.gosolarapp.org/article/222-what-is-solarapp-impact-on-jurisdictions",
+   "saved_as": "corpus/realworld/solar_permit/raw/solarapp_impact_on_jurisdictions.txt",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "fetched 2026-09-15",
+   "role": "observed baseline: SolarAPP+ pilot-era impact summary -- traditional permit review of 9 days, and traditional projects about 37% more likely to fail inspection"
+  },
+  {
+   "id": "S48b",
+   "title": "SolarTRACE Dataset (v. 9-9-2025)",
+   "url": "https://data.nlr.gov/system/files/160/1763653965-SolarTRACE%20Dataset%20v9-9-2025.xlsx",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_dataset_2025-09-09.xlsx",
+   "tier": "observed",
+   "kind": "dataset",
+   "date": "2025-09-09",
+   "role": "observed: SolarTRACE dataset (v. 2025-09-09) -- California state-level phase medians by year and system type, national phase quartiles including p90, and the AHJ requirement flags (structural/electrical review required, rough-in inspection required, number of inspections, median permit cost) across 536 California AHJs"
+  },
+  {
+   "id": "S43b",
+   "title": "Residential and Small Commercial Solar Photovoltaic and Storage Permitting, Inspection, and Interconnection Timelines: A Retrospective Review (2017-2023)",
+   "url": "https://www.osti.gov/servlets/purl/3011864 (also https://docs.nlr.gov/docs/fy25osti/...)",
+   "saved_as": "corpus/realworld/solar_permit/raw/solartrace_retrospective_review_2017_2023.pdf (+ .txt)",
+   "tier": "observed",
+   "kind": "official_stats",
+   "date": "2024-01-01",
+   "role": "observed: SolarTRACE retrospective (2017-2023) -- national and state total project times, the finding that California's median is 113 days, and the 2023 California PTO-phase deterioration"
+  },
+  {
+   "id": "S151",
+   "title": "Electric Rule No. 21 -- Generating Facility Interconnections (PG&E Tariff)",
+   "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_RULES_21.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_rule21_tariff.pdf",
+   "tier": "declared",
+   "kind": "regulation",
+   "date": "2025-08-29",
+   "role": "utility tariff: PG&E Electric Rule 21, used as the exemplar IOU tariff -- the 30-business-day PTO clock and the three preconditions including evidence of final electric inspection clearance"
+  },
+  {
+   "id": "S153",
+   "title": "Net Energy Metering Program | PG&E",
+   "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+   "saved_as": "corpus/realworld/solar_permit/raw/pge_nem_program_page.txt",
+   "tier": "designed",
+   "kind": "program_page",
+   "date": "fetched 2026-09-15",
+   "role": "exemplar IOU declared process: PG&E's two-step interconnection filing and its 'five to 10 business days (maximum of 30 business days)' PTO figure"
+  },
+  {
+   "id": "S150",
+   "title": "Electric Rule 21: Generating Facility Interconnections",
+   "url": "https://www.cpuc.ca.gov/rule21",
+   "saved_as": "corpus/realworld/solar_permit/raw/cpuc_rule21_page.txt",
+   "tier": "declared",
+   "kind": "regulation",
+   "date": "fetched 2026-09-15",
+   "role": "CPUC Rule 21 program page: Decision D.20-09-035's interconnection timeline-reporting mandate and its exclusion of sub-30 kVA NEM systems, i.e. most residential projects"
+  },
+  {
+   "id": "S43",
+   "title": "Agenda Report: An Ordinance Implementing AB 2188 Formalizing Streamlined Residential Solar Permitting Procedures (Matter 14-1225)",
+   "url": "https://oakland.legistar1.com/oakland/attachments/0e118da0-f8a6-47f1-b775-8360a35052ac.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_ord_15.33_staffreport.txt",
+   "tier": "designed",
+   "kind": "staff_report",
+   "date": "2015-09-15",
+   "role": "designed-tier exemplar of the local adoption step: Oakland's 2015 staff report, showing the soft-cost rationale, the building/fire inspection-consolidation negotiation, and the CEC-funding consequence of non-compliance"
+  },
+  {
+   "id": "S44",
+   "title": "Ordinance No. 13332 C.M.S. - Chapter 15.33 Residential Rooftop Solar Requirements (final adopted text)",
+   "url": "https://oakland.legistar1.com/oakland/attachments/f7b2ee85-c839-4036-9fb3-c7d13ae67044.pdf",
+   "saved_as": "corpus/realworld/solar_permit/raw/oakland_ord_15.33_finaltext.txt",
+   "tier": "designed",
+   "kind": "local_ordinance",
+   "date": "2015-10-20",
+   "role": "designed-tier exemplar of a conforming local ordinance: Oakland Municipal Code Ch. 15.33, illustrating how a jurisdiction fills the day-counts the statute leaves open"
+  }
+ ],
+ "actors": [
+  {
+   "id": "installer",
+   "name": "Contractor or owner-builder (the de facto applicant)",
+   "dept": "private"
+  },
+  {
+   "id": "homeowner",
+   "name": "Homeowner / customer of record",
+   "dept": "--"
+  },
+  {
+   "id": "ahj_permit_desk",
+   "name": "Permit counter / intake and issuance",
+   "dept": "local building department (the 'local enforcing agency')"
+  },
+  {
+   "id": "ahj_plan_reviewer",
+   "name": "Plan reviewer (structural, electrical, fire disciplines)",
+   "dept": "local building department"
+  },
+  {
+   "id": "ahj_official",
+   "name": "Building official (nondiscretionary approval; use-permit findings)",
+   "dept": "local building department"
+  },
+  {
+   "id": "ahj_inspector",
+   "name": "Field inspector",
+   "dept": "local building department"
+  },
+  {
+   "id": "fire",
+   "name": "Local fire department, district or authority",
+   "dept": "fire authority"
+  },
+  {
+   "id": "utility",
+   "name": "Interconnection desk (Rule 21 / NEM / Net Billing Tariff)",
+   "dept": "investor-owned utility (PG&E, SCE or SDG&E)"
+  },
+  {
+   "id": "cec",
+   "name": "California Energy Commission",
+   "dept": "state agency (recipient of SB 379 compliance and statistics reports)"
+  },
+  {
+   "id": "planning_commission",
+   "name": "Planning commission (appeal body under Gov. Code 65850.5(d))",
+   "dept": "local planning agency"
+  }
+ ],
+ "activities": [
+  {
+   "id": "A01",
+   "name": "Adopt the expedited-permitting ordinance and publish the checklist and standard plan on a public website",
+   "actor": "ahj_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "California Solar Permitting Guidebook checklists and standard plans",
+    "consultation with the local fire department or district"
+   ],
+   "artifacts_out": [
+    "adopted ordinance",
+    "published eligibility checklist and standard plan",
+    "published list of required permitting documentation"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "A one-time jurisdictional act, not a per-application step. Statutory deadline was 2015-09-30 for the checklist ordinance and 2023-09-30 / 2024-09-30 for the automated-platform mandate."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1)-(2)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "shall adopt an ordinance, consistent with the goals and intent of subdivision (a), that creates an expedited, streamlined permitting process for small residential rooftop solar energy systems",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    },
+    {
+     "doc": "S1",
+     "quote": "the city, county, or city and county shall adopt a checklist of all requirements with which small rooftop solar energy systems shall comply to be eligible for expedited review",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    },
+    {
+     "doc": "S1",
+     "quote": "The checklist and required permitting documentation shall be published on a publically accessible internet website",
+     "page_or_section": "Gov. Code 65850.5(g)(2)"
+    },
+    {
+     "doc": "S20",
+     "quote": "Use of a simple eligibility checklist to determine whether projects qualify for expedited permitting and requisite written materials.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    }
+   ],
+   "notes": "Included as an activity because it is the step that determines everything downstream: the statute fixes no day-count for permit turnaround, delegating it to the local ordinance and the Guidebook's recommendation. The widely repeated 'three-day' figure for expedited California solar permits is nowhere in Gov. Code 65850.5's text."
+  },
+  {
+   "id": "A02",
+   "name": "Contact the local electric utility at the start of project planning",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "preliminary system design",
+    "customer account details"
+   ],
+   "artifacts_out": [
+    "utility interconnection requirements and forms",
+    "incentive/rebate information"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S20",
+     "quote": "Permit applicants should contact the local electric utility at the beginning of the project planning stage.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    },
+    {
+     "doc": "S20",
+     "quote": "Electric utilities may require or request that a contractor submit their application to the utility for review before a building permit is issued by the local city or county.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ],
+   "notes": "The Guidebook's own advice creates the parallelism that makes this a two-track process rather than a chain: the utility track can legitimately open before the AHJ track. Some utilities require an approval-to-build before installation; SolarTRACE records that California's largest IOUs do not, which is why its California pre-install interconnection medians are 0 days for PV-only."
+  },
+  {
+   "id": "A03",
+   "name": "Assemble and submit the permit application, electronically or over the counter",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "standard plan or full plan set",
+    "site plan",
+    "roof plan with fire access pathways",
+    "framing and attachment details",
+    "structural calculations where triggered",
+    "single-line electrical diagram",
+    "equipment specifications",
+    "excavation-notification reference"
+   ],
+   "artifacts_out": [
+    "submitted permit application"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(2); 65850.5(f)(4) (excavation notification reference)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "shall allow for electronic submittal of a permit application and associated documentation, and shall authorize the electronic signature on all forms",
+     "page_or_section": "Gov. Code 65850.5(g)(2)"
+    },
+    {
+     "doc": "S20",
+     "quote": "Application submittals, fee payment, signatures and permit issuance are completed electronically, where capability exists.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    },
+    {
+     "doc": "S1",
+     "quote": "an application to install a solar energy system shall include a reference to the requirement to notify the appropriate regional notification center of an excavator's intent to excavate",
+     "page_or_section": "Gov. Code 65850.5(f)(4)"
+    }
+   ]
+  },
+  {
+   "id": "A04",
+   "name": "Determine completeness against the checklist; a conforming application is deemed complete",
+   "actor": "ahj_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "submitted application",
+    "adopted eligibility checklist"
+   ],
+   "artifacts_out": [
+    "completeness determination ('deemed complete')"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No separate published duration; folded into the permit-review clock in every observed dataset."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "An application that satisfies the information requirements in the checklist, as determined by the city, county, and city and county, shall be deemed complete.",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    },
+    {
+     "doc": "S1",
+     "quote": "Upon confirmation by the city, county, or city and county of the application and supporting documents being complete and meeting the requirements of the checklist",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    }
+   ]
+  },
+  {
+   "id": "A05",
+   "name": "Issue a written correction notice detailing all deficiencies; applicant resubmits",
+   "actor": "ahj_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "mail",
+   "artifacts_in": [
+    "incomplete application"
+   ],
+   "artifacts_out": [
+    "written correction notice listing all deficiencies and additional information required"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No statutory shot clock on issuing the notice, and no observed data isolates this loop. SolarTRACE counts permits that require changes and resubmission from the ORIGINAL submittal date, so resubmittal latency is silently folded into the headline permit medians."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A03",
+    "reason": "application incomplete or fails the checklist; written correction notice issued"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "Upon receipt of an incomplete application, a city, county, or city and county shall issue a written correction notice detailing all deficiencies in the application and any additional information required to be eligible for expedited permit issuance.",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Permits that require changes and resubmission are counted from the original submittal date.",
+     "page_or_section": "Information sheet, variable description for 'Median AHJ Permit Time'"
+    }
+   ]
+  },
+  {
+   "id": "A06",
+   "name": "Plan check: structural, electrical and fire-safety review",
+   "actor": "ahj_plan_reviewer",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "plan set",
+    "structural calculations or Structural Toolkit prequalification",
+    "equipment listings"
+   ],
+   "artifacts_out": [
+    "plan-check approval or correction comments"
+   ],
+   "timing": {
+    "median_days": 7,
+    "p90_days": 29,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "Median traditional permit review time (submission to issuance) = 7 business days in 2024 across 33 AHJs, and 7 days again for PV+storage; the pilot-era figure was 9 days. California statewide median was 4 business days in 2023 (SolarTRACE). p90 = 29 business days (SolarTRACE 2023, national AHJ permit review). The Guidebook's recommendation is over-the-counter, or a maximum of 1-3 days if over-the-counter is not offered."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b) (review limited to health and safety requirements of local, state and federal law)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "Review of the application to install a solar energy system shall be limited to the building official's review of whether it meets all health and safety requirements of local, state, and federal law.",
+     "page_or_section": "Gov. Code 65850.5(b)"
+    },
+    {
+     "doc": "S20",
+     "quote": "The enforcing agency must verify that the installation complies with structural requirements.",
+     "page_or_section": "Part 2, Permit Application and Plan Review -> Enforcing Agency Review, p. 12"
+    },
+    {
+     "doc": "S20",
+     "quote": "the enforcing agency must verify that it meets electrical requirements and applicable fire safety ratings",
+     "page_or_section": "Part 2, Permit Application and Plan Review -> Enforcing Agency Review, p. 12"
+    },
+    {
+     "doc": "S38",
+     "quote": "The median permit review times for traditional PV-only and PV-plus-storage projects were 7 days.",
+     "page_or_section": "p. 8, sec. 3.1 AHJ Permit Review Impacts"
+    }
+   ]
+  },
+  {
+   "id": "A07",
+   "name": "Refer the project to the local fire authority where the AHJ has no delegation agreement",
+   "actor": "fire",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "plan set",
+    "fire access pathway details"
+   ],
+   "artifacts_out": [
+    "fire authority review or a separate fire safety inspection"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(g)(1) ('in consultation with the local fire department or district'); 65850.5(h) (separate fire safety inspection permitted absent a delegation agreement)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "a separate fire safety inspection may be performed in a city, county, or city and county that does not have an agreement with a local fire authority to conduct a fire safety inspection on behalf of the fire authority",
+     "page_or_section": "Gov. Code 65850.5(h)"
+    },
+    {
+     "doc": "S20",
+     "quote": "Typically this involves coordination between the building department and the local fire authority.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    },
+    {
+     "doc": "S43",
+     "quote": "the formal consolidation of a single inspection by Bureau of Building staff, in coordination with the Fire Prevention Bureau",
+     "page_or_section": "Oakland staff report, Analysis, p. 2 (exemplar of the delegation negotiation)"
+    }
+   ],
+   "notes": "The statute's single-inspection guarantee has exactly one hole in it, and this is it: an AHJ without a fire-authority delegation agreement may add a separate fire safety inspection. Whether a given AHJ has that agreement is almost never published; Oakland's staff report shows the negotiation happening, which is why it is cited here as the exemplar."
+  },
+  {
+   "id": "A08",
+   "name": "Return plan-check comments; applicant corrects and resubmits for recheck",
+   "actor": "ahj_plan_reviewer",
+   "visibility": "applicant_facing",
+   "occasion": "mail",
+   "artifacts_in": [
+    "plan-check comments"
+   ],
+   "artifacts_out": [
+    "corrected plan set",
+    "recheck submittal"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Not separately measured anywhere. The right tail of the traditional permit distribution is the only visible trace: around 12% of traditional permits took more than 30 business days and about 4% longer than 60 days in 2024."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A03",
+    "reason": "plan-check comments require corrected plans and a recheck"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(g)(1)",
+   "evidence": [
+    {
+     "doc": "S38",
+     "quote": "Around 12% of traditional permits took more than 30 business days, and around 4% took longer than 60 days.",
+     "page_or_section": "p. 8, sec. 3.1 AHJ Permit Review Impacts"
+    },
+    {
+     "doc": "S37",
+     "quote": "installers that tend to use SolarAPP+ may navigate permitting processes more or less efficiently than installers that use SolarAPP+ less often",
+     "page_or_section": "p. 8, sec. 2 (caution on confounders)"
+    }
+   ]
+  },
+  {
+   "id": "A09",
+   "name": "Require a use permit on a substantial-evidence finding of specific, adverse impact",
+   "actor": "ahj_official",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "building official's written finding based on substantial evidence"
+   ],
+   "artifacts_out": [
+    "use permit requirement, or written findings denying the use permit"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(b)-(c), (e)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "makes a finding, based on substantial evidence, that the solar energy system could have a specific, adverse impact upon the public health and safety, the city or county may require the applicant to apply for a use permit",
+     "page_or_section": "Gov. Code 65850.5(b)"
+    },
+    {
+     "doc": "S1",
+     "quote": "may not deny an application for a use permit to install a solar energy system unless it makes written findings based upon substantial evidence in the record",
+     "page_or_section": "Gov. Code 65850.5(c)"
+    },
+    {
+     "doc": "S1",
+     "quote": "Any conditions imposed on an application to install a solar energy system shall be designed to mitigate the specific, adverse impact upon the public health and safety at the lowest cost possible.",
+     "page_or_section": "Gov. Code 65850.5(e)"
+    }
+   ],
+   "notes": "The only route by which a California residential rooftop solar application can actually be denied, and it is deliberately hard to reach: the finding must rest on substantial evidence, the denial needs written findings that also explain why feasible alternatives were rejected, and 'feasible method' is statutorily defined to include any mitigation the jurisdiction accepted on a similar prior application."
+  },
+  {
+   "id": "A10",
+   "name": "Appeal the building official's decision to the planning commission",
+   "actor": "homeowner",
+   "visibility": "applicant_facing",
+   "occasion": "hearing",
+   "artifacts_in": [
+    "building official's decision under subdivisions (b) or (c)"
+   ],
+   "artifacts_out": [
+    "planning commission decision on appeal"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(d)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "The decision of the building official pursuant to subdivisions (b) and (c) may be appealed to the planning commission of the city, county, or city and county.",
+     "page_or_section": "Gov. Code 65850.5(d)"
+    },
+    {
+     "doc": "S43",
+     "quote": "Because Oakland is a charter city, the requirement of Government Code section 65850.5(d) that limited building official decisions be appealable to the City Planning Commission does not apply.",
+     "page_or_section": "Oakland staff report, Background/Legislative History, p. 2"
+    }
+   ],
+   "notes": "A charter-city carve-out sits on top of this element: Oakland's staff report concludes that subdivision (d) does not bind it and routes appeals to a Hearing Examiner instead. A solver modelling a generic California AHJ should expect the appeal body to vary by charter status."
+  },
+  {
+   "id": "A11",
+   "name": "Pay the plan-check and permit fees",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "fee schedule",
+    "fee payment"
+   ],
+   "artifacts_out": [
+    "paid receipt"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days"
+   },
+   "fee": {
+    "amount": null,
+    "currency": "USD",
+    "when": "at submittal and/or before permit issuance",
+    "source": "S20 (the Guidebook leaves the fee schedule as a blank to be filled locally); S48b for observed AHJ medians",
+    "note": "There is no statewide California residential solar permit fee. The Guidebook's model ordinance literally leaves a placeholder for it. Observed SolarTRACE medians for the three AHJs studied in this corpus span $268.80 (San Diego city) to $385.00 (Oakland city) to $483.80 (Sacramento County) for a residential 1-10 kW permit, so any single generic figure would be wrong; fee error should not be scored against this model."
+   },
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(a) (legislative intent to minimise permitting costs)",
+   "evidence": [
+    {
+     "doc": "S20",
+     "quote": "4. Fees [PROVIDE CLEAR FEE SCHEDULE]",
+     "page_or_section": "Part 3, PV Toolkit for Local Governments -> model ordinance/handout template, p. 23"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Median cost for a residential, 1-10-kW permit.",
+     "page_or_section": "Information sheet, variable description for 'Median Permit Cost'"
+    },
+    {
+     "doc": "S43",
+     "quote": "The solar industry estimates that such \"soft costs\" currently represent fully 25% of the overall cost of any residential solar installation.",
+     "page_or_section": "Oakland staff report, Background/Legislative History, p. 1"
+    }
+   ]
+  },
+  {
+   "id": "A12",
+   "name": "Administratively approve the application and issue the building permit",
+   "actor": "ahj_official",
+   "visibility": "applicant_facing",
+   "occasion": "counter",
+   "artifacts_in": [
+    "complete, checklist-conforming application",
+    "paid fees"
+   ],
+   "artifacts_out": [
+    "issued building permit or other nondiscretionary permit"
+   ],
+   "timing": {
+    "median_days": 4,
+    "p90_days": 29,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "California statewide median AHJ permit time, 0-10 kW PV-only, 2023 = 4 business days (6 in 2022, 1 in 2024); PV+storage = 9 business days in 2023. National traditional median 7 business days (Performance Review 2024). p90 = 29 business days (SolarTRACE 2023, national). Guidebook target: over the counter, else 1-3 days. Note that 'same-day approvals are reported as 0 days' in SolarTRACE."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b), (g)(1)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "A city or county shall administratively approve applications to install solar energy systems through the issuance of a building permit or similar nondiscretionary permit.",
+     "page_or_section": "Gov. Code 65850.5(b)"
+    },
+    {
+     "doc": "S1",
+     "quote": "a city, county, or city and county shall, consistent with subdivision (b), approve the application and issue all required permits or authorizations",
+     "page_or_section": "Gov. Code 65850.5(g)(1)"
+    },
+    {
+     "doc": "S20",
+     "quote": "a maximum timeframe of 1-3 days in which to review the permit application is provided",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Median business days between first permit submission to the AHJ and final permit approval.",
+     "page_or_section": "Information sheet, variable description for 'Median AHJ Permit Time'"
+    }
+   ]
+  },
+  {
+   "id": "A13",
+   "name": "Install the system",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "issued building permit",
+    "approved plans"
+   ],
+   "artifacts_out": [
+    "installed PV (and paired storage) system"
+   ],
+   "timing": {
+    "median_days": 16,
+    "p90_days": 68,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "California statewide median install phase (last approval -> install complete), 0-10 kW PV-only, 2023 = 16 business days (22 in 2022); PV+storage 24. p90 is the national 2023 figure (68); no California p90 is published. This phase is contractor scheduling, not regulation, and the Performance Review warns that permit-to-inspection differences partly reflect it."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": null,
+   "evidence": [
+    {
+     "doc": "S20",
+     "quote": "Once the permit application is approved, the applicant has permission to build the solar installation.",
+     "page_or_section": "Part 2, The Project Approval Process, p. 11"
+    },
+    {
+     "doc": "S38",
+     "quote": "total permitting times (the number of days between permit submission and passed inspection) are subject to many factors unrelated to SolarAPP+, such as differences in installation timelines",
+     "page_or_section": "p. 7, sec. 3 Performance Review"
+    }
+   ]
+  },
+  {
+   "id": "A14",
+   "name": "Request the inspection; the AHJ schedules it",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "notification that the system has been installed"
+   ],
+   "artifacts_out": [
+    "scheduled inspection appointment with a time window"
+   ],
+   "timing": {
+    "median_days": 1,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Guidebook recommendation, not a measurement: next business day after notification, else within five days, with a scheduling window of no more than two hours. Conforming local ordinances set their own number -- Oakland's is within 2 business days of a request."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h) ('done in a timely manner')",
+   "evidence": [
+    {
+     "doc": "S20",
+     "quote": "Inspection requests received within business hours are typically scheduled for the next business day. If next business day is not available, inspection should happen within a five-day window.",
+     "page_or_section": "Part 3, PV Toolkit for Local Governments -> model handout, sec. 5 Inspections, p. 23"
+    },
+    {
+     "doc": "S20",
+     "quote": "Provide a scheduling time window for on-site inspection of no more than two hours, and utilize phone and/or email communication to provide information on anticipated inspection time.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    },
+    {
+     "doc": "S44",
+     "quote": "An inspection will be scheduled within two (2) business days of a request.",
+     "page_or_section": "Oakland Municipal Code 15.33.090(D) (exemplar local day-count)"
+    }
+   ]
+  },
+  {
+   "id": "A15",
+   "name": "Perform a rough or pre-inspection where the AHJ requires one",
+   "actor": "ahj_inspector",
+   "visibility": "applicant_inferable",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "partially installed system",
+    "concealed wiring before cover"
+   ],
+   "artifacts_out": [
+    "rough-inspection sign-off"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No duration published. Incidence is a tracked AHJ requirement: SolarTRACE carries a 'Rough-In Inspection Required' flag per AHJ, recorded as 0 for all three California jurisdictions studied in this corpus."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "Gov. Code 65850.5(h) (in tension: only one inspection is required for an expedited-eligible system)",
+   "evidence": [
+    {
+     "doc": "S20",
+     "quote": "enforcing agencies should strive to eliminate \"rough\" or pre-inspections and, instead, ensure compliance with all applicable rules and requirements during the final inspection",
+     "page_or_section": "Part 2, The Project Approval Process, p. 15"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Flag (1 Yes / 0 No / NA for no data available) for whether a rough-in (partially installed) inspection is required by the AHJ.",
+     "page_or_section": "Information sheet, variable description for 'Rough-In Inspection Required'"
+    }
+   ],
+   "notes": "Kept as an optional activity because it is the clearest example of an AHJ practice that survives despite both the statute's single-inspection rule and the Guidebook's explicit advice against it. It is also tracked as a per-AHJ flag in SolarTRACE, which is the only systematic evidence that some jurisdictions still require it."
+  },
+  {
+   "id": "A16",
+   "name": "Perform the single consolidated final inspection (building and fire)",
+   "actor": "ahj_inspector",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "installed system",
+    "approved plans",
+    "inspection criteria list"
+   ],
+   "artifacts_out": [
+    "pass/fail inspection result"
+   ],
+   "timing": {
+    "median_days": 11,
+    "p90_days": 52,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "California statewide median inspection phase (install complete -> last passed inspection), 0-10 kW PV-only, 2023 = 11 business days (18 in 2022, 10 in 2024); PV+storage 12. National 2023 median is also 11, p90 52. Guidebook expectation is one or two days from notice, so the observed median runs roughly five to ten times the design target."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "only one inspection shall be required, which shall be done in a timely manner and may include a consolidated inspection",
+     "page_or_section": "Gov. Code 65850.5(h)"
+    },
+    {
+     "doc": "S20",
+     "quote": "A single, final inspection coordinated among the various agencies or for inspections by multiple agencies to occur at the same time.",
+     "page_or_section": "Part 3, Recommendations for Expedited Permitting for Small PV Systems, p. 18"
+    },
+    {
+     "doc": "S20",
+     "quote": "Many jurisdictions are able to complete a site inspection within one or two days of notice that construction of the solar installation is completed, while others may take longer.",
+     "page_or_section": "Part 2, The Project Approval Process, p. 15"
+    },
+    {
+     "doc": "S20",
+     "quote": "Permit holders must be prepared to show conformance with all technical requirements in the field at the time of inspection.",
+     "page_or_section": "Part 3, PV Toolkit for Local Governments, p. 23"
+    }
+   ]
+  },
+  {
+   "id": "A17",
+   "name": "Correct the deficiency and obtain a subsequent inspection",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "site_visit",
+   "artifacts_in": [
+    "correction notice"
+   ],
+   "artifacts_out": [
+    "corrected installation",
+    "re-inspection request"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "Performance Review 2024",
+    "unit": "business_days",
+    "note": "No duration published. Incidence: about 35% of traditional PV-only projects and 29% of traditional PV+storage projects failed at least one inspection in 2024; traditional projects were about 37% more likely to fail than comparable SolarAPP+ projects in the pilot analysis. Note the statutory asymmetry -- the subsequent inspection is expressly freed from the timeliness rule that governs the first."
+   },
+   "fee": null,
+   "rework": {
+    "back_to": "A16",
+    "reason": "failed inspection; a subsequent inspection is authorized and need not conform to the timeliness requirement"
+   },
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(h)",
+   "evidence": [
+    {
+     "doc": "S1",
+     "quote": "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized, however the subsequent inspection need not conform to the requirements of this subdivision.",
+     "page_or_section": "Gov. Code 65850.5(h)"
+    },
+    {
+     "doc": "S38",
+     "quote": "About 31% of all SolarAPP+ projects failed an inspection at least once, compared to 35% of traditional projects.",
+     "page_or_section": "p. 10, sec. 3.2 AHJ Inspection Impacts"
+    },
+    {
+     "doc": "S34",
+     "quote": "SolarAPP+ projects are about 37% less likely to fail inspections than similar traditional projects.",
+     "page_or_section": "help.gosolarapp.org art. 222, Inspection Quality"
+    }
+   ],
+   "notes": "Gov. Code 65850.5(h) grants the applicant a timeliness guarantee on the first inspection and then withdraws it for every subsequent one. A failed inspection therefore moves the project from a regulated clock to an unregulated one, which is the structural reason inspection rework dominates the long tail in the user-report corpus."
+  },
+  {
+   "id": "A18",
+   "name": "Final the permit and issue the final electric inspection clearance",
+   "actor": "ahj_permit_desk",
+   "visibility": "applicant_facing",
+   "occasion": "internal",
+   "artifacts_in": [
+    "passed inspection result"
+   ],
+   "artifacts_out": [
+    "finaled permit / final electric inspection clearance bearing the final approval date and signature"
+   ],
+   "timing": {
+    "median_days": 2,
+    "p90_days": 22,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "National post-inspection phase (last inspection -> PTO request) median 2 business days, p90 22, 0-10 kW PV-only, 2023."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.5(b)",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S48b",
+     "quote": "Business days between last completed inspection and final interconnection/PTO request submission to the utility.",
+     "page_or_section": "Information sheet, variable description for 'Post-Inspection Phase (inspect-final IX submit)'"
+    }
+   ]
+  },
+  {
+   "id": "A19",
+   "name": "Submit the utility interconnection application and customer authorization",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "customer authorization",
+    "system and equipment details",
+    "rate-schedule election"
+   ],
+   "artifacts_out": [
+    "utility interconnection request"
+   ],
+   "timing": {
+    "median_days": 0,
+    "p90_days": 21,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "National utility interconnection review (submit -> approve) median 0 business days in 2023, p90 21 -- the median is 0 because most California IOUs require no pre-install approval to build, so the phase is recorded as same-day where no such requirement exists."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21; Gov. Code 65850.52(g)",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "Complete the Agreement and Customer Authorization (A&A) form. It must be signed and submitted before continuing to Step 2.",
+     "page_or_section": "PG&E NEM program page, Step 1 (exemplar IOU sequence)"
+    },
+    {
+     "doc": "S20",
+     "quote": "All solar PV installations need the local utility's approval to link into the electricity grid, a process commonly referred to as \"interconnection.\"",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    },
+    {
+     "doc": "S2",
+     "quote": "This section does not limit or otherwise affect the generator interconnection requirements and approval process",
+     "page_or_section": "Gov. Code 65850.52(g)"
+    }
+   ]
+  },
+  {
+   "id": "A20",
+   "name": "Review network capacity; require a variance, engineering review or distribution upgrade if triggered",
+   "actor": "utility",
+   "visibility": "applicant_inferable",
+   "occasion": "internal",
+   "artifacts_in": [
+    "interconnection request data",
+    "distribution capacity data"
+   ],
+   "artifacts_out": [
+    "screening result, variance determination, or upgrade requirement and cost"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "No published residential duration. The exemplar IOU warns only that upgrades 'may incur a cost and add additional time to the project timeline.'"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": true,
+   "element_ref": "CPUC Electric Rule 21 (Fast Track and supplemental review screens)",
+   "evidence": [
+    {
+     "doc": "S153",
+     "quote": "Generating facility information you enter on the Agreement and Customer Authorization form and the Standard Net Energy Metering Interconnection Application will be used to identify whether a further engineering review is needed",
+     "page_or_section": "PG&E NEM program page, Check network capacity"
+    },
+    {
+     "doc": "S20",
+     "quote": "utilities may require one or more on-site inspections of the project before approving the interconnection agreement",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ]
+  },
+  {
+   "id": "A21",
+   "name": "Execute the generator interconnection agreement",
+   "actor": "homeowner",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "draft generator interconnection agreement"
+   ],
+   "artifacts_out": [
+    "executed interconnection agreement"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "utility tariff",
+    "unit": "business_days",
+    "note": "Counted by the tariff as one of the three preconditions that start the PTO clock; no separate duration is published."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b (element 2)",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "a completed signed NEM-1, NEM-2, or NBT-1 Generator Interconnection Agreement",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    }
+   ]
+  },
+  {
+   "id": "A22",
+   "name": "Submit evidence of the final electric inspection clearance to the utility",
+   "actor": "installer",
+   "visibility": "applicant_facing",
+   "occasion": "online",
+   "artifacts_in": [
+    "finaled permit / final electric inspection clearance"
+   ],
+   "artifacts_out": [
+    "complete interconnection package; the PTO clock starts"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "utility tariff",
+    "unit": "business_days"
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b (element 3); Gov. Code 65850.52(g)",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S20",
+     "quote": "This interconnection approval must be granted before a solar PV installation is allowed to operate and is completely separate from local government approval for the solar installation.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ],
+   "notes": "The load-bearing seam. Because the tariff will not start its PTO clock without the AHJ's final clearance, every day of plan-check and inspection rework upstream is passed through to the PTO date, regardless of how fast the utility itself performs."
+  },
+  {
+   "id": "A23",
+   "name": "Grant Permission to Operate; the system may then be energised",
+   "actor": "utility",
+   "visibility": "applicant_facing",
+   "occasion": "mail",
+   "artifacts_in": [
+    "complete interconnection request",
+    "executed interconnection agreement",
+    "final electric inspection clearance"
+   ],
+   "artifacts_out": [
+    "Permission to Operate letter"
+   ],
+   "timing": {
+    "median_days": 10,
+    "p90_days": 48,
+    "source": "SolarTRACE 2023",
+    "unit": "business_days",
+    "note": "National final interconnection phase (PTO request -> PTO granted) median 10 business days in 2023, p90 48 -- both sharply worse than 2022 (median 6, p90 30). California statewide median was 12 business days in 2023. Tariff ceiling: 'normally not later than thirty (30) Business Days'; the exemplar IOU's declared typical range is 5-10 business days. The SolarTRACE retrospective attributes the national 2023 deterioration mainly to California."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "CPUC Electric Rule 21 sec. D.13.b",
+   "evidence": [
+    {
+     "doc": "S151",
+     "quote": "shall normally be processed not later than thirty (30) Business Days following Distribution Provider's receipt",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S151",
+     "quote": "If the 30-day period cannot be met, Distribution Provider shall notify Applicant and the Commission of the reason for the inability to process the Interconnection Request and the expected completion date.",
+     "page_or_section": "PG&E Electric Rule No. 21, Sheet 45, sec. D.13.b"
+    },
+    {
+     "doc": "S153",
+     "quote": "Once PG&E receives the completed documentation from a contractor, it typically takes five to 10 business days (maximum of 30 business days) for a project to receive permission to operate.",
+     "page_or_section": "PG&E NEM program page, How long does the process take?"
+    },
+    {
+     "doc": "S20",
+     "quote": "The Public Utilities Code requires that all electric utilities respond within 30 working days after receiving a completed application for interconnection.",
+     "page_or_section": "Part 2, The Project Approval Process -> Local Utility Approval, p. 15"
+    }
+   ]
+  },
+  {
+   "id": "A24",
+   "name": "Self-certify SB 379 compliance to the California Energy Commission when applying for CEC funds",
+   "actor": "ahj_permit_desk",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "compliance status",
+    "CEC funding application"
+   ],
+   "artifacts_out": [
+    "self-certification of compliance"
+   ],
+   "timing": {
+    "median_days": null,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Triggered by a funding application after the jurisdiction's compliance date (2023-09-30 for population over 50,000; 2024-09-30 at or below 50,000)."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(c), (d), (f)",
+   "evidence": [
+    {
+     "doc": "S2",
+     "quote": "shall self-certify its compliance with this section when applying for funds from the Energy Commission",
+     "page_or_section": "Gov. Code 65850.52(f)"
+    },
+    {
+     "doc": "S2",
+     "quote": "A city, county, or city and county with a population of greater than 50,000 that is not exempt pursuant to paragraph (1) shall satisfy the requirements of subdivision (b) by September 30, 2023.",
+     "page_or_section": "Gov. Code 65850.52(c)(3)"
+    },
+    {
+     "doc": "S43",
+     "quote": "Failure to comply with the requirements of AB 2188 may result in the City's inability to receive funds from California Energy Commission renewable energy grant and incentive programs.",
+     "page_or_section": "Oakland staff report, Background/Legislative History, p. 2 (exemplar of how the funding lever is understood locally)"
+    }
+   ],
+   "notes": "Staff-only and load-bearing for the benchmark: after the SB 379 deadlines, an AHJ still running a purely traditional plan-review path for eligible systems is out of compliance, and this filing is where that becomes visible to the state. No applicant-facing document in any jurisdiction mentions it."
+  },
+  {
+   "id": "A25",
+   "name": "Report residential solar permit counts and system characteristics to the California Energy Commission annually",
+   "actor": "ahj_permit_desk",
+   "visibility": "staff_only",
+   "occasion": "internal",
+   "artifacts_in": [
+    "permit counts and relevant system characteristics",
+    "CEC reporting guidelines"
+   ],
+   "artifacts_out": [
+    "annual statistics filing to the CEC"
+   ],
+   "timing": {
+    "median_days": 365,
+    "p90_days": null,
+    "source": "none",
+    "unit": "business_days",
+    "note": "Annual, beginning within one year of implementing the platform; the duty becomes inoperative 2034-06-30."
+   },
+   "fee": null,
+   "rework": null,
+   "optional": false,
+   "element_ref": "Gov. Code 65850.52(e)(1)",
+   "evidence": [
+    {
+     "doc": "S2",
+     "quote": "shall annually report to the Energy Commission pursuant to those guidelines within one year of implementing the online, automated solar permitting system",
+     "page_or_section": "Gov. Code 65850.52(e)(1)"
+    },
+    {
+     "doc": "S2",
+     "quote": "This annual reporting requirement shall become inoperative on June 30, 2034.",
+     "page_or_section": "Gov. Code 65850.52(e)(1)"
+    },
+    {
+     "doc": "S2",
+     "quote": "The Energy Commission shall set guidelines for cities, counties, and cities and counties to report to the commission on the number of permits issued for residential solar energy systems",
+     "page_or_section": "Gov. Code 65850.52(e)(1)"
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "A01",
+   "to": "A03",
+   "type": "handoff",
+   "condition": "checklist and standard plan must be published before an applicant can conform to them"
+  },
+  {
+   "from": "A02",
+   "to": "A03",
+   "type": "optional",
+   "condition": "contractor contacts the utility first; the utility track may open before the AHJ track"
+  },
+  {
+   "from": "A03",
+   "to": "A04",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A04",
+   "to": "A05",
+   "type": "rework",
+   "condition": "application incomplete or fails the checklist"
+  },
+  {
+   "from": "A05",
+   "to": "A03",
+   "type": "rework",
+   "condition": "applicant resubmits"
+  },
+  {
+   "from": "A04",
+   "to": "A06",
+   "type": "sequence",
+   "condition": "application deemed complete"
+  },
+  {
+   "from": "A06",
+   "to": "A07",
+   "type": "optional",
+   "condition": "AHJ has no fire-authority delegation agreement"
+  },
+  {
+   "from": "A07",
+   "to": "A06",
+   "type": "sequence",
+   "condition": "fire review returned"
+  },
+  {
+   "from": "A06",
+   "to": "A08",
+   "type": "rework",
+   "condition": "plan check produces correction comments"
+  },
+  {
+   "from": "A08",
+   "to": "A03",
+   "type": "rework",
+   "condition": "applicant resubmits corrected plans"
+  },
+  {
+   "from": "A06",
+   "to": "A09",
+   "type": "optional",
+   "condition": "building official finds substantial evidence of a specific, adverse impact"
+  },
+  {
+   "from": "A09",
+   "to": "A10",
+   "type": "optional",
+   "condition": "applicant appeals the decision"
+  },
+  {
+   "from": "A10",
+   "to": "A12",
+   "type": "sequence",
+   "condition": "appeal resolved in the applicant's favour"
+  },
+  {
+   "from": "A09",
+   "to": "A12",
+   "type": "sequence",
+   "condition": "use permit granted with conditions"
+  },
+  {
+   "from": "A06",
+   "to": "A11",
+   "type": "sequence",
+   "condition": "plan check approved"
+  },
+  {
+   "from": "A11",
+   "to": "A12",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A12",
+   "to": "A13",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A13",
+   "to": "A14",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A14",
+   "to": "A15",
+   "type": "optional",
+   "condition": "AHJ requires a rough or pre-inspection"
+  },
+  {
+   "from": "A15",
+   "to": "A16",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A14",
+   "to": "A16",
+   "type": "sequence",
+   "condition": "single consolidated inspection only"
+  },
+  {
+   "from": "A16",
+   "to": "A17",
+   "type": "rework",
+   "condition": "inspection failed"
+  },
+  {
+   "from": "A17",
+   "to": "A16",
+   "type": "rework",
+   "condition": "subsequent inspection"
+  },
+  {
+   "from": "A16",
+   "to": "A18",
+   "type": "sequence",
+   "condition": "inspection passed"
+  },
+  {
+   "from": "A02",
+   "to": "A19",
+   "type": "optional",
+   "condition": "utility track opened early, in parallel with permitting"
+  },
+  {
+   "from": "A12",
+   "to": "A19",
+   "type": "optional",
+   "condition": "contractor files the interconnection application after permit issuance"
+  },
+  {
+   "from": "A19",
+   "to": "A20",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A20",
+   "to": "A21",
+   "type": "sequence",
+   "condition": "screening clear, or variance/upgrade resolved"
+  },
+  {
+   "from": "A18",
+   "to": "A22",
+   "type": "handoff",
+   "condition": "final electric inspection clearance becomes available to the utility track"
+  },
+  {
+   "from": "A21",
+   "to": "A22",
+   "type": "sequence",
+   "condition": ""
+  },
+  {
+   "from": "A22",
+   "to": "A23",
+   "type": "sequence",
+   "condition": "all three Rule 21 D.13.b preconditions received"
+  },
+  {
+   "from": "A12",
+   "to": "A25",
+   "type": "handoff",
+   "condition": "issued permit counted in the annual CEC filing"
+  },
+  {
+   "from": "A01",
+   "to": "A24",
+   "type": "handoff",
+   "condition": "compliance status established by the adoption step"
+  }
+ ],
+ "terminal_artifact": "Permission to Operate letter",
+ "denial_rate": null,
+ "denial_rate_note": "Structurally near zero and not published anywhere. Gov. Code 65850.5(b) compels administrative approval and limits review to health and safety; a denial requires the building official to make a substantial-evidence finding of specific, adverse impact (A09), then written findings explaining why every feasible mitigation was rejected, where 'feasible method' is statutorily defined to include any mitigation the jurisdiction accepted on a similar prior application. No California source in this corpus reports a residential rooftop solar denial rate.",
+ "timing_gold": {
+  "end_to_end_median_days": 49,
+  "end_to_end_scope": "permit submission -> final passed inspection, business days, traditional (non-automated) permits, 29 AHJs nationally (2024). The directly comparable SolarAPP+ figure is 37 business days, a 12-day or roughly 24% difference at the median.",
+  "p90_days": 133,
+  "p90_scope": "permit submission -> inspections complete, business days, 0-10 kW PV-only, 2023, national, all paths pooled (SolarTRACE); no traditional-only p90 is published.",
+  "end_to_end_to_pto_median_days": 72,
+  "end_to_end_to_pto_p90_days": 181,
+  "end_to_end_to_pto_scope": "permit submission -> PTO approved, business days, 0-10 kW PV-only, 2023, national, all paths pooled (SolarTRACE n=56,582).",
+  "contract_to_pto_median_days": 113,
+  "contract_to_pto_scope": "customer contract signing -> PTO granted, business days, California, 0-10 kW PV-only, 2023 (SolarTRACE state-level, n=40,259). National median for the same year is 97. This is the figure that best answers 'how long does rooftop solar take in California', and roughly half of it is pre-submittal design and contractor scheduling that no regulator controls.",
+  "source": "Performance Review 2024 (S38) for the traditional-vs-SolarAPP+ arms; SolarTRACE 2025-09-09 dataset (S48b) for California state-level medians and national phase quartiles including p90; SolarTRACE retrospective (S43b) for total project time; PG&E Rule 21 tariff and NEM page (S151, S153) as the exemplar interconnection commitment; the Guidebook (S20) for the design targets.",
+  "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits",
+  "per_phase": {
+   "permit": {
+    "median_days": 7,
+    "p90_days": 29,
+    "unit": "business_days",
+    "source": "Performance Review 2024",
+    "note": "Traditional permit review (submission to issuance) median 7 business days for both PV-only and PV+storage across 33 AHJs in 2024; the pilot-era figure was 9 days. California statewide median was 4 business days in 2023 and 1 in 2024 (SolarTRACE), well below the national traditional median. p90 = 29 business days (SolarTRACE 2023, national). The design target is over-the-counter issuance or a maximum of 1-3 days, so the median runs about 2-7x the Guidebook recommendation and the tail far worse: 12% of traditional permits exceeded 30 business days and 4% exceeded 60. Note that the statute itself sets NO day-count -- the widely cited 'three-day' figure is the Guidebook's recommendation, not law."
+   },
+   "inspection": {
+    "median_days": 11,
+    "p90_days": 52,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "Install complete -> last passed inspection: California statewide median 11 business days for 0-10 kW PV-only in 2023 (18 in 2022, 10 in 2024), PV+storage 12; national median also 11, p90 52. The Guidebook expects one or two days from notification. Inspection failure rate for traditional PV-only projects was about 35% in 2024, and Gov. Code 65850.5(h) exempts the subsequent inspection from the timeliness rule, so the rework tail is unregulated."
+   },
+   "interconnection": {
+    "median_days": 10,
+    "p90_days": 48,
+    "unit": "business_days",
+    "source": "SolarTRACE 2023",
+    "note": "Final interconnection request -> PTO granted: national median 10 business days in 2023, p90 48, both far worse than 2022 (median 6, p90 30); California statewide median 12. Tariff ceiling is 'normally not later than thirty (30) Business Days' after the three preconditions, and the exemplar IOU advertises 5-10 business days typical. The SolarTRACE retrospective attributes the 2023 national deterioration primarily to California, i.e. the NEM 2.0 -> NEM 3.0 transition surge."
+   }
+  },
+  "additional_verified_quotes": [
+   {
+    "doc": "S38",
+    "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits"
+   },
+   {
+    "doc": "S38",
+    "quote": "The median permit review times for traditional PV-only and PV-plus-storage projects were 7 days."
+   },
+   {
+    "doc": "S34",
+    "quote": "reduced permit review duration from 9 days for traditional projects to zero"
+   },
+   {
+    "doc": "S43b",
+    "quote": "Other states with somewhat longer timelines included New Jersey (median 117 days) and California (median 113 days)"
+   },
+   {
+    "doc": "S43b",
+    "quote": "a median or average PV-only project in the United States required approximately 100-115 business days between contract signing and PTO"
+   },
+   {
+    "doc": "S20",
+    "quote": "a maximum timeframe of 1-3 days in which to review the permit application is provided"
+   }
+  ]
+ },
+ "known_gaps": [
+  "This model has no single implementer, so it cannot be scored on fee at all. There is no statewide California residential solar permit fee: the Guidebook's model ordinance leaves the fee schedule as a literal placeholder, and observed SolarTRACE medians across just the three AHJs in this corpus span $268.80 to $483.80 for the same 1-10 kW residential permit. A11 therefore carries a null amount by design.",
+  "The 'traditional' arm of every NREL/NLR comparison is defined by the AHJs that volunteered data, not by a random sample. The 41 contributing AHJs in the 2024 review had all already adopted SolarAPP+ and supplied their own traditional-permit records for comparison, so they may have had unusually efficient traditional processes to begin with. The Performance Review states plainly that the comparison 'does not control for potentially confounding factors' and that installers self-select between paths.",
+  "Permit-review medians silently absorb the resubmittal loop. SolarTRACE counts permits requiring changes and resubmission from the original submittal date, and the Performance Review's traditional figures deliberately 'reflect timelines for a single permit entry' excluding revisions for apples-to-apples comparison. The two observed sources therefore treat A05 and A08 oppositely, and neither isolates rework latency.",
+  "No observed source separates the statutory expedited checklist path from ordinary plan review. 'Traditional' in the Performance Review means only 'non-automated'; a jurisdiction's expedited-checklist projects and its full plan-review projects are pooled. The distinction that Gov. Code 65850.5(g) creates is therefore invisible in every timing figure in this model.",
+  "Whether a given AHJ holds a fire-authority delegation agreement -- the one lawful exception to the single-inspection guarantee under 65850.5(h) -- is essentially never published. A07 is modelled from the statutory text plus Oakland's staff report describing the negotiation, not from any systematic source.",
+  "CPUC Decision D.20-09-035 requires each IOU to report 19 interconnection timeline metrics quarterly, yet the CPUC's own page records that it 'did not mandate reporting for net energy metering (NEM) systems smaller than 30 kVA' -- which the same page says represent the majority of California Rule 21 interconnections. The single richest potential observed dataset on residential PTO timing structurally excludes residential projects.",
+  "The Guidebook is the statutorily named playbook and it is stale. The 4th edition dates from Winter 2019 and predates both SolarAPP+ adoption at scale and SB 379 (2022) entirely; no 5th edition incorporating the automated-permitting mandate was located. Gov. Code 65850.5(g)(2) still requires local ordinances to substantially conform to a document that does not mention the state's own later mandate.",
+  "SolarTRACE's 2024 columns rest on sharply reduced volumes (1,874 California PV-only installs against 40,259 in 2023) because the dataset was completed 2025-09-09 with partial 2024 coverage. The 2024 improvements in permit and inspection medians should not be read as a trend.",
+  "After the SB 379 deadlines this model describes a jurisdiction that is arguably out of compliance for SolarAPP+-eligible systems, since Gov. Code 65850.52(b) requires real-time issuance for systems up to 38.4 kW AC. It remains the correct baseline for ineligible configurations (ground-mounted, ballasted, multi-family, homeowner-installed) and for AHJs that are exempt or non-compliant, but it should not be read as a lawful design for eligible systems post-2023/2024."
+ ],
+ "notes": "Why this model exists and what it is for: it is the counterfactual arm against which both implementer models are scored, built from the statute plus the Guidebook the statute names plus the Performance Review's 'traditional' baselines, with no single jurisdiction's practice standing in for it. Four points a solver must get right. (1) The statute fixes no permit turnaround at all. Gov. Code 65850.5 mandates an 'expedited, streamlined' checklist process and a single consolidated inspection but delegates every day-count to local ordinance and to the Guidebook's recommendation of over-the-counter or a 1-3 day maximum; the commonly cited 'three-day rule' is not statutory text, and only the 2015 ordinance-adoption deadline and SB 379's 2023/2024 platform deadlines are hard dates. (2) The single-inspection guarantee is narrower than it looks: it applies only to expedited-eligible systems, it yields to a separate fire safety inspection where the AHJ lacks a delegation agreement, and 65850.5(h) expressly frees every subsequent inspection from the timeliness rule -- so failing an inspection moves the applicant from a regulated clock onto an unregulated one, which is the structural reason inspection rework dominates the long tail. (3) Approval is nondiscretionary, so the graph has no real decision node on the main path; A09's use-permit referral and A10's appeal are the only discretionary branches and both are deliberately hard to reach. (4) The permitting and interconnection tracks are legally separate under 65850.52(g) and A22 is the seam: because the tariff will not start its 30-business-day PTO clock without the AHJ's final electric inspection clearance, all upstream plan-check and inspection delay passes straight through to the PTO date. The headline contrast with the automated path is 49 versus 37 business days from permit submission to passed inspection, driven almost entirely by the permit-review phase (7 days versus 0), while the inspection and interconnection phases are largely unchanged -- automation moves one phase, not the whole process. gold_tier is 'designed+observed' because the graph is designed-tier while every timing figure is records-derived; per-tier scoring should treat the process model as designed-only. Document ids are the corpus source_ids from corpus/realworld/solar_permit/sources.json.",
+ "quote_verification": "All 74 evidence quotes in this file were machine-verified as verbatim substrings of the saved document extractions in corpus/realworld/solar_permit/, after Unicode NFKC normalisation and folding of curly quotes/apostrophes, en/em dashes, non-breaking spaces, ellipses and PDF ligatures (fi/fl/ff), and after collapsing all whitespace (PDF text extractions wrap mid-sentence, so quotes are contiguous in the normalised stream rather than on one line of the .txt). Quotes from the PG&E Rule 21 tariff additionally required stripping the right-margin change bars that pdftotext emits at end of line. Quotes attributed to S48b are cell text read from the SolarTRACE .xlsx (Information sheet variable descriptions) via openpyxl, not from a .txt. Every quote is 40 words or fewer. 0 unverified quotes."
+}

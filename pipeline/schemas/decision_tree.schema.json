@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompiledRule",
+  "description": "One faithful compilation of a rule into an executable decision tree. A rule identifies a SET of defensible compilations; each instance of this schema is one sample from that set. Every node must be grounded in a quoted span of the source text.",
+  "type": "object",
+  "required": ["rule_id", "citation", "input_schema", "nodes", "root"],
+  "properties": {
+    "rule_id": { "type": "string" },
+    "citation": { "type": "string", "description": "e.g. 'Cal. Gov. Code § 66311.7; Cal. HSC § 17920.3'" },
+    "compiler": {
+      "type": "object",
+      "description": "Provenance of this compilation (model, prompt variant, date). Needed for k-sample divergence analysis.",
+      "properties": {
+        "model": { "type": "string" },
+        "prompt_variant": { "type": "string" },
+        "date": { "type": "string" }
+      }
+    },
+    "input_schema": {
+      "type": "object",
+      "required": ["fields"],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type", "question", "supplier"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "enum": ["boolean", "number", "string", "date", "enum"] },
+              "enum_values": { "type": "array", "items": { "type": "string" } },
+              "range": {
+                "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2,
+                "description": "For numeric fields: plausible [min, max], used by the fuzzer."
+              },
+              "question": { "type": "string", "description": "The question as it would be asked of the applicant/inspector." },
+              "supplier": {
+                "enum": ["applicant", "clerk", "inspector", "official", "third_party", "external_agency"],
+                "description": "Who produces this input (question #3 of the intake)."
+              },
+              "provenance_class": {
+                "enum": ["a", "b", "c", "d", "e", "f"],
+                "description": "Burden ladder: a=known offhand/self-attestation; b=document already in household records; c=must be requested from an institution; d=artifact applicant must create; e=artifact a paid professional must create; f=requires a government act (inspection, appointment). Costs per class live in burden_priors.json; per-field overrides go in burden_override."
+              },
+              "operationalizations": {
+                "type": "array",
+                "description": "Schema v3 (input-level discretion, per Dan Ho's 'age can be defined 5 ways'): the defensible ways this fact can be operationalized, and who fixes it. More than one entry = lurking discretion inside an 'objective' input.",
+                "items": {
+                  "type": "object",
+                  "required": ["definition"],
+                  "properties": {
+                    "definition": { "type": "string" },
+                    "fixed_by": { "type": "string", "description": "Who resolves which definition governs (clerk, statute, regulation, custom)." }
+                  }
+                }
+              },
+              "acquisition": {
+                "type": "string",
+                "description": "The real-world act that yields this input (e.g. 'application_form', 'site_inspection', 'records_request', 'professional_report'). Fields sharing an acquisition event share its cost: one inspection observes many facts."
+              },
+              "burden_override": {
+                "type": "object",
+                "description": "Optional field-specific costs overriding the class prior.",
+                "properties": {
+                  "hours": { "type": "number" },
+                  "dollars": { "type": "number" },
+                  "wait_days": { "type": "number" },
+                  "trips": { "type": "number" }
+                }
+              },
+              "sensitive": {
+                "type": "boolean",
+                "description": "True if supplying this input exposes the applicant to legal/financial risk (e.g. admitting an unpermitted structure exists). Psychological-cost axis."
+              },
+              "evidence": { "type": "string", "description": "What document/observation would establish this input." }
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "span": {
+            "type": "object",
+            "required": ["quote", "cite"],
+            "properties": {
+              "quote": { "type": "string", "description": "Verbatim quote from the source text this node implements." },
+              "cite": { "type": "string", "description": "e.g. 'GOV 66311.7(a)(1)' or 'HSC 17920.3(a)(14)'" }
+            }
+          },
+          "score": {
+            "type": "object",
+            "description": "Score-aggregation decision (schema v3): a weighted sum of condition items compared against thresholds — required for point systems (health-inspection score sheets, grade cutoffs) that boolean branching cannot represent. A node carries EITHER predicate OR score OR outcome.",
+            "required": ["items", "thresholds", "decider"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text", "type", "points", "inputs"],
+                  "properties": {
+                    "text": { "type": "string" },
+                    "span": { "type": "object", "properties": { "quote": {"type": "string"}, "cite": {"type": "string"} } },
+                    "type": { "enum": ["objective", "judgment"] },
+                    "expr": { "description": "Required iff type=objective: JsonLogic condition; when true, `points` are added." },
+                    "inputs": { "type": "array", "items": { "type": "string" } },
+                    "points": { "type": "number" }
+                  }
+                }
+              },
+              "thresholds": {
+                "type": "array",
+                "description": "Score bands mapping to targets (node ids). A band is [min, max]; omit max for open-ended.",
+                "items": {
+                  "type": "object",
+                  "required": ["min", "target"],
+                  "properties": {
+                    "min": { "type": "number" },
+                    "max": { "type": "number" },
+                    "target": { "type": "string" }
+                  }
+                }
+              },
+              "decider": { "type": "string" }
+            }
+          },
+          "predicate": {
+            "type": "object",
+            "required": ["text", "type", "inputs", "decider"],
+            "properties": {
+              "text": { "type": "string" },
+              "atoms": {
+                "type": "array",
+                "description": "Schema v3: sub-conditions of a multi-part decision, each span-pinned — the decision/condition split (a decision may aggregate several testable atoms; crosswalks align at the decision level, atoms stay pinned to text).",
+                "items": {
+                  "type": "object",
+                  "required": ["text"],
+                  "properties": {
+                    "text": { "type": "string" },
+                    "span": { "type": "object", "properties": { "quote": {"type": "string"}, "cite": {"type": "string"} } }
+                  }
+                }
+              },
+              "type": {
+                "enum": ["objective", "judgment", "reference"],
+                "description": "objective = a clerk could decide it from the listed inputs with no discretion (expr REQUIRED); judgment = requires a discretionary assessment by the decider (no expr; the executor treats it as indeterminate and explores both branches); reference = delegates to another provision not compiled here (target REQUIRED)."
+              },
+              "expr": {
+                "description": "JsonLogic-style expression over input field names. Required iff type=objective. Supported ops: var, ==, !=, <, <=, >, >=, and, or, !, in, +, -, *, /, if, missing."
+              },
+              "target": { "type": "string", "description": "For type=reference: citation of the delegated provision." },
+              "inputs": { "type": "array", "items": { "type": "string" } },
+              "decider": { "enum": ["applicant", "clerk", "inspector", "official", "third_party", "fire_official", "health_officer"] },
+              "monotonicity": {
+                "type": "object",
+                "description": "Metamorphic invariants: for each input field, '+' means increasing the field can only move this predicate toward true, '-' the reverse, '0' irrelevant. These are testable claims about the STATUTE, declared at compile time and checked against every compilation by the case simulator.",
+                "additionalProperties": { "enum": ["+", "-", "0"] }
+              }
+            }
+          },
+          "if_true": { "type": "string" },
+          "if_false": { "type": "string" },
+          "outcome": {
+            "type": "object",
+            "required": ["label"],
+            "properties": {
+              "label": { "enum": ["approve", "deny", "conditional_approve", "refer", "not_applicable"] },
+              "description": { "type": "string" },
+              "conditions": { "type": "string", "description": "For conditional_approve: what must be corrected." }
+            }
+          },
+          "flags": {
+            "type": "array",
+            "description": "Deep-research triggers. REF = unresolved cross-reference; LOCAL = meaning is fixed by the implementing jurisdiction; EMPIRICAL = needs real-world data; TACIT = below the articulation floor, needs human expert elicitation.",
+            "items": {
+              "type": "object",
+              "required": ["flag"],
+              "properties": {
+                "flag": { "enum": ["REF", "LOCAL", "EMPIRICAL", "TACIT"] },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "root": { "type": "string" },
+    "non_operative": {
+      "type": "array",
+      "description": "Coverage contract: every subdivision of the source that produced no node, with the reason (definition, fee provision, notice requirement...). Nothing may be silently dropped.",
+      "items": {
+        "type": "object",
+        "required": ["cite", "reason"],
+        "properties": {
+          "cite": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  }
+}

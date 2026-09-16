@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BurdenAudit",
+  "description": "Standalone burden audit of a rule: every point where the text demands an input from a regulated party, with categorized effort. Runs directly on statute text (no compilation needed) or as an annotation pass over a compilation's input_schema. Extraction and effort estimation are separate, separately validated steps: extraction is validated by recall against hand annotation and implementer checklists; effort estimates are validated against external data (PRA/ICR burden hours, fee schedules, permit timestamps) and are PRIORS until then.",
+  "type": "object",
+  "required": ["rule_id", "citation", "demands"],
+  "properties": {
+    "rule_id": { "type": "string" },
+    "citation": { "type": "string" },
+    "demands": {
+      "type": "array",
+      "description": "One entry per distinct input the rule's process requires someone to produce.",
+      "items": {
+        "type": "object",
+        "required": ["name", "span", "supplier", "provenance_class"],
+        "properties": {
+          "name": { "type": "string" },
+          "span": { "type": "string", "description": "Verbatim quote demanding this input." },
+          "cite": { "type": "string" },
+          "supplier": { "enum": ["applicant", "clerk", "inspector", "official", "third_party", "external_agency"] },
+          "provenance_class": {
+            "enum": ["a", "b", "c", "d", "e", "f"],
+            "description": "a=known offhand/self-attestation; b=document already in household records; c=requested from an institution; d=artifact applicant creates; e=artifact paid professional creates; f=government act (inspection/appointment)."
+          },
+          "effort": {
+            "type": "object",
+            "description": "Point estimates overriding the class prior, with an EMPIRICAL flag when a real data source should replace the guess.",
+            "properties": {
+              "hours": { "type": "number" },
+              "dollars": { "type": "number" },
+              "wait_days": { "type": "number" },
+              "trips": { "type": "number" },
+              "basis": { "type": "string", "description": "Why this estimate; name the data source that would validate it." },
+              "empirical_flag": { "type": "boolean" }
+            }
+          },
+          "sensitive": { "type": "boolean", "description": "Supplying it exposes the party to legal/financial risk." },
+          "learning_cost": {
+            "type": "string",
+            "description": "What the party must understand before they can even know this is demanded of them (sludge/learning-cost axis)."
+          },
+          "conditional_on": {
+            "type": "string",
+            "description": "If the demand only arises on some paths (e.g. only if an inspection finds a violation), state the condition. Path-dependence is what makes expected burden differ from total burden."
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "n_demands": { "type": "integer" },
+        "by_class": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "n_sensitive": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

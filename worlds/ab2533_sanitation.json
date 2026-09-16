@@ -1,0 +1,34 @@
+{
+  "world_id": "ab2533_sanitation",
+  "predicate": {
+    "text": "Inadequate sanitation ... to an extent that endangers the life, limb, health, property, safety, or welfare of the public or the occupants thereof",
+    "cite": "HSC 17920.3(a)",
+    "rule_id": "ab2533"
+  },
+  "axes": [
+    {
+      "name": "sanitation_severity",
+      "range": [0.0, 1.0],
+      "anchors": [
+        { "theta": 0.0,  "description": "Full bathroom with working toilet, sink, and tub/shower; hot and cold running water at all fixtures; kitchen sink with hot water; all plumbing connected to the sewer lateral and draining freely; mechanical exhaust fans in bathroom and kitchen; no moisture damage." },
+        { "theta": 0.2,  "description": "All fixtures present and functional; bathroom exhaust fan is missing so the occupant cracks a window instead; minor caulk mildew around the tub; water heater delivers hot water but recovery is slow." },
+        { "theta": 0.4,  "description": "Working toilet and sink; the shower drains slowly and gurgles; hot water at the kitchen sink is intermittent because the unit shares an undersized water heater with the main house; a persistent damp smell in the bathroom; one visible patch of surface mold about the size of a hand on the ceiling." },
+        { "theta": 0.6,  "description": "Toilet functions but rocks on its base with staining at the floor joint suggesting a compromised wax seal; no dedicated bathroom sink (occupants use the kitchen sink); hot water only at the kitchen; recurring mold across roughly a quarter of the bathroom ceiling despite repeated cleaning; grey-water odor near the exterior cleanout." },
+        { "theta": 0.8,  "description": "Toilet backs up weekly and the occupant keeps a plunger and bucket in use; drain line appears improperly sloped where it crosses the crawlspace; no hot water in the unit at all; extensive mold in the bathroom and on the bedroom wall shared with it; visible sewage residue at an open cleanout near the entry." },
+        { "theta": 1.0,  "description": "No functioning toilet — occupants use the main house bathroom at night and a portable camping toilet otherwise; the abandoned toilet drains into a broken lateral with raw sewage pooling under the unit; no running water in what serves as the kitchen; pervasive sewage odor indoors; black mold covering large areas of two rooms." }
+      ]
+    }
+  ],
+  "context_fields": [
+    { "name": "unit_type", "values": ["garage conversion", "detached backyard ADU", "basement unit", "attached addition"] },
+    { "name": "construction_era", "values": ["converted around 2005", "built by a prior owner in the 1990s", "converted around 2015"] },
+    { "name": "occupancy", "values": ["occupied by a family member", "rented to a tenant", "currently vacant"] },
+    { "name": "region", "values": ["inland valley town", "coastal city", "peninsula suburb"] }
+  ],
+  "population": {
+    "distribution": "beta",
+    "alpha": 2,
+    "beta": 5,
+    "note": "PLACEHOLDER prior skewed toward lower severity (most unpermitted units are livable). Calibrate to code-enforcement or inspection data before reporting band mass as a population claim."
+  }
+}

@@ -1,0 +1,2158 @@
+{
+  "slug": "cpra_request",
+  "observations": [
+    {
+      "obs_id": "cpra_request-0001",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "intake_screen",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Immediate Disclosure Request track (A02)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A02",
+      "quote": "no later than the close of business on the day following the day of the request",
+      "date": "2026-09-15",
+      "notes": "SF Admin. Code S67.25; designed as the ordinance's fastest track. Gold notes: 'No observed instance in this sample met it: the one sampled IDR has been open 6+ years (D8).'"
+    },
+    {
+      "obs_id": "cpra_request-0002",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Acknowledge and route request internally (A03)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 2,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__city_county_sf.json#A03",
+      "quote": "observed — D8 (SFPD acknowledged same day on the airport-statistics request and in 2 days on the Tenderloin request)",
+      "date": "2026-09-15",
+      "notes": "Gold's own observed figure from real MuckRock request logs (D8), not a designed intention."
+    },
+    {
+      "obs_id": "cpra_request-0003",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "10-day determination (A05)",
+      "value": {
+        "elapsed_days": 157,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A05",
+      "quote": "designed — SF Admin. Code §67.21(a) (10 days) read with Gov. Code §7922.535 (10 + 14). Observed: SFPD's MuckRock average is 157 days (D7).",
+      "date": "2026-09-15",
+      "notes": "Two figures bundled by the gold itself: statutory_cap_days=10 is the LEGAL ceiling (24 with extension); elapsed_days=157 is SFPD's MEASURED MuckRock average (a mean over all request types, not a median) -- kept together here to preserve the gold's own statute-vs-practice contrast, but these are evidentially distinct: 10 is statutory, 157 is verifiable_official/observed. See obs referencing S18 for the pure observed figure."
+    },
+    {
+      "obs_id": "cpra_request-0004",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "14-day unusual-circumstances extension (A06)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 14,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A06",
+      "quote": "designed — Gov. Code §7922.535(b); observed in D8 on the Tenderloin overtime-data component",
+      "date": "2026-09-15",
+      "notes": "State statute layered under the SF ordinance; one-time 14-day cap by statutory text."
+    },
+    {
+      "obs_id": "cpra_request-0005",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Supervisor of Records petition (A10)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A10",
+      "quote": "designed — SF Admin. Code §67.21(c)–(d) as extracted in D2. No timed instance of this step was recovered in this sample.",
+      "date": "2026-09-15",
+      "notes": "Free local administrative appeal unique to SF; gold explicitly flags zero observed instances -- this is a designed intention only, never measured in this corpus."
+    },
+    {
+      "obs_id": "cpra_request-0006",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SOTF notifies respondent of complaint (A14)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:cpra_request__city_county_sf.json#A14",
+      "quote": "designed — D1 (five business days for the respondent to answer)",
+      "date": "2026-09-15",
+      "notes": "D1 = SOTF's own SOP (S9), not a statute -- designed_document tier."
+    },
+    {
+      "obs_id": "cpra_request-0007",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "scheduling",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Priority-calendar a §67.21(b) petition (A15)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A15",
+      "quote": "designed — SF Admin. Code §67.21(e) deadline, operationalized by D1's priority-handling rule",
+      "date": "2026-09-15",
+      "notes": "SOTF meets on its own calendar cadence, not continuously."
+    },
+    {
+      "obs_id": "cpra_request-0008",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Notice of hearing date + document deadline (A18)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:cpra_request__city_county_sf.json#A18",
+      "quote": "designed — D1 (documentation due five working days before the hearing)",
+      "date": "2026-09-15",
+      "notes": "SOTF SOP (D1=S9)."
+    },
+    {
+      "obs_id": "cpra_request-0009",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Full SOTF public hearing + decision (A20)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A20",
+      "quote": "designed — decision due within 2 days after the SOTF's next meeting and in no case later than 45 days after the petition (D2, D1)",
+      "date": "2026-09-15",
+      "notes": "No observed instance found in this corpus (per notes.md); designed/statutory ceiling only."
+    },
+    {
+      "obs_id": "cpra_request-0010",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "decision",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Order of Determination compliance window (A21)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:cpra_request__city_county_sf.json#A21",
+      "quote": "designed — D1 (compliance required within 5 business days of the hearing)",
+      "date": "2026-09-15",
+      "notes": "Orders take effect immediately; 5-business-day figure is the compliance window, not the decision's own timing."
+    },
+    {
+      "obs_id": "cpra_request-0011",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Reconsideration request window (A24)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:cpra_request__city_county_sf.json#A24",
+      "quote": "designed — D1 (30-day window to request reconsideration)",
+      "date": "2026-09-15",
+      "notes": "Requester-side deadline, only on certified new/pertinent information."
+    },
+    {
+      "obs_id": "cpra_request-0012",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Administrator closes unresponsive-complainant file (A25)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 180,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "gold:cpra_request__city_county_sf.json#A25",
+      "quote": "designed — D1 (six months of unresponsiveness; 120-day attendance rule)",
+      "date": "2026-09-15",
+      "notes": "blocking_party=applicant: this ceiling triggers on the COMPLAINANT going quiet, not the agency."
+    },
+    {
+      "obs_id": "cpra_request-0013",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Superior court action (A27)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__city_county_sf.json#A27",
+      "quote": "designed — Gov. Code §7923.000; no timed instance observed in this sample",
+      "date": "2026-09-15",
+      "notes": "No fixed number of days exists; step_key value fields intentionally left null since neither a cap nor a measured elapsed time exists in this corpus."
+    },
+    {
+      "obs_id": "cpra_request-0014",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SF end-to-end (gold timing_gold)",
+      "value": {
+        "elapsed_days": 157,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 24,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__city_county_sf.json#timing_gold",
+      "quote": "Success rates cluster around 32% for the three police/law-enforcement agencies but jump to 75% for the general city agency, suggesting the gap between statute and practice is concentrated in law-enforcement records specifically.",
+      "date": "2026-09-15",
+      "notes": "157 days (SFPD) is a MuckRock MEAN over all request types, not a median -- do not treat as p50. Statutory ceiling for comparison is 24 days."
+    },
+    {
+      "obs_id": "cpra_request-0015",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Worst-observed case: SFPD Immediate Disclosure Request still open",
+      "value": {
+        "elapsed_days": 2190,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__city_county_sf.json#timing_gold.worst_observed",
+      "quote": "An 'Immediate Disclosure Request' -- the Sunshine Ordinance's fastest, next-business-day-response track (Sec. 67.25) -- has instead gone unresolved for 6+ years",
+      "date": "2026-09-15",
+      "notes": "SFPD airport crime statistics request filed 2020-06-22, ~60 unanswered follow-ups; elapsed_days=2190 (~6 years) is a floor, not exact, since request is still open. Single extreme case, not central tendency -- the ordinance's FASTEST declared track produced the single WORST observed outcome in the entire corpus."
+    },
+    {
+      "obs_id": "cpra_request-0016",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "NextRequest auto-confirmation (A04)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          11
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#A04",
+      "quote": "observed — D8 (same-day auto-confirmation on two LAPD samples; 11 days on the Flock/ALPR sample)",
+      "date": "2026-09-15",
+      "notes": "Automated confirmation, normally instant; the 11-day outlier is itself suspicious for an 'automatic' step and likely reflects backend queuing."
+    },
+    {
+      "obs_id": "cpra_request-0017",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Acknowledge + assign to CPRA analyst (A05)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          11
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#A05",
+      "quote": "observed — D8 (LAPD acknowledged and assigned to an analyst 7 days after filing on the FIG-cameras sample; 11 days on the Flock/ALPR sample)",
+      "date": "2026-09-15",
+      "notes": "This 'acknowledge/assign' step alone consumes most of the statutory 10-day determination window before substantive work starts."
+    },
+    {
+      "obs_id": "cpra_request-0018",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "10-day written determination (A09)",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          9,
+          24
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__lapd.json#A09",
+      "quote": "designed — Gov. Code §7922.535(a)–(b); D1 §4.1. Observed in D8: extension notices themselves landed 9–11 days after filing on every sampled LAPD/CHP request.",
+      "date": "2026-09-15",
+      "notes": "Statutory cap is the CA-wide 10 days (statute), but every observed sample used nearly the full window before an extension notice, suggesting the 10-day cap functions as a floor in practice, not a target."
+    },
+    {
+      "obs_id": "cpra_request-0019",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Written unusual-circumstances extension notice (A11)",
+      "value": {
+        "elapsed_days": 11,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#A11",
+      "quote": "observed — D8 (extension notices issued 11 days after filing on the LAPD FIG-cameras, CHP roster and CHP less-lethals samples)",
+      "date": "2026-09-15",
+      "notes": "elapsed_days here is DAYS-FROM-FILING to the extension notice, not the extension's own length (14 statutory days)."
+    },
+    {
+      "obs_id": "cpra_request-0020",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Serial re-extension of tentative release date (A13)",
+      "value": {
+        "elapsed_days": 61,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 71
+      },
+      "n": 9,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#A13",
+      "quote": "observed — D8 Flock/ALPR request: nine sequential deferrals 2025-03-20 → 2026-10-20, ~2 months apart",
+      "date": "2026-09-15",
+      "notes": "cadence=on_request rather than statutory_clock because the statute contemplates ONE 14-day extension, not nine; this step documents the statute being applied in a way the text does not clearly authorize (see notes.md Surprise #1). n=9 deferrals on a single case, not 9 cases."
+    },
+    {
+      "obs_id": "cpra_request-0021",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SB1421/SB16 peace-officer-records sub-workflow (A17)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__lapd.json#A17",
+      "quote": "designed — Pen. Code §832.7 as amended by SB 16 (45 days). Observed in D8: an officer-involved-shooting request had its tentative release date pushed three times in ~6-month increments over 2 years.",
+      "date": "2026-09-15",
+      "notes": "45-day statutory figure for the SB1421/16 sub-workflow itself; the OBSERVED case shows this sub-workflow's active-investigation exemption functioning as a serially-renewable, effectively indefinite hold (2 years and counting) -- a distinct, more extreme pattern than A13's ALPR case."
+    },
+    {
+      "obs_id": "cpra_request-0022",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Prompt production, no fixed days (A21)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__lapd.json#A21",
+      "quote": "designed — Gov. Code §7922.530(a) says only 'promptly'; no fixed number of days exists for this segment",
+      "date": "2026-09-15",
+      "notes": "Deliberately null value fields: the statute names no cap and no measured central tendency was found isolated to just this segment (production itself, as opposed to end-to-end)."
+    },
+    {
+      "obs_id": "cpra_request-0023",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Superior court mandamus (A25)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:cpra_request__lapd.json#A25",
+      "quote": "designed — no fixed statutory period; no timed instance observed in this sample",
+      "date": "2026-09-15",
+      "notes": "Same remedy as SF's A27 (state law is uniform here) but LAPD/LA has no local administrative-appeal layer analogous to SF's Supervisor of Records/SOTF -- this IS the only appeal step, immediately."
+    },
+    {
+      "obs_id": "cpra_request-0024",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "LAPD end-to-end (gold timing_gold)",
+      "value": {
+        "elapsed_days": 150,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 24,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#timing_gold",
+      "quote": "All four agencies' MuckRock-observed average response times (83-157 days) are 3.5x to 6.5x longer than the statutory maximum of 24 days (10-day determination + 14-day 'unusual circumstances' extension under Gov. Code §§7922.535).",
+      "date": "2026-09-15",
+      "notes": "150 days is a MuckRock MEAN pooling every request type, not a median. Per-request sample (D8) is bimodal: nothing resolved near 24 days; two requests have been open 19 months and 2 years with nothing released."
+    },
+    {
+      "obs_id": "cpra_request-0025",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Extreme outlier: LAPD Flock/ALPR request open 19+ months",
+      "value": {
+        "elapsed_days": 570,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#timing_gold.note",
+      "quote": "two requests have been open 19 months and 2 years respectively with nothing released",
+      "date": "2026-09-15",
+      "notes": "Same case as A13's 9-deferral observation; logged separately here as the raw elapsed-time outlier for the bimodal-distribution point the gold itself makes."
+    },
+    {
+      "obs_id": "cpra_request-0026",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Extreme outlier: LAPD officer-involved-shooting request open 2 years",
+      "value": {
+        "elapsed_days": 730,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:cpra_request__lapd.json#timing_gold.note",
+      "quote": "two requests have been open 19 months and 2 years respectively with nothing released",
+      "date": "2026-09-15",
+      "notes": "This is the SB1421/16 sub-workflow case (see A17); PC §832.7(b)(8) active-investigation exemption used as a serially-renewable hold."
+    },
+    {
+      "obs_id": "cpra_request-0027",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "10-day determination (statute)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S1",
+      "quote": "shall, within 10 days from receipt of the request, determine whether the request ... seeks copies of disclosable public records",
+      "date": "2022-01-01",
+      "notes": "Gov. Code S7922.535(a); calendar days, applies statewide including LAPD/SFPD/CHP."
+    },
+    {
+      "obs_id": "cpra_request-0028",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "14-day unusual-circumstances extension (statute)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 14,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S1",
+      "quote": "The notice shall not specify a date that would result in an extension for more than 14 days.",
+      "date": "2022-01-01",
+      "notes": "Gov. Code S7922.535(b)-(c); one-time by statutory text -- notes.md flags that agencies in practice serially re-extend anyway (A13)."
+    },
+    {
+      "obs_id": "cpra_request-0029",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Superior court enforcement, no fixed days (statute)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S3",
+      "quote": "the court shall set the times for hearings and responsive pleadings with the object of securing a decision as to the matters at issue at the earliest possible time",
+      "date": "2022-01-01",
+      "notes": "Gov. Code S7923.000; only state-level remedy, no administrative appeal exists outside SF's local SOTF layer."
+    },
+    {
+      "obs_id": "cpra_request-0030",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "10-day/14-day ceiling as taught to city attorneys",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S7",
+      "quote": "statewide statutory ceiling as taught to city attorneys",
+      "date": "2022-09-01",
+      "notes": "No verbatim quote captured in the source's reveals.timing entry; The People's Business (League of CA Cities practitioner handbook) confirms this workflow is taught uniformly across cities, not improvised per-city."
+    },
+    {
+      "obs_id": "cpra_request-0031",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Response deadline per LAPD internal manual",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          10,
+          24
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S8",
+      "quote": "The Department is obligated by the CPRA to respond in writing to CPRA requests within 10 days, or 24 days in certain circumstances",
+      "date": "2023-06-22",
+      "notes": "LAPD CPRA Unit Manual v11 -- fully current to the 2023 recodified S7920.000-series numbering, unlike LA's own public page (S14) which cites the pre-2023 numbers."
+    },
+    {
+      "obs_id": "cpra_request-0032",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Weekend/holiday response-date rollover",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S8",
+      "quote": "When the required response date for the CPRA request falls upon a weekend or holiday, the required response date may be moved to the next business day.",
+      "date": "2023-06-22",
+      "notes": "Minor calendar-mechanics fact, not itself a duration value; included because it affects exact day-counting for A09/A11."
+    },
+    {
+      "obs_id": "cpra_request-0033",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SOTF notifies respondent (SOP)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S9",
+      "quote": "Once we receive your complaint, we will send the named respondent written notice via email of the complaint and a request for response within five (5) business days.",
+      "date": null,
+      "notes": "Corroborates gold A14."
+    },
+    {
+      "obs_id": "cpra_request-0034",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Standard 10-day response (Sunshine Ordinance text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S13",
+      "quote": "ten days following receipt of a request for inspection or copy",
+      "date": null,
+      "notes": "SF Admin. Code Ch.67 Art.III; same ceiling as state law."
+    },
+    {
+      "obs_id": "cpra_request-0035",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Immediate Disclosure Request (ordinance text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 1,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S13",
+      "quote": "no later than the close of business on the day following the day of the request",
+      "date": null,
+      "notes": "Corroborates gold A02."
+    },
+    {
+      "obs_id": "cpra_request-0036",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Supervisor of Records determination (ordinance text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S13",
+      "quote": "as soon as possible and within 10 days",
+      "date": null,
+      "notes": "Corroborates gold A10."
+    },
+    {
+      "obs_id": "cpra_request-0037",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SOTF final appeal decision (ordinance text)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S13",
+      "quote": "within 2 days after its next meeting but in no case later than 45 days",
+      "date": null,
+      "notes": "Corroborates gold A20."
+    },
+    {
+      "obs_id": "cpra_request-0038",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "10-day/14-day ceiling (LA city public page)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          10,
+          24
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S14",
+      "quote": "Government Code section 6253(c) gives City departments 10 calendar days to make a determination in response to a CPRA request. In certain circumstances, a department may extend its time to make that d",
+      "date": null,
+      "notes": "Staleness flag: LA's own public page still cites the PRE-2023 statute numbering (S6253(c) etc.) more than three years after the 2023-01-01 recodification (AB473), while LAPD's own internal manual (S8) is fully current -- 'declared' tier is not a reliable proxy for what staff actually apply."
+    },
+    {
+      "obs_id": "cpra_request-0039",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CHP 'prompt access' (program page, no explicit number)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S16_chp_page",
+      "quote": "The law requires 'prompt access to public records.'",
+      "date": null,
+      "notes": "CHP's public page describes no hard number; third-party summaries cited by the source say ~10 business days, but that figure is not itself in the primary text -- left null rather than asserting it as CHP's own commitment."
+    },
+    {
+      "obs_id": "cpra_request-0040",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "LAPD average response time (MuckRock official stats)",
+      "value": {
+        "elapsed_days": 150,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S18_muckrock_agency_stats",
+      "quote": "150 days",
+      "date": "2026-09-15",
+      "notes": "MuckRock agency-profile aggregate mean, all LAPD request types pooled."
+    },
+    {
+      "obs_id": "cpra_request-0041",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SFPD average response time (MuckRock official stats)",
+      "value": {
+        "elapsed_days": 157,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S18_muckrock_agency_stats",
+      "quote": "157 days",
+      "date": "2026-09-15",
+      "notes": "MuckRock agency-profile aggregate mean."
+    },
+    {
+      "obs_id": "cpra_request-0042",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SF City & County general average response time",
+      "value": {
+        "elapsed_days": 128,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S18_muckrock_agency_stats",
+      "quote": "128 days",
+      "date": "2026-09-15",
+      "notes": "Non-police citywide general agency; success rate 75% vs ~32% for the three LE agencies -- gap concentrated in law-enforcement records."
+    },
+    {
+      "obs_id": "cpra_request-0043",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CHP average response time",
+      "value": {
+        "elapsed_days": 83,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S18_muckrock_agency_stats",
+      "quote": "83 days",
+      "date": "2026-09-15",
+      "notes": "Fastest of the four agencies in this corpus but still 3.5x the 24-day statutory ceiling."
+    },
+    {
+      "obs_id": "cpra_request-0044",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CHP officer-attendance request: filed to rejection",
+      "value": {
+        "elapsed_days": 23,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "extending its 10-day response timeframe by an additional 14 days",
+      "date": "2026-09-15",
+      "notes": "Within the 24-day statutory ceiling; ended in rejection/denial rather than production."
+    },
+    {
+      "obs_id": "cpra_request-0045",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CHP officer-rosters request: filed to production",
+      "value": {
+        "elapsed_days": 28,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "CHP roster request: 3 days after determination (28 days total from filing)",
+      "date": "2026-09-15",
+      "notes": "Just past the 24-day ceiling; one of the corpus's cleaner/faster-resolving cases."
+    },
+    {
+      "obs_id": "cpra_request-0046",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "CHP less-lethals request: filed to determination",
+      "value": {
+        "elapsed_days": 25,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "CHP less-lethals request: filed to determination",
+      "date": "2026-09-15",
+      "notes": "Just past the 24-day statutory ceiling."
+    },
+    {
+      "obs_id": "cpra_request-0047",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "referral",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "LAPD Flock/ALPR request: still open, 9 re-extensions",
+      "value": {
+        "elapsed_days": 570,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "19+ months, 9 sequential ~2-month re-extensions, 0 files released",
+      "date": "2026-09-15",
+      "notes": "Corroborates gold A13/timing_gold outlier with the primary dataset entry."
+    },
+    {
+      "obs_id": "cpra_request-0048",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "LAPD officer-involved-shooting report: still open, 2 years",
+      "value": {
+        "elapsed_days": 730,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "tentative-release date pushed 3 times in ~6-month increments citing PC 832.7(b)(8) active-investigation exemption",
+      "date": "2026-09-15",
+      "notes": "Corroborates gold A17 outlier with the primary dataset entry."
+    },
+    {
+      "obs_id": "cpra_request-0049",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SFPD Immediate Disclosure Request: still open, 6+ years",
+      "value": {
+        "elapsed_days": 2190,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "6+ years, ~60 unanswered follow-ups",
+      "date": "2026-09-15",
+      "notes": "Corroborates gold worst_observed with the primary dataset entry."
+    },
+    {
+      "obs_id": "cpra_request-0050",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SFPD Tenderloin lobby-camera/overtime data: still open, 4+ years",
+      "value": {
+        "elapsed_days": 1460,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "4+ years; camera footage became unobtainable because it was only retained 10 days",
+      "date": "2026-09-15",
+      "notes": "Records-retention window (10 days for camera footage) expired long before the request resolved -- retention policy defeated the request outcome regardless of processing speed."
+    },
+    {
+      "obs_id": "cpra_request-0051",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "County non-response before substantive reply",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R10",
+      "quote": "The county government completely ignored my requests for about 4 months",
+      "date": "2023-01-28",
+      "notes": "jurisdiction_class=county since this is a county government, not LAPD/SFPD/CHP specifically (kept as general corroborating evidence per notes.md); strong selection bias toward stonewalling complaints."
+    },
+    {
+      "obs_id": "cpra_request-0052",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SFPD body-cam/discovery item turnaround",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          30
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R17",
+      "quote": "Discovery requests responded to within a week but body cam division is backlogged and could take a month but call them with court date so they can prioritize it",
+      "date": "2026-08-09",
+      "notes": "Reveals an unwritten expedite lever (calling with a court date) not documented in any official source."
+    },
+    {
+      "obs_id": "cpra_request-0053",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Submit -> acknowledgment (aggregate rollup)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          11
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 8,
+      "evidence_tier": "verifiable_official",
+      "source_id": "sources.json:timing_summary#submit -> acknowledgment",
+      "quote": "same day to ~11 days across MuckRock samples (e.g., CHP same-day; LAPD NextRequest confirmations same-day to 7 days)",
+      "date": "2026-09-15",
+      "notes": "Not separately specified by statute (folded into the 10-day determination); rollup across 8 MuckRock request logs."
+    },
+    {
+      "obs_id": "cpra_request-0054",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Acknowledgment -> determination/extension (aggregate rollup)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 24,
+        "range_days": [
+          9,
+          11
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 8,
+      "evidence_tier": "verifiable_official",
+      "source_id": "sources.json:timing_summary#acknowledgment -> determination",
+      "quote": "extension notices in the MuckRock sample were themselves issued 9-11 days after filing (i.e., near the wire of the initial 10-day window); LAPD's SFPD/LAPD samples show this step re-triggered repeatedly rather than once",
+      "date": "2026-09-15",
+      "notes": "24-day statutory ceiling = 10 (Gov.Code S7922.535) + 14; SF's Immediate Disclosure track is next business day for simple requests. Rollup across 8 samples."
+    },
+    {
+      "obs_id": "cpra_request-0055",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "issuance",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Determination -> production/denial (aggregate rollup)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          2190
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 8,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#determination -> production",
+      "quote": "CHP roster request: 3 days after determination (28 days total from filing); ... LAPD Flock/ALPR and officer-involved-shooting requests: open 19 months to 2 years with no production; SFPD airport-stats Immediate Disclosure Request: open 6+ years",
+      "date": "2026-09-15",
+      "notes": "Statute says only 'promptly' (Gov. Code S7922.530), no fixed number of days; the observed range spans from 3 days to 6+ years, extreme heterogeneity is the finding itself."
+    },
+    {
+      "obs_id": "cpra_request-0056",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Agency average response time, all 4 agencies (aggregate rollup)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 24,
+        "range_days": [
+          83,
+          157
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 25,
+      "evidence_tier": "verifiable_official",
+      "source_id": "sources.json:timing_summary#agency average response time",
+      "quote": "LAPD 150 days; SFPD 157 days; SF City & County (general) 128 days; CHP 83 days -- all 3.5x-6.5x the statutory ceiling",
+      "date": "2026-09-15",
+      "notes": "n=25 approximates the pooled MuckRock sample size implied by the agency-stats rollup; every agency average is 3.5x-6.5x the 24-day statutory ceiling."
+    },
+    {
+      "obs_id": "cpra_request-0057",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Supervisor of Records determination -- no observed instance",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "statutory",
+      "source_id": "sources.json:timing_summary#administrative appeal: Supervisor of Records",
+      "quote": "as soon as possible, within 10 days (Sunshine Ordinance)",
+      "date": "2026-09-15",
+      "notes": "n=0: 'no MuckRock/reddit example of this specific appeal step observed in this sample' -- the written deadline is visible, actual practice is not, in this corpus."
+    },
+    {
+      "obs_id": "cpra_request-0058",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SOTF final decision -- no observed instance",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 45,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "statutory",
+      "source_id": "sources.json:timing_summary#administrative appeal: SOTF final decision",
+      "quote": "within 2 days of next meeting, never later than 45 days after petition (Sunshine Ordinance / SOTF procedure, S9)",
+      "date": "2026-09-15",
+      "notes": "n=0 in this corpus; R16 (a self-identified sitting SOTF member) speaks to perceived effectiveness ('an absolute joke') but is not a timed instance."
+    },
+    {
+      "obs_id": "cpra_request-0059",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Litigation (writ of mandate) -- no observed timing",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 0,
+      "evidence_tier": "statutory",
+      "source_id": "sources.json:timing_summary#litigation",
+      "quote": "court sets hearing schedule to decide 'at the earliest possible time' (Gov. Code §7923.000); no fixed days",
+      "date": "2026-09-15",
+      "notes": "No litigation timing observed directly in this sample; reddit R2 and R10 describe requesters considering but not yet pursuing litigation; R19 (Keep Bel-Air Beautiful v. LA Metro) is a real filed suit but no resolution timing was captured."
+    },
+    {
+      "obs_id": "cpra_request-0060",
+      "slug": "cpra_request",
+      "jurisdiction": "San Francisco (City & County of SF / SFPD, Sunshine Ordinance + SOTF)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Camera-footage retention window defeats a later request",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S19_muckrock_requests",
+      "quote": "camera footage became unobtainable because it was only retained 10 days",
+      "date": "2026-09-15",
+      "notes": "Same fact as the Tenderloin-camera observation above, logged separately under task_type=recordkeeping since it is a retention-policy duration, not a request-processing duration -- retention windows shorter than typical processing time make some requests structurally unsatisfiable regardless of agency diligence."
+    },
+    {
+      "obs_id": "cpra_request-0061",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Auto-deleting chat tool evades records retention entirely",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1htpcam",
+      "quote": "L.A. city officials use disappearing Google Chats.",
+      "date": "2025-01-04",
+      "notes": "An LA councilmember's office (not LAPD itself, per notes.md's contamination flag) used auto-deleting chat instead of retained email; a records request for that office's messages surfaced only 38 pages. Not a duration value per se -- flags that retention-evasion can occur upstream of any request being filed, invisible until surfaced by investigation."
+    },
+    {
+      "obs_id": "cpra_request-0062",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "City email retention policy variance (Santa Monica)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 548,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1htpcam:comment:Frosty-Management-63",
+      "quote": "The City of Santa Monica only retains emails for 18 months.",
+      "date": "2025-01-04",
+      "notes": "Not LAPD/LA itself -- a comparator city cited in the same thread; illustrates how short a retention window can be relative to the months-to-years processing times observed for LAPD/SFPD, meaning some records may already be gone before a request is even filed."
+    },
+    {
+      "obs_id": "cpra_request-0063",
+      "slug": "cpra_request",
+      "jurisdiction": "Los Angeles (LAPD, CPRA Unit)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "City chat-log retention and request-back-window",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 2555,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1htpcam:comment:Petaroo",
+      "quote": "Everything sent from a city account gets stored for 7 years (i think it's 7). So it is a user experience decision not a data retention decision. You can request like- as far back as 7 years of these chat logs if you want.",
+      "date": "2025-01-04",
+      "notes": "Self-described government-employee commenter, hedged ('i think it's 7'); contrasts with the Santa Monica 18-month figure in the same thread -- retention practice varies widely city to city with no single statewide standard found in this corpus."
+    },
+    {
+      "obs_id": "cpra_request-0064",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Fast-track determination: calendar days, not business days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "pxsbeb:comment:realworldpolice",
+      "quote": "They have ten days (extendable by 14 days) to issue a determination on your request. Note that the ten days are calendar days, not business days.",
+      "date": "2021-09-29",
+      "notes": "Ventura County request per notes.md (outside the three chosen jurisdictions, kept as general corroborating evidence); clarifies a genuine ambiguity -- the 10-day statutory clock runs in calendar days."
+    },
+    {
+      "obs_id": "cpra_request-0065",
+      "slug": "cpra_request",
+      "jurisdiction": "California (statewide statute)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Fast positive outlier: documents received in 5 business days",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "pxsbeb:comment:JellaBiafro",
+      "quote": "I received the documents from the Medical Examiner's office after only 5 business days.",
+      "date": "2021-09-29",
+      "notes": "Counter-example to the corpus's heavy skew toward slow/stonewalled cases; 5 business days converted to ~7 calendar days."
+    },
+    {
+      "obs_id": "cpra_request-0066",
+      "slug": "cpra_request",
+      "jurisdiction": "California Highway Patrol (state agency)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "referral",
+        "channel": "online",
+        "blocking_party": "shared",
+        "cadence": "on_request",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Duty-to-assist clarification exchange",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S19_muckrock_requests / notes.md#1",
+      "quote": "CHP asked for clarification on day 2, requester replied on day 3",
+      "date": "2026-09-15",
+      "notes": "Gov. Code S7922.600 duty-to-assist step (SF gold A04 / LAPD gold A06) has no deadline of its own in the statute; this is the only observed instance of its actual duration in this corpus, occurring inside the 10-day determination window. blocking_party=shared since both agency and requester must act."
+    }
+  ],
+  "coverage": {
+    "by_evidence_tier": {
+      "verifiable_official": 25,
+      "designed_document": 12,
+      "statutory": 21,
+      "community_reported": 8,
+      "inferred": 0
+    },
+    "distinct_step_keys": 36,
+    "total_observations": 66,
+    "gold_steps_with_no_duration_evidence": [
+      "[SF] A01 - Submit the request (instantaneous, no duration evidence)",
+      "[SF] A07 - Release documents on a rolling basis (no observed cadence)",
+      "[SF] A08 - Charge duplication at ordinance fee caps (fee AMOUNT documented, no duration)",
+      "[SF] A09 - Refuse or respond incompletely, trigger for free admin appeal (no duration specific to this trigger)",
+      "[SF] A11 - SOTF Administrator informal mediation (no observed timing)",
+      "[SF] A12 - File a formal SOTF complaint (filing itself instantaneous)",
+      "[SF] A13 - SOTF staff completeness review of complaint (no observed timing)",
+      "[SF] A16 - Committee hearing decides jurisdiction/duplication (no timing distinct from A15/A20)",
+      "[SF] A17 - Deputy City Attorney memorandum preparation (no observed timing)",
+      "[SF] A19 - Combine related complaints / cap at two per complainant (not a duration; no timing)",
+      "[SF] A22 - Monitor compliance with SOTF order (no observed timing)",
+      "[SF] A23 - Refer non-compliance to DA/AG/civil grand jury (no observed timing)",
+      "[SF] A26 - Administrator's petition log (ongoing recordkeeping, no duration observed)",
+      "[LAPD] A01 - Search NextRequest for prior requests (applicant self-service, instantaneous)",
+      "[LAPD] A02 - Submit the CPRA request (instantaneous)",
+      "[LAPD] A03 - Wrong-department referral/routing (no duration evidence found for this rework hop, despite notes.md flagging it as a real hidden cost)",
+      "[LAPD] A07 - Consult every person/office likely to hold records (no observed timing)",
+      "[LAPD] A08 - Push request to individual employees' personal devices (no observed timing)",
+      "[LAPD] A10 - Verify extension rests on one of 4 enumerated reasons (internal check, no duration)",
+      "[LAPD] A12 - Extension by consent of requester (no observed timing)",
+      "[LAPD] A14 - Analyse records for exemptions (no observed timing distinct from A09/A13)",
+      "[LAPD] A15 - Contact investigating officer for facts supporting exemption (no observed timing)",
+      "[LAPD] A16 - Redact exempt material, disclose remainder (no observed timing distinct from A21)",
+      "[LAPD] A18 - Confirm no duty to create/reconstruct a record (no duration; a determination, not a wait)",
+      "[LAPD] A19 - Escalate for legal advice up the analyst->supervisor->Detective III->city attorney chain (no observed timing -- a real internal escalation ladder invisible from any timed source)",
+      "[LAPD] A20 - Refer crime-stats requests to lapdonline.org/Open Data (no duration; a diversion, not a wait)",
+      "[LAPD] A23 - Deny on grounds of prior destruction under retention schedule (retention WINDOWS are documented; no observed instance ties a retention expiry to a specific denial's timing)",
+      "[LAPD] A24 - Post produced documents to NextRequest (instantaneous posting step)"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProcessModel",
+  "description": "Process-layer model of a rule's implementation: lanes (actors), activities (who does what, with which artifacts, on what occasion), and edges including rework loops. Sources: 'statute' (mandated skeleton, span-grounded), 'declared' (a jurisdiction's published steps), 'observed' (records). BPMN-lite.",
+  "type": "object",
+  "required": ["model_id", "source", "actors", "activities", "edges"],
+  "properties": {
+    "model_id": {"type": "string"},
+    "source": {"enum": ["statute", "declared", "observed"]},
+    "jurisdiction": {"type": "string"},
+    "citation_or_url": {"type": "string"},
+    "actors": {"type": "array", "items": {"type": "string"},
+      "description": "Lanes. Canonical: applicant, third_party, planning, building, inspector, official, health_officer, county, fire, state_agency."},
+    "activities": {"type": "array", "items": {"type": "object",
+      "required": ["id", "name", "actor"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "actor": {"type": "string"},
+        "artifacts_in": {"type": "array", "items": {"type": "string"}},
+        "artifacts_out": {"type": "array", "items": {"type": "string"}},
+        "occasion": {"type": "string", "description": "site_visit | counter | online | mail | internal"},
+        "optional": {"type": "boolean", "description": "true if the source says 'may' / offered-not-required"},
+        "mandated_element": {"type": "string", "description": "For statute-sourced skeletons: the mandated element key (checklist_publication, third_party_option, inspection, correction_permits, fee_waiver, decision, notice)."},
+        "span": {"type": "object", "properties": {"quote": {"type": "string"}, "cite": {"type": "string"}}},
+        "flags": {"type": "array", "items": {"type": "string"}}
+      }}},
+    "edges": {"type": "array", "items": {"type": "object",
+      "required": ["from", "to", "type"],
+      "properties": {"from": {"type": "string"}, "to": {"type": "string"},
+        "type": {"enum": ["sequence", "rework", "optional", "handoff"]},
+        "condition": {"type": "string"}}}},
+    "terminal_artifact": {"type": "string", "description": "What the applicant holds at the end (e.g. 'building permit', 'revocable certificate of compliance')."},
+    "notes": {"type": "string"}
+  }
+}

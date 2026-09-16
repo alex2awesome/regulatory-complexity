@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ceiling",
+  "description": "Per task: which truth elements the public artifacts permit, at which fidelity.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "task_id",
+      "model_id",
+      "elements_total",
+      "recoverable_exact",
+      "recoverable_approx",
+      "only_wrong",
+      "hidden",
+      "timing_ceiling",
+      "distractor_count",
+      "why"
+    ],
+    "properties": {
+      "task_id": {
+        "type": "string"
+      },
+      "model_id": {
+        "type": "string"
+      },
+      "elements_total": {
+        "type": "integer"
+      },
+      "activities_by_visibility": {
+        "type": "object"
+      },
+      "recoverable_exact": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "recoverable_approx": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "only_wrong": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "hidden": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "coverage": {
+        "type": "object"
+      },
+      "field_coverage": {
+        "type": "object"
+      },
+      "process_level_facts": {
+        "type": "object"
+      },
+      "order_recoverable": {
+        "type": "string"
+      },
+      "timing_ceiling": {
+        "type": "object",
+        "required": [
+          "true_median_days",
+          "best_estimate_from_posts",
+          "n_posts_with_timing"
+        ],
+        "properties": {
+          "true_median_days": {
+            "type": "number"
+          },
+          "true_p90_days": {
+            "type": "number"
+          },
+          "best_estimate_from_posts": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "n_posts_with_timing": {
+            "type": "integer"
+          },
+          "poster_true_median_days": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "selection_bias_days": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "report_bias_days": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "log_ratio_error_if_believed": {
+            "type": "number"
+          },
+          "document_timing_facts": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "artifacts_about_process": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "artifact_kinds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "raising_artifacts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "distractor_count": {
+        "type": "integer"
+      },
+      "why": {
+        "type": "string"
+      },
+      "statutorily_disclosed_credited": {
+        "type": "integer"
+      },
+      "statutorily_disclosed_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

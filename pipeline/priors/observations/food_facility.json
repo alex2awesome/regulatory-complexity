@@ -1,0 +1,2504 @@
+{
+  "slug": "food_facility",
+  "generated_date": "2026-09-15",
+  "coverage": {
+    "observations_by_evidence_tier": {
+      "verifiable_official": 6,
+      "designed_document": 36,
+      "statutory": 9,
+      "community_reported": 13,
+      "inferred": 0
+    },
+    "distinct_step_keys": 32,
+    "step_key_counts": [
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "document_review",
+          "channel": "online",
+          "blocking_party": "agency",
+          "cadence": "statutory_clock",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 9
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "inspection",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "biweekly_or_monthly_cycle",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 6
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "reinspection",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "decision",
+          "channel": "internal",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "document_review",
+          "channel": "online",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "document_review",
+          "channel": "counter",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "document_review",
+          "channel": "internal",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "recordkeeping",
+          "channel": "site_visit",
+          "blocking_party": "applicant",
+          "cadence": "daily_batch",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "test_or_exam",
+          "channel": "online",
+          "blocking_party": "applicant",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 3
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "notice",
+          "channel": "online",
+          "blocking_party": "applicant",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 2
+      },
+      {
+        "step_key": {
+          "agency_class": "specialist_referral",
+          "task_type": "referral",
+          "channel": "internal",
+          "blocking_party": "third_party",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 2
+      },
+      {
+        "step_key": {
+          "agency_class": "specialist_referral",
+          "task_type": "referral",
+          "channel": "internal",
+          "blocking_party": "third_party",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 2
+      },
+      {
+        "step_key": {
+          "agency_class": "state_agency",
+          "task_type": "issuance",
+          "channel": "mail",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "state"
+        },
+        "n_observations": 2
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "intake_screen",
+          "channel": "site_visit",
+          "blocking_party": "applicant",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 2
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "inspection",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "inspection",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "inspection",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "scheduling",
+          "channel": "site_visit",
+          "blocking_party": "applicant",
+          "cadence": "on_request",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "field_inspection",
+          "task_type": "scheduling",
+          "channel": "phone",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "front_counter",
+          "task_type": "intake_screen",
+          "channel": "counter",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "intake_screen",
+          "channel": "online",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "issuance",
+          "channel": "internal",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "issuance",
+          "channel": "counter",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "notice",
+          "channel": "site_visit",
+          "blocking_party": "agency",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "recordkeeping",
+          "channel": "internal",
+          "blocking_party": "applicant",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "referral",
+          "channel": "internal",
+          "blocking_party": "third_party",
+          "cadence": "continuous",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "plan_review",
+          "task_type": "scheduling",
+          "channel": "phone",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "records_unit",
+          "task_type": "recordkeeping",
+          "channel": "online",
+          "blocking_party": "agency",
+          "cadence": "weekly",
+          "jurisdiction_class": "large_city"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "records_unit",
+          "task_type": "recordkeeping",
+          "channel": "internal",
+          "blocking_party": "agency",
+          "cadence": "continuous",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "correction_cycle",
+          "channel": "site_visit",
+          "blocking_party": "applicant",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "document_review",
+          "channel": "online",
+          "blocking_party": "agency",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      },
+      {
+        "step_key": {
+          "agency_class": "third_party",
+          "task_type": "test_or_exam",
+          "channel": "online",
+          "blocking_party": "applicant",
+          "cadence": "on_request",
+          "jurisdiction_class": "county"
+        },
+        "n_observations": 1
+      }
+    ],
+    "gold_steps_without_duration_evidence": [
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A08",
+        "activity_name": "Make corrections and resubmit three copies of the same plans"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A11",
+        "activity_name": "Refer the plans to another agency (CDFA, FDA, USDA) when the added equipment requires it"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A14",
+        "activity_name": "Preliminary inspection by the Plan Check Program at 80 percent complete"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A17",
+        "activity_name": "Final inspection by the Plan Check Program; conditional approval to operate"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A19",
+        "activity_name": "Public Health Permit is issued; the facility may open for business"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A23",
+        "activity_name": "Schedule a Compliance Review when the operator denies or delays entry"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A25",
+        "activity_name": "Complete the Food Official Inspection Report (FOIR) and deliver it to the owner/PIC"
+      },
+      {
+        "model_id": "RW__food_facility__la_county_dph_environmental_health",
+        "jurisdiction": "Los Angeles County, CA",
+        "activity_id": "A27",
+        "activity_name": "Post or update the grade or score card according to the adopted ordinance"
+      },
+      {
+        "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+        "jurisdiction": "City and County of San Francisco, CA",
+        "activity_id": "A04",
+        "activity_name": "Request a pre-lease site evaluation from DPH plan review (and consult SFFD)"
+      },
+      {
+        "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+        "jurisdiction": "City and County of San Francisco, CA",
+        "activity_id": "A11",
+        "activity_name": "DPH plan review of the food-facility plans; correction comments to the applicant"
+      },
+      {
+        "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+        "jurisdiction": "City and County of San Francisco, CA",
+        "activity_id": "A17",
+        "activity_name": "Obtain food safety manager certification and food handler cards"
+      },
+      {
+        "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+        "jurisdiction": "City and County of San Francisco, CA",
+        "activity_id": "A23",
+        "activity_name": "Permit withheld because business-change data was not propagated across the billing departments"
+      },
+      {
+        "model_id": "RW__food_facility__city_and_county_of_san_francisco",
+        "jurisdiction": "City and County of San Francisco, CA",
+        "activity_id": "A25",
+        "activity_name": "Issue the Certificate of Sanitation / Food Permit to Operate"
+      },
+      {
+        "model_id": "RW__food_facility__san_diego_county_dehq_food_and_housing",
+        "jurisdiction": "San Diego County, CA",
+        "activity_id": "A11",
+        "activity_name": "Resubmit corrected plans, annotating on the correction notice where each corrected item sits on the plan"
+      }
+    ]
+  },
+  "observations": [
+    {
+      "obs_id": "food_facility_001",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Initial plan review (standard track)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 20,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D6",
+      "quote": "Plans are *deemed approved if no action is taken within 20 business days on a complete submittal.",
+      "date": "2026-02",
+      "notes": "Statutory ceiling under HSC 114380 as amended by AB671; deemed-approved backstop protects the applicant if LA misses it. No measured/audited turnaround exists anywhere in the corpus for LA -- this is a legal cap, not a performance figure."
+    },
+    {
+      "obs_id": "food_facility_002",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Initial plan review, standard vs. paid-expedited tier",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D1",
+      "quote": "The initial plan is reviewed within 20 business days for standard processing and 10 business days for expedited processing.",
+      "date": "2026-08",
+      "notes": "Bundles the statutory 20-day ceiling (see separate statutory observation) with LA's OWN non-statutory 10-day expedited service level. The expedited tier costs ~1.5x the standard plan-check fee (fee schedule D7: e.g. $1,044 standard vs $1,566 expedited for a 0-500sf restaurant) -- a pay-to-jump-the-queue option no LA page states in words; only reconstructible by reading this timing line against the fee schedule. Recorded as elapsed_days=10 for the PAID track since it is a service commitment, not a legal cap. LA's Building & Safety segment (85+ separate city/county building departments) has no county-level clock at all."
+    },
+    {
+      "obs_id": "food_facility_003",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Resubmittal review (agency re-review clock)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D6",
+      "quote": "Resubmittals address only the items identified by the environmental health department as needed corrections. Resubmittals should be reviewed within 10 business days.",
+      "date": "2026-02",
+      "notes": "HSC 114380(f) as added by AB671. IMPORTANT ASYMMETRY: unlike the 20-day initial review, this 10-day resubmittal clock carries NO deemed-approval backstop -- LA's own FAQ concedes 'Code does not state that deemed approval applies to resubmittals. Open to interpretation.' If LA misses this clock, nothing forces approval, unlike the initial-review clock."
+    },
+    {
+      "obs_id": "food_facility_004",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Resubmittal review -- deemed-approval asymmetry, LA's own restatement",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S16",
+      "quote": "Resubmittals should be reviewed within 10 business days. However, unlike initial plan reviews, the bill does not specify that plans will be automatically deemed approved if they are not reviewed within that timeframe.",
+      "date": "2026-02",
+      "notes": "Same underlying AB671 clock as the prior observation, independently verified against the raw FAQ text via sources.json's S16 entry (same document as gold #D6). Carried as its own entry because this phrasing states the deemed-approval asymmetry completely in one sentence -- central to the model's asymmetric-clock finding."
+    },
+    {
+      "obs_id": "food_facility_005",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Change-of-scope review",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 20,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D6",
+      "quote": "Change-of scope revisions will be reviewed within 20 business days.",
+      "date": "2026-02",
+      "notes": "HSC 114380(f)/AB671. Deemed-approved if missed (per gold timing_gold). The resubmittal-vs-change-of-scope BOUNDARY is not defined in the statute -- LA's FAQ concedes 'The bill does not define a complete plan, and its interpretation is left to each jurisdiction,' and San Diego's own AB671 FAQ independently invented a near-identical taxonomy with the same worked examples, so the 'local design' here may be one design adopted twice rather than two independent ones."
+    },
+    {
+      "obs_id": "food_facility_006",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Screen submittal against the Department's 'complete plan' criteria",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D6",
+      "quote": "The bill does not define a complete plan, and its interpretation is left to each jurisdiction.",
+      "date": "2026-02",
+      "notes": "All value fields null: no duration is published for this screening step, and AB671 itself never defines 'complete plan,' so LA's FAQ supplies its own working definition. This ambiguity decides which statutory clock (20-day initial vs 10-day resubmittal vs 20-day change-of-scope) applies to a given revision -- flagged here and on the resubmittal/change-of-scope observations."
+    },
+    {
+      "obs_id": "food_facility_007",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Corrected-plan resubmission review (flowchart framing)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D1",
+      "quote": "Corrected plans will be reviewed within 10 business days.",
+      "date": "2026-08",
+      "notes": "Same 10-business-day AB671 resubmittal clock as the D6-sourced observation above, restated in LA's public flowchart rather than its FAQ -- an independent confirmation from a second LA document, not a new fact."
+    },
+    {
+      "obs_id": "food_facility_008",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "specialist_referral",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Building & Safety approval gates EH final inspection",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D2",
+      "quote": "you must obtain all approvals from your local building and safety office prior to your final inspection with EH Plan Check",
+      "date": "2026-09-15",
+      "notes": "All value fields null: no duration is published for the Building & Safety segment itself (it is run by 85+ separate city/county building departments, each with its own clock). What IS documented is the SEQUENCING rule: EH deliberately will not perform its own final inspection until the separate Building & Safety department has already signed off -- a cross-department gating dependency comparable to SF's DPH-held-pending-SFFD/Planning pattern, but here LA runs EH's OWN process last rather than folding it inside a single intake."
+    },
+    {
+      "obs_id": "food_facility_009",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "intake_screen",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "District office in-person plan-check counter hours",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S14",
+      "quote": "Office Hours 8:00 am - 12:00 pm, Tuesday through Friday",
+      "date": "2026-09-15",
+      "notes": "One of 11 LA district offices; most are open only mornings (8am-12pm) on 2-4 weekdays (patterns vary: some Mon-Fri, some Tue-Fri, one Wed/Thu only, one Mon/Tue/Fri only). A capacity constraint invisible from the statute and never framed as a bottleneck on any LA page, but it narrows the in-person plan-check/payment window considerably relative to a nominal business day -- a plausible contributor to queue_days that no source quantifies directly."
+    },
+    {
+      "obs_id": "food_facility_010",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Routine inspection cadence, county-wide (1999 grand jury)",
+      "value": {
+        "elapsed_days": 182,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D8",
+      "quote": "There are about 36,000 restaurants and food markets in Los Angeles County that have to be inspected every six months, and if a problem is identified, a repeat inspection is performed.",
+      "date": "1999",
+      "notes": "STALE: 27 years old. cadence enum has no 6-month bucket; using biweekly_or_monthly_cycle as the closest available fit per task instruction, though the actual described interval is semiannual. Superseded for high-risk facilities specifically by the 2024 LA Times figures (see separate observations): a 3x/year target with under 2% actually achieved in 2023."
+    },
+    {
+      "obs_id": "food_facility_011",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Inspector staffing/vacancy constraint on routine-cycle scheduling",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D8",
+      "quote": "The Department of Environmental Health is authorized to fund 140 inspectors. Not all positions are always filled, adding to the heavy load the present cadre carries.",
+      "date": "1999",
+      "notes": "STALE (1999): the only inspector-headcount figure anywhere in this corpus for any of the three counties. All value fields null because this is a capacity constraint, not itself a measured duration -- but it is the most plausible explanation on record for why routine-inspection queue_days would run long, and no current staffing/vacancy figure exists publicly for any of the three counties."
+    },
+    {
+      "obs_id": "food_facility_012",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Routine-inspection TARGET for high-risk facilities (current)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R19",
+      "quote": "the L.A. County Department of Public Health aims to inspect “high-risk” food facilities — typically those with full-service kitchens handling raw meat — three times a year, according to department procedures reviewed by The Times.",
+      "date": "2024-03-16",
+      "notes": "Source is a reddit repost of Los Angeles Times investigative journalism describing internal LA County DPH procedure, reposted verbatim by the OP; article text not independently re-fetched from latimes.com in this pass. Reliability is materially higher than a typical user anecdote (it cites 'department procedures reviewed by The Times'), but tagged community_reported per the default R-id mapping since the artifact actually mined is the reddit post. Modeled as a TARGET, kept separate from the measured shortfall per task instruction -- do not average the two."
+    },
+    {
+      "obs_id": "food_facility_013",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Routine-inspection MEASURED SHORTFALL for high-risk facilities, 2023",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 18000,
+      "evidence_tier": "community_reported",
+      "source_id": "R19",
+      "quote": "Of the roughly 18,000 “high-risk” food facilities that should have been inspected three times last year, fewer than 2% were, internal county records reviewed by The Times show. Roughly three in 10 — 5,365 —weren’t inspected at all.",
+      "date": "2024-03-16",
+      "notes": "Same source/reliability caveat as the target observation immediately above (journalism citing internal county records, reposted to reddit, not independently re-verified against latimes.com). n=18000 represents the facility population behind the percentage, not an independent case count. Modeled as the MEASURED result against the 3x/year target, kept as a separate observation per task instruction rather than averaged into one figure."
+    },
+    {
+      "obs_id": "food_facility_014",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Worst-case gap between routine inspections (single facility)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          243,
+          1095
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R19",
+      "quote": "The Westin Bonaventure Hotel had been going on eight months without an inspection when an outbreak occurred. Before that, it had been three years since the previous inspection.",
+      "date": "2024-03-16",
+      "notes": "Single-facility worst-case anecdote (n=1), not representative of a distribution -- range_days records the two cited gaps (approx. 8 months = 243 days most recent; approx. 3 years = 1095 days the gap before that) rather than a median/p90. Same journalism-via-reddit reliability caveat as the two preceding observations. The longest documented inter-inspection gap in the whole corpus."
+    },
+    {
+      "obs_id": "food_facility_015",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "reinspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Reinspection after an uncorrected Major Critical Risk Factor",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D4",
+      "quote": "Corrective action required prior to end of inspection. Inspector shall schedule a reinspection within 14 days to determine ongoing compliance.",
+      "date": "2026-09-15",
+      "notes": "LA's own compliance-date rule (D4); HSC 114390 does not itself specify 14 days, so this is designed_document rather than statutory. Fastest of the three compliance tiers LA publishes (14 / up to-14 / 14-30 days)."
+    },
+    {
+      "obs_id": "food_facility_016",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "reinspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Compliance verification, repeat minor critical/GRP violation",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S11",
+      "quote": "Up to 14 calendar days; however, some violations may require corrective action prior to the end of the inspection.",
+      "date": "2026-09-15",
+      "notes": "Middle severity tier between the Major-Critical-Risk-Factor 14-day reinspection and the non-repeat-minor 14-30-day window. Same underlying LA document as gold #D4 (Restaurant and Retail Food Inspection page); cited here via sources.json's S11 entry because it captures this specific middle tier, which gold's own activity evidence for A29 did not quote verbatim."
+    },
+    {
+      "obs_id": "food_facility_017",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "reinspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Compliance verification, non-repeat minor violation",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          30
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D4",
+      "quote": "Next routine inspection or 14-30 calendar days depending on urgency of violations.",
+      "date": "2026-09-15",
+      "notes": "Slowest/loosest of LA's three compliance tiers; may be folded into the next scheduled routine visit rather than a dedicated reinspection, so the true wait could be much longer than 30 days if the routine cycle itself is backlogged (see routine-cadence observations above)."
+    },
+    {
+      "obs_id": "food_facility_018",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "intake_screen",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Commissary letter as a precondition to permit application (official)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S13",
+      "quote": "Owners of mobile food facilities shall provide a written statement signed by the commissary owner stating that the cart will be stored and serviced at that location.",
+      "date": "2026-09-15",
+      "notes": "All value fields null: LA's own mobile-food guideline requires this letter but states no timeframe for securing it. It is a precondition to permit issuance ('A permit shall not be issued until the commissary location is verified and approved by this Department'), matching the taxonomy's third_party/agency_class definition exactly -- a licensed private actor (the commissary owner) the rule relies on."
+    },
+    {
+      "obs_id": "food_facility_019",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "intake_screen",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Commissary agreement as precondition -- applicant-side aggregate",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 8,
+      "evidence_tier": "community_reported",
+      "source_id": "R1",
+      "quote": "You can't even apply for the county health permit without a signed commissary agreement first.",
+      "date": "2026-04-05",
+      "notes": "Aggregated across R1, R2, R3, R4, R7, R10, R18, R22 (n=8 per the corpus's own timing_summary rollup), all independently confirming the commissary-as-gate pattern for LA/CA mobile food facilities. Reported LA commissary rents span roughly $500-2,000+/month across these reports (R1: $800-2,000; R18: $500-2,000; R22: $1,400 'going rate'; R3: $1,600 and separately $1,000). Selection bias: reddit self-selects for applicants frustrated by the process. Geographic burden noted in R18: the closest commissary to some coastal LA vendors is in West Adams, 'making vendors drive multiple hours back and fourth every night' -- relevant to the SD daily-return cadence observation below, which states the same underlying rule officially. No duration figure exists for HOW LONG it takes to secure a commissary agreement, only that it gates application."
+    },
+    {
+      "obs_id": "food_facility_020",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Random commissary-use verification inspections (ongoing, undefined frequency)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S13",
+      "quote": "This Department conducts random inspections for verification of commissary use.",
+      "date": "2026-09-15",
+      "notes": "All value fields null: 'random' by LA's own description, with no stated frequency -- an ongoing enforcement activity rather than a one-time process step, and invisible as a scheduled cadence to an applicant."
+    },
+    {
+      "obs_id": "food_facility_021",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Food safety certification validity period",
+      "value": {
+        "elapsed_days": 1825,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D2",
+      "quote": "The certification is valid for five years from the issue date.",
+      "date": "2026-09-15",
+      "notes": "1,825 days = 5 years, recorded as the renewal-cadence interval rather than a one-time wait. Sourced from LA's mobile-food plan-check guideline; the same certification requirement applies more broadly under HSC 113947."
+    },
+    {
+      "obs_id": "food_facility_022",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Grace period to obtain a certified person after ownership change",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D2",
+      "quote": "A food facility that commences operation, changes ownership, or no longer has a certified owner or employee pursuant to this section shall have 60 days to comply.",
+      "date": "2026-09-15",
+      "notes": "A hard administrative deadline that runs against the applicant/operator, comparable in kind to San Diego's 1-year plan-expiry deadline elsewhere in this dataset."
+    },
+    {
+      "obs_id": "food_facility_023",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "notice",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Permit application only handed to applicant at final-inspection request",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__la_county_dph_environmental_health#D5",
+      "quote": "Once plans are approved, construction is completed, and you are requesting the final inspection, a permit application will be provided by the plan checker.",
+      "date": "2026-09-15",
+      "notes": "All value fields null, but a real hidden-queue fact: an applicant cannot even obtain the Public Health Permit APPLICATION form until construction is done and the final inspection is requested -- there is no self-serve version for new construction. This narrows how early any part of the final-issuance clock can start."
+    },
+    {
+      "obs_id": "food_facility_024",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Cart plan review turnaround, compact mobile food operation (sidewalk-cart) sub-track",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R18",
+      "quote": "the review fee is $450 for a 60 day review $900 for expedited, the permit fee is between $400 to $1000 annually, and  you may have to provide a commissary which typically cost between $500-2000 a month",
+      "date": "2026-05-04",
+      "notes": "Sidewalk carts fall under the 2022 SB972 'compact mobile food operation' sub-category of MFF, same LA DPH-EH permit family and commissary precondition as food trucks but a distinct construction standard and fee line. FLAG: 60 CALENDAR days, if this is actually the plan-check clock rather than a permit-processing clock, would be three times the 20-WORKING-day HSC 114380 ceiling -- unverified against LA's fee schedule (S17) or any primary plan-check document; second-hand comment claim, single intake office (Baldwin Park per the same thread) may also contribute to queue length. Selection bias: reddit self-report."
+    },
+    {
+      "obs_id": "food_facility_025",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Overall permit wait, sidewalk-cart sub-track (qualitative)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R18",
+      "quote": "the process to getting a cart is not straighforward, the wait times are long, and there's no guarantee they even do anything effective",
+      "date": "2026-05-04",
+      "notes": "All value fields null: qualitative complaint only, no number given. Verbatim typo ('straighforward') preserved from source. Selection bias: reddit self-report, single commenter."
+    },
+    {
+      "obs_id": "food_facility_026",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "LA county-wide overall health-permit processing time (applicant self-report)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          42
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R1",
+      "quote": "The health permit itself is $605-$1,235/year and takes 3-6 weeks to process",
+      "date": "2026-04-05",
+      "notes": "Whole-permit self-report, not isolated to the plan-review step specifically -- likely conflates plan check + construction + final inspection + issuance. n=1, selection bias (reddit self-report). Roughly consistent with (not clearly exceeding) the 20-working-day (~28-calendar-day) statutory plan-review ceiling if most of the 3-6 weeks IS the plan-review clock, but this cannot be confirmed from the single quote."
+    },
+    {
+      "obs_id": "food_facility_027",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "recordkeeping",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "daily_batch",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Daily commissary-return requirement (peer confirmation, county unspecified)",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R2",
+      "quote": "To be clear, if you are in CA, you Must store vehicle there - every night after an event - this is actually the main reason for the commissary.",
+      "date": "2026-08-15",
+      "notes": "Applicant-side confirmation of the same daily-return rule San Diego states officially (see S40-sourced observation below); this commenter does not name a specific county, describing it as a general California rule. elapsed_days=1 records the maximum interval between required commissary visits, not a one-time process duration."
+    },
+    {
+      "obs_id": "food_facility_028",
+      "slug": "food_facility",
+      "jurisdiction": "Los Angeles County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "correction_cycle",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Plan-check construction-standard rejection (oversized service window)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R8",
+      "quote": "The max opening allowed is 216in (18x12) With self closing window",
+      "date": "2026-09-15",
+      "notes": "Date is the source's fetch date (2026-09-15); the reddit post itself carries no recoverable original post date in this corpus. All value fields null: no elapsed time given, but documents a real rework trigger -- a first-person plan-check rejection surfacing a construction standard (max service-window opening size) not found verbatim in any declared-tier LA document collected in this corpus. UNCONFIRMED against a primary plan-check PDF (candidates S31/S39 were not exhaustively checked for this exact figure). A companion post (R9) describes a similar de facto LA construction-standard rejection (mechanical refrigeration / sealed serving window for a wood-fired oven trailer), also unconfirmed against a primary document."
+    },
+    {
+      "obs_id": "food_facility_029",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "End-to-end restaurant opening, whole multi-agency bundle -- 86 days",
+      "value": {
+        "elapsed_days": 86,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 15,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "The average new restaurant required 86 days to open",
+      "date": "2015-09-18",
+      "notes": "JURISDICTION_CLASS NOTE (applies to all SF observations in this dataset): San Francisco is legally both a city and a county; large_city is used consistently throughout rather than county, per the task's own instruction to pick one and flag the ambiguity once. SCOPE CAVEAT: this figure covers the WHOLE multi-agency permitting bundle (DBI, Planning, DPH, SFFD, etc.), not DPH's food-permit piece alone -- no source in this corpus isolates DPH's own cycle time. Tier verifiable_official per taxonomy's explicit carve-out: this is the City Controller's own audited/published survey figure even though the underlying methodology is a self-report survey. SELECTION BIAS: applicant survey, 244 invitations, only 15 valid responses (~6% response rate) -- self-selected respondents likely skew toward people who had a memorable (often bad) experience. STALE: 2015 vintage; the report's own recommended fixes (Permit Center co-location, online submission) appear to have since been partly implemented. Cross-reference: paired with the 26-hours-touch-time observation below (same survey)."
+    },
+    {
+      "obs_id": "food_facility_030",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "End-to-end restaurant opening, whole multi-agency bundle -- four months average",
+      "value": {
+        "elapsed_days": 122,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 15,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "In this survey, business owners reported that permitting processes took four months to complete on average.",
+      "date": "2015-09-18",
+      "notes": "Same 2015 Controller applicant survey as the 86-day observation (elapsed_days=122 approximates 'four months'); a second framing of essentially the same finding, not an independent measurement. Same multi-agency-bundle scope caveat, same selection bias (n=15 of 244 invited), same staleness caveat apply."
+    },
+    {
+      "obs_id": "food_facility_031",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Time to OPEN, pre-opening segment ('nearly three months')",
+      "value": {
+        "elapsed_days": 90,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 15,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "The average new food business took nearly three months to open, with another month after opening to complete permitting.",
+      "date": "2015-09-18",
+      "notes": "First half of a two-segment finding from the same 2015 survey: the PRE-OPENING elapsed time (~90 days, 'nearly three months'). See the paired post-opening observation immediately below for the second segment described in the same sentence. Same multi-agency-bundle scope caveat, selection bias, and staleness caveat as the other Controller-survey observations."
+    },
+    {
+      "obs_id": "food_facility_032",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "issuance",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Time to FINISH permitting AFTER opening (post-opening tail)",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 15,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "The average new food business took nearly three months to open, with another month after opening to complete permitting.",
+      "date": "2015-09-18",
+      "notes": "Second half of the same sentence as the pre-opening observation above: an average ~1 additional month (30 days) of permitting activity continues AFTER the business has already opened its doors -- i.e. SF businesses open before their permitting is fully complete, a distinct post-opening queue tail. Same scope/selection-bias/staleness caveats as the other Controller-survey observations."
+    },
+    {
+      "obs_id": "food_facility_033",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Touch time across the whole multi-agency bundle -- 26 hours",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 1.083,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 15,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "26 hours of permitting work",
+      "date": "2015-09-18",
+      "notes": "TOUCH vs QUEUE pairing: cross-references the 86-day/four-month ELAPSED observations above from the same 2015 Controller survey -- roughly 26 hours (~1.08 days) of actual active permitting work is spread across an ~86-122 day elapsed window, meaning the overwhelming majority of the time is QUEUE, not touch. Like the elapsed figures, this 26-hour touch figure covers the whole multi-agency bundle (DBI, Planning, DPH, SFFD, etc.) and does not isolate DPH's piece alone. Same selection-bias and staleness caveats apply. Elsewhere in this slug, essentially every other source gives only elapsed_days or a statutory_cap_days ceiling; this touch/queue split is the one exception."
+    },
+    {
+      "obs_id": "food_facility_034",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "specialist_referral",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "SFFD referral gates the DPH food permit",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "The DPH Certificate of Sanitation/Food Permit To Operate involves approved referrals from SFFD and Planning, as well as successfully completed construction (i.e., building permit), if applicable.",
+      "date": "2015-09-18",
+      "notes": "All value fields null: no duration published for the SFFD referral itself. This dependency is staff_only in the gold model -- no SF.gov applicant-facing page states that the health permit is gated on SFFD sign-off; it surfaced only via this 2015 City Controller audit."
+    },
+    {
+      "obs_id": "food_facility_035",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "specialist_referral",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Planning Department referral gates the DPH food permit",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "No departmental approval is more critical than Planning Department.",
+      "date": "2015-09-18",
+      "notes": "All value fields null: no duration published. Companion observation to the SFFD referral above (same underlying A19/A20 gating pattern in the gold model); Planning is independently singled out by the audit as the most consequential referral of all. Also staff_only/invisible from any SF.gov applicant-facing page."
+    },
+    {
+      "obs_id": "food_facility_036",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Health permit held in queue pending SFFD/Planning referrals",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "Anecdotally, many health permits are held while awaiting approval from SFFD and Planning.",
+      "date": "2015-09-18",
+      "notes": "All value fields null -- worth its own observation even without a hard number per the task brief. This qualitative gating/hold state is itself invisible to the applicant: the same 2015 audit quotes a survey respondent, 'I submitted something to the department of health and it's just sitting there, and I've got no idea of the status,' confirming the hold produces no visible status artifact. Cross-references the two referral observations immediately above."
+    },
+    {
+      "obs_id": "food_facility_037",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "issuance",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "DBI building-permit issuance turnaround, all permit types (not restaurant-specific)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "projects with costs up to $100,000 have a median turnaround time of seven calendar days",
+      "date": "2015-09-18",
+      "notes": "From DBI's own FY04-14 permit records (Appendix B) -- an audited administrative dataset, hence verifiable_official despite the overall gold document being tiered 'designed'; n (case count) unspecified in the extracted text. NOT restaurant-specific (all permit types under $100k) and this is DBI's clock, not DPH's -- a disentanglement caution: a solver that folds this into the DPH food-permit timeline has made an error. STALE: FY04-14 vintage relative to a 2026 assessment."
+    },
+    {
+      "obs_id": "food_facility_038",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Zoning/Planning review framed as the slowest single step",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "Planning and zoning is often the most time-consuming step of opening a new restaurant.",
+      "date": "2015-09-18",
+      "notes": "All value fields null: a qualitative duration claim with no attached number. Covers the zoning-check (A02) and preliminary-Planning-advice (A03) gold activities topically even though neither has a quantified figure."
+    },
+    {
+      "obs_id": "food_facility_039",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Health Permit application lead time -- 'at least 1 month'",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D2",
+      "quote": "Apply for a Health Permit at least 1 month before you open a: Restaurant Bar Food market Bakery",
+      "date": "2026-09-15",
+      "notes": "DISAGREES with the '6-8 weeks' lead time on a separate, also-current SF.gov page (see next observation) -- two live city pages giving inconsistent guidance, itself a notable finding rather than resolvable evidence."
+    },
+    {
+      "obs_id": "food_facility_040",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "notice",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Health Permit to Operate application lead time -- '6-8 weeks'",
+      "value": {
+        "elapsed_days": 49,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          42,
+          56
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D4",
+      "quote": "Apply for your Health Permit to Operate Apply within 6-8 weeks of your planned open date.",
+      "date": "2026-09-15",
+      "notes": "DISAGREES with the 'at least 1 month' lead time on a separate, also-current SF.gov page (see previous observation). Per the gold model's own framing, this contradiction between two live city pages is itself a scoring target, not noise to be resolved."
+    },
+    {
+      "obs_id": "food_facility_041",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "scheduling",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Construction/pre-final and final inspection scheduling lead time",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": 14,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D3",
+      "quote": "Contact your health plan reviewer at least 2 weeks in advance to set up your site inspections.",
+      "date": "2026-09-15",
+      "notes": "Covers both the 80%-complete pre-final inspection and the final inspection (the page uses the plural 'site inspections'). This is the only one of the three counties whose gold model has an explicit, quantified scheduling-lead-time figure for construction inspections stated on a current applicant-facing page (LA and SD instead admit demand-based variability with no number)."
+    },
+    {
+      "obs_id": "food_facility_042",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Post-opening inspection frequency (qualitative, no interval stated)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D5",
+      "quote": "Locations are checked: On a routine basis, At other unscheduled times, When there is a complaint",
+      "date": "2026-09-15",
+      "notes": "All value fields null: SF publishes no numeric inspection interval at all, unlike LA's (stale) 6-month figure or the LA Times' 3x/year target. Contrast with LA and San Diego, both of which at least gesture at a cadence."
+    },
+    {
+      "obs_id": "food_facility_043",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "weekly",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Public inspection-results database update cycle",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D5",
+      "quote": "We update this database every week.",
+      "date": "2026-09-15",
+      "notes": "A data-PUBLICATION cadence, distinct from the inspection cadence itself (see previous observation) -- inspections may occur at any time, but the public-facing dataset is refreshed on a fixed weekly cycle."
+    },
+    {
+      "obs_id": "food_facility_044",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "New liquor license issuance (ABC) -- disentanglement boundary case",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          90,
+          180
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D4",
+      "quote": "Be prepared to wait 3-6 months for your liquor license to be issued.",
+      "date": "2026-09-15",
+      "notes": "DISENTANGLEMENT BOUNDARY CASE, included deliberately per the gold model's own framing: the California Department of Alcoholic Beverage Control is a STATE agency on a separate statute and clock, not part of the DPH food-permit process. A solver (or a duration prior) that folds ABC timing into the SF DPH food-permit timeline has made a disentanglement error, not a coverage gain."
+    },
+    {
+      "obs_id": "food_facility_045",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "state_agency",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "state"
+      },
+      "step_label": "Liquor license TRANSFER (ABC) -- disentanglement boundary case",
+      "value": {
+        "elapsed_days": 75,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D4",
+      "quote": "Transfers take 75 days on average.",
+      "date": "2026-09-15",
+      "notes": "Same disentanglement-boundary caution as the new-license observation above: ABC is a state agency, out of DPH's process/scope, kept here only because the gold model explicitly flags it as a labeled boundary case worth tracking, not merging."
+    },
+    {
+      "obs_id": "food_facility_046",
+      "slug": "food_facility",
+      "jurisdiction": "City and County of San Francisco, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "large_city"
+      },
+      "step_label": "Audit's own admission that stage-level DPH timing data does not exist",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__city_and_county_of_san_francisco#D1",
+      "quote": "In this review, few departments were readily able to provide quantitative data on the average time to obtain a permit.",
+      "date": "2015-09-18",
+      "notes": "All value fields null. The City Controller's own audit team could not get quantitative stage-level timing data from most departments in 2015 -- the clearest single statement in this whole corpus of WHY only whole-bundle, self-reported figures (86 days, four months, 26 hours) exist for SF rather than a DPH-isolated number."
+    },
+    {
+      "obs_id": "food_facility_047",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Initial plan review (statutory ceiling, restated)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 20,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D7",
+      "quote": "Have there been any changes to the initial plan review turnaround time? No. Initial plan reviews should still be completed within 20 business days.",
+      "date": "2025-12",
+      "notes": "HSC 114380, deemed approved if missed. Same statutory ceiling as LA and SF; California's three counties converge exactly on this number because it is state law, not local design."
+    },
+    {
+      "obs_id": "food_facility_048",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Initial plan review -- San Diego's own admission that the ceiling is not always the reality",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "This review timeline can at times be less than 20 business days throughout the year based on demand.",
+      "date": "2025-12",
+      "notes": "All value fields null per task instruction: San Diego is the ONLY one of the three counties whose own document concedes that actual practice diverges from the statutory ceiling -- and it still gives no number, directing applicants to call the unit instead (see next two observations). NOTE: taken at face value the sentence claims turnaround is sometimes FASTER than 20 days (a candid admission of variability), not necessarily slower; still, no measured distribution is ever published."
+    },
+    {
+      "obs_id": "food_facility_049",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Actual plan-review lead time disclosed only by phone, per-caller, unrecorded",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "Reach out to the Plan Check Unit to check on current review timelines.",
+      "date": "2025-12",
+      "notes": "All value fields null: staff_only queue-rationing activity in the gold model. The actual current lead time -- the one number that would let an applicant plan -- is disclosed only on request, per-caller, and not published anywhere, which is exactly why no measured San Diego plan-check turnaround exists in this corpus."
+    },
+    {
+      "obs_id": "food_facility_050",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Construction inspection scheduling lead time fluctuates with demand",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "Construction inspection scheduling timeline fluctuate throughout the year based on demand. Reach out to the Plan Check Unit to check on inspection scheduling lead times.",
+      "date": "2025-12",
+      "notes": "All value fields null. Covers San Diego's preliminary, mid, pre-final, and final construction inspections topically (all share this same disclosed-by-phone-only lead time) even though none of those individual inspection steps has its own quantified figure anywhere in the corpus."
+    },
+    {
+      "obs_id": "food_facility_051",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Resubmittal review (statutory, scope-limited)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "State Law requires that all resubmittal plans be reviewed within 10 business days as long as no other items beyond what was noted on the correction sheet are modified.",
+      "date": "2025-12",
+      "notes": "HSC 114380(f)/AB671, identical statutory number to LA's resubmittal clock. San Diego charges a $347 plan-recheck fee on EVERY resubmittal, invoiced before the resubmittal is even reviewed -- so a multi-round correction loop is paid for on both sides of this clock (each resubmittal invoiced; each construction inspection past the third also invoiced -- see fee schedule D5), a cost structure not published in the same explicit form by LA or SF."
+    },
+    {
+      "obs_id": "food_facility_052",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Resubmittal review -- deemed-approval asymmetry (San Diego's own FAQ)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D7",
+      "quote": "Resubmittals should be reviewed within 10 business days. However, unlike initial plan reviews, the bill does not specify that plans will be automatically deemed approved if not reviewed within that timeframe.",
+      "date": "2025-12",
+      "notes": "Near word-for-word identical to LA County's own AB671 FAQ restatement of the same asymmetry (compare LA's S16-sourced observation) -- per the gold model's own notes, two counties converging this closely on identical wording and worked examples suggests either shared CDPH/CCDEH guidance behind the scenes or an obvious statutory reading; the public record cannot distinguish the two."
+    },
+    {
+      "obs_id": "food_facility_053",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Change-of-scope review (statutory)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 20,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D7",
+      "quote": "Change of Scope revisions will be reviewed within 20 business days.",
+      "date": "2025-12",
+      "notes": "HSC 114380(f)/AB671. Same 20-day figure as LA's change-of-scope clock; the resubmittal-vs-change-of-scope boundary itself is a county invention (not defined in statute), independently near-duplicated by LA -- see AB671-ambiguity notes on the parallel LA observations."
+    },
+    {
+      "obs_id": "food_facility_054",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Inspected plan-set retention maximum",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "Inspected plan sets, once approved or those needing correction, will be retained for a maximum of one year after the date of notification to the submitter.",
+      "date": "2025-12",
+      "notes": "Value fields left null: this is a records-retention MAXIMUM (365 days), not an applicant-experienced wait -- included for completeness of the recordkeeping cadence around the plan-check step. Stated nowhere on any applicant-facing San Diego page, only in the designed-tier guide."
+    },
+    {
+      "obs_id": "food_facility_055",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Approved-plan expiry deadline",
+      "value": {
+        "elapsed_days": 365,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "Approved plans expire 1 year from the date the plans were approved by this department or 1 year from the last DEHQ construction inspection. Expired plans will be voided and new plans must be resubmitted for review.",
+      "date": "2025-12",
+      "notes": "Per the gold model's own framing, this is 'the only hard deadline in the model that runs against the applicant' -- if construction stalls for a year, approved plans are voided and the applicant must restart the full plan-check process from scratch."
+    },
+    {
+      "obs_id": "food_facility_056",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Food handler card deadline after hire",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "All employees who handle food, beverage or food contact surfaces should obtain a valid San Diego food handler card or in-house certification test within 10 days of employment.",
+      "date": "2025-12",
+      "notes": "A hard post-hire deadline; agency_class third_party because the card/test is typically obtained through an approved third-party provider rather than DEHQ itself."
+    },
+    {
+      "obs_id": "food_facility_057",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "plan_review",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Express plan review -- price without a published turnaround",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D5",
+      "quote": "FOOD EXPRESS PLAN REVIEW (2X Plan Check Fee)",
+      "date": "2020-07-01",
+      "notes": "All value fields null: San Diego prices its expedited lane as a bare 2x fee multiplier with NO turnaround promise attached anywhere in the corpus -- contrast with LA, which sells a comparable expedited lane at roughly 1.5x the standard fee paired with an explicit 10-business-day ceiling. Same statutory silence, two different ways to monetize the queue. Fee schedule dated 2020-07-01, five years older than the 12/2025 process guidance it accompanies -- possibly stale."
+    },
+    {
+      "obs_id": "food_facility_058",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Continuity-of-reviewer policy (same Specialist for review and inspection)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D2",
+      "quote": "All plan review and field inspections are conducted with the same Specialist where possible.",
+      "date": "2025-12",
+      "notes": "All value fields null: not itself a duration, but a staffing-continuity policy plausibly relevant to queue_days (fewer handoffs, potentially fewer miscommunication-driven rework loops). Stated only once, as a footnote on an otherwise purely diagrammatic flowchart PDF -- appears in no LA or SF document at all, and in no other San Diego document either."
+    },
+    {
+      "obs_id": "food_facility_059",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "specialist_referral",
+        "task_type": "referral",
+        "channel": "internal",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Local building/fire department approvals gate DEHQ's own process at both ends",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "RW__food_facility__san_diego_county_dehq_food_and_housing#D1",
+      "quote": "Plans must be submitted and approved prior to the start of construction. After this Department has approved your plans, you will also have to obtain approvals from the local building department.",
+      "date": "2025-12",
+      "notes": "All value fields null: San Diego gates BOTH ends of its own process on the separate local building/fire department -- HSC 114380(e) requires DEHQ approval BEFORE a building permit may issue, and separately 'The DEHQ Final Approval cannot be granted without' the building/fire department's own final sign-off or TCO. Comparable to LA's and SF's own cross-department gating patterns (see parallel observations for each), but San Diego is the only one of the three that gates in both directions."
+    },
+    {
+      "obs_id": "food_facility_060",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "recordkeeping",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "daily_batch",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Daily commissary-return requirement (official)",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S40",
+      "quote": "All mobile food units shall return to the commissary daily.",
+      "date": "2021-05",
+      "notes": "Official statement of the same rule LA's mobile-food guideline implies but does not state as explicitly (see the community-reported LA peer-confirmation observation elsewhere in this dataset) -- state-driven convergence, not a county-specific quirk, since both counties' rules trace to the same HSC 114294-114295 commissary requirement. elapsed_days=1 records the maximum interval between required returns, not a one-time duration."
+    },
+    {
+      "obs_id": "food_facility_061",
+      "slug": "food_facility",
+      "jurisdiction": "Nevada (Las Vegas) -- out-of-state comparator, not California",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "recordkeeping",
+        "channel": "site_visit",
+        "blocking_party": "applicant",
+        "cadence": "daily_batch",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Out-of-state commissary cost comparator (not California)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R3",
+      "quote": "Going rate in my town (Las Vegas) is between $400-$600",
+      "date": "2026-09-03",
+      "notes": "OUT-OF-STATE COMPARATOR, NOT CALIFORNIA -- kept per task instruction not to drop true cross-state comparators rather than silently discarding them. Cost-only, no duration information (all value fields null); Nevada's commissary requirements and clock are entirely outside this corpus's California scope. A same-thread Colorado reply reports '$600 per month in Colorado, although we only pay for the months we use' -- also cost-only, also out-of-state, recorded here in notes rather than as a separate observation."
+    },
+    {
+      "obs_id": "food_facility_062",
+      "slug": "food_facility",
+      "jurisdiction": "Unconfirmed -- health department jurisdiction not named; possibly non-California",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "document_review",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Ingredient GRAS-status delay (jurisdiction unconfirmed)",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R25",
+      "quote": "They took an extra 2 months to prove my recipe, that was already proven by the lab, that it was safe.",
+      "date": "2024-06-05",
+      "notes": "JURISDICTION UNCONFIRMED -- the original poster names only 'the country [sic] health dept' with no state or county given; per task instruction this is flagged heavily and EXCLUDED from any California-attributed rollup or cross-county comparison. Kept as a data point on a genuinely distinct duration-relevant mechanism (FDA-GRAS ingredient-safety proof holding up a food-facility application) that does not appear elsewhere in this corpus. Resolution path was informal: 'my application was approved! Hilariously, it seems that just emailing them every day to talk about it was what did the trick' (same thread) -- not a formal process step."
+    },
+    {
+      "obs_id": "food_facility_063",
+      "slug": "food_facility",
+      "jurisdiction": "San Diego County, CA",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "test_or_exam",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "San Diego food handler card acquisition time (community-reported)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.042,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R7",
+      "quote": "a food handler card for yourself plus anyone working with you($10-15 online, takes about an hour",
+      "date": "2025-11",
+      "notes": "Community confirmation of a genuinely short touch-time step (~1 hour, recorded as touch_days=0.042) inside an otherwise multi-week/month process -- consistent with San Diego's official 10-days-after-hire deadline recorded elsewhere in this dataset (that is a deadline to complete the card, not the card's own processing time). Same comment also states, of California's county-by-county permitting: 'If you plan to operate in LA too, you'll need a separate LA County health permit... Different county, different permit' -- no reciprocity across counties, corroborated independently by R11 and R23. Selection bias: single self-reported comment; the comment also links a third-party permit-lookup website, a mild promotional flag noted for completeness though it does not affect the food-handler-card timing claim itself."
+    },
+    {
+      "obs_id": "food_facility_064",
+      "slug": "food_facility",
+      "jurisdiction": "Unconfirmed -- jurisdiction of responding commenters not stated as California",
+      "step_key": {
+        "agency_class": "field_inspection",
+        "task_type": "inspection",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Routine inspection frequency, jurisdiction unstated -- discrepant community report",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          365,
+          730
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R5",
+      "quote": "How often do you get inspected by the health department? Before your first open. They'll come around once a year/two years for surprise inspections.",
+      "date": "2026-07-03",
+      "notes": "JURISDICTION NOT CONFIRMED as California -- flagged as a possible discrepancy rather than silently resolved. IN TENSION with LA's stale ~6-month grand-jury figure and San Diego's risk-based framing (both recorded elsewhere in this dataset): if this 1-2 year interval were California-attributable it would be far looser than either. Kept because the task instructions direct recording genuine cross-source disputes rather than averaging them away."
+    }
+  ]
+}

@@ -1,0 +1,1584 @@
+{
+ "slug": "solar_permit",
+ "source": "harvest_structured.py (no LLM)",
+ "observations": [
+  {
+   "obs_id": "solar_permit-struct-0001",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Verify the system against the SolarAPP+ eligibility checklist (A01)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__oakland_solarapp:A01",
+   "quote": "Systems <= 38.4 kW provided they meet certain installation characteristics",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0002",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Register on SolarAPP+ with the contractor licence and enter the system design data (A02)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__oakland_solarapp:A02",
+   "quote": "a standard set of questions...regarding component parts and certifications, site conditions, installation methods, and other essential details",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0003",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Automated code-compliance review against the California Energy Commission equipment list (A03)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A03",
+   "quote": "the California Energy Commission equipment lists to perform automated calculations that assess compliance with code requirements",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: Performance Review 2024"
+  },
+  {
+   "obs_id": "solar_permit-struct-0004",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "inspection",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Issue the SolarAPP+ approval number, Approval Document and site-specific inspection chec (A05)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A05",
+   "quote": "an instant permit and inspection checklist",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: Performance Review 2024"
+  },
+  {
+   "obs_id": "solar_permit-struct-0005",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Apply in Oakland's Online Permit Center (Accela) using the SolarAPP+ approval number (A06)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A06",
+   "quote": "Apply through Oakland's Online Permit Center (Accela) using the approval number.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: Performance Review 2024"
+  },
+  {
+   "obs_id": "solar_permit-struct-0006",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "payment",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Pay the permit fee online; the building permit issues instantly and is printed by the ap (A08)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A08",
+   "quote": "Pay online and receive permit.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: Performance Review 2024"
+  },
+  {
+   "obs_id": "solar_permit-struct-0007",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "site_visit",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Install the system (A12)",
+   "value": {
+    "elapsed_days": 16.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 16.0,
+    "p90": 68.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A12",
+   "quote": "Installation practices, workmanship, and adherence to the approved design are then verified by Oakland inspectors.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0008",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "inspection",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Request the inspection (self-scheduled through the permit portal / mobile app) (A13)",
+   "value": {
+    "elapsed_days": 2.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 2.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__oakland_solarapp:A13",
+   "quote": "An inspection will be scheduled within two (2) business days of a request.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0009",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "site_visit",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Perform the single consolidated building-and-fire inspection against the SolarAPP+ inspe (A15)",
+   "value": {
+    "elapsed_days": 7.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 7.0,
+    "p90": 52.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A15",
+   "quote": "If an inspection is required, only one inspection shall be required and performed by the Bureau of Building for small residential rooftop solar energy systems eligible for expedited review.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0010",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "inspection",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Upload the finaled Oakland building permit / final electric inspection clearance to PG&E (A22)",
+   "value": {
+    "elapsed_days": 2.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 2.0,
+    "p90": 22.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:A22",
+   "quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0011",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "issuance",
+    "channel": "mail",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Issue the Permission to Operate letter; the system may then be energised (A24)",
+   "value": {
+    "elapsed_days": 7.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 7.0,
+    "p90": 30.0
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__oakland_solarapp:A24",
+   "quote": "Once PG&E receives the completed documentation from a contractor, it typically takes five to 10 business days (maximum of 30 business days) for a project to receive permission to operate.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: utility tariff"
+  },
+  {
+   "obs_id": "solar_permit-struct-0012",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "recordkeeping",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Report compliance and annual residential solar permit statistics to the California Energ (A25)",
+   "value": {
+    "elapsed_days": 365.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 365.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__oakland_solarapp:A25",
+   "quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0013",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "decision",
+    "channel": "internal",
+    "blocking_party": "shared",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "END TO END (whole process)",
+   "value": {
+    "elapsed_days": 37.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 37.0,
+    "p90": 181.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__oakland_solarapp:timing_gold",
+   "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits",
+   "date": "2026-09-15",
+   "notes": "whole-process figure; scope: permit submission -> final passed inspection, business days, all SolarAPP+ permits, 29 AHJs nationally (2024). This is t"
+  },
+  {
+   "obs_id": "solar_permit-struct-0014",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Check the system against the Information Bulletin 301 no-plan-review criteria (A01)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__san_diego_expedited:A01",
+   "quote": "Self-issued permits with no plan review are available for qualifying single-family, duplex, or townhouse installations designed per the approved template.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0015",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "payment",
+    "channel": "online",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Pay the invoiced fees; the permit issues (A10)",
+   "value": {
+    "elapsed_days": 14.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 14.0,
+    "p90": 29.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:A10",
+   "quote": "No Plan Review (First System/Inverter Inspection): $275.80",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0016",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "site_visit",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Install the system (A11)",
+   "value": {
+    "elapsed_days": 16.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 16.0,
+    "p90": 68.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:A11",
+   "quote": "It is the contractor or owner's responsibility to schedule and coordinate all required inspections and obtain approvals before concealing any work.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0017",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "site_visit",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Inspect the complete system (modules, panel, wire terminations, grounding, service equip (A14)",
+   "value": {
+    "elapsed_days": 4.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 4.0,
+    "p90": 52.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:A14",
+   "quote": "Final inspection of the complete system including modules, panel, wire terminations, grounding, etc.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0018",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Notify SDG&E that final inspection approval has been granted for all related City permit (A18)",
+   "value": {
+    "elapsed_days": 2.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 2.0,
+    "p90": 22.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:A18",
+   "quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0019",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Review the interconnection request and issue a draft generator interconnection agreement (A20)",
+   "value": {
+    "elapsed_days": 15.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 15.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__san_diego_expedited:A20",
+   "quote": "SDG&E shall provide Applicant with a draft Generator Interconnection Agreement for Applicant's signature within fifteen (15) business days of Applicant's request.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: utility tariff"
+  },
+  {
+   "obs_id": "solar_permit-struct-0020",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "decision",
+    "channel": "mail",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Grant SDG&E energization approval / Permission to Operate (A22)",
+   "value": {
+    "elapsed_days": 7.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 7.0,
+    "p90": 48.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:A22",
+   "quote": "The system is not approved to energize until SDG&E approval is obtained.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0021",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "recordkeeping",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "Self-certify SB 379 compliance to the California Energy Commission and report permit sta (A23)",
+   "value": {
+    "elapsed_days": 365.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 365.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__san_diego_expedited:A23",
+   "quote": "A city, county, or city and county shall report to the Energy Commission when it is in compliance with subdivision (b).",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0022",
+   "slug": "solar_permit",
+   "jurisdiction": "City of San Diego, CA",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "decision",
+    "channel": "internal",
+    "blocking_party": "shared",
+    "cadence": "continuous",
+    "jurisdiction_class": "large_city"
+   },
+   "step_label": "END TO END (whole process)",
+   "value": {
+    "elapsed_days": 49.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 49.0,
+    "p90": 181.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__san_diego_expedited:timing_gold",
+   "quote": "After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.",
+   "date": "2026-09-15",
+   "notes": "whole-process figure; scope: permit submission -> final passed inspection, business days, traditional (non-automated) permits, 29 AHJs nationally (20"
+  },
+  {
+   "obs_id": "solar_permit-struct-0023",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "plan_review",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Plan check: structural, electrical and fire-safety review (A06)",
+   "value": {
+    "elapsed_days": 7.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 7.0,
+    "p90": 29.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A06",
+   "quote": "Review of the application to install a solar energy system shall be limited to the building official's review of whether it meets all health and safety requirements of local, state, and federal law.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: Performance Review 2024"
+  },
+  {
+   "obs_id": "solar_permit-struct-0024",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "decision",
+    "channel": "counter",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Administratively approve the application and issue the building permit (A12)",
+   "value": {
+    "elapsed_days": 4.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 4.0,
+    "p90": 29.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A12",
+   "quote": "A city or county shall administratively approve applications to install solar energy systems through the issuance of a building permit or similar nondiscretionary permit.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0025",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "document_review",
+    "channel": "site_visit",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Install the system (A13)",
+   "value": {
+    "elapsed_days": 16.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 16.0,
+    "p90": 68.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A13",
+   "quote": "Once the permit application is approved, the applicant has permission to build the solar installation.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0026",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "inspection",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Request the inspection; the AHJ schedules it (A14)",
+   "value": {
+    "elapsed_days": 1.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 1.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__traditional_generic_ca:A14",
+   "quote": "Inspection requests received within business hours are typically scheduled for the next business day. If next business day is not available, inspection should happen within a five-day window.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0027",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "site_visit",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Perform the single consolidated final inspection (building and fire) (A16)",
+   "value": {
+    "elapsed_days": 11.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 11.0,
+    "p90": 52.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A16",
+   "quote": "only one inspection shall be required, which shall be done in a timely manner and may include a consolidated inspection",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0028",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Final the permit and issue the final electric inspection clearance (A18)",
+   "value": {
+    "elapsed_days": 2.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 2.0,
+    "p90": 22.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A18",
+   "quote": "evidence of Applicant's final electric inspection clearance from the Governmental Authority having jurisdiction over the Generating Facility",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0029",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "third_party",
+    "task_type": "interconnection",
+    "channel": "online",
+    "blocking_party": "applicant",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Submit the utility interconnection application and customer authorization (A19)",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": 21.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A19",
+   "quote": "Complete the Agreement and Customer Authorization (A&A) form. It must be signed and submitted before continuing to Step 2.",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0030",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "decision",
+    "channel": "mail",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Grant Permission to Operate; the system may then be energised (A23)",
+   "value": {
+    "elapsed_days": 10.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 10.0,
+    "p90": 48.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:A23",
+   "quote": "shall normally be processed not later than thirty (30) Business Days following Distribution Provider's receipt",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: SolarTRACE 2023"
+  },
+  {
+   "obs_id": "solar_permit-struct-0031",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "recordkeeping",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Report residential solar permit counts and system characteristics to the California Ener (A25)",
+   "value": {
+    "elapsed_days": 365.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 365.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit__traditional_generic_ca:A25",
+   "quote": "shall annually report to the Energy Commission pursuant to those guidelines within one year of implementing the online, automated solar permitting system",
+   "date": "2026-09-15",
+   "notes": "from gold activity timing; timing source: none"
+  },
+  {
+   "obs_id": "solar_permit-struct-0032",
+   "slug": "solar_permit",
+   "jurisdiction": "generic California AHJ (traditional review)",
+   "step_key": {
+    "agency_class": "front_counter",
+    "task_type": "decision",
+    "channel": "internal",
+    "blocking_party": "shared",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "END TO END (whole process)",
+   "value": {
+    "elapsed_days": 49.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 49.0,
+    "p90": 133.0
+   },
+   "n": 1,
+   "evidence_tier": "verifiable_official",
+   "source_id": "solar_permit__traditional_generic_ca:timing_gold",
+   "quote": "the median duration from permit submission to final passed inspection was 37 business days for all SolarAPP+ permits compared to 49 business days for traditional permits",
+   "date": "2026-09-15",
+   "notes": "whole-process figure; scope: permit submission -> final passed inspection, business days, traditional (non-automated) permits, 29 AHJs nationally (20"
+  },
+  {
+   "obs_id": "solar_permit-struct-0033",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Statutory mandate: adopt expedited checklist ordinance (Gov Code 65850.5(g), orig. AB 2188",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 30.0,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "statutory",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "deadline September 30, 2015; statute itself sets no explicit day-count for permit turnaround -- it delegates the number to local ordinances and the CA Solar Permitting Guidebook",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0034",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SB 379 mandate: automated online permitting platform (Gov Code 65850.52)",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 30.0,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "statutory",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "compliance deadline Sept 30, 2023 (population >50,000) / Sept 30, 2024 (population <=50,000); exempt if city pop <5,000 within county pop <150,000",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0035",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CA Solar Permitting Guidebook (OPR, 4th ed. 2019) recommended review time, <=10kW",
+   "value": {
+    "elapsed_days": 1.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 1.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "over-the-counter, or maximum 1-3 days if over-the-counter not offered",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0036",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CA Solar Permitting Guidebook recommended inspection scheduling",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 5.0,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "statutory",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "next business day after notification of completed install, else within 5 days",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0037",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "issuance",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Oakland Municipal Code Ch. 15.33 (2015) permit issuance",
+   "value": {
+    "elapsed_days": 1.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 1.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "same day for over-the-counter; 1-3 business days for electronic applications",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0038",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "statutory_clock",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Oakland Municipal Code Ch. 15.33 inspection scheduling",
+   "value": {
+    "elapsed_days": null,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": 2.0,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": null,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "statutory",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "within 2 business days of a request",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0039",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "Oakland SolarAPP+ vs. pre-SolarAPP+ baseline",
+   "value": {
+    "elapsed_days": 5.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 5.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "pre-SolarAPP+ baseline ~5-7 days average (2,375 permits in 2022); SolarAPP+ cuts approval time by an average of 5 days",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0040",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarAPP+ median permit review time (submission to issuance), nationwide (NREL/NLR Perform",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 37393,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "0 days (2024) / <1 day (2022) vs. 7-9 business days for traditional permitting",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0041",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarAPP+ full permit-to-inspection timeline, PV-only, nationwide",
+   "value": {
+    "elapsed_days": 37.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 37.0,
+    "p90": null
+   },
+   "n": 29,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "37 (2024) / 33 (2023) / 38 (2022) business days for SolarAPP+ vs. 49 / 47.5 / 51 business days traditional",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0042",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarAPP+ full permit-to-inspection timeline, PV+storage, nationwide",
+   "value": {
+    "elapsed_days": 38.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 38.0,
+    "p90": null
+   },
+   "n": 19,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "38 (2024) / 29 (2023) / 64 (2022, SolarAPP+ SLOWER that year) vs. 54 / 52 / 55 business days traditional",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0043",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "field_inspection",
+    "task_type": "inspection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarAPP+ inspection failure rate, PV-only, nationwide",
+   "value": {
+    "elapsed_days": 31.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 31.0,
+    "p90": null
+   },
+   "n": 42584,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "31% (2024) / 35% (2023) / 17% (2022) for SolarAPP+ vs. 35% / 29% / 24% traditional",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0044",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "interconnection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarTRACE (NREL/LBNL): California total project time, contract signing to PTO-equivalent,",
+   "value": {
+    "elapsed_days": 113.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 113.0,
+    "p90": null
+   },
+   "n": 40259,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "median 113 days",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0045",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "state_agency",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "SolarTRACE: California AHJ permit-review time, 0-10kW PV-only, top-volume CA AHJs, 2023",
+   "value": {
+    "elapsed_days": 0.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 0.0,
+    "p90": null
+   },
+   "n": 1677,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "range from 0 days (Los Angeles) to 14 days (San Diego) among CA's highest-volume jurisdictions",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0046",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "intake_screen",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CPUC Rule 21 / PG&E: interconnection application -> PTO after complete contractor document",
+   "value": {
+    "elapsed_days": 5.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 5.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "typically 5-10 business days, maximum 30 business days",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0047",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "interconnection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CPUC Rule 21 / PG&E tariff: PTO for NEM-1/NEM-2/NBT-1 <=1MW",
+   "value": {
+    "elapsed_days": 30.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 30.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "normally not later than 30 business days after complete application + signed interconnection agreement + final AHJ inspection clearance",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0048",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "document_review",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CPUC Rule 21 / SCE: Fast Track Initial Review and draft interconnection agreement",
+   "value": {
+    "elapsed_days": 15.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 15.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "15 business days each stage; Supplemental Review 20 business days ($2,500 fee)",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  },
+  {
+   "obs_id": "solar_permit-struct-0049",
+   "slug": "solar_permit",
+   "jurisdiction": "City of Oakland, CA",
+   "step_key": {
+    "agency_class": "utility",
+    "task_type": "interconnection",
+    "channel": "internal",
+    "blocking_party": "agency",
+    "cadence": "continuous",
+    "jurisdiction_class": "mid_city"
+   },
+   "step_label": "CPUC Rule 21 / SDG&E: draft Generator Interconnection Agreement (Fast Track)",
+   "value": {
+    "elapsed_days": 15.0,
+    "touch_days": null,
+    "queue_days": null,
+    "statutory_cap_days": null,
+    "range_days": [
+     null,
+     null
+    ],
+    "p50": 15.0,
+    "p90": null
+   },
+   "n": 1,
+   "evidence_tier": "designed_document",
+   "source_id": "solar_permit:timing_summary",
+   "quote": "15 business days of request; applicant has 90 calendar days to sign",
+   "date": null,
+   "notes": "from manifest timing_summary (official/statutory column only; the user_reported column needs free-text mining)"
+  }
+ ],
+ "coverage": {
+  "by_evidence_tier": {
+   "designed_document": 23,
+   "verifiable_official": 22,
+   "statutory": 4
+  },
+  "total_observations": 49,
+  "distinct_step_keys": 32,
+  "missing": "community_reported tier \u2014 forum free text still to be mined"
+ }
+}

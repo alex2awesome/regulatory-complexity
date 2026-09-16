@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "verify",
+  "description": "Wave-3 verifier output for one rendered artifact (briefs/VERIFY_BRIEF.md).",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "required_found",
+    "leaks",
+    "pass"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string"
+    },
+    "required_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref",
+          "field",
+          "found"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "found": {
+            "type": "boolean"
+          },
+          "fidelity_ok": {
+            "type": "boolean"
+          },
+          "quote": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "leaks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref",
+          "quote"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extraneous_facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contamination_ok": {
+      "type": "boolean"
+    },
+    "style_ok": {
+      "type": "string"
+    },
+    "pass": {
+      "type": "boolean"
+    },
+    "fix": {
+      "type": "string"
+    }
+  }
+}

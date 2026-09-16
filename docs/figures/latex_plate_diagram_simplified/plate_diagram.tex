@@ -1,0 +1,139 @@
+% Simplified process-evidence model. See generative_model.tex for every symbol.
+% White = latent; shaded = observed; double outline = deterministic derived value;
+% dashed outline = shared parameter. All arrows are generative dependencies.
+% Rework cycles live INSIDE G/R, never as cycles in this Bayesian DAG.
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  latent/.style={circle,draw=black,line width=.5pt,fill=white,
+    minimum size=11mm,inner sep=1pt,font=\small},
+  obs/.style={latent,fill=black!15},
+  hyper/.style={latent,dashed,draw=black!65,fill=black!3},
+  wide/.style={latent,ellipse,minimum width=22mm,minimum height=11mm},
+  derived/.style={latent,double,double distance=1.2pt},
+  lab/.style={font=\scriptsize,text=black!65,fill=white,text width=29mm,align=center,inner sep=1pt},
+  plate/.style={draw=black!45,rounded corners=2pt,inner sep=2.5mm,line width=.4pt},
+  outer/.style={plate,densely dashed,inner sep=9mm},
+  ptag/.style={font=\scriptsize\itshape,text=black!65,fill=white,inner sep=1pt},
+  ed/.style={-{Stealth[length=1.8mm,width=1.4mm]},draw=black!65,line width=.45pt}
+]
+\pgfdeclarelayer{edges}
+\pgfsetlayers{background,edges,main}
+% Program-level state. Indices (jurisdiction, program, version) suppressed.
+\node[hyper] (eta) at (4.0,2.7) {$\eta$};
+\node[lab,above=4pt of eta] {structural and\newline burden hyperparameters};
+\node[latent] (beta) at (8.0,2.7) {$\beta_t$};
+\node[lab,below=2pt of beta] {shared task-type effect};
+\node[latent] (alpha) at (12.0,2.7) {$\alpha_g$};
+\node[lab,below=2pt of alpha] {shared agency effect};
+\node[latent] (N) at (0,0) {$N$};
+\node[lab,below=2pt of N] {number of steps};
+\node[latent] (G) at (4.0,0) {$G$};
+\node[lab,below=2pt of G] {identities, routing,\newline order and rework};
+\node[latent] (A) at (8.0,0) {$\mathcal A$};
+\node[lab,below=2pt of A] {agency identities\newline and aliases};
+
+% Step plate.
+\node[latent] (a) at (0,-3.1) {$a_i$};
+\node[lab,below=2pt of a] {responsible actor};
+\node[wide] (theta) at (4.0,-3.1) {$\theta_i$};
+\node[lab,below=2pt of theta,text width=38mm] {elapsed days\newline payer / agency hours\newline fee rules};
+\node[wide] (lambda) at (8.0,-3.1) {$\lambda_i,v_i$};
+\node[lab,below=2pt of lambda] {disclosure strength\newline and visibility};
+
+% Case plate and the nested visit plate: repeats have an explicit index r.
+\node[obs] (X) at (0,-6.2) {$X_n$};
+\node[lab,below=2pt of X] {case characteristics};
+\node[latent] (R) at (4.0,-6.2) {$R_n$};
+\node[lab,below=2pt of R,text width=34mm] {route and repetitions\newline schedule and outcome};
+\node[wide] (E) at (2.0,-9.1) {$E_{nir}$};
+\node[lab,below=2pt of E,text width=34mm] {realized visit: days, work,\newline payments and encounters};
+\node[derived] (Bu) at (0,-12.3) {$B_n^u$};
+\node[lab,below=2pt of Bu] {payer burden vector};
+\node[derived] (Ba) at (4.0,-12.3) {$B_n^a$};
+\node[lab,below=2pt of Ba] {agency burden vector};
+
+% Document plate. True assertions are latent; only extraction is observed.
+\node[obs] (D) at (8.0,-6.2) {$D_m$};
+\node[lab,below=2pt of D,text width=33mm] {kind, scope, period\newline jurisdiction, source family};
+\node[latent] (Z) at (12.0,-6.2) {$Z_m$};
+\node[lab,below=2pt of Z] {disclosed references\newline or clutter};
+\node[latent] (C) at (10.0,-9.1) {$C_m$};
+\node[lab,below=2pt of C] {typed source assertions};
+\node[obs] (Y) at (10.0,-12.3) {$Y_m$};
+\node[lab,below=2pt of Y] {extracted claims\newline and supporting quotes};
+\node[hyper] (psi) at (15.0,-6.2) {$\psi$};
+\node[lab,below=2pt of psi,text width=26mm,xshift=2mm] {disclosure, reporting,\newline selection and source effects};
+\node[hyper] (epsilon) at (15.0,-12.3) {$\varepsilon$};
+\node[lab,below=2pt of epsilon] {extractor error};
+
+% Plates use coordinates to leave labels clear of their borders.
+\begin{scope}[on background layer]
+  \node[plate,fit={(6.5,3.5) (9.5,1.4)}] (Ptask) {};
+  \node[plate,fit={(10.5,3.5) (13.5,1.4)}] (Pagency) {};
+  \node[plate,fit={(-1.4,-2.3) (9.5,-4.5)}] (Pstep) {};
+  \node[plate,fit={(.5,-8.2) (3.5,-10.5)}] (Pvisit) {};
+  \node[plate,fit={(-1.4,-5.3) (5.5,-13.8)}] (Pcase) {};
+  \node[plate,fit={(6.5,-5.3) (13.5,-13.8)}] (Pdoc) {};
+  \node[outer,fit={(-1.5,-.1) (13.6,-14.3)}] (Pprogram) {};
+\end{scope}
+\node[ptag,anchor=north east] at (Ptask.south east) {task types $t$};
+\node[ptag,anchor=north east] at (Pagency.south east) {organizations $g$};
+\node[ptag,anchor=north east] at (Pstep.south east) {steps $i=1,\ldots,N$};
+\node[ptag,anchor=north east] at (Pvisit.south east) {visited steps $i$, repeat $r$};
+\node[ptag,anchor=north east] at (Pcase.south east) {cases $n$};
+\node[ptag,anchor=north east] at (Pdoc.south east) {documents $m$};
+\node[ptag,anchor=north east] at (Pprogram.south east) {jurisdiction--program--version $(j,p,v)$};
+
+% All parents agree with the factorization in generative_model.tex.
+% Put sticks behind labels and nodes so text is never struck through.
+\begin{pgfonlayer}{edges}
+\draw[ed] (eta) to[out=210,in=90] (N);
+\draw[ed] (eta) -- (G);
+\draw[ed] (eta) to[out=330,in=90] (A);
+\draw[ed] (eta) -- (beta);
+\draw[ed] (eta.north east) -- (5.5,4.1) -- (12,4.1) -- (alpha.north);
+\draw[ed] (beta.south west) to[out=240,in=40] (theta.north east);
+\draw[ed] (alpha.south east) -- (14,1.2) -- (14,-1.7) -- (6,-1.7) -- (theta.north east);
+\draw[ed] (a) -- (theta);
+\draw[ed] (eta) -- (-2,2.7) -- (-2,-1.8) -- (3,-1.8) -- (theta.north west);
+\draw[ed] (N) -- (G);
+\draw[ed] (G) to[out=230,in=80] (a);
+\draw[ed] (A) to[out=240,in=30] (a);
+\draw[ed] (G) -- (theta);
+\draw[ed] (eta.north) -- (4,4.5) -- (15,4.5) -- (15,-2.0) -- (lambda.north east);
+\draw[ed] (G) to[out=320,in=100] (lambda);
+\draw[ed] (G) to[out=350,in=40,looseness=1.1] (R);
+\draw[ed] (X) -- (R);
+\draw[ed] (R) to[out=240,in=30] (E);
+\draw[ed] (a) to[out=250,in=175] (E);
+\draw[ed] (theta) to[out=235,in=90] (E);
+\draw[ed] (E) to[out=240,in=75] (Bu);
+\draw[ed] (E) to[out=300,in=105] (Ba);
+\draw[ed] (G.north east) -- (6,.75) -- (12,.75) -- (Z.north);
+\draw[ed] (lambda) to[out=335,in=115] (Z);
+\draw[ed] (D) -- (Z);
+\draw[ed] (psi) -- (Z);
+\draw[ed] (R) to[out=30,in=155] (Z);
+\draw[ed] (E.north east) to[out=35,in=215,looseness=.9] (Z.south west);
+\draw[ed] (Z) to[out=240,in=40] (C);
+\draw[ed] (D) to[out=300,in=140] (C);
+\draw[ed] (psi) to[out=250,in=10] (C);
+\draw[ed] (theta) to[out=340,in=120] (C);
+\draw[ed] (a) to[out=335,in=170,looseness=1.05] (C);
+\draw[ed] (G) to[out=330,in=80,looseness=1.1] (C);
+\draw[ed] (A) -- (13.5,0) -- (13.5,-8.2) -- (C.north east);
+\draw[ed] (E) -- (C);
+\draw[ed] (C) -- (Y);
+\draw[ed] (epsilon) -- (Y);
+\end{pgfonlayer}
+
+% Legend (not model variables).
+\node[latent,minimum size=6mm] (legendlatent) at (-1,-16.1) {};
+\node[lab,anchor=west,text width=17mm] at (-.55,-16.1) {latent};
+\node[obs,minimum size=6mm] (legendobs) at (2,-16.1) {};
+\node[lab,anchor=west,text width=21mm] at (2.45,-16.1) {observed};
+\node[derived,minimum size=6mm] (legendderived) at (5.3,-16.1) {};
+\node[lab,anchor=west,text width=22mm] at (5.75,-16.1) {derived};
+\node[hyper,minimum size=6mm] (legendhyper) at (8.9,-16.1) {};
+\node[lab,anchor=west,text width=30mm] at (9.35,-16.1) {shared parameter};
+\end{tikzpicture}

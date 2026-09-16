@@ -1,0 +1,535 @@
+{
+  "model_id": "cpra_request__lapd",
+  "source": "designed",
+  "jurisdiction": "City of Los Angeles — Los Angeles Police Department, CPRA Unit (Public Records and Subpoena Response Section, Risk Management and Legal Affairs Division)",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {"id": "D1", "title": "LAPD California Public Records Act (CPRA) Unit Manual, v11 (June 22, 2023) — internal staff manual", "url": "https://lapdonlinestrgeacc.blob.core.usgovcloudapi.net/lapdonlinemedia/CPRA-Unit-Manual-v11-6-22-2023.pdf", "saved_as": "corpus/realworld/cpra_request/raw/S8_lapd_cpra_manual_v11.txt"},
+    {"id": "D2", "title": "Cal. Gov. Code §7922.535 — 10-day determination and 14-day 'unusual circumstances' extension", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.535", "saved_as": "corpus/realworld/cpra_request/raw/S1_gov_7922_535.txt"},
+    {"id": "D3", "title": "Cal. Gov. Code §7922.530 — inspection and direct cost of duplication", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.530", "saved_as": "corpus/realworld/cpra_request/raw/S2_gov_7922_530.txt"},
+    {"id": "D4", "title": "Cal. Gov. Code §7922.600 — agency's duty to assist the requester formulate a focused request", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7922.600", "saved_as": "corpus/realworld/cpra_request/raw/S5_gov_7922_600.txt"},
+    {"id": "D5", "title": "Cal. Gov. Code §7923.000 / §7923.115 — writ of mandate, injunctive or declaratory relief; attorney's fees", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7923.000", "saved_as": "corpus/realworld/cpra_request/raw/S3_gov_7923_000.txt"},
+    {"id": "D6", "title": "City of Los Angeles — Public Records Request (citywide applicant-facing program page)", "url": "https://lacity.gov/public-records-request", "saved_as": "corpus/realworld/cpra_request/raw/S14_lacity_public_records_request_page.txt"},
+    {"id": "D7", "title": "MuckRock agency statistics for the Los Angeles Police Department (scraped 2026-09-15)", "url": "https://www.muckrock.com/agency/los-angeles-91/los-angeles-police-department-265/", "saved_as": "corpus/realworld/cpra_request/raw/muckrock_agency_stats.json"},
+    {"id": "D8", "title": "MuckRock per-request timelines, LAPD (3 requests: Flock/ALPR installs, FIG cameras, North Hollywood officer-involved shooting)", "url": "https://www.muckrock.com/foi/los-angeles-91/flock-installs-los-angeles-police-department-179953/", "saved_as": "corpus/realworld/cpra_request/raw/muckrock_request_samples.json"},
+    {"id": "D9", "title": "The People's Business: A Guide to the California Public Records Act (League of California Cities, rev. Sept. 2022) — practitioner handbook", "url": "https://www.pattersonca.gov/DocumentCenter/View/7832/THE-PEOPLES-BUSINESS--A-Guide-to-the-California-Public-Records-Act", "saved_as": "corpus/realworld/cpra_request/raw/S7_peoples_business_guide.txt"}
+  ],
+  "actors": [
+    {"id": "requester", "name": "Member of the public (any natural person or business entity; news media have no greater rights)", "dept": "external"},
+    {"id": "cpra_analyst", "name": "CPRA analyst (custodian-of-records desk)", "dept": "CPRA Unit, Public Records and Subpoena Response Section, Risk Management and Legal Affairs Division"},
+    {"id": "cpra_supervisor", "name": "CPRA supervisor", "dept": "CPRA Unit, PRSR Section"},
+    {"id": "prsr_command", "name": "Detective III Supervisor / Assistant Officer in Charge / Officer in Charge", "dept": "Public Records and Subpoena Response Section, RMLAD"},
+    {"id": "record_holder", "name": "Record-holding Department division, office, or individual employee (including personal devices and accounts)", "dept": "LAPD operational divisions"},
+    {"id": "investigating_officer", "name": "Investigating officer (I/O) on the underlying case", "dept": "LAPD"},
+    {"id": "city_attorney", "name": "Assigned Deputy City Attorney", "dept": "Public Safety General Counsel Section, Los Angeles City Attorney's Office"},
+    {"id": "nextrequest", "name": "NextRequest citywide CPRA portal", "dept": "City of Los Angeles / vendor system"},
+    {"id": "superior_court", "name": "Los Angeles County Superior Court", "dept": "judiciary"}
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Search NextRequest for records the Department has already collected and produced for an earlier requester before filing anything",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["NextRequest public request archive"],
+      "artifacts_out": ["previously produced documents, or a decision to file"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The portal also enables potential requesters to determine whether the Department has already collected and produced the records they seek in response to a request previously submitted by a member of the public.", "page_or_section": "§12, NextRequest CPRA Portal"}
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Submit the CPRA request in person, by phone, in writing, or through the City's NextRequest portal; no ID or stated purpose required",
+      "actor": "requester",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["description of an identifiable record or category of records"],
+      "artifacts_out": ["filed CPRA request"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code §§7922.525, 7922.530(a)",
+      "evidence": [
+        {"doc": "D1", "quote": "The Department accepts CPRA requests in person, by phone, in writing, and via the City’s NextRequest portal, a link to which is available on lapdonline.org.", "page_or_section": "§4.1, Procedures"},
+        {"doc": "D6", "quote": "Requests should be sent directly to the department the requester believes to be in possession of responsive records based on the content of the request.", "page_or_section": "How to Submit a CPRA Request"}
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Wrong-department referral: the receiving department closes the request and refers the requester to a different department",
+      "actor": "record_holder",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["misdirected request"],
+      "artifacts_out": ["closure notice and referral"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "A02", "reason": "request filed with a department that holds no responsive records"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D6", "quote": "If the receiving department does not possess responsive records, the receiving department will close the request and refer the requester to a different department potentially in possession of responsive records.", "page_or_section": "How to Submit a CPRA Request"}
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "NextRequest auto-confirms the submission and issues a request number",
+      "actor": "nextrequest",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["filed request"],
+      "artifacts_out": ["automated confirmation with request number (e.g. #26-15506)"],
+      "timing": {"median_days": 0, "p90_days": 11, "source": "observed — D8 (same-day auto-confirmation on two LAPD samples; 11 days on the Flock/ALPR sample)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The portal enables requesters to easily submit a CPRA request, determine the status of a request, and view the Department’s response(s) to requests.", "page_or_section": "§12, NextRequest CPRA Portal"},
+        {"doc": "D8", "quote": "Automated confirmation request #26-15506 submitted.", "page_or_section": "FIG cameras request, 2026-08-13 entry"}
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Acknowledge the request and assign it to a named CPRA analyst",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["filed request"],
+      "artifacts_out": ["analyst assignment", "acknowledgment to requester"],
+      "timing": {"median_days": 7, "p90_days": 11, "source": "observed — D8 (LAPD acknowledged and assigned to an analyst 7 days after filing on the FIG-cameras sample; 11 days on the Flock/ALPR sample)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Department has established a CPRA Unit designated as the “custodian of records” to handle its CPRA requests.", "page_or_section": "§1.1, Overview"},
+        {"doc": "D8", "quote": "Acknowledged, assigned to a CPRA analyst (7 days after filing).", "page_or_section": "FIG cameras request, 2026-08-20 entry"}
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Discharge the duty to assist: contact the requester to clarify and narrow the request, describe the information technology and physical location where the records exist, and suggest ways to overcome a practical basis for denial",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["request as filed"],
+      "artifacts_out": ["clarified or narrowed request"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code §7922.600",
+      "evidence": [
+        {"doc": "D1", "quote": "the CPRA analyst has a duty to assist requesters by helping them identify records and information responsive to the request, describing the information technology and physical location in which the records exist", "page_or_section": "§3.1.A, Identifiable Information & Duty to Assist Requester"},
+        {"doc": "D4", "quote": "Describe the information technology and physical location in which the records exist.", "page_or_section": "Gov. Code §7922.600(a)(2)"}
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Consult every person or office likely to hold responsive records, including by asking probing questions of Department staff",
+      "actor": "cpra_analyst",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["clarified request"],
+      "artifacts_out": ["search results from the record-holding divisions"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Department must make a reasonable effort to search for and locate requested records, including by asking probing questions of Department staff.", "page_or_section": "§4.1.C, Locating Records"},
+        {"doc": "D1", "quote": "In general, upon the Department’s receipt of a CPRA request, all persons or offices that would most likely be in possession of responsive records should be consulted in an effort to locate the records.", "page_or_section": "§4.1.C, Locating Records"}
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Push the request out to individual employees who may hold responsive records on personal devices or accounts and rely on them to search their own files",
+      "actor": "record_holder",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["request communicated to employees and officials"],
+      "artifacts_out": ["employee self-searches of personal accounts and devices"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "the Department’s first step should be to communicate the request not only to the custodian of records but also to any employee or official who may have such information in personal devices or accounts.", "page_or_section": "§1.2.A.3, Prepared, Owned, Used, or Retained"},
+        {"doc": "D1", "quote": "a local agency may then “reasonably rely” on the employees to search their own personal files, accounts, and devices for responsive materials.", "page_or_section": "§1.2.A.3, Prepared, Owned, Used, or Retained"}
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Determine in writing within 10 days whether disclosable records exist, why any are withheld, and — if records will be released — the estimated date and time they will be available",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["search results", "exemption analysis"],
+      "artifacts_out": ["written determination letter"],
+      "timing": {"median_days": 10, "p90_days": 24, "source": "designed — Gov. Code §7922.535(a)–(b); D1 §4.1. Observed in D8: extension notices themselves landed 9–11 days after filing on every sampled LAPD/CHP request."},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code §7922.535(a)",
+      "evidence": [
+        {"doc": "D1", "quote": "The Department is obligated by the CPRA to respond in writing to CPRA requests within 10 days, or 24 days in certain circumstances", "page_or_section": "§4.1, Procedures"},
+        {"doc": "D2", "quote": "Each agency, upon a request for a copy of records, shall, within 10 days from receipt of the request, determine whether the request, in whole or in part, seeks copies of disclosable public records", "page_or_section": "Gov. Code §7922.535(a)"}
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Verify that any extension rests on one of the four enumerated 'unusual circumstances' — and not on other pressing business or on the most knowledgeable employee being on vacation",
+      "actor": "cpra_analyst",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["proposed extension"],
+      "artifacts_out": ["extension ground identified, or extension refused"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.535(c)",
+      "evidence": [
+        {"doc": "D1", "quote": "No other reasons justify an extension of time to provide a written response to a CPRA request. For example, the Department may not extend the time to respond simply on the basis that it has other pressing business", "page_or_section": "§4.1.A, Extending the Response Time"},
+        {"doc": "D1", "quote": "or that the employee most knowledgeable about the records sought is on vacation or is otherwise unavailable.", "page_or_section": "§4.1.A, Extending the Response Time"}
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Send the written 'unusual circumstances' extension notice stating the reasons and the anticipated response date within the 14-day extension period",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["identified statutory extension ground"],
+      "artifacts_out": ["written extension notice naming a new determination date"],
+      "timing": {"median_days": 11, "p90_days": 11, "source": "observed — D8 (extension notices issued 11 days after filing on the LAPD FIG-cameras, CHP roster and CHP less-lethals samples)"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.535(b)",
+      "evidence": [
+        {"doc": "D1", "quote": "it must communicate this to the requester in writing, stating the reason or reasons for the extension and the anticipated date of the response within the 14-day extension period.", "page_or_section": "§4.1.A, Extending the Response Time"},
+        {"doc": "D2", "quote": "The notice shall not specify a date that would result in an extension for more than 14 days.", "page_or_section": "Gov. Code §7922.535(b)"}
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "Obtain an extension by consent of the requester and document the agreement in writing",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["requester agreement"],
+      "artifacts_out": ["documented consensual deadline"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Department may also obtain an extension by consent of the requester. Often a requester will cooperate with the Department on such matters as the timing of the response", "page_or_section": "§4.1.A, Extending the Response Time"}
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Serially re-extend the tentative release date rather than producing or denying — observed nine consecutive roughly two-month deferrals over 19+ months with zero files released",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["open request past its last promised date"],
+      "artifacts_out": ["a further deferral notice naming a new date"],
+      "timing": {"median_days": 61, "p90_days": 71, "source": "observed — D8 Flock/ALPR request: nine sequential deferrals 2025-03-20 → 2026-10-20, ~2 months apart"},
+      "fee": null,
+      "rework": {"back_to": "A09", "reason": "records still under review at the promised release date; the determination is re-deferred instead of made"},
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D8", "quote": "Nine sequential ~2-month 'extensions' after filing, none framed as new requests -- the statute's one-time 14-day 'unusual circumstances' clause is being used, in practice, as an indefinitely renewable rolling deferral", "page_or_section": "Flock installs LAPD request, surprise field"},
+        {"doc": "D8", "quote": "Still searching; promised update by 2026-10-14 -- 62 days after filing, well past the 24-day statutory ceiling.", "page_or_section": "FIG cameras request, 2026-09-08 entry"}
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Analyse each record for exemptions; where discretionary disclosure appears appropriate the analyst must consult a CPRA supervisor before deciding",
+      "actor": "cpra_analyst",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["located records"],
+      "artifacts_out": ["exemption determination per record"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code §§7922.000, 7923.600, 7927.700, 7927.705",
+      "evidence": [
+        {"doc": "D1", "quote": "When a CPRA analyst determines that discretionary disclosure of a record appears appropriate in light of the public interest in disclosure and the absence of countervailing privacy and public safety concerns, the CPRA analyst shall consult with a CPRA supervisor", "page_or_section": "§4.2, Claim of Exemption"},
+        {"doc": "D1", "quote": "If an analyst is uncertain as to whether a particular record is exempt, or needs assistance determining what exemptions may apply, it is advisable to consult with a supervisor or the Department’s legal counsel", "page_or_section": "§4.1.D, Types of Responses"}
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Contact the investigating officer on the case to obtain specific facts supporting the endangerment exception before withholding otherwise mandatory arrest or incident information",
+      "actor": "investigating_officer",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["request touching an investigative file"],
+      "artifacts_out": ["I/O statement of specific facts supporting the exception"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §§7923.610–7923.620",
+      "evidence": [
+        {"doc": "D1", "quote": "The CPRA analyst would need to contact the investigating officer (I/O) on the matter and obtain specific facts from that person supporting application of this exception.", "page_or_section": "§7.1, Investigative Records"}
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "Redact exempt material and disclose the remainder; decline to segregate only where what would remain is of little or no value and segregation is unduly burdensome",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["records containing exempt material"],
+      "artifacts_out": ["redacted records"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.525 (segregation duty)",
+      "evidence": [
+        {"doc": "D1", "quote": "the general rule is that the exempt material may be withheld but the remainder of the record must be disclosed. The fact that it is time consuming to segregate exempt material does not obviate the requirement to do it", "page_or_section": "§4.3, Redaction of Records"},
+        {"doc": "D1", "quote": "If the information which would remain after exempt material has been redacted would be of little or no value to the requester, the agency may also decline to disclose the record", "page_or_section": "§4.3, Redaction of Records"}
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Run the SB 1421 / SB 16 peace-officer-records sub-workflow: PRSR implements, maintains, produces and releases these records, nominally within 45 days of the request, with release delayable during an active investigation",
+      "actor": "prsr_command",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["request for use-of-force, sexual assault, dishonesty, excessive force, unlawful arrest or search records"],
+      "artifacts_out": ["released or delayed peace-officer personnel records"],
+      "timing": {"median_days": 45, "p90_days": null, "source": "designed — Pen. Code §832.7 as amended by SB 16 (45 days). Observed in D8: an officer-involved-shooting request had its tentative release date pushed three times in ~6-month increments over 2 years."},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §832.7(b); Gov. Code §7923.625",
+      "evidence": [
+        {"doc": "D1", "quote": "SB 16 amends Penal Code Section 832.7 to require law enforcement agencies to release records pursuant to a CPRA request within forty-five (45) days of the request, except as authorized by the section.", "page_or_section": "§14, Senate Bill 16"},
+        {"doc": "D1", "quote": "an agency may delay disclosure of such recordings for a certain period of time during an active criminal or administrative investigation if disclosure would substantially interfere with the investigation.", "page_or_section": "§7.1, Investigative Records"},
+        {"doc": "D8", "quote": "Invoked 14-day unusual-circumstances extension AND asserted the SB1421/PC 832.7(b)(8) temporary exemption for records tied to an active officer-involved-shooting investigation.", "page_or_section": "North Hollywood OIS request, 2024-09-24 entry"}
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Confirm there is no duty to create a record that does not exist, to reconstruct a lawfully discarded record, or to produce a privilege log of what is withheld",
+      "actor": "cpra_analyst",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["request for a record that must be compiled or does not exist"],
+      "artifacts_out": ["no-records or no-log position stated in the response"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The Department has no duty to create a record that does not exist at the time of the request. There is also no duty to reconstruct a record that was lawfully discarded prior to receipt of the request.", "page_or_section": "§4.1.E, No Duty to Create a Record or a Privilege Log"},
+        {"doc": "D1", "quote": "The CPRA does not require that the Department create a list that identifies the specific records being withheld.", "page_or_section": "§4.1.E, No Duty to Create a Record or a Privilege Log"}
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Escalate for legal advice up a fixed chain: analyst → CPRA supervisor → Detective III Supervisor / Assistant OIC / OIC → authorization to consult the Public Safety General Counsel Section → assigned Deputy City Attorney",
+      "actor": "city_attorney",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["contested exemption question"],
+      "artifacts_out": ["legal advice from an assigned City Attorney"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "If a CPRA analyst needs advice, the analyst will go to the CPRA supervisor, who will consult with the Public Records and Subpoena Response Section Detective III Supervisor, Public Records and Subpoena Response Section Assistant Officer in Charge (OIC), or", "page_or_section": "§4.1.F, Legal Advice"},
+        {"doc": "D1", "quote": "the Public Records and Subpoena Response Section OIC or Assistant OIC will authorize consultation with the supervisor of Public Safety General Counsel Section of the Los Angeles City Attorney’s Office, who may assign the case to a City Attorney.", "page_or_section": "§4.1.F, Legal Advice"}
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Refer a crime-statistics request to lapdonline.org or the Mayor's Open Data site — after verifying the data there is actually available and responsive",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["request for crime statistics"],
+      "artifacts_out": ["referral to a published dataset"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "The CPRA analyst should check the data and verify that the requested information is available and responsive, prior to referring a requester to lapdonline.org or to the Mayor’s Open Data website.", "page_or_section": "§1.2.A.8, Crime Statistics"}
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Produce the records promptly — one of four possible outcomes (disclose, withhold, disclose redacted, deny) — on a rolling basis if voluminous, charging only the direct cost of duplication",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["cleared and redacted records"],
+      "artifacts_out": ["produced records (PDF by default)", "duplication invoice if copies were made"],
+      "timing": {"median_days": null, "p90_days": null, "source": "designed — Gov. Code §7922.530(a) says only 'promptly'; no fixed number of days exists for this segment"},
+      "fee": {"amount": null, "when": "direct cost of duplication only; inspection is free. MuckRock's observed average fee charged to LAPD requesters is $35.03 (D7)."},
+      "rework": null,
+      "optional": false,
+      "element_ref": "Gov. Code §7922.530(a)",
+      "evidence": [
+        {"doc": "D1", "quote": "After conducting a reasonable search for requested records, the Department has only a limited number of possible responses. (1) disclose the record; (2) withhold the record; (3) disclose the record in redacted form; (4) denial.", "page_or_section": "§4.1.D, Types of Responses"},
+        {"doc": "D1", "quote": "providing responsive records (whether redacted or not) on a “rolling” basis, rather than in one complete package.", "page_or_section": "§4.1.B, Timing of Disclosure"},
+        {"doc": "D1", "quote": "A staff person’s time in searching for, retrieving and mailing the record is not included in the direct cost of duplication.", "page_or_section": "§3.4, Right to Inspect and Copy Public Records"}
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Issue a written denial that identifies the specific CPRA exemptions relied on and states the names and titles or positions of each person responsible for the denial",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["exemption determination"],
+      "artifacts_out": ["written denial naming the responsible officials"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Gov. Code §7922.535(a)",
+      "evidence": [
+        {"doc": "D1", "quote": "A denial of a request for records must be in writing and “state the names and titles or positions of each person responsible for the denial.”", "page_or_section": "§4.1.D, Types of Responses"},
+        {"doc": "D1", "quote": "Statements like “we don’t give up those types of records” or “our policy is to keep such records confidential” will not suffice.", "page_or_section": "§4.1.D, Types of Responses"}
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Deny on the ground that the records were previously destroyed under the retention schedule with City Council and City Attorney approvals",
+      "actor": "cpra_analyst",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["retention-schedule destruction record"],
+      "artifacts_out": ["denial for non-possession"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "A request can be denied if the records had previously been destroyed by approvals of City Council and City Attorney required by the records retention schedule/policy and are no longer in the Department’s possession.", "page_or_section": "§4.1.D, Types of Responses"}
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Post the produced documents to NextRequest so that they can be searched and viewed by the public",
+      "actor": "nextrequest",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["produced records"],
+      "artifacts_out": ["publicly searchable NextRequest record set"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "Documents produced in response to requests are posted to NextRequest so that they may be searched and viewed by the public.", "page_or_section": "§12, NextRequest CPRA Portal"}
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Requester's only remedy: bring a superior court action for mandamus, injunctive or declaratory relief; the court may inspect the documents in camera at its discretion and a prevailing plaintiff recovers costs and fees",
+      "actor": "superior_court",
+      "visibility": "applicant_facing",
+      "occasion": "hearing",
+      "artifacts_in": ["denial or constructive denial through delay"],
+      "artifacts_out": ["court order to disclose, plus costs and attorney's fees"],
+      "timing": {"median_days": null, "p90_days": null, "source": "designed — no fixed statutory period; no timed instance observed in this sample"},
+      "fee": null,
+      "rework": {"back_to": "A21", "reason": "court orders disclosure of improperly withheld records"},
+      "optional": true,
+      "element_ref": "Gov. Code §§7923.000, 7923.100–7923.115",
+      "evidence": [
+        {"doc": "D1", "quote": "A requester, but not a public agency, may bring an action seeking mandamus, injunctive relief or declaratory relief under Sections 7923.000 or 7923.100-7923.115(c).", "page_or_section": "§11, Litigation Under the CPRA"},
+        {"doc": "D1", "quote": "An in-camera hearing is held at the court’s discretion, and the parties have no right to such a hearing. Prevailing plaintiffs are awarded court costs and attorney’s fees.", "page_or_section": "§11, Litigation Under the CPRA"}
+      ]
+    }
+  ],
+  "edges": [
+    {"from": "A01", "to": "A02", "type": "optional", "condition": "nothing responsive already published"},
+    {"from": "A02", "to": "A04", "type": "sequence", "condition": "filed through NextRequest"},
+    {"from": "A02", "to": "A03", "type": "optional", "condition": "filed with the wrong department"},
+    {"from": "A03", "to": "A02", "type": "rework", "condition": "refile with the correct department"},
+    {"from": "A04", "to": "A05", "type": "sequence", "condition": ""},
+    {"from": "A05", "to": "A06", "type": "sequence", "condition": ""},
+    {"from": "A06", "to": "A07", "type": "handoff", "condition": "request is reasonably described"},
+    {"from": "A07", "to": "A08", "type": "optional", "condition": "records may sit in employees' personal accounts or devices"},
+    {"from": "A07", "to": "A09", "type": "sequence", "condition": ""},
+    {"from": "A08", "to": "A09", "type": "sequence", "condition": ""},
+    {"from": "A09", "to": "A10", "type": "optional", "condition": "10 days is not enough"},
+    {"from": "A10", "to": "A11", "type": "sequence", "condition": "one of the four statutory grounds applies"},
+    {"from": "A09", "to": "A12", "type": "optional", "condition": "requester agrees to a later deadline"},
+    {"from": "A11", "to": "A13", "type": "optional", "condition": "review not finished by the promised date"},
+    {"from": "A13", "to": "A13", "type": "rework", "condition": "re-deferred again (observed nine times on one request)"},
+    {"from": "A09", "to": "A14", "type": "sequence", "condition": "responsive records located"},
+    {"from": "A14", "to": "A15", "type": "optional", "condition": "record is part of an investigative file"},
+    {"from": "A14", "to": "A16", "type": "optional", "condition": "record contains segregable exempt material"},
+    {"from": "A14", "to": "A17", "type": "optional", "condition": "request reaches peace-officer personnel records"},
+    {"from": "A14", "to": "A18", "type": "optional", "condition": "no such record exists, or a privilege log is demanded"},
+    {"from": "A14", "to": "A19", "type": "optional", "condition": "analyst or supervisor needs legal advice"},
+    {"from": "A19", "to": "A14", "type": "handoff", "condition": "City Attorney advice returned"},
+    {"from": "A09", "to": "A20", "type": "optional", "condition": "request is for crime statistics already published"},
+    {"from": "A16", "to": "A21", "type": "sequence", "condition": ""},
+    {"from": "A14", "to": "A21", "type": "sequence", "condition": "records cleared for release"},
+    {"from": "A17", "to": "A21", "type": "sequence", "condition": "peace-officer records cleared for release"},
+    {"from": "A14", "to": "A22", "type": "optional", "condition": "records withheld in full"},
+    {"from": "A18", "to": "A22", "type": "sequence", "condition": ""},
+    {"from": "A07", "to": "A23", "type": "optional", "condition": "records already destroyed under the retention schedule"},
+    {"from": "A21", "to": "A24", "type": "handoff", "condition": ""},
+    {"from": "A22", "to": "A25", "type": "optional", "condition": "requester litigates"},
+    {"from": "A13", "to": "A25", "type": "optional", "condition": "requester litigates the delay"},
+    {"from": "A25", "to": "A21", "type": "rework", "condition": "court orders production"}
+  ],
+  "terminal_artifact": "the produced (or redacted) public records, posted to NextRequest — or a written denial naming the exemptions and the officials responsible for it",
+  "denial_rate": null,
+  "timing_gold": {
+    "end_to_end_median_days": 150,
+    "p90": null,
+    "source": "observed — D7, MuckRock's own aggregate statistic across all MuckRock-tracked requests to the Los Angeles Police Department, scraped 2026-09-15. Statutory ceiling for comparison is 24 days (10 + 14).",
+    "quote": "All four agencies' MuckRock-observed average response times (83-157 days) are 3.5x to 6.5x longer than the statutory maximum of 24 days (10-day determination + 14-day 'unusual circumstances' extension under Gov. Code SS7922.535).",
+    "official_ceiling_days": 24,
+    "observed_mean_days_lapd": 150,
+    "observed_success_rate_pct_lapd": 31.9,
+    "observed_mean_fee_usd_lapd": 35.03,
+    "n_requests": "MuckRock aggregate, count not published on the agency page; 3 individual LAPD request timelines inspected (D8)",
+    "note": "150 days is a MuckRock mean, not a median, and it pools every request type MuckRock users filed with LAPD. The per-request sample (D8) is bimodal rather than centred: nothing in it resolved near 24 days, while two requests have been open 19 months and 2 years respectively with nothing released."
+  },
+  "known_gaps": [
+    "The triage decision itself. The manual specifies the extension grounds, the exemption menu, and the escalation chain, but nothing — statute, manual, or observed data — states the criteria an analyst actually uses to decide that a request is the kind that gets serially deferred. The CHP roster request resolved in 28 days; the LAPD ALPR request was re-deferred nine times over 19+ months. The mechanism is fully visible; the selection rule is not.",
+    "Whether serial re-extension is authorised at all. §7922.535(b) caps a single notice at 14 days and the manual says no other reasons justify an extension, yet the observed practice is an indefinitely renewable rolling deferral. No document collected reconciles the two, and nothing short of litigation enforces the cap.",
+    "How long each internal segment takes. The manual names the analyst assignment, the division search, the employee personal-account search, the supervisor consult and the City Attorney escalation but attaches no service level to any of them; the only number anywhere is the 10/24-day statutory one.",
+    "No denial rate is published. MuckRock reports a 31.90% success rate for LAPD, which is not the complement of a denial rate (it pools withdrawals, abandonment, no-records outcomes and requests still open).",
+    "Volume and staffing. Nothing states how many CPRA requests LAPD receives, how many analysts the CPRA Unit has, or what the queue looks like — so the 150-day average cannot be decomposed into queueing versus review time.",
+    "Upstream record retention. A records-retention practice that destroys records before any request arrives (A23's lawful destruction path, and the reported use of auto-deleting chat tools elsewhere in the City) defeats a request invisibly; the manual acknowledges destruction as a denial ground but no document quantifies it.",
+    "Fee practice. The manual restates the direct-cost-of-duplication rule but there is no LAPD fee schedule in the corpus; the only figure is MuckRock's observed $35.03 average."
+  ],
+  "notes": "The LAPD CPRA Unit Manual v11 is a genuine internal staff manual, found on a public Azure Government Cloud blob URL with no access control, and it is fully updated to the 2023 §7920.000-series numbering — while the City's own applicant-facing page (D6) still cites the superseded §6250/§6253(c)/§6252(e) numbering. That mismatch is the sharpest declared-vs-designed seam in this slug and is the reason the statutory element_refs in this model use the current numbering even though a solver reading only the City page would produce the old one. Visibility calls: the analyst assignment (A05) and the SB 1421/16 sub-workflow (A17) are marked applicant_inferable rather than staff_only because the MuckRock request logs show the requester being told both; A07, A08, A10, A14, A15, A18 and A19 appear in no applicant-facing document held in raw/ and are marked staff_only. A08 (pushing the request out to employees' personal devices and relying on them to self-search) and A19 (the five-rung legal-advice escalation chain) are the two activities a solver working from the public page could not reach by any route. Sibling processes deliberately excluded: federal FOIA (which nine reddit posts in this corpus conflate with CPRA), Pitchess motions, and subpoena responses — the same PRSR Section handles subpoenas, but that is not a CPRA path."
+}

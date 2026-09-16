@@ -1,0 +1,1822 @@
+{
+ "built": "2026-09-15",
+ "model": "continuous-time local-level (Kalman) on log duration; state variance tau^2 per year; observation variance by evidence tier",
+ "tau2_per_year": 0.05,
+ "obs_variance_by_tier": {
+  "verifiable_official": 0.1,
+  "inferred": 0.15,
+  "designed_document": 0.25,
+  "statutory": 0.4,
+  "community_reported": 0.55
+ },
+ "robustness": {
+  "jump_var_at_known_changepoints": 0.55,
+  "surprise_z": 2.5,
+  "policy": "surprise down-weights the OBSERVATION; only a known date moves the STATE",
+  "why": "a single Gaussian walk cannot hold both a 27-year corpus and the measured 4-8 sigma moves; see docs/related-work-bayesian.md 9.1"
+ },
+ "n_keys": 23,
+ "rows": [
+  {
+   "agency_class": "caseworker",
+   "task_type": "decision",
+   "n_obs": 29,
+   "span": [
+    2014.6,
+    2026.7
+   ],
+   "median_days_start": 19.4,
+   "median_days_now": 11.1,
+   "sd_now_log": 0.186,
+   "ci68_now": [
+    9.2,
+    13.3
+   ],
+   "drift_factor": 0.57,
+   "path": [
+    {
+     "t": 2014.58,
+     "median_days": 19.4
+    },
+    {
+     "t": 2021.92,
+     "median_days": 14.4
+    },
+    {
+     "t": 2021.92,
+     "median_days": 14.4
+    },
+    {
+     "t": 2024.17,
+     "median_days": 11.7
+    },
+    {
+     "t": 2025.0,
+     "median_days": 10.8
+    },
+    {
+     "t": 2025.0,
+     "median_days": 10.8
+    },
+    {
+     "t": 2025.17,
+     "median_days": 11.0
+    },
+    {
+     "t": 2025.25,
+     "median_days": 11.0
+    },
+    {
+     "t": 2025.5,
+     "median_days": 11.1
+    },
+    {
+     "t": 2025.5,
+     "median_days": 11.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 11.2
+    },
+    {
+     "t": 2026.0,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.0,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.0,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.0,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.0,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.17,
+     "median_days": 10.6
+    },
+    {
+     "t": 2026.25,
+     "median_days": 10.5
+    },
+    {
+     "t": 2026.25,
+     "median_days": 10.5
+    },
+    {
+     "t": 2026.25,
+     "median_days": 10.5
+    },
+    {
+     "t": 2026.25,
+     "median_days": 10.5
+    },
+    {
+     "t": 2026.33,
+     "median_days": 10.4
+    },
+    {
+     "t": 2026.33,
+     "median_days": 10.4
+    },
+    {
+     "t": 2026.33,
+     "median_days": 10.4
+    },
+    {
+     "t": 2026.58,
+     "median_days": 10.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 10.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 11.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 11.1
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": 2.821,
+     "factor": 2.0
+    },
+    {
+     "t": 2026.25,
+     "kind": "downweighted outlier",
+     "resid": -2.512,
+     "factor": 1.7
+    },
+    {
+     "t": 2026.33,
+     "kind": "downweighted outlier",
+     "resid": -2.392,
+     "factor": 1.5
+    },
+    {
+     "t": 2026.33,
+     "kind": "downweighted outlier",
+     "resid": -2.281,
+     "factor": 1.4
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.826,
+     "factor": 1.9
+    }
+   ],
+   "n_events": 5
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "records_check",
+   "n_obs": 22,
+   "span": [
+    2026.6,
+    2026.7
+   ],
+   "median_days_start": 84.9,
+   "median_days_now": 84.8,
+   "sd_now_log": 0.164,
+   "ci68_now": [
+    72.0,
+    99.9
+   ],
+   "drift_factor": 1.0,
+   "path": [
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.58,
+     "median_days": 84.9
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 84.8
+    }
+   ],
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "events": [
+    {
+     "t": 2026.58,
+     "kind": "downweighted outlier",
+     "resid": 2.057,
+     "factor": 1.1
+    },
+    {
+     "t": 2026.58,
+     "kind": "downweighted outlier",
+     "resid": 1.913,
+     "factor": 3.8
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": -2.506,
+     "factor": 1.7
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": -2.256,
+     "factor": 1.4
+    }
+   ],
+   "n_events": 4
+  },
+  {
+   "agency_class": "plan_review",
+   "task_type": "document_review",
+   "n_obs": 19,
+   "span": [
+    2024.1,
+    2026.7
+   ],
+   "median_days_start": 61.9,
+   "median_days_now": 34.6,
+   "sd_now_log": 0.227,
+   "ci68_now": [
+    27.5,
+    43.4
+   ],
+   "drift_factor": 0.56,
+   "path": [
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.08,
+     "median_days": 61.9
+    },
+    {
+     "t": 2024.33,
+     "median_days": 62.9
+    },
+    {
+     "t": 2024.42,
+     "median_days": 62.5
+    },
+    {
+     "t": 2025.33,
+     "median_days": 53.7
+    },
+    {
+     "t": 2025.5,
+     "median_days": 53.1
+    },
+    {
+     "t": 2025.67,
+     "median_days": 51.0
+    },
+    {
+     "t": 2025.75,
+     "median_days": 49.6
+    },
+    {
+     "t": 2026.08,
+     "median_days": 41.7
+    },
+    {
+     "t": 2026.08,
+     "median_days": 41.7
+    },
+    {
+     "t": 2026.25,
+     "median_days": 39.9
+    },
+    {
+     "t": 2026.33,
+     "median_days": 38.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 35.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 34.6
+    }
+   ],
+   "slugs": [
+    "adu_permit",
+    "food_facility",
+    "solar_permit"
+   ],
+   "events": [
+    {
+     "t": 2025.5,
+     "kind": "downweighted outlier",
+     "resid": 2.232,
+     "factor": 1.3
+    },
+    {
+     "t": 2026.08,
+     "kind": "downweighted outlier",
+     "resid": -2.209,
+     "factor": 2.4
+    },
+    {
+     "t": 2026.58,
+     "kind": "downweighted outlier",
+     "resid": -1.767,
+     "factor": 1.6
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": -1.873,
+     "factor": 3.5
+    }
+   ],
+   "n_events": 4
+  },
+  {
+   "agency_class": "background_check",
+   "task_type": "records_check",
+   "n_obs": 18,
+   "span": [
+    2020.2,
+    2026.7
+   ],
+   "median_days_start": 12.4,
+   "median_days_now": 17.4,
+   "sd_now_log": 0.25,
+   "ci68_now": [
+    13.5,
+    22.3
+   ],
+   "drift_factor": 1.41,
+   "path": [
+    {
+     "t": 2020.17,
+     "median_days": 12.4
+    },
+    {
+     "t": 2020.42,
+     "median_days": 12.7
+    },
+    {
+     "t": 2020.42,
+     "median_days": 12.7
+    },
+    {
+     "t": 2020.42,
+     "median_days": 12.7
+    },
+    {
+     "t": 2025.33,
+     "median_days": 18.9
+    },
+    {
+     "t": 2025.42,
+     "median_days": 19.0
+    },
+    {
+     "t": 2025.42,
+     "median_days": 19.0
+    },
+    {
+     "t": 2025.5,
+     "median_days": 18.7
+    },
+    {
+     "t": 2025.5,
+     "median_days": 18.7
+    },
+    {
+     "t": 2025.67,
+     "median_days": 17.5
+    },
+    {
+     "t": 2025.75,
+     "median_days": 17.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 16.3
+    },
+    {
+     "t": 2025.92,
+     "median_days": 16.3
+    },
+    {
+     "t": 2025.92,
+     "median_days": 16.3
+    },
+    {
+     "t": 2026.0,
+     "median_days": 16.4
+    },
+    {
+     "t": 2026.0,
+     "median_days": 16.4
+    },
+    {
+     "t": 2026.67,
+     "median_days": 17.4
+    },
+    {
+     "t": 2026.67,
+     "median_days": 17.4
+    }
+   ],
+   "slugs": [
+    "cslb_license",
+    "dros_firearm"
+   ],
+   "events": [
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": -2.542,
+     "factor": 5.7
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 2.27,
+     "factor": 2.6
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "?",
+   "task_type": "?",
+   "n_obs": 16,
+   "span": [
+    2021.9,
+    2026.7
+   ],
+   "median_days_start": 22.4,
+   "median_days_now": 27.1,
+   "sd_now_log": 0.19,
+   "ci68_now": [
+    22.4,
+    32.8
+   ],
+   "drift_factor": 1.21,
+   "path": [
+    {
+     "t": 2021.92,
+     "median_days": 22.4
+    },
+    {
+     "t": 2023.58,
+     "median_days": 25.7
+    },
+    {
+     "t": 2024.58,
+     "median_days": 27.6
+    },
+    {
+     "t": 2025.5,
+     "median_days": 27.7
+    },
+    {
+     "t": 2025.5,
+     "median_days": 27.7
+    },
+    {
+     "t": 2025.5,
+     "median_days": 27.7
+    },
+    {
+     "t": 2025.92,
+     "median_days": 28.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 28.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 28.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 28.1
+    },
+    {
+     "t": 2026.08,
+     "median_days": 27.9
+    },
+    {
+     "t": 2026.33,
+     "median_days": 28.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 27.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 27.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 27.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 27.1
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "cslb_license",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": -1.199,
+     "factor": 1.2
+    },
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": 1.14,
+     "factor": 1.4
+    },
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": 1.512,
+     "factor": 2.6
+    },
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": 2.291,
+     "factor": 6.3
+    }
+   ],
+   "n_events": 4
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "interview",
+   "n_obs": 13,
+   "span": [
+    2021.9,
+    2026.6
+   ],
+   "median_days_start": 13.1,
+   "median_days_now": 15.0,
+   "sd_now_log": 0.25,
+   "ci68_now": [
+    11.7,
+    19.3
+   ],
+   "drift_factor": 1.15,
+   "path": [
+    {
+     "t": 2021.92,
+     "median_days": 13.1
+    },
+    {
+     "t": 2023.5,
+     "median_days": 11.7
+    },
+    {
+     "t": 2025.67,
+     "median_days": 13.2
+    },
+    {
+     "t": 2025.83,
+     "median_days": 13.3
+    },
+    {
+     "t": 2025.83,
+     "median_days": 13.3
+    },
+    {
+     "t": 2025.83,
+     "median_days": 13.3
+    },
+    {
+     "t": 2026.08,
+     "median_days": 14.0
+    },
+    {
+     "t": 2026.25,
+     "median_days": 14.5
+    },
+    {
+     "t": 2026.33,
+     "median_days": 14.6
+    },
+    {
+     "t": 2026.33,
+     "median_days": 14.6
+    },
+    {
+     "t": 2026.33,
+     "median_days": 14.6
+    },
+    {
+     "t": 2026.42,
+     "median_days": 14.7
+    },
+    {
+     "t": 2026.58,
+     "median_days": 15.0
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "dros_firearm",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2026.25,
+     "kind": "downweighted outlier",
+     "resid": 2.226,
+     "factor": 1.2
+    },
+    {
+     "t": 2026.42,
+     "kind": "downweighted outlier",
+     "resid": -4.922,
+     "factor": 6.3
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "payment",
+   "n_obs": 13,
+   "span": [
+    2021.0,
+    2026.7
+   ],
+   "median_days_start": 15.9,
+   "median_days_now": 14.3,
+   "sd_now_log": 0.17,
+   "ci68_now": [
+    12.1,
+    17.0
+   ],
+   "drift_factor": 0.9,
+   "path": [
+    {
+     "t": 2021.0,
+     "median_days": 15.9
+    },
+    {
+     "t": 2021.0,
+     "median_days": 15.9
+    },
+    {
+     "t": 2021.0,
+     "median_days": 15.9
+    },
+    {
+     "t": 2026.0,
+     "median_days": 14.7
+    },
+    {
+     "t": 2026.42,
+     "median_days": 14.2
+    },
+    {
+     "t": 2026.5,
+     "median_days": 14.1
+    },
+    {
+     "t": 2026.5,
+     "median_days": 14.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 14.3
+    }
+   ],
+   "slugs": [
+    "solar_permit",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2026.5,
+     "kind": "downweighted outlier",
+     "resid": -2.293,
+     "factor": 1.2
+    }
+   ],
+   "n_events": 1
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "decision",
+   "n_obs": 12,
+   "span": [
+    2023.0,
+    2026.7
+   ],
+   "median_days_start": 137.1,
+   "median_days_now": 143.3,
+   "sd_now_log": 0.134,
+   "ci68_now": [
+    125.3,
+    163.9
+   ],
+   "drift_factor": 1.05,
+   "path": [
+    {
+     "t": 2023.0,
+     "median_days": 137.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 143.3
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "cpra_request"
+   ],
+   "events": [
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.953,
+     "factor": 2.2
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.246,
+     "factor": 1.3
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.566,
+     "factor": 3.3
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 2.823,
+     "factor": 10.7
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 2.775,
+     "factor": 10.4
+    }
+   ],
+   "n_events": 5
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "issuance",
+   "n_obs": 10,
+   "span": [
+    2024.6,
+    2026.7
+   ],
+   "median_days_start": 14.3,
+   "median_days_now": 21.3,
+   "sd_now_log": 0.217,
+   "ci68_now": [
+    17.1,
+    26.4
+   ],
+   "drift_factor": 1.49,
+   "path": [
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2024.58,
+     "median_days": 14.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 21.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 21.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 21.3
+    },
+    {
+     "t": 2026.67,
+     "median_days": 21.3
+    }
+   ],
+   "slugs": [
+    "cpra_request",
+    "cslb_license",
+    "food_facility",
+    "solar_permit"
+   ],
+   "events": [
+    {
+     "t": 2024.58,
+     "kind": "downweighted outlier",
+     "resid": 4.248,
+     "factor": 2.6
+    },
+    {
+     "t": 2024.58,
+     "kind": "downweighted outlier",
+     "resid": 3.328,
+     "factor": 1.9
+    },
+    {
+     "t": 2024.58,
+     "kind": "downweighted outlier",
+     "resid": 2.553,
+     "factor": 1.2
+    },
+    {
+     "t": 2024.58,
+     "kind": "downweighted outlier",
+     "resid": 2.31,
+     "factor": 1.1
+    },
+    {
+     "t": 2024.58,
+     "kind": "downweighted outlier",
+     "resid": 3.536,
+     "factor": 2.8
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.295,
+     "factor": 1.2
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.625,
+     "factor": 1.4
+    }
+   ],
+   "n_events": 7
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "scheduling",
+   "n_obs": 8,
+   "span": [
+    2023.8,
+    2026.7
+   ],
+   "median_days_start": 11.8,
+   "median_days_now": 9.2,
+   "sd_now_log": 0.241,
+   "ci68_now": [
+    7.2,
+    11.7
+   ],
+   "drift_factor": 0.78,
+   "path": [
+    {
+     "t": 2023.75,
+     "median_days": 11.8
+    },
+    {
+     "t": 2025.83,
+     "median_days": 9.6
+    },
+    {
+     "t": 2026.33,
+     "median_days": 9.3
+    },
+    {
+     "t": 2026.42,
+     "median_days": 9.2
+    },
+    {
+     "t": 2026.42,
+     "median_days": 9.2
+    },
+    {
+     "t": 2026.5,
+     "median_days": 9.2
+    },
+    {
+     "t": 2026.67,
+     "median_days": 9.2
+    },
+    {
+     "t": 2026.67,
+     "median_days": 9.2
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "ui_claim"
+   ],
+   "events": [],
+   "n_events": 0
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "scheduling",
+   "n_obs": 8,
+   "span": [
+    2024.1,
+    2025.9
+   ],
+   "median_days_start": 29.3,
+   "median_days_now": 25.5,
+   "sd_now_log": 0.291,
+   "ci68_now": [
+    19.0,
+    34.1
+   ],
+   "drift_factor": 0.87,
+   "path": [
+    {
+     "t": 2024.08,
+     "median_days": 29.3
+    },
+    {
+     "t": 2024.08,
+     "median_days": 29.3
+    },
+    {
+     "t": 2025.17,
+     "median_days": 28.9
+    },
+    {
+     "t": 2025.25,
+     "median_days": 28.5
+    },
+    {
+     "t": 2025.5,
+     "median_days": 27.4
+    },
+    {
+     "t": 2025.58,
+     "median_days": 26.9
+    },
+    {
+     "t": 2025.92,
+     "median_days": 25.5
+    },
+    {
+     "t": 2025.92,
+     "median_days": 25.5
+    }
+   ],
+   "slugs": [
+    "cslb_license",
+    "dros_firearm"
+   ],
+   "events": [],
+   "n_events": 0
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "decision",
+   "n_obs": 7,
+   "span": [
+    2019.1,
+    2026.7
+   ],
+   "median_days_start": 90.4,
+   "median_days_now": 19.7,
+   "sd_now_log": 0.158,
+   "ci68_now": [
+    16.8,
+    23.1
+   ],
+   "drift_factor": 0.22,
+   "path": [
+    {
+     "t": 2019.08,
+     "median_days": 90.4
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 19.7
+    }
+   ],
+   "slugs": [
+    "cpra_request",
+    "cslb_license",
+    "solar_permit"
+   ],
+   "events": [
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": -3.519,
+     "factor": 3.4
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.64,
+     "factor": 3.3
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "scheduling",
+   "n_obs": 7,
+   "span": [
+    2026.6,
+    2026.7
+   ],
+   "median_days_start": 41.8,
+   "median_days_now": 41.6,
+   "sd_now_log": 0.284,
+   "ci68_now": [
+    31.3,
+    55.2
+   ],
+   "drift_factor": 0.99,
+   "path": [
+    {
+     "t": 2026.58,
+     "median_days": 41.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 41.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 41.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 41.8
+    },
+    {
+     "t": 2026.58,
+     "median_days": 41.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 41.6
+    },
+    {
+     "t": 2026.67,
+     "median_days": 41.6
+    }
+   ],
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "events": [],
+   "n_events": 0
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "decision",
+   "n_obs": 6,
+   "span": [
+    2020.0,
+    2026.0
+   ],
+   "median_days_start": 21.9,
+   "median_days_now": 15.2,
+   "sd_now_log": 0.343,
+   "ci68_now": [
+    10.8,
+    21.4
+   ],
+   "drift_factor": 0.69,
+   "path": [
+    {
+     "t": 2020.0,
+     "median_days": 21.9
+    },
+    {
+     "t": 2024.58,
+     "median_days": 16.0
+    },
+    {
+     "t": 2025.42,
+     "median_days": 14.3
+    },
+    {
+     "t": 2025.42,
+     "median_days": 14.3
+    },
+    {
+     "t": 2025.75,
+     "median_days": 15.0
+    },
+    {
+     "t": 2026.0,
+     "median_days": 15.2
+    }
+   ],
+   "slugs": [
+    "dros_firearm"
+   ],
+   "events": [
+    {
+     "t": 2025.42,
+     "kind": "downweighted outlier",
+     "resid": -3.419,
+     "factor": 2.2
+    }
+   ],
+   "n_events": 1
+  },
+  {
+   "agency_class": "state_agency",
+   "task_type": "recordkeeping",
+   "n_obs": 6,
+   "span": [
+    2020.7,
+    2026.7
+   ],
+   "median_days_start": 55.5,
+   "median_days_now": 205.9,
+   "sd_now_log": 0.269,
+   "ci68_now": [
+    157.4,
+    269.3
+   ],
+   "drift_factor": 3.71,
+   "path": [
+    {
+     "t": 2020.67,
+     "median_days": 55.5
+    },
+    {
+     "t": 2021.0,
+     "median_days": 52.7
+    },
+    {
+     "t": 2024.17,
+     "median_days": 97.2
+    },
+    {
+     "t": 2026.67,
+     "median_days": 205.9
+    },
+    {
+     "t": 2026.67,
+     "median_days": 205.9
+    },
+    {
+     "t": 2026.67,
+     "median_days": 205.9
+    }
+   ],
+   "slugs": [
+    "solar_permit",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2021.0,
+     "kind": "downweighted outlier",
+     "resid": -1.743,
+     "factor": 1.3
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 2.345,
+     "factor": 1.6
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "notice",
+   "n_obs": 5,
+   "span": [
+    2025.5,
+    2026.7
+   ],
+   "median_days_start": 15.3,
+   "median_days_now": 18.6,
+   "sd_now_log": 0.225,
+   "ci68_now": [
+    14.8,
+    23.2
+   ],
+   "drift_factor": 1.21,
+   "path": [
+    {
+     "t": 2025.5,
+     "median_days": 15.3
+    },
+    {
+     "t": 2026.33,
+     "median_days": 17.9
+    },
+    {
+     "t": 2026.67,
+     "median_days": 18.6
+    },
+    {
+     "t": 2026.67,
+     "median_days": 18.6
+    },
+    {
+     "t": 2026.67,
+     "median_days": 18.6
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "cpra_request"
+   ],
+   "events": [
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 1.683,
+     "factor": 2.7
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 2.429,
+     "factor": 3.1
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "issuance",
+   "n_obs": 5,
+   "span": [
+    2024.2,
+    2025.5
+   ],
+   "median_days_start": 11.1,
+   "median_days_now": 11.3,
+   "sd_now_log": 0.35,
+   "ci68_now": [
+    8.0,
+    16.0
+   ],
+   "drift_factor": 1.02,
+   "path": [
+    {
+     "t": 2024.17,
+     "median_days": 11.1
+    },
+    {
+     "t": 2025.0,
+     "median_days": 11.3
+    },
+    {
+     "t": 2025.0,
+     "median_days": 11.3
+    },
+    {
+     "t": 2025.33,
+     "median_days": 11.3
+    },
+    {
+     "t": 2025.5,
+     "median_days": 11.3
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "ui_claim"
+   ],
+   "events": [],
+   "n_events": 0
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "test_or_exam",
+   "n_obs": 5,
+   "span": [
+    2024.4,
+    2026.7
+   ],
+   "median_days_start": 108.7,
+   "median_days_now": 100.4,
+   "sd_now_log": 0.336,
+   "ci68_now": [
+    71.8,
+    140.5
+   ],
+   "drift_factor": 0.92,
+   "path": [
+    {
+     "t": 2024.42,
+     "median_days": 108.7
+    },
+    {
+     "t": 2025.5,
+     "median_days": 104.1
+    },
+    {
+     "t": 2025.92,
+     "median_days": 98.4
+    },
+    {
+     "t": 2026.67,
+     "median_days": 100.4
+    },
+    {
+     "t": 2026.67,
+     "median_days": 100.4
+    }
+   ],
+   "slugs": [
+    "cslb_license",
+    "food_facility"
+   ],
+   "events": [
+    {
+     "t": 2025.92,
+     "kind": "downweighted outlier",
+     "resid": -3.125,
+     "factor": 2.8
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 3.228,
+     "factor": 4.4
+    }
+   ],
+   "n_events": 2
+  },
+  {
+   "agency_class": "federal_agency",
+   "task_type": "issuance",
+   "n_obs": 5,
+   "span": [
+    2026.5,
+    2026.7
+   ],
+   "median_days_start": 44.5,
+   "median_days_now": 43.8,
+   "sd_now_log": 0.334,
+   "ci68_now": [
+    31.3,
+    61.1
+   ],
+   "drift_factor": 0.98,
+   "path": [
+    {
+     "t": 2026.5,
+     "median_days": 44.5
+    },
+    {
+     "t": 2026.58,
+     "median_days": 44.0
+    },
+    {
+     "t": 2026.58,
+     "median_days": 44.0
+    },
+    {
+     "t": 2026.67,
+     "median_days": 43.8
+    },
+    {
+     "t": 2026.67,
+     "median_days": 43.8
+    }
+   ],
+   "slugs": [
+    "n400_naturalization"
+   ],
+   "events": [],
+   "n_events": 0
+  },
+  {
+   "agency_class": "caseworker",
+   "task_type": "records_check",
+   "n_obs": 4,
+   "span": [
+    2026.2,
+    2026.6
+   ],
+   "median_days_start": 8.6,
+   "median_days_now": 8.5,
+   "sd_now_log": 0.384,
+   "ci68_now": [
+    5.8,
+    12.5
+   ],
+   "drift_factor": 1.0,
+   "path": [
+    {
+     "t": 2026.25,
+     "median_days": 8.6
+    },
+    {
+     "t": 2026.58,
+     "median_days": 8.5
+    },
+    {
+     "t": 2026.58,
+     "median_days": 8.5
+    },
+    {
+     "t": 2026.58,
+     "median_days": 8.5
+    }
+   ],
+   "slugs": [
+    "calfresh",
+    "ui_claim"
+   ],
+   "events": [
+    {
+     "t": 2026.58,
+     "kind": "downweighted outlier",
+     "resid": 2.454,
+     "factor": 1.3
+    }
+   ],
+   "n_events": 1
+  },
+  {
+   "agency_class": "records_unit",
+   "task_type": "referral",
+   "n_obs": 4,
+   "span": [
+    2026.7,
+    2026.7
+   ],
+   "median_days_start": 7.7,
+   "median_days_now": 7.7,
+   "sd_now_log": 0.414,
+   "ci68_now": [
+    5.1,
+    11.6
+   ],
+   "drift_factor": 1.0,
+   "path": [
+    {
+     "t": 2026.67,
+     "median_days": 7.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.7
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.7
+    }
+   ],
+   "slugs": [
+    "cpra_request"
+   ],
+   "events": [
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 6.346,
+     "factor": 18.4
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 5.834,
+     "factor": 17.0
+    },
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": 5.166,
+     "factor": 14.5
+    }
+   ],
+   "n_events": 3
+  },
+  {
+   "agency_class": "field_inspection",
+   "task_type": "inspection",
+   "n_obs": 4,
+   "span": [
+    1999.0,
+    2026.7
+   ],
+   "median_days_start": 112.0,
+   "median_days_now": 7.6,
+   "sd_now_log": 0.189,
+   "ci68_now": [
+    6.3,
+    9.2
+   ],
+   "drift_factor": 0.07,
+   "path": [
+    {
+     "t": 1999.0,
+     "median_days": 112.0
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.6
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.6
+    },
+    {
+     "t": 2026.67,
+     "median_days": 7.6
+    }
+   ],
+   "slugs": [
+    "food_facility",
+    "solar_permit"
+   ],
+   "events": [
+    {
+     "t": 2026.67,
+     "kind": "downweighted outlier",
+     "resid": -3.818,
+     "factor": 1.3
+    }
+   ],
+   "n_events": 1
+  },
+  {
+   "agency_class": "third_party",
+   "task_type": "document_review",
+   "n_obs": 4,
+   "span": [
+    2024.4,
+    2026.7
+   ],
+   "median_days_start": 21.1,
+   "median_days_now": 17.0,
+   "sd_now_log": 0.178,
+   "ci68_now": [
+    14.3,
+    20.4
+   ],
+   "drift_factor": 0.81,
+   "path": [
+    {
+     "t": 2024.42,
+     "median_days": 21.1
+    },
+    {
+     "t": 2026.67,
+     "median_days": 17.0
+    },
+    {
+     "t": 2026.67,
+     "median_days": 17.0
+    },
+    {
+     "t": 2026.67,
+     "median_days": 17.0
+    }
+   ],
+   "slugs": [
+    "food_facility",
+    "solar_permit"
+   ],
+   "events": [],
+   "n_events": 0
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LegalDiscourseSpans",
+  "description": "Span-level parse of legal text following the LegalDiscourse schema (Spangher et al., NAACL 2024): SUBJECT, OBJECT, PROBE, CONSEQUENCE, TEST, EXCEPTION, DEFINITION, CLASS. Layer 1 of the three-layer looseness architecture: TEST/EXCEPTION/DEFINITION spans are routed to the static screener (layer 2), whose scores are calibrated by the synthetic instrument (layer 3).",
+  "type": "object",
+  "required": ["source_cite", "spans"],
+  "properties": {
+    "source_cite": { "type": "string" },
+    "spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["span_id", "label", "text"],
+        "properties": {
+          "span_id": { "type": "string" },
+          "label": { "enum": ["SUBJECT", "OBJECT", "PROBE", "CONSEQUENCE", "TEST", "EXCEPTION", "DEFINITION", "CLASS"] },
+          "text": { "type": "string", "description": "Verbatim span text." },
+          "cite": { "type": "string", "description": "Subdivision, e.g. 'HSC 17920.3(a)'." }
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "description": "Optional relations between spans (e.g. a TEST applied to a PROBE; an EXCEPTION modifying a TEST; a TEST referencing a defined CLASS — the DEFINITION-multiplier path).",
+      "items": {
+        "type": "object",
+        "required": ["head", "tail", "relation"],
+        "properties": {
+          "head": { "type": "string" },
+          "tail": { "type": "string" },
+          "relation": { "type": "string" }
+        }
+      }
+    }
+  }
+}

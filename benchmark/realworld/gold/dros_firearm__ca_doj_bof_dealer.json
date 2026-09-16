@@ -1,0 +1,641 @@
+{
+  "model_id": "dros_firearm__ca_doj_bof_dealer",
+  "source": "designed",
+  "jurisdiction": "State of California — DOJ Bureau of Firearms (statewide) operating through a licensed California firearms dealer (CFD) front office",
+  "gold_tier": "designed+observed",
+  "gold_date": "2026-09-15",
+  "gold_documents": [
+    {"id": "D1", "title": "DROS Entry System (DES) Firearms and Ammunition Dealer User Guide, Rev. 4 (1/15/2020), 193 pp.", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/firearms/pdf/dros-des-firearms-ammunition-dealer-user-guide.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/des-dealer-user-guide.txt"},
+    {"id": "D2", "title": "Firearm Safety Certificate Manual for California Firearms Dealers and DOJ Certified Instructors (June 2025)", "url": "https://oag.ca.gov/system/files/media/fsc-manual.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/fsc-manual.txt"},
+    {"id": "D3", "title": "11 CCR Division 5, Chapter 8 — DROS Entry System (final adopted text, §§4200–4240)", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/firearms/regs/dros_final_text.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/dros_final_text.txt"},
+    {"id": "D4", "title": "Cal. Penal Code §§26815, 28220, 27545, 28160, 31610, 31625 (fetched text)", "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=26815", "saved_as": "corpus/realworld/dros_firearm/raw/statutes.txt"},
+    {"id": "D5", "title": "California Firearms Laws Summary (2021) — applicant-facing public summary", "url": "https://oag.ca.gov/system/files/media/cfl2021.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/cfl2021.txt"},
+    {"id": "D6", "title": "Bureau of Firearms fee schedule (Rev. 01/2020)", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/firearms/pdf/firearms-fees.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/firearms-fees.txt"},
+    {"id": "D7", "title": "BOF 039 — Safe Handling Demonstration Affidavit (Rev. 07/2026)", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/firearms/forms/hscaff.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/hscaff.txt"},
+    {"id": "D8", "title": "Dealer Record of Sale Transactions — official DOJ chart and calendar-year statistics, 1972–2018 (2/1/2019)", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/firearms/forms/dros-chart-2018.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/dros-chart-2018.txt"},
+    {"id": "D9", "title": "Firearm Safety Certificate Study Guide (June 2025) — applicant-facing", "url": "https://oag.ca.gov/system/files/media/fsc-study-guide.pdf", "saved_as": "corpus/realworld/dros_firearm/raw/pdf/fsc-study-guide.txt"}
+  ],
+  "actors": [
+    {"id": "purchaser", "name": "Firearm purchaser / transferee / loanee", "dept": "external"},
+    {"id": "private_seller", "name": "Private-party seller (PPT variant only)", "dept": "external"},
+    {"id": "dealer_salesperson", "name": "Licensed dealer counter salesperson (DES user with Enter Transactions permission)", "dept": "California firearms dealer (CFD) front office"},
+    {"id": "dealer_coe_holder", "name": "Dealer COE Holder or authorized associate (DES administrator, Correct/Cancel and Pay Invoices permissions)", "dept": "California firearms dealer (CFD)"},
+    {"id": "doj_instructor", "name": "DOJ Certified Instructor (frequently an employee of the same dealer)", "dept": "DOJ-certified, dealer-hosted"},
+    {"id": "doj_bof", "name": "California Department of Justice, Bureau of Firearms", "dept": "DOJ Division of Law Enforcement"},
+    {"id": "fbi_nics", "name": "FBI National Instant Criminal Background Check System (NICS)", "dept": "federal"},
+    {"id": "ca_dmv", "name": "California Department of Motor Vehicles (driver license / ID validation)", "dept": "state"},
+    {"id": "local_le", "name": "Local law enforcement agency (prohibited-person notification)", "dept": "local"}
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "name": "Take the 30-question Firearm Safety Certificate written test with a DOJ Certified Instructor (commonly at the dealer counter)",
+      "actor": "purchaser",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["California driver license or DMV ID card", "FSC Study Guide (optional self-study)"],
+      "artifacts_out": ["completed FSC answer sheet"],
+      "timing": null,
+      "fee": {"amount": 25.0, "when": "at test/FSC issuance; $15 to DOJ + $10 to the instructor"},
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§31640, 31650",
+      "evidence": [
+        {"doc": "D2", "quote": "Each test consists of 10 true/false questions and 20 multiple choice questions related to a minimum of the following eight topics specified in Penal Code section 31640", "page_or_section": "p. 7, The Firearm Safety Certificate Test Format"},
+        {"doc": "D2", "quote": "The fee for taking the FSC test and being issued an FSC is twenty-five dollars ($25). The fee entitles the applicant to take the test twice if necessary.", "page_or_section": "p. 7, Firearm Safety Certificate Fees"},
+        {"doc": "D5", "quote": "To obtain an FSC, you must score at least 75% on an objective written test pertaining to firearm laws and safety requirements. The test is administered by DOJ Certified Instructors", "page_or_section": "p. 5, Firearm Safety Certificate Requirement"}
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Proctor the test under DOJ supervision rules (no notes or outside assistance; administrative instructions only) and score it against the confidential answer key — 23 of 30 correct to pass; disqualify on observed cheating",
+      "actor": "doj_instructor",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["laminated FSC test version 1, 2 or 3", "answer sheet", "confidential answer key (web-based application)"],
+      "artifacts_out": ["scored answer sheet bearing the proctor name and test version"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§31640, 31645",
+      "evidence": [
+        {"doc": "D2", "quote": "The applicant may not use any notes, review materials, or obtain assistance from any person once they begin the FSC test.", "page_or_section": "p. 8, Firearm Safety Certificate Test Guidelines"},
+        {"doc": "D2", "quote": "The applicant must correctly answer at least 23 of the 30 questions to pass the test and receive an FSC.", "page_or_section": "p. 8, Scoring the Firearm Safety Certificate Test"},
+        {"doc": "D2", "quote": "The answer key is confidential and should be kept in a secure location out of sight at all times.", "page_or_section": "p. 8, Scoring the Firearm Safety Certificate Test"}
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "One free retest on a different test version after 24 hours, with the same instructor unless DOJ grants an exception",
+      "actor": "doj_instructor",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["failed answer sheet"],
+      "artifacts_out": ["second-attempt answer sheet"],
+      "timing": {"median_days": 1, "p90_days": null, "source": "designed — D2 (24-hour minimum interval)"},
+      "fee": null,
+      "rework": {"back_to": "A01", "reason": "failed the FSC test (fewer than 23 of 30 correct)"},
+      "optional": true,
+      "element_ref": "Pen. Code §31640",
+      "evidence": [
+        {"doc": "D2", "quote": "after 24 hours have elapsed, they may take a different version of the FSC test without any additional fee (one free retest). To retake the FSC test, the applicant must return to the same DOJ Certified Instructor", "page_or_section": "p. 8, Scoring the Firearm Safety Certificate Test"}
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Issue the FSC immediately on a pass through the DOJ web-based application; instructor and recipient sign the printed certificate (valid 5 years)",
+      "actor": "doj_instructor",
+      "visibility": "applicant_facing",
+      "occasion": "online",
+      "artifacts_in": ["scored passing answer sheet", "driver license / ID (may be swiped)"],
+      "artifacts_out": ["Firearm Safety Certificate (printed card, signed)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §31645",
+      "evidence": [
+        {"doc": "D2", "quote": "If the applicant is successful in passing the FSC test, the DOJ Certified Instructor must issue an FSC at that time.", "page_or_section": "p. 9, Firearm Safety Certificate Issuance"},
+        {"doc": "D9", "quote": "An FSC is valid for five years from the date of issuance.", "page_or_section": "Introduction"}
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Retain every applicant's completed FSC answer sheet for five years, available for peace-officer or DOJ inspection",
+      "actor": "doj_instructor",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["completed answer sheets"],
+      "artifacts_out": ["five-year FSC test file"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D2", "quote": "You must retain all applicants’ completed FSC test answer sheets for five years from the test date. The completed answer sheets must be made available for inspection upon request by any peace officer", "page_or_section": "p. 9, FSC Record Keeping"}
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Verify the FSC (name match) or the claimed exemption and record the FSC number or exemption code before any DROS is submitted",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Firearm Safety Certificate or proof of exemption (X01–X98)"],
+      "artifacts_out": ["FSC number or exemption code recorded on the DROS", "photocopy of FSC/exemption proof filed with the original DROS"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§26840, 31700",
+      "evidence": [
+        {"doc": "D2", "quote": "prior to submission of a Dealer’s Record of Sale (DROS) for a firearm transaction, you must verify and record the firearm purchaser/recipient’s FSC number or exempt status.", "page_or_section": "p. 2, Verifying and Recording FSC Information on a DROS"},
+        {"doc": "D2", "quote": "DOJ will not accept a firearm DROS transaction for processing unless it has the FSC number or the appropriate exemption status code recorded on it.", "page_or_section": "p. 2, Verifying and Recording FSC Information on a DROS"}
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Clear the DES gate before any transaction: select the dealership, review and acknowledge all unread Information Bulletins and all urgent Firearms Eligibility Notices",
+      "actor": "dealer_salesperson",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["DES urgent notice queue", "BOF Information Bulletins"],
+      "artifacts_out": ["acknowledged notices and bulletins", "unlocked DES transaction menu"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "If you have any urgent notices, you must review them before you can conduct any other DROS or Acquisition activities.", "page_or_section": "p. 38, Review Firearms and Ammunition Eligibility Notices"},
+        {"doc": "D1", "quote": "Until the bulletin is viewed and acknowledged, users will be unable to view/submit DROS or Acquisition transactions or deliver a gun.", "page_or_section": "p. 37, Overview"}
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Capture purchaser (and, for a private-party transfer or loan, seller) identity by swiping the California driver license or ID through a magnetic card reader and answer Firearms Eligibility Questions 1–4",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["California driver license or DMV ID card", "handgun proof of residency (utility bill, lease, deed, or duty-station orders)"],
+      "artifacts_out": ["DES purchaser/seller record"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§28160, 26845",
+      "evidence": [
+        {"doc": "D1", "quote": "Purchaser and seller information will be captured by swiping the California Driver License or Identification card through a magnetic card swipe reader. Any missing or incorrect information will be keyed directly into the appropriate fields.", "page_or_section": "p. 43, Entering Purchaser and Seller Information"},
+        {"doc": "D5", "quote": "To purchase a handgun in California, you must present documentation indicating that you are a California resident.", "page_or_section": "p. 5, Proof of Residency Requirement"}
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Select the DROS transaction type (one of 13: dealer handgun/long gun sale, private party transfer, peace officer non-roster, exempt, pawn/consignment redemption, curio/relic, Olympic pistol, loan) and key the firearm record",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_inferable",
+      "occasion": "counter",
+      "artifacts_in": ["firearm (make/model/caliber/serial/barrel length/color)", "firearm safety device selection"],
+      "artifacts_out": ["completed DROS form in DES"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §28160",
+      "evidence": [
+        {"doc": "D1", "quote": "DROS Transactions are required on the following handgun and long gun transaction types:", "page_or_section": "p. 42, Section 10 Overview"},
+        {"doc": "D1", "quote": "Serial Number – Enter and re-enter the serial number stamped on the firearm.", "page_or_section": "p. 44, Dealer Handgun Sale"}
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "Apply a waiting-period exemption (CFD number, peace officer letter with wet signature, special weapons permit, or 03-FFL collector with COE) and/or a 30-day-restriction exemption, keeping the proof on file",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_inferable",
+      "occasion": "counter",
+      "artifacts_in": ["agency letterhead letter with wet signature, special weapons permit number, CFD number, or 03 FFL + COE"],
+      "artifacts_out": ["exemption flags on the DROS", "copy of the exemption proof on file"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §§27540, 27600 et seq.",
+      "evidence": [
+        {"doc": "D1", "quote": "Peace Officer – This waiting period exemption requires a signed letter (wet signature) from the head of their law enforcement agency. You must keep a copy of the letter on file.", "page_or_section": "p. 44, Dealer Handgun Sale, Waiting Period Exemption"},
+        {"doc": "D1", "quote": "Collector – This waiting period exemption requires a valid 03 FFL and COE. Enter the purchaser’s valid COE.", "page_or_section": "p. 46, Private Party Handgun Transfer"}
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "Preview the DROS, check the non-refundable $37.19 payment agreement, and add the transaction to the Pending Purchase(s) Cart (additional firearms for the same purchaser must be added via Add Firearm to avoid a second fee)",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["previewed DROS report"],
+      "artifacts_out": ["DROS in the Pending Purchase(s) Cart"],
+      "timing": null,
+      "fee": {"amount": 37.19, "when": "billed to the dealership on submission: $31.19 DROS fee + $1.00 Firearm Safety Fee + $5.00 Firearm Safety Enforcement Fee"},
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§28225, 28233; 11 CCR §4001",
+      "evidence": [
+        {"doc": "D1", "quote": "*I understand that upon final submission of my pending purchase(s), I will be billed and agree to pay a non-refundable transaction fee of $37.19 to the Department of Justice.", "page_or_section": "p. 66, Submitting Firearm DROS Transactions"},
+        {"doc": "D6", "quote": "Total Fee at time of DROS Transaction:", "page_or_section": "Department of Justice Fees (Rev. 01/2020)"}
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "Click Submit Final; DES returns the Pending DROS report with the DROS number, transaction date/time and the earliest and latest delivery dates and times",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Pending Purchase(s) Cart"],
+      "artifacts_out": ["Pending DROS report (DROS number, earliest/latest delivery date and time)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §28205; 11 CCR §4200",
+      "evidence": [
+        {"doc": "D1", "quote": "After clicking ‘OK’ the “Pending” DROS Report containing a DROS number, transaction date and time, and the earliest and latest delivery dates and times displays.", "page_or_section": "p. 67, Submit Final"}
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "Print the Pending DROS; purchaser, salesperson and (if applicable) seller sign it",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Pending DROS report"],
+      "artifacts_out": ["signed Pending DROS printout"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §28160",
+      "evidence": [
+        {"doc": "D1", "quote": "CFD’s (or its sales personnel) shall sign and obtain the purchaser(s) signature on both the “Pending” DROS document and the approved “Delivered” DROS document.", "page_or_section": "p. 67, Submit Final (IMPORTANT)"}
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "Collect the private-party-transfer service fee (capped at $10 per firearm) and take possession of the seller's firearm for the duration of the waiting period",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["seller's firearm"],
+      "artifacts_out": ["dealer-held firearm", "PPT fee receipt"],
+      "timing": null,
+      "fee": {"amount": 10.0, "when": "per firearm, at the PPT counter, in addition to state fees"},
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §§27545, 28050, 28055",
+      "evidence": [
+        {"doc": "D5", "quote": "deliver the firearm to the dealer who will retain possession of the firearm during the mandatory 10-day waiting period. In addition to the applicable state fees, the firearm dealer may charge a fee not to exceed $10 per firearm", "page_or_section": "p. 4, Sales and Transfers of Firearms"}
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "DOJ examines its own records and authorized state hospital records and cross-checks NICS to determine whether the purchaser is prohibited",
+      "actor": "doj_bof",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["submitted DROS record"],
+      "artifacts_out": ["eligibility determination (Approved / Delayed / Denied / Rejected)"],
+      "timing": {"median_days": 10, "p90_days": 30, "source": "designed — Pen. Code §§26815, 28220(g); D1 Delay/Undetermined notice rules"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §28220(a)–(b)",
+      "evidence": [
+        {"doc": "D4", "quote": "DOJ examines its own records and authorized state hospital records to determine if a purchaser is prohibited from firearm possession under state or federal law.", "page_or_section": "Pen. Code §28220(a) (fetched text)"},
+        {"doc": "D5", "quote": "During this 10-day waiting period, the DOJ conducts a firearm eligibility background check to ensure the purchaser is not prohibited from lawfully possessing firearms.", "page_or_section": "p. 4, Sales and Transfers of Firearms"}
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "Serve the 10-day waiting period; no firearm may be delivered until it runs (restarted by any correction or fee submission)",
+      "actor": "doj_bof",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["Pending DROS"],
+      "artifacts_out": ["expired waiting period"],
+      "timing": {"median_days": 10, "p90_days": 10, "source": "designed — Pen. Code §26815(a)"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §26815(a)",
+      "evidence": [
+        {"doc": "D4", "quote": "Within 10 days of the application to purchase, or, after notice by the department pursuant to Section 28220, within 10 days of the submission to the department of any correction to the application", "page_or_section": "Pen. Code §26815(a) (fetched text)"},
+        {"doc": "D5", "quote": "There is a mandatory 10-day waiting period before the firearms dealer can deliver the firearm to the purchaser.", "page_or_section": "p. 4, Sales and Transfers of Firearms"}
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "Status flips from Pending to Approved at the close of the ten-day wait and DES names the 30-day window in which the firearm may be delivered",
+      "actor": "doj_bof",
+      "visibility": "applicant_facing",
+      "occasion": "internal",
+      "artifacts_in": ["cleared eligibility determination"],
+      "artifacts_out": ["Approved DES transaction record with a 30-day delivery window"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "11 CCR §4230(a)",
+      "evidence": [
+        {"doc": "D3", "quote": "immediately following the conclusion of the ten-day waiting period, the status of the DES transaction record will change from \"Pending\" to \"Approved.\"", "page_or_section": "11 CCR §4230(a)"},
+        {"doc": "D3", "quote": "If the current status is \"Pending,\" \"Rejected,\" \"Delayed,\" or \"Denied,\" the firearm shall not be delivered.", "page_or_section": "11 CCR §4230(b)"}
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "Delay branch: on a Delay DROS Notice the dealer places the sale on a temporary hold and waits up to 30 days from the transaction date for DOJ's final determination",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_inferable",
+      "occasion": "internal",
+      "artifacts_in": ["Delay DROS Notice (DES)"],
+      "artifacts_out": ["sale on temporary hold", "Approval After Delay or Denial After Delay or Undetermined notice"],
+      "timing": {"median_days": 30, "p90_days": 30, "source": "designed — Pen. Code §28220(g)(3)–(4); D1 Delay DROS Notice"},
+      "fee": null,
+      "rework": {"back_to": "A16", "reason": "DOJ could not determine eligibility within the 10-day waiting period"},
+      "optional": true,
+      "element_ref": "Pen. Code §28220(g)",
+      "evidence": [
+        {"doc": "D1", "quote": "A “Delayed” notice shall be generated when the Department is unable to determine the purchaser's eligibility within the 10-day waiting period. If you receive a Delay notice, you must place the sale on a “temporary hold,”", "page_or_section": "p. 39, Delay DROS Notice"},
+        {"doc": "D1", "quote": "DOJ has up to 30 days to come to a determination. An additional notice will be generated when the purchaser’s eligibility has been determined.", "page_or_section": "p. 39, Delay DROS Notice"}
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "Undetermined branch: after 30 days DOJ issues an Undetermined Notice and delivery becomes a discretionary decision of the Dealer COE Holder, authorized associate or salesperson",
+      "actor": "dealer_coe_holder",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["Undetermined Notice (DES)"],
+      "artifacts_out": ["dealer decision to release or to cancel the transaction"],
+      "timing": {"median_days": 31, "p90_days": null, "source": "designed — D1 (notice generated once 30 days have passed since the original transaction date)"},
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §28220(g)(4)",
+      "evidence": [
+        {"doc": "D1", "quote": "An “Undetermined Notice” shall be generated when 30 days have passed since the original transaction date and the Department is unable to determine a purchaser's eligibility to own or possess firearms", "page_or_section": "p. 39, Undetermined Notice"},
+        {"doc": "D1", "quote": "Delivery of a firearm (sale/transfer/loan) from an “Undetermined” status shall be made at the discretion of the Dealer COE Holder, authorized associate, or salesperson.", "page_or_section": "p. 40, Undetermined Notice"}
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "Denial branch: do not release the firearm; DOJ immediately notifies the dealer and local law enforcement and tells the purchaser of the right to challenge the records; dealer hands the purchaser the DOJ prohibited-notice and transfer form",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Denial or Denial After Delay Notice (DES)"],
+      "artifacts_out": ["prohibited notice and transfer form given to the purchaser", "local law-enforcement notification (DOJ-side)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §§26815(d), 28220(c)",
+      "evidence": [
+        {"doc": "D1", "quote": "A “Denial after Delay” notice shall be generated when the Department denies an application to purchase a firearm after identifying a “Delayed” status; Do not release the firearm to the purchaser.", "page_or_section": "p. 40, Denial After Delay Notice"},
+        {"doc": "D4", "quote": "The dealer must provide a prohibited person with a prohibited notice and transfer form, provided by the department, stating that the person is prohibited from owning or possessing a firearm.", "page_or_section": "Pen. Code §26815 (fetched text)"}
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "Reject branch: on a DMV Reject (invalid, suspended, revoked or expired CA license/ID) or a 30-Day Reject (more than one handgun in 30 days) the transaction dies and must be resubmitted as a new DROS with a new fee and a new waiting period",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["DMV Reject Notice or 30-Day Reject Notice (DES)"],
+      "artifacts_out": ["cancelled transaction", "instruction to correct DMV records"],
+      "timing": null,
+      "fee": {"amount": 37.19, "when": "again, on resubmission as a new transaction"},
+      "rework": {"back_to": "A09", "reason": "DMV Reject or 30-Day Reject — DROS must be resubmitted as a new transaction with applicable fees and waiting period"},
+      "optional": true,
+      "element_ref": "Pen. Code §27540(f)",
+      "evidence": [
+        {"doc": "D1", "quote": "Do not release the firearm to the purchaser. Consequently, the DROS transaction must be resubmitted as a new transaction with applicable fees and waiting period.", "page_or_section": "p. 40, DMV Reject Notice"},
+        {"doc": "D1", "quote": "A “30-Day Reject” notice shall be generated when an application is submitted to purchase more than one handgun in a 30-day period.", "page_or_section": "p. 40, 30-Day Reject Notice"}
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "Correct a submitted DROS: the system allows exactly one correction to the firearm information; any personal-information error forces cancellation and a brand-new DROS",
+      "actor": "dealer_coe_holder",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["submitted DROS (Pending, Delayed, Approved, or Approved & Delivered)"],
+      "artifacts_out": ["corrected DROS report"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "A09", "reason": "second correction needed, or personal information (not firearm information) was wrong"},
+      "optional": true,
+      "element_ref": "Pen. Code §26815(a) (a correction restarts the 10-day clock)",
+      "evidence": [
+        {"doc": "D1", "quote": "Once a DROS transaction has been submitted to the DOJ, the system will allow a single correction to be made to the firearm information of the DROS", "page_or_section": "p. 73, Correcting a DROS"},
+        {"doc": "D1", "quote": "If personal information must be corrected, the DROS must be cancelled and a new DROS transaction must be submitted.", "page_or_section": "p. 74, Correcting a DROS"}
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "Cancel a DROS (permitted in Pending, Delayed, Approved and Approved & Delivered status); the DROS fee is not refunded",
+      "actor": "dealer_coe_holder",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["submitted DROS"],
+      "artifacts_out": ["cancelled DROS printout"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": null,
+      "evidence": [
+        {"doc": "D1", "quote": "You may cancel a DROS that is any of the following statuses:", "page_or_section": "p. 76, Canceling a DROS"},
+        {"doc": "D1", "quote": "The Department will not provide refunds after submission and acceptance of a DROS or Ammunition Eligibility Checks.", "page_or_section": "p. 29, DES Fees and Billing Cycle"}
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "Perform the safe handling demonstration with that firearm under a DOJ Certified Instructor's supervision, on or after the DROS date and before delivery: 6 to 12 statutorily mandated steps, restarted from step one on any error such as touching the trigger",
+      "actor": "purchaser",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["the firearm being acquired", "one brightly colored dummy round"],
+      "artifacts_out": ["successful demonstration"],
+      "timing": null,
+      "fee": null,
+      "rework": {"back_to": "A25", "reason": "any error during the demonstration — the recipient must restart from step number one"},
+      "optional": false,
+      "element_ref": "Pen. Code §§26850, 26860",
+      "evidence": [
+        {"doc": "D2", "quote": "The safe handling demonstration must be performed under the supervision of a DOJ Certified Instructor on or after the date the DROS is submitted to DOJ and prior to delivery of the firearm by the dealer.", "page_or_section": "p. 10, Safe Handling Demonstrations"},
+        {"doc": "D2", "quote": "Should the recipient make an error at any time during the demonstration, such as touching the trigger, stop the demonstration. Identify the error and explain the corrective action to the recipient.", "page_or_section": "p. 11, Safe Handling Demonstrations"},
+        {"doc": "D5", "quote": "Prior to taking possession of a firearm, you must successfully perform a safe handling demonstration with the firearm being purchased or acquired.", "page_or_section": "p. 5, Safe Handling Demonstration Requirement"}
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "Execute Safe Handling Demonstration Affidavit BOF 039 — signed and dated by the instructor, the recipient and the dealer/employee — and attach it to the DROS",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["BOF 039 form"],
+      "artifacts_out": ["executed BOF 039 attached to the original DROS"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§26850, 26860",
+      "evidence": [
+        {"doc": "D2", "quote": "Following successful completion of the demonstration the DOJ Certified Instructor, firearm recipient, and firearms dealer (or dealer authorized employee) must sign and date a Safe Handling Demonstration Affidavit (BOF 039)", "page_or_section": "p. 11, Safe Handling Demonstrations"},
+        {"doc": "D7", "quote": "I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.", "page_or_section": "BOF 039 (Rev. 07/2026)"}
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "Deliver the firearm: the Deliver Gun button appears only for an Approved DROS (or a claimed waiting-period exemption); clicking it records the time, date and DES user, and forecloses using the same background check for ammunition",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Approved DROS", "executed BOF 039", "clear evidence of identity and age (21+)"],
+      "artifacts_out": ["Delivered DROS record (timestamped, user-attributed)", "firearm, unloaded and securely wrapped or in a locked container"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§26815(b)–(c), 27510; 11 CCR §4230(c)",
+      "evidence": [
+        {"doc": "D1", "quote": "Only if the firearm DROS has been approved, or if the purchaser claimed a waiting period exemption will the Deliver Gun button appear.", "page_or_section": "p. 72, Delivering Firearm Transactions"},
+        {"doc": "D1", "quote": "When the purchaser is ready to pick up their firearm, the Deliver Gun button must be clicked. The system will record the time and date that the firearm was delivered, as well as the DES user who delivered the firearm.", "page_or_section": "p. 72, Delivering Firearm Transactions (IMPORTANT)"},
+        {"doc": "D1", "quote": "CFDs shall not sell, supply, deliver, or give possession or control of a firearm to any person under 21 years of age.", "page_or_section": "p. 73, Firearm DROS Documentation Reminders"}
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "Take the purchaser's right thumbprint and both signatures on the approved Delivered DROS printout",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["printed Delivered DROS"],
+      "artifacts_out": ["signed and thumbprinted Delivered DROS"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §28160(b)",
+      "evidence": [
+        {"doc": "D1", "quote": "CFDs shall obtain the purchaser’s right thumbprint on the approved “Delivered” DROS document. The Dealer COE Holder, authorized associate, or salesperson will attempt to record the right thumbprint by using the pad on the last joint.", "page_or_section": "p. 73, Firearm DROS Documentation Reminders"},
+        {"doc": "D4", "quote": "The purchaser shall provide the purchaser's right thumbprint on the register in a manner prescribed by the department.", "page_or_section": "Pen. Code §28160 (fetched text)"}
+      ]
+    },
+    {
+      "id": "A29",
+      "name": "Add an ammunition transaction to the approved firearm DROS at the moment of delivery, reusing the same background check (mutually exclusive with plain Deliver Gun)",
+      "actor": "dealer_salesperson",
+      "visibility": "applicant_facing",
+      "occasion": "counter",
+      "artifacts_in": ["Approved firearm DROS", "ammunition information"],
+      "artifacts_out": ["Dealer's Record of Sale of Ammunition (printed for customer signature)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": true,
+      "element_ref": "Pen. Code §30370 (Prop. 63 ammunition eligibility)",
+      "evidence": [
+        {"doc": "D1", "quote": "If you press ‘OK’, then you will not be able to buy ammo using this background check", "page_or_section": "p. 69, Add Ammunition and Deliver Gun with an Approved Firearm DROS"},
+        {"doc": "D1", "quote": "if you proceed with the submission of the transactions you must “Print DROS” on the next screen as that will be your only opportunity to generate a printed DROS Ammunition copy for customer signature.", "page_or_section": "p. 69, Add Ammunition and Deliver Gun"}
+      ]
+    },
+    {
+      "id": "A30",
+      "name": "Retain the signed DROS printout at the place of business for three years (ammunition records five years)",
+      "actor": "dealer_coe_holder",
+      "visibility": "staff_only",
+      "occasion": "internal",
+      "artifacts_in": ["signed Delivered DROS printout"],
+      "artifacts_out": ["dealer DROS file (3-year retention)"],
+      "timing": null,
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "Pen. Code §§28215(c), 30355",
+      "evidence": [
+        {"doc": "D1", "quote": "The DROS printout signed by the purchaser and dealer must be retained for three years. (Pen. Code, § 28215, subd. (c).)", "page_or_section": "p. 73, Firearm DROS Documentation Reminders"}
+      ]
+    },
+    {
+      "id": "A31",
+      "name": "Monthly DES billing: DOJ generates the dealership invoice on the first of the month; non-payment within 30 days suspends every dealership under that COE from submitting DROS or delivering firearms",
+      "actor": "dealer_coe_holder",
+      "visibility": "staff_only",
+      "occasion": "online",
+      "artifacts_in": ["DES monthly invoice"],
+      "artifacts_out": ["credit/debit card payment", "or DES suspension"],
+      "timing": {"median_days": 30, "p90_days": 30, "source": "designed — 11 CCR §4240(b); D1 DES Billing Cycle Chart"},
+      "fee": null,
+      "rework": null,
+      "optional": false,
+      "element_ref": "11 CCR §4240",
+      "evidence": [
+        {"doc": "D1", "quote": "At the first of each month, the DOJ will generate DES invoices for each dealership that submitted DROS transactions during the previous month.", "page_or_section": "p. 29, DES Fees and Billing Cycle"},
+        {"doc": "D3", "quote": "While suspended, a dealership will be unable to submit DROS and may not deliver firearms for which a DROS was previously submitted.", "page_or_section": "11 CCR §4240(d)"}
+      ]
+    }
+  ],
+  "edges": [
+    {"from": "A01", "to": "A02", "type": "sequence", "condition": ""},
+    {"from": "A02", "to": "A04", "type": "rework", "condition": "score < 23/30"},
+    {"from": "A04", "to": "A02", "type": "rework", "condition": "retest scored"},
+    {"from": "A02", "to": "A05", "type": "sequence", "condition": "score >= 23/30"},
+    {"from": "A02", "to": "A06", "type": "handoff", "condition": "answer sheet filed"},
+    {"from": "A05", "to": "A07", "type": "handoff", "condition": "purchaser presents FSC at a dealer"},
+    {"from": "A07", "to": "A08", "type": "sequence", "condition": ""},
+    {"from": "A08", "to": "A09", "type": "sequence", "condition": "DES transaction menu unlocked"},
+    {"from": "A09", "to": "A10", "type": "sequence", "condition": ""},
+    {"from": "A10", "to": "A11", "type": "optional", "condition": "purchaser claims an exemption"},
+    {"from": "A10", "to": "A12", "type": "sequence", "condition": ""},
+    {"from": "A11", "to": "A12", "type": "sequence", "condition": ""},
+    {"from": "A12", "to": "A13", "type": "sequence", "condition": "payment agreement checked"},
+    {"from": "A13", "to": "A14", "type": "sequence", "condition": ""},
+    {"from": "A10", "to": "A15", "type": "optional", "condition": "transaction type is a private party transfer or loan"},
+    {"from": "A14", "to": "A16", "type": "handoff", "condition": "DROS transmitted to DOJ"},
+    {"from": "A16", "to": "A17", "type": "sequence", "condition": ""},
+    {"from": "A17", "to": "A18", "type": "sequence", "condition": "purchaser not prohibited"},
+    {"from": "A16", "to": "A19", "type": "optional", "condition": "eligibility undetermined within the 10-day wait"},
+    {"from": "A19", "to": "A18", "type": "sequence", "condition": "Approval After Delay"},
+    {"from": "A19", "to": "A20", "type": "optional", "condition": "still undetermined 30 days after the transaction date"},
+    {"from": "A19", "to": "A21", "type": "optional", "condition": "Denial After Delay"},
+    {"from": "A16", "to": "A21", "type": "optional", "condition": "purchaser prohibited"},
+    {"from": "A16", "to": "A22", "type": "optional", "condition": "DMV Reject or 30-Day Reject"},
+    {"from": "A22", "to": "A09", "type": "rework", "condition": "resubmit as a new transaction with new fee and new waiting period"},
+    {"from": "A16", "to": "A23", "type": "optional", "condition": "firearm information entered incorrectly"},
+    {"from": "A23", "to": "A17", "type": "rework", "condition": "correction restarts the 10-day clock"},
+    {"from": "A23", "to": "A24", "type": "optional", "condition": "a second correction or a personal-information error"},
+    {"from": "A24", "to": "A09", "type": "rework", "condition": "new DROS required"},
+    {"from": "A13", "to": "A25", "type": "sequence", "condition": "on or after the DROS submission date"},
+    {"from": "A25", "to": "A25", "type": "rework", "condition": "error during the demonstration — restart from step one"},
+    {"from": "A25", "to": "A26", "type": "sequence", "condition": "demonstration performed without error"},
+    {"from": "A18", "to": "A27", "type": "sequence", "condition": "status Approved and within the 30-day delivery window"},
+    {"from": "A20", "to": "A27", "type": "optional", "condition": "dealer exercises discretion to release on Undetermined"},
+    {"from": "A26", "to": "A27", "type": "sequence", "condition": ""},
+    {"from": "A27", "to": "A29", "type": "optional", "condition": "purchaser wants ammunition on the same background check"},
+    {"from": "A27", "to": "A28", "type": "sequence", "condition": ""},
+    {"from": "A29", "to": "A28", "type": "sequence", "condition": ""},
+    {"from": "A28", "to": "A30", "type": "handoff", "condition": ""},
+    {"from": "A13", "to": "A31", "type": "handoff", "condition": "fee billed to the dealership account"}
+  ],
+  "terminal_artifact": "the delivered firearm (unloaded and securely wrapped or in a locked container) plus the signed, thumbprinted \"Delivered\" DROS printout",
+  "denial_rate": 0.0076,
+  "timing_gold": {
+    "end_to_end_median_days": 10,
+    "p90": 30,
+    "source": "designed (statutory clock) — Pen. Code §26815(a) and §28220(g); 11 CCR §4230(a); D1 Delay/Undetermined notice rules. No official distribution of actual DROS-to-delivery times is published by DOJ.",
+    "quote": "There is a mandatory 10-day waiting period before the firearms dealer can deliver the firearm to the purchaser.",
+    "observed": {
+      "source": "D8 — Dealer Record of Sale Transactions, official DOJ calendar-year statistics 1972–2018 (published 2/1/2019)",
+      "quote": "The following chart shows the total number of transactions processed by DOJ between 1972 and 2018.",
+      "n_transactions_2018": 798920,
+      "n_denials_2018": 6061,
+      "denial_rate_2018": 0.0076,
+      "n_transactions_2016_peak": 1331322,
+      "n_denials_2016_peak": 12321,
+      "denial_rate_2016": 0.0093,
+      "note": "The official series is a denial count only. It publishes no delay count, no undetermined count, no delivery-time distribution, and it stops at 2018."
+    }
+  },
+  "known_gaps": [
+    "Why a given record produces Delay vs. Denial vs. eventual Undetermined: the notice taxonomy and the 10/30-day clocks are fully published, but no DOJ document collected describes the matching or scoring logic behind \"DOJ examines its own records\" (Pen. Code §28220(a)).",
+    "How often each branch fires. No official delay rate, undetermined rate, or undetermined-release rate exists in any document held; the only official time series (D8) counts denials and ends at 2018, so there is no published figure at all for 2019–2026, the exact period in which the delay/undetermined pathway became the dominant user complaint.",
+    "What the dealer's clock is after an Undetermined Notice. The DES guide states delivery is at the dealer's discretion but does not say how long that discretion lasts; a self-identified FFL reddit account describes \"another 30 days to Deliver or Cancel,\" which is not stated in any DOJ document collected here.",
+    "Dealer-level policy variance, which is where nearly all real applicant-visible variation lives: whether a dealer releases on Undetermined at all, internal pickup cutoffs shorter than the statutory 30-day window, PPT intake-hour policies that shift the clock start, restocking fees. No DOJ document acknowledges that dealers differ on any of this.",
+    "The current total cash cost. The fee schedule held (D6) is dated 01/2020 and totals $37.19; it predates the CFET excise tax layered on firearm sales, so the fee amounts in this model are the DOJ-fee component only, not the counter price.",
+    "Whether DOJ ever revisits an Undetermined release after the firearm has been delivered — not addressed in any document collected.",
+    "The FSC exemption path is documented in fine grain (19 exemption codes), but nothing states how often exemptions are claimed or how often counter staff mis-apply them.",
+    "Practice compliance with the safe handling demonstration. The 6–12-step protocol is specified per firearm type, but no DOJ document, audit, or statistic addresses whether it is actually performed as written at the counter."
+  ],
+  "notes": "This is a single statewide implementer (DOJ Bureau of Firearms) operationalized through ~2,000+ licensed dealers, so the dealer is modelled as its own actor lane: the dealer is the entire front office, and two of the process's most consequential decisions — release on Undetermined (A20) and whether to correct or cancel a bad DROS (A23/A24) — are legally the dealer's, not DOJ's. Visibility calls: the 10-day wait, the DOJ background check, the safe handling demonstration, the FSC test and its fees are all stated in applicant-facing documents held in raw/ (D5 California Firearms Laws Summary, D9 FSC Study Guide), so they are marked applicant_facing even though their operational detail comes from the dealer manuals. The Delay, Undetermined, DMV Reject and 30-Day Reject notice taxonomy does NOT appear in D5 or D9 — it exists only in the dealer-facing DES guide (D1) — which is why A08 (the urgent-notice gate) and A20 (Undetermined discretion) are staff_only despite being technically public documents; this slug is the corpus's clearest case of a back-office fact that is published but socially invisible. Ammunition eligibility checks run through the same DES screens and the same counter but are a legally distinct Prop. 63 process; only the one delivery-time coupling (A29) is modelled here, and CCW permitting, NICS/UPIN appeals and FFL03/COE collector status are treated as sibling processes, not part of this model."
+}

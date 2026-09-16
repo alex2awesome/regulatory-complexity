@@ -1,0 +1,2208 @@
+{
+  "slug": "n400_naturalization",
+  "observations": [
+    {
+      "obs_id": "n400_naturalization-0001",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Receipt notice issued after filing",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A05",
+      "quote": "same day to about a week for online filings",
+      "date": "2026-09-15",
+      "notes": "Gold activity A05; gold's own source label is 'user-report tier only (reddit timelines)'; USCIS publishes no receipt-notice service level, so tiered community_reported despite living inside the gold file. p90=7 days."
+    },
+    {
+      "obs_id": "n400_naturalization-0002",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics appointment after receipt",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 28
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A06",
+      "quote": "4-28 days from receipt; many applicants now get a reuse notice the same day as the receipt notice",
+      "date": "2026-09-15",
+      "notes": "Gold activity A06; gold's own source label is 'user-report tier only'. No official figure published."
+    },
+    {
+      "obs_id": "n400_naturalization-0003",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling (national aggregate, third-party API scrape)",
+      "value": {
+        "elapsed_days": 350,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 451
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold",
+      "quote": "USCIS processing times for N-400 range from 8.0 mo to 26.0 mo across all field offices (full range; source-row average 11.5-14.8 mo)",
+      "date": "2026-08-17",
+      "notes": "timing_gold top-level figure. 350/451 are national AVERAGE bounds converted from months, NOT a true median/p90 - gold's own caveat says these must not be scored as if they were. Third-party (ImmigrationTimes.org) scrape of the official USCIS API, tiered verifiable_official per the aggregator-of-an-official-source convention used elsewhere in this corpus."
+    },
+    {
+      "obs_id": "n400_naturalization-0004",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Francisco, CA (SFR)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          411,
+          548
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold.per_office",
+      "quote": "San Francisco - official 80%-of-cases processing-time range published via the USCIS processing-times API",
+      "date": "2026-08-17",
+      "notes": "Per-office breakdown from timing_gold.per_office; min bound is roughly a median-of-completions figure, max bound is an 80%-of-cases figure per gold's caveat - not a true median/p90 pair."
+    },
+    {
+      "obs_id": "n400_naturalization-0005",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Jose, CA (SNJ)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          441,
+          791
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold.per_office",
+      "quote": "San Jose - official 80%-of-cases processing-time range published via the USCIS processing-times API",
+      "date": "2026-08-17",
+      "notes": "Per-office breakdown from timing_gold.per_office; min bound is roughly a median-of-completions figure, max bound is an 80%-of-cases figure per gold's caveat - not a true median/p90 pair."
+    },
+    {
+      "obs_id": "n400_naturalization-0006",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Los Angeles, CA (LOS)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          289,
+          396
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold.per_office",
+      "quote": "Los Angeles - official 80%-of-cases processing-time range published via the USCIS processing-times API",
+      "date": "2026-08-17",
+      "notes": "Per-office breakdown from timing_gold.per_office; min bound is roughly a median-of-completions figure, max bound is an 80%-of-cases figure per gold's caveat - not a true median/p90 pair."
+    },
+    {
+      "obs_id": "n400_naturalization-0007",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Sacramento, CA (SAC)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          457,
+          715
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold.per_office",
+      "quote": "Sacramento - official 80%-of-cases processing-time range published via the USCIS processing-times API",
+      "date": "2026-08-17",
+      "notes": "Per-office breakdown from timing_gold.per_office; min bound is roughly a median-of-completions figure, max bound is an 80%-of-cases figure per gold's caveat - not a true median/p90 pair."
+    },
+    {
+      "obs_id": "n400_naturalization-0008",
+      "slug": "n400_naturalization",
+      "jurisdiction": "New York City, NY (NYC)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          304,
+          365
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "gold:n400_naturalization__uscis_field_office#timing_gold.per_office",
+      "quote": "New York City - official 80%-of-cases processing-time range published via the USCIS processing-times API",
+      "date": "2026-08-17",
+      "notes": "Per-office breakdown from timing_gold.per_office; min bound is roughly a median-of-completions figure, max bound is an 80%-of-cases figure per gold's caveat - not a true median/p90 pair."
+    },
+    {
+      "obs_id": "n400_naturalization-0009",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "adjudicating_officer",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Request for Evidence response window",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 33,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A20",
+      "quote": "30 days, plus 3 days when mailed under 8 CFR 103.8(b)",
+      "date": "2026-09-15",
+      "notes": "Gold activity A20, 8 CFR 335.7. Applicant's response deadline once USCIS continues a case with a written RFE."
+    },
+    {
+      "obs_id": "n400_naturalization-0010",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "adjudicating_officer",
+        "task_type": "reinspection",
+        "channel": "counter",
+        "blocking_party": "shared",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Re-examination scheduling window after failed initial test",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          60,
+          90
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A21",
+      "quote": "not earlier than 60 days, scheduled within the 120-day window",
+      "date": "2026-09-15",
+      "notes": "Gold activity A21, 8 CFR 312.5(a) and 8 CFR 335.3(b)."
+    },
+    {
+      "obs_id": "n400_naturalization-0011",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Decision deadline after initial examination",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A22",
+      "quote": "Decide within 120 days of the initial examination - approve, continue, or deny; miss the mark and applicant may petition the district court.",
+      "date": "2026-09-15",
+      "notes": "Gold activity A22, 8 CFR 335.3(a) and 8 U.S.C. S1447(b). Gold notes this is frequently exceeded per user reports and no official distribution of interview-to-decision times is published."
+    },
+    {
+      "obs_id": "n400_naturalization-0012",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Written denial deadline after initial interview",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A24",
+      "quote": "Deny in writing no later than 120 days after the initial interview, with a clear statement of the specific reasons",
+      "date": "2026-09-15",
+      "notes": "Gold activity A24, INA 335(d); 8 CFR 336.1(a)."
+    },
+    {
+      "obs_id": "n400_naturalization-0013",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "hearing_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "N-336 hearing-request filing deadline after denial",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A25",
+      "quote": "Request a hearing on the denial by filing Form N-336 with the fee within 30 days of the denial",
+      "date": "2026-09-15",
+      "notes": "Gold activity A25. Filing deadline only; no published decision time for the N-336 hearing itself (a hole)."
+    },
+    {
+      "obs_id": "n400_naturalization-0014",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Abandonment window for a missed biometrics/interview appointment",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          30,
+          365
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A26",
+      "quote": "a missed fingerprinting appointment without good cause shown may be treated as abandonment",
+      "date": "2026-09-15",
+      "notes": "Gold activity A26, 8 CFR 335.6(a)-(c). Wide range (30 to 365 days) reflects discretion in how long USCIS waits before declaring abandonment."
+    },
+    {
+      "obs_id": "n400_naturalization-0015",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "adjudicating_officer",
+        "task_type": "appeal",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Motion-to-reopen response window after a granted application is challenged",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "gold:n400_naturalization__uscis_field_office#A28",
+      "quote": "Execute a motion to reopen the already-granted application, giving the applicant 15 days to respond",
+      "date": "2026-09-15",
+      "notes": "Gold activity A28, 8 CFR 335.5 / 8 CFR 337.10."
+    },
+    {
+      "obs_id": "n400_naturalization-0016",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "District-court petition trigger if no decision within 120 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S5",
+      "quote": "if there is a failure to make a determination under section 1446 of this title before the end of the 120-day period after the date on which the examination is conducted ... the applicant may apply to the district court",
+      "date": "2026-09-15",
+      "notes": "INA 336(b) statute text."
+    },
+    {
+      "obs_id": "n400_naturalization-0017",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Decision deadline, regulatory citation",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "statutory",
+      "source_id": "S9",
+      "quote": "A decision to grant or deny the application shall be made at the time of the initial examination or within 120-days after the date of the initial examination",
+      "date": "2026-09-15",
+      "notes": "8 CFR 335.3, reinforcing the same 120-day figure as S5/A22/A24 from the regulation text directly rather than the statute."
+    },
+    {
+      "obs_id": "n400_naturalization-0018",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "120-day internal deadline tied to district-court review right",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S27",
+      "quote": "USCIS has 120 days from the date of the initial naturalization interview to issue a decision. If the decision is not issued within 120 days of the interview, an applicant may request judicial review.",
+      "date": "2026-09-15",
+      "notes": "Internal SOP/staff-report restatement of the 120-day clock (tiered designed_document per S27's own 'designed' tier field, distinct from the statute/regulation citations above)."
+    },
+    {
+      "obs_id": "n400_naturalization-0019",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Oath ceremony scheduling hold for derogatory information (no fixed deadline)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "S29",
+      "quote": "USCIS must not schedule an applicant for the administration of the Oath of Allegiance if USCIS receives or identifies disqualifying derogatory information.",
+      "date": "2026-09-15",
+      "notes": "USCIS Policy Manual (12 USCIS-PM J.4). No fixed timing rule - only an open-ended, for-cause hold. Value left null since no duration is specified; this documents the ABSENCE of a clock, corroborated by several open-ended reddit cases below (e.g. 1vgfu1a's cancelled/unrescheduled oath)."
+    },
+    {
+      "obs_id": "n400_naturalization-0020",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Santa Ana, CA (SAA)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          411,
+          502
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S36",
+      "quote": "Santa Ana 13.5 mo 16.5 mo",
+      "date": "2026-08-17",
+      "notes": "Third-party dataset (D13/ImmigrationTimes.org) scrape of the official USCIS processing-times API; office not covered by the gold file's timing_gold.per_office breakdown, added here for coverage breadth."
+    },
+    {
+      "obs_id": "n400_naturalization-0021",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Houston, TX (HOU)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          350,
+          426
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S36",
+      "quote": "Houston 11.5 mo 14.0 mo",
+      "date": "2026-08-17",
+      "notes": "Third-party dataset (D13/ImmigrationTimes.org) scrape of the official USCIS processing-times API; office not covered by the gold file's timing_gold.per_office breakdown, added here for coverage breadth."
+    },
+    {
+      "obs_id": "n400_naturalization-0022",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Chicago, IL (CHI)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, published 80%-of-cases range",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          350,
+          502
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "verifiable_official",
+      "source_id": "S36",
+      "quote": "Chicago 11.5 mo 16.5 mo",
+      "date": "2026-08-17",
+      "notes": "Third-party dataset (D13/ImmigrationTimes.org) scrape of the official USCIS processing-times API; office not covered by the gold file's timing_gold.per_office breakdown, added here for coverage breadth."
+    },
+    {
+      "obs_id": "n400_naturalization-0023",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to receipt notice (aggregate)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 6,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#1",
+      "quote": "same-day (multiple posts)",
+      "date": "2026-09-15",
+      "notes": "Rollup across 6 reddit reports of online filings."
+    },
+    {
+      "obs_id": "n400_naturalization-0024",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Receipt to biometrics (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          4,
+          28
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 8,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#2",
+      "quote": "4-28 days, or same-day 'Biometrics Reuse' notice when a prior valid fingerprint check exists",
+      "date": "2026-09-15",
+      "notes": "Rollup across 8 reddit reports; the same-day reuse-notice variant (when a prior valid fingerprint check exists) is not separately counted here."
+    },
+    {
+      "obs_id": "n400_naturalization-0025",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduled, fast tail (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          30,
+          60
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 10,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#3",
+      "quote": "1-2 months (fastest) to 15+ months and still waiting",
+      "date": "2026-09-15",
+      "notes": "Rollup across 10 reddit reports; fast-tail end of a bimodal distribution, see next observation for the slow tail."
+    },
+    {
+      "obs_id": "n400_naturalization-0026",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduled, slow tail still pending (aggregate)",
+      "value": {
+        "elapsed_days": 335,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 3,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#3",
+      "quote": "15+ months and still waiting (n=3 explicitly >11 months)",
+      "date": "2026-09-15",
+      "notes": "Slow-tail subset of the same n=10 rollup; right-censored (still pending), selection-biased toward delay since routine on-time cases are less likely to be posted about."
+    },
+    {
+      "obs_id": "n400_naturalization-0027",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Miami, FL",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to decision, specific case at day 106",
+      "value": {
+        "elapsed_days": 106,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#4",
+      "quote": "one post cites day 106 explicitly against the 120-day mark",
+      "date": "2026-09-15",
+      "notes": "Individual case within the n=5 rollup for this segment; case still pending (right-censored) as of the day-106 report, approaching the 120-day statutory mark."
+    },
+    {
+      "obs_id": "n400_naturalization-0028",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to decision, statutory mark often exceeded (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 120,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 5,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#4",
+      "quote": "often exceeded; 'continued' (N-652 box) common in I-751/N-400 combo cases",
+      "date": "2026-09-15",
+      "notes": "Rollup across 5 reddit reports of the interview-to-decision segment."
+    },
+    {
+      "obs_id": "n400_naturalization-0029",
+      "slug": "n400_naturalization",
+      "jurisdiction": "USCIS (nationwide)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Approval to oath ceremony (aggregate)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          2,
+          66.5
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 6,
+      "evidence_tier": "community_reported",
+      "source_id": "sources.json:timing_summary#5",
+      "quote": "2 days to 9.5+ weeks and counting; one case cancelled outright with no stated reason",
+      "date": "2026-09-15",
+      "notes": "Rollup across 6 reddit reports; wide range reflects the absence of any regulatory clock for this step (see S29/A29)."
+    },
+    {
+      "obs_id": "n400_naturalization-0030",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Jose, CA (SNJ) worst case; New York, NY best case",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Field-office backlog projected into a per-applicant wait, one user's own calculation",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          438,
+          4672
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "inferred",
+      "source_id": "1wcx0l7",
+      "quote": "San Jose (12.8 years) San Francisco (11.6 years) Baltimore (10.7 years) Seattle (7.3 years) Sacramento (6.3 years)... Jealous of the New York residents with their relatively short queue of 1.2 years",
+      "date": "2026-09-10",
+      "notes": "A reddit user's own back-of-envelope division of official pending-caseload figures by approval throughput - an inferred/derived figure, not a directly measured or officially published per-applicant wait. Poster explicitly notes USCIS's own published 80%-of-cases figure is a lagging indicator that understates current backlog growth."
+    },
+    {
+      "obs_id": "n400_naturalization-0031",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Francisco, CA (SFR)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics same day as filing (reuse notice)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w4z9ji",
+      "quote": "08/2025 (same day): Receipt Notice + Biometrics Reuse notice.",
+      "date": "2026-09-02",
+      "notes": "Biometrics Reuse notice issued the same day as the receipt notice because a prior valid fingerprint check existed."
+    },
+    {
+      "obs_id": "n400_naturalization-0032",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Francisco, CA (SFR)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics/filing to combo interview",
+      "value": {
+        "elapsed_days": 243,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w4z9ji",
+      "quote": "03/2026: Interview Scheduled notice... 04/2026: Combo interview. I-751 approved. N-400 got Box B on Form N-652.",
+      "date": "2026-09-02",
+      "notes": "Month-only dates (day=1 assumed); combo I-751/N-400 interview - N-400 itself continued ('decision cannot be made yet'), right-censored beyond this point."
+    },
+    {
+      "obs_id": "n400_naturalization-0033",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Francisco Bay Area (unspecified FO)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Combo interview notice to interview date",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wa36gn",
+      "quote": "Combo interview notice ~1 month out, July 2026.",
+      "date": "2026-09-07",
+      "notes": "3-year-rule filing; notice-to-interview lag, distinct from the filing-to-interview-scheduling segment."
+    },
+    {
+      "obs_id": "n400_naturalization-0034",
+      "slug": "n400_naturalization",
+      "jurisdiction": "San Francisco Bay Area (unspecified FO)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to oath ceremony",
+      "value": {
+        "elapsed_days": 55,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wa36gn",
+      "quote": "N-400 approved about a week after the card arrived and queued for oath. Status on N-400 seemed to stall until I-751 cleared. Oath end of Aug 2026.",
+      "date": "2026-09-07",
+      "notes": "Combo I-751/N-400 case; N-400 approval was gated on the I-751 clearing first, a cross-process dependency not visible in the base N-400 gold model."
+    },
+    {
+      "obs_id": "n400_naturalization-0035",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Los Angeles, CA (LOS)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 28,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vutej2",
+      "quote": "I had my biometrics appointment 28 days after filing and received two updates after that, but complete silence since then.",
+      "date": "2026-08-21",
+      "notes": "Precise applicant-stated figure (exact filing date given as 2026-03-06)."
+    },
+    {
+      "obs_id": "n400_naturalization-0036",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Los Angeles, CA (LOS)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to interview scheduling, still pending (right-censored)",
+      "value": {
+        "elapsed_days": 140,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vutej2",
+      "quote": "I filed my citizenship application on March 6, 2026, and I'm still waiting.",
+      "date": "2026-08-21",
+      "notes": "Right-censored: interview not yet scheduled as of the post date, so this is a lower bound (>=140 days), not a completed measurement."
+    },
+    {
+      "obs_id": "n400_naturalization-0037",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Santa Ana, CA (SAA)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, still pending (right-censored)",
+      "value": {
+        "elapsed_days": 363,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w29x4d",
+      "quote": "I applied on September 1 and my case is still showing as being processed.",
+      "date": "2026-08-30",
+      "notes": "Right-censored lower bound; interview not yet scheduled as of post date."
+    },
+    {
+      "obs_id": "n400_naturalization-0038",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Sacramento, CA (SAC)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Oath ceremony cancelled and not rescheduled (right-censored)",
+      "value": {
+        "elapsed_days": 225,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vgfu1a",
+      "quote": "my oath ceremony was canceled 2 days before (December 5th 2025)... we are not provided the reason as to why the previous Oath had been cancelled.",
+      "date": "2026-07-18",
+      "notes": "Concrete instance behind gold activity A29's note about 'cancelled-and-unrescheduled cases running 7+ months'; right-censored lower bound, no reason given for the cancellation (S29's for-cause hold documentation notwithstanding)."
+    },
+    {
+      "obs_id": "n400_naturalization-0039",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Sacramento, CA (SAC)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, still pending (right-censored)",
+      "value": {
+        "elapsed_days": 396,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vi0zb7 (comment p36c86q)",
+      "quote": "I have filed at the Sacramento office and I'm waiting since July 2025",
+      "date": "2026-08-13",
+      "notes": "Comment on a different post; exact comment date not resolved so the parent post's date (1vi0zb7, 2026-08-13) is used as an approximate upper bound. Right-censored."
+    },
+    {
+      "obs_id": "n400_naturalization-0040",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Houston, TX (HOU)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduling, still pending (~11 months, right-censored)",
+      "value": {
+        "elapsed_days": 335,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vsxi9n",
+      "quote": "I filed my N-400 in September 2025 through the Houston Field Office and am still waiting for my interview to be scheduled.",
+      "date": "2026-08-19",
+      "notes": "Applicant's own ~11-month estimate used directly; right-censored, a Congressional inquiry produced only a generic 'waiting for a slot' response."
+    },
+    {
+      "obs_id": "n400_naturalization-0041",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Fairfax/DC FO",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 4,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vlrl0p",
+      "quote": "Applied: February 10, 2026. Biometrics: February 14, 2026.",
+      "date": "2026-08-11",
+      "notes": "Asylum-based naturalization path (distinct eligibility category from the 3-yr/5-yr marriage or residency rules used elsewhere in this corpus); precise exact dates given."
+    },
+    {
+      "obs_id": "n400_naturalization-0042",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Fairfax/DC FO",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to interview",
+      "value": {
+        "elapsed_days": 145,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vlrl0p",
+      "quote": "Background recheck (everyone got one): May, 2026. Notice of interview: June 3, 2026. Interview: July 9, 2026.",
+      "date": "2026-08-11",
+      "notes": "Includes an explicit background-recheck step in May 2026 between biometrics and the interview notice."
+    },
+    {
+      "obs_id": "n400_naturalization-0043",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Fairfax/DC FO",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview notice to interview date",
+      "value": {
+        "elapsed_days": 36,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vlrl0p",
+      "quote": "Notice of interview: June 3, 2026. Interiew: July 9, 2026.",
+      "date": "2026-08-11",
+      "notes": "Notice-to-interview lag, distinct sub-segment of the biometrics-to-interview span above."
+    },
+    {
+      "obs_id": "n400_naturalization-0044",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Fairfax/DC FO",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to oath ceremony",
+      "value": {
+        "elapsed_days": 37,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vlrl0p",
+      "quote": "Ceremony scheduled notification: July 17, 2026. CEREMONY: Aug[ust]",
+      "date": "2026-08-11",
+      "notes": "Ceremony month given without exact day; mid-month (Aug 15) used as an approximation."
+    },
+    {
+      "obs_id": "n400_naturalization-0045",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Miami, FL",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to decision, still pending at day 106 (right-censored)",
+      "value": {
+        "elapsed_days": 106,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vmy0zs",
+      "quote": "Day 106 post-interview with no updates or Oath notice yet. My 120-day statutory mark arrives in late August.",
+      "date": "2026-08-13",
+      "notes": "Officer verbally indicated approval within 2 weeks at the interview, but N-652 was marked 'Decision cannot be made'; right-censored, approaching the 120-day statutory mark."
+    },
+    {
+      "obs_id": "n400_naturalization-0046",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "intake_screen",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Application prepared to USCIS receipt (applicant-side mailing gap)",
+      "value": {
+        "elapsed_days": 61,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vqv584",
+      "quote": "May 2025 - Filled out the N-400. July 2025 - USCIS received the N-400.",
+      "date": "2026-08-17",
+      "notes": "Applicant-side gap between completing the form and USCIS receiving it, not an agency processing step; month-only dates."
+    },
+    {
+      "obs_id": "n400_naturalization-0047",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to first interview scheduled",
+      "value": {
+        "elapsed_days": 243,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vqv584",
+      "quote": "July 2025 - USCIS received the N-400. March 2026 - First interview scheduled.",
+      "date": "2026-08-17",
+      "notes": "Month-only dates."
+    },
+    {
+      "obs_id": "n400_naturalization-0048",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "correction_cycle",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "RFE issued to second interview scheduled",
+      "value": {
+        "elapsed_days": 61,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vqv584",
+      "quote": "April 2026 - USCIS requested additional evidence... June 2026 - Second interview scheduled.",
+      "date": "2026-08-17",
+      "notes": "A two-interview / RFE correction cycle: first interview did not resolve the case, USCIS requested more evidence, then scheduled a second interview."
+    },
+    {
+      "obs_id": "n400_naturalization-0049",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Second interview to oath-track status change",
+      "value": {
+        "elapsed_days": 31,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vqv584",
+      "quote": "July 2026 - Second N-400 interview. August 2026 - Status changed to \"Oath Ceremony Will Be Scheduled\"",
+      "date": "2026-08-17",
+      "notes": "Month-only dates."
+    },
+    {
+      "obs_id": "n400_naturalization-0050",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Case under active review to interview scheduled notice",
+      "value": {
+        "elapsed_days": 38,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vszlqh",
+      "quote": "We are actively reviewing your Form N-400... May 20, 2026. Interview Was Scheduled - June 27, 2026.",
+      "date": "2026-08-19",
+      "notes": ""
+    },
+    {
+      "obs_id": "n400_naturalization-0051",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (marriage-based)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to approval/quality-review and oath-track status",
+      "value": {
+        "elapsed_days": 53,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vszlqh",
+      "quote": "We recommended that your Form N-400... be approved. Your case was submitted for quality review. Oath Ceremony Will Be Scheduled - August 19, 2026.",
+      "date": "2026-08-19",
+      "notes": "Interview itself described as completed in roughly 1h20m (touch time); this observation is the queue/elapsed time from interview to the approval-plus-oath-track status change, both dated the same day (Aug 19)."
+    },
+    {
+      "obs_id": "n400_naturalization-0052",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Washington, DC",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to receipt notice, same day",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wdioth",
+      "quote": "December 13, 2025: N-400 filed. December 13, 2025: Receipt notice received.",
+      "date": "2026-09-11",
+      "notes": "Same-day online receipt notice; exact dates given."
+    },
+    {
+      "obs_id": "n400_naturalization-0053",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Washington, DC",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 23,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wdioth",
+      "quote": "January 5, 2026: Biometrics completed.",
+      "date": "2026-09-11",
+      "notes": "Exact dates given (23 days from Dec 13 filing)."
+    },
+    {
+      "obs_id": "n400_naturalization-0054",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Washington, DC",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to interview scheduling, still pending (right-censored)",
+      "value": {
+        "elapsed_days": 249,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wdioth",
+      "quote": "N-400 still pending; I-751 is also pending.",
+      "date": "2026-09-11",
+      "notes": "Right-censored lower bound; I-751/N-400 combo case, case last actively noted as under review May 17, 2026."
+    },
+    {
+      "obs_id": "n400_naturalization-0055",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (INA 319(b), spouse of USC employed abroad)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wbb385",
+      "quote": "N-400 filed: June 6, 2025. Biometrics completed: June 13, 2025.",
+      "date": "2026-09-09",
+      "notes": "INA 319(b) is a distinct eligibility category (spouse of a US citizen employed abroad, no residency-duration requirement) from the 3-yr/5-yr paths used elsewhere in this corpus."
+    },
+    {
+      "obs_id": "n400_naturalization-0056",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (INA 319(b))",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to still-pending interview scheduling (15+ months, right-censored)",
+      "value": {
+        "elapsed_days": 456,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wbb385",
+      "quote": "Status: Still pending. Today: September 2026.",
+      "date": "2026-09-09",
+      "notes": "Row explicitly labelled 'not reached (15+ months pending)'; 456 days = 15 months used directly. Right-censored."
+    },
+    {
+      "obs_id": "n400_naturalization-0057",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (INA 319(b))",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "recordkeeping",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Applicant case-status inquiry to formal expedite request",
+      "value": {
+        "elapsed_days": 91,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1wbb385",
+      "quote": "USCIS inquiry: May 13, 2026. Expedite request: August 12, 2026.",
+      "date": "2026-09-09",
+      "notes": "No taxonomy task_type cleanly fits an applicant-initiated status escalation; recordkeeping used as the closest match. Neither inquiry produced a scheduled interview by the report date."
+    },
+    {
+      "obs_id": "n400_naturalization-0058",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (combo I-751/N-400)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 31,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vs4zeu",
+      "quote": "Biometrics scheduled for April 2026.",
+      "date": "2026-08-17",
+      "notes": "Month-only dates."
+    },
+    {
+      "obs_id": "n400_naturalization-0059",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (combo I-751/N-400)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to combo interview",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vs4zeu",
+      "quote": "Combo interview May 2026, got told by the officer that they would recommend me for approval right after my N-400 interview.",
+      "date": "2026-08-17",
+      "notes": "Month-only dates; officer verbally recommended approval on the spot."
+    },
+    {
+      "obs_id": "n400_naturalization-0060",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (combo I-751/N-400)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to oath-date notification",
+      "value": {
+        "elapsed_days": 84,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vs4zeu",
+      "quote": "Got my oath ceremony date in the mail last week of July (took almost a month to get a date as I wanted to change my last name)",
+      "date": "2026-08-17",
+      "notes": "Applicant explicitly attributes part of this lag to their own last-name-change request, so this figure likely overstates a typical case's oath-scheduling lag."
+    },
+    {
+      "obs_id": "n400_naturalization-0061",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Pittsburgh, PA",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview approval to still-awaiting oath notice (~9.5 weeks, right-censored)",
+      "value": {
+        "elapsed_days": 66.5,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vqi8rt",
+      "quote": "It has now been about 9.5 weeks, and I'm still waiting for the oath ceremony notice.",
+      "date": "2026-08-19",
+      "notes": "Applicant's own precise estimate (9.5 weeks) used directly; right-censored, status has shown 'Oath Ceremony Will Be Scheduled' since the interview with no further update."
+    },
+    {
+      "obs_id": "n400_naturalization-0062",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Miami, FL",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vi0zb7",
+      "quote": "May 15 - Submitted n-400 (scheduled for biometrics a day after) June 5 - Biometrics",
+      "date": "2026-08-07",
+      "notes": "Biometrics appointment was originally scheduled for the day after filing but the actual appointment occurred 21 days later."
+    },
+    {
+      "obs_id": "n400_naturalization-0063",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Miami, FL",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Biometrics to interview (approved on the spot)",
+      "value": {
+        "elapsed_days": 45,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vi0zb7",
+      "quote": "June 10 - Interview was scheduled. July 20 - Interview (approved on the spot)",
+      "date": "2026-08-07",
+      "notes": "Clean, fully-dated 'fast' case - useful contrast to the many pending/slow cases elsewhere in this corpus."
+    },
+    {
+      "obs_id": "n400_naturalization-0064",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Miami, FL",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to oath ceremony",
+      "value": {
+        "elapsed_days": 18,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1vi0zb7",
+      "quote": "July 22 - Scheduled for oath. August 7 - Oath ceremony",
+      "date": "2026-08-07",
+      "notes": "Interview-to-ceremony span for the same fast, fully-dated case."
+    },
+    {
+      "obs_id": "n400_naturalization-0065",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Kendall, FL (Miami area)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "automated",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to interview scheduled (delayed by travel-ban pause)",
+      "value": {
+        "elapsed_days": 150,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w7fwvh",
+      "quote": "Case started moving again after 39 countries pause was lifted",
+      "date": "2026-09-04",
+      "notes": "Filed under the 3-year rule; case explicitly stalled due to a policy-level travel-ban pause affecting 39 countries, not an ordinary processing delay - a policy-shock example distinct from routine backlog."
+    },
+    {
+      "obs_id": "n400_naturalization-0066",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Kendall, FL (Miami area)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "scheduling",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview scheduled to combo interview completed",
+      "value": {
+        "elapsed_days": 31,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w7fwvh",
+      "quote": "2026- July. Combo interview scheduled... 2026- August. Combo i-751 & N-400 interview done and approved.",
+      "date": "2026-09-04",
+      "notes": "Month-only dates."
+    },
+    {
+      "obs_id": "n400_naturalization-0067",
+      "slug": "n400_naturalization",
+      "jurisdiction": "Kendall, FL (Miami area)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "issuance",
+        "channel": "hearing",
+        "blocking_party": "shared",
+        "cadence": "biweekly_or_monthly_cycle",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Interview to oath ceremony",
+      "value": {
+        "elapsed_days": 20,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w7fwvh",
+      "quote": "2026- September 4th. Oath ceremony done at Kendall,FL USCIS.",
+      "date": "2026-09-04",
+      "notes": "Interview month-only (mid-month approximation); ceremony date exact."
+    },
+    {
+      "obs_id": "n400_naturalization-0068",
+      "slug": "n400_naturalization",
+      "jurisdiction": "unspecified FO (heavy I-751 contamination)",
+      "step_key": {
+        "agency_class": "federal_agency",
+        "task_type": "records_check",
+        "channel": "site_visit",
+        "blocking_party": "agency",
+        "cadence": "on_request",
+        "jurisdiction_class": "federal"
+      },
+      "step_label": "Filing to biometrics",
+      "value": {
+        "elapsed_days": 8,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "1w3z4jh",
+      "quote": "I filed my N-400 on 4/3/2026 and did biometrics on 4/11/2026.",
+      "date": "2026-09-01",
+      "notes": "Post is primarily about a separately pending I-751; this is the only clean N-400-specific duration fact in it."
+    }
+  ],
+  "coverage": {
+    "by_evidence_tier": {
+      "verifiable_official": 9,
+      "designed_document": 2,
+      "statutory": 9,
+      "community_reported": 47,
+      "inferred": 1
+    },
+    "distinct_step_keys": 14,
+    "total_observations": 68,
+    "gold_steps_with_no_duration_evidence": [
+      "A08 (FBI name check via Enterprise Vetting Center) - 8 CFR 335.2(b) sets a gate, no service level published or reported anywhere in this corpus",
+      "A09 (Neighborhood investigation under INA 335(a)) - not published; no reddit mention found",
+      "A10 (Applicant submits character reference letters) - no distinct timing evidence; folded into general filing prep",
+      "A11 (Officer decides whether to waive neighborhood investigation) - internal discretionary step, no timing evidence",
+      "A14 (Officer's pre-interview A-file review) - internal prep step, no distinct timing evidence separate from filing-to-interview span",
+      "A16 (Transfer application to new-jurisdiction office if applicant moved) - no timing evidence found",
+      "A17 (Interview itself: oath, questioning) - touch-time duration of the interview event not distinctly reported (1vszlqh mentions ~1h20m for one case, folded into notes rather than a separate observation)",
+      "A18 (English/civics test administration) - administered within the interview; no separate duration reported",
+      "A19 (N-652 results notice issued at end of exam) - same-visit, no distinct timing evidence",
+      "A23 (Internal re-verification quality review of approved applications) - not published; one case (1vszlqh) mentions 'submitted for quality review' same-day as approval, but no elapsed duration for the review itself",
+      "A27 (Post-approval derogatory-information check before oath) - not published; the S29 for-cause hold documents the RULE but no case in this corpus reports a duration for this specific check",
+      "A30/A31 (Oath-ceremony check-in and administration itself) - same-event touch time not reported by any source",
+      "A33 (Presumed abandonment after missing more than one oath ceremony) - no timed instance found",
+      "A34 (Petition to district court for unreasonable delay) - gold itself notes 'not published; no timed instance in this corpus'"
+    ]
+  }
+}

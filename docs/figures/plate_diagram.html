@@ -1,0 +1,172 @@
+<!doctype html><meta charset="utf-8"><title>Plate diagram</title>
+<style>
+:root{--paper:#F4F5F2;--panel:#fff;--ink:#14181D;--ink-2:#4A5158;--ink-3:#727A80;--rule:#CFD4CC;--rule-2:#E3E7E1;
+--facing:#0F766E;--facing-bg:#DFF0ED;--inferable:#A76A00;--inferable-bg:#F6EBD6;--hidden:#4C4A7D;--hidden-bg:#E5E4F0;--stamp:#A3342A;--stamp-bg:#F7E4E1;}
+@media(prefers-color-scheme:dark){:root{--paper:#12151A;--panel:#1A1E24;--ink:#E8EBE6;--ink-2:#A8B0B6;--ink-3:#7E868C;
+--rule:#2C333A;--rule-2:#222932;--facing:#59C3B6;--facing-bg:#123231;--hidden:#9C99D8;--hidden-bg:#232244;--stamp:#E0796C;--stamp-bg:#3A1D19;}}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,sans-serif;padding:20px}
+h1{font-size:20px;margin:0 0 4px} p{color:var(--ink-2);max-width:70ch;margin:0 0 16px}
+</style>
+<h1>How an administrative process comes to be</h1>
+<p>Plate diagram v2. Shaded nodes are observed, unshaded are latent, the violet ones are parameters shared across every statute and jurisdiction. Open this file directly in a browser.</p>
+<svg style="max-width:100%;height:auto" viewBox="0 0 1160 1180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt pd" font-family="Archivo, Helvetica, Arial, sans-serif">
+<title id="pt">Plate diagram, v2: how an administrative process comes to be and how evidence about it is generated</title>
+<desc id="pd">Global parameters at the top feed a statute plate and a jurisdiction plate. Their intersection is a program plate, which contains the step, case and document plates. Shaded nodes are observed. Corrected from v1: steps now sit inside both statute and jurisdiction context; realised durations sit in a step sub-plate inside the case plate; disclosure propensity and extractor error are globals outside every plate; the duration state carries a time index; step existence and the act-to-agency affinity are explicit nodes.</desc>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#727A80"/>
+  </marker>
+  <style>
+    .pl{fill:none;stroke:var(--rule,#CFD4CC);stroke-width:1.4}
+    .pl2{fill:none;stroke:var(--ink-3,#727A80);stroke-width:1.4;stroke-dasharray:6 4}
+    .plab{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink-3,#727A80)}
+    .glab{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;fill:var(--hidden,#4C4A7D)}
+    .lat{fill:var(--panel,#fff);stroke:var(--ink,#14181D);stroke-width:1.5}
+    .obs{fill:var(--facing-bg,#DFF0ED);stroke:var(--facing,#0F766E);stroke-width:1.8}
+    .hyp{fill:var(--hidden-bg,#E5E4F0);stroke:var(--hidden,#4C4A7D);stroke-width:1.5}
+    .nm{font-size:12.5px;fill:var(--ink,#14181D);text-anchor:middle}
+    .sub{font-size:10px;fill:var(--ink-3,#727A80);text-anchor:middle}
+    .e{stroke:#727A80;stroke-width:1.25;fill:none;marker-end:url(#a)}
+    .ec{stroke:var(--stamp,#A3342A);stroke-width:1.35;fill:none;marker-end:url(#a);stroke-dasharray:5 4}
+    .note{font-size:11.5px;fill:var(--ink-2,#4A5158)}
+    .nb{font-size:11.5px;fill:var(--ink-2,#4A5158);font-weight:600}
+  </style>
+</defs>
+
+<!-- ============ GLOBALS: shared parameters, outside every plate ============ -->
+<text class="glab" x="24" y="22">global parameters — shared across all statutes, jurisdictions and documents</text>
+<ellipse class="hyp" cx="96" cy="58" rx="70" ry="25"/><text class="nm" x="96" y="55">α<tspan font-size="9" dy="3">τ</tspan></text><text class="sub" x="96" y="71">act-type touch time</text>
+<ellipse class="hyp" cx="250" cy="58" rx="70" ry="25"/><text class="nm" x="250" y="55">Φ</text><text class="sub" x="250" y="71">act→agency affinity</text>
+<ellipse class="hyp" cx="404" cy="58" rx="70" ry="25"/><text class="nm" x="404" y="55">μ<tspan font-size="9" dy="3">fam</tspan>, τ²</text><text class="sub" x="404" y="71">step-key family</text>
+<ellipse class="hyp" cx="558" cy="58" rx="66" ry="25"/><text class="nm" x="558" y="55">τ²<tspan font-size="9" dy="3">walk</tspan></text><text class="sub" x="558" y="71">drift rate</text>
+<ellipse class="hyp" cx="716" cy="58" rx="80" ry="25"/><text class="nm" x="716" y="55">π(k, v, F)</text><text class="sub" x="716" y="71">disclosure propensity</text>
+<ellipse class="hyp" cx="886" cy="58" rx="66" ry="25"/><text class="nm" x="886" y="55">ε<tspan font-size="9" dy="3">k</tspan></text><text class="sub" x="886" y="71">extractor error</text>
+<ellipse class="hyp" cx="1030" cy="58" rx="66" ry="25"/><text class="nm" x="1030" y="55">α<tspan font-size="9" dy="3">CRP</tspan></text><text class="sub" x="1030" y="71">new-step rate</text>
+
+<!-- ============ STATUTE plate ============ -->
+<rect class="pl" x="24" y="104" width="420" height="120" rx="3"/>
+<text class="plab" x="420" y="215" text-anchor="end">statutes  s = 1…S</text>
+<ellipse class="obs" cx="106" cy="142" rx="60" ry="22"/><text class="nm" x="106" y="140">E<tspan font-size="9" dy="3">s</tspan></text><text class="sub" x="106" y="155">skeleton</text>
+<ellipse class="obs" cx="242" cy="142" rx="60" ry="22"/><text class="nm" x="242" y="140">c<tspan font-size="9" dy="3">e</tspan></text><text class="sub" x="242" y="155">shot clocks</text>
+<ellipse class="obs" cx="370" cy="142" rx="56" ry="22"/><text class="nm" x="370" y="140">prec<tspan font-size="9" dy="3">s</tspan></text><text class="sub" x="370" y="155">precedence</text>
+<ellipse class="obs" cx="106" cy="192" rx="60" ry="22"/><text class="nm" x="106" y="190">O<tspan font-size="9" dy="3">s</tspan></text><text class="sub" x="106" y="205">open choices</text>
+
+<!-- ============ JURISDICTION plate ============ -->
+<rect class="pl" x="476" y="104" width="656" height="240" rx="3"/>
+<text class="plab" x="1108" y="335" text-anchor="end">jurisdictions  j = 1…J</text>
+<ellipse class="obs" cx="556" cy="142" rx="62" ry="22"/><text class="nm" x="556" y="140">A<tspan font-size="9" dy="3">j</tspan></text><text class="sub" x="556" y="155">dept roster</text>
+<ellipse class="lat" cx="694" cy="142" rx="58" ry="22"/><text class="nm" x="694" y="140">L<tspan font-size="9" dy="3">j</tspan></text><text class="sub" x="694" y="155">lineage</text>
+<ellipse class="lat" cx="826" cy="142" rx="58" ry="22"/><text class="nm" x="826" y="140">F<tspan font-size="9" dy="3">j</tspan></text><text class="sub" x="826" y="155">fee instrument</text>
+<!-- DEPARTMENT plate -->
+<rect class="pl" x="496" y="176" width="418" height="150" rx="3"/>
+<text class="plab" x="898" y="316" text-anchor="end">departments  d = 1…D<tspan font-size="9">j</tspan></text>
+<ellipse class="lat" cx="568" cy="216" rx="54" ry="21"/><text class="nm" x="568" y="214">δ<tspan font-size="9" dy="3">d</tspan></text><text class="sub" x="568" y="229">speed</text>
+<ellipse class="lat" cx="688" cy="216" rx="54" ry="21"/><text class="nm" x="688" y="214">ρ<tspan font-size="9" dy="3">d</tspan></text><text class="sub" x="688" y="229">utilisation</text>
+<ellipse class="lat" cx="808" cy="216" rx="54" ry="21"/><text class="nm" x="808" y="214">κ<tspan font-size="9" dy="3">d</tspan></text><text class="sub" x="808" y="229">cadence</text>
+<ellipse class="lat" cx="628" cy="278" rx="54" ry="21"/><text class="nm" x="628" y="276">ψ<tspan font-size="9" dy="3">d</tspan></text><text class="sub" x="628" y="291">clock compliance</text>
+<ellipse class="lat" cx="748" cy="278" rx="54" ry="21"/><text class="nm" x="748" y="276">v<tspan font-size="9" dy="3">d</tspan></text><text class="sub" x="748" y="291">version dates</text>
+
+<!-- ============ PROGRAM plate: the (j,s) intersection ============ -->
+<rect class="pl2" x="24" y="368" width="1108" height="586" rx="3"/>
+<text class="plab" x="1108" y="945" text-anchor="end">programs  (j, s) — one statute as one jurisdiction runs it</text>
+<ellipse class="lat" cx="118" cy="406" rx="70" ry="23"/><text class="nm" x="118" y="404">R<tspan font-size="9" dy="3">js</tspan></text><text class="sub" x="118" y="419">local rule</text>
+<ellipse class="lat" cx="286" cy="406" rx="76" ry="23"/><text class="nm" x="286" y="404">Z<tspan font-size="9" dy="3">js</tspan></text><text class="sub" x="286" y="419">which steps exist</text>
+<text class="note" x="378" y="410">a partition, not a fixed list: the step count is itself inferred</text>
+
+<!-- STEP plate -->
+<rect class="pl" x="44" y="440" width="486" height="268" rx="3"/>
+<text class="plab" x="514" y="698" text-anchor="end">steps  i ∈ Z<tspan font-size="9">js</tspan></text>
+<ellipse class="lat" cx="122" cy="482" rx="58" ry="22"/><text class="nm" x="122" y="480">a<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="122" y="495">actor (dept)</text>
+<ellipse class="lat" cx="250" cy="482" rx="54" ry="22"/><text class="nm" x="250" y="480">τ<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="250" y="495">act type</text>
+<ellipse class="lat" cx="372" cy="482" rx="54" ry="22"/><text class="nm" x="372" y="480">b<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="372" y="495">who waits</text>
+<ellipse class="lat" cx="480" cy="482" rx="42" ry="22"/><text class="nm" x="480" y="480">v<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="480" y="495">visibility</text>
+<ellipse class="lat" cx="122" cy="556" rx="58" ry="22"/><text class="nm" x="122" y="554">Q<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="122" y="569">queue</text>
+<ellipse class="lat" cx="250" cy="556" rx="54" ry="22"/><text class="nm" x="250" y="554">W<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="250" y="569">touch</text>
+<ellipse class="lat" cx="404" cy="556" rx="58" ry="22"/><text class="nm" x="404" y="554">f<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="404" y="569">fee</text>
+<ellipse class="lat" cx="196" cy="632" rx="84" ry="25"/><text class="nm" x="196" y="630">μ<tspan font-size="9" dy="3">i,t</tspan>, σ<tspan font-size="9" dy="3">i</tspan></text><text class="sub" x="196" y="646">log-duration, drifting</text>
+<ellipse class="lat" cx="404" cy="632" rx="70" ry="25"/><text class="nm" x="404" y="630">i ≺ i'</text><text class="sub" x="404" y="646">order relation</text>
+
+<!-- CASE plate with nested step sub-plate -->
+<rect class="pl" x="552" y="440" width="278" height="268" rx="3"/>
+<text class="plab" x="814" y="698" text-anchor="end">cases  n = 1…N<tspan font-size="9">js</tspan></text>
+<ellipse class="lat" cx="632" cy="482" rx="58" ry="22"/><text class="nm" x="632" y="480">path<tspan font-size="9" dy="3">n</tspan></text><text class="sub" x="632" y="495">branch</text>
+<ellipse class="lat" cx="756" cy="482" rx="54" ry="22"/><text class="nm" x="756" y="480">R<tspan font-size="9" dy="3">n</tspan></text><text class="sub" x="756" y="495">rework</text>
+<rect class="pl" x="570" y="512" width="242" height="80" rx="3"/>
+<text class="plab" x="800" y="583" text-anchor="end">× steps i</text>
+<ellipse class="lat" cx="668" cy="544" rx="66" ry="22"/><text class="nm" x="668" y="542">T<tspan font-size="9" dy="3">n,i</tspan></text><text class="sub" x="668" y="557">realised days</text>
+<ellipse class="lat" cx="632" cy="624" rx="58" ry="22"/><text class="nm" x="632" y="622">Y<tspan font-size="9" dy="3">n</tspan></text><text class="sub" x="632" y="637">outcome</text>
+<ellipse class="lat" cx="756" cy="624" rx="58" ry="22"/><text class="nm" x="756" y="622">S<tspan font-size="9" dy="3">n</tspan></text><text class="sub" x="756" y="637">posts?</text>
+
+<!-- DOCUMENT plate -->
+<rect class="pl" x="852" y="440" width="264" height="268" rx="3"/>
+<text class="plab" x="1100" y="698" text-anchor="end">documents  m = 1…M</text>
+<ellipse class="lat" cx="922" cy="482" rx="52" ry="22"/><text class="nm" x="922" y="480">k<tspan font-size="9" dy="3">m</tspan></text><text class="sub" x="922" y="495">kind</text>
+<ellipse class="lat" cx="1040" cy="482" rx="52" ry="22"/><text class="nm" x="1040" y="480">t<tspan font-size="9" dy="3">m</tspan></text><text class="sub" x="1040" y="495">date</text>
+<ellipse class="obs" cx="984" cy="552" rx="74" ry="23"/><text class="nm" x="984" y="550">claim<tspan font-size="9" dy="3">m</tspan></text><text class="sub" x="984" y="566">what it states</text>
+<ellipse class="obs" cx="984" cy="616" rx="74" ry="23"/><text class="nm" x="984" y="614">y<tspan font-size="9" dy="3">m</tspan></text><text class="sub" x="984" y="630">reported duration</text>
+<ellipse class="obs" cx="984" cy="676" rx="74" ry="23"/><text class="nm" x="984" y="674">pkg<tspan font-size="9" dy="3">m</tspan></text><text class="sub" x="984" y="690">extracted package</text>
+
+<!-- edges: globals down -->
+<path class="e" d="M96 83 L120 434"/>
+<path class="e" d="M250 83 L128 460"/>
+<path class="e" d="M404 83 L214 608"/>
+<path class="e" d="M558 83 L262 612" opacity=".6"/>
+<path class="e" d="M716 83 L950 460"/>
+<path class="e" d="M886 83 L978 654"/>
+<path class="e" d="M1030 83 L316 392"/>
+<!-- statute -->
+<path class="e" d="M106 164 L112 384"/>
+<path class="ec" d="M242 164 L210 608"/>
+<path class="e" d="M370 164 L398 610"/>
+<path class="e" d="M106 214 L114 384"/>
+<!-- jurisdiction / dept -->
+<path class="e" d="M556 164 L180 470" opacity=".75"/>
+<path class="e" d="M694 164 L160 398" opacity=".6"/>
+<path class="e" d="M826 164 L432 538"/>
+<path class="e" d="M568 237 L268 546"/>
+<path class="e" d="M688 237 L170 548"/>
+<path class="e" d="M808 237 L176 552"/>
+<path class="ec" d="M628 299 L250 616"/>
+<path class="e" d="M748 299 L270 620" opacity=".55"/>
+<!-- program -->
+<path class="e" d="M188 406 L258 400"/>
+<path class="e" d="M286 429 L200 460"/>
+<!-- step internals -->
+<path class="e" d="M122 504 L122 534"/>
+<path class="e" d="M250 504 L250 534"/>
+<path class="e" d="M372 504 L146 542"/>
+<path class="e" d="M122 578 L168 608"/>
+<path class="e" d="M250 578 L214 608"/>
+<!-- step -> case -->
+<path class="e" d="M280 632 L610 552"/>
+<path class="e" d="M404 654 L620 500"/>
+<path class="e" d="M632 504 L660 522"/>
+<path class="e" d="M756 504 L690 522"/>
+<path class="e" d="M668 566 L640 602"/>
+<path class="ec" d="M660 646 L740 606"/>
+<path class="ec" d="M756 646 L960 628"/>
+<!-- step -> document -->
+<path class="e" d="M480 504 L900 476"/>
+<path class="e" d="M922 504 L960 532"/>
+<path class="e" d="M1040 504 L1004 532"/>
+<path class="e" d="M984 575 L984 594"/>
+<path class="e" d="M984 639 L984 654"/>
+
+<!-- legend -->
+<g transform="translate(24,974)">
+  <ellipse class="lat" cx="18" cy="13" rx="16" ry="10"/><text class="note" x="40" y="17">latent</text>
+  <ellipse class="obs" cx="108" cy="13" rx="16" ry="10"/><text class="note" x="130" y="17">observed</text>
+  <ellipse class="hyp" cx="218" cy="13" rx="16" ry="10"/><text class="note" x="240" y="17">global parameter</text>
+  <path class="ec" d="M376 13 L414 13"/><text class="note" x="422" y="17">policy or selection edge, not a plain draw</text>
+  <rect class="pl2" x="716" y="4" width="38" height="18"/><text class="note" x="762" y="17">the (j,s) intersection plate</text>
+</g>
+
+<text class="nb" x="24" y="1024">Corrected from v1:</text>
+<text class="note" x="24" y="1044">steps, cases and documents now sit inside an explicit program plate (j,s), because a step depends on the statute AND the jurisdiction — v1 nested them under the jurisdiction alone;</text>
+<text class="note" x="24" y="1064">realised duration T is in a step sub-plate inside the case plate, since it is indexed by both — v1 put it in the case plate alone; disclosure propensity π and extractor error ε are</text>
+<text class="note" x="24" y="1084">now globals outside every plate, because they are shared across documents and indexed by kind, not by document — v1 drew them per-document, which asserts a separate</text>
+<text class="note" x="24" y="1104">propensity for each one. The duration state carries a time index μ(i,t) to match the drift model. Three nodes were missing and are added: Z, which steps exist (a partition, so</text>
+<text class="note" x="24" y="1124">the step count is inferred, not assumed); Φ, the act-to-agency affinity that the entropy test showed carries 0.6 bits on average; and y, the reported duration — the observable</text>
+<text class="note" x="24" y="1144">is a reported or summarised figure, never T itself. The fee is now parented by the jurisdiction's fee instrument F(j), since within a jurisdiction a fee is administered, not drawn.</text>
+<text class="note" x="24" y="1170">Statute-level documents (the statute text, a committee analysis) formally sit in a document plate at statute level; they are drawn here for compactness.</text>
+</svg>

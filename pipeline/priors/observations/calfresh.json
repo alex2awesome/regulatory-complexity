@@ -1,0 +1,3347 @@
+{
+  "slug": "calfresh",
+  "observations": [
+    {
+      "obs_id": "calfresh_001",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "intake_screen",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F03 File the application",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "The applicant is not required to visit the district office to file an application.",
+      "date": "2026-01-22",
+      "notes": "LA ePolicy 63-300; filing itself is applicant self-service, near-zero elapsed time."
+    },
+    {
+      "obs_id": "calfresh_002",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F04 Date-stamp application and record application date (day zero)",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 1
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "The application date is the first business day the application was received by the Department of Public Social Services (DPSS).",
+      "date": "2026-01-22",
+      "notes": "Weekend/holiday/after-hours receipt post-dates to next business day (p90=1)."
+    },
+    {
+      "obs_id": "calfresh_003",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "intake_screen",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F05 Screen every application for expedited-service entitlement",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 1
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "All CalFresh applications submitted must be evaluated for ES entitlement.",
+      "date": "2026-01-22",
+      "notes": "Whole application reviewed, not just ES-specific questions (CDSS ACL 16-14, G2)."
+    },
+    {
+      "obs_id": "calfresh_004",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "front_counter",
+        "task_type": "appeal",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F06 Agency conference on ES-entitlement dispute",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 2,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G2",
+      "quote": "The agency conference shall be scheduled within two working days of the request, unless the household requests that it be scheduled later",
+      "date": "2016-02-29",
+      "notes": "MPP \u00a763-804.4; 7 CFR \u00a7273.15(d)."
+    },
+    {
+      "obs_id": "calfresh_005",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F10 Flexible 'end-to-end' interview line (single-call determination)",
+      "value": {
+        "elapsed_days": 15,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "LA County already had an alternative application process called \"end-to-end\" in which a CalFresh applicant could place a call, connect to a worker, complete an application over the phone, and receive a determination -- all within a single phone call.",
+      "date": "2021-12-22",
+      "notes": "Code for America RCT; 54% of treatment-group members used this line."
+    },
+    {
+      "obs_id": "calfresh_006",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F17 Issue CW 2200 Request for Verification (10-day window)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "at least 10 days to provide required verification",
+      "date": "2026-09-15",
+      "notes": "7 CFR \u00a7273.2(f); verification cannot be requested before the interview."
+    },
+    {
+      "obs_id": "calfresh_007",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F18 Applicant submits requested verification",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "D1",
+      "quote": "Your county worker may ask for \"proof\", like your ID, income, or housing and utility costs. You can upload documents online to your BenefitsCal account, mail them, or drop them off at your county office.",
+      "date": "2026-09-15",
+      "notes": "GetCalFresh declared page; median matches the 10-day CW2200 due date rather than a separately measured applicant turnaround."
+    },
+    {
+      "obs_id": "calfresh_008",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F19 Verify identity and issue ES benefits (same day, no later than 3 days)",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 3
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G1",
+      "quote": "all reasonable efforts must be made to interview the applicant, verify the applicant's identity, and issue ES benefits on the same day but no later than three days from the date of application",
+      "date": "2026-01-22",
+      "notes": "Cal. Welf. & Inst. Code \u00a718914 (AB 2384/AB 1359) -- California's own deadline is stricter than the 7-day federal floor."
+    },
+    {
+      "obs_id": "calfresh_009",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F20 Restart 3-day ES clock from date of late discovery",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 3,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G2",
+      "quote": "the ES time clock starts from the date the CWD became aware the household was entitled to ES processing (this is the date of discovery)",
+      "date": "2016-02-29",
+      "notes": "MPP \u00a763-301.533; applies when ES entitlement surfaces at the interview or later."
+    },
+    {
+      "obs_id": "calfresh_010",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F22 Determine eligibility and authorize benefits",
+      "value": {
+        "elapsed_days": 19,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "the average time to determination for applicants in the treatment group (including those who used the flexible interview line and those who did not) was 15 days, compared to just under 19 days for applicants in the control group",
+      "date": "2021-12-22",
+      "notes": "Code for America RCT, control arm (19 days) reported here; treatment-arm 15-day figure captured separately. Selection caveat: GetCalFresh-assisted, digitally-savvy population, likely faster than the LA average."
+    },
+    {
+      "obs_id": "calfresh_011",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F25 Send denial Notice of Action",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 31
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "Applicants determined to be ineligible must be sent a NOA denying the application no later than 30 days following the application date.",
+      "date": "2026-01-22",
+      "notes": "7 CFR \u00a7273.2(g)(3); p90=31 accounts for weekend/holiday roll-forward."
+    },
+    {
+      "obs_id": "calfresh_012",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F26 Early Denial waiver: deny before 30th day for non-verification",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "The Initial Application Denial Before the 30th Day Waiver allows counties to deny an initial application prior to the 30th day when an applicant fails to provide mandatory and/or questionable verification within 10 calendar days from the date requested",
+      "date": "2026-01-22",
+      "notes": "MPP \u00a763-300.4 waiver, extended through April 30, 2029 -- an administrative waiver, not a federal statute."
+    },
+    {
+      "obs_id": "calfresh_013",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F27 Deny for missed interview, only on the 30th day",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 31
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "Denials of applications due to missed interviews can only occur on the 30th day following the application date or the first business day after the 30th day if the 30th day falls on a weekend or holiday.",
+      "date": "2026-01-22",
+      "notes": "MPP \u00a763-300.46. This is a floor, not a ceiling: LA cannot deny for a missed interview any earlier than day 30, even if the household never reschedules."
+    },
+    {
+      "obs_id": "calfresh_014",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "F29 Restore eligibility, prorated, verification arrives day 31-60",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 60
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "The HH is entitled to choose to file a new application or have CalFresh benefits restored if the HH provides the mandatory verification that caused the denial between the 31st and 60th day following the application date.",
+      "date": "2026-01-22",
+      "notes": "Benefits prorated from date of compliance, not from original application date (contrast with F28's day-1-30 full restoration)."
+    },
+    {
+      "obs_id": "calfresh_015",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "End-to-end LA CalFresh: file -> determination",
+      "value": {
+        "elapsed_days": 19,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "the average time to determination for applicants in the treatment group ... was 15 days, compared to just under 19 days for applicants in the control group",
+      "date": "2021-12-22",
+      "notes": "gold timing_gold for LA; measured median exists only for this RCT population, not LA overall."
+    },
+    {
+      "obs_id": "calfresh_016",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Statutory ceiling for normal processing (whole process)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "The normal processing timeframe for an application is 30 calendar days. A determination of eligibility on a submitted application must be made as soon as administratively possible, but no later than 30 calendar days following the application date.",
+      "date": "2026-01-22",
+      "notes": "gold timing_gold_secondary #1 for LA."
+    },
+    {
+      "obs_id": "calfresh_017",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "ES compliance ceiling: CA 3 days vs. federal 7-day floor",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 3,
+        "range_days": [
+          3,
+          7
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G2",
+      "quote": "Process applications for households entitled to ES within three calendar days [the current federal mandate is seven days under 7 Code of Federal Regulations (CFR) Section 273.2 (i)(3)(i)].",
+      "date": "2016-02-29",
+      "notes": "gold timing_gold_secondary #2 for LA."
+    },
+    {
+      "obs_id": "calfresh_018",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Effect of flexible interview line on time-to-determination",
+      "value": {
+        "elapsed_days": 12,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          7
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "verifiable_official",
+      "source_id": "G3",
+      "quote": "Applicants who received information about flexible interviews and who called the flexible interview line received a benefit determination roughly seven days sooner than those in the control group",
+      "date": "2021-12-22",
+      "notes": "gold timing_gold_secondary #3 for LA; ~7 days faster than the 19-day control median, i.e. ~12 days."
+    },
+    {
+      "obs_id": "calfresh_019",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H04 Text/email reminder same day NOMI goes out",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 1
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G2",
+      "quote": "The SSBS sends a text/email reminder on the same day.",
+      "date": "2026-09-15",
+      "notes": "Santa Clara CalFresh Handbook, Telephonic Signature chart."
+    },
+    {
+      "obs_id": "calfresh_020",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H08 Schedule 2nd appointment in CalSAWS (Telephone Interview category)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 60
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "Schedule a second appointment within 60 days of the application date in CalSAWS using the Telephone Interview category to prevent a second NOMI from being sent out. Refer to Chewable Byte 2023-15: How to Schedule an Appointment.",
+      "date": "2026-09-15",
+      "notes": "Internal job aid ('Chewable Byte 2023-15') cited by number but not itself public."
+    },
+    {
+      "obs_id": "calfresh_021",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H12 Request missing verification (10-day standard)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "The household was informed of the 10-day standard in writing and was notified at the interview of the due date by which the household must provide any missing verification",
+      "date": "2026-09-15",
+      "notes": "MPP \u00a763-300.5(i); 7 CFR \u00a7273.2(f). Same statutory clock as LA's F17."
+    },
+    {
+      "obs_id": "calfresh_022",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H14 Approve application, benefits available",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "Eligible households that complete the application process must be approved and have benefits available to them as soon as possible, but no later than 30 days from the application date.",
+      "date": "2026-09-15",
+      "notes": "7 CFR \u00a7273.2(g)(1); no measured median exists for Santa Clara (gold_tier='designed' only)."
+    },
+    {
+      "obs_id": "calfresh_023",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H15 Deny for failure to provide verification",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "L1",
+      "quote": "Deny the application on or before the 30th day if the household fails to provide missing verification(s), only when all of the following actions have been taken",
+      "date": "2026-09-15",
+      "notes": "7 CFR \u00a7273.2(g)(3). Conditioned on: interview held, 10-day standard given in writing, assistance offered."
+    },
+    {
+      "obs_id": "calfresh_024",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H18 Send CF 377.1A pending-status notice by 30th day",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "A notice of pending status must be sent to the household by the 30th day following the date the application was filed.",
+      "date": "2026-09-15",
+      "notes": "MPP \u00a763-301.4; used when the delay is administrative (e.g. backlog) rather than the household's fault."
+    },
+    {
+      "obs_id": "calfresh_025",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H19 Act on pended application during second 30-day period",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 60
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "Households found eligible during the second 30 days are eligible to retroactive benefits from the month of application.",
+      "date": "2026-09-15",
+      "notes": "MPP \u00a763-301.4; retroactive if county-caused, prorated-from-compliance if household-caused."
+    },
+    {
+      "obs_id": "calfresh_026",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H20 Deny at end of 60 days (household at fault)",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 60
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G1",
+      "quote": "If the household is at fault for not completing the application process by the end of the second 30-day period, the application must be denied.",
+      "date": "2026-09-15",
+      "notes": "MPP \u00a763-301.44. No entitlement to lost benefits even if the county caused the initial 30-day delay."
+    },
+    {
+      "obs_id": "calfresh_027",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "H24 Rescind auto-discontinuance, full allotment within 5 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "G2",
+      "quote": "The worker will rescind the discontinuance as complete recertification and provides a full allotment of benefits for April within five days",
+      "date": "2026-09-15",
+      "notes": "Santa Clara Handbook worked example; county-caused recertification delay."
+    },
+    {
+      "obs_id": "calfresh_028",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "End-to-end Santa Clara CalFresh: no measured median",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": 30
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G1",
+      "quote": "Eligible households that complete the application process must be approved and have benefits available to them as soon as possible, but no later than 30 days from the application date.",
+      "date": "2026-09-15",
+      "notes": "gold timing_gold for Santa Clara; regulatory ceiling only, gold_tier='designed' -- no RCT or audit exists for this county (unlike LA)."
+    },
+    {
+      "obs_id": "calfresh_029",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "ES not covered by Santa Clara's own handbook chapter",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 3,
+        "range_days": [
+          3,
+          7
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "G3",
+      "quote": "Process applications for households entitled to ES within three calendar days [the current federal mandate is seven days under 7 Code of Federal Regulations (CFR) Section 273.2 (i)(3)(i)].",
+      "date": "2016-02-29",
+      "notes": "gold timing_gold_secondary #5 for Santa Clara; carried in only via CDSS ACL 16-14, not Santa Clara's own Processing Time Frames chapter."
+    },
+    {
+      "obs_id": "calfresh_030",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Missed-interview denial cannot occur before day 30 (floor, not ceiling)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 30,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S5",
+      "quote": "Denials of applications due to missed interviews can only occur on the 30th day following the application date or the first business day after the 30th day if the 30th day falls on a weekend or holiday.",
+      "date": "2026-01-22",
+      "notes": "Same rule as F27, recorded independently from sources.json to make explicit that this is a floor: DPSS cannot deny earlier even if the household never reschedules."
+    },
+    {
+      "obs_id": "calfresh_031",
+      "slug": "calfresh",
+      "jurisdiction": "San Francisco HSA",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card mailed within about one week of approval (SF)",
+      "value": {
+        "elapsed_days": 7,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S7",
+      "quote": "EBT card by mail in one week",
+      "date": "2026-09-15",
+      "notes": "SF HSA declared page; no statewide statutory deadline exists for physical card delivery, only that benefits be 'available' by day 3/30."
+    },
+    {
+      "obs_id": "calfresh_032",
+      "slug": "calfresh",
+      "jurisdiction": "Sacramento County DHA",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "SAR7 semi-annual report due 6 months after application (Sacramento)",
+      "value": {
+        "elapsed_days": 180,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 5,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S9",
+      "quote": "Many households must complete a SAR 7 six (6) months after applying for RCA. The SAR 7 is due by the 5th of the month.",
+      "date": "2026-09-15",
+      "notes": "Sacramento DHA declared page."
+    },
+    {
+      "obs_id": "calfresh_033",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "GetCalFresh guidance: check in after 2 weeks of silence",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S25",
+      "quote": "Your county has 30 days to approve or deny your case... If you haven't heard from your county after two weeks...",
+      "date": "2025-07-01",
+      "notes": "Community-facing rule of thumb from GetCalFresh's own FAQ -- roughly half the 30-day cap."
+    },
+    {
+      "obs_id": "calfresh_034",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "SAR7 due/late/restoration cycle (GetCalFresh worked example)",
+      "value": {
+        "elapsed_days": 6,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0,
+          56
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S25",
+      "quote": "your SAR 7 is due by October 5th (and is considered late if not submitted by October 11th)...You have until November 30th to complete your SAR 7 and restore benefits.",
+      "date": "2025-07-01",
+      "notes": "6-day grace period (5th->11th) then a ~7-week restoration window (11th -> Nov 30 in the example) before the case closes."
+    },
+    {
+      "obs_id": "calfresh_035",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Second missed-interview denial: reopen within 60 days without new application",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 60,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S12",
+      "quote": "If the applicant takes action within 60 days of denial, the county should reopen the application without requiring a new one.",
+      "date": "2026-09-15",
+      "notes": "Legal Services of Northern California (LSNC) Guide to CalFresh Benefits; matches the LA/Santa Clara 60-day reopen window (F14/H06-H09) stated in consumer-legal-aid language."
+    },
+    {
+      "obs_id": "calfresh_036",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Federal QC-review fallback when the 3-day state deadline is missed",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 7,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "statutory",
+      "source_id": "S15",
+      "quote": "If the statutory required three day timeframe has lapsed and the CWD is unable to process the application timely, CWDs shall continue the ES process to meet the seven day (federal) ES timeframe for issuing benefits.",
+      "date": "2016-02-29",
+      "notes": "CDSS ACL 16-14; a county that blows the 3-day CA deadline is not automatically out of compliance until the 7-day federal deadline also passes."
+    },
+    {
+      "obs_id": "calfresh_037",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Benefit start date depends on which 30-day window verification lands in",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": null,
+      "evidence_tier": "designed_document",
+      "source_id": "S19",
+      "quote": "If the household provides the verification during the second 30 days, determine eligibility and benefits beginning with the day that the requested verification is received.",
+      "date": "2026-09-15",
+      "notes": "Santa Clara Handbook; no single day-count, the rule is itself the answer to 'how long.'"
+    },
+    {
+      "obs_id": "calfresh_038",
+      "slug": "calfresh",
+      "jurisdiction": "Sacramento County DHA",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "scheduling",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Interview appointment offered 35 days out despite ES claim (R2)",
+      "value": {
+        "elapsed_days": 35,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R2",
+      "quote": "They gave him an appointment 35 days from now.",
+      "date": "2023-10-26",
+      "notes": "Sacramento; contradicts the 3-day ES rule and even the 30-day standard ceiling -- selection-biased toward a bad outcome."
+    },
+    {
+      "obs_id": "calfresh_039",
+      "slug": "calfresh",
+      "jurisdiction": "San Francisco HSA",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "No word after 1.5 weeks despite 3-day expedited promise (R3)",
+      "value": {
+        "elapsed_days": 10.5,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R3",
+      "quote": "I applied 1.5 weeks ago and have not heard back even though it said I would receive benefits within 3 days with expedited service.",
+      "date": "2023-04-10",
+      "notes": "San Francisco."
+    },
+    {
+      "obs_id": "calfresh_040",
+      "slug": "calfresh",
+      "jurisdiction": "Sacramento County DHA",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card not received days after expedited Friday approval (R5)",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 3,
+      "evidence_tier": "community_reported",
+      "source_id": "R5",
+      "quote": "Three days later I just got an application packet in the mail... I was approved for emergency on Friday. No card still. I called yesterday and they said they would resend.",
+      "date": "2025-01-23",
+      "notes": "n_reports=3 in sources.json (multiple corroborating commenters in the same thread); Sacramento."
+    },
+    {
+      "obs_id": "calfresh_041",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Expedited interview granted within 3 days, then repeatedly rescheduled (R6)",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R6",
+      "quote": "I applied for benefits and got an interview within the first 3 days because I might qualify for expedited services... But they keep rescheduling my interview",
+      "date": "2023-07-25",
+      "notes": "Shows the ES clock and the interview-rescheduling problem can coexist on the same case."
+    },
+    {
+      "obs_id": "calfresh_042",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Restoration after late-but-cured SAR7 takes 'a few days' (R9)",
+      "value": {
+        "elapsed_days": 4,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R9",
+      "quote": "it will take a few days to process and benefits may not be available at your transfer date... your benefits will have to be restored with a proration of benefits from compliance date.",
+      "date": "2026-03-05",
+      "notes": "Proration from compliance date, not the original due date."
+    },
+    {
+      "obs_id": "calfresh_043",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Processing overdue: 30 days since application, 3 weeks since interview, still pending (R18)",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          30
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "R18",
+      "quote": "it's now be 30 days since I applied and three weeks since my interview... Does anyone know if this is just normal",
+      "date": "2026-05-13",
+      "notes": "Joint CalFresh/Medi-Cal application; same underlying case tracked further in the 1tc7tz1 thread mined separately below."
+    },
+    {
+      "obs_id": "calfresh_044",
+      "slug": "calfresh",
+      "jurisdiction": "San Francisco HSA",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Enforcement gap: CA 3-day deadline has no penalty until the federal 7-day deadline also passes",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:12h8kg7",
+      "quote": "California says 3 days but the federal requirement is 7 so there is no penalty for the county until after that.",
+      "date": "2023-04-10",
+      "notes": "Corroborates S15's federal QC-review fallback with a plainer explanation of why counties miss the 3-day rule without consequence."
+    },
+    {
+      "obs_id": "calfresh_045",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": null,
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "New eligibility-worker training pipeline: ~4 months hire to independent caseload",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          90,
+          120
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:14p03tn",
+      "quote": "I started like 10 years ago and I was at the academy for the first three months and then shadowing for another month... So I actually started working 4 months in.",
+      "date": "2023-07-02",
+      "notes": "Staff-side capacity fact, not an applicant-facing step; explains why new-hire throughput lags. task_type left null -- no taxonomy task_type covers staff training."
+    },
+    {
+      "obs_id": "calfresh_046",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Informal ~2-month cutoff before a mid-period change requires a brand-new application",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:16m4wdx",
+      "quote": "Your application may still be open and resolvable if it's been less than 2 months since your date of application. If it's been over 2 months, then send in a new application",
+      "date": "2023-09-18",
+      "notes": "Applies to reporting a mid-period change (e.g. job loss) on an open case, distinct from the 60-day missed-interview reopen window."
+    },
+    {
+      "obs_id": "calfresh_047",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Phone hold: over 90 minutes to reach a live agent",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.06,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:193dh0k",
+      "quote": "A couple of days ago, I was able to get through and was on hold for over an hour and a half.",
+      "date": "2024-01-10",
+      "notes": "Not tied to a specific step; general access friction."
+    },
+    {
+      "obs_id": "calfresh_048",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "payment",
+        "channel": "counter",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Walk-in ES applicant served same day, may return in 'a couple of hours'",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.1,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1gjlh8y",
+      "quote": "They may have to come back in a couple of hours, but we give them the same day.",
+      "date": "2024-11-04",
+      "notes": "Probable eligibility-worker insider comment describing walk-in ES handling."
+    },
+    {
+      "obs_id": "calfresh_049",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "shared",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Interview itself lasted 45 minutes",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.03,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i2d3ek",
+      "quote": "By the time the interview ended (45 minutes later) I was frustrated and ready to throw in the towel.",
+      "date": "2025-01-16",
+      "notes": "Touch time for the interview activity itself (F11/H02), not the scheduling wait around it."
+    },
+    {
+      "obs_id": "calfresh_050",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "records_check",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Applicant uploaded requested verification within hours of the interview",
+      "value": {
+        "elapsed_days": 0.2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i2d3ek",
+      "quote": "I immediately got on top of getting the verifications he asked for and was able to upload them a few hours later.",
+      "date": "2025-01-16",
+      "notes": "Fast-side data point for the applicant's own turnaround on F18/H12."
+    },
+    {
+      "obs_id": "calfresh_051",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Unpublished internal SLA: caseworker has 10 business days to respond after verification received",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i2d3ek",
+      "quote": "an eligibility worker informed me that my caseworker had until the 9th because they get 10 business days to respond and that the 1st didn't count because it was a holiday.",
+      "date": "2025-01-16",
+      "notes": "A CalFresh analog to the EDD 'ui_claim' corpus's unpublished 10-business-day post-interview SLA; not stated in G1, G2 or any declared page held here."
+    },
+    {
+      "obs_id": "calfresh_052",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Additional 2-day wait after the 10-business-day SLA lapsed",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i2d3ek",
+      "quote": "I was told that the computer automatically spits them out and I had to wait another two days before I would get any information or decision.",
+      "date": "2025-01-16",
+      "notes": "Same thread as above; the '10 business days' figure was itself missed by ~2 more days."
+    },
+    {
+      "obs_id": "calfresh_053",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card mail lag from centralized vendor: 'a week or two' / 10-14 days",
+      "value": {
+        "elapsed_days": 12,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          14
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i8fo0c",
+      "quote": "Last I heard the state (because they get mailed from Albany) was about a week or two behind- and we usually tell people it will come in about 10-14 days.",
+      "date": "2025-01-23",
+      "notes": "Probable eligibility-worker insider comment; names the out-of-state mailing hub (Albany) as the bottleneck."
+    },
+    {
+      "obs_id": "calfresh_054",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card received in 12 days after approval",
+      "value": {
+        "elapsed_days": 12,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1i8fo0c",
+      "quote": "Hi I'm in CA recently approved & it took me 12 days to receive my card.",
+      "date": "2025-01-23",
+      "notes": "Individual data point matching the insider's 10-14 day estimate above."
+    },
+    {
+      "obs_id": "calfresh_055",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "fiscal",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Benefit issuance date rolls forward from Saturday to Monday",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1j0dx5t",
+      "quote": "the last two months when my food aid was supposed to come in on a Saturday I had to wait until Monday..",
+      "date": "2025-02-28",
+      "notes": "Weekend/holiday roll-forward affects the monthly issuance date, similar to application-date post-dating (F04)."
+    },
+    {
+      "obs_id": "calfresh_056",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Denial letter arrived 'a few weeks' after application (faster than the 30-day cap)",
+      "value": {
+        "elapsed_days": 18,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          21
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1jix0y5",
+      "quote": "A few weeks later, I got the denial letter which didn't specify a reason but I assumed it had to do with me being unemployed at the time",
+      "date": "2025-03-24",
+      "notes": "Shows real decisions landing well inside the 30-day statutory ceiling."
+    },
+    {
+      "obs_id": "calfresh_057",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT/document mail: told 3-5 business days, actually 2 weeks and still not received",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          3,
+          5
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1kclbdw",
+      "quote": "I asked how long it usually takes to receive it by mail and they said 3-5 business days. Its now been 2 weeks and still haven't received it.",
+      "date": "2025-05-01",
+      "notes": "range_days holds the estimate given; elapsed_days holds the actual wait reported."
+    },
+    {
+      "obs_id": "calfresh_058",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "phone",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Same-day processing once a SAR follow-up call confirms nothing else is needed",
+      "value": {
+        "elapsed_days": 0,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1lizua2",
+      "quote": "When I do my SAR, I usually call 1-2 days later and ask if there's anything else I need to upload and they'll tell me and process it that day.",
+      "date": "2025-06-24",
+      "notes": "Community-shared tactic: proactive follow-up call collapses queue time to same-day."
+    },
+    {
+      "obs_id": "calfresh_059",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Estimated 30-minute hold turned into about 1 hour",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.04,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0.02,
+          0.04
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1m0tmxh",
+      "quote": "They estimated 30 minutes so I thought it would be okay, but it was more like 1 hour.",
+      "date": "2025-07-15",
+      "notes": "range_days holds the quoted 30-minute estimate; touch_days holds the ~1-hour actual."
+    },
+    {
+      "obs_id": "calfresh_060",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Told '45 days to process' -- likely bleed-over from the co-filed CalWORKs/TANF 45-day standard",
+      "value": {
+        "elapsed_days": 45,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 3,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1m0tmxh",
+      "quote": "I applied and they said it would take 45 days for it to process. There was absolutely no information saying 45 days",
+      "date": "2025-07-15",
+      "notes": "n=3: independently repeated in this thread, in 1ryi68n ('30-45 days') and in 1tegu9h ('about 45 days' for recertification). CalFresh's own cap is 30 days; CalWORKs/TANF (often filed jointly) has a 45-day standard (see reddit:1vdfhu7: 'Your county has 45 days to process your Cal-Works (TANF) application') -- a plausible source of the recurring confusion."
+    },
+    {
+      "obs_id": "calfresh_061",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Total phone interaction ~3 hours (25-minute hold plus data entry)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.125,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1m0tmxh",
+      "quote": "The entire process had taken around 3 hours because I had chosen to wait the 25 minutes instead of a getting a call back.",
+      "date": "2025-07-15",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_062",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Told application would be approved 'in a few days' after phone follow-up",
+      "value": {
+        "elapsed_days": 3,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1m0tmxh",
+      "quote": "When I did call a few days later..., they told me to input information and said it would be approved in a few days.",
+      "date": "2025-07-15",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_063",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "third_party",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card takes 'a little longer than 10 days' in LA County",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1m5yfga",
+      "quote": "My experience in LA county is that EBT cards take a little longer than 10 days.",
+      "date": "2025-07-21",
+      "notes": "Corroborates R5/1i8fo0c-style EBT mail-lag reports with an LA-specific framing."
+    },
+    {
+      "obs_id": "calfresh_064",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Combined hold to two lines: 1 hour then transferred, then 2 more hours",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.125,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1mu18jl",
+      "quote": "I call the customer service line and I was on hold for an hour just for them to transfer me to the GR line and be on hold for 2 hours and no one ever picked up.",
+      "date": "2025-08-18",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_065",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Recertification interview scheduling still unresolved after 2+ weeks of trying",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1nefmdw",
+      "quote": "I have been trying to recertify my calfresh for 2 weeks now.",
+      "date": "2025-09-11",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_066",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Interview scheduled 2 weeks after filing; caseworker estimated 10 more days to decision",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1onlkmu",
+      "quote": "I got my interview two weeks later and the lady said they would have my application done in about 10 days.",
+      "date": "2025-11-03",
+      "notes": "Same thread introduces the insider term 'disposition deadline' for the 30-day statutory cap."
+    },
+    {
+      "obs_id": "calfresh_067",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "issuance",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT card arrived just 2 days after interview (pre-existing case)",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1onlkmu",
+      "quote": "Two days later I got an EBT card in the mail and a pin number so assumed it had processed but there was nothing on the card.",
+      "date": "2025-11-03",
+      "notes": "Fast card mailing but the account had a $0 balance -- card delivery speed does not guarantee benefits were actually authorized."
+    },
+    {
+      "obs_id": "calfresh_068",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Online application got an interview just 2 days later",
+      "value": {
+        "elapsed_days": 2,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ow8vx3",
+      "quote": "We applied online, and got an interview maybe 2 days after said application?",
+      "date": "2025-11-13",
+      "notes": "Fast-side outlier, contrasts sharply with R2's 35-day report and 1w06trl's 2-month report."
+    },
+    {
+      "obs_id": "calfresh_069",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Cases open past 30 days placed on an internal 'delinquent' processing list",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ow8vx3",
+      "quote": "if your 30 days are up you are now in a delinquent list for processing so you should call them and ask how long more until they can process.",
+      "date": "2025-11-13",
+      "notes": "Insider vocabulary not found in any gold or declared document; functionally similar to the ui_claim corpus's EDD 'backlog' definition."
+    },
+    {
+      "obs_id": "calfresh_070",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "fiscal",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "EBT benefits staggered across the 1st-10th of each month by case",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          1,
+          10
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1pnmkp0",
+      "quote": "I live in CA, where I read online they give benefits the 1-10 days of the month.",
+      "date": "2025-12-15",
+      "notes": "Standard SNAP practice of staggering monthly issuance to spread agency/vendor load."
+    },
+    {
+      "obs_id": "calfresh_071",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Recertification interview ultimatum: complete within 2 weeks or benefits end",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qvegt7",
+      "quote": "If I don't complete an interview within the next two weeks, my calfresh benefits will end.",
+      "date": "2026-02-04",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_072",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Quoted 5-minute hold estimate; actual wait 30 minutes",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.02,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0.003,
+          0.003
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qxnn2s",
+      "quote": "I waited on hold for 30 minutes, but I got through (wait time was supposedto be 5 minutes).",
+      "date": "2026-02-06",
+      "notes": "range_days holds the 5-minute quoted estimate; touch_days holds the 30-minute actual."
+    },
+    {
+      "obs_id": "calfresh_073",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Quoted 65-minute hold estimate; actual wait 4 hours, never answered",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.167,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          0.045,
+          0.045
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1qxnn2s",
+      "quote": "Once at 1 pm and sat on hold for 4 hours (was supposed to be 65 minutes) no one picked up.",
+      "date": "2026-02-06",
+      "notes": "Same caller as above, second call attempt; call-back option separately promised 15 minutes and never happened."
+    },
+    {
+      "obs_id": "calfresh_074",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Caseworker check-in call lasted only 1 minute",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.0007,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1rg1js5",
+      "quote": "Feb 26 a caseworker called me for all of 1 minute and said she seen that i had an incomplete recertification and gave me the option to go through with my new application or have my discontinued application processed and have my benefits restored.",
+      "date": "2026-02-27",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_075",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Two weeks of trying to get through by phone before a certification deadline",
+      "value": {
+        "elapsed_days": 14,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1rgmiqh",
+      "quote": "Been trying to call for almost 2 weeks and apparently today is the last day to certify.",
+      "date": "2026-02-27",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_076",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "records_check",
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "SAR7 marked complete but still no case update after 6 days",
+      "value": {
+        "elapsed_days": 6,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1rlr1r7",
+      "quote": "It's been like 6 days still not update for mine.",
+      "date": "2026-03-05",
+      "notes": "Contrasts with R9's 'a few days' restoration estimate for the same scenario."
+    },
+    {
+      "obs_id": "calfresh_077",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "recordkeeping",
+        "channel": "online",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "10-day requirement to report an income change over the IRT",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tabhmw",
+      "quote": "When there is a change that takes your household over IRT you have 10 days to report it.",
+      "date": "2026-05-11",
+      "notes": "Distinct from the CW2200 verification-response window: this is the applicant's mid-period reporting duty."
+    },
+    {
+      "obs_id": "calfresh_078",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "third_party",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "ES claimed at filing, but interview appointment not until end of next week",
+      "value": {
+        "elapsed_days": 8,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          7,
+          10
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tc7tz1",
+      "quote": "i qualified for 3 day expedited application review, however i just called and have an appointment scheduled for the end of next week...",
+      "date": "2026-05-13",
+      "notes": "A milder version of R2's 35-day ES-appointment contradiction."
+    },
+    {
+      "obs_id": "calfresh_079",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Outlier: joint CalFresh/Medi-Cal case still pending four months later",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tc7tz1",
+      "quote": "I have two different cases opened on BenefitsCal and one MediCal has been \"denied\" and the other is still set to \"pending\" four months later.",
+      "date": "2026-05-13",
+      "notes": "Same overall case as R18, followed up later in the same thread; far beyond the 30-day (or even 60-day) ceiling."
+    },
+    {
+      "obs_id": "calfresh_080",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Recertification renewal window described as 'about 45 days'",
+      "value": {
+        "elapsed_days": 45,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tegu9h",
+      "quote": "They are giving you about 45 days time frame to complete your Renewal, get interviewed to go over your answers and process your Redetermination before the end of your certification period",
+      "date": "2026-05-16",
+      "notes": "Unlike the 45-day reports at initial application (probable CalWORKs bleed-over), this may be a genuine recertification-specific packet lead time distinct from the 30-day initial-application cap."
+    },
+    {
+      "obs_id": "calfresh_081",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Told 3-4 weeks to process; actual: 4+ weeks then a denial dated day of application",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          21,
+          28
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tkxd08",
+      "quote": "It went well and the worker told me it'll just take 3-4 weeks to process... I check back a few days later and it was denied on the day i applied.",
+      "date": "2026-05-22",
+      "notes": "range_days holds the quoted 3-4 week estimate; elapsed_days (1) reflects that the actual DECISION was made almost immediately -- the delay was entirely in notifying the applicant, not in deciding the case."
+    },
+    {
+      "obs_id": "calfresh_082",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Phone hold of 7 hours",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.29,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1tv5ym9",
+      "quote": "I wait 7 hours to deal with this mess.",
+      "date": "2026-06-02",
+      "notes": "Upper-end outlier among the corpus's phone-hold reports."
+    },
+    {
+      "obs_id": "calfresh_083",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "notice",
+        "channel": "mail",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Interview appointment notice arrived by mail 5 days after the interview date",
+      "value": {
+        "elapsed_days": -5,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u2evot",
+      "quote": "I got the mail that joke when my phone interview was and the mail arrived 5 days past the interview day.",
+      "date": "2026-06-10",
+      "notes": "Negative elapsed_days signals the notice arrived AFTER the event it announced -- a mail-timing failure rather than a processing delay."
+    },
+    {
+      "obs_id": "calfresh_084",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Santa Clara recertification given 15 days to process (shorter than the 30-day initial-application cap)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 15,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u2evot",
+      "quote": "If your certification period ends on June 30th your county still has 15 days to process your Renewal.",
+      "date": "2026-06-10",
+      "notes": "Not found in G1/G2's Santa Clara handbook excerpts held here; possibly specific to on-time recertifications filed before the certification-period end date."
+    },
+    {
+      "obs_id": "calfresh_085",
+      "slug": "calfresh",
+      "jurisdiction": "Santa Clara County SSA (DEBS)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "recordkeeping",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Case auto-discontinued 15 days into a pending recertification review",
+      "value": {
+        "elapsed_days": 15,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u2evot",
+      "quote": "it's been 15 days already, my Calfresh account says it's discontinued, but my calfresh account says they received my recertification and a caseworker will look at it eventually.",
+      "date": "2026-06-10",
+      "notes": "Same case as above; illustrates CalSAWS automatic discontinuance running ahead of actual caseworker review, matching Santa Clara gold's H19-H21 pending/fault machinery."
+    },
+    {
+      "obs_id": "calfresh_086",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Phone-in interview completed within a few hours of calling",
+      "value": {
+        "elapsed_days": 0.1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u6vw37",
+      "quote": "I called on May 19th trying to get an interview, and after a few hours, we were interviewed (signatures recorded, confirmation number, etc).",
+      "date": "2026-06-15",
+      "notes": "Community-driven analog of LA's official 'end-to-end' flexible-interview line (F10)."
+    },
+    {
+      "obs_id": "calfresh_087",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "notice",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "System-generated missed-interview notice for an appointment the applicant was never told about",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1u6vw37",
+      "quote": "A few days later, I see a notice in my inbox saying that I missed an interview on May 21 (I recieved no notification of such an interview, anywhere).",
+      "date": "2026-06-15",
+      "notes": "Illustrates CalSAWS's system-generated NOMI (named explicitly in Santa Clara gold H03) firing without the applicant having received the underlying appointment notice."
+    },
+    {
+      "obs_id": "calfresh_088",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "phone",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "State hearing must be requested within 90 days of the denial notice",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ueu620",
+      "quote": "You can request a state hearing by calling the California Department of Social Services at 1 800 952 5253, and you typically have 90 days from the date of your denial notice to do so.",
+      "date": "2026-06-24",
+      "notes": "Appeals/state-hearing lane is not covered by either CalFresh gold model; this fills a real coverage gap."
+    },
+    {
+      "obs_id": "calfresh_089",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "State hearing decisions typically take 'a few weeks,' not the 3 months some applicants fear",
+      "value": {
+        "elapsed_days": 21,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          14,
+          28
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ueu620",
+      "quote": "Appeals do not usually take three months for food stamps. They typically take a few weeks, not months.",
+      "date": "2026-06-24",
+      "notes": "Community correction of a misconception; contrast with reddit:1w7narc's own appeal saga, which DID take several months end-to-end -- variance is real, not just misperception."
+    },
+    {
+      "obs_id": "calfresh_090",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "phone",
+        "blocking_party": "applicant",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Requesting a hearing within 10 days of denial keeps benefits continuing (aid paid pending)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ueu620",
+      "quote": "If you request the hearing within 10 days of your denial notice, your benefits can continue while you wait.",
+      "date": "2026-06-24",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_091",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Expedited state hearing decided within 10 business days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ueu620",
+      "quote": "You can also ask for an expedited hearing if you are in immediate need, and that happens within 10 business days.",
+      "date": "2026-06-24",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_092",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "records_check",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Internal review of a case completed within one business day of receipt",
+      "value": {
+        "elapsed_days": 1,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1ve6o6s",
+      "quote": "We reviewed it within one business day of receiving it.",
+      "date": "2026-08-03",
+      "notes": "Probable staff-side comment; fast-side data point for internal case review."
+    },
+    {
+      "obs_id": "calfresh_093",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Community estimate: county phone wait is 'always at least 1 hour on a good day'",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.04,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1vuy6cs",
+      "quote": "Any time the county is involved, it's always at least 1 hour's worth of wait on a good day.",
+      "date": "2026-08-22",
+      "notes": "Contrasted in the same thread by another commenter reporting 'no more than a few minutes' -- experiences vary widely by county and time of day."
+    },
+    {
+      "obs_id": "calfresh_094",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Interview finally held almost 2 months after filing",
+      "value": {
+        "elapsed_days": 60,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w06trl",
+      "quote": "after nearly 2 months to the date of turning in my calfresh application, i had my interview this morning.",
+      "date": "2026-08-27",
+      "notes": "Extreme outlier on the slow side; likely followed an earlier missed-interview denial per the same thread's comments."
+    },
+    {
+      "obs_id": "calfresh_095",
+      "slug": "calfresh",
+      "jurisdiction": "Alameda County",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "online",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Alameda County ('notoriously slow') still met the 30-day window",
+      "value": {
+        "elapsed_days": 30,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w4gl36",
+      "quote": "even though Alameda county is notoriously slow, they did give me a response within the 30 day window.",
+      "date": "2026-09-01",
+      "notes": "The only Alameda County data point in this corpus; Alameda's official site was unreachable during source collection (see notes.md), so this reddit report is the sole evidence for that county."
+    },
+    {
+      "obs_id": "calfresh_096",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": null,
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Nearly 4-hour hold before a recertification interview (LA County)",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": 0.167,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w4tkit",
+      "quote": "After being on hold for almost 4 hours in los angeles county, I did my recertification interview.",
+      "date": "2026-09-01",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_097",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "records_unit",
+        "task_type": "decision",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Automated system auto-denies when the 10-day-from-interview verification due date is not met",
+      "value": {
+        "elapsed_days": 10,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w6b5o7",
+      "quote": "the automated system looked at the due date on your pending items (10 days from the interview) and automatically denied the application.",
+      "date": "2026-09-03",
+      "notes": "Confirms the 10-day verification window (F17/H12) is enforced by an automated system rather than case-by-case caseworker judgment."
+    },
+    {
+      "obs_id": "calfresh_098",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Appeal saga dragged out 'several months' before resolution",
+      "value": {
+        "elapsed_days": 120,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          60,
+          150
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w7narc",
+      "quote": "DPSS genuinely tried to solve the problem before the hearing but a long string of complications and people dropping the ball dragged it out for several months before it was taken care of.",
+      "date": "2026-09-05",
+      "notes": "LA County appeal; the hearing itself (ALJ reaching the DPSS worker) took only 12 minutes once actually convened -- nearly all the delay was in getting to that point."
+    },
+    {
+      "obs_id": "calfresh_099",
+      "slug": "calfresh",
+      "jurisdiction": "Los Angeles County DPSS",
+      "step_key": {
+        "agency_class": "fiscal",
+        "task_type": "payment",
+        "channel": "internal",
+        "blocking_party": "agency",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Backpay took another 5 months to arrive after winning the appeal",
+      "value": {
+        "elapsed_days": 150,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": null,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1w7narc",
+      "quote": "I easily won the case. However, it then took another five months to get the backpay deposited.",
+      "date": "2026-09-05",
+      "notes": "A distinct, post-decision payment-execution delay separate from the appeal-decision delay itself; not modeled as its own gold activity in either CalFresh model."
+    },
+    {
+      "obs_id": "calfresh_100",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "phone",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Phone withdrawal must be confirmed by mailed notice within 10 days",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 10,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1wenqf1",
+      "quote": "If you do withdraw by phone, the state has to mail you a written notice within 10 days confirming it, and you get 10 days after you receive that notice to say you want the hearing back.",
+      "date": "2026-09-12",
+      "notes": "Fills the gold gap noted in LA's known_gaps: F31 (CW10 withdrawal) has no published turnaround; this is the closest analog, for a hearing-stage withdrawal."
+    },
+    {
+      "obs_id": "calfresh_101",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": null,
+        "task_type": "appeal",
+        "channel": "hearing",
+        "blocking_party": "agency",
+        "cadence": "statutory_clock",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "State hearing decisions due within 60 days of the request",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 60,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1wenqf1",
+      "quote": "State hearing decisions are due within 60 days of your request, and if you win, the lost benefits get restored.",
+      "date": "2026-09-12",
+      "notes": ""
+    },
+    {
+      "obs_id": "calfresh_102",
+      "slug": "calfresh",
+      "jurisdiction": "State of California (CDSS, statewide)",
+      "step_key": {
+        "agency_class": "caseworker",
+        "task_type": "interview",
+        "channel": "internal",
+        "blocking_party": "applicant",
+        "cadence": "continuous",
+        "jurisdiction_class": "county"
+      },
+      "step_label": "Applicant given up to 90 days to contact the county and request an interview",
+      "value": {
+        "elapsed_days": null,
+        "touch_days": null,
+        "queue_days": null,
+        "statutory_cap_days": 90,
+        "range_days": [
+          null,
+          null
+        ],
+        "p50": null,
+        "p90": null
+      },
+      "n": 1,
+      "evidence_tier": "community_reported",
+      "source_id": "reddit:1wfj0u7",
+      "quote": "You had almost 90 days to contact the county and request an interview or go directly into your district office and request an interview in person.",
+      "date": "2026-09-13",
+      "notes": "Longer than the 30/60-day windows in the LA/Santa Clara gold models; may reflect a different rule (e.g. recertification grace period) not distinguished in this thread."
+    }
+  ],
+  "coverage": {
+    "total_observations": 102,
+    "observations_by_evidence_tier": {
+      "designed_document": 20,
+      "statutory": 13,
+      "verifiable_official": 4,
+      "community_reported": 65
+    },
+    "distinct_step_keys": 45,
+    "gold_steps_without_duration_evidence": [
+      {
+        "activity": "F01/F02",
+        "gold": "la_county_dpss",
+        "name": "Inform of same-day filing right / issue intake packet",
+        "reason": "no duration published; purely a scripted disclosure and a form hand-off"
+      },
+      {
+        "activity": "F07",
+        "gold": "la_county_dpss",
+        "name": "Assign case to an eligibility worker (clerical handoff)",
+        "reason": "G3 proves the queue exists ('delay between the moment the client applies and when they get a call') but publishes no duration -- exactly the silence a claimant experiences"
+      },
+      {
+        "activity": "F08/F09",
+        "gold": "la_county_dpss",
+        "name": "Schedule interview / call household (incl. no-answer voicemail rework)",
+        "reason": "no lead time published; reddit fills part of this gap (2 days to 2 months observed) but no official figure exists"
+      },
+      {
+        "activity": "F11-F16",
+        "gold": "la_county_dpss",
+        "name": "Conduct interview, review mandated list, work registration, IEVS notice, electronic verification checks",
+        "reason": "content and sequencing are documented but no step has a published duration"
+      },
+      {
+        "activity": "F21",
+        "gold": "la_county_dpss",
+        "name": "Mail Notice of Action on postponed verification",
+        "reason": "no lead time published"
+      },
+      {
+        "activity": "F23/F24",
+        "gold": "la_county_dpss",
+        "name": "Issue approval NOA / post benefits to EBT and mail card",
+        "reason": "no county-published turnaround for LA; SF (S7, one week) and reddit fill this only informally"
+      },
+      {
+        "activity": "F28",
+        "gold": "la_county_dpss",
+        "name": "Re-open application, verification arrives within 30 days",
+        "reason": "no separate duration beyond the 30-day outer bound already captured elsewhere"
+      },
+      {
+        "activity": "F30/F31",
+        "gold": "la_county_dpss",
+        "name": "Journal documentation / voluntary withdrawal",
+        "reason": "no duration published or reported"
+      },
+      {
+        "activity": "H01-H03",
+        "gold": "santa_clara_county_ssa",
+        "name": "Send appointment notice, complete interview, send NOMI if missed",
+        "reason": "no lead time published between filing and first appointment"
+      },
+      {
+        "activity": "H05-H07,H09,H10",
+        "gold": "santa_clara_county_ssa",
+        "name": "Second-appointment request/review, clerical reassignment, journal entry, rescission",
+        "reason": "only the outer 60-day bound (H08) is published; the component steps have no individual duration"
+      },
+      {
+        "activity": "H11,H13,H16,H17,H21-H23",
+        "gold": "santa_clara_county_ssa",
+        "name": "Verify mandatory items, deduction-verification advisory, decision charts, delay classification, recertification delay typing",
+        "reason": "decision procedures are documented (as decision tables) but carry no time component in the handbook text held here"
+      }
+    ]
+  }
+}
