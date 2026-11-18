@@ -38,8 +38,9 @@ The former README, a running log of results through September 2026, is `docs/pro
 ## Data (not in git)
 
 Code is in git; data is not. Everything below lives in the private Hugging Face dataset
-`alex2awesome/regulatory-complexity-data` with the same paths, plus the working copies on the RegLab
-servers (`/dfs/scratch0/alexspan/` on sk2 and sk3).
+`alex2awesome/regulatory-complexity-data`, one `.tar.gz` per top-level folder at the same path, plus the
+working copies on the RegLab servers (`/dfs/scratch0/alexspan/` on sk2 and sk3). `scripts/archive_to_hf.py`
+uploads (`push`) and unpacks (`restore`) it.
 
 | Path | What it holds |
 |---|---|
@@ -49,7 +50,11 @@ servers (`/dfs/scratch0/alexspan/` on sk2 and sk3).
 | `scratch/` | Data collected on the servers: Solar and ADU forum censuses, procurement exports (SCPRS, CSCR), admin data |
 
 Many tests read `runs/` or `corpus/`, so pull the dataset before running the full suite:
-`hf download alex2awesome/regulatory-complexity-data --repo-type dataset --local-dir .`
+
+```sh
+hf download alex2awesome/regulatory-complexity-data --repo-type dataset --local-dir data_download
+python scripts/archive_to_hf.py restore data_download   # then move corpus/, runs/ ... into the repo root
+```
 
 ## Setup
 
