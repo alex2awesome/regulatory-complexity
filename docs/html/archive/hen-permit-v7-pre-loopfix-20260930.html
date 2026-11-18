@@ -1,0 +1,1232 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Backyard Hen Permit Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F6F4; --surface:#FFFFFF; --ink:#1B2826; --muted:#5A6865; --rule:#D3DCD8; --grid:#E4EAE7;
+  --concrete:#2B6B5A; --concrete-soft:#DDEDE7;
+  --vague:#9A6200; --vague-soft:#F6EAD2;
+  --link:#2F54A6; --link-soft:#E0E7F6;
+  --llm:#B0406A;
+  --d1:#E6EFEA; --d2:#F7EEDC; --d3:#E4EAF5;
+  --shadow:0 1px 2px rgba(20,40,35,.06),0 4px 14px rgba(20,40,35,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#111816; --surface:#18211F; --ink:#E4ECE9; --muted:#9AA9A5; --rule:#2C3936; --grid:#23302D;
+    --concrete:#6CC3A7; --concrete-soft:#1C332C;
+    --vague:#E0A64A; --vague-soft:#3A2C14;
+    --link:#8FAEF0; --link-soft:#1E2A45;
+    --llm:#EE84AB;
+    --d1:#1A2A25; --d2:#2E2718; --d3:#1B2438;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#111816; --surface:#18211F; --ink:#E4ECE9; --muted:#9AA9A5; --rule:#2C3936; --grid:#23302D;
+  --concrete:#6CC3A7; --concrete-soft:#1C332C;
+  --vague:#E0A64A; --vague-soft:#3A2C14;
+  --link:#8FAEF0; --link-soft:#1E2A45;
+  --llm:#EE84AB;
+  --d1:#1A2A25; --d2:#2E2718; --d3:#1B2438;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.3rem;letter-spacing:-.01em}
+h2{font-size:1.55rem;margin-bottom:.35rem}
+h3{font-size:1.12rem}
+p{margin:.45rem 0;max-width:70ch}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.86em}
+.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lede{color:var(--muted);font-size:1.02rem;max-width:74ch}
+section{margin-top:48px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:.8rem 0 0;font-size:.85rem;color:var(--muted)}
+.chain b{color:var(--ink);font-weight:600}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:14px;font-size:.82rem}
+nav.toc a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover,nav.toc a:focus-visible{border-bottom-color:var(--link)}
+.statute{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;box-shadow:var(--shadow);font-family:"Newsreader",Georgia,serif;font-size:1.05rem}
+.statute .act{font-weight:600;font-size:1.1rem;margin-bottom:.4rem}
+.clause{display:grid;grid-template-columns:3.2rem 1fr auto;gap:10px;padding:8px 0;border-top:1px solid var(--rule);align-items:baseline}
+.clause:first-of-type{border-top:none}
+.sec{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--muted)}
+.tag{font-family:"Public Sans",sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.t-concrete{background:var(--concrete-soft);color:var(--concrete)}
+.t-vague{background:var(--vague-soft);color:var(--vague)}
+.t-scope{background:var(--rule);color:var(--muted)}
+.t-d1{background:var(--d1);color:var(--concrete);border:1px solid var(--concrete)}
+.t-d2{background:var(--d2);color:var(--vague);border:1px solid var(--vague)}
+.t-d3{background:var(--d3);color:var(--link);border:1px solid var(--link)}
+.t-fee{background:var(--surface);color:var(--muted);border:1px solid var(--rule)}
+mark{background:none;color:inherit;text-decoration:underline dotted 2px;text-decoration-color:var(--ink);text-underline-offset:3px}
+.dm{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.dcard{border-radius:6px;padding:14px 16px;border:1px solid var(--rule);background:var(--surface)}
+.dcard .id{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:.85rem;color:var(--muted)}
+.dcard.d1,.dcard.d3{border-top:4px solid var(--concrete)}
+.dcard.d2{border-top:4px solid var(--vague)}
+.dcard h3{margin:.2rem 0 .3rem}
+.dcard p{font-size:.88rem;margin:.25rem 0}
+.eqbox{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 18px;margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.84rem;line-height:1.75;overflow-x:auto;white-space:nowrap}
+.eqbox .c{color:var(--muted);font-family:'Public Sans',sans-serif;font-size:.8rem;white-space:normal}
+.tablewrap{overflow-x:auto;margin-top:12px;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:600px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--ground)}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+.pill{display:inline-block;font-size:.72rem;padding:1px 7px;border-radius:99px;font-weight:600}
+.p1{background:var(--d1);color:var(--concrete)}.p2{background:var(--d2);color:var(--vague)}.p3{background:var(--d3);color:var(--link)}
+.yes{color:var(--concrete);font-weight:600}.no{color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;margin-top:12px}
+.scroll{overflow-x:auto}
+svg text{font-family:"Public Sans",system-ui,sans-serif}
+.note{font-size:.84rem;color:var(--muted);border-left:3px solid var(--rule);padding-left:12px;margin-top:10px;max-width:74ch}
+.toggle{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:10px;flex-wrap:wrap}
+.toggle button{font:600 .82rem "Public Sans",sans-serif;padding:6px 14px;border:none;background:var(--surface);color:var(--muted);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.toggle button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+.journey{margin-top:14px;display:grid;gap:18px}
+.jrow h3{font-size:1rem;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.jrow h3 .mono{color:var(--muted);font-weight:400;font-size:.8rem}
+.jtrack{position:relative;margin-top:22px}
+.jsegs{display:flex;height:34px;border-radius:4px;overflow:visible}
+.jseg{position:relative;border-right:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden}
+.jseg.c1{background:var(--d1)}.jseg.c2{background:var(--d2)}.jseg.c3{background:var(--d3)}
+.jseg.shared{background:repeating-linear-gradient(45deg,var(--d2),var(--d2) 6px,var(--d3) 6px,var(--d3) 12px)}
+.jlab{display:flex;margin-top:4px;font-size:.7rem;color:var(--muted)}
+.jlab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:4px}
+.jbr{display:flex;position:absolute;top:-20px;left:0;right:0;font-size:.66rem;font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.jbr span{border-bottom:2px solid var(--rule);text-align:left;padding-left:2px;margin-right:2px}
+.jaxis{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:6px;border-top:1px solid var(--rule);padding-top:2px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.charts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.chart h3{font-size:.95rem;font-family:"Public Sans",sans-serif;font-weight:700}
+.chart .sub{font-size:.76rem;color:var(--muted)}
+.h2h{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.h2h .cell{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px}
+.h2h .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--muted)}
+.wbar{display:flex;height:12px;border-radius:3px;overflow:hidden;margin-top:6px}
+.wbar .b{background:var(--link)}.wbar .l{background:var(--llm)}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.method{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px}
+.method.bayes{border-top:4px solid var(--link)}.method.llm{border-top:4px solid var(--llm)}
+.method ol,.method ul{margin:.4rem 0;padding-left:1.2rem;font-size:.9rem}
+.method li{margin:.25rem 0}
+.method .pros{font-size:.85rem;color:var(--muted);margin-top:8px}
+footer{margin-top:48px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+@media (max-width:760px){
+  .dm,.charts,.methods{grid-template-columns:1fr}
+  h1{font-size:1.8rem}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.pd-plate{fill:none;stroke:var(--muted);stroke-width:1.2}
+.pd-plate.town{stroke:var(--ink);stroke-width:1.5}
+.pd-plate.out{stroke:var(--concrete)}
+.pd-plate.stat{stroke:var(--link);stroke-dasharray:6 4}
+.pd-plab{font-size:11.5px;font-weight:700;fill:var(--muted);letter-spacing:.02em}
+.pd-region-out{fill:var(--concrete-soft);opacity:.45;stroke:none}
+.pd-region-lab{font-size:10px;font-weight:700;letter-spacing:.12em;fill:var(--muted)}
+.pd-node{fill:var(--surface);stroke:var(--ink);stroke-width:1.4}
+.pd-obs{fill:var(--rule)}
+.pd-sum{stroke-dasharray:4 3}
+.pd-hyp{stroke-dasharray:2 3;stroke:var(--muted)}
+.pd-det{fill:var(--surface)}
+.pd-sym{font:italic 600 14px "Newsreader",Georgia,serif;fill:var(--ink)}
+.pd-cap{font-size:11.5px;fill:var(--muted);stroke:var(--ground);stroke-width:4px;stroke-linejoin:round;paint-order:stroke}
+.pd-cap.o{stroke:color-mix(in srgb,var(--concrete-soft) 45%,var(--ground))}
+.pd-cutlab{paint-order:stroke;stroke:var(--ground);stroke-width:4px;stroke-linejoin:round}
+.pd-ar{stroke:var(--muted);stroke-width:1.1}
+.pd-head{fill:var(--muted)}
+.pd-cut{fill:none;stroke:var(--vague);stroke-width:1.6;stroke-dasharray:6 4}
+.pd-cutlab{font-size:10.5px;font-weight:600;fill:var(--vague)}
+.pd-key{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.8rem;color:var(--muted);margin-top:10px}
+.pd-key span{display:inline-flex;align-items:center;gap:6px}
+.pd-key svg{flex:none}
+
+.journey{grid-template-columns:minmax(0,1fr)}
+.jlab span{flex:none}
+/* reading tabs + annotated statute */
+#readingblock{position:relative}
+.rbar{position:sticky;top:0;z-index:6;background:var(--ground);padding:10px 0 8px;margin-top:36px;border-bottom:1px solid var(--rule)}
+.rbar .eyebrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.rbar .rprob{font-weight:400;letter-spacing:0;text-transform:none;font-size:.78rem}
+.rtabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.rtabs button{font:600 .8rem "Public Sans",sans-serif;padding:6px 12px;border:1px solid var(--rule);border-radius:99px;background:var(--surface);color:var(--muted);cursor:pointer}
+.rtabs button:hover{border-color:var(--ink);color:var(--ink)}
+.rtabs button[aria-selected="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.rtabs button.custom{border-style:dashed}
+.rtabs button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.rans{display:flex;flex-wrap:wrap;gap:4px 6px;margin-top:7px;font-size:.74rem;color:var(--muted);align-items:center}
+.rans button{font:600 .72rem "Public Sans",sans-serif;border-radius:4px;padding:1px 7px;cursor:pointer;border:1px solid var(--qc);background:var(--surface);color:var(--qc)}
+.rans button.y{background:var(--qc);color:var(--surface)}
+.rans button.flash{animation:qring 1.4s ease-out}
+@keyframes qring{0%{box-shadow:0 0 0 4px var(--qc)}100%{box-shadow:0 0 0 0 var(--qc)}}
+#readingblock section:first-of-type{margin-top:22px}
+.annot{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0 72px;margin-top:6px}
+.annot .statute{align-self:start}
+.qcol{position:relative}
+.qarrows{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2}
+.qarrows path{fill:none;stroke-width:1.4;transition:stroke-width .15s}
+.qarrows path.hot{stroke-width:2.6}
+.qcard{position:absolute;left:0;right:0;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--qc);border-radius:6px;padding:8px 10px 9px;font-size:.8rem;line-height:1.4;box-shadow:var(--shadow);transition:top .25s ease,box-shadow .15s}
+.qcard.hot{box-shadow:0 0 0 2px var(--qc)}
+.qcard .qh{display:flex;justify-content:space-between;gap:8px;font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.qcard .qh b{color:var(--qc);font-size:.78rem}
+.qcard .qq{margin:2px 0 6px;color:var(--ink)}
+.qans{display:flex;gap:8px;align-items:flex-start}
+.qans button{flex:none;font:700 .72rem "Public Sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;border-radius:99px;padding:2px 9px;cursor:pointer;border:1px solid var(--qc);min-width:44px}
+.qans button.y{background:var(--qc);color:var(--surface)}
+.qans button.n{background:var(--surface);color:var(--qc)}
+.qans button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.qans span{color:var(--muted);font-size:.76rem}
+@keyframes qflash{0%{background:var(--qsoft)}100%{background:var(--surface)}}
+.qcard.changed{animation:qflash 1.4s ease-out}
+.qph{background:var(--qsoft);border-radius:3px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:box-shadow .15s}
+.qph.hot{box-shadow:0 0 0 2px var(--qc)}
+.qb{font:700 .62rem "Public Sans",sans-serif;color:var(--surface);background:var(--qc);border-radius:99px;padding:1px 5px;margin-left:3px;vertical-align:.35em}
+.qline{display:table;margin:3px 0 3px 1.1em}
+.clause.ghost{color:var(--muted);font-style:italic;font-size:.92rem}
+.clause.ghost .qph{border:1px dashed var(--qc);background:none}
+.q1,.q2,.q3{--qc:var(--vague);--qsoft:var(--vague-soft)}
+.q4{--qc:var(--link);--qsoft:var(--link-soft)}
+.q5{--qc:var(--muted);--qsoft:var(--grid)}
+.q6{--qc:var(--llm);--qsoft:color-mix(in srgb,var(--llm) 14%,var(--surface))}
+.dchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.dchip{font:600 .72rem "IBM Plex Mono",monospace;padding:2px 7px;border-radius:4px;border:1px solid var(--rule)}
+.dchip.ok{background:var(--concrete-soft);color:var(--concrete);border-color:var(--concrete)}
+.dchip.bad{color:var(--muted);text-decoration:line-through;opacity:.7}
+td.qcur{white-space:nowrap;font-weight:700}
+td.qcur.y{color:var(--concrete)} td.qcur.n{color:var(--llm)}
+.pagetabs{display:flex;gap:4px;margin-top:18px;border-bottom:1px solid var(--rule)}
+.pagetabs button{font:600 .84rem "Public Sans",sans-serif;padding:8px 14px;border:1px solid transparent;border-bottom:none;border-radius:6px 6px 0 0;background:none;color:var(--muted);cursor:pointer;margin-bottom:-1px}
+.pagetabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);border-color:var(--rule)}
+.pagetabs button:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+.layers{display:flex;flex-wrap:wrap;gap:8px 12px;margin:10px 0 4px}
+.layers label{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:7px 12px;cursor:pointer}
+.layers label:has(input:checked){border-color:var(--ink)}
+.layers label:has(input:disabled){opacity:.5;cursor:not-allowed}
+.layers input{width:16px;height:16px;accent-color:var(--ink);margin:0}
+#readingblock:not(.show-q) .rbar,#readingblock:not(.show-q) .qcol,#readingblock:not(.show-q) .qarrows,#readingblock:not(.show-q) .qintro,#readingblock:not(.show-q) .clause.ghost{display:none!important}
+#readingblock:not(.show-q) .qph{background:none;padding:0}
+#readingblock:not(.show-q) .qb{display:none}
+#readingblock:not(.show-q) .qline{display:inline;margin:0}
+#readingblock:not(.show-q) .annot{grid-template-columns:minmax(0,1fr)!important;max-width:760px}
+#readingblock:not(.show-dm) .sbs-tree{display:none}
+#readingblock:not(.show-q) section#law{margin-top:22px}
+.sbs-tree h3{font-size:1.12rem}
+.sbs-tree .sbs-sub{font-size:.84rem;color:var(--muted);margin:.2rem 0 0}
+.sbs-tree{margin-top:22px}
+.sbs-tree .panel{max-width:620px}
+#dtreesvg{max-height:900px}
+@media (min-width:1080px){
+  #readingblock.show-dm{width:min(1640px,calc(100vw - 56px));margin-left:calc((100% - min(1640px,calc(100vw - 56px)))/2)}
+  #readingblock.show-dm .sbs{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(400px,.7fr);gap:28px;align-items:start}
+  .annot{grid-template-columns:minmax(0,1fr) 220px;gap:0 48px}
+  .annot .clause{grid-template-columns:2.6rem 1fr}
+  .annot .clause .tag{grid-column:2;justify-self:start;margin-top:-2px}
+  .annot .clause.ghost>span:last-child{display:none}
+  .sbs-tree{margin-top:0;position:sticky;top:var(--rbarH,120px)}
+  .sbs-tree .sbs-sub{display:none}
+  .sbs-tree .panel{max-width:none;padding:6px;margin-top:6px}
+  #dtreesvg{max-height:calc(100vh - var(--rbarH,120px) - 140px);min-height:440px}
+  .sbs-tree .note{margin-top:6px;font-size:.8rem}
+}
+@media (min-width:1300px){.annot{grid-template-columns:minmax(0,1fr) 250px;gap:0 56px}}
+#dtreesvg .chg{animation:qflash2 1.4s ease-out}
+@keyframes qflash2{0%{opacity:.35}100%{opacity:1}}
+@media (max-width:860px){
+  .rtabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+  .rtabs button{flex:none}
+  .rbar .rprob{display:none}
+  .rbar .eyebrow{font-size:.64rem}
+  .annot{grid-template-columns:1fr;gap:12px}
+  .qcol{display:grid;gap:8px;height:auto!important}
+  .qcard{position:static}
+  .qarrows{display:none}
+}
+@media (max-width:600px){.clause{grid-template-columns:2.4rem 1fr}.clause .tag{grid-column:2;justify-self:start}.clause.ghost>span:last-child{display:none}.qline{margin-left:.4em}}
+@media (prefers-reduced-motion: reduce){.rans button.flash,.qcard.changed,#dtreesvg .chg{animation:none}.qcard{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Synthetic toy statute · regulatory-complexity project</div>
+  <h1>Backyard Hen Permit Model</h1>
+  <p class="lede"><b>Current page (corrected model, round 6).</b> The pre-audit version is archived at <a href="archive/hen-permit-v3-preaudit-20260930.html">archive/hen-permit-v3-preaudit-20260930.html</a>; numbers below marked pre-audit will be replaced by the corrected fits as they land. A deliberately tiny, invented statute used to test the whole chain from law to burden: the statute implies a <b>decision model</b>, but its vague clauses can be read more than one way, so each town has its own <b>reading</b> (and so its own decision model) and implements it with its own <b>process model</b>; we only ever see <b>partial observations</b> of cases moving through those processes.</p>
+  <div class="chain"><b>Statute text</b><span>→</span><b>Decision model</b> (steps the law requires)<span>→</span><b>Process models</b> (one per town: how that town carries them out)<span>→</span><b>Observations</b> (records, reports, web pages)</div>
+  <nav class="toc" aria-label="Sections">
+    <a href="#law">The law</a><a href="#tree">Process models</a><a href="#journeys">Case journeys</a><a href="#best">Which process is best</a><a href="#linking">Linking steps to data</a><a href="#compare">Bayes vs LLM</a><a href="#methods">How the two methods work</a><a href="#plate">Model diagram</a><a href="#validity">Validity</a><a href="#outcomes">Outcomes</a><a href="#readings">Reading the statute</a><a href="#rsa">RSA &amp; inverse planning</a><a href="#statute2">Second statute</a><a href="#audit">Audit</a><a href="#status">Status</a><a href="#equations">Equations</a>
+  </nav>
+  <div class="pagetabs" role="tablist" aria-label="Page view">
+    <button type="button" role="tab" id="tabMain" aria-selected="true">Main page</button>
+    <button type="button" role="tab" id="tabArch" aria-selected="false">Archive: discarded conceptual diagrams</button>
+  </div>
+  <div id="mainview">
+
+  <div id="readingblock" class="">
+  <div class="rbar" id="rbar">
+    <div class="eyebrow"><span>Reading of the statute — click to switch (drives section 1)</span><span class="rprob" id="rprob"></span></div>
+    <div class="rtabs" role="tablist" aria-label="Reading of the statute" id="rtabs"></div>
+    <div class="rans" id="rans" aria-label="Answers under this reading"></div>
+  </div>
+
+  <section id="law">
+    <div class="eyebrow">1 · The law</div>
+    <h2>The statute, its open questions, and the decision model they produce</h2>
+    <div class="layers" role="group" aria-label="Layers">
+      <label><input type="checkbox" id="cbQ"> <span><b>a</b> · Show the questions it leaves open</span></label>
+      <label id="lbD"><input type="checkbox" id="cbD" disabled> <span><b>b</b> · Show the decision model they produce</span></label>
+    </div>
+    <p class="qintro" style="max-width:78ch">The open phrases are set on their own lines. Each card is one yes/no question a reader has to answer; its arrow points at the words that raise it. The answer shown is the one the selected reading gives. Click a Yes/No to flip it and build your own reading; the decision model beside it redraws.</p>
+    <div class="sbs">
+    <div class="annot" id="annot">
+      <div class="statute" role="list" id="statute">
+        <div class="act">Backyard Hen Keeping Act</div>
+        <div class="clause" role="listitem"><span class="sec">§1</span><span>A resident of a single-family dwelling may keep up to six hens after obtaining a permit from the local permitting authority.</span><span class="tag t-d1">D1 · eligibility</span></div>
+        <div class="clause" role="listitem"><span class="sec">§2</span><span>The applicant shall submit an application, together with a site plan showing the location of the coop and its distance to property lines.</span><span class="tag t-d1">D1 · application</span></div>
+        <div class="clause" role="listitem"><span class="sec">§3</span><span>Before issuing a permit, <span class="qph qline q3" data-q="3">the authority shall determine<sup class="qb">Q3</sup></span> <span class="qph qline q1" data-q="1">that the coop will not create a nuisance<sup class="qb">Q1</sup></span> <span class="qph qline q2" data-q="2">to adjoining properties.<sup class="qb">Q2</sup></span></span><span class="tag t-d2">D2 · vague</span></div>
+        <div class="clause" role="listitem"><span class="sec">§4</span><span>The authority shall issue or deny the permit <span class="qph qline q4" data-q="4">within 30 days after receiving a complete application.<sup class="qb">Q4</sup></span></span><span class="tag t-d3">D3 · deadline</span></div>
+        <div class="clause" role="listitem"><span class="sec">§5</span><span>The authority may charge a <span class="qph qline q5" data-q="5">reasonable application fee.<sup class="qb">Q5</sup></span></span><span class="tag t-fee">fees · vague amount</span></div>
+        <div class="clause ghost" role="listitem"><span class="sec">§1–4</span><span><span class="qph q6" data-q="6">(silence: no clause says whether these are the only grounds for denial)<sup class="qb">Q6</sup></span></span><span></span></div>
+      </div>
+      <div class="qcol" id="qcol"></div>
+      <svg class="qarrows" id="qarrows" aria-hidden="true"></svg>
+    </div>
+    <div class="sbs-tree" id="sbstree">
+      <h3>Decision model under this reading</h3>
+      <p class="sbs-sub">The tree the statute requires: D1 application (green), D2 nuisance determination (amber, the step the reading fills in), D3 issue or deny (blue). Q-tags mark the nodes each question controls; nodes a switch changed flash.</p>
+      <div class="panel scroll"><svg id="dtreesvg" viewBox="0 0 500 690" width="100%" style="min-width:420px;display:block;margin:0 auto" role="img" aria-label="Decision tree of the hen statute under the selected reading"></svg></div>
+      <p class="note" id="dtreenote"></p>
+    </div>
+    </div>
+    <p class="note">Colours mark the decision step each clause creates, the same colours used in the decision tree and every town’s flowchart: <b style="color:var(--concrete)">D1 application</b>, <b style="color:var(--vague)">D2 nuisance determination</b>, <b style="color:var(--link)">D3 issue or deny</b>. Highlighted phrases are the wording the text leaves open. Fees are charged alongside the steps, not a step of their own.</p>
+  </section>
+
+  </div>
+
+  <section id="tree">
+    <div class="eyebrow">2 · From decision steps to process models</div>
+    <h2>Process models: one per town</h2>
+    <p>Every town writes its own procedure, so <b>each town has its own process model</b>. Towns may also read the vague clauses differently, so each town’s process model implements <i>its own</i> reading of the statute (section 1 shows how the decision tree changes with the reading). Towns can share a design (two towns may both run S3), but the process model belongs to the town. Each is a plain flowchart: the same start (prepare → completeness check, looping through correction if incomplete), the town’s own middle, and the decision. Boxes are coloured by the decision step they carry out, as in the decision tree above. Use ◀ ▶ to step from town to town; each town scales the agency boxes by its own speed, but the box-duration laws are shared.</p>
+    <div class="toggle" role="group" aria-label="Town" id="fctoggle" style="align-items:center"><button type="button" id="fcprev" aria-label="previous town">◀</button><span id="fclabel" style="padding:6px 14px;font:600 .85rem 'Public Sans',sans-serif"></span><button type="button" id="fcnext" aria-label="next town">▶</button></div>
+    <div class="panel scroll"><svg id="fcsvg" viewBox="0 0 960 250" width="100%" style="min-width:720px" role="img" aria-label="Flowchart of one process design"></svg></div>
+    <p class="note">In S3 and S6 one step — the site inspection — serves two decision steps: it completes the nuisance determination (D2) and issues the permit (D3). Under “notify neighbours”, a hearing happens only if someone objects.</p>
+  </section>
+
+  <section id="journeys">
+    <div class="eyebrow">3 · What a case goes through</div>
+    <h2>Average case journey in each town</h2>
+    <p>Each bar is one average case, left to right on a common day scale. Every segment is one process step with its average length; the bands above group steps into the decision step they serve. Loops (corrections) and hearings are averaged in: a step that happens in only some cases shows its average contribution.</p>
+    <div class="toggle" role="group" aria-label="World">
+      <button type="button" id="jw0" aria-pressed="true">World W0 (typical)</button>
+      <button type="button" id="jw1" aria-pressed="false">World W1 (adversarial)</button>
+    </div>
+    <div class="panel"><div class="journey" id="journey"></div></div>
+    <p class="note">W0 has common-sense timings. W1 is built to defy them — backlogged desk reviews, certified-mail notices, a 30-day comment period — to test methods that lean on typical practice.</p>
+  </section>
+
+  <section id="best">
+    <div class="eyebrow">4 · Is there a best process?</div>
+    <h2>Burden of every process, for every town — including ones no town uses</h2>
+    <p>For each town, the Bayesian model predicts the average days from submission to decision under each candidate process, using that town’s own speed and incompleteness rate. “Concurrent” variants run the D2 steps side by side instead of one after another — a process none of the towns uses. Bars are 90% intervals; dots are the true values.</p>
+    <div class="toggle" role="group" aria-label="Town" id="besttoggle"></div>
+    <div class="panel scroll"><svg id="bestsvg" viewBox="0 0 900 420" width="100%" style="min-width:640px" role="img" aria-label="Predicted days under each process"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--link)"></i>Bayesian 90% interval (median tick)</span>
+      <span><i class="sw" style="background:var(--ink);border-radius:50%"></i>true value</span>
+      <span><b style="color:var(--concrete)">■</b> the process this town actually uses</span>
+    </div>
+    <p class="note"><b>What we can say.</b> On time alone, desk review only (S1) is fastest everywhere, and concurrency recovers most of the time cost of extra safeguards. But “best” is not a time question alone: S1 gathers the least evidence about nuisance (no site visit, no neighbour input), and our data contain nothing about how accurately each procedure detects real nuisances. The model can price the burden of each safeguard; it cannot say whether the safeguard is worth it.<br><b>Extrapolation.</b> A town’s own process is estimated tightly; processes it doesn’t use get wide intervals because they borrow step laws from other towns (Alder has never run an inspection, so S2 in Alder borrows Birch’s). This works for recombinations of steps we have observed somewhere — including never-tried arrangements like concurrency — and the intervals still covered the truth. It does not work for genuinely new steps (e.g. online self-certification): nothing in the data says how long those take.</p>
+  </section>
+
+  <section id="linking">
+    <div class="eyebrow">5 · Linking steps to evidence</div>
+    <h2>A step’s burden is measurable only if its boundaries are observed</h2>
+    <p>Observations are intervals between events. An interval measures the <i>sum</i> of the steps between its two events, so whole-process records (submitted → decided) pin down the total and nothing about how it splits. Adding status-change dates splits the chain. Estimands identified from the data in W0:</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>evidence available</th><th>identified estimands</th></tr></thead>
+        <tbody>
+          <tr><td>admin totals (submitted → decided) + applicant reports</td><td class="num">5</td></tr>
+          <tr><td>+ status-change dates: deemed complete, inspection, hearing</td><td class="num">10</td></tr>
+          <tr><td>+ “review complete” date (the boundary of the vague step)</td><td class="num">28</td></tr>
+          <tr><td>+ “notice mailed” date</td><td class="num">30</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">When no boundary record exists for steps that always happen together, report their joint burden and treat any split as coming from the prior, not the data.</p>
+  </section>
+
+  <section id="compare">
+    <div class="eyebrow">6 · Results (round 3: composite reparameterization, same posterior as round 2 but better sampled)</div>
+    <h2>Which method does better, and when</h2>
+    <p>Both methods answered the same ~100 questions about each world (per-step days and hours, decision-step totals, deadlines, complexity, the drafting counterfactual). The error score below is the 90%-interval score divided by the true value’s size: it rewards being close <i>and</i> honest about uncertainty. <b>Lower is better.</b> Dollar questions are left out here because they are nearly identical across methods.</p>
+    <h3 style="margin-top:14px">As the evidence grows (world W0, typical practice)</h3>
+    <div class="charts">
+      <div class="chart panel"><h3>All questions</h3><div class="sub">error score on all ~100 questions</div><svg class="lc" data-key="all" viewBox="0 0 300 200" width="100%" role="img" aria-label="All questions"></svg></div>
+      <div class="chart panel"><h3>Totals, deadlines, counterfactuals</h3><div class="sub">error score on the drafting-level questions</div><svg class="lc" data-key="roll" viewBox="0 0 300 200" width="100%" role="img" aria-label="Roll-up questions"></svg></div>
+      <div class="chart panel"><h3>Per-step burden</h3><div class="sub">error score on per-step days and hours</div><svg class="lc" data-key="step" viewBox="0 0 300 200" width="100%" role="img" aria-label="Per-step questions"></svg></div>
+    </div>
+    <div class="legend"><span><i class="sw" style="background:var(--link)"></i>Bayesian model</span><span><i class="sw" style="background:var(--llm)"></i>LLM (Opus, 3 runs averaged)</span><span>1× = 80 admin records + 45 reports; 25× = 2,000 + 1,125 (a 120k-token prompt). Dollar questions excluded.</span></div>
+    <h3 style="margin-top:18px;font-family:'Public Sans',sans-serif;font-size:.95rem;font-weight:700">Question-by-question wins</h3><p class="note" style="margin-top:4px">For each question, the method with the lower error score wins it. Ties are questions where neither method scored lower. Totals differ slightly by level because a few questions weren’t scored at every level. Each card is one evidence level in world W0.</p><div class="h2h" id="h2h"></div>
+    <h3 style="margin-top:22px">When the world defies common sense, and when steps are linked</h3>
+    <div class="panel scroll"><svg id="worlds" viewBox="0 0 900 260" width="100%" style="min-width:620px" role="img" aria-label="Error score by world and method"></svg></div>
+    <div class="legend"><span><i class="sw" style="background:var(--link)"></i>Bayes, vague priors</span><span><i class="sw" style="background:var(--concrete)"></i>Bayes, LLM-supplied priors</span><span><i class="sw" style="background:var(--llm)"></i>LLM</span><span>“+ milestones” = same cases, admin records also log deemed-complete / inspection / hearing dates</span></div>
+    <p class="note"><b>Reading it.</b> With thin, aggregate data in a world that matches common sense, the LLM’s general knowledge wins. With more data, or in a world that breaks the usual pattern, the Bayesian model wins — and the LLM’s intervals become overconfident (they covered only 69–79% of true values in W1, against 88–95% for Bayes). Status-change dates fix per-step estimates for both. Caveat: most Bayesian fits still miss the strict two-run convergence gate; a 10,000-particle rerun (round 3b) showed the misses are mostly Monte Carlo noise, and one (W1 with LLM priors) is a genuine mixing problem. All fits shown here used the pre-audit likelihood (section 14); a corrected rerun is in progress.</p>
+  </section>
+
+  <section id="methods">
+    <div class="eyebrow">7 · The two methods</div>
+    <h2>How each method answers</h2>
+    <div class="methods">
+      <div class="method bayes">
+        <h3>Bayesian process model</h3>
+        <p>A written-down account of how the evidence arises, fitted exactly.</p>
+        <ol>
+          <li><b>Hypotheses:</b> each town uses one of S1–S6; each case may loop through corrections (0–4 times) and, where possible, a hearing. Every combination is enumerated — no guessing among them.</li>
+          <li><b>Unknowns:</b> 36 numbers — each step’s typical length and spread, each town’s speed, incompleteness and objection rates, applicant hours, how noisily people report.</li>
+          <li><b>Scoring a guess:</b> for any setting of the unknowns, compute exactly how likely every record is — e.g. “3 weeks from applying to inspection” is scored by adding up the steps between those two events, allowing for rounding and reporting error.</li>
+          <li><b>Fitting:</b> a sampler (tempered sequential Monte Carlo) finds all settings consistent with the evidence; every answer is computed for each, and their spread is the uncertainty.</li>
+        </ol>
+        <p class="pros"><b>Strong at:</b> identifying each town’s process, using lots of data, honest intervals, consistent numbers (steps add up to totals). <b>Weak at:</b> anything the data can’t pin down, which it fills from a generic prior.</p>
+      </div>
+      <div class="method llm">
+        <h3>LLM baseline</h3>
+        <p>One call to Claude Opus with no tools, repeated three times and averaged.</p>
+        <ol>
+          <li><b>Given:</b> the statute, the decision model, the step catalog, the six candidate processes, the same modelling assumptions, and all the evidence as text.</li>
+          <li><b>Asked:</b> the same questions, each as a 5th / 50th / 95th percentile, filled into a fixed template.</li>
+          <li><b>What it does</b> (inferred from answers): tallies records, reads which steps are mentioned to judge each town’s process, splits totals into steps using general knowledge, and reasons its way to the derived quantities.</li>
+        </ol>
+        <p class="pros"><b>Strong at:</b> common-sense scales when data are thin, fast and cheap (~$0.35–$4 per run). <b>Weak at:</b> worlds that break the usual pattern, internal consistency, and calibrated uncertainty.</p>
+      </div>
+    </div>
+    <p class="note">A hybrid gives the Bayesian model priors elicited from the LLM <i>without</i> showing it the evidence (widened and mixed with the generic prior). It helped at every test so far, but the test of priors that are genuinely wrong for a place — the cultural-transfer concern — is still to come.</p>
+  </section>
+
+  <section id="plate">
+    <div class="eyebrow">8 · The Bayesian model, drawn (current version)</div>
+    <h2>Plate diagram: what depends on what</h2>
+    <p>Arrows run from causes to what they generate. Boxes (“plates”) are repeated: once per agency, per statute, per case, per safeguard. Fitting runs the arrows backwards, from the shaded observations to everything unshaded. This is the model as of the corrected rerun: the text enters through readings, agencies are shared across two statutes, and the observation process includes when a report was posted.</p>
+    <div class="panel scroll"><svg id="platesvg" viewBox="0 0 1120 860" width="100%" style="min-width:820px" role="img" aria-label="Plate diagram of the full-chain model, round 6">
+<defs><marker id="pd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="pd-head"/></marker></defs>
+<rect x="790" y="6" width="322" height="840" rx="10" class="pd-region-out"/>
+<text x="1100" y="852" text-anchor="end" class="pd-region-lab">OUTCOME LAYER</text>
+<text x="24" y="852" class="pd-region-lab">TEXT → READING → DESIGN → PROCESS → OBSERVATIONS</text>
+<rect x="820" y="18" width="130" height="116" rx="8" class="pd-plate out"/>
+<text x="828" y="32" class="pd-plab">safeguards g ×3</text>
+<rect x="18" y="150" width="1086" height="690" rx="8" class="pd-plate town"/>
+<text x="1096" y="832" text-anchor="end" class="pd-plab">agencies t ×14 (traits shared across statutes)</text>
+<rect x="40" y="262" width="1050" height="560" rx="8" class="pd-plate stat"/>
+<text x="1082" y="814" text-anchor="end" class="pd-plab">statutes k ×2</text>
+<rect x="60" y="480" width="660" height="320" rx="8" class="pd-plate "/>
+<text x="712" y="792" text-anchor="end" class="pd-plab">cases i</text>
+<line x1="82.0" y1="60.0" x2="135.0" y2="60.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="182.0" y1="60.0" x2="375.0" y2="60.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="320.8" y1="33.1" x2="376.3" y2="52.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="319.8" y1="98.5" x2="377.5" y2="70.8" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="81.8" y1="56.9" x2="275.2" y2="29.5" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="81.6" y1="64.3" x2="275.5" y2="103.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="386.6" y1="77.4" x2="215.2" y2="300.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="332.8" y1="213.7" x2="219.5" y2="304.4" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="95.6" y1="215.6" x2="182.3" y2="302.3" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="172.0" y1="78.4" x2="316.3" y2="299.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="222.0" y1="320.0" x2="305.0" y2="320.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="352.0" y1="320.0" x2="575.0" y2="320.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="482.0" y1="320.0" x2="575.0" y2="320.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="457.6" y1="213.2" x2="580.0" y2="305.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="526.5" y1="81.0" x2="592.6" y2="296.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="460.0" y1="398.0" x2="460.0" y2="345.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="190.3" y1="208.4" x2="436.9" y2="310.4" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="616.9" y1="334.1" x2="700.8" y2="404.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="580.2" y1="329.7" x2="172.5" y2="529.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="253.2" y1="220.9" x2="157.7" y2="516.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="442.4" y1="433.2" x2="320.0" y2="525.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="177.9" y1="220.5" x2="291.1" y2="516.6" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="172.0" y1="540.0" x2="275.0" y2="540.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="318.9" y1="551.3" x2="428.6" y2="617.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="450.0" y1="562.0" x2="450.0" y2="605.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="289.3" y1="559.2" x2="212.1" y2="698.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="305.9" y1="561.2" x2="343.3" y2="695.9" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="166.4" y1="554.7" x2="331.4" y2="703.3" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="433.6" y1="644.7" x2="368.6" y2="703.3" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="467.0" y1="643.9" x2="540.7" y2="704.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="461.5" y1="558.8" x2="547.0" y2="698.7" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="620.3" y1="328.6" x2="837.0" y2="420.3" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="850.6" y1="88.0" x2="859.3" y2="405.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="907.0" y1="87.8" x2="863.4" y2="405.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="481.6" y1="324.4" x2="975.5" y2="425.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="990.6" y1="82.0" x2="999.3" y2="405.0" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="101.7" y1="203.3" x2="835.3" y2="316.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="371.4" y1="205.0" x2="835.7" y2="314.3" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="866.7" y1="341.0" x2="922.4" y2="516.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="993.3" y1="341.0" x2="937.6" y2="516.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="871.8" y1="448.6" x2="916.6" y2="518.9" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="988.2" y1="448.6" x2="943.4" y2="518.9" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="1054.2" y1="81.2" x2="936.5" y2="515.9" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="919.3" y1="559.2" x2="842.1" y2="698.1" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="927.0" y1="561.8" x2="908.4" y2="695.2" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="935.9" y1="561.2" x2="973.3" y2="695.9" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<line x1="942.5" y1="558.1" x2="1040.7" y2="699.5" class="pd-ar" marker-end="url(#pd-arrow)"/>
+<path d="M812,778 L812,788 L1002,788 L1002,778" class="pd-cut"/>
+<text x="907" y="802" text-anchor="middle" class="pd-cutlab">D and C<tspan baseline-shift="super" font-size="8">u</tspan> overlap: joint likelihood</text>
+<circle cx="60" cy="60" r="20" class="pd-node pd-obs"/>
+<text x="60" y="65" text-anchor="middle" class="pd-sym">x</text>
+<text x="60" y="94" text-anchor="middle" class="pd-cap">statute</text>
+<text x="60" y="106" text-anchor="middle" class="pd-cap">text</text>
+<path d="M160,38 L182,60 L160,82 L138,60 Z" class="pd-node pd-det"/>
+<text x="160" y="65" text-anchor="middle" class="pd-sym">Q</text>
+<text x="160" y="94" text-anchor="middle" class="pd-cap">questions</text>
+<text x="160" y="106" text-anchor="middle" class="pd-cap">(taxonomy+reader)</text>
+<circle cx="300" cy="26" r="20" class="pd-node pd-obs"/>
+<text x="300" y="31" text-anchor="middle" class="pd-sym">ℓ</text>
+<text x="300" y="60" text-anchor="middle" class="pd-cap">LLM parses</text>
+<path d="M300,86 L322,108 L300,130 L278,108 Z" class="pd-node pd-det"/>
+<text x="300" y="113" text-anchor="middle" class="pd-sym">θ</text>
+<text x="300" y="142" text-anchor="middle" class="pd-cap">RSA threshold model</text>
+<path d="M400,38 L422,60 L400,82 L378,60 Z" class="pd-node pd-det"/>
+<text x="400" y="65" text-anchor="middle" class="pd-sym">p<tspan baseline-shift='sub' font-size='9'>0</tspan></text>
+<text x="400" y="94" text-anchor="middle" class="pd-cap">prior over</text>
+<text x="400" y="106" text-anchor="middle" class="pd-cap">readings</text>
+<circle cx="520" cy="60" r="20" class="pd-node"/>
+<text x="520" y="65" text-anchor="middle" class="pd-sym">ε</text>
+<text x="520" y="94" text-anchor="middle" class="pd-cap">choice slack</text>
+<text x="520" y="106" text-anchor="middle" class="pd-cap">(unexplained mass)</text>
+<circle cx="850" cy="66" r="20" class="pd-node"/>
+<text x="850" y="71" text-anchor="middle" class="pd-sym">d<tspan baseline-shift='sub' font-size='9'>g</tspan></text>
+<text x="850" y="100" text-anchor="middle" class="pd-cap o">catches a</text>
+<text x="850" y="112" text-anchor="middle" class="pd-cap o">nuisance</text>
+<circle cx="910" cy="66" r="20" class="pd-node"/>
+<text x="910" y="71" text-anchor="middle" class="pd-sym">f<tspan baseline-shift='sub' font-size='9'>g</tspan></text>
+<text x="910" y="100" text-anchor="middle" class="pd-cap o">flags a</text>
+<text x="910" y="112" text-anchor="middle" class="pd-cap o">harmless coop</text>
+<circle cx="990" cy="60" r="20" class="pd-node"/>
+<text x="990" y="65" text-anchor="middle" class="pd-sym">α,β</text>
+<text x="990" y="94" text-anchor="middle" class="pd-cap o">deterrence</text>
+<circle cx="1060" cy="60" r="20" class="pd-node"/>
+<text x="1060" y="65" text-anchor="middle" class="pd-sym">u,k</text>
+<text x="1060" y="94" text-anchor="middle" class="pd-cap o">keep anyway;</text>
+<text x="1060" y="106" text-anchor="middle" class="pd-cap o">complaint rates</text>
+<circle cx="80" cy="200" r="20" class="pd-node pd-obs"/>
+<text x="80" y="205" text-anchor="middle" class="pd-sym">d<tspan baseline-shift='sub' font-size='9'>t</tspan></text>
+<text x="80" y="234" text-anchor="middle" class="pd-cap">density</text>
+<text x="80" y="246" text-anchor="middle" class="pd-cap">(public)</text>
+<circle cx="170" cy="200" r="20" class="pd-node"/>
+<text x="170" y="205" text-anchor="middle" class="pd-sym">a<tspan baseline-shift='sub' font-size='9'>t</tspan></text>
+<text x="170" y="234" text-anchor="middle" class="pd-cap">pace</text>
+<circle cx="260" cy="200" r="20" class="pd-node"/>
+<text x="260" y="205" text-anchor="middle" class="pd-sym">ρ<tspan baseline-shift='sub' font-size='9'>t</tspan></text>
+<text x="260" y="234" text-anchor="middle" class="pd-cap">error</text>
+<text x="260" y="246" text-anchor="middle" class="pd-cap">rate</text>
+<circle cx="350" cy="200" r="20" class="pd-node"/>
+<text x="350" y="205" text-anchor="middle" class="pd-sym">s<tspan baseline-shift='sub' font-size='9'>t</tspan></text>
+<text x="350" y="234" text-anchor="middle" class="pd-cap">interpretive</text>
+<text x="350" y="246" text-anchor="middle" class="pd-cap">strictness</text>
+<circle cx="440" cy="200" r="20" class="pd-node"/>
+<text x="440" y="205" text-anchor="middle" class="pd-sym">τ<tspan baseline-shift='sub' font-size='9'>t</tspan></text>
+<text x="440" y="234" text-anchor="middle" class="pd-cap">cost</text>
+<text x="440" y="246" text-anchor="middle" class="pd-cap">sensitivity</text>
+<circle cx="200" cy="320" r="20" class="pd-node pd-sum"/>
+<text x="200" y="325" text-anchor="middle" class="pd-sym">r<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="200" y="354" text-anchor="middle" class="pd-cap">reading</text>
+<text x="200" y="366" text-anchor="middle" class="pd-cap">enumerated</text>
+<path d="M330,298 L352,320 L330,342 L308,320 Z" class="pd-node pd-det"/>
+<text x="330" y="325" text-anchor="middle" class="pd-sym">V<tspan baseline-shift='sub' font-size='9'>r</tspan></text>
+<text x="330" y="354" text-anchor="middle" class="pd-cap">valid designs</text>
+<text x="330" y="366" text-anchor="middle" class="pd-cap">(validity rules)</text>
+<path d="M460,298 L482,320 L460,342 L438,320 Z" class="pd-node pd-det"/>
+<text x="460" y="325" text-anchor="middle" class="pd-sym">B</text>
+<text x="460" y="354" text-anchor="middle" class="pd-cap">burden per</text>
+<text x="460" y="366" text-anchor="middle" class="pd-cap">design</text>
+<circle cx="600" cy="320" r="20" class="pd-node pd-sum"/>
+<text x="600" y="325" text-anchor="middle" class="pd-sym">S<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="600" y="354" text-anchor="middle" class="pd-cap">design</text>
+<text x="600" y="366" text-anchor="middle" class="pd-cap">enumerated</text>
+<circle cx="460" cy="420" r="20" class="pd-node"/>
+<text x="460" y="425" text-anchor="middle" class="pd-sym">θ<tspan baseline-shift='sub' font-size='9'>k</tspan></text>
+<text x="460" y="454" text-anchor="middle" class="pd-cap">step laws, hours,</text>
+<text x="460" y="466" text-anchor="middle" class="pd-cap">report noise</text>
+<circle cx="720" cy="420" r="20" class="pd-node pd-obs"/>
+<text x="720" y="425" text-anchor="middle" class="pd-sym">W<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="720" y="454" text-anchor="middle" class="pd-cap">web page</text>
+<circle cx="150" cy="540" r="20" class="pd-node pd-sum"/>
+<text x="150" y="545" text-anchor="middle" class="pd-sym">k,h</text>
+<text x="150" y="574" text-anchor="middle" class="pd-cap">loops, hearing</text>
+<text x="150" y="586" text-anchor="middle" class="pd-cap">summed</text>
+<circle cx="300" cy="540" r="20" class="pd-node pd-sum"/>
+<text x="300" y="545" text-anchor="middle" class="pd-sym">D<tspan baseline-shift='sub' font-size='9'>i</tspan></text>
+<text x="300" y="574" text-anchor="middle" class="pd-cap">durations</text>
+<text x="300" y="586" text-anchor="middle" class="pd-cap">convolved</text>
+<circle cx="450" cy="540" r="20" class="pd-node pd-sum"/>
+<text x="450" y="545" text-anchor="middle" class="pd-sym">C<tspan baseline-shift='sub' font-size='9'>i</tspan></text>
+<text x="450" y="574" text-anchor="middle" class="pd-cap">posting day</text>
+<text x="450" y="586" text-anchor="middle" class="pd-cap">~U[10,150]</text>
+<path d="M450,608 L472,630 L450,652 L428,630 Z" class="pd-node pd-det"/>
+<text x="450" y="635" text-anchor="middle" class="pd-sym">C≥T</text>
+<text x="450" y="664" text-anchor="middle" class="pd-cap">completed?</text>
+<text x="450" y="676" text-anchor="middle" class="pd-cap">(selection)</text>
+<circle cx="200" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="200" y="725" text-anchor="middle" class="pd-sym">Y<tspan baseline-shift='sub' font-size='9'>i</tspan></text>
+<text x="200" y="754" text-anchor="middle" class="pd-cap">admin record</text>
+<text x="200" y="766" text-anchor="middle" class="pd-cap">(+milestones)</text>
+<circle cx="350" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="350" y="725" text-anchor="middle" class="pd-sym">R<tspan baseline-shift='sub' font-size='9'>i</tspan></text>
+<text x="350" y="754" text-anchor="middle" class="pd-cap">completed report:</text>
+<text x="350" y="766" text-anchor="middle" class="pd-cap">gaps, mentions, hours</text>
+<circle cx="560" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="560" y="725" text-anchor="middle" class="pd-sym">N<tspan baseline-shift='sub' font-size='9'>i</tspan></text>
+<text x="560" y="754" text-anchor="middle" class="pd-cap">pending report:</text>
+<text x="560" y="766" text-anchor="middle" class="pd-cap">days so far</text>
+<circle cx="860" cy="320" r="20" class="pd-node"/>
+<text x="860" y="325" text-anchor="middle" class="pd-sym">π<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="860" y="354" text-anchor="middle" class="pd-cap o">nuisance</text>
+<text x="860" y="366" text-anchor="middle" class="pd-cap o">share</text>
+<circle cx="1000" cy="320" r="20" class="pd-node"/>
+<text x="1000" y="325" text-anchor="middle" class="pd-sym">m<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="1000" y="354" text-anchor="middle" class="pd-cap o">would-be</text>
+<text x="1000" y="366" text-anchor="middle" class="pd-cap o">keepers</text>
+<path d="M860,408 L882,430 L860,452 L838,430 Z" class="pd-node pd-det"/>
+<text x="860" y="435" text-anchor="middle" class="pd-sym">c<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="860" y="464" text-anchor="middle" class="pd-cap o">P(caught),</text>
+<text x="860" y="476" text-anchor="middle" class="pd-cap o">P(false flag)</text>
+<path d="M1000,408 L1022,430 L1000,452 L978,430 Z" class="pd-node pd-det"/>
+<text x="1000" y="435" text-anchor="middle" class="pd-sym">p<tspan baseline-shift='sub' font-size='9'>tk</tspan></text>
+<text x="1000" y="464" text-anchor="middle" class="pd-cap o">P(apply)</text>
+<path d="M930,518 L952,540 L930,562 L908,540 Z" class="pd-node pd-det"/>
+<text x="930" y="545" text-anchor="middle" class="pd-sym">λ</text>
+<text x="930" y="574" text-anchor="middle" class="pd-cap o">expected count</text>
+<text x="930" y="586" text-anchor="middle" class="pd-cap o">per disjoint cell</text>
+<circle cx="830" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="830" y="725" text-anchor="middle" class="pd-sym">A,D</text>
+<text x="830" y="754" text-anchor="middle" class="pd-cap o">applications,</text>
+<text x="830" y="766" text-anchor="middle" class="pd-cap o">denials</text>
+<circle cx="905" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="905" y="725" text-anchor="middle" class="pd-sym">C<tspan baseline-shift='super' font-size='9'>p</tspan></text>
+<text x="905" y="754" text-anchor="middle" class="pd-cap o">complaints,</text>
+<text x="905" y="766" text-anchor="middle" class="pd-cap o">permitted</text>
+<circle cx="980" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="980" y="725" text-anchor="middle" class="pd-sym">C<tspan baseline-shift='super' font-size='9'>u</tspan></text>
+<text x="980" y="754" text-anchor="middle" class="pd-cap o">complaints,</text>
+<text x="980" y="766" text-anchor="middle" class="pd-cap o">unpermitted</text>
+<circle cx="1055" cy="720" r="20" class="pd-node pd-obs"/>
+<text x="1055" y="725" text-anchor="middle" class="pd-sym">K</text>
+<text x="1055" y="754" text-anchor="middle" class="pd-cap o">household</text>
+<text x="1055" y="766" text-anchor="middle" class="pd-cap o">survey</text>
+</svg></div>
+    <div class="pd-key" aria-label="Diagram key">
+      <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" class="pd-node"/></svg>unknown, learned</span>
+      <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" class="pd-node pd-obs"/></svg>observed</span>
+      <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" class="pd-node pd-sum"/></svg>unknown, summed out exactly (never sampled)</span>
+      <span><svg width="22" height="22"><path d="M11,1 L21,11 L11,21 L1,11 Z" class="pd-node pd-det"/></svg>computed from its parents</span>
+      <span>box = repeated for every t, k, i or g</span>
+    </div>
+    <div class="methods">
+      <div class="method bayes">
+        <h3>Left: text → reading → design → process → observations</h3>
+        <ul>
+          <li><b>Text to readings.</b> The statute text is fixed. Its interpretive questions come from a taxonomy and a blind reader; the prior over readings pools LLM parses and, for threshold words, the RSA model. Each agency’s reading of each statute is a latent, enumerated exactly, shifted by that agency’s <i>strictness</i> and its density.</li>
+          <li><b>Readings to designs.</b> A reading fixes which designs are legal (validity rules); the agency picks among them by burden and its cost sensitivity τ, with slack ε for practice no reading explains. The design is enumerated, never sampled.</li>
+          <li><b>Agencies shared across statutes.</b> Pace, error rate, strictness and τ belong to the agency, not the statute: the same 14 agencies implement both laws.</li>
+          <li><b>Observations.</b> Loops and durations are summed out exactly; a report’s posting day decides whether it appears completed or pending, and that selection sits inside the sum over latent durations (the audit’s F2 fix).</li>
+          <li><b>Size.</b> 63–70 sampled numbers per statute fit; designs, readings, paths and durations are all integrated exactly.</li>
+        </ul>
+      </div>
+      <div class="method" style="border-top:4px solid var(--concrete)">
+        <h3>Right: outcomes</h3>
+        <ul>
+          <li>Burden sets how many would-be keepers apply; the design’s safeguards set how often a nuisance is caught or a harmless coop flagged; nuisance share and arrivals are per agency.</li>
+          <li>Expected counts are computed for <i>disjoint</i> person-level cells. Denials and unpermitted complaints overlap (a denied applicant may keep hens and be complained about), so their joint likelihood is computed exactly rather than as independent Poissons (the audit’s F1 fix).</li>
+          <li>Outcomes are still fitted conditional on saved process draws (a cut), so a mistake in this layer cannot contaminate the burden results; joint fitting is a later step.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">This diagram is the whole model: nothing enters the fit that is not drawn here. The LLM baseline has no such diagram. It reads the same evidence and answers the same questions, and its internal reasoning is not constrained to be consistent with any single generative story. The earlier, pre-audit version of this page is kept separately for the record.</p>
+  </section>
+
+  <section id="validity">
+    <div class="eyebrow">9 · Is a process legal?</div>
+    <h2>Validity under a reading of the statute</h2>
+    <p>A process is <b>valid</b> under a reading if it covers every required determination, gathers evidence the reading accepts, makes the determination before the permit issues, can fit its own mandated waits inside the clock, imposes only burdens a clause authorizes, and denies only on authorized grounds. Vague clauses raise yes/no questions (does a desk review suffice? must neighbours be heard? may the town require inspection access? does the clock run through the determination? are separate fees allowed?); a <b>reading</b> is one answer to each. Validity is not compliance: in W0 the towns run plausibly valid designs and still miss the 30-day clock 3%, 48% and 55% of the time.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>design</th><th>valid under…</th><th>depends on</th></tr></thead>
+      <tbody>
+        <tr><td>S1 desk review only</td><td class="num">49% of readings</td><td>desk suffices; no neighbour input required</td></tr>
+        <tr><td>S2 / S3 desk + inspection</td><td class="num">63%</td><td>no neighbour input; inspection access</td></tr>
+        <tr><td><b>S4 notice + comment + desk (+ hearing)</b></td><td class="num"><b>every reading</b></td><td>—</td></tr>
+        <tr><td>S5 / S6 (S4 + inspection)</td><td class="num">90%</td><td>inspection access</td></tr>
+        <tr><td>any design run concurrently</td><td class="num">same as serial</td><td>concurrency never changes validity</td></tr>
+        <tr><td>“applicant must collect neighbour signatures”</td><td class="num">never</td><td>phantom requirement</td></tr>
+      </tbody></table></div>
+    <p class="note"><b>Defensive proceduralism.</b> Under the vague text only the notice-and-hearing design is safe under every reading, so a town that wants legal safety is pushed to the heaviest procedure. A one-line <b>safe harbour</b> (“a coop ≥ 10 ft from every property line is deemed not a nuisance”) makes the fastest design safe: about 5–7 estimated days per application saved (10–11 in truth), plus the hearing hours. Percentages use an illustrative prior over readings; the “every reading” results use none.</p>
+  </section>
+
+  <section id="outcomes">
+    <div class="eyebrow">10 · What each process produces</div>
+    <h2>Outcomes: nuisances caught, applicants deterred</h2>
+    <p>An outcome layer adds what the burden numbers leave out: each coop is a nuisance or not; each safeguard (desk review, inspection, neighbour comment) catches a real nuisance with some rate and flags a harmless coop with another; burden deters would-be applicants, some of whom keep hens anyway; complaints and a household survey are observed. The Bayesian model fits this with an exact likelihood for the count cells, taking burden estimates from the process fit.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>moving a town from desk review only (S1) to notice + desk + inspection (S5)</th><th>burden change (day-equivalents / applicant)</th><th>operating nuisances per 100 would-be keepers</th></tr></thead>
+      <tbody>
+        <tr><td>common-sense world, Alder</td><td class="num">+44 [28, 68] (truth +43)</td><td class="num">−4.1 [−7.4, −1.5] (truth −4.5)</td></tr>
+        <tr><td>common-sense world, Birch / Cedar</td><td class="num">+57 / +49 (truth +57 / +46)</td><td class="num">−3.9 / −3.9 (truth −4.1 / −4.2)</td></tr>
+        <tr><td>adversarial world (steep deterrence; 70% keep hens anyway)</td><td class="num">+44 to +57</td><td class="num">−0.4 to −1.3 (truth −0.5 to −2.3)</td></tr>
+      </tbody></table></div>
+    <p class="note"><b>Reading it.</b> Differences between designs are recovered well even where absolute levels are not; a heavier process buys real safety in one world and almost none in the other. Per step, the ledger says what each step costs and catches: in Birch an inspection added to desk review costs +37 day-equivalents and prevents 3.4 nuisances per 100, but only 1.7 when notice is already in place, because safeguards overlap. A shared nuisance rate across towns breaks under confounding (coverage 65%); a per-town rate repairs it (92%). <b>Caveat:</b> these fits used an outcome likelihood the audit (section 14) found to mis-handle overlapping counts; they are being refit and the deterrence-bias finding is suspended until then.</p>
+  </section>
+
+  <section id="readings">
+    <div class="eyebrow">11 · Reading the law is part of the model</div>
+    <h2>From text to decision model, with uncertainty</h2>
+    <p>Earlier rounds hand-coded the decision model from the statute. Round 4 made the reading a latent variable. Three nested trees: an <b>interpretive tree</b> (branch on each yes/no question; each leaf is one reading, i.e. one decision model), a <b>decision tree</b> per reading (the required determinations in order), and the <b>process tree</b> of section 2 per decision model. Burden and outcomes attach to the leaves and roll up; the difference between the sub-trees under a question’s two answers is the cost of leaving that clause vague.</p>
+    <p>The inference runs backwards from practice: a town’s process is evidence about which reading its agency acts on, <i>given a model of how the agency chooses</i> among legal designs (any legal design; the cheapest; the legally safest). Readings are identified only relative to that choice model, and only where practice can differ: in the 12-town world, two of five questions leave no trace in any design.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>12-town hen world (W4), readings scored on the four learnable questions</th><th>joint log score (higher is better)</th><th>what moved</th></tr></thead>
+      <tbody>
+        <tr><td>flat prior over readings</td><td class="num">−2.77</td><td>—</td></tr>
+        <tr><td>LLM-elicited prior (no evidence)</td><td class="num">−2.59</td><td>—</td></tr>
+        <tr><td>LLM reading the evidence (Opus × 3)</td><td class="num">−2.67</td><td>designs 12/12 right, but reads intentions off them: every notice-using town gets “neighbours must be heard” at 0.85, true for 2 of 5</td></tr>
+        <tr><td><b>Bayes, reading layer, cost-based choice model</b></td><td class="num"><b>−2.13</b></td><td>“neighbours must be heard” and “inspection access” learned; “desk suffices” and the clock question stay at their prior, correctly, since no design turns on them</td></tr>
+      </tbody></table></div>
+    <p class="note">Scores are the audit-corrected ones (per-question probabilities conditional on a known reading; the unlearnable fee question marginalized out). An earlier claim that a risk-averse choice model was “rejected” is withdrawn: it rejected an absurdly scaled version. The 12-town fit itself failed its convergence gate at 3,000 particles and is being rerun at 10,000 on the corrected likelihood.</p>
+  </section>
+
+  <section id="rsa">
+    <div class="eyebrow">12 · The two models behind the reading layer</div>
+    <h2>Noah Goodman’s model of vagueness, and inverse planning</h2>
+    <div class="methods">
+      <div class="method" style="border-top:4px solid var(--vague)">
+        <h3>Vagueness as an uncertain threshold (Lassiter &amp; Goodman 2017)</h3>
+        <p>A vague word like “nuisance” is true of a coop when its nuisance degree <i>x</i> exceeds a threshold <i>θ</i> that nobody states. The model treats <i>θ</i> as an ordinary uncertain variable.</p>
+        <ul>
+          <li><b>Literal listener</b> L0(x | u, θ) ∝ P(x)·[[u]](x; θ): takes the word at face value for a given threshold.</li>
+          <li><b>Speaker</b> S1(u | x, θ) ∝ exp(α·(log L0 − cost)): chooses words that inform a literal listener, at a cost.</li>
+          <li><b>Pragmatic listener</b> L1(x, θ | u) ∝ S1·P(x)·P(θ): hears “nuisance” and infers the degree <i>and</i> the threshold jointly.</li>
+        </ul>
+        <p class="pros">The threshold posterior concentrates where the word would have been worth saying, in the upper part of P(x); move P(x) up (a denser town) and θ moves up. So a <i>reading</i> of §3 is a threshold setting, readings are a distribution, and the model predicts <i>systematic</i> variation with local conditions. <b>Status:</b> implemented faithfully on a nuisance-degree grid; used only as one prior source for one question; contributed one number in round 4 and did not help there. Its use for a legal rule rather than a single object is our reinterpretation, still untested.</p>
+      </div>
+      <div class="method bayes">
+        <h3>Inverse planning (Baker, Saxe &amp; Tenenbaum 2009)</h3>
+        <p>Forward planning predicts actions from goals and beliefs; inverse planning observes the action and infers goals and beliefs: P(goal, belief | action) ∝ P(action | goal, belief)·P(goal, belief), with a rational planner as the likelihood.</p>
+        <ul>
+          <li><b>Belief</b> = the agency’s reading of the statute (with the vagueness model shaping its prior).</li>
+          <li><b>Goal</b> = how it chooses among legal designs: cheapest, safest, any.</li>
+          <li><b>Action</b> = the process design, which we never see directly.</li>
+          <li><b>Observations</b> = records, reports and web pages that each span some of the design’s steps; the process model (step laws, town speed) is the “world dynamics” that turns actions into observations.</li>
+        </ul>
+        <p class="pros">The whole chain composes the two inversions: the legislature is the speaker, the agency is the listener and the planner, and we invert the agency from partial observations of what it built. The catch, made explicit by the framework: goals and readings are confounded from one snapshot; separating them needs the same agency under changed constraints, which is why the linked two-statute worlds (section 15) exist.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="statute2">
+    <div class="eyebrow">13 · A second statute, read blind</div>
+    <h2>Can the questions be discovered, not hand-written?</h2>
+    <p>An Opus “author” agent wrote a second statute (a home-kitchen food-business registration act) with seven hidden interpretive questions, a 12-design space, data-form validity rules and a truth block. A separate Opus “reader” saw only the public text and catalog, and proposed its own questions and per-design validity judgments.</p>
+    <ul>
+      <li>The reader recovered <b>6 of the 7</b> hidden questions as major, demoted one (fee scope) to minor, and added one the author had not posed (must the health authority itself check the referenced act?).</li>
+      <li>Its validity judgments agree with the author’s on <b>62.5%</b> of reading × design cells. The main divergence is a real question about agency discretion: the reader treats unrequired procedure as unauthorized, the author treats it as permitted.</li>
+      <li>The LLM baseline on the resulting worlds identified 13–14 of 14 designs and beat the reader’s prior on readings; where fees are generated conditional on the fee reading it learns that question from fee schedules (Brier 0.25 → 0.08), an information path the Bayesian model does not yet have.</li>
+    </ul>
+    <p class="note">The code is now statute-agnostic: both statutes load from a package (text, catalog, design space, rules), and the hen statute reproduces exactly through the loader. The Bayesian fits on the second statute are part of the corrected rerun.</p>
+  </section>
+
+  <section id="audit">
+    <div class="eyebrow">14 · Independent audit</div>
+    <h2>What was wrong, and what changed</h2>
+    <p>An independent agent audited the whole implementation. Its main findings were correct, and all are fixed with counterexample tests:</p>
+    <ul>
+      <li><b>Outcome likelihood</b> multiplied Poisson terms for overlapping counts (a denied applicant can reappear in the unpermitted-complaint counts). Replaced by the exact joint.</li>
+      <li><b>Applicant reports</b> omitted the fact that only cases finished by the posting day appear as completed; long cases are more likely pending. The selection factor now sits inside the latent-duration sum (verified against brute force).</li>
+      <li><b>FFT sums</b> could wrap long durations (three 400-day steps landed at day 176). Grid padded; tails clipped, not renormalized.</li>
+      <li><b>Scoring</b> counted unknown-reading mass as “no”, and included an unlearnable question in the headline. Both corrected; section 11 shows the corrected numbers.</li>
+      <li><b>Identification:</b> residual-reading mass and compliance slack are exactly confounded; only their combination is learnable. The risk-preference model was absurdly scaled. Claims re-labelled or withdrawn.</li>
+    </ul>
+    <p class="note">Consequence: every fit on this page before section 15 used the earlier likelihood. Design identification and the sampler-precision conclusions stand; per-step numbers and the outcome and reading results are superseded by the rerun once it lands.</p>
+  </section>
+
+  <section id="status">
+    <div class="eyebrow">15 · Where things are</div>
+    <h2>Shared agencies, and the corrected rerun</h2>
+    <p>To separate what an agency <i>believes</i> from what it <i>wants</i>, the same 14 agencies now implement both statutes. Each agency has fixed traits (pace, applicant-error rate, cost sensitivity, and an interpretive strictness that shifts every strict-vs-permissive question the same way) that generate a hen world and a home-kitchen world. The first test is whether an agency’s pace posterior agrees across statutes; pooled learning of the traits is the next round.</p>
+    <p>Running: six fits on the corrected likelihood at 10,000 particles (the 3-town baselines, the 12-town hen world, the second statute, and the two linked worlds). Results will replace the caveated numbers above.</p>
+  </section>
+
+  <section id="equations">
+    <div class="eyebrow">16 · The model in equations</div>
+    <h2>RSA, inverse planning, and our full model</h2>
+    <h3>The inference, in five steps</h3>
+    <div class="eqbox">
+      ∏<sub>towns t</sub> p(decision model<sub>t</sub> | text) · p(process model<sub>t</sub> | decision model<sub>t</sub>, agency goals) · p(observations<sub>t</sub> | process model<sub>t</sub>, step durations)<br>
+      <span class="c">One process model per town (towns may also read the statute differently). In the notation below: ∏<sub>t</sub> P(r<sub>t</sub> | text) · P(S<sub>t</sub> | r<sub>t</sub>, ψ) · P(y<sub>t</sub> | S<sub>t</sub>, θ).</span>
+    </div>
+    <ol style="max-width:78ch;margin-top:10px;line-height:1.6">
+      <li><b>Text → candidate decision models.</b> An LLM (or a person) reads the statute and writes the open interpretive questions (“must neighbours be heard?”). Every combination of answers is one candidate decision model, plus a residual “none of these”. Prior probabilities come from LLM elicitation, pooled parses, or the RSA threshold model.</li>
+      <li><b>Decision model → lawful process models.</b> For each candidate decision model, validity rules mark which process designs are lawful under it; each town then picks one of them as its own process model. A choice model (any lawful design / cheapest / legally safest, with a little slack) turns that into p(process model | decision model).</li>
+      <li><b>Observations → each town’s process model (Stage B).</b> Sampling fits the step-duration laws and town traits to the records, reports and web pages, and gives each town a likelihood for every candidate process design. This step does not use the text at all.</li>
+      <li><b>Combine (Stage C).</b> Exact reweighting multiplies the three pieces: each town’s posterior over decision models and process designs, a shared population share of readings across towns, and a comparison of agency-goal settings by marginal likelihood.</li>
+      <li><b>Answer.</b> Burden per step rolled up to decision steps and the statute, complexity, and counterfactual edits, all averaged over what is still uncertain.</li>
+    </ol>
+    <p class="note">Step 4 does not pick one winning decision model. It gives a distribution per town, because towns may read the statute differently, and a question whose answer leaves no trace in the data stays at its prior.</p>
+    <h3 style="margin-top:18px">RSA: vagueness as an uncertain threshold (Lassiter &amp; Goodman)</h3>
+    <div class="eqbox">
+      P<sub>L0</sub>(state | word, threshold) ∝ P(state) · 1[state &gt; threshold]<br>
+      P<sub>S1</sub>(word | state, threshold) ∝ exp( α · [ log P<sub>L0</sub>(state | word, threshold) − cost(word) ] )<br>
+      P<sub>L1</sub>(state, threshold | word) ∝ P<sub>S1</sub>(word | state, threshold) · P(state) · P(threshold)<br>
+      <span class="c">The literal listener takes the word at face value for a given threshold; the speaker picks words that lead a literal listener to the true state; the pragmatic listener hears the word and infers both the state and the unspoken threshold. α = speaker rationality.</span>
+    </div>
+    <h3 style="margin-top:18px">Inverse planning (Baker, Saxe &amp; Tenenbaum)</h3>
+    <div class="eqbox">
+      P(goals, beliefs | actions) ∝ P(goals, beliefs) · P(actions | goals, beliefs)<br>
+      P(actions | goals, beliefs) ∝ exp( rationality · value of the actions for those goals, given those beliefs )<br>
+      <span class="c">The agent is assumed to choose roughly the best actions for what it wants, given what it believes; the observer inverts this to recover goals and beliefs from actions.</span>
+    </div>
+    <h3 style="margin-top:18px">Ours: the full joint model</h3>
+    <div class="eqbox">
+      P(r, S, θ, ψ, w | y) ∝ P(θ) · P(ψ) · P(w) · ∏<sub>towns t</sub> [ P(r<sub>t</sub> | w) · P(S<sub>t</sub> | r<sub>t</sub>, ψ, θ) · P(y<sub>t</sub> | S<sub>t</sub>, θ) ]<br><br>
+      P(S | r, ψ, θ) = (1 − ε) · 1[S lawful under r] · exp(U<sub>ψ</sub>(S)) / Σ<sub>lawful S′</sub> exp(U<sub>ψ</sub>(S′)) + ε / (number of designs)<br>
+      U<sub>ψ</sub>(S) = 0 (uniform) &nbsp;|&nbsp; −cost<sub>t</sub>(S; θ) / τ (cost) &nbsp;|&nbsp; β · share of readings under which S is lawful (risk)<br>
+      w ~ Dirichlet( κ · P<sub>0</sub>(r) ), &nbsp; P<sub>0</sub>(r) = (1 − ρ) · ∏<sub>q</sub> π<sub>q</sub><sup>r<sub>q</sub></sup>(1 − π<sub>q</sub>)<sup>1 − r<sub>q</sub></sup>, residual reading ρ
+    </div>
+    <div class="tablewrap"><table>
+      <tr><th>Symbol</th><th>Meaning</th></tr>
+      <tr><td>y<sub>t</sub></td><td>What we observe in town t: admin records, forum reports, web pages</td></tr>
+      <tr><td>S<sub>t</sub></td><td>The process design town t runs (its action)</td></tr>
+      <tr><td>r<sub>t</sub></td><td>Town t’s reading of the statute (its belief about what the law requires): the answers to the interpretive questions</td></tr>
+      <tr><td>θ</td><td>Step-duration laws plus each agency’s traits (speed, error rate, objection rate); costs are computed from θ</td></tr>
+      <tr><td>ψ = (τ, β, ε)</td><td>The agency’s goals: τ temperature on cost (small = strongly cost-minimizing), β weight on legal safety, ε chance of an unlawful design</td></tr>
+      <tr><td>w, κ</td><td>Population share of each reading across towns, and how tightly towns follow it</td></tr>
+      <tr><td>π<sub>q</sub>, ρ</td><td>Elicited prior probability of “yes” on question q (LLM, pooled parses, or the RSA model for Q1); mass on a reading outside our questions</td></tr>
+    </table></div>
+    <p class="note"><b>Towns can read the statute differently.</b> Each town t has its own reading r<sub>t</sub>. Readings are drawn from a shared population share w, and κ sets how alike towns are: large κ means towns mostly follow the population; small κ lets each town go its own way. What is shared across towns is the <i>space</i> of questions the text raises, not the answers.</p>
+    <p class="note"><b>How it is computed.</b> θ is sampled first (Stage B: tempered SMC with a uniform prior over designs). r, S and w are then integrated exactly by reweighting those θ particles (Stage C). ψ is not sampled: it sits on a fixed grid (uniform; cost τ = 15, 40; risk β = 2, 5; ε = 0.05, 0.15, 0.30), and settings are compared by log marginal likelihood. So “learning the agency’s goals” currently means choosing among a few candidate ψ shared by all towns; a per-agency ψ<sub>t</sub> is what the linked worlds HEN2/HK2 are for (round 7). ρ and ε are exactly confounded when towns are independent, so ρ is held at 0.05.</p>
+    <h3 style="margin-top:18px">Correspondence</h3>
+    <div class="tablewrap"><table>
+      <tr><th>Inverse planning</th><th>RSA</th><th>Ours</th></tr>
+      <tr><td>Goals</td><td>—</td><td>ψ = (τ, β, ε): how the agency trades off cost, legal safety and slack</td></tr>
+      <tr><td>Beliefs</td><td>Threshold of the vague word</td><td>r<sub>t</sub>: town t’s reading of the statute</td></tr>
+      <tr><td>Prior over beliefs</td><td>P(threshold)</td><td>P(r<sub>t</sub> | w), with w ~ Dirichlet(κ·P<sub>0</sub>(r)) shared across towns</td></tr>
+      <tr><td>World state / situation</td><td>State x</td><td>θ: step durations and agency traits, which set each design’s cost</td></tr>
+      <tr><td>Actions</td><td>Speaker’s word choice</td><td>S<sub>t</sub>: the process design the town adopts</td></tr>
+      <tr><td>Which actions are possible</td><td>Literal meaning 1[x &gt; threshold]</td><td>1[S lawful under r]</td></tr>
+      <tr><td>Value of an action</td><td>log L0 − cost(word)</td><td>U<sub>ψ</sub>(S): −cost/τ, or β · share of readings under which S is lawful</td></tr>
+      <tr><td>Rationality</td><td>α</td><td>1/τ (or β)</td></tr>
+      <tr><td>Noise / lapse</td><td>—</td><td>ε (unlawful design); ρ (reading outside our questions)</td></tr>
+      <tr><td>Observed data</td><td>The actions themselves</td><td>y<sub>t</sub>: only partial traces of S<sub>t</sub></td></tr>
+      <tr><td>Inference</td><td>P(goals, beliefs | actions)</td><td>P(r, S, θ, ψ, w | y)</td></tr>
+    </table></div>
+    <h3 style="margin-top:18px">Two planners, one observer</h3>
+    <p style="max-width:78ch">There are two planners in the chain. The <b>legislature</b> plans the text: in RSA terms it is the speaker, choosing words by simulating how a reader will act on them. Each <b>town’s agency</b> plans its process: it is the listener that forms a reading, then an inverse-planning agent that picks a lawful design. <b>We</b> are the observer, inverting the agencies from partial data. The legislature’s planning problem is the drafting question itself: it is what the counterfactual edits evaluate, forward, using the fitted agency model.</p>
+    <div class="tablewrap"><table>
+      <tr><th></th><th>Planner 1: legislature (speaker)</th><th>Planner 2: each town’s agency (listener + planner)</th></tr>
+      <tr><td>Goals</td><td>Good outcomes: nuisances prevented, applicant burden, drafting cost</td><td>ψ: cost, legal safety, slack</td></tr>
+      <tr><td>Beliefs</td><td>How agencies will read and implement the text (a model of planner 2)</td><td>r<sub>t</sub>: its reading of the statute</td></tr>
+      <tr><td>Action</td><td>The statute text (which clauses to make concrete, deadlines)</td><td>S<sub>t</sub>: its process design</td></tr>
+      <tr><td>Plans by simulating</td><td>Planner 2’s readings, designs, burdens and outcomes</td><td>Its own costs, from its speed and error rate (θ)</td></tr>
+      <tr><td>In our model</td><td>Not fitted. Used forward: counterfactual statute edits → burden change. Its RSA form shapes one prior (Q1).</td><td>Fitted: inverted from observations y<sub>t</sub></td></tr>
+      <tr><td>Inverting it would need</td><td>p(text | decision model): the text treated as data about intent; not implemented</td><td>Implemented (Stages B + C)</td></tr>
+    </table></div>
+    <p class="note">In one line: the legislature is the speaker, the agency is a listener that then plans, and we invert the plan from partial data to recover the agency’s reading and goals. Two departures: we do not use the pragmatic listener (the agency is not modelled as reasoning about why the legislature chose its words), and actions are latent and one-shot rather than observed sequences.</p>
+  </section>
+
+
+  </div>
+  <div id="archview" hidden>
+    <section style="margin-top:28px">
+      <div class="eyebrow">Archive</div>
+      <h2>Discarded conceptual diagrams</h2>
+      <p class="note">Kept for the record, not part of the current account. These were superseded by the annotated statute and decision model in section 1 of the main page. The “This reading” column still follows the reading selected there.</p>
+    </section>
+  <section id="arch-readers">
+    <div class="eyebrow">Archived · was section 2 (“Read from the text”)</div>
+    <h2>The questions, and who answers them</h2>
+    <h3 style="margin-top:18px">The questions a reader asks of this statute</h3>
+    <p style="max-width:78ch">A reader interprets the law by listing what the text leaves open, as yes/no questions. Each town’s answers are its reading, and they decide which process designs are lawful. These are the author’s six questions for the hen statute (v2), with the author’s prior probability of “yes”. The eight blind readers in the multiple-readers experiment each wrote their own list of 5–7, overlapping but not identical.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Clause</th><th>Text</th><th>Question</th><th>If yes</th><th>If no</th><th>P(yes)</th><th>Visible in the data?</th><th>This reading</th></tr>
+      <tr><td><b>Q1</b><br><span class="mono">§3</span></td><td><span style="background:var(--d2);padding:1px 4px;border-radius:3px">“determine that the coop will not create a nuisance”</span></td><td>Can a desk review of the site plan alone support the determination?</td><td>Desk-only S1 is lawful</td><td>Needs a site visit or neighbour input; S1 unlawful</td><td style="text-align:center">0.60</td><td>yes</td><td class="qcur" data-q="1"></td></tr><tr><td><b>Q2</b><br><span class="mono">§3</span></td><td><span style="background:var(--d2);padding:1px 4px;border-radius:3px">“to adjoining properties”</span></td><td>Must adjoining owners get notice and a chance to comment?</td><td>Only designs with notice + comments (S4–S6, S9–S11)</td><td>Notice is optional</td><td style="text-align:center">0.35</td><td>yes</td><td class="qcur" data-q="2"></td></tr><tr><td><b>Q3</b><br><span class="mono">§3</span></td><td><span style="background:var(--d2);padding:1px 4px;border-radius:3px">“the authority shall determine”</span></td><td>Does the duty to determine imply power to make the applicant attend an inspection?</td><td>Inspection designs allowed</td><td>Every design with a site inspection is unlawful (only S1, S4, S9 remain)</td><td style="text-align:center">0.90</td><td>yes</td><td class="qcur" data-q="3"></td></tr><tr><td><b>Q4</b><br><span class="mono">§4</span></td><td><span style="background:var(--d3);padding:1px 4px;border-radius:3px">“within 30 days after receiving a complete application”</span></td><td>Does the 30-day clock run through the nuisance determination?</td><td>Notice, comments and any hearing must fit inside 30 days</td><td>Clock pauses during the determination</td><td style="text-align:center">0.80</td><td>timing only</td><td class="qcur" data-q="4"></td></tr><tr><td><b>Q5</b><br><span class="mono">§5</span></td><td><span style="background:var(--surface);border:1px solid var(--rule);padding:1px 4px;border-radius:3px">“a reasonable application fee”</span></td><td>Does this authorize separate notice or inspection fees?</td><td>Extra fees allowed</td><td>Application fee only</td><td style="text-align:center">0.50</td><td>fees only</td><td class="qcur" data-q="5"></td></tr><tr><td><b>Q6</b><br><span class="mono">§1–4</span></td><td><span style="background:var(--surface);border:1px solid var(--rule);padding:1px 4px;border-radius:3px">(silence)</span></td><td>Are the grounds for denial limited to ineligibility, incompleteness and nuisance?</td><td>No other ground</td><td>Other grounds possible</td><td style="text-align:center">0.50</td><td>none</td><td class="qcur" data-q="6"></td></tr>
+    </table></div>
+    <p class="note">Six yes/no questions give 2<sup>6</sup> = 64 readings, hence 64 possible decision models. Only Q1–Q3 change which designs are lawful, so only they can be learned from what towns do; Q4 changes timing, Q5 only fee schedules, and Q6 leaves no trace. S4 and S9 are lawful under every reading, which is why a cautious town picks them.</p>
+    <h3 style="margin-top:22px">Who reads the statute, and what they choose</h3>
+    <p style="max-width:78ch">A <b>reading</b> is one set of answers to the questions the text leaves open; with the text fixed, each reading gives exactly one decision model. Two different parties “read”. <b>Our readers</b> (the author, LLMs, blind readers) only write down the space: which questions are open, what each answer makes lawful, and a prior. <b>Each town’s agency</b> is the real reader: it makes two choices, and we see neither directly.</p>
+    <div class="panel scroll"><svg id="readsvg" viewBox="0 0 960 520" width="100%" style="min-width:720px" role="img" aria-label="Who reads the statute and what they choose"><defs><marker id="rd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs><rect x="330" y="14" width="300" height="48" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="none"/><text x="480.0" y="34.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Statute text</text><text x="480.0" y="51.0" text-anchor="middle" font-size="11" fill="var(--muted)">fixed skeleton + the questions it leaves open</text><rect x="20" y="110" width="250" height="58" rx="8" fill="var(--surface)" stroke="var(--llm)" stroke-width="1.6" stroke-dasharray="5 4"/><text x="145.0" y="135.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Our readers (LLMs, author)</text><text x="145.0" y="152.0" text-anchor="middle" font-size="11" fill="var(--muted)">write the hypothesis space</text><line x1="330" y1="50" x2="270" y2="120" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#rd-arrow)"/><rect x="20" y="200" width="250" height="70" rx="8" fill="var(--surface)" stroke="var(--llm)" stroke-width="1.6" stroke-dasharray="5 4"/><text x="145.0" y="231.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Hypothesis space</text><text x="145.0" y="248.0" text-anchor="middle" font-size="11" fill="var(--muted)">open questions · validity rules ·</text><text x="145" y="258" text-anchor="middle" font-size="11" font-weight="400" fill="var(--muted)">prior on each answer</text><line x1="145" y1="168" x2="145" y2="198" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="300" y="100" width="420" height="272" rx="12" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="6 4"/><text x="510" y="120" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--ink)">EACH TOWN’S AGENCY (the real reader)</text><line x1="480" y1="62" x2="480" y2="138" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="330" y="140" width="300" height="56" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="none"/><text x="480.0" y="164.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Choice 1 · interpretation</text><text x="480.0" y="181.0" text-anchor="middle" font-size="11" fill="var(--muted)">answers the open questions → reading r_t</text><line x1="480" y1="196" x2="480" y2="220" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="330" y="222" width="300" height="48" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="none"/><text x="480.0" y="242.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Its decision model D_t</text><text x="480.0" y="259.0" text-anchor="middle" font-size="11" fill="var(--muted)">skeleton + its answers (1 of 64 for hens v2)</text><line x1="480" y1="270" x2="480" y2="294" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="330" y="296" width="300" height="56" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="none"/><text x="480.0" y="320.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Choice 2 · implementation</text><text x="480.0" y="337.0" text-anchor="middle" font-size="11" fill="var(--muted)">picks a lawful design, by its goals ψ → S_t</text><line x1="270" y1="235" x2="328" y2="166" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#rd-arrow)"/><text x="286" y="196" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--llm)">prior</text><line x1="270" y1="250" x2="328" y2="246" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#rd-arrow)"/><text x="299" y="266" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--llm)">rules</text><rect x="760" y="140" width="180" height="56" rx="8" fill="var(--surface)" stroke="var(--rule)" stroke-width="1.6" stroke-dasharray="none"/><text x="850.0" y="164.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Agency traits</text><text x="850.0" y="181.0" text-anchor="middle" font-size="11" fill="var(--muted)">strictness → choice 1</text><rect x="760" y="296" width="180" height="56" rx="8" fill="var(--surface)" stroke="var(--rule)" stroke-width="1.6" stroke-dasharray="none"/><text x="850.0" y="320.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Agency goals ψ</text><text x="850.0" y="337.0" text-anchor="middle" font-size="11" fill="var(--muted)">cost τ, safety β, slack ε</text><line x1="760" y1="168" x2="632" y2="168" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><line x1="760" y1="324" x2="632" y2="324" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="760" y="220" width="180" height="48" rx="8" fill="var(--surface)" stroke="var(--rule)" stroke-width="1.6" stroke-dasharray="none"/><text x="850.0" y="240.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Other towns</text><text x="850.0" y="257.0" text-anchor="middle" font-size="11" fill="var(--muted)">shared population w, κ</text><line x1="760" y1="238" x2="632" y2="178" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#rd-arrow)"/><line x1="480" y1="352" x2="480" y2="392" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="none" marker-end="url(#rd-arrow)"/><rect x="330" y="394" width="300" height="48" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="none"/><text x="480.0" y="414.0" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">Observations y_t</text><text x="480.0" y="431.0" text-anchor="middle" font-size="11" fill="var(--muted)">records, reports, web pages</text><text x="20" y="472" text-anchor="start" font-size="11.5" font-weight="500" fill="var(--llm)">Dashed pink = our side: it proposes what can be read.</text><text x="20" y="490" text-anchor="start" font-size="11.5" font-weight="500" fill="var(--ink)">Dashed black box = the agency: it does the reading and the implementing.</text><text x="20" y="508" text-anchor="start" font-size="11.5" font-weight="500" fill="var(--muted)">We infer both agency choices backwards from y_t; choice 1 only through choice 2.</text></svg></div>
+  </section>
+
+  </div>
+
+  <footer>Synthetic toy world: the statute, towns and numbers are invented for method testing. Code: <span class="mono">pipeline/procbench/toy_statute/</span> · docs: <span class="mono">docs/2026-09-29-toy-statute-full-chain-implementation.md</span> (implementation record), <span class="mono">docs/2026-09-29-toy-statute-full-chain-audit.md</span> and <span class="mono">docs/2026-09-30-audit-response.md</span>, <span class="mono">docs/process-validity.md</span>, <span class="mono">docs/2026-09-29-full-chain-model-proposal.md</span>, <span class="mono">docs/LITERATURE.md</span></footer>
+</div>
+
+<script>
+(function(){
+const DATA = {"scores":{"W0":{"methods":{"bayes_vague_r3":{"all":1.4111527354496514,"roll":0.9732239314824582,"step":2.1566946372877793,"err_all":0.23682806330623604,"cov":0.9868421052631579,"struct":-0.0013286346188725075},"llm_avg3":{"all":1.0634250597422736,"roll":0.6651294097862588,"step":1.7013186931145927,"err_all":0.18325940865810747,"cov":1.0,"struct":-0.12292833758508137}},"h2h":{"bayes_vague_r3_vs_llm_avg3":{"a":16,"b":64,"tie":16}}},"W0m":{"methods":{"bayes_vague_r3":{"all":1.2588786868437685,"roll":0.8533234721781363,"step":2.03515326740354,"err_all":0.24692788721319842,"cov":0.9078947368421053,"struct":-6.166538457597609e-05},"llm_avg3":{"all":1.0483685877001652,"roll":0.6337867754535683,"step":1.6635229805559106,"err_all":0.2057029565920515,"cov":0.8860759493670886,"struct":-0.08154099501791935}},"h2h":{"bayes_vague_r3_vs_llm_avg3":{"a":29,"b":51,"tie":15}}},"W0x5":{"methods":{"bayes_vague_r3":{"all":0.7065176478335199,"roll":0.4468573035685053,"step":1.2125491401911552,"err_all":0.1423538759483977,"cov":1.0,"struct":0.0},"llm_avg3":{"all":0.7668034129047682,"roll":0.5200914291152567,"step":1.3180700761371178,"err_all":0.16435604261304126,"cov":0.9615384615384616,"struct":-0.043726103813658435}},"h2h":{"bayes_vague_r3_vs_llm_avg3":{"a":53,"b":32,"tie":9}}},"W0x25":{"methods":{"bayes_vague_r3":{"all":0.47646810297331976,"roll":0.3031819810314358,"step":0.8755885489609404,"err_all":0.11228349666686797,"cov":0.9736842105263158,"struct":0.0},"llm_avg3":{"all":0.6309595761628649,"roll":0.5621107184030023,"step":0.8910812394300139,"err_all":0.12004702665852103,"cov":0.9620253164556962,"struct":-0.0560162115398714}},"h2h":{"bayes_vague_r3_vs_llm_avg3":{"a":74,"b":12,"tie":9}}},"W1":{"methods":{"bayes_vague_r3":{"all":3.6151670176996653,"roll":0.8292142098335383,"step":7.41760942827781,"err_all":0.812891240184193,"cov":0.8974358974358975,"struct":-0.00018329312257677797},"bayes_llmprior_r3":{"all":2.6752412739283185,"roll":0.7055177366317953,"step":5.270909131886328,"err_all":0.6844802775126043,"cov":0.9102564102564102,"struct":-0.0004475201510762191},"llm_avg3":{"all":4.638245049819159,"roll":1.4056296257391196,"step":8.912894949304054,"err_all":0.5646048435906132,"cov":0.6707317073170732,"struct":-0.08201585751596184}},"h2h":{"bayes_vague_r3_vs_bayes_llmprior_r3":{"a":27,"b":45,"tie":23},"bayes_vague_r3_vs_llm_avg3":{"a":59,"b":40,"tie":0},"bayes_llmprior_r3_vs_llm_avg3":{"a":63,"b":36,"tie":0}}},"W1m":{"methods":{"bayes_vague_r3":{"all":0.932435033704812,"roll":0.48033512944081924,"step":1.5473917282149816,"err_all":0.15824561110524804,"cov":0.9871794871794872,"struct":-5.590790793751324e-11},"bayes_llmprior_r3":{"all":0.8658572181963914,"roll":0.432342210553987,"step":1.4268602445186451,"err_all":0.19168535471369683,"cov":0.9487179487179487,"struct":-3.744671239779225e-12},"llm_avg3":{"all":1.3756477689136104,"roll":1.0330860886753757,"step":1.833163620144978,"err_all":0.19914895668503696,"cov":0.775,"struct":-0.060914474514999296}},"h2h":{"bayes_vague_r3_vs_bayes_llmprior_r3":{"a":33,"b":39,"tie":23},"bayes_vague_r3_vs_llm_avg3":{"a":65,"b":31,"tie":1},"bayes_llmprior_r3_vs_llm_avg3":{"a":70,"b":26,"tie":1}}}},"timelines":{"W0":{"Alder":{"completeness_check":6.3,"correction":0.9,"neighbor_notice":0.0,"comment_period":0.0,"desk_review":11.3,"hearing":0.0,"site_inspection":0.0,"decision_issue":4.5,"_total":23.1,"_s":"S1","_D":[7.2,11.3,4.5]},"Birch":{"completeness_check":8.7,"correction":1.5,"neighbor_notice":0.0,"comment_period":0.0,"desk_review":14.7,"hearing":0.0,"site_inspection":16.9,"decision_issue":0.0,"_total":41.8,"_s":"S3","_D":[10.1,31.6,16.9]},"Cedar":{"completeness_check":7.7,"correction":4.3,"neighbor_notice":1.9,"comment_period":14.0,"desk_review":10.2,"hearing":4.9,"site_inspection":0.0,"decision_issue":4.1,"_total":47.1,"_s":"S4","_D":[12.0,31.0,4.1]}},"W1":{"Alder":{"completeness_check":3.1,"correction":20.1,"neighbor_notice":0.0,"comment_period":0.0,"desk_review":39.7,"hearing":0.0,"site_inspection":5.4,"decision_issue":13.6,"_total":81.9,"_s":"S2","_D":[23.2,45.1,13.6]},"Birch":{"completeness_check":1.3,"correction":1.3,"neighbor_notice":13.2,"comment_period":30.0,"desk_review":27.8,"hearing":13.2,"site_inspection":3.8,"decision_issue":0.0,"_total":90.5,"_s":"S6","_D":[2.5,87.9,3.8]},"Cedar":{"completeness_check":3.2,"correction":5.9,"neighbor_notice":0.0,"comment_period":0.0,"desk_review":59.5,"hearing":0.0,"site_inspection":0.0,"decision_issue":20.4,"_total":89.0,"_s":"S1","_D":[9.1,59.5,20.4]}}},"menu":{"Alder":{"S1":{"truth_days":23.089789036472887,"truth_hours":3.6511428276671634,"truth_psteps":4.222122221222213,"post_days":[21.86067683031414,24.00939100577354,26.75860707417383],"post_hours":[2.7078284847748555,3.6297302714966255,4.759407614764795]},"S2":{"truth_days":36.08923385145993,"truth_hours":5.350868839415892,"truth_psteps":5.222122221222213,"post_days":[25.834924197038262,36.59602930694879,62.19384147833181],"post_hours":[5.127910083130797,6.984840555123052,10.044846714281572]},"S3":{"truth_days":31.556689669773824,"truth_hours":5.350868839415892,"truth_psteps":4.222122221222213,"post_days":[20.592083470499393,30.402791124830483,57.245469116803996],"post_hours":[5.127910083130797,6.984840555123052,10.044846714281572]},"S4":{"truth_days":43.57781196647797,"truth_hours":4.331031896155558,"truth_psteps":6.422122221222213,"post_days":[29.921789907565547,38.607741646399916,52.39831505458382],"post_hours":[3.054475856504652,4.146176040261352,6.159768494702938]},"S5":{"truth_days":56.57725678144971,"truth_hours":6.0307579079042855,"truth_psteps":7.422122221222213,"post_days":[34.88858464898778,52.11231251998576,85.55098348042696],"post_hours":[5.594554602212416,7.614376514512538,10.820274149208204]},"S6":{"truth_days":52.04471259976952,"truth_hours":6.0307579079042855,"truth_psteps":6.422122221222213,"post_days":[30.03564140596282,45.88033269693669,79.64640677199634],"post_hours":[5.594554602212416,7.614376514512538,10.820274149208204]},"S2-concurrent":{"truth_days":27.04662999589437,"truth_hours":5.350868839415892,"truth_psteps":5.222122221222213,"post_days":[22.90935267267687,29.528167744548657,53.579448000125296],"post_hours":[5.127910083130797,6.984840555123052,10.044846714281572]},"S3-concurrent":{"truth_days":22.514085814207224,"truth_hours":5.350868839415892,"truth_psteps":4.222122221222213,"post_days":[17.375394744819843,23.6156909507756,48.555100645168636],"post_hours":[5.127910083130797,6.984840555123052,10.044846714281572]},"S4-concurrent":{"truth_days":33.015272091794216,"truth_hours":4.331031896155558,"truth_psteps":6.422122221222213,"post_days":[23.684663154632716,29.493913925128457,45.584205735177775],"post_hours":[3.054475856504652,4.146176040261352,6.159768494702938]},"S5-concurrent":{"truth_days":33.803978499531546,"truth_hours":6.0307579079042855,"truth_psteps":7.422122221222213,"post_days":[24.371288687886395,35.20244491586679,59.60036783090795],"post_hours":[5.594554602212416,7.614376514512538,10.820274149208204]},"S6-concurrent":{"truth_days":29.271434317845976,"truth_hours":6.0307579079042855,"truth_psteps":6.422122221222213,"post_days":[19.176963886618243,28.65554829433114,52.70063993611146],"post_hours":[5.594554602212416,7.614376514512538,10.820274149208204]}},"Birch":{"S1":{"truth_days":30.76152175123658,"truth_hours":3.79851959430756,"truth_psteps":4.35218174380117,"post_days":[19.88752110005792,36.06041210324537,52.87125704600341],"post_hours":[2.822370813902646,3.8711585261058206,6.047515601445933]},"S2":{"truth_days":47.66080000665898,"truth_hours":5.498245606056288,"truth_psteps":5.35218174380117,"post_days":[43.36649940800941,53.58503151170912,71.68615833895927],"post_hours":[5.638819154945253,7.276828114907316,10.287664634737155]},"S3":{"truth_days":41.76840573100912,"truth_hours":5.498245606056288,"truth_psteps":4.35218174380117,"post_days":[37.106401717886236,44.69649087592788,61.41076631487555],"post_hours":[5.638819154945253,7.276828114907316,10.287664634737155]},"S4":{"truth_days":53.19381723984013,"truth_hours":4.478408662795954,"truth_psteps":6.55218174380117,"post_days":[34.39918230005558,53.46943466990889,76.16639130145832],"post_hours":[3.20722069798913,4.348409703266928,7.011624202480284]},"S5":{"truth_days":70.09309549513617,"truth_hours":6.178134674544682,"truth_psteps":7.55218174380117,"post_days":[55.250089470145056,71.61796174108437,96.78647157798298],"post_hours":[5.989962763671074,7.817851843561946,11.257257407871952]},"S6":{"truth_days":64.20070121953728,"truth_hours":6.178134674544682,"truth_psteps":6.55218174380117,"post_days":[48.48152122352999,62.94698842938692,85.36042961833823],"post_hours":[5.989962763671074,7.817851843561946,11.257257407871952]},"S2-concurrent":{"truth_days":35.905414927764156,"truth_hours":5.498245606056288,"truth_psteps":5.35218174380117,"post_days":[34.24222618106325,45.56488755428964,65.25188725965813],"post_hours":[5.638819154945253,7.276828114907316,10.287664634737155]},"S3-concurrent":{"truth_days":30.013020652101766,"truth_hours":5.498245606056288,"truth_psteps":4.35218174380117,"post_days":[27.853087794573618,36.20607066507333,54.65354713411167],"post_hours":[5.638819154945253,7.276828114907316,10.287664634737155]},"S4-concurrent":{"truth_days":40.25614436907348,"truth_hours":4.478408662795954,"truth_psteps":6.55218174380117,"post_days":[27.842806128175177,43.51247494112681,64.48395595593294],"post_hours":[3.20722069798913,4.348409703266928,7.011624202480284]},"S5-concurrent":{"truth_days":42.112464358409554,"truth_hours":6.178134674544682,"truth_psteps":7.55218174380117,"post_days":[35.705572460090416,49.76912698665726,73.00242578016098],"post_hours":[5.989962763671074,7.817851843561946,11.257257407871952]},"S6-concurrent":{"truth_days":36.22007008275192,"truth_hours":6.178134674544682,"truth_psteps":6.55218174380117,"post_days":[29.937683784454705,41.16262804975173,60.655541716067546],"post_hours":[5.989962763671074,7.817851843561946,11.257257407871952]}},"Cedar":{"S1":{"truth_days":26.279103411539246,"truth_hours":4.559929901029391,"truth_psteps":5.024123890697171,"post_days":[21.363025312080662,30.687824106746383,39.303853416581035],"post_hours":[3.1359178163319372,4.4261682859128015,6.641517719248758]},"S2":{"truth_days":37.97860375690507,"truth_hours":6.259655912778118,"truth_psteps":6.024123890697171,"post_days":[30.815840480273256,44.11005163191301,67.84377805014684],"post_hours":[5.601758735377354,7.870070272110281,11.343907552385941]},"S3":{"truth_days":33.89945329296185,"truth_hours":6.259655912778118,"truth_psteps":5.024123890697171,"post_days":[25.423172053576188,37.75195146371789,62.312206002197314],"post_hours":[5.601758735377354,7.870070272110281,11.343907552385941]},"S4":{"truth_days":47.10129927802486,"truth_hours":5.409791236639884,"truth_psteps":7.274123890697171,"post_days":[42.801991129711304,46.22467183388996,50.87284370315436],"post_hours":[3.66186094091229,5.117601712949707,7.67312943431138]},"S5":{"truth_days":58.800799623315626,"truth_hours":7.109517248388612,"truth_psteps":8.27412389069717,"post_days":[48.22965274962424,59.57066057402746,84.30775323078119],"post_hours":[6.32627224365955,8.641791366583933,12.25972462245014]},"S6":{"truth_days":54.72164915940109,"truth_hours":7.109517248388612,"truth_psteps":7.274123890697171,"post_days":[42.11399624385194,52.95732618996334,78.00097353461979],"post_hours":[6.32627224365955,8.641791366583933,12.25972462245014]},"S2-concurrent":{"truth_days":29.840260041207333,"truth_hours":6.259655912778118,"truth_psteps":6.024123890697171,"post_days":[26.91093383747825,37.48881882884894,61.38961592077862],"post_hours":[5.601758735377354,7.870070272110281,11.343907552385941]},"S3-concurrent":{"truth_days":25.76110957726097,"truth_hours":6.259655912778118,"truth_psteps":5.024123890697171,"post_days":[20.545978052206152,31.114642450734767,53.7234108517542],"post_hours":[5.601758735377354,7.870070272110281,11.343907552385941]},"S4-concurrent":{"truth_days":37.39609957822206,"truth_hours":5.409791236639884,"truth_psteps":7.274123890697171,"post_days":[33.396449347180926,37.98493739903171,44.443155414697564],"post_hours":[3.66186094091229,5.117601712949707,7.67312943431138]},"S5-concurrent":{"truth_days":37.88482892104854,"truth_hours":7.109517248388612,"truth_psteps":8.27412389069717,"post_days":[34.63487652312758,41.966927896276275,64.37691092068671],"post_hours":[6.32627224365955,8.641791366583933,12.25972462245014]},"S6-concurrent":{"truth_days":33.80567845711198,"truth_hours":7.109517248388612,"truth_psteps":7.274123890697171,"post_days":[28.164202555254523,35.24423756312669,55.73680313485562],"post_hours":[6.32627224365955,8.641791366583933,12.25972462245014]}}}};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent, text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e;}
+
+let currentWorld='W0';
+const STEP_ORDER=[['completeness_check','completeness check',1],['correction','correction',1],['neighbor_notice','neighbour notice',2],['comment_period','comment period',2],['desk_review','desk review',2],['hearing','hearing',2],['site_inspection','site inspection',2],['decision_issue','decision issued',3]];
+/* ---------- tree ---------- */
+const TOWNS = {W0:{S1:["Alder"],S3:["Birch"],S4:["Cedar"]}, W1:{S2:["Alder"],S6:["Birch"],S1:["Cedar"]}};
+const LEAVES = {
+  S1:{x:90, steps:["desk review","decision letter"]},
+  S2:{x:270, steps:["desk review","site inspection","decision letter"]},
+  S3:{x:410, steps:["desk review","site inspection","→ permit issued on site"]},
+  S4:{x:560, steps:["notice + comments","desk review","(hearing if objection)","decision letter"]},
+  S5:{x:720, steps:["notice + comments","desk review","(hearing)","site inspection","decision letter"]},
+  S6:{x:870, steps:["notice + comments","desk review","(hearing)","site inspection","→ permit issued on site"]}
+};
+function drawJourney(){
+  const box=document.getElementById('journey'); box.innerHTML='';
+  const tl=DATA.timelines[currentWorld];
+  const maxT=Math.max(...Object.values(tl).map(v=>v._total));
+  const scale=Math.ceil(maxT/10)*10;
+  for(const [town,v] of Object.entries(tl)){
+    const shared = (v._s==='S3'||v._s==='S6');
+    const segs=STEP_ORDER.filter(([k])=>v[k]>0.05).map(([k,lab,d])=>({k,lab,d,days:v[k]}));
+    const segHTML=segs.map(s=>{const w=(s.days/scale*100).toFixed(2);const cls=(s.k==='site_inspection'&&shared)?'shared':('c'+s.d);
+      return `<div class="jseg ${cls}" style="width:${w}%" title="${s.lab}: ${s.days} days">${s.days>=3?s.days.toFixed(1):''}</div>`;}).join('');
+    const labHTML=segs.map(s=>`<span style="width:${(s.days/scale*100).toFixed(2)}%">${s.days>=3?s.lab:''}</span>`).join('');
+    const dsum=[0,0,0]; segs.forEach(s=>{dsum[s.d-1]+=s.days;});
+    const brHTML=[['D1 application',dsum[0]],['D2 nuisance determination',dsum[1]],['D3',dsum[2]]].filter(x=>x[1]>0).map(([l,d])=>`<span style="width:calc(${(d/scale*100).toFixed(2)}% - 2px)">${l}</span>`).join('');
+    const ticks=[];for(let t=0;t<=scale;t+=scale/5)ticks.push(`<span>${t}</span>`);
+    box.insertAdjacentHTML('beforeend',`<div class="jrow"><h3>${town} <span class="mono">${v._s} · ${v._total.toFixed(1)} days on average</span></h3>
+      <div class="jtrack"><div class="jbr">${brHTML}</div><div class="jsegs">${segHTML}</div><div class="jlab">${labHTML}</div><div class="jaxis">${ticks.join('')}</div></div></div>`);
+  }
+  box.insertAdjacentHTML('beforeend',`<div class="legend"><span><i class="sw" style="background:var(--d1)"></i>D1 application</span><span><i class="sw" style="background:var(--d2)"></i>D2 nuisance determination</span><span><i class="sw" style="background:var(--d3)"></i>D3 decision</span><span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--d2),var(--d2) 3px,var(--d3) 3px,var(--d3) 6px)"></i>inspection serving D2 and D3</span><span>axis: days since submission</span></div>`);
+}
+
+/* ---------- best process ---------- */
+let bestTown='Alder';
+const ACTUAL={Alder:'S1',Birch:'S3',Cedar:'S4'};
+const VAR_LABEL={S1:'S1 desk review',S2:'S2 desk + inspection',S3:'S3 desk + inspection (issue on site)',S4:'S4 notice + desk (+hearing)',S5:'S5 notice + desk + inspection',S6:'S6 notice + desk + inspection (on site)',
+ 'S2-concurrent':'S2, run concurrently','S3-concurrent':'S3, run concurrently','S4-concurrent':'S4, run concurrently','S5-concurrent':'S5, run concurrently','S6-concurrent':'S6, run concurrently'};
+function drawBest(){
+  const s=document.getElementById('bestsvg'); s.innerHTML='';
+  const ink=css('--ink'), mut=css('--muted'), grid=css('--grid'), link=css('--link'), conc=css('--concrete');
+  const rows=Object.entries(DATA.menu[bestTown]);
+  const x0=250, x1=880, maxD=100, y0=24, rh=34;
+  const X=d=>x0+(Math.min(d,maxD)/maxD)*(x1-x0);
+  for(let d=0;d<=maxD;d+=20){el('line',{x1:X(d),x2:X(d),y1:y0-6,y2:y0+rows.length*rh,stroke:grid},s);el('text',{x:X(d),y:y0-10,'text-anchor':'middle','font-size':11,fill:mut},s,d+(d===maxD?'+ days':''));}
+  el('line',{x1:X(30),x2:X(30),y1:y0-6,y2:y0+rows.length*rh,stroke:css('--vague'),'stroke-dasharray':'4 3'},s);
+  el('text',{x:X(30)+4,y:y0+rows.length*rh+14,'font-size':10.5,fill:css('--vague')},s,'30 days (§4 clock length, for scale)');
+  rows.forEach(([k,v],i)=>{
+    const y=y0+i*rh+rh/2; const actual=(k===ACTUAL[bestTown]);
+    if(k==='S2-concurrent') el('line',{x1:10,x2:x1,y1:y-rh/2,y2:y-rh/2,stroke:css('--rule')},s);
+    el('text',{x:x0-12,y:y+4,'text-anchor':'end','font-size':12,'font-weight':actual?700:400,fill:actual?conc:ink},s,(actual?'■ ':'')+VAR_LABEL[k]);
+    const [lo,md,hi]=v.post_days;
+    el('rect',{x:X(lo),y:y-5,width:Math.max(2,X(hi)-X(lo)),height:10,rx:3,fill:link,opacity:.35},s);
+    el('line',{x1:X(md),x2:X(md),y1:y-8,y2:y+8,stroke:link,'stroke-width':2.5},s);
+    el('circle',{cx:X(v.truth_days),cy:y,r:4.5,fill:ink},s);
+    el('text',{x:Math.min(X(hi)+8,x1-30),y:y+4,'font-size':10.5,fill:mut},s,md.toFixed(0)+' d');
+  });
+}
+
+/* ---------- comparison charts ---------- */
+function lineChart(svg,key){
+  svg.innerHTML='';
+  const S=DATA.scores; const xs=['W0','W0x5','W0x25'], xl=['1×','5×','25×'];
+  const b=xs.map(w=>S[w].methods[Object.keys(S[w].methods).find(m=>m.startsWith('bayes_vague'))][key]);
+  const l=xs.map(w=>S[w].methods.llm_avg3[key]);
+  const ymax=Math.ceil(Math.max(...b,...l)*2)/2; const L=58,R=258,T=16,B=164;
+  const X=i=>L+i*(R-L)/2, Y=v=>B-(v/ymax)*(B-T);
+  const grid=css('--grid'), mut=css('--muted');
+  for(let v=0;v<=ymax+1e-9;v+=ymax/4){el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:grid},svg);el('text',{x:L-6,y:Y(v)+4,'text-anchor':'end','font-size':10.5,fill:mut},svg,v.toFixed(1));}
+  xl.forEach((t,i)=>el('text',{x:X(i),y:B+16,'text-anchor':'middle','font-size':11,fill:mut},svg,t));
+  el('text',{x:(L+R)/2,y:B+32,'text-anchor':'middle','font-size':10,fill:mut},svg,'amount of evidence');
+  el('text',{x:12,y:(T+B)/2,'font-size':10,fill:mut,transform:`rotate(-90 12 ${(T+B)/2})`,'text-anchor':'middle'},svg,'error score (lower is better)');
+  let yb=Y(b[2])+4, yl=Y(l[2])+4; if(Math.abs(yb-yl)<12){const m=(yb+yl)/2, d=yb<=yl?-6:6; yb=m+d; yl=m-d;}
+  const endY=[yb,yl];
+  [[b,css('--link')],[l,css('--llm')]].forEach(([arr,c],ai)=>{
+    el('polyline',{points:arr.map((v,i)=>`${X(i)},${Y(v)}`).join(' '),fill:'none',stroke:c,'stroke-width':2.5},svg);
+    arr.forEach((v,i)=>{el('circle',{cx:X(i),cy:Y(v),r:4,fill:c},svg);});
+    el('text',{x:X(2)+6,y:endY[ai],'font-size':10.5,fill:c,'font-weight':700},svg,arr[2].toFixed(2));
+  });
+}
+function h2h(){
+  const box=document.getElementById('h2h'); box.innerHTML='';
+  const S=DATA.scores; [['W0','1×'],['W0x5','5×'],['W0x25','25×']].forEach(([w,lab])=>{
+    const k=Object.keys(S[w].h2h).find(x=>x.startsWith('bayes_vague')&&x.endsWith('llm_avg3'));
+    const v=S[w].h2h[k]; const tot=v.a+v.b+v.tie;
+    box.insertAdjacentHTML('beforeend',`<div class="cell"><div class="n">${lab} evidence</div><div><b style="color:var(--link)">Bayes ${v.a}</b> · <b style="color:var(--llm)">LLM ${v.b}</b> · <span style="color:var(--muted)">tie ${v.tie}</span></div><div class="wbar"><span class="b" style="width:${v.a/tot*100}%"></span><span class="l" style="width:${v.b/tot*100}%"></span><span style="width:${v.tie/tot*100}%;background:var(--rule)"></span></div><div class="n" style="margin-top:4px">of ${tot} questions</div></div>`);
+  });
+}
+function worlds(){
+  const s=document.getElementById('worlds'); s.innerHTML='';
+  const S=DATA.scores; const W=[['W0','W0 typical'],['W0m','W0 + milestones'],['W1','W1 adversarial'],['W1m','W1 + milestones']];
+  const meth=[['bayes_vague',css('--link'),'Bayes (vague)'],['bayes_llmprior',css('--concrete'),'Bayes (LLM priors)'],['llm_avg3',css('--llm'),'LLM']];
+  const L=60,R=880,T=18,B=210,ymax=5.0; const gw=(R-L)/W.length; const Y=v=>B-(v/ymax)*(B-T);
+  const grid=css('--grid'), mut=css('--muted'), ink=css('--ink');
+  for(let v=0;v<=ymax;v+=1.5){el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:grid},s);el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:mut},s,v.toFixed(1));}
+  el('text',{x:14,y:(T+B)/2,'font-size':11,fill:mut,transform:`rotate(-90 14 ${(T+B)/2})`,'text-anchor':'middle'},s,'error score (lower is better)');
+  W.forEach(([w,lab],gi)=>{
+    const cx=L+gi*gw+gw/2; el('text',{x:cx,y:B+22,'text-anchor':'middle','font-size':12,'font-weight':600,fill:ink},s,lab);
+    meth.forEach(([pref,c,ml],mi)=>{
+      const k=Object.keys(S[w].methods).find(m=>m.startsWith(pref)); if(!k)return;
+      const v=S[w].methods[k].all; const bw=36; const x=cx-(bw*1.5)+mi*bw;
+      el('rect',{x:x+3,y:Y(v),width:bw-6,height:B-Y(v),rx:3,fill:c},s);
+      el('text',{x:x+bw/2,y:Y(v)-5,'text-anchor':'middle','font-size':10.5,fill:ink},s,v.toFixed(2));
+    });
+  });
+}
+
+
+/* ---------- readings: questions, presets, annotated statute, decision tree ---------- */
+const QS = [
+  {id:1, sec:'§3', q:'Can a desk review of the site plan alone support the determination?', yes:'Desk-only S1 is lawful', no:'Needs a site visit or neighbour input; S1 unlawful', p:.60},
+  {id:2, sec:'§3', q:'Must adjoining owners get notice and a chance to comment?', yes:'Only notice + comment designs are lawful', no:'Notice is optional', p:.35},
+  {id:3, sec:'§3', q:'Does the duty to determine let the town require a site inspection?', yes:'Inspection designs allowed', no:'Inspection designs unlawful', p:.90},
+  {id:4, sec:'§4', q:'Does the 30-day clock run through the nuisance determination?', yes:'Notice, comments and any hearing must fit inside 30 days', no:'Clock pauses during the determination', p:.80},
+  {id:5, sec:'§5', q:'Does it authorize separate notice or inspection fees?', yes:'Extra fees allowed', no:'Application fee only', p:.50},
+  {id:6, sec:'§1–4', q:'Are the grounds for denial limited to ineligibility, incompleteness and nuisance?', yes:'No other ground', no:'Other grounds possible', p:.50}
+];
+const READINGS = {
+  base:   {label:'Most likely', a:{1:1,2:0,3:1,4:1,5:0,6:1},
+           note:'Every question takes its more probable answer. The determination can rest on the site plan alone, so the lightest process (S1) is lawful, and the whole determination must fit inside the 30 days.'},
+  nb:     {label:'Neighbours must be heard', a:{1:1,2:1,3:1,4:1,5:0,6:1},
+           note:'“Adjoining properties” is read as giving neighbours a say: notice and a comment period become required, with a hearing if anyone objects. Desk-only and inspection-only designs are now unlawful.'},
+  nodesk: {label:'Desk review not enough', a:{1:0,2:0,3:1,4:1,5:0,6:1},
+           note:'The determination needs site evidence or neighbour input; a plan check alone cannot satisfy §3. S1 becomes unlawful; inspection or notice designs remain.'},
+  noinsp: {label:'No compelled inspection', a:{1:1,2:0,3:0,4:1,5:0,6:1},
+           note:'The duty to determine is read as giving no power to make the applicant host an inspection. Every design with a site inspection becomes unlawful, leaving S1, S4 and S9.'},
+  toll:   {label:'Clock pauses', a:{1:1,2:0,3:1,4:0,5:0,6:1},
+           note:'The 30 days are read as excluding the determination itself, so only the issue/deny step is time-bound. Long comment periods stop being a validity problem and become a pure burden problem.'},
+  broad:  {label:'Broad fees & grounds', a:{1:1,2:0,3:1,4:1,5:1,6:0},
+           note:'Q5 and Q6 flip: the town may charge notice or inspection fees, and may deny on grounds the statute does not list. The required steps are unchanged, so the same designs stay lawful; what changes is cost and the exits.'},
+  strict: {label:'Strictest', a:{1:0,2:1,3:0,4:1,5:0,6:1},
+           note:'Neighbours must be heard, a desk review is not enough on its own, and inspection cannot be compelled. Only the notice designs without inspection (S4, S9) survive, which is why a cautious town picks them.'}
+};
+const DESIGNS = {S1:[1,0,0],S2:[1,1,0],S3:[1,1,0],S4:[1,0,1],S5:[1,1,1],S6:[1,1,1],S7:[0,1,0],S8:[0,1,0],S9:[0,0,1],S10:[0,1,1],S11:[0,1,1]}; // [desk, inspection, notice]
+function lawful(d,a){const [desk,ins,nb]=DESIGNS[d]; if(a[2]&&!nb)return false; if(!a[3]&&ins)return false; if(!a[1]&&!ins&&!nb)return false; return true;}
+let currentReading='base';
+let ans={...READINGS.base.a};
+let prevAns={...READINGS.base.a};
+
+function matchPreset(){for(const [k,v] of Object.entries(READINGS)){if(QS.every(q=>v.a[q.id]===ans[q.id]))return k;}return 'custom';}
+
+function drawTabs(){
+  const box=document.getElementById('rtabs'); box.innerHTML='';
+  const keys=Object.keys(READINGS).concat(currentReading==='custom'?['custom']:[]);
+  keys.forEach(k=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');
+    b.textContent=k==='custom'?'Custom reading':READINGS[k].label; if(k==='custom')b.className='custom';
+    b.setAttribute('aria-selected',k===currentReading);
+    b.addEventListener('click',()=>{if(k==='custom')return; prevAns={...ans}; ans={...READINGS[k].a}; currentReading=k; drawReading(true);});
+    box.appendChild(b);});
+  let p=1; QS.forEach(q=>{p*=ans[q.id]?q.p:1-q.p;});
+  document.getElementById('rprob').textContent=`Prior probability of this reading: ${(p*100).toFixed(1)}% (1 of 64)`;
+}
+
+function drawCards(animate){
+  const col=document.getElementById('qcol'); col.innerHTML='';
+  QS.forEach(q=>{
+    const y=!!ans[q.id];
+    const c=document.createElement('div'); c.className='qcard q'+q.id+(animate&&prevAns[q.id]!==ans[q.id]?' changed':''); c.dataset.q=q.id;
+    c.innerHTML=`<div class="qh"><b>Q${q.id}</b><span>${q.sec} · P(yes) ${q.p.toFixed(2)}</span></div><div class="qq">${q.q}</div>
+      <div class="qans"><button type="button" class="${y?'y':'n'}" aria-label="Q${q.id} answer: ${y?'yes':'no'}. Click to flip.">${y?'Yes':'No'}</button><span>${y?q.yes:q.no}</span></div>`;
+    c.querySelector('button').addEventListener('click',()=>{prevAns={...ans}; ans[q.id]=ans[q.id]?0:1; currentReading=matchPreset(); drawReading(true);});
+    c.addEventListener('mouseenter',()=>hot(q.id,true)); c.addEventListener('mouseleave',()=>hot(q.id,false));
+    col.appendChild(c);
+  });
+  document.querySelectorAll('#statute .qph').forEach(ph=>{ph.onmouseenter=()=>hot(+ph.dataset.q,true); ph.onmouseleave=()=>hot(+ph.dataset.q,false);});
+  const ra=document.getElementById('rans'); ra.innerHTML='<span>Answers:</span>';
+  QS.forEach(q=>{const y=!!ans[q.id]; const b=document.createElement('button'); b.type='button'; b.className='q'+q.id+(y?' y':'')+(animate&&prevAns[q.id]!==ans[q.id]?' flash':'');
+    b.title=q.q+' (click to flip)'; b.textContent=`Q${q.id} ${y?'yes':'no'}`;
+    b.addEventListener('click',()=>{prevAns={...ans}; ans[q.id]=ans[q.id]?0:1; currentReading=matchPreset(); drawReading(true);}); ra.appendChild(b);});
+  document.querySelectorAll('td.qcur').forEach(td=>{const y=!!ans[+td.dataset.q]; td.className='qcur '+(y?'y':'n'); td.textContent=y?'Yes':'No';});
+}
+function hot(id,on){document.querySelectorAll(`[data-q="${id}"]`).forEach(e=>e.classList.toggle('hot',on));}
+
+function layoutAnnot(){
+  const wrap=document.getElementById('annot'), col=document.getElementById('qcol'), svg=document.getElementById('qarrows');
+  if(!wrap||!col)return;
+  const cards=[...col.children];
+  if(getComputedStyle(svg).display==='none'){col.style.height='';cards.forEach(c=>c.style.top='');svg.innerHTML='';return;}
+  const W=wrap.getBoundingClientRect(), C=col.getBoundingClientRect(); const statR=document.getElementById('statute').getBoundingClientRect().right-W.left;
+  const items=cards.map(c=>{const ph=document.querySelector(`#statute .qph[data-q="${c.dataset.q}"]`);
+    const rs=ph.getClientRects(); const r=rs[rs.length-1]; const badge=ph.querySelector('.qb').getBoundingClientRect();
+    return {c,id:+c.dataset.q,tx:badge.right-W.left+2,ty:(badge.top+badge.bottom)/2-W.top,h:c.offsetHeight};});
+  items.sort((a,b)=>a.ty-b.ty||a.tx-b.tx);
+  // place cards: centre on target where possible, never overlap; then pull the stack up if it overflows downward
+  let y=0; const gap=8, off=C.top-W.top;
+  items.forEach(it=>{const want=it.ty-off-18; it.top=Math.max(want,y); y=it.top+it.h+gap;});
+  for(let i=items.length-2;i>=0;i--){const lim=items[i+1].top-gap-items[i].h; if(items[i].top>lim)items[i].top=lim;}
+  const over=items.reduce((t,i)=>t+(i.top-(i.ty-off-18)),0)/items.length;
+  if(over>0)items.forEach(i=>i.top-=over*0.8);
+  const minTop=Math.min(...items.map(i=>i.top)); if(minTop<0){items.forEach(i=>i.top-=minTop);}
+  items.forEach(it=>{it.c.style.top=it.top+'px';});
+  const colH=Math.max(...items.map(i=>i.top+i.h));
+  col.style.height=colH+'px';
+  // arrows
+  svg.setAttribute('viewBox',`0 0 ${W.width} ${Math.max(W.height,colH+off)}`);
+  svg.innerHTML='';
+  const defs=el('defs',{},svg);
+  items.forEach(it=>{
+    const color=getComputedStyle(it.c).getPropertyValue('--qc').trim()||css('--muted');
+    const m=el('marker',{id:'qa'+it.id,viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'},defs);
+    el('path',{d:'M0,0 L10,5 L0,10 z',fill:color},m);
+    const sx=C.left-W.left-2, sy=off+it.top+18, ex=it.tx+3, ey=it.ty;
+    const sr=statR+6, k=Math.min(34,(sx-sr)/2);
+    el('circle',{cx:sx,cy:sy,r:2.6,fill:color},svg);
+    el('path',{d:`M${sx},${sy} C${sx-k},${sy} ${sr+k},${ey} ${sr},${ey} L${ex},${ey}`,stroke:color,'marker-end':`url(#qa${it.id})`,'data-q':it.id},svg);
+  });
+}
+
+function drawDTree(a,changed){
+  const s=document.getElementById('dtreesvg'); s.innerHTML='';
+  const desk=!!a[1], nb=!!a[2], insp=!!a[3], toll=!a[4], fees=!!a[5], limited=!!a[6];
+  const ink=css('--ink'), mut=css('--muted'), rule=css('--rule'), surf=css('--surface'), d1=css('--d1'), d2=css('--d2'), d3=css('--d3'), vague=css('--vague'), conc=css('--concrete'), llm=css('--llm'), link=css('--link');
+  const G=deps=>(deps&&deps.some(q=>changed.has(q)))?el('g',{class:'chg'},s):s;
+  const box=(x,y,w,h,label,fill,stroke,sub,deps,dash)=>{const g=G(deps);el('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:7,fill:fill,stroke:stroke,'stroke-width':1.6,'stroke-dasharray':dash||'none'},g);
+    el('text',{x:x,y:y+(sub?-2:5),'text-anchor':'middle','font-size':12.5,'font-weight':600,fill:ink},g,label);
+    if(sub) el('text',{x:x,y:y+13,'text-anchor':'middle','font-size':10.5,fill:mut},g,sub);};
+  const qc=id=>id===4?link:id===6?llm:id===5?mut:vague;
+  const qtag=(x,y,ids)=>{ids.forEach((id,i)=>{const cx=x+i*24; el('rect',{x:cx-10,y:y-8,width:20,height:15,rx:7,fill:surf,stroke:qc(id)},s); el('text',{x:cx,y:y+3,'text-anchor':'middle','font-size':9,'font-weight':700,fill:qc(id)},s,'Q'+id);});};
+  const HW=66;
+  const dia=(x,y,label,deps)=>{const g=G(deps);el('path',{d:`M${x},${y-22} L${x+HW},${y} L${x},${y+22} L${x-HW},${y} Z`,fill:surf,stroke:ink,'stroke-width':1.5},g);
+    el('text',{x:x,y:y+4,'text-anchor':'middle','font-size':12,'font-weight':600,fill:ink},g,label);};
+  const lab=(x,y,t,g)=>{el('rect',{x:x-14,y:y-9,width:28,height:17,rx:8,fill:surf,stroke:rule},g);el('text',{x:x,y:y+4,'text-anchor':'middle','font-size':10.5,'font-weight':700,fill:mut},g,t);};
+  const arrow=(x1,y1,x2,y2,t,deps)=>{const g=G(deps);el('line',{x1,y1,x2,y2,stroke:mut,'stroke-width':1.4,'marker-end':'url(#dt-arrow)'},g); if(t)lab((x1+x2)/2,(y1+y2)/2,t,g);};
+  el('defs',{},s).innerHTML='<marker id="dt-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="'+mut+'"/></marker>';
+  const X=200;
+  // D1
+  box(X,32,256,36,'Application received',d1,conc,fees?'§2 form + plan · §5 fee + notice/insp. fees':'§2 form + plan · §5 application fee only',[5]);
+  qtag(343,20,[5]);
+  arrow(X,50,X,71);
+  dia(X,95,'Eligible? (§1)');
+  arrow(X+HW,95,338,95,'no'); box(380,95,80,30,'DENY',surf,llm);
+  arrow(X,117,X,136,'yes');
+  dia(X,160,'Complete? (§4)');
+  arrow(X+HW,160,318,160,'no');
+  box(395,160,150,38,'deficiency notice',d1,conc,'applicant corrects');
+  el('path',{d:`M395,141 L395,128 L${X+10},128`,fill:'none',stroke:mut,'stroke-width':1.4,'stroke-dasharray':'4 3','marker-end':'url(#dt-arrow)'},s);
+  el('text',{x:330,y:122,'text-anchor':'middle','font-size':10.5,fill:mut},s,'resubmit (loop)');
+  arrow(X,182,X,207,'yes');
+  // clock
+  box(X,226,214,34,toll?'30-day clock: paused':'30-day clock starts',d3,link,toll?'runs only for issue/deny':'§4, from complete application',[4]);
+  qtag(320,212,[4]);
+  arrow(X,243,X,272);
+  // D2
+  // D2: the concrete step the agency performs; its content is fixed by the reading (Q1–Q3)
+  const evTitle = nb ? 'Notify adjoining owners, take comments (§3)'
+    : desk ? 'Review the site plan at the desk (§3)'
+    : insp ? 'Inspect the site or hear neighbours (§3)'
+    : 'Hear neighbours (§3)';
+  const evSub = 'Q1–Q3 set what counts as evidence · ' + (insp ? 'inspection may be required' : 'inspection cannot be compelled');
+  box(X,296,330,44,evTitle,d2,vague,evSub,[1,2,3]);
+  qtag(372,272,nb?[2,3]:[1,3]);
+  const ny = nb?500:390;
+  if(nb){
+    dia(X,415,'Objection?',[2]); arrow(X,318,X,391,null,[2]);
+    arrow(X+HW,415,328,415,'yes',[2]); box(390,415,120,40,'Hearing',d2,vague,'before deciding',[2]);
+    const g=G([2]); el('path',{d:`M390,435 L390,466 L${X+12},466 L${X+12},${ny-24}`,fill:'none',stroke:mut,'stroke-width':1.4,'marker-end':'url(#dt-arrow)'},g);
+    arrow(X,437,X,ny-24,'no',[2]);
+  } else { arrow(X,318,X,ny-24,null,[2]); }
+  dia(X,ny,'Nuisance? (§3)');
+  arrow(X+HW,ny,313,ny,'yes'); box(370,ny,110,toll?30:40,'DENY (§4)',surf,llm,toll?'':'within 30 days',[4]);
+  arrow(X,ny+22,X,ny+42,'no'); box(X,ny+64,150,toll?30:40,'ISSUE permit (§4)',d3,link,toll?'':'within 30 days',[4]);
+  if(toll){ const g=G([4]); el('rect',{x:24,y:266,width:452,height:ny-266-30,rx:8,fill:'none',stroke:link,'stroke-dasharray':'5 4'},g);
+    el('text',{x:470,y:281,'text-anchor':'end','font-size':10.5,fill:link},g,'clock paused'); }
+  // Q6
+  box(X,ny+128,300,40,'Grounds for denial',surf,llm,limited?'only §1 eligibility, §4 completeness, §3 nuisance':'not limited: other grounds possible',[6],limited?'none':'5 4');
+  qtag(X+165,ny+112,[6]);
+  const fy=Math.max(ny+172,660);
+  el('text',{x:12,y:fy,'font-size':10.5,fill:mut},s,'Green = D1 application, amber = D2 nuisance determination,');
+  el('text',{x:12,y:fy+14,'font-size':10.5,fill:mut},s,'blue = D3 decision and 30-day clock, pink = denial. Q-tags = nodes a question controls.');
+  const preset=READINGS[currentReading];
+  const designs=Object.keys(DESIGNS);
+  const chips=designs.map(d=>`<span class="dchip ${lawful(d,a)?'ok':'bad'}">${d}</span>`).join('');
+  const n=designs.filter(d=>lawful(d,a)).length;
+  document.getElementById('dtreenote').innerHTML='<b>This reading.</b> '+(preset?preset.note:'A custom combination of answers.')+
+    ` <br><b>Lawful designs (${n} of 11):</b><span class="dchips">${chips}</span>`;
+}
+
+function setLayers(){
+  const rb=document.getElementById('readingblock'), q=document.getElementById('cbQ'), d=document.getElementById('cbD');
+  if(!q.checked) d.checked=false; d.disabled=!q.checked;
+  rb.classList.toggle('show-q',q.checked); rb.classList.toggle('show-dm',d.checked);
+  setBarH(); layoutAnnot();
+}
+document.getElementById('cbQ').addEventListener('change',setLayers);
+document.getElementById('cbD').addEventListener('change',setLayers);
+function showView(arch){
+  document.getElementById('mainview').hidden=arch; document.getElementById('archview').hidden=!arch;
+  document.getElementById('tabMain').setAttribute('aria-selected',!arch); document.getElementById('tabArch').setAttribute('aria-selected',arch);
+  if(!arch){setBarH(); layoutAnnot();}
+}
+document.getElementById('tabMain').addEventListener('click',()=>{showView(false); try{history.replaceState(null,'','#');}catch(e){}});
+document.getElementById('tabArch').addEventListener('click',()=>{showView(true); try{history.replaceState(null,'','#archive');}catch(e){}});
+if(location.hash==='#archive') showView(true);
+document.querySelectorAll('nav.toc a').forEach(a=>a.addEventListener('click',()=>showView(false)));
+function drawReading(animate){
+  const changed=new Set(animate?QS.filter(q=>prevAns[q.id]!==ans[q.id]).map(q=>q.id):[]);
+  drawTabs(); drawCards(animate); drawDTree(ans,changed); setBarH(); layoutAnnot();
+}
+function setBarH(){const b=document.getElementById('rbar');if(b)document.documentElement.style.setProperty('--rbarH',(b.offsetHeight+10)+'px');}
+window.addEventListener('resize',()=>{setBarH();layoutAnnot();});
+try{new ResizeObserver(()=>layoutAnnot()).observe(document.getElementById('statute'));}catch(e){}
+try{document.fonts.ready.then(layoutAnnot);}catch(e){}
+
+/* ---------- one process model as a flowchart ---------- */
+const FLOWS = {
+  S1:['desk review'], S2:['desk review','site inspection'], S3:['desk review','site inspection*'],
+  S4:['neighbour notice','comment period','desk review','hearing?'], S5:['neighbour notice','comment period','desk review','hearing?','site inspection'],
+  S6:['neighbour notice','comment period','desk review','hearing?','site inspection*'],
+  S7:['site inspection'], S8:['site inspection*'], S9:['neighbour notice','comment period','hearing?'],
+  S10:['neighbour notice','comment period','hearing?','site inspection'], S11:['neighbour notice','comment period','hearing?','site inspection*']
+};
+const TOWN_FLOWS=[
+  {town:'Alder',world:'W0 typical',design:'S1'},{town:'Birch',world:'W0 typical',design:'S3'},{town:'Cedar',world:'W0 typical',design:'S4'},
+  {town:'Alder',world:'W1 adversarial',design:'S2'},{town:'Birch',world:'W1 adversarial',design:'S6'},{town:'Cedar',world:'W1 adversarial',design:'S1'},
+  {town:'Alder',world:'W4 (12 towns)',design:'S7'},{town:'Birch',world:'W4 (12 towns)',design:'S4'},{town:'Cedar',world:'W4 (12 towns)',design:'S3'},{town:'Elm',world:'W4 (12 towns)',design:'S11'},{town:'Fir',world:'W4 (12 towns)',design:'S5'},{town:'Ginkgo',world:'W4 (12 towns)',design:'S9'},{town:'Juniper',world:'W4 (12 towns)',design:'S7'},{town:'Larch',world:'W4 (12 towns)',design:'S9'}
+];
+let flowIdx=2;
+function drawFlow(){
+  const s=document.getElementById('fcsvg'); s.innerHTML='';
+  const tf=TOWN_FLOWS[flowIdx]; const currentFlow=tf.design;
+  document.getElementById('fclabel').textContent=`${tf.town} · ${tf.world} · design ${currentFlow}`;
+  const ink=css('--ink'), mut=css('--muted'), rule=css('--rule'), surf=css('--surface'), d1=css('--d1'), d2=css('--d2'), d3=css('--d3'), vague=css('--vague'), conc=css('--concrete'), link=css('--link');
+  el('defs',{},s).innerHTML='<marker id="fc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="'+mut+'"/></marker>';
+  const steps=FLOWS[currentFlow]; const shared=steps[steps.length-1].endsWith('*');
+  const seq=[{l:'prepare',c:d1,st:conc,sub:'applicant'},{l:'completeness check',c:d1,st:conc,sub:'agency'}];
+  steps.forEach(x=>{const cond=x.endsWith('?'); const name=x.replace(/[?*]/g,''); seq.push({l:name,c:d2,st:vague,sub:cond?'only if a neighbour objects':({'site inspection':'inspector','desk review':'agency','neighbour notice':'agency','comment period':'neighbours','hearing':'board'}[name]||''),cond});});
+  if(shared){seq[seq.length-1].l+=' → permit issued on site'; seq[seq.length-1].c=d3;} else seq.push({l:'decision issued',c:d3,st:link,sub:'agency'});
+  const n=seq.length, W=960, pad=30, gap=14, bw=Math.min(150,(W-2*pad-(n-1)*gap)/n), y=120;
+  seq.forEach((b,i)=>{const x=pad+i*(bw+gap);
+    el('rect',{x,y:y-24,width:bw,height:48,rx:7,fill:b.c,stroke:b.st,'stroke-width':b.cond?1.2:1.6,'stroke-dasharray':b.cond?'5 4':'none'},s);
+    const words=b.l.split(' '); let line1=b.l, line2='';
+    if(b.l.length>18){const mid=Math.ceil(words.length/2); line1=words.slice(0,mid).join(' '); line2=words.slice(mid).join(' ');}
+    el('text',{x:x+bw/2,y:y+(line2?-2:4),'text-anchor':'middle','font-size':11.5,'font-weight':600,fill:ink},s,line1);
+    if(line2) el('text',{x:x+bw/2,y:y+11,'text-anchor':'middle','font-size':11.5,'font-weight':600,fill:ink},s,line2);
+    if(b.sub) el('text',{x:x+bw/2,y:y+42,'text-anchor':'middle','font-size':10,fill:mut},s,b.sub);
+    if(i<n-1) el('line',{x1:x+bw,y1:y,x2:x+bw+gap-2,y2:y,stroke:mut,'stroke-width':1.4,'marker-end':'url(#fc-arrow)'},s);
+    if(i===1){ const x0=pad, x1=x+bw/2;
+      el('path',{d:`M${x1},${y+24} L${x1},${y+70} L${x0+bw/2},${y+70} L${x0+bw/2},${y+24}`,fill:'none',stroke:mut,'stroke-width':1.3,'stroke-dasharray':'4 3','marker-end':'url(#fc-arrow)'},s);
+      el('text',{x:(x0+x1+bw/2)/2,y:y+84,'text-anchor':'middle','font-size':10.5,fill:mut},s,'incomplete → correction → check again (0–4 loops)'); }
+  });
+  const band=(i0,i1,label,col)=>{const xa=pad+i0*(bw+gap), xb=pad+i1*(bw+gap)+bw; el('line',{x1:xa,x2:xb,y1:60,y2:60,stroke:col,'stroke-width':3},s); el('text',{x:(xa+xb)/2,y:52,'text-anchor':'middle','font-size':11,'font-weight':700,fill:col},s,label);};
+  band(0,1,'D1 application',conc); band(2,shared?n-1:n-2,'D2 nuisance determination',vague); if(!shared) band(n-1,n-1,'D3 decision',link); else el('text',{x:pad+(n-1)*(bw+gap)+bw/2,y:40,'text-anchor':'middle','font-size':10.5,fill:link},s,'(also D3: decision issued here)');
+  el('text',{x:pad,y:230,'font-size':10.5,fill:mut},s,'Dashed box = happens only in some cases. Green = D1, amber = D2 (the vague determination), blue = D3, matching the decision tree.');
+}
+document.getElementById('fcprev').addEventListener('click',()=>{flowIdx=(flowIdx-1+TOWN_FLOWS.length)%TOWN_FLOWS.length;drawFlow();});
+document.getElementById('fcnext').addEventListener('click',()=>{flowIdx=(flowIdx+1)%TOWN_FLOWS.length;drawFlow();});
+/* ---------- wiring ---------- */
+function setWorld(w){currentWorld=w;document.getElementById('jw0').setAttribute('aria-pressed',w==='W0');document.getElementById('jw1').setAttribute('aria-pressed',w==='W1');drawJourney();}
+document.getElementById('jw0').addEventListener('click',()=>setWorld('W0'));
+document.getElementById('jw1').addEventListener('click',()=>setWorld('W1'));
+const bt=document.getElementById('besttoggle');
+['Alder','Birch','Cedar'].forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t+' (W0)';b.setAttribute('aria-pressed',t===bestTown);b.addEventListener('click',()=>{bestTown=t;[...bt.children].forEach(x=>x.setAttribute('aria-pressed',x===b));drawBest();});bt.appendChild(b);});
+function drawAll(){drawReading(false);drawFlow();drawJourney();drawBest();document.querySelectorAll('svg.lc').forEach(sv=>lineChart(sv,sv.dataset.key));h2h();worlds();}
+drawAll();
+try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawAll);}catch(e){}
+new MutationObserver(drawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+
+</body></html>

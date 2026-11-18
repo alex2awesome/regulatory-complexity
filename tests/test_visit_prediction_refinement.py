@@ -9,7 +9,7 @@ from pipeline.procbench.reconcile_evidence import digest, write
 from pipeline.procbench.refine_visit_predictions import main, prepare_refinement
 
 
-def saved_run(tmp_path, *, population_summary=False, selection=0.):
+def saved_run(tmp_path, *, population_summary=False, selection=0., finite_cohort=False):
     data = dict(programs=[dict(id='P', routes=[dict(id='route', prior_weight=1.,
         operations=[dict(id='review', actor_id='A', actor_role='agency', task_type='review',
                          markers=['decision'], payer_work=False, agency_work=True)],
@@ -18,6 +18,9 @@ def saved_run(tmp_path, *, population_summary=False, selection=0.):
             sampling='unselected', statistic='median' if population_summary else 'individual',
             lower=4., upper=9., operators=[dict(basis='whole_case_clock', start='process_start',
                                               end='initial_decision')], operator_weights=[1.])])])
+    if finite_cohort:
+        from test_cohort_quantiles import cohort_fixture
+        data['programs'][0].update(observations=[],quantile_cohorts=[cohort_fixture()])
     cfg = Config(chains=1, draws=8, warmup=0, population_size=16, selection_sd=selection)
     model = VisitHierarchy(data, cfg)
     z = np.random.default_rng(78).normal(scale=.1, size=(1, 8, model.layout.size))
@@ -50,6 +53,12 @@ def test_refinement_rejects_population_likelihood_terms(tmp_path, population_sum
     root = saved_run(tmp_path, population_summary=population_summary, selection=selection)
     with pytest.raises(ValueError, match='Population integration'):
         prepare_refinement(root, 64)
+
+
+def test_refinement_cannot_change_a_finite_cohort_target_without_refitting(tmp_path):
+    root=saved_run(tmp_path,finite_cohort=True)
+    with pytest.raises(ValueError,match='Population integration'):
+        prepare_refinement(root,64)
 
 
 @pytest.mark.parametrize('size', [8, 16, 17, 48])

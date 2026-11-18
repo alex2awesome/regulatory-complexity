@@ -5,7 +5,7 @@ import json
 import pathlib
 
 from benchmark.synth.generator.simulate import simulate_process
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def main(argv=None):

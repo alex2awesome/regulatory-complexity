@@ -109,3 +109,26 @@ def test_exact_count_is_not_a_fraction_or_inventory_disguised_as_a_case():
     count.update(value=2, inventory_coverage='complete_for_stated_scope')
     with pytest.raises(ValueError, match='only to an inventory'):
         validate_counts(audit, evidence, docs)
+
+
+def test_count_only_cases_require_explicit_versioned_quoted_identity():
+    evidence, audit, docs = inputs()
+    evidence['measurements'] = []
+    with pytest.raises(ValueError, match='Unknown case'):
+        validate_counts(audit, evidence, docs)
+    audit.update(schema_version='burden-count-evidence/2', cases=[dict(
+        case_id='c1', description='Applicant reporting two extra rounds',
+        evidence=[dict(doc_id='document', quote='I needed two extra rounds.')], notes='')])
+    validate_counts(audit, evidence, docs)
+    assert evidence['measurements'] == []
+    audit['count_claims'][0]['case_id'] = 'c1_typo'
+    with pytest.raises(ValueError, match='Unknown case'):
+        validate_counts(audit, evidence, docs)
+    audit['count_claims'][0]['case_id'] = 'c1'
+    audit['cases'][0]['evidence'][0]['quote'] = 'A fabricated case'
+    with pytest.raises(ValueError, match='Nonverbatim case'):
+        validate_counts(audit, evidence, docs)
+    audit['cases'][0]['evidence'][0]['quote'] = 'I needed two extra rounds.'
+    audit['cases'].append(copy.deepcopy(audit['cases'][0]))
+    with pytest.raises(ValueError, match='distinct nonempty'):
+        validate_counts(audit, evidence, docs)

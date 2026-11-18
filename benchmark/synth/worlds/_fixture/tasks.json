@@ -1,0 +1,30 @@
+[
+ {
+  "task_id": "_fixture__J1__S03",
+  "world": "_fixture",
+  "jur": "J1",
+  "stat_id": "S03",
+  "prompt": "Construct the process model and expected timeline for the Unpermitted Dwelling Unit Legalization Program in the City of Halvern, adopted under Marisol Gov. Code sec. 41210.",
+  "conditions": [
+   "search",
+   "oracle_docs",
+   "oracle_no_distractors",
+   "declared_only",
+   "declared_plus_users"
+  ]
+ },
+ {
+  "task_id": "_fixture__J2__S03",
+  "world": "_fixture",
+  "jur": "J2",
+  "stat_id": "S03",
+  "prompt": "Construct the process model and expected timeline for the Unpermitted Unit Compliance Program in the City of Ardenmoor, adopted under Marisol Gov. Code sec. 41210.",
+  "conditions": [
+   "search",
+   "oracle_docs",
+   "oracle_no_distractors",
+   "declared_only",
+   "declared_plus_users"
+  ]
+ }
+]

@@ -1,0 +1,54 @@
+{
+  "schema_version": "three-family-public-render-selection/1",
+  "world": "THREE_FAMILY_PILOT_001",
+  "selection_id": "CALIBRATION_01",
+  "status": "public_allowlist_frozen_pre_render",
+  "selection_rule": "For each family, choose the first jurisdiction in frozen ID order whose pre-generation split assignment is calibration; include all ten jurisdiction render specs and all three shared family specs.",
+  "selection_basis": "metadata and artifact identity only; no case, outcome, summary, ceiling, provenance, fit, score, or rendered-content selection",
+  "selected_jurisdictions": {
+    "ccw": "CCW_J01",
+    "calfresh": "CF_J01"
+  },
+  "counts": {
+    "jurisdictions": 2,
+    "jurisdiction_artifacts_per_family": 10,
+    "shared_artifacts_per_family": 3,
+    "artifacts_total": 26
+  },
+  "allowlist": "docs/scoping/2026-09-20-three-family-pilot-render-calibration-01.ids.txt",
+  "allowlist_sha256": "59bbbd7215b272672e11701c483f5c51e06dd6488e6e23bf527f233dd95647b1",
+  "inputs": {
+    "private_split_manifest": {
+      "path": "benchmark/synth/worlds/THREE_FAMILY_PILOT_001/private/evaluation/split_manifest.json",
+      "sha256": "0bdfa32cda073436ca18c5875ca54e536cd88912d47688e92aeeb907e616106a",
+      "fields_read": [
+        "families.ccw.CCW_J01 split assignment",
+        "families.calfresh.CF_J01 split assignment"
+      ]
+    },
+    "public_artifact_manifest": {
+      "path": "benchmark/synth/worlds/THREE_FAMILY_PILOT_001/public/artifact_manifest.json",
+      "sha256": "f1577eef488271555ecb7d8f6d8dddaca0d89e2bc68c086badcfb97ba02a5f2b",
+      "fields_read": [
+        "artifact_id",
+        "family",
+        "jurisdiction_id",
+        "kind",
+        "status"
+      ]
+    }
+  },
+  "private_access_declaration": {
+    "split_assignments_read": true,
+    "case_truth_read": false,
+    "outcomes_read": false,
+    "summaries_read": false,
+    "ceilings_read": false,
+    "provenance_or_lineage_read": false,
+    "reserved_truth_read": false
+  },
+  "rendering_performed": false,
+  "verification_performed": false,
+  "release_performed": false,
+  "notes": "This receipt makes an evaluator-created membership decision public without exposing private labels or truth. It is not a corpus-completion or verification claim."
+}

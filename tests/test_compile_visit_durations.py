@@ -24,6 +24,67 @@ def inputs():
     return e, visit, semantic, docs, policy
 
 
+def test_source_type_sampling_is_independent_of_case_names_and_offset_grouping():
+    e,v,s,d,p=inputs()
+    p=dict(default_case_sampling='unselected',source_type_sampling={'forum':'delay_selected'})
+    before=copy.deepcopy(e)
+    for grouping in ('document','type'):
+        result=compile_durations(e,v,s,d,p,source_family_grouping=grouping,
+                                 source_family_kinds={'document':'forum_thread'})
+        assert result['observations'][0]['sampling']=='delay_selected'
+        assert result['source_type_sampling']['case_decisions']['c1']['basis']=='source_type_policy'
+    assert before==e
+    # Misleading case names are not a source-type declaration.
+    e['measurements'][0]['case_id']='reddit_slow_case'
+    result=compile_durations(e,v,s,d,p,source_family_kinds={'document':'official_stats'})
+    assert result['observations'][0]['sampling']=='unselected'
+
+
+def test_source_type_sampling_missing_kind_and_mixed_case_are_not_guessed():
+    from pipeline.procbench.compile_visit_durations import source_type_case_sampling
+    e,v,s,d,p=inputs()
+    p=dict(source_type_sampling={'forum':'delay_selected'})
+    report=compile_durations(e,v,s,d,p)
+    assert not report['observations']
+    assert 'case_sampling_assumption_not_declared' in report['dispositions'][0]['reasons']
+    mixed=copy.deepcopy(e['measurements'][0])
+    mixed.update(id='m2',doc_id='agency_document',source_family='agency_document')
+    e['measurements'].append(mixed)
+    p['default_case_sampling']='unselected'
+    kinds={'document':'forum_thread','agency_document':'program_page'}
+    with pytest.raises(ValueError,match='Conflicting source ascertainment'):
+        source_type_case_sampling(e,None,p,kinds)
+    p['case_sampling']={'c1':'delay_selected'}
+    sampling,report=source_type_case_sampling(e,None,p,kinds)
+    assert sampling=={'c1':'delay_selected'}
+    assert report['case_decisions']['c1']['basis']=='explicit_case_override'
+
+
+def test_source_type_sampling_applies_one_mechanism_to_timing_money_hours_and_counts():
+    from test_burden_channels_compile import ledger,count_audit
+    e,v,s,d,p=ledger()
+    p=dict(source_type_sampling={'forum':'delay_selected'},default_case_sampling='unselected')
+    count=count_audit(e['program_id'])
+    result=compile_durations(e,v,s,d,p,count_audit=count,burden_channels=('fee','effort','count'),
+                            source_family_kinds={'document':'forum_thread'})
+    case_rows=[o for o in result['observations'] if o['case_id']=='c1']
+    assert len(case_rows)==4
+    assert {o['sampling'] for o in case_rows}=={'delay_selected'}
+    assert set(result['source_type_sampling']['case_decisions'])=={'c1'}
+
+
+def test_source_family_cannot_override_an_unresolved_document_kind():
+    from pipeline.procbench.compile_visit_durations import source_type_case_sampling
+    e,_,_,_,_=inputs()
+    e['measurements'][0]['source_family']='reddit_offset_pool'
+    policy={'source_type_sampling':{'forum':'delay_selected'}}
+    sampling,report=source_type_case_sampling(e,None,policy,{'document':'unresolved_capture'})
+    assert sampling=={}
+    row=report['case_decisions']['c1']
+    assert row['basis']=='unresolved_source_type_without_default'
+    assert row['sources'][0]['source_type'] is None
+
+
 def test_compiled_claim_runs_in_joint_model_without_altering_source():
     e, v, s, d, p = inputs()
     original = copy.deepcopy((e, v, s))
@@ -107,7 +168,7 @@ def test_typical_is_not_median_and_finite_n_is_not_ignored():
     m.update(statistic='median', n=20)
     semantic['statistic_interpretation'] = 'population_median'
     result = compile_durations(e, v, s, d, p)
-    assert 'finite_cohort_summary_likelihood_not_implemented' in result['dispositions'][0]['reasons']
+    assert 'finite_cohort_requires_explicit_joint_sampling_contract' in result['dispositions'][0]['reasons']
     m['n'] = None
     assert compile_durations(e, v, s, d, p)['observations'][0]['statistic'] == 'median'
 
@@ -158,3 +219,120 @@ def test_observed_case_branch_constraints_cannot_be_lost_at_compilation():
     row = result['dispositions'][0]
     assert row['route_context']['excluded_activity_ids'] == ['file']
     assert 'case_route_or_milestone_constraints_need_compilation' in row['reasons']
+
+
+def first_visit_binding(evidence):
+    return dict(schema_version='joint-visit-source-bindings/1', program_id=evidence['program_id'],
+        measurements=[dict(measurement_id='m1', population_condition='first_visit',
+            operator_selections=[], evidence=[dict(doc_id='document', quote='Evidence')],
+            assumptions=['No additional duration-dependent selection within the stated first visits.'])])
+
+
+def test_first_visit_population_is_explicitly_conditioned_not_relabelled_all_cases():
+    e,v,s,d,p=inputs()
+    p={}
+    e['measurements'][0].update(case_id=None,statistic='median')
+    s['measurements'][0].update(population_scope='selected_cohort',statistic_interpretation='population_median')
+    original=copy.deepcopy((e,v,s))
+    assert not compile_durations(e,v,s,d,p)['observations']
+    bindings=first_visit_binding(e)
+    result=compile_durations(e,v,s,d,p,source_bindings=bindings)
+    o=result['observations'][0]
+    assert o['population_condition']=='first_visit'
+    assert o['provenance']['source_binding']==bindings['measurements'][0]
+    assert (e,v,s)==original
+    assert result['coverage']['informative_elapsed']==1
+    # A cohort size is not discarded by this population binding.
+    e['measurements'][0]['n']=30
+    finite=compile_durations(e,v,s,d,p,source_bindings=bindings)
+    assert 'finite_cohort_requires_explicit_joint_sampling_contract' in finite['dispositions'][0]['reasons']
+
+
+def test_activity_union_preserves_ids_and_compiles_a_first_visit_not_a_sum():
+    e,v,s,d,p=inputs()
+    e['measurements'][0].update(activity_ids=['review','file'],scope='segment')
+    v['measurements'][0]['operators'][0]['activity_ids']=['review','file']
+    bindings=first_visit_binding(e)
+    bindings['measurements'][0].update(population_condition=None,
+        operator_selections=[dict(operator_index=0,mode='first_present')])
+    assert not compile_durations(e,v,s,d,p)['observations']
+    result=compile_durations(e,v,s,d,p,source_bindings=bindings)
+    operator=result['observations'][0]['operators'][0]
+    assert operator['activity_ids']==['review','file']
+    assert operator['basis']=='single_visit_cycle'
+    assert operator['activity_selection']=='first_present'
+
+
+@pytest.mark.parametrize('bad',['quote','case','unknown_visit','unknown_statistic','no_assumptions','repeated_id'])
+def test_source_bindings_do_not_override_unresolved_source_contracts(bad):
+    e,v,s,d,p=inputs()
+    p={}
+    e['measurements'][0].update(case_id=None,statistic='median')
+    s['measurements'][0].update(population_scope='selected_cohort',statistic_interpretation='population_median')
+    bindings=first_visit_binding(e)
+    if bad=='quote': bindings['measurements'][0]['evidence'][0]['quote']='Not present'
+    elif bad=='case': e['measurements'][0]['case_id']='c1'
+    elif bad=='unknown_visit': v['measurements'][0]['operators'][0]['visits']='unknown'
+    elif bad=='unknown_statistic': s['measurements'][0]['statistic_interpretation']='unresolved'
+    elif bad=='no_assumptions': bindings['measurements'][0]['assumptions']=[]
+    elif bad=='repeated_id': bindings['measurements']*=2
+    with pytest.raises(ValueError):
+        compile_durations(e,v,s,d,p,source_bindings=bindings)
+
+
+def grouped_inputs():
+    e,v,s,d,p=inputs()
+    e['measurements'].append(copy.deepcopy(e['measurements'][0]))
+    e['measurements'][1]['id']='m2'
+    for audit in (v,s):
+        audit['measurements'].append(copy.deepcopy(audit['measurements'][0]))
+        audit['measurements'][1]['measurement_id']='m2'
+    groups=dict(schema_version='joint-visit-report-groups/1',program_id=e['program_id'],groups=[
+        dict(id='one_report',measurement_ids=['m1','m2'],relationship='repeated_wording',representative_id='m1',
+             evidence=[dict(doc_id='document',quote='Evidence')],assumptions=['One quantity restated, not a new sample.'])])
+    return e,v,s,d,p,groups
+
+
+def test_repeated_wording_retains_two_claims_but_exactly_one_likelihood_factor():
+    e,v,s,d,p,g=grouped_inputs()
+    e['measurements'][1].update(lower=10.,upper=15.,value=None)
+    original=copy.deepcopy((e,v,s))
+    c=compile_durations(e,v,s,d,p,report_groups=g)
+    assert (e,v,s)==original
+    assert c['coverage']['compiled_elapsed']==2
+    assert c['coverage']['likelihood_factors']==1
+    assert c['coverage']['informative_report_factors']==1
+    assert c['complete_elapsed_coverage']
+    assert c['observations'][0]['measurement_ids']==['m1','m2']
+    assert (c['observations'][0]['lower'],c['observations'][0]['upper'])==(11.5,12.5)
+    assert len(c['observations'][0]['provenance']['source_reports'])==2
+    assert {x['likelihood_id'] for x in c['dispositions']}=={'m1'}
+
+
+@pytest.mark.parametrize('intervals,expected',[
+    ([(0.,2.),(1.,3.)],[[0.,3.]]),
+    ([(0.,1.),(2.,3.)],[[0.,1.],[2.,3.]]),
+    ([(0.,2.),(1.,None)],[[0.,None]]),
+])
+def test_one_disjunctive_phrase_uses_interval_union_without_double_counting(intervals,expected):
+    e,v,s,d,p,g=grouped_inputs()
+    for m,(lo,hi) in zip(e['measurements'],intervals):
+        m.update(lower=lo,upper=hi,value=None)
+    g['groups'][0].update(relationship='disjunctive_report',representative_id=None)
+    c=compile_durations(e,v,s,d,p,report_groups=g)
+    assert len(c['observations'])==1
+    assert c['observations'][0]['report_intervals']==expected
+
+
+@pytest.mark.parametrize('bad',['different_cases','different_operators','conflicting_numbers','quote','overlap','same_case_components'])
+def test_grouping_never_guesses_independence_or_which_conflicting_report_to_trust(bad):
+    e,v,s,d,p,g=grouped_inputs()
+    if bad=='different_cases':
+        e['measurements'][1]['case_id']='c2'; p['case_sampling']['c2']='unselected'
+    elif bad=='different_operators': v['measurements'][1]['operators'][0]['activity_ids']=['file']
+    elif bad=='conflicting_numbers': e['measurements'][1].update(lower=30.,upper=35.,value=None)
+    elif bad=='quote': g['groups'][0]['evidence'][0]['quote']='Invented'
+    elif bad=='overlap': g['groups']*=2
+    elif bad=='same_case_components': g['groups'][0]['relationship']='same_case'
+    with pytest.raises(ValueError):
+        compile_durations(e,v,s,d,p,report_groups=g)

@@ -8,7 +8,7 @@ from pipeline.procbench.semantic_calibration import (
 from pipeline.procbench.compile_visit_durations import compile_durations
 from pipeline.procbench.bayes_trace_hierarchy import Config, VisitHierarchy
 from test_compile_visit_durations import inputs
-from test_trace_hierarchy import data_fixture
+from procbench_fixtures import data_fixture
 
 
 def labels():

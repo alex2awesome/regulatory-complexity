@@ -81,7 +81,10 @@ forum_thread        older, politer, higher contamination, 1-2 facts vague/wrong.
 """
 from __future__ import annotations
 
+from . import capacity
+from .decision import criterion_reveals, persona_failed_criteria, reading_phrase
 from .rng import chance, ddiff, pick, pick_n, sub_rng
+from .world import jur_by_id
 
 FIDELITIES = ("exact", "approximate", "vague", "wrong")
 
@@ -550,6 +553,8 @@ def reveals_for(kind: str, world: dict, proc: dict, rule: dict, statutes: dict, 
                       "%d applications received, %d permits issued, %d denied"
                       % (summary["n_applicants"], summary["outcomes"].get("approved", 0),
                          summary["outcomes"].get("denied", 0))))
+    # eligibility / compliance criteria as this jurisdiction applies them (decision.py)
+    R += criterion_reveals(kind, proc, rule, rng, knobs, stale)
     if not summary['elapsed_days']['n']:
         R=[row for row in R if not (row.get('measurement_clock') or {}).get('population')=='uncensored_approved_or_denied']
     must_not = [a["id"] for a in _staff(proc)
@@ -573,7 +578,21 @@ def _author(rng) -> str:
 
 
 def select_personas(world: dict, proc: dict, log: list[dict], summary: dict) -> list[dict]:
-    """Complaint-selection function: who posts about their case."""
+    """Complaint-selection function: who posts about their case.
+
+    At world_model_version 1 this is a pure filter, so a 200-case process always
+    yields posters and the thread count follows caseload. That conflates two
+    different things the register measured separately: WHO posts (complaint
+    selection, the parameter the plan calls kappa) and HOW MANY post at all
+    (channel availability, which is a property of the county, not the case mix).
+
+    At version 2 the filter still decides the ORDER -- delayed and denied
+    applicants first, which is the planted selection -- but the COUNT comes from
+    `capacity.post_volume`, calibrated to the measured median of 13 distinct
+    posts per county-programme cell. The consequence is the one the measurement
+    demands: 38% of county-programme cells produce no user evidence at all, and
+    a small county with a busy process still produces almost none.
+    """
     cs = world["knobs"]["complaint_selection"]
     p75 = summary["elapsed_days"]["p75"]
     posters = []
@@ -594,7 +613,75 @@ def select_personas(world: dict, proc: dict, log: list[dict], summary: dict) -> 
             posters.append((cls, rec, rng))
     order = {"denied": 0, "delayed": 1, "abandoned": 2, "normal": 3}
     posters.sort(key=lambda t: (order[t[0]], t[1]["applicant_id"]))
-    return posters
+    if world["knobs"].get("world_model_version", 1) < 2:
+        return posters                    # version 1 is a pure filter; unchanged
+    jur = jur_by_id(world).get(proc["jur_id"])
+    if not jur or jur["id"] not in {c["id"] for c in world.get("county_panel", [])}:
+        return posters                    # hand-written jurisdictions keep v1 behaviour
+    _u, v_c = capacity.county_effects(jur, world["seed"])
+    # The UNION of the two user channels, because the sweep deduplicated a post
+    # to one county whichever venue carried it. Using county_sub alone would
+    # charge the counties with no forum of their own with having no user
+    # evidence at all, which is exactly the overstatement the rural-commons
+    # argument turns on.
+    scenario = world["knobs"].get("availability_scenario", "reference")
+    # The county's standardised process delay, so the V_DELAY scenarios actually
+    # bite. Codex's review found that `post_volume` accepts `delay_z` but nothing
+    # in the build path ever passed it, so every delay scenario produced an
+    # IDENTICAL volume vector: the knob was decorative. My unit test passed only
+    # because it supplied `delay_z` by hand, which tested the function and not
+    # the wiring — a distinction worth keeping in mind for the other scenarios.
+    #
+    # Standardised against the 1.15 centre and 0.37 log spread that
+    # capacity.speed_factor realises, so delay_z is comparable across worlds.
+    import math as _m
+    speed = capacity.speed_factor(
+        jur, world["seed"], scenario=world["knobs"].get("speed_scenario", "reference"))
+    delay_z = _m.log(speed / 1.15) / 0.37
+    n_posts = sum(
+        capacity.post_volume(jur, channel, world["seed"], scenario=scenario,
+                             volume_effect=v_c, delay_z=delay_z,
+                             programme=proc["domain"])
+        for channel in ("county_sub", "statewide_sub"))
+    if not n_posts:
+        # An existing channel with zero volume, or no channel at all. Both are
+        # real and the ceiling must report `n_posts_with_timing: 0` rather than
+        # a small positive number.
+        return []
+    if n_posts >= len(posters):
+        return posters
+    # WEIGHTED SAMPLING WITHOUT REPLACEMENT, not a slice of the sorted list.
+    #
+    # The list above is sorted denied -> delayed -> abandoned -> normal so that
+    # the ORDER expresses complaint propensity. Taking `posters[:n_posts]` off
+    # that list looks like selection but is truncation: whenever the volume
+    # quota is small against the eligible pool, the first class simply consumes
+    # the whole quota. Codex's review measured the consequence in the first
+    # development world -- 14,713 of 16,908 rendered OPs (87%) were `denied`,
+    # which is a mechanical artifact of the quota and not a posting rate anyone
+    # measured.
+    #
+    # The fix keeps the two mechanisms independent, which is what the plan asks
+    # for: `complaint_selection` already decided WHO is eligible to post (the
+    # probabilistic filter above), and `post_volume` decides HOW MANY do. Once a
+    # case is eligible, which eligible cases get drawn must not re-apply the
+    # outcome weighting a second time. So the draw is uniform over the eligible
+    # pool, seeded per process for determinism.
+    #
+    # Efraimidis-Spirakis one-pass weighted sampling, with every weight equal:
+    # each item gets a key u^(1/w) and the top n_posts keys win. Written in the
+    # weighted form rather than as a plain shuffle so that giving a class a
+    # deliberate second-stage weight later is a one-line change with a visible
+    # place to declare it.
+    draw = sub_rng(world["seed"], "poster_sample", proc["model_id"])
+    keyed = sorted(
+        ((draw.random(), cls, rec, rng) for cls, rec, rng in posters),
+        key=lambda t: t[0])
+    chosen = [(cls, rec, rng) for _k, cls, rec, rng in keyed[:n_posts]]
+    # Restore complaint order within the sample, so downstream code that assumes
+    # the strongest complaint is first still holds.
+    chosen.sort(key=lambda t: (order[t[0]], t[1]["applicant_id"]))
+    return chosen
 
 
 def persona_from(world: dict, proc: dict, cls: str, rec: dict, rng) -> dict:
@@ -636,10 +723,13 @@ def persona_from(world: dict, proc: dict, cls: str, rec: dict, rng) -> dict:
         "abandoned": "gave up on the case; an earlier decision, if present, is a separate event from withdrawal",
         "normal": "sharing my timeline for anyone searching later; it went fine",
     }[cls]
+    failed = persona_failed_criteria(proc, rec)
     return {
         "applicant_id": rec["applicant_id"],
         "outcome": cls,
         "case_outcome": actual_outcome,
+        "failed_criteria": [{"pred_id": f["pred_id"], "name": f["name"], "resolved": f["resolved"],
+                             "reading": f["reading"]["label"]} for f in failed],
         "true_timeline": {"total_days": total, "arrived": rec["arrived"],
                           "rework_rounds": rec["total_rework_rounds"],
                           "fees_paid": rec.get("fees_paid_by_observation",rec["fees_paid"]),
@@ -666,8 +756,23 @@ def build_thread(world: dict, proc: dict, rule: dict, persona: dict, others: lis
         fid = "wrong" if chance(rng, knobs["p_wrong_fact_user"]) else "approximate"
         op_reveals.append(_rev("process", "fee", fid,
                                fee_phrase(persona["true_timeline"]["fees_paid"], fid, rng)))
+    op_wrong = ["timeline exaggerated by the poster"] if persona["reported_timeline"]["exaggerated"] else []
+    # the criterion the OP failed on, as they remember it (decision.py)
+    entries = {e["pred_id"]: e for e in (proc.get("decision_model") or {}).get("predicates", [])}
+    for fc in persona.get("failed_criteria", [])[:2]:
+        entry = entries.get(fc["pred_id"])
+        if not entry or not entry.get("reading"):
+            continue
+        fid = "wrong" if chance(rng, knobs["p_wrong_fact_user"]) else "approximate"
+        phrase = reading_phrase(entry, entry["reading"], fid, rng)
+        op_reveals.append(_rev(fc["pred_id"], "criterion", fid,
+                               "they %s me on %s: %s" % ("initially failed" if fc["resolved"] else "denied",
+                                                         entry["name"].lower(), phrase),
+                               criterion_kind=entry["kind"], from_case=True))
+        if fid == "wrong":
+            op_wrong.append("misstates the criterion %s" % fc["pred_id"])
     thread = [{"role": "op", "author": _author(rng), "reveals": op_reveals, "contamination": [],
-               "wrong": ["timeline exaggerated by the poster"] if persona["reported_timeline"]["exaggerated"] else [],
+               "wrong": op_wrong,
                "is_staff_insider": False}]
     contamination: list[dict] = []
 

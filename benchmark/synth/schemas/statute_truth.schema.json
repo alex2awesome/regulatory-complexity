@@ -213,6 +213,10 @@
       "items": {
         "type": "string"
       }
+    },
+    "decision_function": {
+      "type": "array",
+      "description": "decision.py: predicates the statute fixes (crisp), leaves to a standard, or delegates; readings live in local_rule_truth.readings"
     }
   }
 }

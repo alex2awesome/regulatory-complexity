@@ -10,7 +10,7 @@ import pathlib
 
 import numpy as np
 
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def decision_activity_ids(process):

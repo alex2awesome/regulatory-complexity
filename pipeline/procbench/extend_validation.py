@@ -11,7 +11,7 @@ import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel
 from .extend_hierarchy import check_fresh_seed, continue_chain
-from .run_hierarchical import write
+from .infra.manifest import write
 from .validate_hierarchy import generated_evidence
 
 

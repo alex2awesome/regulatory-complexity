@@ -14,7 +14,9 @@ import numpy as np
 
 from .evaluate_burden import compare_burden
 from .evidence_support import burden_support
-from .run_hierarchical import evaluate, write
+from .infra.manifest import write
+from .run_hierarchical import evaluate
+from .infra.scoring import absolute_log_error, log_interval_score
 
 
 def input_hashes(manifest):
@@ -52,10 +54,9 @@ def score_baseline(program, actual):
         raise ValueError('Reversed baseline interval')
     interval_score = None
     if lo is not None and hi is not None:
-        lower,upper,target = np.log([lo,hi,actual])
-        interval_score = float(upper-lower+20*max(lower-target,0.)+20*max(target-upper,0.))
+        interval_score = log_interval_score(lo, hi, actual)
     return {'median_days':point,
-        'absolute_log_error':None if point is None else float(abs(np.log(point/actual))),
+        'absolute_log_error':None if point is None else absolute_log_error(point, actual),
         'self_assessed_median_interval':[lo,hi],
         'interval_covers_truth':None if lo is None or hi is None else bool(lo<=actual<=hi),
         'interval_score90_log_median':interval_score}

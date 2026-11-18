@@ -11,7 +11,7 @@ import numpy as np
 
 from .bayes_trace_hierarchy import Config,VisitHierarchy
 from .extend_hierarchy import check_fresh_seed
-from .reconcile_evidence import digest,write
+from .infra.manifest import RunManifest, digest, write
 from .run_visit_hierarchy import precision_check,worker
 
 
@@ -40,9 +40,23 @@ def main(argv=None):
         if digest(pathlib.Path(path).read_bytes())!=expected:
             raise ValueError('An inference input changed')
     data=json.loads((root/'data.json').read_text())
+    # Route prior weights enter only the route Gibbs step, never `log_likelihood`,
+    # so the saved-likelihood check below cannot see a tampered `data.json`.
+    # Compare the saved data with the hashed original input outright, as refine does.
+    if len(base['input_sha256'])!=1:
+        raise ValueError('Expected exactly one original joint-model input')
+    (input_path,)=base['input_sha256']
+    if data!=json.loads(pathlib.Path(input_path).read_text()):
+        raise ValueError('Saved data disagree with the original inference input; cannot extend these chains')
+    # A reordered or replaced draws file keeps per-state likelihoods consistent, so
+    # only a recorded hash can detect it. Fits now record one; older fits did not.
+    saved_draws=digest((root/'draws.npz').read_bytes())
+    recorded_draws=original.get('draws_sha256')
+    if recorded_draws is not None and recorded_draws!=saved_draws:
+        raise ValueError('Saved draws changed since the fit completed; cannot extend these chains')
     prior_resolution=cfg.population_size
     if args.population_size is not None and args.population_size!=cfg.population_size:
-        if args.population_size<cfg.population_size or cfg.selection_sd or any(
+        if args.population_size<cfg.population_size or cfg.selection_sd or any(p.get('quantile_cohorts') or p.get('histogram_cohorts') for p in data['programs']) or any(
                 o['case_id'] is None for p in data['programs'] for o in p.get('observations',[])):
             raise ValueError('Can only increase output resolution when no population integral occurs in the likelihood')
         cfg=replace(cfg,population_size=args.population_size)
@@ -58,23 +72,20 @@ def main(argv=None):
     continuation=replace(cfg,seed=args.seed,warmup=0,draws=args.extra_draws)
     combined=replace(cfg,draws=z0.shape[1]+args.extra_draws)
     source=pathlib.Path(__file__).parent
-    names=['extend_visit_hierarchy.py','run_visit_hierarchy.py','bayes_trace_hierarchy.py',
-           'compact_visit_trace.py','latent_gaussian.py','visit_clocks.py','bayes_hierarchy.py',
-           'evidence_contract.py','schedule_kernel.py','extend_hierarchy.py','approximation_checks.py']
     manifest=dict(config=asdict(combined),continuation_config=asdict(continuation),base_run=str(root),
         base_manifest=original,started_utc=datetime.now(timezone.utc).isoformat(),
         saved_likelihood_checks=len(errors),saved_likelihood_max_difference=max(errors),
-        saved_draws_sha256=digest((root/'draws.npz').read_bytes()),
+        saved_draws_sha256=saved_draws,
+        saved_draws_hash_verified=recorded_draws is not None,
         original_population_size=prior_resolution,
         prediction_resolution_only=cfg.population_size!=prior_resolution,
-        hidden_truth_read_during_inference=False,
-        source_sha256={name:digest((source/name).read_bytes()) for name in names})
-    write(out/'manifest.json',manifest)
+        hidden_truth_read_during_inference=False)
+    record=RunManifest(out, manifest, operation='v6.extend',
+        inputs=[root/name for name in ('manifest.json','data.json','draws.npz','posterior.json')],
+        config=asdict(continuation),
+        seeds=dict(seed=args.seed, population_seed=cfg.population_seed, cohort_seed=cfg.cohort_seed, chain_stride=104729),
+        hidden_truth_read=False, source_root=source, sources=['extend_visit_hierarchy.py'])
     write(out/'data.json',data)
-    for name in names:
-        target=out/'source'/name
-        target.parent.mkdir(parents=True,exist_ok=True)
-        target.write_bytes((source/name).read_bytes())
     with ProcessPoolExecutor(max_workers=args.workers,mp_context=multiprocessing.get_context('spawn')) as pool:
         jobs=[pool.submit(worker,data,continuation,c,str(out),(z0[c,-1][None,:],s0[c,-1][None,:]))
               for c in range(cfg.chains)]
@@ -86,12 +97,13 @@ def main(argv=None):
     np.savez_compressed(out/'draws.npz',z=z,structures=s,log_likelihood=ll)
     model.cfg=combined
     report=model.report(z,s,ll)
-    report['precision']=precision_check(model,VisitHierarchy(data,replace(combined,population_size=cfg.population_size*4)),z,s)
+    report['precision']=precision_check(model,VisitHierarchy(data,replace(combined,population_size=cfg.population_size*4,
+        cohort_quadrature_size=cfg.cohort_quadrature_size*4)),z,s)
     report['numerically_usable']=report['posterior_converged'] and report['precision']['likelihood_acceptable'] and report['precision']['predictions_acceptable']
     write(out/'posterior.json',report)
-    manifest.update(completed_utc=datetime.now(timezone.utc).isoformat(),calls=[calls for _,calls in completed],
-                    posterior_sha256=digest((out/'posterior.json').read_bytes()))
-    write(out/'manifest.json',manifest)
+    record.complete(calls=[calls for _,calls in completed],
+                    posterior_sha256=digest((out/'posterior.json').read_bytes()),
+                    draws_sha256=digest((out/'draws.npz').read_bytes()))
     print(json.dumps(dict(numerically_usable=report['numerically_usable'],flagged=report['diagnostics_flagged'],
                          precision=report['precision'])),flush=True)
 

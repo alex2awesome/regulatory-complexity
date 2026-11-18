@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
 
-from pipeline.procbench.compact_visit_trace import Block,CompactTrace,Operation
+from pipeline.procbench.compact_visit_trace import (Block,CompactTrace,Operation,
+                                                    UnavailableTraceQuantity)
 
 
 def example(edges=None, rounds=2):
@@ -66,6 +67,53 @@ def test_unknown_agencies_resources_and_events_are_not_zero():
             trace.values(operator)
     with pytest.raises(ValueError,match='absent'):
         trace.event('initial_decision')
+
+
+def test_unknown_applicability_under_a_resource_or_count_claim_is_a_hard_error_not_residual():
+    """Pins a reverted mistake so it is not made twice.
+
+    These three refusals were once reclassified to `UnavailableTraceQuantity` so
+    that the honest encoding of missing evidence would "fall to residual mass".
+    It cannot: a resource-hours or count observation has no residual alternative
+    in the model, so the caught exception made the observation -inf on that
+    route and silently zeroed the route's posterior probability. A route must not
+    lose to its rival merely because one of its operations was honestly marked
+    unknown. Until an explicit hours/count residual exists, this is a hard error.
+    """
+    unknown_actor=CompactTrace([Operation('u',None,'unknown','review')],
+                               [Block('b',('u',))],np.array([[2.]]))
+    with pytest.raises(ValueError,match='Unknown agency identities') as caught:
+        unknown_actor.values(dict(basis='agency_count'))
+    assert not isinstance(caught.value,UnavailableTraceQuantity)
+
+    # a channel this route does not carry at all
+    with pytest.raises(ValueError,match='unmeasured/unmodeled') as caught:
+        example().values(dict(basis='payer_hours'))
+    assert not isinstance(caught.value,UnavailableTraceQuantity)
+
+    # applicability recorded as unknown (nan), which is what "unknown" must look like
+    ops=[Operation('file','payer','payer','filing',('submission',)),
+         Operation('review','A','agency','review'),
+         Operation('decide','A','agency','decision',('decision',))]
+    nan_applicability=CompactTrace(ops,[Block('cycle',('file','review')),Block('end',('decide',))],
+                                   np.array([[2.,3.,1.]]),None,
+                                   {'agency_hours':np.array([[0.,np.nan,.1]])})
+    with pytest.raises(ValueError,match='cannot silently omit unknown') as caught:
+        nan_applicability.values(dict(basis='agency_hours'))
+    assert not isinstance(caught.value,UnavailableTraceQuantity)
+
+
+def test_a_malformed_operator_still_fails_hard_rather_than_becoming_unavailable():
+    """Bad syntax is not an impossible quantity, and must not fall to residual mass.
+
+    The distinction this pins: an operator naming a basis that does not exist is a
+    validation failure, while a real basis this route cannot supply is an
+    unavailable quantity. Collapsing the first into the second would let a typo
+    silently reduce a claim to residual instead of failing loudly.
+    """
+    with pytest.raises(ValueError,match='Unsupported observation operator') as caught:
+        example().values(dict(basis='not_a_basis'))
+    assert not isinstance(caught.value,UnavailableTraceQuantity)
 
 
 def test_invalid_routes_and_counts_fail_instead_of_ignoring_evidence():

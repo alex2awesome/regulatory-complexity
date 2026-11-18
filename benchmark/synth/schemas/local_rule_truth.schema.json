@@ -189,6 +189,10 @@
           "type": "string"
         }
       }
+    },
+    "readings": {
+      "type": "object",
+      "description": "pred_id -> this jurisdiction's reading of each decision predicate (decision.py)"
     }
   }
 }

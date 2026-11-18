@@ -1,0 +1,81 @@
+{
+  "schema_version": "conversation-authority-record/1",
+  "recorded_date_utc": "2026-09-20",
+  "source": "User messages in this Codex conversation; no external signature or exact message timestamp inferred",
+  "study_scope": {
+    "status": "approved",
+    "user_response": "Solar + concealed carry; small new synthetic counterpart (Recommended)",
+    "real_families": ["solar", "concealed_carry"],
+    "synthetic_solar": "existing W2 S07 verified frozen subset",
+    "synthetic_ccw": "new small separately versioned counterpart; not an existing W2 statute",
+    "stop_new_broad_parse_queues": true,
+    "preserve_existing_partial_work": true
+  },
+  "study_scope_update": {
+    "status": "approved_for_execution",
+    "supersedes": "study_scope two-family work order, not its historical approval",
+    "planning_request": "great. please draft up a plan then to fully parse, verify and analyze these three real statutes with their corresponding synthetic setups",
+    "execution_approval": "great, please now get to work!",
+    "plan": "docs/2026-09-20-three-statute-parse-verify-analysis-plan.md",
+    "real_families": ["solar", "concealed_carry", "calfresh"],
+    "parse_boundary": "all relevant captured sources in a frozen three-family inventory; not unrelated programs or open-ended live retrieval",
+    "synthetic_counterparts": {"solar": "W2 S07 frozen pilot subset", "concealed_carry": "new separately versioned small analogue", "calfresh": "new separately versioned small analogue"},
+    "snapshot_authority_unchanged": true,
+    "archive_and_deletion_authority_unchanged": true
+  },
+  "snapshot": {
+    "status": "file_list_preparation_only",
+    "user_response": "Prepare file list; wait for approval before committing (Recommended)",
+    "staging_authorized": false,
+    "commit_authorized": false,
+    "push_authorized": false,
+    "excluded": ["raw corpora", "generated worlds", "raw runs", "caches", "vendored dependencies"],
+    "data_archive_destination_approved": false,
+    "deletion_authorized": false
+  },
+  "latest_priority_update": {
+    "status": "real_corpora_first_in_execution",
+    "user_instructions": ["please up-prioritize the real corpora and down-prioritize the synthetic corpora. at this point I'm not actually sure what role they serve", "so schedule everything with real corpora first"],
+    "work_order": "docs/2026-09-20-real-corpora-first-work-order.md",
+    "synthetic_work": "deferred; preserve partial source, specifications, receipts and earlier approvals; no new construction/rendering/synthetic-only infrastructure until real work is delivered or user reprioritizes",
+    "real_scope_unchanged": ["solar", "concealed_carry", "calfresh"],
+    "goal_paused": false
+  },
+  "synthetic_repairs": [
+    {
+      "id": "THREE_FAMILY_PILOT_003_public_detail_guide_expansion",
+      "status": "approved_implementation_in_progress",
+      "recorded_at_utc": "2026-09-20T17:05:00Z",
+      "timestamp_qualification": "Approximate recording time, not an inferred user-message timestamp",
+      "user_response": "Expand public-detail specifications; preserve the current pilot",
+      "authorized_change": "Expand sparse guide specifications using only facts already exposed in the same jurisdiction's public synthetic documents; prepare separate successor specifications and review before rerendering",
+      "preserve": ["current pilot", "all sampled processes", "timings", "sampled cases", "original specifications and artifacts", "prior verdicts"],
+      "guards": ["No invented facts", "No private-truth additions", "No cross-jurisdiction borrowing", "Itemized changes and public-source provenance for added facts", "No adoption or release implied by this approval"]
+    },
+    {
+      "id": "C57_S12_business_registration_ordering_conflict",
+      "status": "approved_not_yet_applied",
+      "user_response": "Correct descriptions to match the existing process (recommended)",
+      "proposal": "runs/w2_s12_s03_completion_20260917/repair_queue/C57__S12__business_registration_ordering.json",
+      "authorized_change": "Archive originals and correct only public descriptions to the existing business-tax-certificate prerequisite order; rerender and reverify affected compact documents",
+      "preserve": ["operational graph", "timings", "sampled cases", "structured fees and provenance", "prior-version history"],
+      "affected_compact_artifacts": ["C57__S12__fee_resolution", "C57__S12__ordinance", "C57__S12__staff_report"]
+    },
+    {
+      "id": "C25_S03_news_count_cohort_conflict",
+      "status": "approved_not_yet_applied",
+      "user_response": "Remove unsupported volume clause (recommended)",
+      "proposal": "runs/w2_s12_s03_completion_20260917/repair_queue/C25__S03__news_count_cohort.json",
+      "authorized_change": "Archive originals and remove only the unsupported 65-received/55-issued clause; rerender and reverify C25__S03__news",
+      "preserve": ["225-case measurement-clock sample", "timing range", "publication date", "policy version", "operational graph", "timings", "sampled cases"],
+      "superseded_proposal_text": "Do not apply the older historical/current cohort relabeling. The old instruction to preserve 65 and 55 applies to archival provenance, not continued publication."
+    }
+  ],
+  "historical_network_retrieval": {
+    "status": "retrospective_scope_record_not_a_new_approval",
+    "user_instructions_present_in_conversation": ["you can just focus on retrieving material", "ok please keep going, cast a wide net here", "I want exhaustive coverage", "check to see if we have everything"],
+    "interpretation": "Coordinator treated public-source gap retrieval as within those requests. This records the contemporaneous task basis; it does not assert a page-specific approval for 590 fetches or reconstruct missing saved worker briefs.",
+    "no_network_rule_scope": "Source-only parsing workers, not a blanket repository retrieval prohibition",
+    "new_study_policy": "No new broad live retrieval queue; use frozen existing sources unless a narrowly identified gap is separately recorded."
+  }
+}

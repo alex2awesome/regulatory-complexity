@@ -14,7 +14,7 @@ import pathlib
 import numpy as np
 from scipy.stats import beta
 
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 
 
 SCHEMA = 'semantic-calibration/1'

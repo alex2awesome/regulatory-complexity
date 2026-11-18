@@ -1,0 +1,67 @@
+{
+ "artifact_id": "J1__S03__form",
+ "world": "_fixture",
+ "kind": "form",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "applicant",
+ "url": "https://www.halvern.gov/forms/bld-214-unit-legalization.pdf",
+ "date": "2025-04-15",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Halvern Building Division",
+ "reveals": [
+  {
+   "ref": "A01",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "Section 2 pre-application meeting required for acceptance",
+   "must_quote": false
+  },
+  {
+   "ref": "A02",
+   "field": "artifact",
+   "fidelity": "exact",
+   "value": "submittal checklist: plans, site plan, photos, pre-2020 evidence, $430",
+   "must_quote": false
+  },
+  {
+   "ref": "A03",
+   "field": "exists",
+   "fidelity": "approximate",
+   "value": "department-use block: screening complete, complete/incomplete",
+   "must_quote": false
+  },
+  {
+   "ref": "A07",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "inspection result: pass / correct and reinspect",
+   "must_quote": false
+  },
+  {
+   "ref": "A08",
+   "field": "actor",
+   "fidelity": "vague",
+   "value": "approval signature line for the Chief Building Official",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A04",
+  "A09",
+  "A11"
+ ],
+ "contamination": [],
+ "style": {
+  "register": "bureaucratic_memo",
+  "length_words": [
+   250,
+   400
+  ],
+  "template_lineage": null
+ },
+ "why": "p_publish_form=0.8 drew 0.31; the department-use block inferably leaks A08 at vague fidelity"
+}

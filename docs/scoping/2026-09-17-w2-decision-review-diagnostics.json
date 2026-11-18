@@ -1,0 +1,426 @@
+{
+  "review_date": "2026-09-17",
+  "scope": "Independent read-only review of decision log and development generator. Development world W2_DEV_001 explicitly inspected. No reserved world, fitter, LLM or unit-test run.",
+  "input_hashes": [
+    {
+      "path": "docs/2026-09-16-w2-decision-log.md",
+      "sha256": "9ab24b3d500d5403fe185d98bf1f1deb6335d483d46c39ea0bece9d4403f9640"
+    },
+    {
+      "path": "docs/2026-09-16-w2-dev-001-release-report.md",
+      "sha256": "cff365f049a3435a1fcb2e3c82788db58da0dfa13d775a521eb4e89b7847af88"
+    },
+    {
+      "path": "docs/2026-09-16-source-volume-register.md",
+      "sha256": "e477798d47911a600c153cfce238f3cc678d9054c68cb8a8b406968945e754d9"
+    },
+    {
+      "path": "pipeline/recon/source_volume.py",
+      "sha256": "0fd40e7453ca9064dae96834b17dcc3d1d19d21a41d0974c63b694216aa39968"
+    },
+    {
+      "path": "pipeline/recon/county_coverage.py",
+      "sha256": "10b07a2fb1a58aeed62f62105ca9c9043000db4ca2fffee773ffbf462a1687ba"
+    },
+    {
+      "path": "pipeline/recon/retrieval_closure.py",
+      "sha256": "ed2a028bd0b52e7e1953807289cfe9cf2a66b73e38c4bbd31c189de24ebd801b"
+    },
+    {
+      "path": "pipeline/procbench/audit_corpus_anchors.py",
+      "sha256": "9d6fd4a824e2d1aa82996fa508cbf829dc36c4f6ec5398964b6326224c4787ef"
+    },
+    {
+      "path": "benchmark/synth/generator/capacity.py",
+      "sha256": "44500fc453ac16483a446f56af879b13c8336ce92a1d72683e34855cc5b924cc"
+    },
+    {
+      "path": "benchmark/synth/generator/world.py",
+      "sha256": "f1c52804477dc86cf5b9e12dee2a893042254776236a75abdf322f6480f39b76"
+    },
+    {
+      "path": "benchmark/synth/generator/processes.py",
+      "sha256": "1f4d46b248fa16b0ec31efaefbff3b2a3fdb8e1ad7c4dc303ba916bc1619b396"
+    },
+    {
+      "path": "benchmark/synth/generator/visibility.py",
+      "sha256": "a8a8dc1034aba90933660d9f1878aac5affe5a96de663bdb8c4127ee3d615ca2"
+    },
+    {
+      "path": "benchmark/synth/generator/lineage.py",
+      "sha256": "dc1dc572cb89662482b9cf6c57ca11e0c8d41390963a1dadc4ef1f8451f9fc15"
+    },
+    {
+      "path": "benchmark/synth/generator/specs.py",
+      "sha256": "06732b12d1936ee39c0eb2e594f9b5d1f1407e072b58c2f9005262ee1eea2347"
+    },
+    {
+      "path": "benchmark/synth/generator/simulate.py",
+      "sha256": "4e061a7a3f450f9bb57e45dc498d228d469648b846ef9fec2040f4046b31a45f"
+    }
+  ],
+  "source_volume": {
+    "county_post_memberships": 4998,
+    "globally_unique_selected_post_ids": 4591,
+    "post_ids_assigned_multiple_counties": 269,
+    "extra_county_assignments": 407,
+    "cells": 406,
+    "mean_cell_hits": 39.55418719211823,
+    "median_cell_hits": 13,
+    "empty_cells": 29,
+    "raw_error_files": 25,
+    "examples": [
+      {
+        "county": "Alpine",
+        "program_counts": [
+          [
+            "calfresh",
+            0
+          ],
+          [
+            "medical",
+            0
+          ],
+          [
+            "general_assistance",
+            0
+          ],
+          [
+            "ccw",
+            0
+          ],
+          [
+            "adu",
+            0
+          ],
+          [
+            "septic_well",
+            0
+          ],
+          [
+            "building_permit",
+            0
+          ]
+        ]
+      },
+      {
+        "county": "Modoc",
+        "program_counts": [
+          [
+            "calfresh",
+            1
+          ],
+          [
+            "medical",
+            1
+          ],
+          [
+            "general_assistance",
+            1
+          ],
+          [
+            "ccw",
+            5
+          ],
+          [
+            "adu",
+            1
+          ],
+          [
+            "septic_well",
+            1
+          ],
+          [
+            "building_permit",
+            1
+          ]
+        ]
+      },
+      {
+        "county": "Sierra",
+        "program_counts": [
+          [
+            "calfresh",
+            12
+          ],
+          [
+            "medical",
+            12
+          ],
+          [
+            "general_assistance",
+            12
+          ],
+          [
+            "ccw",
+            16
+          ],
+          [
+            "adu",
+            12
+          ],
+          [
+            "septic_well",
+            12
+          ],
+          [
+            "building_permit",
+            12
+          ]
+        ]
+      },
+      {
+        "county": "Trinity",
+        "program_counts": [
+          [
+            "calfresh",
+            1
+          ],
+          [
+            "medical",
+            0
+          ],
+          [
+            "general_assistance",
+            0
+          ],
+          [
+            "ccw",
+            1
+          ],
+          [
+            "adu",
+            1
+          ],
+          [
+            "septic_well",
+            1
+          ],
+          [
+            "building_permit",
+            0
+          ]
+        ]
+      },
+      {
+        "county": "Glenn",
+        "program_counts": [
+          [
+            "calfresh",
+            2
+          ],
+          [
+            "medical",
+            2
+          ],
+          [
+            "general_assistance",
+            2
+          ],
+          [
+            "ccw",
+            3
+          ],
+          [
+            "adu",
+            3
+          ],
+          [
+            "septic_well",
+            2
+          ],
+          [
+            "building_permit",
+            2
+          ]
+        ]
+      },
+      {
+        "county": "San Mateo",
+        "program_counts": [
+          [
+            "calfresh",
+            117
+          ],
+          [
+            "medical",
+            109
+          ],
+          [
+            "general_assistance",
+            114
+          ],
+          [
+            "ccw",
+            171
+          ],
+          [
+            "adu",
+            109
+          ],
+          [
+            "septic_well",
+            109
+          ],
+          [
+            "building_permit",
+            112
+          ]
+        ]
+      }
+    ],
+    "modoc_generic_hits": [
+      {
+        "id": "1774vnw",
+        "title": "Map shows where 'ring of fire' eclipse may be visible in California, Saturday 8 am [Modoc County, NE California for best viewing]",
+        "subreddit": "California"
+      }
+    ]
+  },
+  "speed_cache": {
+    "scope": "In-memory development diagnostic; no reserved files read or world files written.",
+    "reference_cache": {
+      "C01": 0.7233647653337898,
+      "C02": 1.619516780447158
+    },
+    "inverse_warm_cache": {
+      "C01": 0.7233647653337898,
+      "C02": 1.619516780447158
+    },
+    "inverse_expected": {
+      "C01": 1.4523194919757945,
+      "C02": 0.8162894696515771
+    },
+    "inverse_cold_cache": {
+      "C01": 1.4523194919757945,
+      "C02": 0.8162894696515771
+    },
+    "warm_matches_reference": true,
+    "warm_matches_expected": false,
+    "cold_matches_expected": true,
+    "warm_vs_cold_process_dicts_equal": false
+  },
+  "development_specs": {
+    "truth_read_scope": "Explicit development world W2_DEV_001 only: world/specs, one process and one case row. No reserved world, no fitting.",
+    "world_hash": "a6af2570325daa1a6b8fd58756f2964be7f102a9890fc9f0f2c64d620e270c5e",
+    "target_specs_by_kind": {
+      "faq": 199,
+      "reddit_thread": 16908,
+      "third_party_guide": 199,
+      "ordinance": 391,
+      "checklist": 321,
+      "official_stats": 140,
+      "program_page": 326,
+      "fee_resolution": 275,
+      "news": 227,
+      "form": 385,
+      "sop": 57,
+      "staff_report": 138,
+      "audit_excerpt": 32,
+      "council_minutes": 160,
+      "forum_thread": 108,
+      "generic_permits_page": 62,
+      "fee_schedule": 52,
+      "bill_analysis": 10
+    },
+    "timing_reveal_specs_by_kind": {
+      "faq": 199,
+      "reddit_thread": 16908,
+      "third_party_guide": 199,
+      "ordinance": 219,
+      "official_stats": 140,
+      "program_page": 241,
+      "sop": 57,
+      "staff_report": 138,
+      "audit_excerpt": 32,
+      "council_minutes": 160,
+      "forum_thread": 108,
+      "news": 95,
+      "bill_analysis": 9
+    },
+    "reddit_op_classes": {
+      "denied": 14713,
+      "delayed": 1910,
+      "abandoned": 123,
+      "normal": 162
+    },
+    "unique_reddit_op_case_ids": 16908,
+    "repeated_reddit_op_ids": 0,
+    "lineage": {
+      "copied_text": 34
+    },
+    "sample_process_file": "benchmark/synth/worlds/W2_DEV_001/truth/processes/C01__S06.json",
+    "sample_activity_keys": [
+      "id",
+      "name",
+      "local_name",
+      "actor",
+      "counterparty",
+      "visibility",
+      "element_ref",
+      "element_text",
+      "span",
+      "occasion",
+      "artifacts_in",
+      "artifacts_out",
+      "timing",
+      "fee",
+      "rework",
+      "optional",
+      "p_occurs",
+      "flow_gate",
+      "notes",
+      "per_case",
+      "blocking",
+      "statutorily_disclosed",
+      "evaluates",
+      "inputs_required"
+    ],
+    "sample_timing": {
+      "dist": "lognormal",
+      "median_days": 17.1,
+      "p90_days": 51.4
+    },
+    "sample_case_file": "benchmark/synth/worlds/W2_DEV_001/truth/log/C01__S02.jsonl",
+    "sample_case_keys": [
+      "applicant_id",
+      "arrived",
+      "outcome",
+      "provisional_outcome",
+      "elapsed_days",
+      "total_span_days",
+      "fees_paid",
+      "rework_rounds",
+      "total_rework_rounds",
+      "rework_events",
+      "appealed",
+      "censored",
+      "path",
+      "event_clocks",
+      "fees_paid_by_observation",
+      "case_attributes",
+      "predicate_results",
+      "decision_basis"
+    ],
+    "sample_path_keys": [
+      "a",
+      "s",
+      "e",
+      "r",
+      "b",
+      "visit_index",
+      "loop_triggers_before",
+      "fee_charged_dollars"
+    ]
+  },
+  "delay_scenario_caller_check": {
+    "description": "Same seed 101 and 58 generated counties, well_permit programme, county_sub and statewide_sub; actual callers omit both delay_z and caseload_z.",
+    "count_vectors_identical": true,
+    "totals": {
+      "reference": 2009,
+      "evidence_constrained": 2009,
+      "delay_suppresses": 2009
+    },
+    "theory": "V_DELAY multiplies default delay_z=0 in every call from world.py and visibility.py."
+  }
+}

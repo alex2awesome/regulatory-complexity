@@ -13,10 +13,11 @@ import multiprocessing
 import pathlib
 
 import numpy as np
+from .infra.scoring import interval_score
 
 from .bayes_process_measurement import log_selection_weight
 from .latent_gaussian import diagnostics,elliptical_slice,summary
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 from .validate_process_selection import selected_cases
 
 
@@ -72,7 +73,7 @@ def fit(rep,n_selected,n_admin,selected,admin,seed,warmup,draws,out):
     np.savez_compressed(target/'draws.npz',z=z,log_likelihood=ll)
     result=dict(replicate=rep,n_selected=n_selected,n_admin=n_admin,median_days=float(np.exp(point)),
         ci90_days=np.exp([lo,hi]).tolist(),absolute_log_error=float(abs(point-math.log(30))),
-        covers=bool(lo<=math.log(30)<=hi),interval_score90=float(hi-lo+20*max(lo-math.log(30),0)+20*max(math.log(30)-hi,0)),
+        covers=bool(lo<=math.log(30)<=hi),interval_score90=interval_score(lo, hi, math.log(30)),
         log_case_sd=summary(.6*np.exp(.7*z[:,:,1])),log_relative_posting_rate=summary(strength),
         diagnostics=diags,diagnostics_flagged=flagged,numerically_usable=not flagged)
     write(target/'result.json',result)

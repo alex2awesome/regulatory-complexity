@@ -1,0 +1,10 @@
+{
+  "process_family": "serial_completeness_loop",
+  "observation_family": "complete_partition_uniform_posting",
+  "day_grid_size": 512,
+  "hour_grid_size": 512,
+  "max_loops": 4,
+  "contamination_probability": 0.02,
+  "contamination_max_days": 365,
+  "post_day_range": null
+}

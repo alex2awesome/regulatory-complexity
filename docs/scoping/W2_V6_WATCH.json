@@ -1,0 +1,805 @@
+{
+ "world": "W2_DEV_001",
+ "requested_by": "user on 2026-09-17",
+ "status_command": "python3 benchmark/synth/render/status.py --world W2_DEV_001 --json",
+ "completion_gate": "observed.complete_by_counts === true",
+ "cadence_seconds": 3600,
+ "last_checked_utc": "2026-09-21T08:36:19.285566+00:00",
+ "last_observed": {
+  "selected_specs": 245,
+  "artifacts_rendered": 2886,
+  "artifacts_missing": 0,
+  "artifacts_verified": 2875,
+  "artifacts_unverified": 11,
+  "artifacts_failed_verification": 45,
+  "words_rendered": 1949646,
+  "batches_total": 43,
+  "batches_with_render_log": 281,
+  "batches_outstanding": [
+   "AV00",
+   "AV01",
+   "AV02",
+   "AV03",
+   "AV04",
+   "BT00",
+   "BT01",
+   "BT02",
+   "BT03",
+   "BT04",
+   "BT05",
+   "BT06",
+   "BT07",
+   "BT08",
+   "BT09",
+   "BT10",
+   "BT11",
+   "BT12",
+   "V00"
+  ],
+  "sample_missing": [],
+  "sample_failed": [
+   "C03__S06__program_page",
+   "C03__S11__form",
+   "C06__S02__checklist",
+   "C06__S02__form",
+   "C06__S02__ordinance",
+   "C06__S06__staff_report",
+   "C06__S07__form",
+   "C06__S07__staff_report",
+   "C09__S04__form",
+   "C09__S08__staff_report",
+   "C09__S10__reddit_1",
+   "C09__S10__reddit_2",
+   "C09__S10__staff_report",
+   "C12__S01__reddit_4",
+   "C12__S06__reddit_4",
+   "C12__S07__news",
+   "C12__S07__reddit_2",
+   "C12__S10__staff_report",
+   "C15__S01__fee_resolution",
+   "C15__S01__form"
+  ],
+  "selected_counts": {
+   "rendered": 245,
+   "missing": 0,
+   "verified": 245,
+   "unverified": 0,
+   "failed_verification": 2,
+   "sample_unverified": [],
+   "sample_failed": [
+    "C25__S03__news",
+    "C36__S03__news"
+   ]
+  },
+  "complete_by_counts": true,
+  "all_rendered_have_verdicts": false,
+  "stale_verdicts_ignored": 0,
+  "artifacts_suspicious": 0,
+  "sample_suspicious": [],
+  "idle_minutes": 1965,
+  "last_write_was": "verify_log",
+  "looks_alive": false,
+  "warm_but_idle": false,
+  "work_units_seen": 7976,
+  "scope_mode": "single_statute_completion",
+  "scope_statute": "S03",
+  "scope_rank": 2,
+  "lane_complete": true,
+  "corpus_complete": false
+ },
+ "writer_claim": "in_progress",
+ "execution_mode": "active_session_read_only_local_timer; no separately installed durable scheduler",
+ "on_completion": [
+  "Re-read shared W2-RENDER log and current resume/run provenance; do not rely on state alone.",
+  "Spawn a parsing subagent as explicitly requested. Give it an artifact-only input allowlist; no truth/specs/ceilings/scores or reserved labels.",
+  "Freeze artifact, selection, verification and extractor hashes; handle failed verification explicitly.",
+  "Run the integrated V6 pipeline on compiled evidence; report diagnostics, coverage, identifiability and held-out evaluation boundaries; do not substitute V4/V5."
+ ],
+ "resume_instructions": "If session ends, check status immediately on resumption, then resume hourly. Avoid duplicate parser/fits by checking W2-V6-WATCH and saved run manifests first.",
+ "last_poll_file": "runs/rw_parse_20260919/hourly_render_status_20260921_083619.json",
+ "next_check_due_utc": "2026-09-21T09:36:19.285566+00:00",
+ "watch_generation": 7,
+ "runtime_note": "06:00 UTC Sep20: scope narrowed by Alex to solar and CCW plus a new small synthetic CCW counterpart; no new broad parse queues. Selected73 ledgers/10141 retained rows remain unfit for compilation without adopted semantic corrections. Three parsing workers stopped on usage limits; preserve340-page324089 checkpoint,1000 accepted324060 manual clauses and unreviewed later outputs. Both task-prior fits completed and failed recovery; C29 median102.88 versus46, C44 median107.19 versus41. C44 selection finished sampling and is reporting at06:00 check, not a completed result. Compact428/438 current passes with29 artifacts under hold, including10 nonpassing; C57 ordering/C25 volume repairs approved but not applied. Hourly05:26 selectedS03 count gate true with2 failures; whole corpus incomplete. No commit or deletion authorized.",
+ "last_poll_field": "status.observed",
+ "parser": {
+  "agent": "/root/w2_source_only_parse",
+  "launched": true,
+  "fork_turns": "none",
+  "purpose": "source-only diagnostic extraction, not final benchmark",
+  "source_directory": "runs/w2_v6_diagnostic_sources_20260917_2335/sources",
+  "source_documents": 136,
+  "programs": 11,
+  "partitions": "existing calibration and development only; reserved and unassigned excluded",
+  "output_directory": "runs/w2_v6_diagnostic_parse_20260917_2335",
+  "v6_fit_started": true,
+  "do_not_launch_duplicate": true,
+  "first_accepted_ledger": "runs/w2_v6_diagnostic_parse_20260917_2335/C29__S12/evidence.json",
+  "v6_fits": {
+   "launched_utc": "2026-09-18T19:09:37.482028+00:00",
+   "host": "sk3:/lfs/skampere3/0/alexspan/regulatory-complexity-v6",
+   "bridge_input": "runs/w2_v6_bridge_20260918/combined/data.json",
+   "bridge_module": "pipeline/procbench/bridge_structural_routes.py",
+   "runs": [
+    "runs/w2_v6_fit_combined_pop4096",
+    "runs/w2_v6_fit_combined_pop4096_rep",
+    "runs/w2_v6_fit_C29__S12_pop4096",
+    "runs/w2_v6_fit_C44__S12_pop4096"
+   ],
+   "settings": "chains 4, warmup 1000, draws 2000, workers 4, population-size 4096, cohort-quadrature-size 256, --observed-channels-only; --within-visit-phases except the C29-only fit",
+   "scope": "diagnostic on two S12 programmes; declared route/path weights; elapsed channel only; not a benchmark or LLM-comparison result",
+   "audit": "docs/2026-09-18-bayesian-machinery-audit.md",
+   "do_not_launch_duplicate": true
+  }
+ },
+ "runtime_updated_utc": "2026-09-20T05:10:00+00:00",
+ "real_corpus": {
+  "current_cross_ledger_review": "runs/rw_parse_20260919/cross_ledger_linkage_review_v2/review.json",
+  "cross_ledger_review_fit_application": "mandatory_before_global_pooling_not_yet_consumed",
+  "selected_snapshot": "runs/rw_parse_20260919/review_sweeps_73_ledgers/selected_ledgers.json",
+  "selected_ledgers": 73,
+  "measurement_rows": 10141,
+  "measurement_rows_are_not_independent_observations": true,
+  "fit_ready": false,
+  "corpus_complete": false,
+  "progress_doc": "docs/2026-09-19-codex-parse-continuation.md",
+  "forum_plan": "runs/rw_parse_20260919/FORUM_WORK_PLAN_v3.json",
+  "megathreads_completed": 14,
+  "megathreads_total": 19,
+  "completed_megathread_main_pages": 1753,
+  "current_whole_thread": "324089",
+  "parallel_whole_thread": "324060",
+  "solano_parent_review": "runs/rw_parse_20260919/calguns_324124_parent_semantic_review_v1.json",
+  "cf296_parse": {
+   "owner": "/root/calfresh_cf296_parse",
+   "state": "native_extraction_complete_parent_raw_cell_replay_pass",
+   "workbooks": 10,
+   "output": "runs/rw_parse_20260919/calfresh_cf296_cohort_parse_v1",
+   "parent_receipt": "runs/rw_parse_20260919/calfresh_cf296_parent_validation_v1.json",
+   "native_rows": 7139,
+   "native_values": 887301,
+   "included_in_canonical_measurement_count": false
+  },
+  "exhaustive_reddit_batches_selected": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ],
+  "exhaustive_reddit_threads_selected": 419,
+  "exhaustive_reddit_comments_selected": 8372,
+  "exhaustive_reddit_threads_queued": 1799,
+  "exhaustive_reddit_comments_queued": 32669,
+  "current_reddit_batch": "025",
+  "reddit_024_state": "sealed_mechanical_replay_pass_parent_semantic_hold_revision_requested",
+  "reddit_024_parent_hold": "runs/rw_parse_20260919/exhaustive_reddit_batch024_parent_semantic_hold_v1.json",
+  "reddit_023_state": "reviewed_v1_selected_parent_scoped_semantic_acceptance",
+  "reddit_023_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch023_parent_semantic_review_v1.json",
+  "reddit_023_parent_hold": "runs/rw_parse_20260919/exhaustive_reddit_batch023_parent_semantic_hold_v1.json",
+  "reddit_021_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch021_parent_semantic_review_v1.json",
+  "reddit_022_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch022_parent_semantic_review_v1.json",
+  "reddit_020_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch020_parent_semantic_review_v1.json",
+  "well_001_native_draft": "runs/rw_parse_20260919/well_response_parse_parent_v1/batch001/manifest.json",
+  "well_001_native_draft_state": "reviewed_v2_parent_byte_pass_105_native_claims_not_canonical",
+  "well_001_reviewed_revision": "runs/rw_parse_20260919/well_response_parse_parent_v1/batch001/reviewed_v2/manifest.json",
+  "well_002_eldorado_reviewed_revision": "runs/rw_parse_20260919/well_response_parse_parent_v1/batch002_eldorado/reviewed_v2/manifest.json",
+  "well_002_eldorado_state": "8_sources_117_native_claims_independent_review_and_parent_replay_not_canonical",
+  "well_003_reviewed_revision": "runs/rw_parse_20260919/well_response_parse_parent_v1/batch003/reviewed_v2/manifest.json",
+  "well_003_state": "10_sources_58_native_claims_independent_review_and_parent_replay_not_canonical",
+  "well_004_reviewed_revision": "runs/rw_parse_20260919/well_response_parse_parent_v1/batch004/reviewed_v2/manifest.json",
+  "well_004_state": "10_sources_95_native_claims_seven_corrections_materialized_independent_review_parent_replay_not_canonical",
+  "reddit_021_parent_hold": "runs/rw_parse_20260919/exhaustive_reddit_batch021_parent_semantic_hold_v1.json",
+  "reddit_019_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch019_parent_semantic_review_v1.json",
+  "reddit_017_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch017_parent_semantic_review_v1.json",
+  "thread_324104_state": "reviewed_v1_selected_parent_integrity_and_scoped_semantic_pass",
+  "thread_324104_parent_review": "runs/rw_parse_20260919/calguns_324104_parent_semantic_review_v1.json",
+  "thread_324104_fee_flag_review": "runs/rw_parse_20260919/calguns_324104_fee_flag_parent_review_v1.json",
+  "thread_324060_state": "reviewed_v3_partial_first600_manual_clauses_parent_scoped_acceptance_with_mandatory_overlays_2104_pending",
+  "thread_324060_manual_clauses_accepted": 600,
+  "thread_324060_original_pending_clauses_remaining": 2104,
+  "thread_324060_manual_parent_reviews": [
+   "runs/rw_parse_20260919/calguns_324060_manual_shard1_parent_review_v1.json",
+   "runs/rw_parse_20260919/calguns_324060_manual_shard2_parent_review_v1.json",
+   "runs/rw_parse_20260919/calguns_324060_manual_shard3_parent_review_v1.json"
+  ],
+  "thread_324060_v3_parent_review": "runs/rw_parse_20260919/calguns_324060_reviewed_v3_parent_review_v1.json",
+  "thread_324060_parent_hold": "runs/rw_parse_20260919/calguns_324060_reviewed_v2_parent_hold_v1.json",
+  "reddit_018_state": "reviewed_v1_selected_parent_integrity_and_scoped_semantic_pass",
+  "reddit_018_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch018_parent_semantic_review_v1.json",
+  "native_administrative_packet": "runs/rw_parse_20260919/calfresh_cf18_cohort_parse_v1",
+  "native_administrative_parent_check": "runs/rw_parse_20260919/calfresh_cf18_parent_validation_v1.json",
+  "cf18_native_rows": 3422,
+  "cf18_native_cells": 232696,
+  "cf18_included_in_canonical_measurement_count": false,
+  "do_not_launch_duplicate": true,
+  "remaining_workbook_parse": {
+   "state": "native_extraction_complete_parent_raw_cell_replay_pass",
+   "workbooks": 9,
+   "output": "runs/rw_parse_20260919/remaining_program_workbooks_parse_v1",
+   "native_rows": 4435,
+   "native_values": 348925,
+   "included_in_canonical_measurement_count": false,
+   "parent_receipt": "runs/rw_parse_20260919/remaining_program_workbooks_parent_validation_v1.json"
+  },
+  "reddit_011_state": "reviewed_v1_selected_with_parent_semantic_holds",
+  "legacy_forum_parse": {
+   "owner": "/root/calfresh_cf296_parse",
+   "state": "native_supplements_and_corrected_three_row_derivative_parent_accepted_original_ledger_held",
+   "batches": 5,
+   "output": "runs/rw_parse_20260919/legacy_forum_parse_v1",
+   "parent_hold": "runs/rw_parse_20260919/legacy_forum_parent_semantic_hold_v1.json",
+   "ocr_supplement": "runs/rw_parse_20260919/legacy_pdf_ocr_parse_v1",
+   "ocr_selected_pages": 191,
+   "ocr_parent_review": "runs/rw_parse_20260919/legacy_ocr_parent_review_v1.json",
+   "ocr_semantic_acceptance": false,
+   "sonoma_reviewed_supplement": "runs/rw_parse_20260919/legacy_forum_reviewed_v1",
+   "ocr_reviewed_supplement": "runs/rw_parse_20260919/legacy_pdf_ocr_parse_reviewed_v1",
+   "reviewed_native_supplements_accepted": true,
+   "reviewed_supplements_parent_receipt": "runs/rw_parse_20260919/legacy_reviewed_supplements_parent_v1.json",
+   "original_canonical_ledger_selected": false,
+   "worker_current_assignment": "calguns_324060",
+   "selected_canonical_derivative": "runs/rw_parse_20260919/legacy_forum_parse_v1/canonical_review_v1",
+   "selected_canonical_measurements": 3,
+   "canonical_parent_acceptance": "runs/rw_parse_20260919/latest_reviewed_packets_parent_acceptance_v1.json"
+  },
+  "empty_ocr_visual_review": {
+   "pixel_white_higher_resolution_recheck": "runs/rw_parse_20260919/grand_jury_reports_v1/missing_page_ocr_v1/white_page_recheck_300dpi_capped_v2/parent_replay.json",
+   "higher_resolution_pixel_white_pages": 102,
+   "state": "72_nonwhite_pages_individually_triaged",
+   "receipt": "runs/rw_parse_20260919/grand_jury_reports_v1/missing_page_ocr_v1/visual_review_v1/parent_review_receipt.json",
+   "unresolved_transcriptions": [
+    19,
+    28
+   ],
+   "full_report_coverage": false
+  },
+  "reddit_016_parent_review": "runs/rw_parse_20260919/exhaustive_reddit_batch016_parent_semantic_review_v1.json",
+  "colusa_word_visual_review": {
+   "receipt": "runs/rw_parse_20260919/well_response_captures_v1/colusa_word_visual_review_v2/parent_review_receipt.json",
+   "rendered_pages_visually_reviewed": 5,
+   "native_claims": 12,
+   "canonical_measurements": 0,
+   "full_well_queue_semantic_parse_complete": false
+  },
+  "well_sparse_page_review": {
+   "receipt": "runs/rw_parse_20260919/well_response_captures_v1/sparse_visual_review_v1/parent_review_receipt.json",
+   "pdf_sources": 4,
+   "pages_visually_triaged": 17,
+   "native_procedure_claims": 10,
+   "canonical_measurement_rows": 0,
+   "corpus_parsed": false,
+   "overprinted_page_transcription_complete": false
+  }
+ },
+ "machinery_changes_20260919": {
+  "doc": "docs/2026-09-19-real-corpus-machinery-gaps.md",
+  "new_modules": [
+   "pipeline/procbench/convert_counts_sidecar.py",
+   "pipeline/procbench/derive_structural_handoff.py"
+  ],
+  "tests_added": 31,
+  "suite": 809,
+  "derived_handoffs": "structural_handoff.derived.json written for all nine parsed ledgers",
+  "derived_handoff_calibration": "95.6% agreement with the one authored handoff on operation membership; the two disagreements are route membership, and the error direction is over-inclusion",
+  "second_process_to_reach_v6": "cslb_license bridged to 48 operations, 1 route, 1 path, 2,615 dimensions",
+  "open_recommendations": [
+   "declared case registry in the evidence ledger, so a count-only case can exist",
+   "V6 carries one repeat block per programme; the nine ledgers hold 32 disconnected loops",
+   "per-measurement semantic audit is the remaining hand-authored bottleneck, 6 of 9 lack one"
+  ]
+ },
+ "remote": {
+  "host": "alexspan@skampere3.stanford.edu",
+  "reachable": true,
+  "checked_utc": "2026-09-19T18:50:32Z",
+  "collected_to": "runs/w2_v6_fits_sk3_20260919",
+  "fits": [
+   "v2_C29__S12_p8192",
+   "v2_C29__S12_dedup_p8192",
+   "v2_combined_p8192",
+   "v2_combined_dedup_p8192",
+   "v2_S03_p4096",
+   "v2_all5_p4096",
+   "rw_fit_solartrace12",
+   "rw_fit_solartrace60"
+  ],
+  "converged": [
+   "v2_C29__S12_p8192",
+   "v2_C29__S12_dedup_p8192",
+   "v2_combined_p8192",
+   "v2_combined_dedup_p8192"
+  ],
+  "truth_comparison": "runs/w2_v6_fits_sk3_20260919/truth_comparison.json"
+ },
+ "solar_fit": {
+  "path": "runs/rw_parse_20260918/solar_permit/fit_full",
+  "completed_utc": "2026-09-19T10:47:55Z",
+  "converged": false,
+  "numerically_usable": false,
+  "coordinates": 2527,
+  "flagged": 262,
+  "rhat": {
+   "median": 1.002,
+   "p90": 1.009,
+   "max": 1.122,
+   "over_1_01": 227,
+   "over_1_05": 16,
+   "over_1_10": 3
+  },
+  "ess_bulk": {
+   "median": 1935,
+   "min": 26,
+   "under_400": 202
+  },
+  "numerics": "clean: importance ESS fraction 1.0, weight TV 1.2e-16, log-likelihood change 0.0 at 4x population",
+  "failing_precision_gate": "max relative clock quantile change 0.0262 against a 0.025 tolerance",
+  "provisional": {
+   "whole_process_median_days": 225.8,
+   "ci90": [
+    130.2,
+    387.6
+   ],
+   "published": 113,
+   "phases": {
+    "ahj_permit_review": [
+     4,
+     36.9
+    ],
+    "preinstall_interconnection": [
+     0,
+     3.3
+    ],
+    "installation": [
+     16,
+     5.5
+    ],
+    "inspection": [
+     11,
+     40
+    ],
+    "post_inspection_clearance": [
+     2,
+     2.3
+    ],
+    "final_to_pto": [
+     12,
+     8.9
+    ]
+   }
+  },
+  "routes": {
+   "merge:automated_review_replaces_the_ahj_plan_review": 0.5126,
+   "merge:preinstall_approval_is_not_a_separate_utility_work_unit": 0.2661,
+   "ledger_distinct": 0.2213
+  },
+  "identification": {
+   "coordinates": 2514,
+   "below_25_percent": 2418,
+   "below_10_percent": 2191
+  },
+  "extension": {
+   "out": "runs/rw_parse_20260918/solar_permit/fit_full_ext",
+   "extra_draws": 4000,
+   "workers": 2,
+   "seed": 2026392101,
+   "launched": true,
+   "why": "90 percent of coordinates are already mixed and the draws are on disk",
+   "chains_done": 4,
+   "chains_3_4_at": 4000,
+   "of": 4000,
+   "checked_utc": "2026-09-19T23:32:10Z",
+   "pid": 44751,
+   "state": "completed_diagnostic_gates_failed",
+   "report_completed": true,
+   "completed_utc": "2026-09-19T23:24:57.307759+00:00",
+   "numerically_usable": false,
+   "independent_audit": "runs/rw_parse_20260919/solar_extension_independent_audit_v1.json",
+   "additional_operation_sum_rhat_max": 1.0411800264573705,
+   "additional_source_adjusted_sum_rhat_max": 1.0408604988754009,
+   "max_relative_clock_quantile_change": 0.02533075817883912,
+   "landed": true,
+   "converged": false,
+   "flagged": 66,
+   "rhat_max": 1.0277,
+   "ess_bulk_min": 173,
+   "whole_process_median_days": 223.1,
+   "ci90": [
+    134.1,
+    377
+   ],
+   "routes": {
+    "ledger_distinct": 0.21070833333333333,
+    "merge:automated_review_replaces_the_ahj_plan_review": 0.5347916666666667,
+    "merge:preinstall_approval_is_not_a_separate_utility_work_unit": 0.2545
+   },
+   "verdict": "stable under 3x draws; not quotable, see burden audit 2.4"
+  },
+  "provisional_warning": "Historical diagnostic only. Source scope, units, cohort denominators and endpoint comparisons unresolved; no real-corpus headline or agency-culture result. See docs/2026-09-19-bayesian-burden-audit.md and docs/2026-09-19-solartrace-input-and-sampler-audit.md."
+ },
+ "burden_audit_20260919": {
+  "doc": "docs/2026-09-19-bayesian-burden-audit.md",
+  "development_truth_read_for_evaluation": "benchmark/synth/worlds/W2_DEV_001/truth",
+  "receipt": "runs/w2_v6_fits_20260918/truth_comparison.json",
+  "headline": "V6 clocks 1.8-4.2x too long vs W2 truth; visit counts near truth but at prior; solar fit used forum reports only; fee total never reported; agency effect never identified",
+  "do_not_spawn_parser_from_audit_conversation": true
+ },
+ "parse_cron": {
+  "status": "deleted 2026-09-19 after Alex stopped the parse for Codex hand-off",
+  "job": "cbbf16db"
+ },
+ "plan": "docs/2026-09-19-next-steps-plan.md",
+ "prior_watch_archive": "runs/rw_parse_20260919/W2_V6_WATCH_before_2324.json",
+ "completion_qualifier": "observed.complete_by_counts certifies artifact-plus-verdict presence for the selected lane only; not all-pass, hash-current compact release, whole-world completion, or model recovery.",
+ "real_corpus_historical_20260919_1052": {
+  "run": "runs/rw_parse_20260918",
+  "queue": "runs/rw_parse_20260918/PARSE_QUEUE.json",
+  "processes": 23,
+  "parsed": 9,
+  "documents": 6783,
+  "documents_pending": 5434,
+  "measurements": 1800,
+  "parsed_list": [
+   "solar_permit 476",
+   "ccw_counties 288",
+   "n400_naturalization 264",
+   "cslb_license 241",
+   "food_facility 182",
+   "dros_firearm 137",
+   "adu_permit 116",
+   "cpra_request 67",
+   "ab2533 29"
+  ],
+  "calguns": "4,800 forum pages partitioned into 8 complete-thread batches and 20 megathreads; plan and per-batch state in PARSE_QUEUE.json calguns_plan",
+  "pacing": "3 to 4 parse agents at a time, per user instruction after two session-limit blowouts",
+  "do_not_launch_duplicate": true
+ },
+ "controlled_fits_20260919": {
+  "progress_doc": "docs/2026-09-19-v6-evaluation-and-selection-progress.md",
+  "selection_launch": "runs/rw_parse_20260919/selection_ablation_stage_v1/launch.json",
+  "selection_results": "runs/rw_parse_20260919/selection_ablation_results_v1",
+  "C29_control": "Collected; numerical gates pass; timing recovery fails (ratio1.764)",
+  "C44_control": "Collected; numerical gates pass; timing recovery fails (ratio2.518, CI90 misses)",
+  "C29_selection": {
+   "pid": 984690,
+   "state": "collected_independently_checked_recovery_failed",
+   "checked_utc": "2026-09-19T23:29:58Z",
+   "posterior_converged": true,
+   "numerically_usable": true,
+   "clock_median_days": 81.30795732357728,
+   "clock_ratio": 1.7675642896429844,
+   "ci90_covers_truth": true,
+   "score": "runs/rw_parse_20260919/selection_ablation_results_v1/C29__S12_selection_score_v1",
+   "independent_audit": "runs/rw_parse_20260919/selection_ablation_results_v1/C29__S12_selection_independent_audit_v1.json"
+  },
+  "C44_selection": {
+   "pid": 984692,
+   "state": "sampling_active",
+   "checked_utc": "2026-09-20T05:00:20.885971+00:00",
+   "two_compute_workers_confirmed_live": true,
+   "first_pair_progress_iterations": [
+    8000,
+    8000
+   ],
+   "iterations_per_chain": 8000,
+   "second_pair_not_started": false,
+   "second_pair_progress_iterations": [
+    6500,
+    6600
+   ]
+  },
+  "decision_scope_launch": "runs/rw_parse_20260919/decision_scope_ablation_stage_v1/launch.json",
+  "decision_scope_protocol": "runs/rw_parse_20260919/decision_scope_ablation_stage_v1/protocol.json",
+  "C44_decision_scope_control": {
+   "pid": 2714082,
+   "state": "collected_independently_replayed_scored_recovery_failed",
+   "checked_utc": "2026-09-20T02:14:00Z",
+   "archive": "runs/rw_parse_20260919/decision_scope_ablation_results_v1/C44__S12_decision_scope_control",
+   "independent_audit": "runs/rw_parse_20260919/decision_scope_ablation_results_v1/C44__S12_decision_scope_control_audit.json",
+   "score": "runs/rw_parse_20260919/decision_scope_ablation_results_v1/C44__S12_decision_scope_control_score_v1",
+   "posterior_converged": true,
+   "numerically_usable": true,
+   "development_clock_recovery_pass": false,
+   "initial_decision_median_days": 83.5616978708828,
+   "median_over_development_target": 2.038090191972751,
+   "initial_decision_ci90_days": [
+    44.220917280531516,
+    154.87154017088335
+   ],
+   "ci90_covers_development_target": false,
+   "two_compute_workers_confirmed_live": false,
+   "first_pair_progress_iterations": [
+    8000,
+    8000
+   ],
+   "iterations_per_chain": 8000,
+   "second_pair_progress_iterations": [
+    8000,
+    8000
+   ],
+   "parent_compute_process_confirmed_live": false
+  },
+  "decision_scope_comparison": "Separate source-to-model fix: three previously residual timing reports restored,31 factors unchanged,selection_sd0. Not a selection-ablation result.",
+  "no_recovery_or_superiority_claim": true,
+  "do_not_launch_duplicate": true
+ },
+ "current_source_reparse": {
+  "source_index": "runs/rw_parse_20260919/w2_current_c29_c44_sources_v1/sources/index.json",
+  "brief": "runs/rw_parse_20260919/w2_current_c29_c44_parse_brief.md",
+  "output": "runs/rw_parse_20260919/w2_current_c29_c44_parse_v1",
+  "owner": "/root/n400_supplement_parse",
+  "state": "reviewed_source_parse_and_reconciliation_complete_explicit_compile_choices_pending",
+  "unique_source_documents": 22,
+  "program_source_counts": {
+   "C29__S12": 12,
+   "C44__S12": 11
+  },
+  "coordinator_only_provenance": "runs/rw_parse_20260919/w2_current_c29_c44_sources_v1/ORCHESTRATION_ONLY.json",
+  "extractor_access": "Only sources/ and explicit evidence contracts; never coordinator provenance, verification findings, specs, truth, old parses, fits or scores.",
+  "no_full_corpus_or_validation_claim": true,
+  "fit_started": false,
+  "do_not_launch_duplicate": true
+ },
+ "compact_synthetic": {
+  "approved_documents": 438,
+  "last_durable_status": "runs/w2_s12_s03_completion_20260917/status_2bbc57fc0c78.json",
+  "completion_handoff": "runs/w2_s12_s03_completion_20260917/compact438_handoff_20260919T235343Z.json",
+  "status_checked_utc": "2026-09-19T23:53:43.857434+00:00",
+  "parent_state_recheck_utc": "2026-09-20T00:03:53.446684+00:00",
+  "current_hash_bound_passes": 428,
+  "held_failures": 5,
+  "held_unverified": 5,
+  "actionable_nonheld": 0,
+  "open_approval_holds": 5,
+  "current_release_holds": "runs/w2_s12_s03_completion_20260917/release_holds.json",
+  "release_ready": false,
+  "owner": "/root/synthesis_resume",
+  "repair_loop_state": "stopped_at_input_correction_authority_boundary",
+  "new_hold": "C22_S12_filing_channel_conflict; no input mutation made",
+  "do_not_launch_duplicate": true
+ },
+ "fresh_current_source_parse": {
+  "source_index": "runs/rw_parse_20260919/w2_current_c29_c44_sources_v1/sources/index.json",
+  "unique_documents": 22,
+  "output": "runs/rw_parse_20260919/w2_current_c29_c44_parse_v1",
+  "C29": {
+   "measurements": 37,
+   "documents": 12,
+   "parent_integrity_pass": true,
+   "semantic_status": "reviewed_v2_parent_pass_inventory_reconciliation_unresolved",
+   "selected_parse": "runs/rw_parse_20260919/w2_current_c29_c44_parse_v1/C29__S12/reviewed_v2",
+   "parent_receipt": "runs/rw_parse_20260919/w2_current_c29_reviewed_parent_validation_v2.json"
+  },
+  "C44": {
+   "measurements": 44,
+   "documents": 11,
+   "parent_integrity_pass": true,
+   "semantic_status": "reviewed_v1_parent_pass_inventory_reconciliation_unresolved",
+   "selected_parse": "runs/rw_parse_20260919/w2_current_c29_c44_parse_v1/C44__S12/reviewed_v1",
+   "parent_receipt": "runs/rw_parse_20260919/w2_current_c44_reviewed_parent_validation_v1.json"
+  },
+  "fit_ready": false,
+  "parent_semantic_review": "runs/rw_parse_20260919/w2_current_source_parent_semantic_review_v1.json"
+ },
+ "block_scheduling_sensitivity": {
+  "implementation": "pipeline/procbench/compact_visit_trace.py",
+  "project_tests_passed": 945,
+  "default_remains_serial": true,
+  "active_remote_jobs_changed": false,
+  "frozen_input_audit": "runs/rw_parse_20260919/block_order_sensitivity_v1/manifest.json",
+  "C29_target_invariant": true,
+  "C29_conditional_prediction_sensitivity": "runs/rw_parse_20260919/c29_order_posterior_sensitivity_v1.json",
+  "C44_requires_matched_refit": true,
+  "C44_refit_launched_utc": "2026-09-20T01:07:16.349304+00:00",
+  "C44_refit_pid": 2830672,
+  "C44_refit_launch": "runs/rw_parse_20260919/block_order_ablation_stage_v1/launch.json",
+  "C44_refit_remote_stage": "/lfs/skampere3/0/alexspan/regulatory-complexity-v6/block-order-20260920.202fl4en",
+  "C44_refit_state": "completed_independent_numerics_pass_development_recovery_failed",
+  "C44_refit_archive": "runs/rw_parse_20260919/block_order_ablation_results_v1/C44__S12_block_order_control",
+  "C44_refit_audit": "runs/rw_parse_20260919/block_order_ablation_results_v1/C44__S12_block_order_control_audit_v1.json",
+  "C44_refit_score": "runs/rw_parse_20260919/block_order_ablation_results_v1/C44__S12_block_order_control_score_v1",
+  "C44_refit_median_days": 98.06327267947455,
+  "C44_refit_ratio_to_development_target": 2.3917871385237697,
+  "C44_refit_ci90_covers_target": true,
+  "C44_paired_schedule_diagnostic": "runs/rw_parse_20260919/block_order_ablation_results_v1/c44_paired_schedule_diagnostic_v1.json",
+  "actual_parallelism_learned": false
+ },
+ "task_prior_interface": {
+  "implemented": true,
+  "project_tests_passed": 969,
+  "default_changed": false,
+  "adds_latent_coordinates": false,
+  "elapsed_not_active_labor": true,
+  "calibrated_values_supplied": false,
+  "active_fits_changed": false,
+  "frozen_target_replay": "runs/rw_parse_20260919/task_prior_default_target_replay_v1.json"
+ },
+ "source_only_structural_reconciliation": {
+  "owner": "/root/current_source_reconcile",
+  "state": "parent_case_outcome_derivative_selected_not_fit_ready",
+  "output": "runs/rw_parse_20260919/w2_current_source_reconciliation_v1",
+  "no_truth_specs_old_graphs_fits_or_scores": true,
+  "weights_calibrated": false,
+  "fit_ready": false,
+  "parent_review": "runs/rw_parse_20260919/w2_current_reconciliation_parent_review_v1.json",
+  "editorial_overrides": 2,
+  "selected_effective_views": "runs/rw_parse_20260919/w2_current_reconciliation_parent_revision_v2/effective_views.json",
+  "selected_revision_manifest": "runs/rw_parse_20260919/w2_current_reconciliation_parent_revision_v2/manifest.json",
+  "mandatory_lineage": "runs/rw_parse_20260919/w2_current_reconciliation_parent_revision_v2/review_lineage.json",
+  "incorrect_abandoned_step_outcomes_corrected": 5,
+  "missing_known_case_outcomes_filled": 5,
+  "unspecified_completion_explicit": 1
+ },
+ "task_prior_sensitivity": {
+  "state": "C29_sampling_complete_reporting_C44_completed_independent_numerics_pass_recovery_failed",
+  "C29_last_poll": "runs/rw_parse_20260919/task_prior_jobs_20260920_0510.json",
+  "C29_last_poll_utc": "2026-09-20T05:08:08.661504+00:00",
+  "C29_chain_iterations": [
+   8000,
+   8000,
+   8000,
+   8000
+  ],
+  "C44_archive": "runs/rw_parse_20260919/task_prior_sensitivity_results_v1/C44__S12_one_day_task_prior_sensitivity",
+  "C44_independent_audit": "runs/rw_parse_20260919/task_prior_sensitivity_results_v1/C44__S12_one_day_task_prior_sensitivity_audit_v1.json",
+  "C44_score": "runs/rw_parse_20260919/task_prior_sensitivity_results_v1/C44__S12_one_day_task_prior_sensitivity_score_v1",
+  "C44_clock_median_days": 107.18795118,
+  "C44_clock_ratio_to_development_target": 2.61434027,
+  "C44_ci90_covers_target": false,
+  "C44_paired_diagnostic": "runs/rw_parse_20260919/task_prior_sensitivity_results_v1/c44_paired_task_baseline_diagnostic_v1.json",
+  "launch": "runs/rw_parse_20260919/task_prior_sensitivity_stage_v1/launch.json",
+  "protocol": "runs/rw_parse_20260919/task_prior_sensitivity_stage_v1/protocol.json",
+  "launched_utc": "2026-09-20T01:55:24.686533+00:00",
+  "initial_poll": "runs/rw_parse_20260919/task_prior_jobs_initial_poll_v1.json",
+  "task_medians_days": {
+   "filing": 1,
+   "payment": 1,
+   "notification": 1
+  },
+  "calibrated_or_elicited": false,
+  "other_changes": false,
+  "pids": [
+   2865028,
+   2865029
+  ],
+  "do_not_launch_duplicate": true
+ },
+ "codex_audit_20260920": {
+  "doc": "docs/2026-09-20-audit-of-codex-work.md",
+  "receipts": "runs/codex_audit_20260920/",
+  "headline": "Codex numbers all reproduce; clock failure traced to whole-process statements dropped before the likelihood; one row in five mislabelled regardless of parser; next experiment is whole-process evidence plus selection together"
+ },
+ "source_trust_note_20260920": {
+  "doc": "docs/2026-09-20-source-trust-note-for-codex.md",
+  "diagnostic": "runs/codex_audit_20260920/audit_source_trust.py",
+  "receipt": "runs/codex_audit_20260920/source_trust_audit.json",
+  "headline": "per-source offsets sit at prior in every fit; precision is inverted (stated-n aggregate believed less than one forum post); location/source ridge means widening the prior alone worsens mixing; fix is a reference-source parameterisation, after whole-process binding"
+ },
+ "single_agency_plan_20260920": {
+  "doc": "docs/2026-09-20-single-agency-ventura-plan.md",
+  "agency": "Ventura County Sheriff CCW",
+  "cases": 112,
+  "elapsed_rows": 139,
+  "effort_rows": 24,
+  "fee_rows": 19,
+  "documents": 173,
+  "split": {
+   "codex": "evidence: 173 docs, case registry with episode+era, one effective_evidence.json with holds applied, route+fee schedule, published-vs-observed table",
+   "claude": "model: admit typical ranges and whole-process wording, reference-source offset, selection on, era-stratified fit, baselines incl LLM, held-out 25 of 112 by author"
+  },
+  "interface": "effective_evidence.json is the only shared object"
+ },
+ "two_statute_split_20260920": {
+  "doc": "docs/2026-09-20-two-statute-split-plan.md",
+  "leg1": {
+   "statute": "concealed carry, Penal Code 26150 ff",
+   "owner": "claude",
+   "authorities": 80,
+   "authorities_ge8": 30,
+   "case_identities": 2011,
+   "channel": "applicant accounts"
+  },
+  "leg2": {
+   "statute": "CalFresh expedited, W&I 18914",
+   "owner": "codex",
+   "counties": 58,
+   "primary": 46,
+   "reports": 59634,
+   "channel": "agency census"
+  },
+  "supersedes": "docs/2026-09-20-single-agency-ventura-plan.md",
+  "stopping_rule": "held-out score against baselines exists = reportable, win or lose",
+  "assignment_revised": {
+   "codex": "CalFresh",
+   "claude": "solar",
+   "doc": "docs/2026-09-20-solar-leg-plan-for-claude.md",
+   "key_findings": [
+    "32,238 timing cells / 526 AHJs / 55 utilities / 2017-2024",
+    "install count present in 100% of timing cells as a denominator upper bound",
+    "crossed AHJ x utility: 188 AHJs served by >1 utility",
+    "Gov Code 65850.52 staggered statutory automation mandate by population: exempt / 2024-09-30 / 2023-09-30",
+    "city population missing for 448 of 536 AHJs; Tier 2 needs one table and Alex authorisation"
+   ]
+  }
+ },
+ "solar_leg_plan": {
+  "doc": "docs/2026-09-20-solar-leg-plan-for-claude.md",
+  "window": "2017-2022",
+  "independent_cells": 9584,
+  "owners": 440,
+  "start_from": "runs/three_family_20260920/solar_full_panel_admission_v1/full_owner_phase_stratum_coverage.csv",
+  "correction": "my 32,238 cell count was inflated 3.4x: the two interconnection phases are utility-level values repeated per authority (100% identical within strata); Codex consolidation correct",
+  "primary": "authority load elasticity on 2017-2022, latent-assignment forum cases, utility-level reporting offset",
+  "dropped": "automation mandate DiD, confounded by the 92% install collapse",
+  "literature_gate": "search budget exhausted this session; novelty claim unverified, NREL owns the descriptive layer",
+  "stage_0_and_A": {
+   "doc": "docs/2026-09-20-solar-stage-0-and-A-results.md",
+   "run": "runs/solar_panel_20260920",
+   "present_cells": 7366,
+   "authority_cells": 6969,
+   "utility_cells": 397,
+   "gate_1_authority_separable": true,
+   "gate_2_verdict": "trips as frozen (83.7% vs 25%) but measures consolidation not corroboration; replace in a versioned successor",
+   "elasticity_survives": true,
+   "authorities_with_4plus_years": 346,
+   "codex_defect": "utility-scoped rows carry the EIA id in the state column; filtering on state drops all 397 utility cells"
+  },
+  "executed": {
+   "doc": "docs/2026-09-20-solar-bayesian-results.md",
+   "decision_rule": "FAIL on both splits; model loses to the raw cell median on interval score",
+   "best_point_predictions": "model wins on median |log error| on the forward-year split",
+   "authority_spread_p90_over_p10": 2.39,
+   "load_elasticity_percent_per_doubling": -2.3,
+   "random_slope": "not estimable, variance at the boundary",
+   "forum_offset_percent": -42,
+   "forum_offset_ci90": [
+    -59,
+    -18
+   ],
+   "forum_paired_reports": 12,
+   "forum_direction": "applicants report FASTER; direction stable across three corrections; 11 of 12 are PG&E",
+   "tests": "tests/test_solar_panel.py 20 cases; suite 1,664",
+   "extraction_gap": "66 of 198 solar documents cited by nothing in the ledger; 62 forum rows fail phase mapping, 86 fail locating evidence",
+   "sampler_verified": "closed-form GLS averaged over the variance posterior agrees to 0.0023 (tol 0.05); prior recovery exact at a second seed",
+   "extraction_coverage": "63 of 198 documents uncited: 12 off-topic, 29 topical without a duration, 22 topical with one and mostly out-of-state or warranty/payment; 1-2 possible misses; not certified"
+  }
+ },
+ "reorientation_20260921": {
+  "doc": "docs/2026-09-21-progress-assessment-and-reorientation.md",
+  "deliverable": "step-level burden table per family: time posterior, repeats, money+payee, obstacle count, evidence count",
+  "solar": "cross E5/E6 requirement flags and permit cost with fitted phase times; half a day",
+  "calfresh": "13 action headings as steps + 7 clocks + count channel for repeats + obstacle counts; no new sampler; stop after the 7th joint attempt; drop county hierarchy",
+  "ccw": "next; richest steps-and-money evidence, no fit yet"
+ },
+ "process_structure_plan_20260921": {
+  "doc": "docs/2026-09-21-process-structure-posterior-plan.md",
+  "model": "steps as occupancy with imperfect detection; per-step repeat blocks in V6; stringency as structured features",
+  "validation": "solar requirements file as held-out real ground truth; no synthetic on the critical path",
+  "order": "solar anchor, then CCW per authority, then CalFresh statewide",
+  "duration": "about four weeks, go/no-go at week two",
+  "universe": "union of everything observed, labelled statutory / administrative / applicant-only; gaps between layers = the metric seam",
+  "status": "current work order, handed to Codex",
+  "split": {
+   "codex": "CalFresh + CCW real data, phases 1-5",
+   "claude": "solar all phases + synthetic test-bed for solar and CalFresh"
+  },
+  "synthetic": "feasible by Claude alone: S07 has 60 processes/2,396 specs/31 rendered; CalFresh needs a new domain; 3-4 days"
+ }
+}

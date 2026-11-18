@@ -16,7 +16,7 @@ import numpy as np
 from .bayes_hierarchy import Config, HierarchicalModel
 from .evidence_contract import VERSION
 from .latent_gaussian import summary
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def generated_evidence(seed=17, n_cases=10, with_totals=True):

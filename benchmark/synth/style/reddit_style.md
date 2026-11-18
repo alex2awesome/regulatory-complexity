@@ -44,6 +44,62 @@ Selection bias is visible directly in `reddit_stats.json`: share of **posts** me
 
 Exaggeration and rounding run in the direction of the poster's mood: vents round up ("10 months later"), success reports round down or add "faster than expected," and diagnosis-request posts give exact day counts as proof something's abnormal (*"61 days since I first submitted"* — the pattern the fixture thread uses).
 
+## 3a. What a number MEASURES, in a poster's voice
+
+This section exists because four of the eleven S05 verification failures were one mistake, and it
+had already failed `C09__S10__reddit_1` and `C55__S12__reddit_101` in earlier lanes. It is systemic
+to this guide, not to one agent: §3 above tells you how a poster *phrases* a duration and says
+nothing about what the duration is a duration *of*, while §6.1 tells you to write "a dated,
+first-person log" — which is a first-to-last window, and is the wrong basis for almost every step
+figure in this corpus.
+
+Reddit specs in this world use exactly two `measurement_clock` bases, and the per-step figures are
+nearly all the second one:
+
+**`whole_case`** — start `beginning_preparation_or_filing`, end `last_recorded_decision`. The
+poster's own case, from sitting down with the paperwork to the day a decision landed. A dated log
+is the right instrument here, and the totals line is honest.
+
+**`sum_visit_cycles`** — start `each_activity_visit_start`, end `each_activity_visit_end`,
+summed over the visits of that step which had completed by the observation date. Read that
+carefully: it is **how long the step was open, added up over every round it came back around**. It
+is not labour, not one visit, not a first-to-last span, and not a per-round rate. A step that came
+back three times contributes all three of its open periods to one number.
+
+So a `sum_visit_cycles` figure has to be introduced in a way that survives being read literally.
+These work, in the register of §4:
+
+- "how long each piece was actually open for me, adding up every time it came back around"
+- "totals of how long each step sat open, counting the repeat rounds"
+- "55 days of that step actually being open if you add up every visit, spread over longer than
+  that on the calendar"
+- "about a week all in once you add up the passes"
+
+And these four are the real failures, each from a rendered artifact in this corpus:
+
+| written | why it fails |
+| --- | --- |
+| "my own time on each piece, roughly, because thats the part nobody tells you:" | converts elapsed time into applicant labour — and three of the steps it covered were County work |
+| "breaking out my own time, piece by piece:" | same, plus it invites an invented labour quantity ("with four days of actual anything") |
+| "55 days from the first contact about it to the last time somebody came out" | a first-to-last window; "the last time somebody came out" even implies several visits, so the two quantities are materially different |
+| "about a week on their end each pass" | turns the summed total into a per-pass rate — with this case's four rework rounds that reads as four weeks, not the one week the spec licenses |
+
+Three further rules follow from the same distinction, all of them things verifiers check:
+
+1. **Elapsed time is not labour, and a poster may not narrate County work as their own effort.**
+   Completeness review, portal posting and permit issuance are the agency's steps. A persona can
+   complain about waiting on them; a persona cannot list them under "my own time".
+2. **Do not invent an effort quantity.** "it felt like 7 weeks of waiting with four days of actual
+   anything" adds a labour figure no reveal licenses. Venting is free; quantities are not.
+3. **Keep the whole-case clock's own endpoints.** If a poster abandoned the case, the end event is
+   the day they walked away, not a decision; if they are still waiting, there is no end event to
+   report. A finished case must not be rendered as an ongoing wait because the persona is labelled
+   delayed, and the hidden true total must never be substituted for the persona's noisy report.
+
+The corrective gloss belongs where the reader meets the numbers — the list header or the sentence
+immediately before the list — not in a later aside. A partial gloss on one bullet does not repair a
+header that framed the whole list as labour.
+
 ## 4. Register
 
 Typos and dropped punctuation are constant and untouched — do not clean them up: *"recieved,"* *"amd"* for "and," *"dissapeared,"* *"ot went from"* (r/foodtrucks, 1ua406z). Lowercase sentence starts and run-on paragraphs are common; so are stray line breaks mid-thought. Abbreviations are used without expansion by anyone inside the process — FO (field office), PTO (permission to operate), DROS (Dealer Record of Sale), RFE, GC, SOF (statement of facts), DPSS, EW, SDI, PFL, RESEA, IOE-prefixed case numbers, FSC/HSC, CFARS — and posters mix them with plain English inconsistently in the same post. Emphatic advice runs to bold, caps-lock phrases, and repeated punctuation: *"HUGE ISSUE WITH CSLB APPLICATION and THEIR TECHNICIANS!!!!"* (r/Contractor, 1es9xkw). Edits are appended, not rewritten in: *"Edit: formatting"* (r/solar, spao6t); success is often announced only via an edit tag in the wild, so a renderer using `outcome: approved` can plausibly put the resolution in an "EDIT:" line rather than a clean final paragraph. Profanity is present but not universal, skewing toward frustration posts (*"fuck"*, *"b.s."*) and absent from most procedural/insider comments. Length: hold to the medians in `reddit_stats.json` for the process being rendered — comment medians (18–36 words) are much shorter than most people expect a "reddit comment" to be; most real comments are one or two sentences, not paragraphs.
@@ -54,7 +110,7 @@ OP frequently returns to their own post with a dated update rather than editing 
 
 ## 6. Checklist for renderers
 
-1. Give the OP a dated, first-person log if the spec's `reveals` include multiple timing/step facts — that's where timing belongs, not evenly spread across comments.
+1. Give the OP a dated, first-person log if the spec's `reveals` include multiple timing/step facts — that's where timing belongs, not evenly spread across comments. But check each figure's `measurement_clock` first (§3a): a dated log is a first-to-last window, which is right for a `whole_case` total and wrong for the `sum_visit_cycles` step figures that make up most of this corpus. Introduce those as added-up open time, and never as the poster's own labour.
 2. Match post/comment length to the process's medians in `reddit_stats.json`, not to how much you feel you need to explain.
 3. Leave in at least one typo, one dropped-capital sentence start, or one run-on per post — don't polish the prose.
 4. Hedge every duration and fee unless the persona is an insider quoting a rule verbatim; round, approximate, or qualify ("about," "I think," "roughly").
@@ -72,6 +128,7 @@ OP frequently returns to their own post with a dated update rather than editing 
 3. **Use consistent terminology throughout.** Real posters call the same office, form, or program by two or three different names/abbreviations across one thread, and get some of them slightly wrong.
 4. **State exact fees or durations without hedging**, unless the speaker is explicitly an insider quoting a number they handle daily — even then, most real insiders hedge on the outcome even while being exact about mechanism.
 5. **Resolve every question raised in the thread.** Real threads leave loose ends: an unanswered follow-up, a correction nobody acknowledges, an OP who never comes back to say what happened.
+6. **Re-label what a duration measures.** The most common real failure in this corpus: a list of `sum_visit_cycles` step figures introduced as "my own time on each piece" or "on their end each pass", or a summed figure written as a span "from the first contact to the last time somebody came out". The number is right and the sentence is still wrong. See §3a.
 
 ---
 

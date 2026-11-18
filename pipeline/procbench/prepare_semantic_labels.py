@@ -10,7 +10,7 @@ from collections import Counter
 import json
 import pathlib
 
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 
 
 def prepare_review(world_root, compilations):

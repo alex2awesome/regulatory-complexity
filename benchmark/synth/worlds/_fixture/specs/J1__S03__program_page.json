@@ -1,0 +1,94 @@
+{
+ "artifact_id": "J1__S03__program_page",
+ "world": "_fixture",
+ "kind": "program_page",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "applicant",
+ "url": "https://www.halvern.gov/building/unit-legalization",
+ "date": "2025-06-02",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [
+  "J1__S03__fee_schedule",
+  "J1__S03__form",
+  "J1__S03__faq",
+  "J1__S03__ordinance"
+ ],
+ "publisher": "City of Halvern",
+ "reveals": [
+  {
+   "ref": "A01",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "pre-application meeting required before intake",
+   "must_quote": false
+  },
+  {
+   "ref": "A02",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$430 at submittal",
+   "must_quote": false
+  },
+  {
+   "ref": "A03",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "30-day completeness determination",
+   "must_quote": false
+  },
+  {
+   "ref": "A05",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "plan review by a plans examiner",
+   "must_quote": false
+  },
+  {
+   "ref": "A06",
+   "field": "rework",
+   "fidelity": "approximate",
+   "value": "most applicants receive one round of corrections",
+   "must_quote": false
+  },
+  {
+   "ref": "A07",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$185 inspection, $95 reinspection",
+   "must_quote": false
+  },
+  {
+   "ref": "A10",
+   "field": "artifact",
+   "fidelity": "exact",
+   "value": "Certificate of Legalization",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "vague",
+   "value": "six to eight weeks",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A04",
+  "A08",
+  "A09",
+  "A11"
+ ],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   350,
+   550
+  ],
+  "template_lineage": null
+ },
+ "why": "p_publish_program_page=0.7 drew 0.22; describes version 2 (post 2025-04-01)"
+}

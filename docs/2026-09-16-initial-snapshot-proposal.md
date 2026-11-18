@@ -1,6 +1,10 @@
 # Initial Git snapshot proposal
 
-2026-09-16. **Proposed file list only. Nothing is staged or committed.** Alex approved preparing this list, not committing it. Review and explicit approval of this scope are required before an initial commit or package moves.
+2026-09-16. This was the proposed file list reviewed before the initial commit.
+After Alex's subsequent approval to continue, exactly these 324 files were staged,
+checked against this list, and committed as **`e581748`**. No raw runs, corpora,
+generated worlds, caches or vendor repositories entered that snapshot. Nothing was
+pushed. The refactor is a separate working-tree diff against this commit.
 
 This snapshots the current source, tests, documentation and small reference/result files **after the first audit-repair tranche and before package reorganization**. It cannot create a retrospective pre-overnight baseline. It is not a backup of the full research corpus or experiments.
 
@@ -40,7 +44,7 @@ Excluded and left untouched:
 - Generated `dashboard/out/**`, generated example directories, virtual environments, bytecode and caches.
 - Git internals. No external symlink targets are followed.
 
-The experimental evidence linked from documentation will still be local after this source commit. The archive destination and tracked experiment registry remain pending; see [archive policy](../runs/README.md). Before staging, re-enumerate this exact allowlist and review any files created or changed since this proposal. Do not use `git add .`.
+The experimental evidence linked from documentation remains local after this source commit. The archive destination and tracked experiment registry remain pending; see [archive policy](../runs/README.md). Future commits need their own explicit path review; this historical list is not an allowlist for unrelated new files. Do not use `git add .`.
 
 ## Exact proposed paths
 
@@ -370,4 +374,3 @@ tests/test_visit_phase_hierarchy.py
 tests/test_visit_prediction_refinement.py
 worlds/ab2533_sanitation.json
 ```
-

@@ -17,7 +17,8 @@ import numpy as np
 
 from .bayes_trace_hierarchy import Config, VisitHierarchy
 from .latent_gaussian import diagnostics
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
+from .infra.scoring import interval_score as central_interval_score
 
 
 TARGETS = {
@@ -38,7 +39,7 @@ def interval_score(estimate, truth, logarithmic):
         raise ValueError('Invalid posterior interval or truth')
     transform = math.log if logarithmic else float
     m, lower, upper, target = map(transform, (median, lo, hi, truth))
-    score = upper - lower + 20 * max(0., lower - target, target - upper)
+    score = central_interval_score(lower, upper, target)
     return dict(truth=truth, posterior=estimate, scale='log' if logarithmic else 'probability',
                 absolute_error=abs(m - target), interval_score_90=score,
                 covered_90=lo <= truth <= hi)

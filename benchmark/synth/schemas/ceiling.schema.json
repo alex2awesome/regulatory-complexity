@@ -150,6 +150,12 @@
         "items": {
           "type": "string"
         }
+      },
+      "decision_ceiling": {
+        "type": [
+          "object",
+          "null"
+        ]
       }
     }
   }

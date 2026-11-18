@@ -10,11 +10,10 @@ import argparse
 import copy
 import json
 import pathlib
-import subprocess
-import tempfile
 
 from .evidence_contract import STR, TEXT, STAGES, TASKS, arr, enum, obj, validate
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import run_codex
 
 SCHEMA = obj(groups=arr(obj(id=STR, name=STR, members=arr(STR), actor_id=STR,
     task_type=enum(*TASKS), stage=enum(*STAGES), scope=enum('core','conditional','standing','out_of_scope'),
@@ -134,7 +133,7 @@ def main(argv=None):
     ap.add_argument('--model', default='gpt-6-astra')
     args = ap.parse_args(argv)
     out = pathlib.Path(args.out)
-    if (out / 'evidence.json').exists():
+    if out.exists():
         raise ValueError('Preserving prior audit; choose a new output directory')
     evidence = json.loads(pathlib.Path(args.evidence).read_text())
     docs = json.loads(pathlib.Path(args.inputs).read_text())['documents']
@@ -143,32 +142,26 @@ def main(argv=None):
     out.mkdir(parents=True, exist_ok=True)
     (out / 'prompt.txt').write_text(prompt)
     write(out / 'schema.json', SCHEMA)
-    with tempfile.TemporaryDirectory(prefix='rc-granularity-') as isolated:
-        schema = pathlib.Path(isolated) / 'schema.json'
-        response = pathlib.Path(isolated) / 'response.json'
-        write(schema, SCHEMA)
-        for attempt in range(3):
-            command = ['codex','exec','--sandbox','read-only','--ephemeral','--skip-git-repo-check',
-                       '--ignore-user-config','--color','never','-C',isolated,'-m',args.model,
-                       '-c','model_reasoning_effort="xhigh"','--output-schema',str(schema),'-o',str(response),'-']
-            with (out / f'attempt_{attempt}.log').open('w') as log:
-                status = subprocess.run(command,input=prompt,text=True,stdout=log,stderr=log,cwd=isolated,timeout=2400)
-            if status.returncode:
-                raise RuntimeError(f'Codex failed: inspect {out}/attempt_{attempt}.log')
-            grouping = json.loads(response.read_text())
-            write(out / f'attempt_{attempt}.json', grouping)
-            try:
-                canonical, audit = apply_groups(evidence, grouping)
-                validate(canonical, docs)
-                break
-            except ValueError as error:
-                prompt += '\nCorrect these validation errors in the complete grouping:\n' + str(error) + '\n' + json.dumps(grouping)
-        else:
-            raise ValueError('Grouping validation failed')
+    record = RunManifest(out, {}, operation='evidence.audit_granularity',
+        inputs=[pathlib.Path(args.evidence), pathlib.Path(args.inputs)],
+        config=dict(model=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=[pathlib.Path(__file__).name])
+    for attempt in range(3):
+        grouping = json.loads(run_codex(prompt, SCHEMA, out,
+            stem=f'attempt_{attempt}', model=args.model))
+        write(out / f'attempt_{attempt}.json', grouping)
+        try:
+            canonical, audit = apply_groups(evidence, grouping)
+            validate(canonical, docs)
+            break
+        except ValueError as error:
+            prompt += '\nCorrect these validation errors in the complete grouping:\n' + str(error) + '\n' + json.dumps(grouping)
+    else:
+        raise ValueError('Grouping validation failed')
     write(out / 'evidence.json', canonical)
     write(out / 'audit.json', audit)
     write(out / 'grouping.json', grouping)
-    write(out / 'manifest.json', {'model': args.model, 'reasoning': 'xhigh', 'hidden_truth_read': False,
+    record.complete(**{'model': args.model, 'reasoning': 'xhigh', 'hidden_truth_read': False,
         'input_sha256': digest(pathlib.Path(args.evidence).read_bytes()),
         'prompt_sha256': digest((out / 'prompt.txt').read_bytes()),
         'source_sha256': digest(pathlib.Path(__file__).read_bytes()),

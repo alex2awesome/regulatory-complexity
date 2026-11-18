@@ -18,9 +18,13 @@ from __future__ import annotations
 
 from .domains import DOMAINS
 from .rng import chance, dadd, pick, pick_n, sub_rng, weighted
-from .world import JUR_BY_ID, actor_name
+from . import capacity
+from .world import actor_name, jur_by_id
 
 # Hourly rate used to derive flat fees ("N inspector-hours x rate"), per jurisdiction.
+# The hand-written jurisdictions' adopted rates, kept literal so that
+# world_model_version 1 stays byte-identical. A generated county's rate is
+# derived from the measured wage gradient instead: see capacity.hourly_rate.
 HOURLY = {"J1": 190, "J2": 235, "J3": 155, "J4": 176, "K1": 165, "K2": 148}
 
 # --- values for the substantive open choices (domain.choice_id -> variants) ---
@@ -222,6 +226,12 @@ ADDED_ELEMENTS: dict[str, dict] = {
         median=6, p90=15, fee=(40, 180), out=["business tax certificate"], mand_p=1.0),
 }
 
+
+def optional_consultation_label(name: str) -> str:
+    """Describe the sampled optional step without making it mandatory in prose."""
+    return name.replace('the mandatory pre-submittal consultation',
+                        'an optional pre-submittal consultation')
+
 # Which added elements plausibly attach to which domain.
 ADDED_BY_DOMAIN = {
     "unpermitted_unit_amnesty": ["pre_application_meeting", "extra_inspection", "affidavit", "online_portal", "deposit"],
@@ -274,10 +284,10 @@ STRICTER = {
 }
 
 
-def _fee_amount(rng, jur_id: str, domain: str) -> tuple[int, str]:
+def _fee_amount(rng, jur_id: str, domain: str, jur: dict | None = None) -> tuple[int, str]:
     """A plausible fee plus how it was derived (cost-recovery arithmetic)."""
     lo, hi = DOMAINS[domain]["fee_range"]
-    rate = HOURLY[jur_id]
+    rate = HOURLY.get(jur_id) or capacity.hourly_rate(jur or {"pop": 200_000})
     if "hour" in DOMAINS[domain]["fee_basis"] or chance(rng, 0.45):
         hours = max(1, round((lo + (hi - lo) * rng.random()) / rate))
         amt = int(hours * rate)
@@ -351,12 +361,16 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
     """model_id (`<jur>__<stat>`) -> local_rule_truth."""
     seed = world["seed"]
     knobs = world["knobs"]
+    # This world's jurisdictions, which at world_model_version 2 include the
+    # generated county panel. The module-level JUR_BY_ID holds only the
+    # hand-written four.
+    by_id = jur_by_id(world)
     rules: dict[str, dict] = {}
     dated: list[tuple[str, str]] = []   # (adopted, model_id) for lineage ordering
 
     # ---- pass 1: dates, instrument, program name, choices ----
     for impl in world["implementations"]:
-        jur = JUR_BY_ID[impl["jur"]]
+        jur = by_id[impl["jur"]]
         stat = statutes[impl["stat_id"]]
         domain = impl["domain"]
         dom = DOMAINS[domain]
@@ -383,7 +397,7 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
         cands = [r for r in dom["lead_roles"]
                  if r in jur["depts"] or r == "health"] or ["lead_permits"]
         lead_role = weighted(rng, list(zip(cands, [0.6, 0.25, 0.15][:len(cands)])))
-        fee_amt, fee_deriv = _fee_amount(rng, jur["id"], domain)
+        fee_amt, fee_deriv = _fee_amount(rng, jur["id"], domain, jur)
         program_name = pick(rng, dom["programs"])
         terminal = pick(rng, dom["terminal"])
 
@@ -412,6 +426,11 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
                 "element_id": "L%d" % (i + 1), "kind": kind, "name": pick(rng, names),
                 "mandatory": chance(rng, spec["mand_p"]), "fee": fee,
             })
+            # Names and optionality used to be independent: an optional activity
+            # could literally be named "mandatory". Normalize only that label,
+            # after the existing draws, so all sampled parameters remain stable.
+            if kind == "pre_application_meeting" and not added[-1]["mandatory"]:
+                added[-1]["name"] = optional_consultation_label(added[-1]["name"])
         stricter = pick_n(rng, STRICTER.get(domain, []), weighted(rng, [(0, 0.3), (1, 0.4), (2, 0.22), (3, 0.08)]))
 
         rules[mid] = {
@@ -444,17 +463,17 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
         rng = sub_rng(seed, "lineage", mid)
         if not chance(rng, knobs["p_template_lineage"]):
             continue
-        same_state = JUR_BY_ID[rule["jur"]]["state"]
+        same_state = by_id[rule["jur"]]["state"]
         srcs = [m for a, m in dated
                 if a < adopted and rules[m]["domain"] == rule["domain"] and m != mid]
         if not srcs:
             continue
-        prefer = [m for m in srcs if JUR_BY_ID[rules[m]["jur"]]["state"] == same_state]
+        prefer = [m for m in srcs if by_id[rules[m]["jur"]]["state"] == same_state]
         pool = prefer if (prefer and not chance(rng, 0.25)) else srcs
         src = pick(rng, pool)
         s = rules[src]
-        src_jur = JUR_BY_ID[s["jur"]]
-        jur = JUR_BY_ID[rule["jur"]]
+        src_jur = by_id[s["jur"]]
+        jur = by_id[rule["jur"]]
         # copy choices, then re-localize the two that cannot travel
         new_choices = dict(rule["choices"])           # start from its own (ids may differ)
         for cid, val in s["choices"].items():
@@ -483,7 +502,7 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
     # ---- pass 3: prior versions ----
     for mid, rule in rules.items():
         rng = sub_rng(seed, "prior", mid)
-        jur = JUR_BY_ID[rule["jur"]]
+        jur = by_id[rule["jur"]]
         stat = statutes[rule["stat_id"]]
         if not (rule["retrofit"] or chance(rng, knobs["p_prior_version"])):
             continue
@@ -530,7 +549,7 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
 
     # ---- pass 4: text_spec for the renderer ----
     for mid, rule in rules.items():
-        jur = JUR_BY_ID[rule["jur"]]
+        jur = by_id[rule["jur"]]
         stat = statutes[rule["stat_id"]]
         rule["text_spec"] = (
             "Draft the %s (%s) adopted %s by the %s of %s implementing %s (%s). Recitals: the statute, "
@@ -549,4 +568,11 @@ def build_local_rules(world: dict, statutes: dict) -> dict[str, dict]:
                "; ".join(rule["stricter_standards"]) or "none",
                rule["terminal_artifact"],
                (" Note the lineage: %s." % rule["lineage_note"]) if rule.get("lineage_note") else ""))
+
+    # ---- pass 5: readings of the statute's decision predicates (decision.py) ----
+    from .decision import enabled as _decision_enabled, resolve_readings
+    if _decision_enabled(world):
+        for mid, rule in rules.items():
+            rule["readings"] = resolve_readings(statutes[rule["stat_id"]], rule,
+                                                sub_rng(seed, "readings", mid), knobs)
     return rules

@@ -9,7 +9,7 @@ from scipy.stats import t
 from pipeline.procbench.bayes_trace_hierarchy import (
     Config, VisitHierarchy, unmodeled_duration_log_probability)
 from pipeline.procbench.compile_visit_durations import compile_durations, hypothesis_options
-from test_trace_hierarchy import data_fixture
+from procbench_fixtures import data_fixture
 from test_visit_hypotheses import hypothesis_inputs
 
 

@@ -7,11 +7,10 @@ import argparse
 import copy
 import json
 import pathlib
-import subprocess
-import tempfile
 
 from .evidence_contract import OBSERVATION_CONTEXT, STR, arr, obj, validate
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import run_codex
 
 CONTEXT_OUTPUT = copy.deepcopy(OBSERVATION_CONTEXT)
 CONTEXT_OUTPUT['properties'].pop('clock_start_after_activity_ids', None)
@@ -85,30 +84,24 @@ def main(argv=None):
     prompt = PROMPT + '\nLEDGER:\n' + json.dumps(e) + '\nPUBLIC DOCUMENTS:\n' + json.dumps(docs)
     write(out / 'schema.json', SCHEMA)
     (out / 'prompt.txt').write_text(prompt)
-    with tempfile.TemporaryDirectory(prefix='rc-context-audit-') as isolated:
-        schema, response = pathlib.Path(isolated) / 'schema.json', pathlib.Path(isolated) / 'response.json'
-        write(schema, SCHEMA)
-        for attempt in range(3):
-            command = ['codex','exec','--sandbox','read-only','--ephemeral','--skip-git-repo-check',
-                '--ignore-user-config','--color','never','-C',isolated,'-m',args.model,
-                '-c','model_reasoning_effort="xhigh"','--output-schema',str(schema),'-o',str(response),'-']
-            with (out / f'attempt_{attempt}.log').open('w') as log:
-                status = subprocess.run(command, input=prompt, text=True, stdout=log, stderr=log,
-                                        cwd=isolated, timeout=2400)
-            if status.returncode or not response.exists():
-                raise RuntimeError('Context audit failed; inspect the preserved backend log')
-            audit = json.loads(response.read_text())
-            write(out / f'attempt_{attempt}.json', audit)
-            try:
-                canonical = attach_contexts(e, audit, docs)
-                break
-            except ValueError as error:
-                prompt += '\nReturn a corrected complete object. Validation errors:\n' + str(error) + '\n' + json.dumps(audit)
-        else:
-            raise ValueError('Context validation failed after repairs')
+    record = RunManifest(out, {}, operation='evidence.audit_context',
+        inputs=[pathlib.Path(args.evidence), pathlib.Path(args.inputs)],
+        config=dict(model=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=[pathlib.Path(__file__).name])
+    for attempt in range(3):
+        audit = json.loads(run_codex(prompt, SCHEMA, out,
+            stem=f'attempt_{attempt}', model=args.model))
+        write(out / f'attempt_{attempt}.json', audit)
+        try:
+            canonical = attach_contexts(e, audit, docs)
+            break
+        except ValueError as error:
+            prompt += '\nReturn a corrected complete object. Validation errors:\n' + str(error) + '\n' + json.dumps(audit)
+    else:
+        raise ValueError('Context validation failed after repairs')
     write(out / 'evidence.json', canonical)
     write(out / 'audit.json', audit)
-    write(out / 'manifest.json', {'model': args.model, 'reasoning': 'xhigh', 'hidden_truth_provided': False,
+    record.complete(**{'model': args.model, 'reasoning': 'xhigh', 'hidden_truth_provided': False,
         'input_sha256': digest(pathlib.Path(args.evidence).read_bytes()),
         'prompt_sha256': digest((out / 'prompt.txt').read_bytes()),
         'source_sha256': digest(pathlib.Path(__file__).read_bytes()),

@@ -15,7 +15,7 @@ import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel
 from .calibrate_hierarchy import inference_seed, score_replicate
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def main(argv=None):

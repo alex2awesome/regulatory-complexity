@@ -23,12 +23,8 @@ import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel
 from .schedule_kernel import ACCELERATOR
-
-
-def write(path, data):
-    path = pathlib.Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
+from .infra.manifest import write  # compatibility export for historical drivers
+from .infra.scoring import interval_score
 
 
 def sample_chain(evidence, cfg, index, out):
@@ -190,7 +186,7 @@ def posterior_timing_score(draws, actual):
     y, n = np.log(actual), len(x)
     lo, hi = np.quantile(x, [.05, .95])
     crps = np.mean(np.abs(x - y)) - np.sum((2 * np.arange(1, n + 1) - n - 1) * x) / n ** 2
-    interval = hi - lo + 20 * max(lo - y, 0.) + 20 * max(y - hi, 0.)
+    interval = interval_score(lo, hi, y)
     return {'truth_median_days': actual, 'absolute_log_error': float(abs(np.median(x) - y)),
             'crps_log_median': float(crps), 'interval_score90_log_median': float(interval),
             'target': 'generator log-summary sample median, not a new individual-case duration'}

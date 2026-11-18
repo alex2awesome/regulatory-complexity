@@ -114,7 +114,10 @@ def build(world_id: str, seed: int, out_dir: str, knobs: dict | None = None) -> 
              "denial_rate": proc["denial_rate"],
              "backoffice": [a.get("backoffice_tag") for a in proc["activities"] if a.get("backoffice_tag")],
              "unimplemented_elements": [e["element_id"] for e in proc["unimplemented_elements"]],
-             "deviations": [d["element_id"] for d in proc["deviations"]]},
+             "deviations": [d["element_id"] for d in proc["deviations"]],
+             "decision_predicates": len((proc.get("decision_model") or {}).get("predicates", [])),
+             "strictness_index": (proc.get("decision_model") or {}).get("strictness_index"),
+             "expected_fatal_fail_rate": (proc.get("decision_model") or {}).get("expected_fatal_fail_rate")},
             proc["notes"])
         _wl(out / ("truth/log/%s.jsonl" % mid), logs[mid])
         _w(out / ("truth/log/%s.summary.json" % mid), summaries[mid])

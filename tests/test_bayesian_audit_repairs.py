@@ -8,7 +8,7 @@ from pipeline.procbench.align import _end_to_end
 from pipeline.procbench.metrics import _find_median
 from pipeline.procbench.bayes_trace_hierarchy import Config, VisitHierarchy
 from pipeline.procbench.audit_visit_hypotheses import validate_hypotheses
-from test_trace_hierarchy import data_fixture
+from procbench_fixtures import data_fixture
 from test_visit_hypotheses import hypothesis_inputs
 from test_visit_interpretation_likelihood import residual
 

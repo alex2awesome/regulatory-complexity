@@ -1,0 +1,59 @@
+{
+ "target_version": "toy-process-v3-20261002",
+ "reason": "Fresh epoch after zero-mass PMF and survival repairs. Not an equivalence certificate for v2 draws; fresh fits required.",
+ "check_record": "tests/test_toy_statute_real_refit.py; tests/test_toy_statute_jax.py",
+ "source_versions": [{
+   "model.py": "e4ca91015c7704a21f0f6b9e2c2cbe442eb4e6c29f6bf310971d8a16ce581457",
+   "grid.py": "adba9af13cfa1ece88d88a7ee9735a69a7a9b364f4a192dab44481bad21c4cbd",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47"
+ }],
+ "additional_check_record": "tests/test_toy_statute_blocked.py; runs/toy_jax_pilot_20260930/scaling_blocked_results.json (prepared-parameter entry point; likelihood body unchanged); runs/toy_configurable_20260930/checks002/checks.json; tests/test_toy_statute_configurable.py (default-config equivalence; nondefault scientific config must match fit metadata); runs/real_process_20261001/checks/web_mask_equivalence.json (2026-10-01 Claude: optional unobserved web-listing mask and opt-in milestone_contamination and pending_contamination (default off); float-boundary-only stable log-sigmoid branch in combo_logw and the mention/web terms (bit-identical for 0<q<1, pinc<1); bit-identical loglik on W0/HEN3 where every step is listed)",
+ "historical_v2_source_versions_not_compatible": [
+  {
+   "model.py": "ee512fb866baf52341fbecd9b4e870d663eba658ed29e8a0e3b76e8cccc1bdcb",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "261cbf9508f67307566d256ad74dd32f4ae7bf512f3f79c034aeeb6c55ecd94f",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "29771dc8054dc5f5e9c26c5f5e49a5ab55522114152e0c58b93375de45f78f39",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "1abe217e248c1ff9f2f3ea25516d2a5a2f7716734bb2725fa98d5dc9318c7a08",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "408c0c44f18c06f85467ab994ea951ed4c5e3f906175175a510b91517c49ed2b",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "206ccb5acb1447d5d768732b33fb9b444101f3a5a1f1de1ab55b9e3ddbee4396",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "2c03c87a3e638f2864231f893383087e3f07784863fe1bdd966f0613e8721b43",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "2759a27e34e08983b4a4a20637a7f802dab0b05f49feaa07dc245b8fb4412bde",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  },
+  {
+   "model.py": "210fc6dce1645ad02f4443114141d123ac0cb250f960ea0ea6d982b7dd4e1cfd",
+   "spec.py": "ad916f2e8b5ad9b49894edeae98e3db8bc7c902f5755468ab0b399f8d04efe47",
+   "grid.py": "84e4cd6208294c25f8e66dad3723a8ea1bf2bc1c8de3d5859ea14b677fdb2ebf"
+  }
+ ],
+ "configuration_qualification": "Source compatibility certifies the legacy/default scientific settings. A different ModelConfig deliberately changes the target and must match the fit scientific_config."
+}

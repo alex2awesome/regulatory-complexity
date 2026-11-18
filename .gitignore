@@ -8,3 +8,16 @@ dashboard/out/
 runs/*
 !runs/README.md
 benchmark/synth/worlds/*/truth/log/*.jsonl
+
+# Data is not in git: it lives in the private Hugging Face dataset
+# alex2awesome/regulatory-complexity-data (see README "Data").
+corpus/
+benchmark/synth/worlds/*
+!benchmark/synth/worlds/_fixture/
+# Third-party clones; reclone with the commands in benchmark/MANIFEST.md.
+benchmark/sources/
+# Local scratch and backups.
+tmp.*/
+logs/
+.pytest_cache/
+*.before_*_fix.sh

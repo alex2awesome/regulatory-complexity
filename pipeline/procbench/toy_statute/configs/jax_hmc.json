@@ -1,0 +1,8 @@
+{
+  "backend": "jax",
+  "kernel": "hmc",
+  "batch_size": 256,
+  "bucket_towns": true,
+  "hmc_steps": 8,
+  "hmc_step_size": 0.1
+}

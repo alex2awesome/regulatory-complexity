@@ -15,7 +15,7 @@ from scipy.integrate import quad
 from scipy.optimize import brentq
 from scipy.special import ndtr
 
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 
 
 BASES = ('single_visit_cycle', 'sum_visit_cycles', 'first_to_last_activity_span')

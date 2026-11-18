@@ -1,0 +1,27 @@
+{
+ "artifact_id": "J1__S07__program_page",
+ "world": "_fixture",
+ "kind": "program_page",
+ "jur": "J1",
+ "stat_id": "S07",
+ "target": false,
+ "audience": "applicant",
+ "url": "https://www.halvern.gov/business/sidewalk-vending",
+ "date": "2025-05-05",
+ "describes_version": 1,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Halvern",
+ "reveals": [],
+ "must_not_reveal": [],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   200,
+   300
+  ],
+  "template_lineage": "J1"
+ },
+ "why": "distractor_ratio=4.0: same jurisdiction, different statute (S07); shares the Halvern page template and fee schedule"
+}
