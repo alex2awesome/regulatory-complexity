@@ -9,6 +9,7 @@ logged, never uploaded. Archives are batched into commits of about 3 GB (Hub com
 State is kept in runs/hf_archive_<date>/state.jsonl so a rerun resumes.
 
   python scripts/archive_to_hf.py push            # create the private dataset if needed, upload all
+  python scripts/archive_to_hf.py card [--final]  # rebuild and upload the dataset card and manifest
   python scripts/archive_to_hf.py restore DIR     # untar every downloaded archive under DIR in place
 """
 import hashlib
@@ -35,6 +36,9 @@ SK3_DIRS = [  # this project's folders only; other projects, envs, caches and mo
     'real_process_refit_20261002', 'rulegap_gemma_20261111', 'solar_admin_integration_20260930',
     'solar_ix_calibration_20260930', 'solar_screen_20260923', 'toy_configurable_20260930',
     'toy_jax_pilot_20260930', 'toy_statute']
+# Python environments and caches are not data; leave them out of server archives (and scans: package test
+# fixtures contain sample private keys).
+SKIP_NAMES = ['env', 'env13', 'uv_cache', '.venv', '__pycache__']
 SSH = ['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=25', '-o', 'ControlMaster=no', '-o', 'ControlPath=none',
        '-o', 'ProxyCommand=ssh -4 -o BatchMode=yes -o ControlMaster=no -o ControlPath=none -W %h:%p whale', 'sk3']
 # AWS access key IDs (AKIA...) are left out on purpose: they are public identifiers, and forum posts
@@ -80,8 +84,10 @@ def ssh(cmd, out=None, timeout=7200):
 def scan_and_count(u):
     if u['kind'] == 'sk3':
         path = f'{SK3_ROOT}/{u["name"]}'
-        hits = ssh(f"grep -rIlE '{SECRET}' {path} 2>/dev/null | head -5").stdout.decode().split()
-        n = int(ssh(f'find {path} -type f | wc -l').stdout.decode().strip() or 0)
+        ex = ' '.join(f'--exclude-dir={d}' for d in SKIP_NAMES)
+        hits = ssh(f"grep -rIlE {ex} '{SECRET}' {path} 2>/dev/null | head -5").stdout.decode().split()
+        prune = ' -o '.join(f'-name {d}' for d in SKIP_NAMES)
+        n = int(ssh(f'find {path} \\( {prune} \\) -prune -o -type f -print | wc -l').stdout.decode().strip() or 0)
         return hits, n
     paths = [str(ROOT / u['top'] / f) for f in u['files']] if u['kind'] == 'files' else [str(ROOT / u['top'] / u['name'])]
     r = subprocess.run(['grep', '-rIlE', SECRET] + paths, capture_output=True, text=True)
@@ -94,16 +100,19 @@ def pack(u, dest):
     dest.parent.mkdir(parents=True, exist_ok=True)
     if u['kind'] == 'sk3':
         with open(dest, 'wb') as f:
-            ssh(f'tar czf - -C {SK3_ROOT} {u["name"]}', out=f, timeout=6 * 3600)
+            ex = ' '.join(f"--exclude='{d}'" for d in SKIP_NAMES)
+            ssh(f'tar czf - {ex} -C {SK3_ROOT} {u["name"]}', out=f, timeout=6 * 3600)
         if subprocess.run(['tar', 'tzf', str(dest)], stdout=subprocess.DEVNULL).returncode:
             raise RuntimeError('streamed archive does not list cleanly')
         return
+    def keep(info):
+        return None if '__pycache__' in info.name.split('/') or info.name.endswith('.pyc') else info
     with tarfile.open(dest, 'w:gz') as t:
         if u['kind'] == 'files':
             for f in u['files']:
-                t.add(ROOT / u['top'] / f, arcname=f'{u["top"]}/{f}')
+                t.add(ROOT / u['top'] / f, arcname=f'{u["top"]}/{f}', filter=keep)
         else:
-            t.add(ROOT / u['top'] / u['name'], arcname=f'{u["top"]}/{u["name"]}')
+            t.add(ROOT / u['top'] / u['name'], arcname=f'{u["top"]}/{u["name"]}', filter=keep)
 
 
 def sha256(p):
@@ -171,13 +180,64 @@ def push():
             if p.exists():
                 p.unlink()
     flush(api, batch)
-    rows = [json.loads(l) for l in state.read_text().splitlines()]
+    rows = _jsonl('state.jsonl')
+    upload_card(api, final=True)
+    log(f'done: {len(rows)} archives, {sum(r["bytes"] for r in rows) / 1e9:.1f} GB')
+
+
+def _jsonl(name):
+    p = STATE_DIR / name
+    return [json.loads(l) for l in p.read_text().splitlines() if l.strip()] if p.exists() else []
+
+
+def _size(b):
+    return f'{b / 1e9:.1f} GB' if b >= 1e9 else f'{b / 1e6:.1f} MB' if b >= 1e5 else f'{b / 1e3:.0f} KB'
+
+
+def render_card(final):
+    """The dataset card: scripts/hf_dataset_card.md with the archive index and totals filled in."""
+    done = {r['archive']: r for r in _jsonl('state.jsonl')}
+    sections = json.loads((ROOT / 'scripts' / 'hf_archive_descriptions.json').read_text())
+    planned = [u['archive'] for u in units()]
+    described = {a for sec in sections for a in sec['archives']}
+    extra = [a for a in planned if a not in described] + [a for a in done if a not in described and a not in planned]
+    if extra:
+        sections = sections + [dict(title='Other', intro='', archives={a: '' for a in dict.fromkeys(extra)})]
+    out = []
+    for sec in sections:
+        out += [f"### {sec['title']}", '']
+        if sec['intro']:
+            out += [sec['intro'], '']
+        out += ['| Archive | Files | Size | Contents |', '|---|---:|---:|---|']
+        for a, desc in sec['archives'].items():
+            if a in done:
+                files, size = f"{done[a]['n_files']:,}", _size(done[a]['bytes'])
+            else:
+                files, size = '', ('not uploaded' if final else 'uploading')
+            out.append(f'| `{a}` | {files} | {size} | {desc} |')
+        out.append('')
+    n_files = sum(r['n_files'] for r in done.values())
+    total = sum(r['bytes'] for r in done.values())
+    waiting = len([a for a in planned if a not in done])
+    totals = f'{len(done)} archives, {n_files:,} files, {total / 1e9:.1f} GB compressed.'
+    if waiting:
+        totals += (f' {waiting} archives not uploaded (see the index).' if final
+                   else f' Upload in progress: {waiting} archives still to come.')
+    card = (ROOT / 'scripts' / 'hf_dataset_card.md').read_text()
+    return card.replace('{{ARCHIVE_INDEX}}', '\n'.join(out).rstrip()).replace('{{TOTALS}}', totals)
+
+
+def upload_card(api=None, final=False):
+    from huggingface_hub import HfApi
+    api = api or HfApi()
+    path = STATE_DIR / 'README.dataset.md'
+    path.write_text(render_card(final))
+    api.upload_file(path_or_fileobj=str(path), path_in_repo='README.md', repo_id=REPO, repo_type='dataset',
+                    commit_message='Dataset card')
+    rows = _jsonl('state.jsonl')
     (STATE_DIR / 'MANIFEST.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows))
     api.upload_file(path_or_fileobj=str(STATE_DIR / 'MANIFEST.jsonl'), path_in_repo='MANIFEST.jsonl',
                     repo_id=REPO, repo_type='dataset', commit_message='Manifest of archives')
-    api.upload_file(path_or_fileobj=str(ROOT / 'scripts' / 'hf_dataset_card.md'), path_in_repo='README.md',
-                    repo_id=REPO, repo_type='dataset', commit_message='Dataset card')
-    log(f'done: {len(rows)} archives, {sum(r["bytes"] for r in rows) / 1e9:.1f} GB')
 
 
 def restore(where):
@@ -193,6 +253,8 @@ def restore(where):
 if __name__ == '__main__':
     if sys.argv[1:2] == ['push']:
         push()
+    elif sys.argv[1:2] == ['card']:
+        upload_card(final='--final' in sys.argv)
     elif sys.argv[1:2] == ['restore'] and len(sys.argv) == 3:
         restore(sys.argv[2])
     else:
