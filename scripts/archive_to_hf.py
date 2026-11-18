@@ -37,8 +37,10 @@ SK3_DIRS = [  # this project's folders only; other projects, envs, caches and mo
     'toy_jax_pilot_20260930', 'toy_statute']
 SSH = ['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=25', '-o', 'ControlMaster=no', '-o', 'ControlPath=none',
        '-o', 'ProxyCommand=ssh -4 -o BatchMode=yes -o ControlMaster=no -o ControlPath=none -W %h:%p whale', 'sk3']
-SECRET = (r'(sk-(ant|proj)-[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}|hf_[A-Za-z0-9]{30,}'
-          r'|xox[abpr]-[A-Za-z0-9-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY)')
+# AWS access key IDs (AKIA...) are left out on purpose: they are public identifiers, and forum posts
+# carry other people's expired presigned S3 links that contain them. Secret keys are caught by assignment.
+SECRET = (r'(sk-(ant|proj)-[A-Za-z0-9_-]{16,}|gh[pousr]_[A-Za-z0-9]{30,}|hf_[A-Za-z0-9]{30,}'
+          r'|xox[abpr]-[A-Za-z0-9-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY|aws_secret_access_key *[=:] *[A-Za-z0-9/+]{40})')
 
 
 def log(msg):

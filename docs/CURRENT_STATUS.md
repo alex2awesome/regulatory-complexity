@@ -2,6 +2,13 @@
 
 Last updated: 2026-09-30 (Codex: Solar/ADU; Claude owns toy status). Dated detail goes in dated docs.
 
+## Repository and data (2026-11-17)
+- Code: private GitHub repo `alex2awesome/regulatory-complexity`; branch `organize-20261117`, PR #1 into
+  `main`. All code, tests and docs committed; data is gitignored.
+- Data: private Hugging Face dataset `alex2awesome/regulatory-complexity-data`, one `.tar.gz` per top-level
+  folder of `corpus/`, `benchmark/synth/worlds/`, `runs/` and the project's sk3 scratch folders
+  (`scripts/archive_to_hf.py push`, resumable; log in `runs/hf_archive_20261117/`).
+
 ## Solar
 - Acquisition (Claude, sk3): multi-topic census of 528 California + 31 national subreddits
   running, ~37M of ~89M items; batches -> `runs/solar_census_20260928/SOLAR_TRIAGE_LEDGER.md`.
