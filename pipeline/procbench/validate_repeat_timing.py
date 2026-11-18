@@ -12,8 +12,9 @@ import numpy as np
 
 from .bayes_repeat_timing import Config, fit_repeat_timing, refinement_check
 from .phase_mixture import quantile_density
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 from .rework_counts import ReworkLaw
+from .infra.scoring import absolute_log_error, log_interval_score
 
 
 def generate_data(replicates, seed, cfg):
@@ -70,8 +71,8 @@ def worker(job, cfg, out):
 def score(interval, truth):
     lo, hi = np.log(interval['ci90'])
     target = math.log(truth)
-    return dict(absolute_log_error=abs(math.log(interval['median'])-target),
-                interval_score90_log=float(hi-lo+20*max(lo-target, 0)+20*max(target-hi, 0)),
+    return dict(absolute_log_error=absolute_log_error(interval['median'], truth),
+                interval_score90_log=log_interval_score(*interval['ci90'], truth),
                 covers90=bool(lo <= target <= hi))
 
 

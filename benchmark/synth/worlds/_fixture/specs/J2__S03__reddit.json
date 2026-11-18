@@ -1,0 +1,111 @@
+{
+ "artifact_id": "J2__S03__reddit",
+ "world": "_fixture",
+ "kind": "reddit_thread",
+ "jur": "J2",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "public",
+ "url": "https://www.reddit.com/r/MarisolValley/comments/3kd92m/ardenmoor_unpermitted_unit_program_experience/",
+ "date": "2025-05-30",
+ "describes_version": 1,
+ "stale": false,
+ "links_to": [],
+ "publisher": "reddit",
+ "subreddit": "r/MarisolValley",
+ "thread_id": "t_3kd92m",
+ "reveals": [
+  {
+   "ref": "B01",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$275, Form P-51",
+   "must_quote": false
+  },
+  {
+   "ref": "B02",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "completeness email 8 days after submittal",
+   "must_quote": false
+  },
+  {
+   "ref": "B04",
+   "field": "rework",
+   "fidelity": "exact",
+   "value": "one correction (water heater strapping)",
+   "must_quote": false
+  },
+  {
+   "ref": "B05",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "third-party inspector used, Form P-53",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "38 days end to end",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "B07"
+ ],
+ "contamination": [
+  {
+   "about": "J1__S03",
+   "value": "Halvern: mandatory pre-app meeting, $430, day 50 no inspection"
+  },
+  {
+   "about": "J2__S07",
+   "value": "a commenter confuses this with the variance hearing process"
+  }
+ ],
+ "style": {
+  "register": "reddit_casual",
+  "length_words": [
+   250,
+   400
+  ],
+  "template_lineage": null
+ },
+ "persona": {
+  "applicant_id": "J2__S03#44",
+  "outcome": "normal",
+  "true_timeline": {
+   "submit_to_issue_days": 38,
+   "rework_rounds": 1
+  },
+  "reported_timeline": {
+   "submit_to_issue_days": 38
+  },
+  "why_posting": "answering repeated questions"
+ },
+ "thread": [
+  {
+   "role": "op",
+   "author": "u_fairmont_tenant",
+   "is_staff_insider": false
+  },
+  {
+   "role": "comment",
+   "author": "u_halvern_homeowner",
+   "contamination": [
+    "J1__S03"
+   ],
+   "is_staff_insider": false
+  },
+  {
+   "role": "comment",
+   "author": "u_quietstreet",
+   "wrong": [
+    "planning commission hearing"
+   ],
+   "is_staff_insider": false
+  }
+ ],
+ "why": "complaint_selection: normal drew 0.08 -> a rare satisfied poster; cross-jurisdiction contamination in comments"
+}

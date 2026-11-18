@@ -4,4 +4,6 @@
 
 **Forums / Q&A** (city-data, Quora, contractor forums, Nextdoor-like): shorter than reddit, older, more polite; threads often drift across jurisdictions ("In Lafayette they required…", "my cousin in Corvane…") — a natural contamination carrier.
 
+**Any first-person duration**, in a forum thread or an applicant quote in a news story, is subject to `reddit_style.md` §3a: state what the figure measures, and do not turn a `sum_visit_cycles` total into labour, into one visit, into a first-to-last span, or into a per-round rate.
+
 **Reddit**: see `reddit_exemplars.md` and `reddit_stats.json` (built from the real corpus by `distill_exemplars.py` after Wave 1).

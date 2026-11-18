@@ -1,0 +1,50 @@
+{
+ "world_id": "_fixture",
+ "seed": 1,
+ "note": "Hand-written fixture for tests of web.py / solve.py. Not generated.",
+ "state": "Marisol",
+ "jurisdictions": [
+  {
+   "jur": "J1",
+   "name": "City of Halvern",
+   "pop": 68000
+  },
+  {
+   "jur": "J2",
+   "name": "City of Ardenmoor",
+   "pop": 41000
+  },
+  {
+   "jur": "J3",
+   "name": "Marisol County (unincorporated)",
+   "pop": 155000
+  }
+ ],
+ "statutes": [
+  {
+   "stat_id": "S03",
+   "cite": "Marisol Gov. Code sec. 41210",
+   "domain": "unpermitted_unit_amnesty"
+  },
+  {
+   "stat_id": "S07",
+   "cite": "Marisol Gov. Code sec. 51422",
+   "domain": "sidewalk_vending"
+  }
+ ],
+ "knobs": {
+  "p_publish_program_page": 0.7,
+  "p_publish_form": 0.8,
+  "p_publish_faq": 0.4,
+  "p_publish_fee_schedule": 0.9,
+  "p_publish_staff_report": 0.35,
+  "p_publish_sop": 0.1,
+  "p_reveal_backoffice_in_comments": 0.15,
+  "p_stale": 0.25,
+  "p_wrong_fact_user": 0.3,
+  "distractor_ratio": 0.5,
+  "naming_drift": 0.6,
+  "neighbor_state": false,
+  "n_applicants": 200
+ }
+}

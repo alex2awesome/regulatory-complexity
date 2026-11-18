@@ -1,0 +1,470 @@
+{
+ "schema": "scoping-work-packets/1",
+ "created": "2026-09-16",
+ "plan": "docs/2026-09-16-county-scale-up-plan.md",
+ "how_to_use": "See plan section 9. Claim a packet by setting owner and status=claimed with the date. Write your output file incrementally, section by section, so a crash loses one section not the packet. Set status=done only when every acceptance check passes. Never exceed the stated budget; if you run out, set status=partial, record what is left in remaining, and stop.",
+ "session_budget_note": "As of 2026-09-16 19:00 PDT: WebSearch 200/200 EXHAUSTED session-wide (subagents share it). WebFetch and curl still work, and the data.ca.gov package_search API is keyless and indexes many state datasets, so URL-pattern and API work is still productive. A fresh session resets the search budget.",
+ "conventions": {
+  "not_verified": "Write 'not verified' when a fetch failed or nothing was found by the means you used. Never write 'does not exist' unless a source says so.",
+  "citations": "Every fact carries its URL inline. Record fetch failures (403, 404, Cloudflare) explicitly: they are findings about the availability model, not noise.",
+  "no_invention": "A value not present in a source stays empty. Coverage counts are reported honestly.",
+  "raw_cache": "Save every downloaded file under corpus/counties/raw/ or corpus/realworld/<slug>/raw/ so nothing is refetched.",
+  "no_commit": "Do not git commit. Alex authorises commits."
+ },
+ "verified_assets": [
+  {
+   "id": "hcd-apr-table-a2",
+   "what": "HCD Housing Element Annual Progress Report, Table A2: unit-level housing permit records for every California jurisdiction.",
+   "url": "https://data.ca.gov/dataset/81b0841f-2802-403e-b48e-2ef4b751f77c/resource/fe505d9b-8c36-42ba-ba30-08bc4f34e022/download",
+   "local": "corpus/counties/raw/apr_table_a2.csv",
+   "size_bytes": 292765228,
+   "rows": "1,005,689 raw lines / 922,104 parsed records",
+   "verified": "2026-09-16, downloaded and parsed",
+   "why_it_matters": "PER-PROJECT PROCESSING TIME for all 58 counties and every city, 2018-2023. 281,322 ADU rows. ENT_APPROVE_DT1 (entitlement), BP_ISSUE_DT1 (building permit) and CO_ISSUE_DT1 (certificate of occupancy) give real elapsed clocks. 35,677 ADU records have a usable entitlement-to-building-permit span (an earlier draft said 35,729, from an exploratory pass with a different outlier cut); 40 counties have 30 or more. Per-county medians run 0 days (Orange, Santa Clara, Amador, Plumas: ministerial over the counter) to 111 days (San Benito) and 100 (Contra Costa). A zero span CORRELATES with a ministerial process but does not prove one: validated against Table A's own PROJECT_TYPE label, ministerial projects have a median span of 9 days with 45% at zero, discretionary ones 108 days with 29% at zero. See docs/scoping/2026-09-16-apr-permit-timing.md.",
+   "columns_of_interest": [
+    "JURIS_NAME",
+    "CNTY_NAME",
+    "YEAR",
+    "UNIT_CAT",
+    "ENT_APPROVE_DT1",
+    "BP_ISSUE_DT1",
+    "CO_ISSUE_DT1",
+    "NO_ENTITLEMENTS",
+    "NO_BUILDING_PERMITS",
+    "APPROVE_SB35",
+    "LATITUDE",
+    "LONGITUDE"
+   ],
+   "unit_cat_values": [
+    "SFD",
+    "ADU",
+    "5+",
+    "SFA",
+    "2 to 4",
+    "MH"
+   ],
+   "also_note": "Per-jurisdiction medians in the derived dataset are medians of yearly medians, not pooled medians; the two differ by a day or two in large jurisdictions."
+  },
+  {
+   "id": "hcd-apr-table-a",
+   "what": "HCD APR Table A, application-level records (the companion to A2).",
+   "url": "https://data.ca.gov/dataset/81b0841f-2802-403e-b48e-2ef4b751f77c/resource/c78b769d-cc02-4050-91ef-79ded665b5a8/download",
+   "verified": "2026-09-16, downloaded and parsed",
+   "why_it_matters": "CONFIRMED and better than hoped. APP_SUBMIT_DT is present on 100% of 358,264 rows, so joining to Table A2 on (jurisdiction, APN, unit category) gives the applicant's own clock: median of per-jurisdiction medians 156 days across 275 jurisdictions, against 70 days measured from permit records alone. It also carries PROJECT_TYPE (Ministerial 150,242 / Discretionary 13,980), which is a jurisdiction's own statement of whether a discretionary step exists, and APPLICATION_STATUS (194,347 approved / 54,382 pending / 1,219 withdrawn / 89 disapproved). Join match rate 376,564 of 922,104 A2 rows (41%). Builder: pipeline/recon/apr_join_clocks.py",
+   "local": "corpus/counties/raw/apr_table_a.csv",
+   "rows": 358264
+  },
+  {
+   "id": "hcd-apr-dataset-api",
+   "what": "The whole HCD APR package on the state open-data portal, including data dictionaries.",
+   "url": "https://data.ca.gov/api/3/action/package_show?id=housing-element-annual-progress-report-apr-data-by-jurisdiction-and-year",
+   "verified": "2026-09-16, package_search returned it"
+  },
+  {
+   "id": "cdss-cf296",
+   "what": "CDSS CF 296: CalFresh applications received, approved, denied and withdrawn, expedited service, processing timeframes, recertifications.",
+   "url": "https://www.cdss.ca.gov/inforesources/research-and-data/calfresh-data-tables/cf296",
+   "file_pattern": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Research-and-Data/DSSDS/Tables/CF296[PERIOD].xlsx",
+   "periods_listed": [
+    "July 2025 ongoing",
+    "FY 2024-25",
+    "FY 2023-24",
+    "FY 2022-23",
+    "FY 2021-22",
+    "FY 2020-21"
+   ],
+   "format": "Excel",
+   "verified": "2026-09-16, page fetched and file pattern read off it",
+   "unconfirmed": "Whether the tables break out by county, and the exact timeliness metrics. The page says 'processing timeframes' and 'County revisions are anticipated', which strongly implies per-county rows. DOWNLOAD ONE FILE AND CHECK before building anything on it.",
+   "contact": "admcf296@dss.ca.gov"
+  },
+  {
+   "id": "usda-ers-county",
+   "what": "Population, poverty, median household income, unemployment, education, and the Rural-Urban Continuum Codes, per county.",
+   "urls": {
+    "rucc_2023": "https://www.ers.usda.gov/media/5768/2023-rural-urban-continuum-codes.csv?v=70189",
+    "poverty": "https://www.ers.usda.gov/media/5496/poverty-estimates-for-the-united-states-states-and-counties-2023.csv?v=51214",
+    "income_unemployment": "https://www.ers.usda.gov/media/5497/unemployment-and-median-household-income-for-the-united-states-states-and-counties-2000-23.csv?v=30518",
+    "population": "https://www.ers.usda.gov/media/5499/population-estimates-for-the-united-states-states-and-counties-2020-23.csv?v=80903",
+    "education": "https://www.ers.usda.gov/media/5495/educational-attainment-for-adults-age-25-and-older-for-the-united-states-states-and-counties-1970-2023.csv?v=70564"
+   },
+   "note": "Long format (fips, state, area, attribute, value). Encoding is latin-1, not utf-8. Already merged by pipeline/recon/build_county_covariates.py.",
+   "verified": "2026-09-16, all five downloaded and parsed"
+  },
+  {
+   "id": "census-gazetteer",
+   "what": "County land area and centroid.",
+   "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2023_Gazetteer/2023_Gaz_counties_national.zip",
+   "verified": "2026-09-16, downloaded and parsed"
+  },
+  {
+   "id": "bls-qcew-county",
+   "what": "County employment and wages by ownership. own_code 3 with industry_code 10 and agglvl_code 71 is all local government in the county.",
+   "url_pattern": "https://data.bls.gov/cew/data/api/2023/a/area/%s.csv",
+   "verified": "2026-09-16, all 58 California counties fetched",
+   "caveat": "Counts county government, cities, school districts and special districts together. Not county-government FTE."
+  }
+ ],
+ "blocked_sources": [
+  {
+   "source": "Census Bureau API (api.census.gov)",
+   "symptom": "Returns a 'Missing Key' HTML page; a key is now required.",
+   "blocks": [
+    "broadband subscription rate",
+    "limited-English households",
+    "any ACS variable"
+   ],
+   "workaround": "RESOLVED 2026-09-16 (P8): Census Reporter redistributes ACS keyless -- https://api.censusreporter.org/1.0/data/show/latest?table_ids=<TABLE>&geo_ids=050%7C04000US06 serves any ACS table for all 58 counties in one call, release id in the payload. No key registered. Third-party mirror, so re-check a published number against data.census.gov. Original workaround: register a free key, or take the values from data.census.gov by hand."
+  },
+  {
+   "source": "State Controller (gcc.sco.ca.gov, publicpay.ca.gov)",
+   "symptom": "HTTP 403 to every scripted fetch.",
+   "blocks": [
+    "county-government FTE by department",
+    "county general fund",
+    "general fund per capita"
+   ],
+   "workaround": "PARTLY RESOLVED 2026-09-16 (P8): the FINANCIAL half is open. bythenumbers.sco.ca.gov is a Socrata domain with a keyless SODA API: dataset emxv-k8xv is County - Revenues and uctr-c2j8 is County - Expenditures, FY 2002-03 to 2023-24, with subcategory_1 carrying the fund, so subcategory_1='General' gives General Fund totals for 57 counties (San Francisco files a city FTR, which has no fund dimension). Catalog: https://api.us.socrata.com/api/catalog/v1?domains=bythenumbers.sco.ca.gov . Still blocked: county-government FTE. gcc.sco.ca.gov and publicpay.ca.gov 403 every scripted path tried (/, Reports/Counties/Counties.aspx, RawExport zip, api/counties) and data.ca.gov has no mirror; that needs a manual browser download."
+  },
+  {
+   "source": "State Water Board LAMP list",
+   "symptom": "The State Water Board's central OWTS and LAMP contact pages publish no machine-readable register of approved programs.",
+   "blocks": [
+    "the 58-county LAMP inventory, which packet P5 needs"
+   ],
+   "workaround": "RESOLVED 2026-09-16: the nine Regional Water Quality Control Boards publish their own LAMP approval tables, with approval dates, document links and pending status. Region 5 (Central Valley) alone lists 34 jurisdictions plus 8 referred elsewhere. Start from the regional tables, not the state page. Confirmed: https://www.waterboards.ca.gov/rwqcb5/water_issues/owts/lamp_reviews/ and https://www.waterboards.ca.gov/centralcoast/water_issues/programs/septics/local_ag_mgnmt_plan.html",
+   "also_learned": "A LAMP is NOT universal. Tier 1 is the default without an approved LAMP; Tier 2 is the optional alternative requiring one. Lake County is listed as Tier 1. Cities hold LAMPs separately from their counties. Universal annual reporting is the only thing regulation guarantees."
+  },
+  {
+   "source": "reddit.com (all hosts and paths)",
+   "symptom": "HTTP 403 with the body \"You've been blocked by network security\" from www.reddit.com, old.reddit.com, api.reddit.com and oauth.reddit.com, for /r/<sub>/about.json and for the plain subreddit page, with and without a browser User-Agent.",
+   "blocks": [
+    "subreddit subscriber counts",
+    "any unauthenticated reddit metadata fetch"
+   ],
+   "workaround": "Arctic Shift, keyless: https://arctic-shift.photon-reddit.com/api/subreddits/search?subreddit=<sub>&limit=1 returns full subreddit metadata including the `subscribers` field (the earlier note that it does not was about its posts/comments endpoints). Costs: it is a snapshot, not live, and its index is missing 12 of the 86 candidate CA county subs (including r/chico, r/susanville), so coverage is 44 of the 49 counties with a candidate sub.",
+   "found_by": "P8-COVARIATE-GAPS 2026-09-16"
+  },
+  {
+   "source": "CalSAWS / CWDA legacy-consortium membership",
+   "symptom": "calsaws.org/about-us/history/ states the structure and the counts -- 39 C-IV counties, 18 CalWIN (formerly WCDS) counties, LRS for Los Angeles -- but names no member counties. calsaws.org/about-us/counties/ lists only the current six CalSAWS regions. The 2024 Executive Overview PDF repeats the counts without a roster. calwin.org 403s live and its 2019 Wayback snapshot has no member list. cwda.org/calsaws 404s. cdss.ca.gov/inforesources/saws describes the merger without county names.",
+   "blocks": [
+    "calsaws_legacy_consortium for 57 of 58 counties"
+   ],
+   "workaround": "Only Los Angeles = LRS is fillable from a fetchable source; the column is 1/58. Try a CalSAWS Information Transmittal (CIT) or the Amended and Restated Joint Exercise of Powers Agreement, a CalWIN-era RFP on calwinprocurement.org, or an LAO report. Use 1 + 18 + 39 = 58 as the check on any roster obtained later. The current CalSAWS six-region membership IS available and is transcribed in corpus/counties/README.md.",
+   "found_by": "P8-COVARIATE-GAPS 2026-09-16"
+  },
+  {
+   "source": "Internet Archive APIs (web.archive.org/cdx, archive.org/wayback/available)",
+   "symptom": "The CDX search API returned an HTML page reading \"Internet Archive services are temporarily offline\"; archive.org/wayback/available returned HTTP 429 Too Many Requests.",
+   "blocks": [
+    "programmatic discovery of archived pages on retired sites"
+   ],
+   "workaround": "Direct snapshot URLs still resolve: https://web.archive.org/web/<year>/<url> redirects to the nearest capture. Retry the CDX API in a later session; this looked transient, not a policy block.",
+   "found_by": "P8-COVARIATE-GAPS 2026-09-16"
+  },
+  {
+   "source": "elections.cdn.sos.ca.gov per-contest spreadsheets",
+   "symptom": "S3 403 on every guessable xlsx filename under /sov/2024-general/sov/; the SOS statement-vote page itself fetches but exposes no download links to a script.",
+   "blocks": [
+    "a tabular 2024 Statement of Vote"
+   ],
+   "workaround": "RESOLVED: https://elections.cdn.sos.ca.gov/sov/2024-general/sov/complete-sov.pdf is public (3.4 MB) and 'President by County' parses cleanly with pdftotext -layout. Same path pattern should work for other election years.",
+   "found_by": "P8-COVARIATE-GAPS 2026-09-16"
+  }
+ ],
+ "packets": [
+  {
+   "id": "P0-APR-TIMING",
+   "title": "Mine the HCD APR data into a per-jurisdiction permit-timing dataset",
+   "priority": 1,
+   "status": "open",
+   "owner": null,
+   "needs_web": false,
+   "budget": {
+    "fetches": 5,
+    "wall_minutes": 90
+   },
+   "why_first": "The file is already on disk and it is the project's external-validity benchmark: real per-project elapsed times for every jurisdiction. No searching required, so it is runnable in this session and by any agent.",
+   "inputs": [
+    "corpus/counties/raw/apr_table_a2.csv",
+    "hcd-apr-table-a (download it)",
+    "hcd-apr-dataset-api (for the data dictionaries)"
+   ],
+   "tasks": [
+    "Read the Table A and Table A2 data dictionaries (DOCX resources on the package) and record what each date field means and its known quality problems.",
+    "Download Table A and determine whether it carries an application/submittal date. If it does, join it to A2 on JURS_TRACKING_ID or APN to get the full application-to-permit clock.",
+    "Build corpus/counties/apr_permit_timing.csv: one row per (jurisdiction, county, year, unit category) with n projects, and the median, p25, p75 and p90 of each available span (entitlement to building permit, building permit to certificate of occupancy, and application to permit if Table A allows).",
+    "Separate unincorporated-county rows from city rows: JURIS_NAME for a county is the county itself. The county process and the city processes are different processes and must not be pooled.",
+    "Flag the zero-span jurisdictions. A median of 0 days from entitlement to building permit means no separate discretionary entitlement, which is a process-structure fact. Report how many jurisdictions are in that class per year, and whether it grew after the 2020 ministerial-ADU rules.",
+    "Report data quality honestly: what share of rows have each date, whether dates are ever out of order, duplicate APNs, and the jurisdictions whose reporting is obviously incomplete."
+   ],
+   "output": [
+    "corpus/counties/apr_permit_timing.csv",
+    "corpus/counties/apr_permit_timing_README.md",
+    "docs/scoping/2026-09-16-apr-permit-timing.md"
+   ],
+   "acceptance": [
+    "The csv has one row per (jurisdiction, county, year, unit_cat) and every column is documented in the README with its source field.",
+    "The report states, for ADUs, how many jurisdictions have 30 or more usable spans, and the distribution of per-jurisdiction medians.",
+    "Known-good anchors reproduce: 281,322 ADU rows; 35,729 usable entitlement-to-building-permit ADU spans; 40 counties with 30 or more; Los Angeles median 63 days on 13,708 spans.",
+    "Data-quality section present, with per-field completeness."
+   ]
+  },
+  {
+   "id": "P1-CALFRESH-DATA",
+   "title": "Confirm and extract the CalFresh per-county timeliness series",
+   "priority": 2,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 15,
+    "fetches": 40,
+    "wall_minutes": 90
+   },
+   "why": "If CF 296 is per-county and carries processing timeframes, it is the best official timing series in the whole scoping set: monthly, all 58 counties, several years.",
+   "inputs": [
+    "cdss-cf296"
+   ],
+   "tasks": [
+    "Download the FY 2023-24 and FY 2024-25 CF 296 workbooks from the file pattern and open them. Determine definitively whether rows are per county, and list every timeliness measure present with its exact definition.",
+    "If per-county timeliness exists, extract a tidy long series (county, month, measure, value) for the years available into corpus/counties/calfresh_cf296.csv.",
+    "Identify the companion tables: CF 256 caseload, and anything on expedited service. Record their URLs and coverage.",
+    "Find the California Food Policy Advocates CalFresh Program Access Index by county, and the State Auditor report on county CalFresh administration. Record URLs and what per-county measures each holds.",
+    "State plainly whether BenefitsCal and CalSAWS have flattened the county process variation since 2023. A negative answer here is a real finding and changes the program's ranking in the plan."
+   ],
+   "output": [
+    "corpus/counties/calfresh_cf296.csv (if it exists)",
+    "docs/scoping/2026-09-16-calfresh-58-counties.md"
+   ],
+   "acceptance": [
+    "An explicit yes or no on per-county timeliness, with the evidence.",
+    "If yes, a tidy csv plus a README with the measure definitions.",
+    "A verdict on whether the process is still county-variable after BenefitsCal, with citations."
+   ]
+  },
+  {
+   "id": "P2-CCW-REMAINING",
+   "title": "Finish the CCW sweep: the 43 counties not yet covered",
+   "priority": 4,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 60,
+    "fetches": 200,
+    "wall_minutes": 180
+   },
+   "inputs": [
+    "docs/scoping/2026-09-16-ccw-15-small-counties-findings.md (the 15 done, and the table format to match)"
+   ],
+   "tasks": [
+    "Fill the same nine-column table for the remaining 43 counties, largest first: Los Angeles, San Diego, Orange, Riverside, San Bernardino, Santa Clara, Alameda, Sacramento, Contra Costa, Fresno, Kern, San Francisco, Ventura, San Joaquin, San Mateo, Stanislaus, Sonoma, Tulare, Santa Barbara, Solano, Monterey, Placer, San Luis Obispo, Merced, Santa Cruz, Marin, Butte, Yolo, El Dorado, Imperial, Del Norte, Glenn, Colusa, Plumas, Inyo, Mono, Mariposa, Amador, Lassen, Trinity, Modoc, Sierra, Alpine.",
+    "Record the city police chiefs that issue their own licences, since that changes who the decision-maker is.",
+    "Check DOJ OpenJustice for per-county CCW statistics and record what exists.",
+    "Note every 403 or Cloudflare block: the 15-county pass found 6 of 15, and whether that rate holds is itself a result."
+   ],
+   "output": [
+    "extend docs/scoping/2026-09-16-ccw-15-small-counties-findings.md, or a companion file for the remaining counties with the same table shape"
+   ],
+   "acceptance": [
+    "All 58 counties present across the two files",
+    "Fetch-block rate reported",
+    "Each row's facts carry a URL"
+   ]
+  },
+  {
+   "id": "P3-ADU-PROCESS-DOCS",
+   "title": "The 58-county ADU process document inventory",
+   "priority": 3,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 60,
+    "fetches": 200,
+    "wall_minutes": 180
+   },
+   "why": "P0 gives the timing; this gives the process that produced it, and the pair is what makes ADU the flagship candidate.",
+   "inputs": [
+    "corpus/ab2533/ (Hayward, El Cerrito, Lafayette, San Mateo County already done: build on them, do not redo)"
+   ],
+   "tasks": [
+    "For all 58 counties' UNINCORPORATED processes: ADU page, ADU ordinance, checklist or handout, pre-approved plans programme, AB 2533 amnesty page, and any stated processing time. One row per county.",
+    "Find the HCD ordinance-review findings letters. These are an oversight body's assessments of local process defects and there is no equivalent elsewhere in the corpus; record where they live and how many counties have one.",
+    "Record the permit portal vendor and the code host per county, which fills two empty covariate columns.",
+    "Sketch the process as steps with actors for three counties: one large, one mid, one tiny."
+   ],
+   "output": [
+    "docs/scoping/2026-09-16-adu-58-counties.md",
+    "fill permit_portal_vendor and code_host in corpus/counties/ca_counties_covariates.csv"
+   ],
+   "acceptance": [
+    "At least 45 of 58 counties with a page URL or an explicit 'no ADU page found'",
+    "HCD findings letters located or reported absent",
+    "Three gold sketches"
+   ]
+  },
+  {
+   "id": "P4-GENERAL-ASSISTANCE",
+   "title": "General Assistance: the maximal-discretion, minimal-evidence case",
+   "priority": 5,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 40,
+    "fetches": 120,
+    "wall_minutes": 120
+   },
+   "inputs": [],
+   "tasks": [
+    "Per county: programme name, grant amount, eligibility rules, time limit, process steps, and the document URL, for at least 30 counties spanning sizes.",
+    "Find any statewide compilation (CDSS General Relief caseload reports, CWDA, Western Center on Law and Poverty).",
+    "Note the counties shaped by litigation (Boehm, Hunt, Bell), since a litigated county differs traceably from an unlitigated one.",
+    "Give a verdict on whether this is the best test of the rural-data-poverty question."
+   ],
+   "output": [
+    "docs/scoping/2026-09-16-general-assistance-58-counties.md"
+   ],
+   "acceptance": [
+    "30 or more counties in the table",
+    "An explicit verdict on official timing data, expected to be poor",
+    "The litigation map"
+   ]
+  },
+  {
+   "id": "P5-ENV-HEALTH-LAMP",
+   "title": "County environmental health: septic LAMPs, wells, retail food",
+   "priority": 3,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 60,
+    "fetches": 180,
+    "wall_minutes": 180
+   },
+   "why": "The LAMP is the only designed-tier process document that exists for all 58 counties by regulatory requirement. And this is where the rural hypothesis may invert: septic and well activity concentrates in rural counties.",
+   "inputs": [
+    "blocked_sources: the State Water Board publishes no machine-readable LAMP list, so go per county or per regional board"
+   ],
+   "tasks": [
+    "Build the 58-county LAMP inventory: county, LAMP document URL, approving regional board, approval date, and whether annual reports with permit counts are published.",
+    "Per county: the well permit page and any county well ordinance stricter than DWR Bulletin 74.",
+    "Per county: the retail food plan-check page and the placarding or grading system used, which differs by county.",
+    "Test the rural-inversion hypothesis: is there more septic and well evidence, official and user-generated, in rural counties than urban ones?"
+   ],
+   "output": [
+    "docs/scoping/2026-09-16-county-environmental-health-58.md"
+   ],
+   "acceptance": [
+    "LAMP row for 45 or more counties, or an explicit account of why fewer",
+    "An answer on the rural inversion with evidence",
+    "Three gold sketches"
+   ]
+  },
+  {
+   "id": "P6-OTHER-STATUTES-SWEEP",
+   "title": "Sweep and rank every other 58-county process",
+   "priority": 6,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 50,
+    "fetches": 100,
+    "wall_minutes": 120
+   },
+   "inputs": [
+    "plan section 2, workstream A6, which lists the candidates to assess"
+   ],
+   "tasks": [
+    "Assess each candidate on variation, official timing data, user data, gold feasibility and rural coverage, scored 1 to 5, with two or three concrete examples and URLs each.",
+    "Pay particular attention to Medi-Cal eligibility (DHCS county performance dashboards), child support (federal per-LCSA performance data), assessment appeals, and agricultural commissioner pesticide permits (per-county DPR data). These four have unusually good per-county outcome data.",
+    "Produce a ranked shortlist of eight across all candidates including the five with their own packets."
+   ],
+   "output": [
+    "docs/scoping/2026-09-16-other-58-county-statutes-sweep.md"
+   ],
+   "acceptance": [
+    "Every candidate scored on all five axes",
+    "A ranked shortlist of eight with reasoning",
+    "A recommended combination of three or four programmes"
+   ]
+  },
+  {
+   "id": "P7-FORUMS-BEYOND-REDDIT",
+   "title": "Where else people describe county processes",
+   "priority": 4,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 50,
+    "fetches": 120,
+    "wall_minutes": 150
+   },
+   "why": "Alex: reddit is one forum among many. And the rural-coverage answer probably lives here, in grand jury reports and Google reviews, not on reddit.",
+   "inputs": [
+    "plan section 2, workstream A9, which lists the source families"
+   ],
+   "tasks": [
+    "Assess each source family for programme coverage, access method, volume, urban-rural skew, and the kind of process facts it carries.",
+    "Do the concrete spot checks: Avvo questions for ADU in Sacramento versus Trinity; Yelp reviews of the Los Angeles DPSS office versus Modoc social services; CalGuns posts in the San Bernardino versus Alpine CCW thread; Glassdoor reviews by county eligibility workers in a large versus a small county.",
+    "Give particular attention to civil grand jury reports (every county publishes them annually, many address permit and benefit backlogs) and to Glassdoor and Indeed reviews by county staff, which are the only staff-side process evidence available anywhere.",
+    "Name the five sources that add most beyond reddit and the ones that best fill the rural gap, with a harvest plan and effort estimate."
+   ],
+   "output": [
+    "docs/scoping/2026-09-16-forums-beyond-reddit.md",
+    "corpus/counties/forum_sources.csv"
+   ],
+   "acceptance": [
+    "Every family assessed with a volume estimate",
+    "All four spot checks done with numbers",
+    "A ranked top five and a harvest plan"
+   ]
+  },
+  {
+   "id": "P8-COVARIATE-GAPS",
+   "title": "Fill the 14 empty covariate columns",
+   "priority": 5,
+   "status": "open",
+   "owner": null,
+   "needs_web": true,
+   "budget": {
+    "searches": 20,
+    "fetches": 60,
+    "wall_minutes": 90
+   },
+   "inputs": [
+    "corpus/counties/README.md, which lists every empty column and the source it needs",
+    "blocked_sources"
+   ],
+   "tasks": [
+    "County-government FTE and general fund from the State Controller, working around the 403 (a browser fetch by hand is acceptable; record that it was manual).",
+    "Percent of population unincorporated and the number of incorporated cities, from Department of Finance E-1.",
+    "Broadband subscription rate, which needs a Census API key: register one or take the table by hand.",
+    "The CalSAWS legacy consortium per county (former C-IV, LRS or CalWIN).",
+    "2024 presidential vote share per county from the Secretary of State Statement of Vote.",
+    "Subreddit subscriber counts for the 49 counties with a candidate sub."
+   ],
+   "output": [
+    "updated corpus/counties/ca_counties_covariates.csv and README.md"
+   ],
+   "acceptance": [
+    "Every newly filled column documented with source and vintage",
+    "Coverage counts updated in covariates_coverage.json",
+    "Manual downloads recorded as manual"
+   ]
+  }
+ ],
+ "collision_rules": [
+  "One packet, one owner. Claim before starting.",
+  "Only P8 and P3 write to ca_counties_covariates.csv. P3 writes permit_portal_vendor and code_host only. If both run at once, P3 writes a separate csv and P8 merges it.",
+  "Nobody but the A8 sweep writes corpus/counties/reddit_raw/ or reddit_coverage.csv.",
+  "Nobody edits benchmark/synth/ or pipeline/procbench/ from a scoping packet. Scoping produces documents and data, not code changes.",
+  "Nobody rewrites docs/2026-09-16-bayesian-overnight-audit.md."
+ ]
+}

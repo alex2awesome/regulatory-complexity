@@ -20,10 +20,11 @@ from __future__ import annotations
 
 import re
 
+from .decision import hidden_criteria, statute_criterion_reveals
 from .rng import chance, dadd, pick, pick_n, random_date_between, sub_rng
-from .visibility import (KIND_META, PER_JURISDICTION, act_label, days_phrase, fee_phrase,
+from .visibility import (KIND_META, LAW_RESTATING_KINDS, PER_JURISDICTION, act_label, days_phrase, fee_phrase,
                          build_thread, persona_from, plan_artifacts, reveals_for, select_personas)
-from .world import JUR_BY_ID
+from .world import jur_by_id
 
 THIRD_PARTY_HOSTS = [
     ("Brantley Land Use Group", "www.brantleyland.law", "/insights/%s"),
@@ -90,6 +91,7 @@ def _spec(world, **kw) -> dict:
     kw.setdefault("links_to", [])
     kw.setdefault("reveals", [])
     kw.setdefault("must_not_reveal", [])
+    kw.setdefault("must_not_reveal_criteria", [])
     kw.setdefault("contamination", [])
     kw.setdefault("persona", None)
     kw.setdefault("thread", None)
@@ -126,7 +128,11 @@ def _artifact_date(rng, kind: str, world: dict, rule: dict, proc: dict, statutes
     if kind == "audit_excerpt":
         return random_date_between(rng, dadd(as_of, -420), dadd(as_of, -30)), False
     if kind == "official_stats":
-        return dadd(as_of, -(7 + rng.randrange(60))), False
+        # These dashboards report the cohort observed through as_of. Publishing
+        # them earlier claims knowledge of future observations. Consume the old
+        # draw to preserve the subsequent seeded sequence, but publish at cutoff.
+        rng.randrange(60)
+        return as_of, False
     if want_stale and early_hi > early_lo:
         return random_date_between(rng, early_lo, early_hi), True
     lo = dadd(adopted, 10)
@@ -181,8 +187,13 @@ def _url_for(kind: str, jur: dict, rule: dict, proc: dict, statutes: dict, rng, 
     if kind == "official_stats":
         return _url(jur, "departments/%s/performance-dashboard" % dept_slug), jur["name"]
     if kind == "reddit_thread":
+        # `subreddit` is None for a county with no forum of its own; such a
+        # county's posts appear in a statewide venue instead, which is what the
+        # real sweep found. `forum_venue` is that resolved name and is never
+        # None, so the URL is always fetchable.
+        venue = jur.get("forum_venue") or jur.get("subreddit") or "r/%s" % jur["state"]
         return ("https://www.reddit.com/%s/comments/%s/%s/"
-                % (jur["subreddit"], _b36(rng), pslug[:40]), jur["subreddit"])
+                % (venue, _b36(rng), pslug[:40]), venue)
     if kind == "forum_thread":
         return ("https://www.citydataforum.net/%s/%d-%s.html"
                 % (slug(jur["state"]), 100000 + rng.randrange(800000), pslug[:40]), "City-Data Forum")
@@ -207,6 +218,15 @@ def contamination_pool(processes: dict, rules: dict, mid: str) -> list[tuple[str
         if not (same_stat or same_jur):
             continue
         r = rules[other_mid]
+        if same_stat and p.get("decision_model"):
+            # another jurisdiction's reading of the same standard: the classic confusion
+            for e in p["decision_model"]["predicates"]:
+                if e["kind"] in ("standard", "delegated") and e.get("reading") \
+                        and e["evaluation_visibility"] != "staff_only":
+                    pool.append((other_mid, {"value": "in %s the rule is that %s"
+                                             % (p["jurisdiction"], e["reading"]["label"]),
+                                             "criterion": e["pred_id"]}))
+                    break
         if same_stat:
             pool.append((other_mid, {"value": "in %s the same program costs %s and %s"
                                      % (p["jurisdiction"], fee_phrase(r["fee"]["amount"], "exact"),
@@ -225,6 +245,11 @@ def contamination_pool(processes: dict, rules: dict, mid: str) -> list[tuple[str
 def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
                 logs: dict, summaries: dict) -> list[dict]:
     specs: list[dict] = []
+    by_id = jur_by_id(world)   # includes the generated county panel at v2
+    county_ids = {c["id"] for c in world.get("county_panel", [])}
+    # Threads dropped by the render cap, per county. Recorded rather than
+    # silently applied: the plan forbids asserting a coverage the cap prevented.
+    truncated_threads: dict[str, int] = {}
     seed = world["seed"]
     knobs = world["knobs"]
 
@@ -237,6 +262,7 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
         reveals += [{"ref": e["element_id"], "field": "timing", "fidelity": "exact",
                      "value": "%d days" % e["shot_clock_days"], "must_quote": True, "level": "statute"}
                     for e in stat["skeleton"] if e["shot_clock_days"]]
+        reveals += statute_criterion_reveals(stat)
         specs.append(_spec(
             world, artifact_id="%s__statute_text" % sid, kind="ordinance", subkind="statute_text",
             jur=None, stat_id=sid, target=stat["state"] == "Marisol",
@@ -252,10 +278,17 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
             if proc_any:
                 rv, _, _ = reveals_for("bill_analysis", world, proc_any, rules[proc_any["model_id"]],
                                        statutes, summaries[proc_any["model_id"]], rng, False, False)
+                rv += statute_criterion_reveals(stat)
                 specs.append(_spec(
                     world, artifact_id="%s__bill_analysis" % sid, kind="bill_analysis", jur=None,
                     stat_id=sid, target=stat["state"] == "Marisol",
-                    url=_url_for("bill_analysis", JUR_BY_ID["J1"], rules[proc_any["model_id"]], proc_any, statutes, rng)[0],
+                    # A bill analysis is a state-level document, so the jurisdiction
+                    # only supplies a URL host. Use the process's OWN jurisdiction
+                    # rather than a hard-coded "J1", which silently mis-hosted the
+                    # URL in any world whose jurisdiction set lacks J1 (found in the
+                    # W2 spec review, 2026-09-16).
+                    url=_url_for("bill_analysis", by_id[proc_any["jur_id"]],
+                                 rules[proc_any["model_id"]], proc_any, statutes, rng)[0],
                     publisher="%s Legislature, %s" % (stat["state"], stat["committee"]),
                     audience="council", date=dadd(stat["enacted"], -(60 + rng.randrange(120))),
                     describes_version=1, reveals=rv, links_to=["%s__statute_text" % sid],
@@ -266,7 +299,7 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
     # ---------- 2. per-process artifacts -----------------------------------
     for mid, proc in sorted(processes.items()):
         rule, summ, log = rules[mid], summaries[mid], logs[mid]
-        jur = JUR_BY_ID[proc["jur_id"]]
+        jur = by_id[proc["jur_id"]]
         is_target = proc["state"] == "Marisol"
         pool = contamination_pool(processes, rules, mid)
         plan = plan_artifacts(world, proc, rule, statutes)
@@ -278,6 +311,8 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
             rng = sub_rng(seed, "spec", mid, kind)
             date, stale = _artifact_date(rng, kind, world, rule, proc, statutes)
             rv, mnr, notes = reveals_for(kind, world, proc, rule, statutes, summ, rng, stale, fee_sched_exists)
+            mnr_c = hidden_criteria(proc, {r["ref"] for r in rv if r.get("field") == "criterion"},
+                                    kind in LAW_RESTATING_KINDS)
             url, publisher = _url_for(kind, jur, rule, proc, statutes, rng)
             links = _links_for(kind, mid, jur, planned_kinds, proc)
             contam = []
@@ -289,7 +324,8 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
                 stat_id=proc["stat_id"], target=is_target, url=url, publisher=publisher,
                 audience=KIND_META[kind][1], date=date,
                 describes_version=1 if stale else proc["version"], stale=stale,
-                reveals=rv, must_not_reveal=mnr, contamination=contam, links_to=links,
+                reveals=rv, must_not_reveal=mnr, must_not_reveal_criteria=mnr_c,
+                contamination=contam, links_to=links,
                 style=_style(kind, rule["lineage_from"] if kind in ("program_page", "form", "ordinance") else None),
                 why="; ".join([item["why"],
                                "stale: describes version 1 (page dated %s, current version adopted %s)" % (date, rule["adopted"])
@@ -300,10 +336,27 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
         # ---------- reddit / forum threads from the log --------------------
         posters = select_personas(world, proc, log, summ)
         rng = sub_rng(seed, "threads", mid)
-        n_threads = min(knobs["max_threads_per_process"], max(0, len(posters) // 3))
-        if posters and n_threads == 0:
-            n_threads = 1
-        personas = [persona_from(world, proc, cls, rec, r) for cls, rec, r in posters[:12]]
+        if knobs.get("world_model_version", 1) >= 2 and proc["jur_id"] in county_ids:
+            # One measured reddit post is one thread, so the thread count tracks
+            # `post_volume` directly. The old `len(posters) // 3` with a cap of 3
+            # flattened the availability gradient to nothing: a county with 200
+            # eligible posters and one with 10 both hit the ceiling, which
+            # reproduced a log-log slope of 0.23 against the measured 0.75.
+            # `select_personas` already truncated the poster list to the
+            # county-programme post volume, so the only cap left is the render
+            # budget, and a high one: capping at 12 flattened the realised slope
+            # to 0.32 against the measured 0.75.
+            cap = knobs.get("max_threads_per_county_process", 120)
+            n_threads = min(cap, len(posters))
+            if len(posters) > cap:
+                truncated_threads[proc["jur_id"]] = (
+                    truncated_threads.get(proc["jur_id"], 0) + len(posters) - cap)
+        else:
+            n_threads = min(knobs["max_threads_per_process"], max(0, len(posters) // 3))
+            if posters and n_threads == 0:
+                n_threads = 1
+        personas = [persona_from(world, proc, cls, rec, r)
+                    for cls, rec, r in posters[:max(12, n_threads)]]
         for t in range(n_threads):
             if not personas:
                 break
@@ -317,15 +370,19 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
             all_rev = [r for c in thread for r in c["reveals"]]
             specs.append(_spec(
                 world, artifact_id="%s__reddit_%d" % (mid, t + 1), kind="reddit_thread", jur=jur["id"],
-                stat_id=proc["stat_id"], target=is_target, url=url, publisher=jur["subreddit"],
+                stat_id=proc["stat_id"], target=is_target, url=url,
+                publisher=jur.get("forum_venue") or jur["subreddit"],
                 audience="public", date=date, describes_version=proc["version"],
                 stale=any("describes_prior" in r for r in all_rev),
                 reveals=all_rev,
                 must_not_reveal=[a["id"] for a in proc["activities"]
                                  if a["visibility"] == "staff_only" and not any(r["ref"] == a["id"] for r in all_rev)],
+                must_not_reveal_criteria=hidden_criteria(
+                    proc, {r["ref"] for r in all_rev if r.get("field") == "criterion"}, False),
                 contamination=contam, thread=thread, persona=op,
                 links_to=["%s__program_page" % mid] if "program_page" in planned_kinds and chance(rng, 0.4) else [],
-                style=_style("reddit_thread", None, subreddit=jur["subreddit"]),
+                style=_style("reddit_thread", None,
+                             subreddit=jur.get("forum_venue") or jur["subreddit"]),
                 why="complaint selection: OP outcome=%s (P(post)=%.2f), %d of %d applicants posted; "
                     "%d comments%s" % (op["outcome"], knobs["complaint_selection"].get(op["outcome"], 0.08),
                                        len(posters), summ["n_applicants"], len(thread) - 1,
@@ -432,7 +489,8 @@ def build_specs(world: dict, statutes: dict, rules: dict, processes: dict,
     # ---------- 5. off-topic threads in the same subreddits ----------------
     for jur in world["jurisdictions"]:
         rng = sub_rng(seed, "offtopic", jur["id"])
-        subs = [jur["subreddit"], "r/%s" % jur["state"], "r/homeowners", "r/smallbusiness"]
+        subs = [jur.get("forum_venue") or jur["subreddit"], "r/%s" % jur["state"],
+                "r/homeowners", "r/smallbusiness"]
         for i, topic in enumerate(pick_n(rng, OFFTOPIC, 5)):
             sub = pick(rng, subs)
             specs.append(_spec(
@@ -521,7 +579,8 @@ def _filler(world: dict, specs: list[dict]) -> list[dict]:
         elif mode in ("offtopic", "forum"):
             topic = OFFTOPIC[i % len(OFFTOPIC)]
             if mode == "offtopic":
-                sub = pick(rng, [jur["subreddit"], "r/%s" % jur["state"], "r/homeowners", "r/smallbusiness"])
+                sub = pick(rng, [jur.get("forum_venue") or jur["subreddit"],
+                                 "r/%s" % jur["state"], "r/homeowners", "r/smallbusiness"])
                 url = "https://www.reddit.com/%s/comments/%s/%s/" % (sub, _b36(rng), slug(topic)[:40])
                 kind, publisher = "reddit_thread", sub
                 style = _style("reddit_thread", None, subreddit=sub, topic=topic,

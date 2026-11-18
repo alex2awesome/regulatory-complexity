@@ -19,6 +19,8 @@ actual repeated visits separately from loop triggers and charge base fees once.
 """
 from __future__ import annotations
 
+from .decision import cure, evaluate, sample_attributes
+from . import capacity
 from .rng import dadd, ddiff, median, next_workday, quantile, r2, sample_days, sub_rng
 
 APPLICANT_ROLES = {"applicant", "third_party"}
@@ -57,8 +59,23 @@ def simulate_process(world: dict, proc: dict, rule: dict, n: int) -> tuple[list[
     hazard = knobs["p_abandon_total"] / (n_applicant_steps * 2.4)
     max_rounds = knobs["max_rework_rounds"]
     accounting_version=knobs.get('visit_accounting_version',1)
+    # 1 = legacy: an uncured fixable predicate denies the case.
+    # 2 = it stalls the case instead, with no decision recorded, which is
+    #     what the real outcome distribution shows.
+    outcome_model_version = knobs.get('outcome_model_version', 1)
+    # P(the applicant was pre-filtered against the hard eligibility tests).
+    # 0.0 reproduces the legacy pool exactly; see decision.sample_attributes.
+    p_self_select = float(knobs.get('p_self_select', 0.0))
     if accounting_version not in (1,2):
         raise ValueError('Unsupported visit-accounting version')
+    # decision layer (decision.py): under version 2, outcomes and corrections follow
+    # predicate evaluations over sampled case facts instead of free rates
+    dm = proc.get("decision_model") if int(knobs.get("decision_model_version", 1)) >= 2 else None
+    p_cure = float(knobs.get("p_cure", 0.8))
+    evaluates: dict[str, list[dict]] = {}
+    if dm:
+        for e in dm["predicates"]:
+            evaluates.setdefault(e["evaluated_at"], []).append(e)
 
     start_floor = rule["effective"]
     window_start = max(start_floor, dadd(as_of, -knobs["sim_window_days"]))
@@ -80,7 +97,15 @@ def simulate_process(world: dict, proc: dict, rule: dict, n: int) -> tuple[list[
         fees = 0.0
         decision_end = None
         first_decision_end = first_decision_outcome = last_decision_outcome = None
+        stalled = False
         u_deny = rng.random()       # one denial draw per applicant (no compounding on rework)
+        attrs = (sample_attributes(dm["predicates"],
+                                   sub_rng(world["seed"], "case_attrs", proc["model_id"], k),
+                                   p_self_select=p_self_select)
+                 if dm else None)
+        pred_results: dict = {}
+        fatal_fail = False
+        open_fixable: dict[str, dict] = {}
         denied = appealed = abandoned = False
         had_rework = False
         i, guard = 0, 0
@@ -121,15 +146,61 @@ def simulate_process(world: dict, proc: dict, rule: dict, n: int) -> tuple[list[
                     charged_base_fees.add(a['id'])
                     if accounting_version==2:
                         path[-1]['fee_charged_dollars']=r2(amount)
+            # predicate evaluation at this checkpoint (decision layer)
+            if dm and a["id"] in evaluates:
+                for e in evaluates[a["id"]]:
+                    ok = evaluate(e, e["reading"], attrs)
+                    res = pred_results.setdefault(e["pred_id"], {"at": a["id"], "first_pass": ok, "visits": 0,
+                                                                  "passed_ever": False, "failed_first": not ok})
+                    res["visits"] += 1
+                    if ok:
+                        res["passed_ever"] = True
+                        open_fixable.pop(e["pred_id"], None)
+                    elif e["fixable"] and e["correction_back_to"] in idx and idx[e["correction_back_to"]] < i:
+                        open_fixable[e["pred_id"]] = e
+                    else:
+                        fatal_fail = True
+                        res["fatal"] = True
+            # a fixable failure found at the decision step itself gets its correction
+            # round before any decision is recorded
+            deferred = bool(dm and a["id"] in evaluates and loop_count < max_rounds
+                            and any(e["pred_id"] in open_fixable for e in evaluates[a["id"]]))
             # decision
             if a["element_ref"] and a["element_ref"].startswith("E") and a["visibility"] == "applicant_facing" \
-                    and proc["terminal_artifact"] in a["artifacts_out"]:
+                    and proc["terminal_artifact"] in a["artifacts_out"] and not deferred:
                 decision_end = end
-                p_deny = min(0.6, proc["denial_rate"] * (1 + 0.25 * sum(rounds.values())))
-                last_decision_outcome = "denied" if u_deny < p_deny else "approved"
+                if dm:
+                    # An UNCURED CORRECTION IS NOT A DENIAL. This clause used to
+                    # read `fatal_fail or bool(open_fixable)`, which denied every
+                    # application still carrying an open fixable predicate after
+                    # the rework rounds ran out. That single `or` is what put the
+                    # development world's outcomes at 32.4% denied and 6.1%
+                    # pending, against a real APR distribution of 0.09% denied
+                    # and 34.8% pending over 247,326 status-stated applications:
+                    # the two states were swapped in magnitude.
+                    #
+                    # Real applications with outstanding corrections do not get
+                    # refused; they sit, undecided, and show up in a published
+                    # pending count. The plan requires those to be separate
+                    # latent outcomes -- "approval/denial, withdrawal, quiet
+                    # abandonment and ongoing processing are separate latent
+                    # outcomes" -- so an open fixable predicate now STALLS the
+                    # case with no decision recorded, and only a genuinely
+                    # non-curable failure denies it.
+                    if outcome_model_version >= 2:
+                        deny_now = fatal_fail
+                        if not fatal_fail and open_fixable:
+                            stalled = True
+                            break            # no decision is ever recorded
+                    else:
+                        deny_now = fatal_fail or bool(open_fixable)
+                else:
+                    p_deny = min(0.6, proc["denial_rate"] * (1 + 0.25 * sum(rounds.values())))
+                    deny_now = u_deny < p_deny
+                last_decision_outcome = "denied" if deny_now else "approved"
                 if first_decision_end is None:
                     first_decision_end, first_decision_outcome = end, last_decision_outcome
-                if u_deny < p_deny:
+                if deny_now:
                     denied = True
                     appealed = rng.random() < proc["p_appeal_if_denied"]
             # abandonment
@@ -139,23 +210,46 @@ def simulate_process(world: dict, proc: dict, rule: dict, n: int) -> tuple[list[
                     break
             # rework
             rw = a["rework"]
-            if rw and loop_count < max_rounds and rng.random() < rw["p_trigger"] and rw["back_to"] in idx:
+            trigger = False
+            back_to = rw["back_to"] if rw else None
+            if dm and a["id"] in evaluates:
+                # predicate-driven: an unresolved fixable failure at this checkpoint
+                # sends the case back; the correction cures it with p_cure
+                failing = [e for e in evaluates[a["id"]] if e["pred_id"] in open_fixable]
+                if failing and loop_count < max_rounds:
+                    trigger = True
+                    back_to = failing[0]["correction_back_to"]
+                    for e in failing:
+                        if rng.random() < p_cure:
+                            cure(e, e["reading"], attrs)
+            elif rw and loop_count < max_rounds and rng.random() < rw["p_trigger"]:
+                trigger = True
+            if trigger and back_to in idx:
                 rounds[a["id"]] = loop_count + 1
-                rework_events.append(dict(activity_id=a['id'], back_to=rw['back_to'],
+                rework_events.append(dict(activity_id=a['id'], back_to=back_to,
                     triggered_at=end, round_at_checkpoint=loop_count+1))
                 had_rework = True
                 if accounting_version == 2:
                     # A nonblocking checkpoint can finish after the case cursor.
                     # Its correction cannot begin before the triggering result.
                     cursor = max(cursor, end)
-                i = idx[rw["back_to"]]
+                i = idx[back_to]
                 continue
             i += 1
 
-        outcome = "abandoned" if abandoned else ("denied" if denied else "approved")
+        # `stalled` is a fourth latent outcome, distinct from all three others: the
+        # applicant has not given up (that is `abandoned`), the agency has not
+        # refused (that is `denied`), and nothing has been granted. It is what a
+        # published pending count is mostly made of, and a report that shows it
+        # as a denial or as an abandonment is making a claim the register denies.
+        outcome = ("abandoned" if abandoned else
+                   "stalled" if stalled else
+                   ("denied" if denied else "approved"))
         # the benchmark's elapsed time: arrival -> decision (or -> giving up)
         end_of_interest = decision_end or (path[-1]["e"] if path else arrived)
-        censored = end_of_interest > as_of
+        # A stalled case is still open at the cutoff by definition: there is no
+        # decision date, so it cannot be a completed observation.
+        censored = end_of_interest > as_of or (stalled and outcome_model_version >= 2)
         rec = {
             "applicant_id": "%s#%04d" % (proc["model_id"], k + 1),
             "arrived": arrived,
@@ -178,6 +272,12 @@ def simulate_process(world: dict, proc: dict, rule: dict, n: int) -> tuple[list[
         }
         if accounting_version==2:
             rec['fees_paid_by_observation']=r2(sum(s['fee_charged_dollars'] for s in path if s['e']<=as_of))
+        if dm:
+            rec["case_attributes"] = {key: val for key, val in attrs.items() if not key.startswith("_")}
+            rec["predicate_results"] = pred_results
+            rec["decision_basis"] = {
+                "fatal_failures": sorted(p for p, r in pred_results.items() if r.get("fatal")),
+                "unresolved_fixable": sorted(open_fixable)}
         records.append(rec)
 
     return records, summarize(proc, records, as_of)
@@ -282,14 +382,47 @@ def summarize(proc: dict, records: list[dict], as_of=None) -> dict:
     if as_of is not None:
         result['observed_first_visit_clocks']={'as_of':as_of,'activities':observed_first_visit_summaries(records,as_of)}
         result['observed_rework'] = observed_rework_summary(records, as_of)
+    if records and "predicate_results" in records[0]:
+        pids = sorted({p for r in records for p in r["predicate_results"]})
+        summary = {}
+        for pid in pids:
+            seen = [r for r in records if pid in r["predicate_results"]]
+            summary[pid] = {
+                "n_evaluated": len(seen),
+                "first_pass_rate": r2(sum(1 for r in seen if r["predicate_results"][pid]["first_pass"]) / max(1, len(seen))),
+                "eventual_pass_rate": r2(sum(1 for r in seen if r["predicate_results"][pid]["passed_ever"]) / max(1, len(seen))),
+                "fatal_denials": sum(1 for r in records if pid in r["decision_basis"]["fatal_failures"]),
+                "unresolved_denials": sum(1 for r in records if pid in r["decision_basis"]["unresolved_fixable"]),
+            }
+        result["predicate_summary"] = summary
     return result
 
 
 def simulate_all(world: dict, processes: dict, rules: dict) -> tuple[dict, dict]:
+    """Simulate every process. At world_model_version 2 the caseload SCALES.
+
+    A constant applicant count across 58 counties is the wrong shape twice over.
+    It is unrealistic -- the APR panel's project counts scale with population at
+    a log-log slope of 0.989, i.e. per-capita constant, from 61 projects in the
+    smallest county to 195,483 in the largest. And it silently truncates the
+    user-evidence gradient, because a forum post has to come from a case: a
+    county whose availability draw asks for 500 posts can only supply as many
+    posters as it has applicants, so a flat caseload flattened the realised
+    volume slope to 0.50 against the measured 0.75.
+
+    So `n_applicants` becomes the caseload of a MEDIAN county and each county
+    scales from it. The knob keeps its meaning for version 1 and for the
+    hand-written jurisdictions.
+    """
     logs, summaries = {}, {}
     n_target = world["knobs"]["n_applicants"]
     n_neigh = world["knobs"]["n_applicants_neighbor"]
+    v2 = world["knobs"].get("world_model_version", 1) >= 2
+    panel = {c["id"]: c for c in world.get("county_panel", [])}
     for mid, proc in sorted(processes.items()):
         n = n_target if proc["state"] == "Marisol" else n_neigh
+        county = panel.get(proc["jur_id"]) if v2 else None
+        if county is not None:
+            n = capacity.caseload(county, n_target)
         logs[mid], summaries[mid] = simulate_process(world, proc, rules[mid], n)
     return logs, summaries

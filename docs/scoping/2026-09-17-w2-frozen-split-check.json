@@ -1,0 +1,75 @@
+{
+  "scope": "Orchestration manifest partitions plus current source code only. No world, specs, truth, case logs, or scores read. Full generator execution provenance not established by this check.",
+  "manifest_file": "benchmark/synth/worlds/W2_DEV_001/render_manifest.json",
+  "manifest_sha256": "65036ff0452f9615bce15c6af5a3072d0f4691c04ced8c9b5ac35a465873b065",
+  "partitions": {
+    "calibration": [
+      "C58",
+      "C56",
+      "C53",
+      "C50",
+      "C47",
+      "C44",
+      "C41",
+      "C38"
+    ],
+    "development": [
+      "C35",
+      "C32",
+      "C29",
+      "C27",
+      "C24",
+      "C21",
+      "C18"
+    ],
+    "reserved": [
+      "C15",
+      "C12",
+      "C09",
+      "C06",
+      "C03"
+    ]
+  },
+  "expected_from_current_code_and_monotone_county_id_order": {
+    "calibration": [
+      "C58",
+      "C56",
+      "C53",
+      "C50",
+      "C47",
+      "C44",
+      "C41",
+      "C38"
+    ],
+    "development": [
+      "C35",
+      "C32",
+      "C29",
+      "C27",
+      "C24",
+      "C21",
+      "C18"
+    ],
+    "reserved": [
+      "C15",
+      "C12",
+      "C09",
+      "C06",
+      "C03"
+    ]
+  },
+  "partitions_match": true,
+  "render_selection": {
+    "user_per_cell": 4,
+    "text_counties": 20,
+    "selected_specs": 3543,
+    "skipped": {
+      "county not in the text tier": 13793,
+      "user tier over the per-cell sample": 7106
+    }
+  },
+  "selector_sha256": "83041a14dc83ac34cde90769dd63c369a0eed7c39e8f3f53032015466295e8e0",
+  "county_builder_sha256": "7b41b125ce442728b29d60718761cf960e1e101ba7739fc2ea970e4420a11645",
+  "county_rank_basis": "counties.py uses stratified quantile u=(i+random())/n, a monotone population quantile, and ID C(i+1).",
+  "interpretation": "Current frozen manifest agrees with population-blocked split assignment. Describe extrapolation across size bands, not balanced within-band held-out evaluation. No live split changed."
+}

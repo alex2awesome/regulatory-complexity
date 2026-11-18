@@ -15,7 +15,7 @@ from scipy.special import expit
 from .bayes_hierarchy import Config, HierarchicalModel
 from .evidence_support import burden_support
 from .latent_gaussian import diagnostics, summary
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def expected_work_by_activity(model, process, z, params=None):

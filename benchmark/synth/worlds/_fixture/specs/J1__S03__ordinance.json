@@ -1,0 +1,75 @@
+{
+ "artifact_id": "J1__S03__ordinance",
+ "world": "_fixture",
+ "kind": "ordinance",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "public",
+ "url": "https://library.halvern.gov/ordinances/24-118",
+ "date": "2025-03-11",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Halvern City Clerk",
+ "reveals": [
+  {
+   "ref": "A03",
+   "field": "actor",
+   "fidelity": "exact",
+   "value": "Building Division administers; transfers from Planning",
+   "must_quote": true
+  },
+  {
+   "ref": "A01",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "pre-application meeting required, waivable in writing",
+   "must_quote": false
+  },
+  {
+   "ref": "A03",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "completeness determination within 30 days; resubmittal restarts it",
+   "must_quote": false
+  },
+  {
+   "ref": "A06",
+   "field": "rework",
+   "fidelity": "exact",
+   "value": "correction notice, permits to correct, reinspection",
+   "must_quote": false
+  },
+  {
+   "ref": "A02",
+   "field": "fee",
+   "fidelity": "approximate",
+   "value": "fee set by master fee schedule, capped at reasonable cost",
+   "must_quote": false
+  },
+  {
+   "ref": "E8",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "appeal of denial to City Council within 15 days",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A04",
+  "A08",
+  "A09",
+  "A11"
+ ],
+ "contamination": [],
+ "style": {
+  "register": "legal",
+  "length_words": [
+   350,
+   550
+  ],
+  "template_lineage": null
+ },
+ "why": "ordinance always published; it is the local_rule_truth rendered"
+}

@@ -7,7 +7,7 @@ import pathlib
 import numpy as np
 from scipy.stats import binomtest,kstest
 
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def summarize(rows):

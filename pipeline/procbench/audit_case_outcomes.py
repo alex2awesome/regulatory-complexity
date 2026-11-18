@@ -3,14 +3,13 @@ import argparse
 from datetime import datetime,timezone
 import json
 import pathlib
-import subprocess
-import tempfile
 
 import jsonschema
 
 from .audit_measurement_semantics import eligible
 from .evidence_contract import STR,REF,arr,obj,enum,normalized_quote,validate
-from .reconcile_evidence import digest,write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import run_codex
 
 
 COUNT={'type':['integer','null'],'minimum':0}
@@ -96,29 +95,23 @@ def main(argv=None):
     prompt+='\nCANONICAL EVIDENCE:\n'+json.dumps(evidence)+'\nPUBLIC DOCUMENTS:\n'+json.dumps(documents)
     write(out/'schema.json',SCHEMA)
     (out/'prompt.txt').write_text(prompt)
-    with tempfile.TemporaryDirectory(prefix='rc-outcome-audit-') as isolated:
-        schema,response=pathlib.Path(isolated)/'schema.json',pathlib.Path(isolated)/'response.json'
-        write(schema,SCHEMA)
-        for attempt in range(3):
-            (out/f'attempt_{attempt}.prompt.txt').write_text(prompt)
-            command=['codex','exec','--sandbox','read-only','--ephemeral','--skip-git-repo-check',
-                '--ignore-user-config','--color','never','-C',isolated,'-m',args.model,
-                '-c','model_reasoning_effort="xhigh"','--output-schema',str(schema),'-o',str(response),'-']
-            with (out/f'attempt_{attempt}.log').open('w') as log:
-                status=subprocess.run(command,input=prompt,text=True,stdout=log,stderr=log,cwd=isolated,timeout=2400)
-            if status.returncode or not response.exists():
-                raise RuntimeError('Outcome audit failed; inspect saved backend log')
-            audit=json.loads(response.read_text())
-            write(out/f'attempt_{attempt}.json',audit)
-            try:
-                validate_outcomes(audit,evidence,documents)
-                break
-            except (ValueError,jsonschema.ValidationError) as error:
-                prompt+='\nReturn a complete corrected audit. Validation error:\n'+str(error)+'\n'+json.dumps(audit)
-        else:
-            raise ValueError('Outcome audit failed validation after three attempts')
+    record = RunManifest(out, {}, operation='evidence.audit_case_outcomes',
+        inputs=[pathlib.Path(args.evidence), pathlib.Path(args.inputs)],
+        config=dict(model=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=[pathlib.Path(__file__).name])
+    for attempt in range(3):
+        audit = json.loads(run_codex(prompt, SCHEMA, out,
+            stem=f'attempt_{attempt}', model=args.model))
+        write(out/f'attempt_{attempt}.json',audit)
+        try:
+            validate_outcomes(audit,evidence,documents)
+            break
+        except (ValueError,jsonschema.ValidationError) as error:
+            prompt+='\nReturn a complete corrected audit. Validation error:\n'+str(error)+'\n'+json.dumps(audit)
+    else:
+        raise ValueError('Outcome audit failed validation after three attempts')
     write(out/'audit.json',audit)
-    write(out/'manifest.json',dict(completed_utc=datetime.now(timezone.utc).isoformat(),
+    record.complete(**dict(completed_utc=datetime.now(timezone.utc).isoformat(),
         model=args.model,reasoning='xhigh',hidden_truth_provided=False,bayesian_predictions_provided=False,
         input_evidence=str(path),input_sha256=digest(path.read_bytes()),
         public_documents_sha256=digest(json.dumps(documents,sort_keys=True)),

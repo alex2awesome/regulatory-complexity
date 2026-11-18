@@ -19,13 +19,9 @@ import time
 from . import align, metrics, score
 from .bayes_evidence import load_cached
 from .bayes_process import Config, fit
+from .infra.manifest import write  # legacy import-path compatibility
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-
-
-def write(path, value):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
 
 
 def crps(samples, actual):

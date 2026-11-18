@@ -9,7 +9,7 @@ import numpy as np
 from scipy.special import logsumexp
 
 from .bayes_hierarchy import Config, HierarchicalModel
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def main(argv=None):

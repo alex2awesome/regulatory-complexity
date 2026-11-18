@@ -70,6 +70,38 @@ benchmark/synth/
   "version": 1 }
 ```
 
+### `statute_truth.decision_function` — predicate kinds
+
+`decision.py` plants five kinds, and the fifth exists because of a real statute.
+
+| kind | the statute | what jurisdictions do | reading space |
+|---|---|---|---|
+| `crisp` | fixes the test exactly | apply it, or mis-implement it with `p_misimplement` | one reading |
+| `standard` | uses a standard word, states no number | draw from a lenient-to-strict space | wide, unbounded |
+| `delegated` | expressly leaves it to the local agency | follow the ordinance choice already adopted | the `open_choices` options |
+| `local` | silent; a `stricter_standards` entry adds it | the county invented it | one reading, ids `Q*` |
+| **`capped`** | **bounds it but does not fix it** | **pile onto the bound** | **the bound plus lawful lesser values** |
+
+A `capped` dimension carries `bound`, and the world validator rejects any
+reading beyond it. Welf. & Inst. Code §17001.5 is the model: a residency
+requirement "shall not exceed 15 days", and five verified California counties
+chose exactly 15 while nine of eleven employable time limits sit at exactly the
+permitted three months. The statute's bound is public by construction, so the
+statute text discloses it; which value the county chose underneath is a local
+fact and is disclosed only at `approximate` fidelity at statute level.
+
+**Why the kind earns its place.** It gives the benchmark a within-statute
+control. Capped and uncapped dimensions are administered by the same counties,
+on the same day, under the same document, so every county-level confounder
+(wealth, politics, staffing, urbanity, caseload, vendor) is held fixed and the
+only difference is whether the Legislature wrote a number down. The scored
+quantity is therefore the **gap** between uncapped and capped spread, reported
+by `decision_metrics.cross()` as `capped_vs_uncapped`. A model that predicts one
+reading everywhere collapses both families and scores a zero gap against a
+positive planted gap, so the degenerate strategy earns nothing — which plain
+dispersion or entropy recovery cannot guarantee. See
+`docs/2026-09-16-county-scale-up-plan.md` §12.
+
 ### `local_rule_truth`
 ```
 { "jur": "J2", "stat_id": "S03", "instrument": "ordinance|resolution|admin_policy", "cite": "Ordinance No. 24-118", "adopted": "2025-03-11",
@@ -182,6 +214,38 @@ What was actually broken, and what was not:
 4. **Renderer and verifier rule** (now in the verify prompt): statutory or fee-policy boilerplate restating a
    public mandate is a note, not a leak. A leak is an internal step, actor or timing that no public mandate
    implies.
+4b. **Fee-administration notes: the line is quantification** (decided 2026-09-18). Rule 4 above
+   settles whether such a note is a LEAK; it is silent on whether it is an *extraneous fact*, and
+   `VERIFY_BRIEF`'s definition enumerated four categories (fee, step, department, timeline) that a
+   non-refundability rule belongs to none of. The gap showed up at scale: free-standing
+   fee-administration notes appear in 137 of the 163 rendered fee schedules (non-refundable 91,
+   cost-recovery 57, state surcharge 52, ordinance-controls 14, supersession 12, blanket basis 5),
+   159 of the 163 pass, and 3 of the 4 failures are fixes targeting exactly these notes. The same
+   sentence was therefore passing in ~132 artifacts and failing in 3, and two agents independently
+   asked for an adjudication.
+   The line drawn: an unquantified statement of fee POLICY is boilerplate and passes; a statement
+   attaching a QUANTITY to a fee -- a denominator, a rate, a proration, or a blanket "unless
+   otherwise noted" -- is an extraneous fact unless a `fee` reveal licenses that basis for that row.
+   It sits there because payer cost is a scored quantity: a denominator is what an extractor turns
+   into a burden number, and an unquantified policy rule is not.
+   Two clarifications the first application earned, recorded because they existed only in the
+   dispatch text and that is exactly how the same sentence came to pass in ~132 artifacts
+   and fail in 3: a **Basis column** is caught only when it states a QUANTIFIED basis the
+   spec withheld, since "Cost recovery" answers how an amount was set rather than "per
+   what?", and the licensed blanket sentence "fees are set on a cost-recovery basis"
+   stays -- failing the same content in column form would make the standard turn on
+   typography. And a **period word for how often the schedule is reviewed or amended** is
+   not a denominator: "reviewed annually as part of the budget" is an amendment cadence,
+   not a charging basis. "Annually" is a denominator only where it says what the payer is
+   charged per. Realistic boilerplate survives,
+   which matters for a corpus calibrated to real documents, and nothing that can move a scored
+   quantity goes unlicensed.
+   Measured cost of the decision: of the 43 fee schedules that carry reveals, 27 have no quantified
+   note, 4 already fail with fixes aimed at one, and 12 pass today and need a one-clause edit. The
+   61 distractor fee schedules that carry a quantified note are unscored noise and are left alone --
+   real schedules do say "per application", and the distractor corpus is where that realism is free.
+   The rule thus reproduces the corpus's existing behaviour on 159 of 163 artifacts while making it
+   principled rather than instinctive.
 5. **The claim is testable on the real corpus**: the share of a process's back-office steps inferable from
    statute alone is a property of the statute's specificity — high for DROS (the Penal Code scripts the
    dealer's acts) and low for CalFresh (the caseworker procedure lives in a county manual, not the statute).

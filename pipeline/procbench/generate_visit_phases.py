@@ -15,7 +15,7 @@ import numpy as np
 from scipy.integrate import quad
 from scipy.special import expit
 
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def generate(seed=2026092011):

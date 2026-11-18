@@ -14,7 +14,7 @@ import numpy as np
 
 from .compact_visit_trace import Block,CompactTrace,Operation
 from .rework_counts import ReworkLaw
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def routes():

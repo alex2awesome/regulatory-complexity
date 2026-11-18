@@ -145,6 +145,47 @@ def check_world(root: pathlib.Path, quiet=False) -> int:
         if p["terminal_artifact"] not in {x for a in acts for x in a["artifacts_out"]}:
             warn.append("process[%s]: terminal artifact %r is not produced by any activity"
                         % (mid, p["terminal_artifact"]))
+        # decision layer (decision.py): predicates attach to real activities, readings
+        # are well-formed, corrections point backwards
+        dm = p.get("decision_model")
+        if dm:
+            pids = [e["pred_id"] for e in dm["predicates"]]
+            if len(pids) != len(set(pids)):
+                errors.append("process[%s]: duplicate predicate ids" % mid)
+            by_id = {a["id"]: a for a in acts}
+            for e in dm["predicates"]:
+                if e["evaluated_at"] not in by_id:
+                    errors.append("process[%s]: predicate %s evaluated at unknown activity %s"
+                                  % (mid, e["pred_id"], e["evaluated_at"]))
+                elif e["pred_id"] not in (by_id[e["evaluated_at"]].get("evaluates") or []):
+                    errors.append("process[%s]: activity %s does not list predicate %s"
+                                  % (mid, e["evaluated_at"], e["pred_id"]))
+                r = e.get("reading")
+                if e["kind"] not in ("crisp", "standard", "delegated", "local", "capped"):
+                    errors.append("process[%s]: predicate %s has unknown kind %r"
+                                  % (mid, e["pred_id"], e["kind"]))
+                # A capped dimension must record the statutory bound and every
+                # lawful reading must respect it (plan section 12).
+                if e["kind"] == "capped":
+                    bound = e.get("bound")
+                    val = (e.get("reading") or {}).get("value")
+                    op = (e.get("reading") or {}).get("op")
+                    if bound is None:
+                        errors.append("process[%s]: capped predicate %s records no statutory bound"
+                                      % (mid, e["pred_id"]))
+                    elif isinstance(val, (int, float)) and not isinstance(val, bool):
+                        if op in ("ge", "gt") and val > bound:
+                            errors.append("process[%s]: capped predicate %s demands %s, above its bound %s"
+                                          % (mid, e["pred_id"], val, bound))
+                        if op in ("le", "lt") and val > bound:
+                            errors.append("process[%s]: capped predicate %s allows %s, above its bound %s"
+                                          % (mid, e["pred_id"], val, bound))
+                if not r or r.get("op") not in ("lt", "le", "gt", "ge", "eq", "ne", "in", "not_in", "always", "bern"):
+                    errors.append("process[%s]: predicate %s has no valid reading" % (mid, e["pred_id"]))
+                if e["fixable"] and (e["correction_back_to"] not in order
+                                     or order[e["correction_back_to"]] >= order[e["evaluated_at"]]):
+                    errors.append("process[%s]: predicate %s correction target does not point backwards"
+                                  % (mid, e["pred_id"]))
         # log
         logp = root / ("truth/log/%s.jsonl" % mid)
         if not logp.exists():
@@ -199,9 +240,19 @@ def check_world(root: pathlib.Path, quiet=False) -> int:
             unknown = {r for r in revealed
                        if r not in {a["id"] for a in proc["activities"]}
                        and r not in ("process", "statute", "prior_version")
-                       and not r.startswith(("E", "L"))}
+                       and not r.startswith(("E", "L", "P", "Q"))}
             if unknown:
                 errors.append("spec[%s]: reveals unknown refs %s" % (aid, sorted(unknown)))
+            pids = {e["pred_id"] for e in (proc.get("decision_model") or {}).get("predicates", [])}
+            crit = {r["ref"] for r in s["reveals"] if r.get("field") == "criterion"}
+            if crit - pids:
+                errors.append("spec[%s]: criterion reveals name unknown predicates %s" % (aid, sorted(crit - pids)))
+            mnc = set(s.get("must_not_reveal_criteria", []))
+            if mnc - pids:
+                errors.append("spec[%s]: must_not_reveal_criteria names unknown predicates %s" % (aid, sorted(mnc - pids)))
+            if mnc & crit:
+                errors.append("spec[%s]: criterion reveals and must_not_reveal_criteria overlap on %s"
+                              % (aid, sorted(mnc & crit)))
 
     # ---- ceiling ⊆ truth --------------------------------------------------
     cov = []
@@ -228,6 +279,16 @@ def check_world(root: pathlib.Path, quiet=False) -> int:
         t = c["timing_ceiling"]
         if t["n_posts_with_timing"] == 0 and t["best_estimate_from_posts"] is not None:
             errors.append("ceiling[%s]: timing estimate without posts" % mid)
+        dc = c.get("decision_ceiling")
+        if dc:
+            pids = {e["pred_id"] for e in (procs[mid].get("decision_model") or {}).get("predicates", [])}
+            b = dc["recoverable_exact"] + dc["recoverable_approx"] + dc["only_wrong"] + dc["hidden"]
+            if sorted(b) != sorted(pids):
+                errors.append("ceiling[%s]: decision buckets do not partition the %d predicate ids" % (mid, len(pids)))
+            revealed_c = {r["ref"] for s in about for r in s["reveals"] if r.get("field") == "criterion"
+                          and (not r.get("process") or r.get("process") == mid)}
+            if set(dc["hidden"]) & revealed_c:
+                errors.append("ceiling[%s]: criteria %s marked hidden but revealed" % (mid, sorted(set(dc["hidden"]) & revealed_c)))
         cov.append(c)
 
     task_ids = {t["task_id"] for t in tasks}

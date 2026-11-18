@@ -1,5 +1,29 @@
 # Synthetic process-ecosystem generator
 
+County-panel update (2026-09-16): `world_model_version=2` adds a **58-county
+panel** whose availability, caseload, speed and fee coefficients are calibrated
+against real retrievals rather than chosen. The rates and their provenance are in
+[the source-volume register](../../../docs/2026-09-16-source-volume-register.md);
+the divergences from the W2 spec are in
+[the decision log](../../../docs/2026-09-16-w2-decision-log.md). Version 1 is
+unchanged and byte-identical: the panel is *appended* to the four hand-written
+jurisdictions, never substituted for them.
+
+Three things the calibration established that a reader should not have to
+rediscover. **Existence and volume are separate mechanisms** — one real forum
+assigned a thread to all 58 counties in a single administrative batch, so
+existence carried no population signal while volume spanned three orders of
+magnitude. **Slopes differ by source family** by more than 50%, so there is one
+slope per channel, not a global one. And **a count of documents is not a count of
+information**: only 10.6% of the real administrative records carry a measurable
+span, and only 32% of user posts carry a duration at all.
+
+Check a built county world with
+`python3 pipeline/procbench/audit_corpus_anchors.py <world_dir>`, which compares
+the artifacts against the measured anchors. It exists because a coefficient can
+be right while the corpus is wrong: a render cap and a flat caseload each
+flattened a correct population gradient during this build.
+
 Clock-contract update (2026-09-16): newly generated logs retain explicit
 `event_clocks` for the first decision, last decision and last modeled work, with
 separate censoring flags and `event_clock_summaries`. Legacy `elapsed_days` remains
@@ -114,6 +138,9 @@ regenerated alone):
 | `visibility.py` | **the visibility model** (below): which artifacts exist and exactly what each may say |
 | `specs.py` | artifact identity: URLs and a navigable link graph, staleness, contamination, personas/threads, and the distractor corpus |
 | `ceiling.py` | reduces the specs to per-element recoverability, the timing ceiling, and `tasks.json` |
+| `counties.py` | **`world_model_version=2` only:** 58 fictional county-like jurisdictions shaped like the real California panel — the 8,600-fold population range, the **inverse** staffing-per-capita gradient, RUCC and UIC as separately-disagreeing rurality codes, the 39/18/1 consortium split. No real county name is reused. |
+| `capacity.py` | **every planted coefficient in one place, each tagged `measured_anchor` / `derived_with_assumptions` / `design_assumption`** with its source file; the per-channel existence hurdle and volume slope, the retrieval funnel, caseload, speed, hourly rate, defect rates, and the named scenarios that carry the alternatives where the evidence does not identify a direction |
+| `lineage.py` | the three source-dependence types kept apart — same case, same cohort, copied text — with `facts_agree` as an **independent** field, so shared prose over different procedures and different prose over one aggregate are both representable |
 | `build.py` | CLI, file writing, `provenance.jsonl`, counts |
 
 ### The visibility model, in words
@@ -213,7 +240,9 @@ DESIGN.md table:
 | `p_publish_sop` | 0.1 | `naming_drift` | 0.6 |
 | `p_third_party_guide` | 0.4 | `neighbor_state` | true |
 | `p_bill_analysis` | 0.8 | `n_applicants` | 200 |
-| `p_official_stats` | 0.3 | | |
+| `p_official_stats` | 0.3 | `world_model_version` | 1 (2 = the 58-county panel) |
+| `n_counties` | 58 | `availability_scenario` | `reference` |
+| `speed_scenario` | `reference` | `max_threads_per_county_process` | 400 |
 
 Generator extensions (documented, same override path): `p_publish_checklist` 0.55
 (→0.97 where the statute mandates publication), `p_publish_ordinance` 0.92,

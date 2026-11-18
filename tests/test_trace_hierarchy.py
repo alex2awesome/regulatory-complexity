@@ -6,33 +6,241 @@ import pytest
 
 from pipeline.procbench.bayes_trace_hierarchy import Config,VisitHierarchy,count_log_probability,repeat_quantiles
 from pipeline.procbench.rework_counts import ReworkLaw
+from procbench_fixtures import data_fixture, observation
 
 
-def observation(ident,basis,lower,upper,case='c',activities=None):
-    operator=dict(basis=basis)
-    if activities:
-        operator['activity_ids']=activities
-    if basis=='whole_case_clock':
-        operator.update(start='process_start',end='initial_decision')
-    return dict(id=ident,case_id=case,source_family='source',sampling='unselected',
-        statistic='individual' if case else 'median',lower=lower,upper=upper,
-        operators=[operator],operator_weights=[1.])
+def test_report_progress_does_not_change_scientific_outputs_or_inputs():
+    model=VisitHierarchy(data_fixture(),Config(population_size=16))
+    states=np.random.default_rng(210).normal(0,.02,(4,8,model.layout.size))
+    routes=np.zeros((4,8,1),dtype=int)
+    likelihood=np.array([model.log_likelihood(z,r) for z,r in
+        zip(states.reshape(-1,model.layout.size),routes.reshape(-1,1))]).reshape(4,8)
+    before=states.copy()
+    ordinary=model.report(states,routes,likelihood)
+    events=[]
+    traced=model.report(states,routes,likelihood,progress=events.append)
+    assert ordinary == traced
+    np.testing.assert_array_equal(states,before)
+    assert events[0]['stage']=='posterior_coordinate_diagnostics'
+    assert events[-1]['stage']=='posterior_report_complete'
+    assert [e['completed_draws'] for e in events if e['stage']=='posterior_predictions']==[0,1,32]
+    assert all(e['total_draws']==32 for e in events)
 
 
-def data_fixture():
-    return dict(programs=[dict(id='J__P',routes=[dict(id='simple',prior_weight=1.,operations=[
-        dict(id='file',actor_id='payer',actor_role='payer',task_type='filing',markers=['submission'],
-             payer_work=True,agency_work=False),
-        dict(id='review',actor_id='J:Review',actor_role='agency',task_type='review',
-             payer_work=False,agency_work=True),
-        dict(id='decide',actor_id='J:Review',actor_role='agency',task_type='decision',markers=['decision'],
-             payer_work=False,agency_work=True)],blocks=[
-        dict(id='loop',operations=['file','review'],repeat_key='corrections'),
-        dict(id='end',operations=['decide'])])],observations=[
-            observation('total','whole_case_clock',15.,25.),
-            observation('task','single_visit_cycle',4.,10.,activities=['review']),
-            observation('visits','visit_count',3,3),
-            observation('labor','agency_hours',1.,3.)],rate_observations=[])])
+def test_fit_progress_log_preserves_events_and_refuses_existing_file(tmp_path):
+    import json
+    from pipeline.procbench.run_visit_hierarchy import make_progress_logger
+    progress=make_progress_logger(tmp_path)
+    progress(dict(stage='sampling'))
+    progress(dict(stage='posterior_predictions',completed_draws=1,total_draws=32))
+    rows=[json.loads(line) for line in (tmp_path/'run_progress.jsonl').read_text().splitlines()]
+    assert [r['stage'] for r in rows]==['sampling','posterior_predictions']
+    assert 0 <= rows[0]['elapsed_seconds'] <= rows[1]['elapsed_seconds']
+    assert rows[1]['completed_draws']==1 and rows[1]['total_draws']==32
+    with pytest.raises(FileExistsError):
+        make_progress_logger(tmp_path)
+
+
+def test_clock_support_reports_missing_markers_without_changing_likelihood():
+    data = data_fixture()
+    row = data['programs'][0]['observations'][0]
+    row['operators'] = [dict(basis='whole_case_clock', start='first_complete_submission',
+                             end='initial_decision'),
+                        dict(basis='unmodeled_duration', median_days=30., log_scale=2.)]
+    row['operator_weights'] = [.8, .2]
+    model = VisitHierarchy(data, Config(population_size=16))
+    z = np.zeros(model.layout.size)
+    before = model.log_likelihood(z, [0])
+    report = model.clock_support_report()
+    assert report['affected_observations'] == ['J__P:total']
+    assert report['unsupported_clock_alternatives_by_inventory'] == 1
+    assert report['alternatives'][0]['path_checks'] == [
+        dict(path_id='simple', missing_events=['first_complete_submission'])]
+    assert report['alternatives'][0]['declared_operator_weight'] == .8
+    assert report['inference_changed'] is False
+    assert np.isfinite(before)
+    assert model.log_likelihood(z, [0]) == before
+    assert row['operator_weights'] == [.8, .2]
+
+
+@pytest.mark.parametrize('case,scope,expected', [
+    ('c', None, True), ('c', ['no_submission'], False),
+    (None, None, False), (None, ['with_submission'], True)])
+def test_clock_support_respects_case_and_population_scopes(case, scope, expected):
+    data = data_fixture()
+    p = data['programs'][0]
+    r = p['routes'][0]
+    r['paths'] = [dict(id='with_submission', probability_weight=1., blocks=r.pop('blocks')),
+                  dict(id='no_submission', probability_weight=1.,
+                       blocks=[dict(id='end', operations=['review', 'decide'])])]
+    row = observation('submission_clock', 'whole_case_clock', 2., 10., case=case)
+    row['operators'][0]['start'] = 'first_submission'
+    row['operators'].append(dict(basis='unmodeled_duration', median_days=30., log_scale=2.))
+    row['operator_weights'] = [.8, .2]
+    p['observations'] = [row]
+    if scope is not None:
+        if case is None:
+            row['population_path_scope'] = scope
+        else:
+            p['case_path_scope'] = {case: scope}
+    report = VisitHierarchy(data, Config(population_size=16)).clock_support_report()
+    assert report['alternatives'][0]['event_presence_requirement_satisfied'] is expected
+
+
+def test_clock_support_decision_alias_is_only_asserted_for_one_nonrepeated_event():
+    data = data_fixture()
+    cfg = Config(population_size=16)
+    assert VisitHierarchy(data, cfg).clock_support_report()['paths'][0][
+        'initial_final_guaranteed_same_event'] is True
+    # A single operation can still have multiple decision events if it repeats.
+    data['programs'][0]['routes'][0]['blocks'][1]['repeat_key'] = 'appeals'
+    assert VisitHierarchy(data, cfg).clock_support_report()['paths'][0][
+        'initial_final_guaranteed_same_event'] is False
+    # Missing markers are not inferred from a task type or operation ID.
+    data['programs'][0]['routes'][0]['operations'][-1]['markers'] = []
+    row = VisitHierarchy(data, cfg).clock_support_report()['paths'][0]
+    assert row['initial_final_guaranteed_same_event'] is False
+    assert 'initial_decision' in row['absent_events']
+
+
+def project_active_channels(full, reduced, z):
+    """Same retained prior/case variables, not a new draw or fitted-prior shortcut."""
+    projected = np.zeros(reduced.layout.size)
+    for name in ('location', 'agency', 'task', 'operation', 'sigma', 'source'):
+        old, new = getattr(full, name), getattr(reduced, name)
+        mask = new >= 0
+        projected[new[mask]] = z[old[mask]]
+    if full.phase_coordinates is not None:
+        projected[reduced.phase_coordinates] = z[full.phase_coordinates]
+    for pf, pr in zip(full.programs, reduced.programs):
+        n = len(pf['global_indices'])
+        columns = [i for ch in reduced.active_channels for i in range(ch*(n+1), (ch+1)*(n+1))]
+        columns += list(range(pf['noise_dimension'], pf['case_dimension']))
+        projected[pr['case_coordinates']] = z[pf['case_coordinates'][:, columns]]
+        projected[pr['repeat']] = z[pf['repeat']]
+        projected[pr['selection']] = z[pf['selection']]
+        # A dimension change changes the production Sobol grid. Here align it
+        # explicitly to test equality of the mathematical likelihood/operator.
+        pr['population_normals'] = pf['population_normals'][:, columns].copy()
+    return projected
+
+
+@pytest.mark.parametrize('channels', [(), ('payer_hours',), ('elapsed', 'unknown'),
+                                    ('elapsed', 'elapsed'), ('elapsed', 'agency_hours', 'payer_hours')])
+def test_invalid_modeled_channel_declarations_fail(channels):
+    with pytest.raises(ValueError, match='Modeled channels'):
+        Config(modeled_channels=channels)
+
+
+@pytest.mark.parametrize('channels', [('elapsed',), ('elapsed', 'agency_hours')])
+@pytest.mark.parametrize('phases', [False, True])
+def test_omitting_unobserved_channels_preserves_retained_likelihood(channels, phases):
+    data = data_fixture()
+    if 'agency_hours' not in channels:
+        data['programs'][0]['observations'] = [o for o in data['programs'][0]['observations']
+            if all(op['basis'] != 'agency_hours' for op in o['operators'])]
+    data['programs'][0]['observations'].append(observation('population', 'whole_case_clock', 5., 40., case=None))
+    cfg = Config(population_size=16, within_visit_phases=phases)
+    full = VisitHierarchy(data, cfg)
+    reduced = VisitHierarchy(data, replace(cfg, modeled_channels=channels))
+    rng = np.random.default_rng(8432)
+    for _ in range(8):
+        z = rng.normal(size=full.layout.size)
+        zr = project_active_channels(full, reduced, z)
+        assert reduced.log_likelihood(zr, [0]) == pytest.approx(full.log_likelihood(z, [0]), abs=1e-10)
+        assert reduced.log_likelihood_reference(zr, [0]) == pytest.approx(full.log_likelihood(z, [0]), abs=1e-10)
+        original = full.trace(full.programs[0], z, full.parameters(z), 0)
+        current = reduced.trace(reduced.programs[0], zr, reduced.parameters(zr), 0)
+        np.testing.assert_allclose(original.durations, current.durations, rtol=1e-13)
+    assert reduced.layout.size < full.layout.size
+    assert all(np.all(block >= 0) for block in reduced.blocks)
+
+
+def test_omitted_labor_is_unknown_not_zero_or_a_reported_posterior():
+    data = data_fixture()
+    data['programs'][0]['observations'] = [data['programs'][0]['observations'][0]]
+    cfg = Config(chains=1, warmup=1, draws=8, population_size=16, modeled_channels=('elapsed',))
+    model = VisitHierarchy(data, cfg)
+    full = VisitHierarchy(data, replace(cfg, modeled_channels=('elapsed', 'payer_hours', 'agency_hours')))
+    assert model.layout.size < .4*full.layout.size
+    z = np.zeros(model.layout.size)
+    trace = model.trace(model.programs[0], z, model.parameters(z), 0)
+    assert np.isnan(trace.resources['payer_hours']).all()
+    assert np.isnan(trace.resources['agency_hours']).all()
+    states, routes, likelihood, _ = model.sample()
+    report = model.report(states, routes, likelihood)
+    program = report['programs']['J__P']
+    assert program['omitted_resource_channels'] == ['payer_hours', 'agency_hours']
+    assert 'mean_payer_hours' not in program['metrics']
+    assert 'mean_agency_hours' not in program['metrics']
+    assert 'agency:elapsed' in report['identification']['blocks']
+    assert 'agency:agency_hours' not in report['identification']['blocks']
+    assert not report['posterior_converged']  # mechanics-only fixture
+    from pipeline.procbench.run_visit_hierarchy import preflight_report
+    preflight = preflight_report(model)
+    assert preflight['modeled_channels'] == ['elapsed']
+    assert preflight['omitted_resource_channels'] == ['payer_hours', 'agency_hours']
+
+
+def test_cannot_prune_a_resource_channel_that_has_observations():
+    with pytest.raises(ValueError, match='Cannot omit'):
+        VisitHierarchy(data_fixture(), Config(modeled_channels=('elapsed',)))
+
+
+def test_saved_config_channel_list_round_trips():
+    assert Config(modeled_channels=['elapsed', 'agency_hours']).modeled_channels == ('elapsed', 'agency_hours')
+
+
+def route_missing_measured_review(route):
+    result = copy.deepcopy(route)
+    result['id'] = 'missing_measured_review'
+    result['operations'] = [op for op in result['operations'] if op['id'] != 'review']
+    result['blocks'] = [dict(block, operations=[a for a in block['operations'] if a != 'review'], edges=None)
+        for block in result['blocks'] if any(a != 'review' for a in block['operations'])]
+    return result
+
+
+@pytest.mark.parametrize('seed', [0, 1, 2, 3])
+def test_fresh_chain_finds_supported_route_instead_of_failing_on_random_bad_start(seed):
+    data = data_fixture()
+    data['programs'][0]['routes'].append(route_missing_measured_review(data['programs'][0]['routes'][0]))
+    model = VisitHierarchy(data, Config(seed=seed, chains=1, warmup=0, draws=8, population_size=16))
+    states, routes, likelihood, _ = model.sample()
+    assert np.isfinite(likelihood).all()
+    assert np.all(routes == 0)
+    assert np.isfinite(states).all()
+
+
+def test_route_initialization_factors_programs_even_when_ids_have_shared_prefixes():
+    data = data_fixture()
+    other = copy.deepcopy(data['programs'][0])
+    other['id'] += ':child'
+    data['programs'].append(other)
+    for p in data['programs']:
+        p['routes'].append(route_missing_measured_review(p['routes'][0]))
+    model = VisitHierarchy(data, Config(population_size=16))
+    z = np.zeros(model.layout.size)
+    result, routes, value = model._finite_initial_routes(z, np.array([1, 1]), np.random.default_rng(42))
+    assert np.array_equal(result, z)
+    assert np.array_equal(routes, [0, 0])
+    assert value == model.log_likelihood(z, [0, 0])
+    assert value == pytest.approx(sum(model.log_likelihood(z, [0, 0], _program_index=i) for i in range(2)))
+
+
+def test_impossible_evidence_is_not_silently_dropped_to_start_sampler():
+    data = data_fixture()
+    data['programs'][0]['routes'] = [route_missing_measured_review(data['programs'][0]['routes'][0])]
+    model = VisitHierarchy(data, Config(chains=1, warmup=0, draws=8, population_size=16))
+    with pytest.raises(ValueError, match='No finite initial state.*J__P'):
+        model.sample()
+
+
+def test_unsupported_saved_checkpoint_is_not_reinitialized():
+    data = data_fixture()
+    data['programs'][0]['routes'].append(route_missing_measured_review(data['programs'][0]['routes'][0]))
+    model = VisitHierarchy(data, Config(chains=1, warmup=0, draws=8, population_size=16))
+    with pytest.raises(ValueError, match='Checkpoint latent route'):
+        model.sample(initial=(np.zeros((1, model.layout.size)), np.array([[1]])))
 
 
 def test_discrete_reporting_error_is_normalized_including_zero_counts():

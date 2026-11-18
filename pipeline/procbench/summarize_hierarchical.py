@@ -14,7 +14,8 @@ import pathlib
 import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel
-from .run_hierarchical import evaluate, write
+from .infra.manifest import write
+from .run_hierarchical import evaluate
 
 
 def main(argv=None):

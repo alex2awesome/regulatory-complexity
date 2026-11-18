@@ -14,8 +14,10 @@ inspection to the county, and Sennet County is the county itself.
 """
 from __future__ import annotations
 
+from . import capacity, lineage
+from .counties import build_counties
 from .domains import DOMAINS, DOMAIN_ORDER, stat_id_for
-from .rng import chance, sub_rng, weighted
+from .rng import chance, pick, sub_rng, weighted
 
 GENERATOR_VERSION = "synthetic-process-generator/2"
 
@@ -56,6 +58,48 @@ DEFAULT_KNOBS: dict = {
     "p_appeal_if_denied": 0.25,
     "max_rework_rounds": 3,
     "visit_accounting_version": 2,      # actual visit indices; base fees once; loop caps count triggers
+    "decision_model_version": 2,        # statute -> decision function -> jurisdiction readings (decision.py); 1 = legacy
+    # ---- W2: the county panel (counties.py / capacity.py / lineage.py) ----
+    # 1 = the four hand-written Marisol jurisdictions, byte-identical to W1.
+    # 2 = a 58-county panel shaped like the real California one, with measured
+    #     availability slopes and an explicit source-lineage graph.
+    "world_model_version": 1,
+    # An uncured correction stalls a case instead of denying it. Version 1 keeps
+    # the legacy behaviour, which produced 32.4% denied and 6.1% pending against
+    # a real 0.09% / 34.8%; version 2 separates the two latent outcomes.
+    # Version 1 remains the DEFAULT so every saved world replays unchanged; a
+    # county world must pass 2 explicitly (see docs/2026-09-17-w2-resume.md).
+    "outcome_model_version": 1,
+    # P(an applicant self-selected against the non-curable eligibility tests
+    # before filing). 0.0 is the legacy unfiltered pool and stays the default.
+    #
+    # CALIBRATION, measured over 69,065 simulated cases per setting:
+    #   0.000 -> 32.4% denied   (the unfiltered pool; 360x the real housing rate)
+    #   0.900 ->  2.32% denied
+    #   0.970 ->  0.81% denied  <- the value a county world should use
+    #   0.995 ->  0.27% denied
+    # Real APR disapproval is about 0.09% of 247,326 status-stated applications.
+    # 0.97 is chosen rather than 0.995 because this corpus spans twelve domains,
+    # not only housing permits: CCW, General Assistance and Medi-Cal-like
+    # programmes genuinely refuse more often than a ministerial building permit,
+    # so a portfolio mean near 1% is defensible where 0.09% is a housing floor.
+    # STILL OPEN: pending/censored lands at 15.7% against a real 34.8%, which is
+    # an arrival-rate-versus-observation-window question, not a decision-model
+    # one. Do not close it by raising denial.
+    "p_self_select": 0.0,
+    "n_counties": 58,                   # world_model_version 2 only
+    "availability_scenario": "reference",   # see capacity.SCENARIOS
+    "p_restate_aggregate": 0.35,        # P(an aggregate is republished elsewhere)
+    # One measured reddit post is one thread, so at v2 the thread count follows
+    # capacity.post_volume per county-programme cell rather than a flat cap. The
+    # cap is a pure render-budget backstop set well above the measured maximum
+    # (100 posts in the busiest real cell); anything it drops is counted, never
+    # silently applied.
+    "max_threads_per_county_process": 120,
+    "discretion_spread": 1.0,           # P(a jurisdiction draws a non-modal reading of a standard); 0 = every jurisdiction reads alike
+    "p_misimplement": 0.05,             # P(a jurisdiction restates a crisp statutory test with a different constant)
+    "p_cure": 0.8,                      # P(a correction round satisfies a failed fixable predicate)
+    "p_wrong_fact_third_party": 0.15,   # P(a third-party guide states a criterion wrongly)
     "n_applicants_neighbor": 50,
     "max_threads_per_process": 3,
     "filler_cap": 1000,
@@ -294,6 +338,19 @@ JURISDICTIONS: list[dict] = [
 
 JUR_BY_ID = {j["id"]: j for j in JURISDICTIONS}
 
+
+def jur_by_id(world: dict | None = None) -> dict:
+    """Jurisdiction lookup for THIS world, not the module's static list.
+
+    `JUR_BY_ID` only ever held the hand-written jurisdictions, so any consumer
+    that indexed it directly broke the moment a generated county panel existed
+    -- the same class of defect as the `JUR_BY_ID["J1"]` literal found in
+    specs.py. Consumers take the lookup from the world they were handed.
+    """
+    if not world:
+        return JUR_BY_ID
+    return {j["id"]: j for j in world.get("jurisdictions", JURISDICTIONS)}
+
 # How well a domain fits a kind of jurisdiction (before per-jurisdiction pref).
 KIND_FIT = {
     "unpermitted_unit_amnesty": {"city": 1.4, "county": 1.0},
@@ -407,13 +464,287 @@ def _why_not(rng, jur: dict, domain: str) -> str:
     return "optional under %s; not adopted (no council sponsor, no dedicated staff)" % dom["cite"]
 
 
+# ------------------------------------------------- W2: the county panel helpers
+
+# Department naming styles, so 58 counties do not all call the same office the
+# same thing. Real anchor: the environmental-health structure field in
+# ca_counties_covariates.csv, where counties split the same statutory duties
+# across differently-named agencies, and the plan's requirement that county,
+# agency, organizational unit and task type stay four different identifiers.
+_COUNTY_STYLES = {
+    "integrated": {
+        "lead_permits": "Permit Center",
+        "building": "Building Inspection Division",
+        "planning": "Current Planning Division",
+        "health": "Environmental Health Division",
+        "publicworks": "Department of Public Works",
+    },
+    "split_health": {
+        "lead_permits": "Development Services Counter",
+        "building": "Building and Safety Department",
+        "planning": "Planning Department",
+        "health": "Public Health Department, Environmental Health Services",
+        "publicworks": "Public Works Agency",
+    },
+    "resource_agency": {
+        "lead_permits": "Resource Management Agency, Permit Desk",
+        "building": "Resource Management Agency, Building Division",
+        "planning": "Resource Management Agency, Planning Division",
+        "health": "Resource Management Agency, Environmental Health Division",
+        "publicworks": "Resource Management Agency, Engineering Division",
+    },
+    "district": {
+        "lead_permits": "Community Development front counter",
+        "building": "Building Department",
+        "planning": "Planning and Land Use Department",
+        "health": "regional health district (by joint powers agreement)",
+        "publicworks": "Road Department",
+    },
+}
+
+_SHARED_ROLES = ("code_enforcement", "fire", "finance", "clerk", "attorney", "hearing",
+                 "council", "records", "assessor", "parks", "police", "housing",
+                 "animal", "arborist", "state_agency")
+
+
+def _countify(c: dict) -> dict:
+    """Give a generated county the department map and host fields the renderer needs.
+
+    The delegated-health case is real and matters: the P5 inventory found
+    counties whose septic or food authority sits with a regional district or is
+    delegated rather than held by the county itself, so `health` is sometimes
+    another body's name. A generator where every county holds every authority
+    would remove the plan's "delegated/district authority" requirement.
+    """
+    rng = sub_rng(0, "countify", c["id"])          # seed 0: naming is not a world variable
+    style = weighted(rng, [("integrated", 18), ("split_health", 20),
+                           ("resource_agency", 12), ("district", 8)])
+    short = c["short"]
+    depts = {role: name for role, name in _COUNTY_STYLES[style].items()}
+    if style == "district":
+        depts["health"] = "%s Regional Health District" % pick(
+            rng, ("Northgate", "Verrance", "Tri-Valley", "Coast Range", "High Desert"))
+    for role in _SHARED_ROLES:
+        depts[role] = {
+            "code_enforcement": "Code Compliance Unit",
+            "fire": "Office of the County Fire Marshal",
+            "finance": "Auditor-Controller, Revenue Division",
+            "clerk": "Clerk of the Board of Supervisors",
+            "attorney": "Office of County Counsel",
+            "hearing": "Zoning Administrator",
+            "council": "Board of Supervisors",
+            "records": "Clerk-Recorder's Office",
+            "assessor": "%s County Assessor" % short,
+            "parks": "County Parks Department",
+            "police": "%s County Sheriff's Office" % short,
+            "housing": "Housing and Community Development",
+            "animal": "%s County Animal Services" % short,
+            "arborist": "Public Works Vegetation Management",
+            "state_agency": "state agency of record",
+        }[role]
+    host = "www.%scounty.gov" % short.lower()
+    return dict(
+        c,
+        style=style,
+        umbrella={"integrated": "%s County Planning and Building Department" % short,
+                  "split_health": "%s County Development Services Agency" % short,
+                  "resource_agency": "%s County Resource Management Agency" % short,
+                  "district": "%s County Community Development Department" % short}[style],
+        depts=depts,
+        host=host,
+        email="permits@%s" % host[4:],
+        phone="(%03d) %03d-%04d" % (500 + rng.randrange(300), 200 + rng.randrange(700),
+                                    1000 + rng.randrange(9000)),
+        hours=pick(rng, ("Monday-Friday 8:00 a.m.-5:00 p.m.",
+                         "Monday-Thursday 7:30 a.m.-5:30 p.m., closed Friday",
+                         "Monday-Friday 8:00 a.m.-4:00 p.m. (counter closes at 3:30)",
+                         "Tuesday and Thursday 9:00 a.m.-3:00 p.m.")),
+        address="%d %s Street, %s, MR %05d" % (
+            rng.randrange(20, 4000),
+            pick(rng, ("Court", "Main", "Mill", "Union", "Bridge", "Water", "Church")),
+            c["seat"], 94000 + rng.randrange(1000)),
+        permit_system=(c["permit_portal_vendor"] or "paper applications"),
+        subreddit=None,                  # set by _assign_forums from the hurdle draw
+        legislative_host="%s/board" % host,
+        code_host="library.%s.com/mr/%scounty" % (c["code_host"], short.lower()),
+        news=("The %s %s" % (short, pick(rng, ("Ledger", "Bulletin", "Sentinel", "Record"))),
+              "www.%s%s.com" % (short.lower(), pick(rng, ("ledger", "bulletin", "news")))),
+        council="Board of Supervisors",
+        council_cycle=pick(rng, ("first and third Tuesday", "second and fourth Tuesday",
+                                 "every Tuesday", "second Monday")),
+        fee_instrument="County Fee Ordinance, amended by the Board",
+        pref={},
+    )
+
+
+
+# The statewide venues a county with no forum of its own falls back to. Naming
+# them matters: the measurement found 57 of 58 counties yield user evidence
+# while only 49 have a candidate sub of their own, so the rescue channel is
+# where a third of the rural evidence actually lives. A county with no sub must
+# carry `subreddit: None` and post into one of these, never a dead string --
+# "reddit.com/None/comments/..." is a URL a solver can never fetch, and it would
+# teach an extractor that rural counties have broken links rather than
+# different venues.
+STATEWIDE_VENUES = ("r/Marisol", "r/AskMarisol", "r/MarisolHousing")
+
+
+def _assign_forums(seed: int, counties: list[dict]) -> None:
+    """Give each county its own subreddit, or a statewide venue if it has none."""
+    for c in counties:
+        rng = sub_rng(seed, "forum_name", c["id"])
+        if capacity.channel_exists(c, "county_sub", seed):
+            c["subreddit"] = "r/%sCounty" % c["short"]
+            c["forum_venue"] = c["subreddit"]
+            c["forum_is_own"] = True
+        else:
+            c["subreddit"] = None
+            c["forum_venue"] = pick(rng, STATEWIDE_VENUES)
+            c["forum_is_own"] = False
+
+
+def _channel_draws(seed: int, counties: list[dict], knobs: dict) -> dict:
+    """Realised per-county channel existence and volume, with the county effects.
+
+    Written into the world bundle as PRIVATE truth so a later stage can check
+    that what the artifacts realise matches what the availability model planted.
+    The solver never sees this; it sees documents, or their absence.
+    """
+    scenario = knobs.get("availability_scenario", "reference")
+    out: dict = {"scenario": scenario, "by_county": {}}
+    for c in counties:
+        u, v_c = capacity.county_effects(c, seed)
+        row = {"u_disclosure": round(u, 4), "v_volume": round(v_c, 4), "channels": {}}
+        for channel in capacity.CHANNEL_VOLUME:
+            exists = capacity.channel_exists(c, channel, seed)
+            row["channels"][channel] = {
+                "exists": exists,
+                "volume": capacity.post_volume(c, channel, seed, scenario=scenario,
+                                               volume_effect=v_c),
+            }
+        row["funnel"] = {fam: capacity.funnel_outcome(c, fam, seed)
+                         for fam in capacity.FUNNEL}
+        out["by_county"][c["id"]] = row
+    # The aggregate a reviewer actually wants: does this world reproduce the
+    # measured coverage, or did one seed drift?
+    subs = sum(1 for r in out["by_county"].values() if r["channels"]["county_sub"]["exists"])
+    any_user = sum(1 for r in out["by_county"].values()
+                   if r["channels"]["county_sub"]["volume"]
+                   or r["channels"]["statewide_sub"]["volume"])
+    out["realised"] = {
+        "counties": len(counties),
+        "with_own_forum": subs,
+        "with_any_user_evidence": any_user,
+        "real_anchor": "49 of 58 counties have a candidate subreddit; 57 of 58 yield "
+                       "at least one post once statewide venues are queried",
+        "median_own_forum_volume": sorted(
+            r["channels"]["county_sub"]["volume"] for r in out["by_county"].values()
+        )[len(counties) // 2] if counties else 0,
+    }
+    return out
+
+
+
+# ---------------------------------------- W2: which counties implement what
+#
+# The four hand-written jurisdictions use a load-balancing assignment, which
+# fixes the total number of processes. That is the wrong mechanism for 58
+# counties, because the real pattern is not a balanced design: some programmes
+# are MANDATED in all 58 and vary only in local policy, while others are a local
+# option and genuinely absent in many counties. The real anchors:
+#
+#   * General Assistance is mandated in all 58 counties (its scoping report
+#     found thin official descriptions everywhere, not absent programmes), and
+#     varies in grant amount, loan-versus-grant treatment and work obligation.
+#   * A civil grand jury is mandated in all 58.
+#   * ADUs must be permitted statewide, but the local ordinance varies and 11 of
+#     57 inventory rows were never verified -- absence of a document, not of a
+#     programme.
+#   * A septic LAMP is an OPTIONAL Tier 2 instrument, so a county without one may
+#     lawfully be using Tier 1. "No document" and "no programme" are different.
+#
+# So implementation is a per-(county, domain) draw, and a non-implementation is
+# recorded with its reason. `mandate` is the domain's floor: at 1.0 every county
+# implements and the variation moves into the local rule instead.
+COUNTY_MANDATE = {
+    "rental_inspection": 1.0,        # standing statutory duty; varies in local policy only
+    "well_permit": 1.0,              # every county has an authority, delegated or held
+    "mobile_food": 1.0,              # retail food authority is universal
+    "solar_auto_permit": 0.95,       # statewide expedited-permit mandate
+    "unpermitted_unit_amnesty": 0.55,  # permissive adoption: the real legalization split
+    "tree_removal": 0.50,
+    "str_registration": 0.45,
+    "home_business": 0.60,
+    "backyard_hens": 0.35,
+    "special_event": 0.70,
+    "sidewalk_vending": 0.40,
+    "contractor_registration": 0.30,
+}
+# Slope on standardised log population for the permissive domains. Large
+# counties adopt optional programmes more often, but the slope is deliberately
+# modest: our covariate work found public covariates explain only about 4% of
+# timing variation pooled, so a generator that makes adoption highly predictable
+# from population hands the estimator information the real world withholds.
+COUNTY_ADOPT_SLOPE = 0.45
+
+
+def _county_implementations(seed: int, counties: list[dict], domain_order: list[str],
+                            knobs: dict) -> tuple[list[dict], list[dict]]:
+    """(implementations, non_implementations) for the county panel."""
+    impls, non_impls = [], []
+    for c in counties:
+        z = capacity.z_log_pop(c)
+        for domain in domain_order:
+            rng = sub_rng(seed, "county_impl", c["id"], domain)
+            base = COUNTY_MANDATE.get(domain, 0.5)
+            if base >= 1.0:
+                implements, why_p = True, "mandated: every county has this authority"
+            else:
+                # logit shift on the population axis, clipped so no domain
+                # becomes universal or impossible by size alone
+                import math as _m
+                odds = _m.log(max(base, 1e-6) / max(1 - base, 1e-6)) + COUNTY_ADOPT_SLOPE * z
+                p = min(0.97, max(0.03, 1.0 / (1.0 + _m.exp(-odds))))
+                implements = chance(rng, p)
+                why_p = "permissive adoption: p=%.2f at base %.2f and z_pop %+.2f" % (p, base, z)
+            sid = stat_id_for(domain)
+            if implements:
+                retrofit = chance(rng, knobs["p_retrofit"])
+                impls.append({
+                    "jur": c["id"], "stat_id": sid, "domain": domain, "target": True,
+                    "retrofit": retrofit,
+                    "why": "%s. %s" % (why_p, _why_implements(rng, c, domain, retrofit)),
+                })
+            else:
+                non_impls.append({
+                    "jur": c["id"], "stat_id": sid, "domain": domain,
+                    "why": "%s -> not adopted. NOTE: no local programme, which is not the "
+                           "same as an unfound document." % why_p,
+                })
+    return impls, non_impls
+
+
+
 def build_world(world_id: str, seed: int, knob_overrides: dict | None = None) -> dict:
     knobs = dict(DEFAULT_KNOBS)
     knobs.update(knob_overrides or {})
     only_j, only_d = knobs.get("only_jurisdictions"), knobs.get("only_domains")
     jurisdictions = [j for j in JURISDICTIONS if not only_j or j["id"] in only_j]
+    county_panel: list[dict] = []
+    if knobs.get("world_model_version", 1) >= 2:
+        # The panel is ADDED to the four hand-written jurisdictions rather than
+        # replacing them, so every W1 process, artifact and test keeps its
+        # identity and the county world is a superset. `_countify` gives each
+        # generated county the department map and host fields the renderer
+        # needs, which the hand-written four carry literally.
+        county_panel = [_countify(c) for c in
+                        build_counties(seed, int(knobs.get("n_counties", 58)))]
+        _assign_forums(seed, county_panel)
+        jurisdictions = jurisdictions + county_panel
     domain_order = [d for d in DOMAIN_ORDER if not only_d or d in only_d]
-    marisol_ids = [j["id"] for j in jurisdictions if j["state"] == "Marisol"]
+    county_ids = {c["id"] for c in county_panel}
+    marisol_ids = [j["id"] for j in jurisdictions
+                   if j["state"] == "Marisol" and j["id"] not in county_ids]
     if only_j or only_d:
         # generic sizing for a subset world: 2 implementers per statute (or 1 if
         # only one Marisol jurisdiction), spread as evenly as the loads allow.
@@ -463,6 +794,10 @@ def build_world(world_id: str, seed: int, knob_overrides: dict | None = None) ->
             "retrofit": retrofit,
             "why": _why_implements(rng, jur, domain, retrofit),
         })
+    if county_panel:
+        c_impls, c_non = _county_implementations(seed, county_panel, domain_order, knobs)
+        impls.extend(c_impls)
+        non_impls.extend(c_non)
     for jid in marisol_ids:
         have = {i["domain"] for i in impls if i["jur"] == jid}
         for domain in domain_order:
@@ -487,6 +822,7 @@ def build_world(world_id: str, seed: int, knob_overrides: dict | None = None) ->
         "generator": "benchmark/synth/generator (no LLM calls; stdlib only)",
         "generator_version": GENERATOR_VERSION,
         "visit_accounting_version": knobs["visit_accounting_version"],
+        "decision_model_version": knobs["decision_model_version"],
         "design_doc": "benchmark/synth/DESIGN.md",
         "knobs": knobs,
         "states": [
@@ -502,6 +838,16 @@ def build_world(world_id: str, seed: int, knob_overrides: dict | None = None) ->
         ],
         "domains": domain_order,
         "jurisdictions": jurisdictions,
+        "world_model_version": knobs.get("world_model_version", 1),
+        "county_panel": county_panel,
+        "availability": (
+            dict(scenario=knobs.get("availability_scenario", "reference"),
+                 scenario_note=capacity.SCENARIOS[knobs.get("availability_scenario", "reference")]["note"],
+                 provenance=capacity.provenance_report(),
+                 channels=_channel_draws(seed, county_panel, knobs))
+            if county_panel else None),
+        "source_lineage": (lineage.build_lineage(seed, county_panel, knobs)
+                           if county_panel else []),
         "statutes": statutes,
         "implementations": impls,
         "non_implementations": non_impls,

@@ -12,7 +12,7 @@ import numpy as np
 
 from .compare_evidence_runs import check_matched_inputs,score_baseline
 from .latent_gaussian import effective_size
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 from .run_hierarchical import posterior_timing_score
 from .timing_contract import INITIAL_POPULATION_MEDIAN, LEGACY_SUMMARY_MEDIAN, verify_declared_initial_target
 

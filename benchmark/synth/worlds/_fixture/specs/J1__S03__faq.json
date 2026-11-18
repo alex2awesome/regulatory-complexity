@@ -1,0 +1,68 @@
+{
+ "artifact_id": "J1__S03__faq",
+ "world": "_fixture",
+ "kind": "faq",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "applicant",
+ "url": "https://www.halvern.gov/building/unit-legalization/faq",
+ "date": "2024-11-20",
+ "describes_version": 1,
+ "stale": true,
+ "links_to": [],
+ "publisher": "City of Halvern",
+ "reveals": [
+  {
+   "ref": "A02",
+   "field": "fee",
+   "fidelity": "wrong",
+   "value": "$390 (version 1 fee)",
+   "must_quote": false
+  },
+  {
+   "ref": "A03",
+   "field": "actor",
+   "fidelity": "wrong",
+   "value": "Planning Division accepts and screens (version 1 actor)",
+   "must_quote": false
+  },
+  {
+   "ref": "A01",
+   "field": "exists",
+   "fidelity": "wrong",
+   "value": "no appointment needed before applying (version 1)",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "wrong",
+   "value": "about 30 days",
+   "must_quote": false
+  },
+  {
+   "ref": "E9",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "no enforcement action based solely on an application",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A04",
+  "A08",
+  "A09",
+  "A11"
+ ],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   250,
+   400
+  ],
+  "template_lineage": null
+ },
+ "why": "p_stale=0.25 drew 0.11; page dated before the 2025-04-01 version bump, never revised"
+}

@@ -13,7 +13,7 @@ import shutil
 import numpy as np
 
 from .bayes_trace_hierarchy import Config, VisitHierarchy
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
 from .run_visit_hierarchy import precision_check
 
 
@@ -39,7 +39,7 @@ def prepare_refinement(root, population_size):
     data = json.loads((root / 'data.json').read_text())
     if data != input_data:
         raise ValueError('Saved data disagree with the original inference input')
-    if cfg.selection_sd or any(o['case_id'] is None for p in data['programs']
+    if cfg.selection_sd or any(p.get('quantile_cohorts') or p.get('histogram_cohorts') for p in data['programs']) or any(o['case_id'] is None for p in data['programs']
                                for o in p.get('observations', [])):
         raise ValueError('Population integration occurs in the likelihood; refit instead')
     cfg = replace(cfg, population_size=population_size)
@@ -71,23 +71,18 @@ def main(argv=None):
         raise ValueError('Preserve prior results; choose a fresh output directory')
     original, model, z, structures, ll, checks = prepare_refinement(root, args.population_size)
     source = pathlib.Path(__file__).parent
-    names = ['refine_visit_predictions.py', 'run_visit_hierarchy.py', 'bayes_trace_hierarchy.py',
-             'compact_visit_trace.py', 'latent_gaussian.py', 'visit_clocks.py', 'bayes_hierarchy.py',
-             'evidence_contract.py', 'schedule_kernel.py', 'approximation_checks.py']
     manifest = dict(config=asdict(model.cfg), base_run=str(root), base_manifest=original,
                     started_utc=datetime.now(timezone.utc).isoformat(),
                     prediction_resolution_only=True, mcmc_draws_added=0,
                     saved_draws_sha256=digest((root / 'draws.npz').read_bytes()),
                     hidden_truth_read_during_inference=False,
-                    source_sha256={name: digest((source / name).read_bytes()) for name in names},
                     **checks)
-    write(out / 'manifest.json', manifest)
+    record = RunManifest(out, manifest, operation='v6.refine_predictions',
+        inputs=[root/name for name in ('manifest.json','data.json','draws.npz','posterior.json')],
+        config=asdict(model.cfg), seeds=dict(population_seed=model.cfg.population_seed), hidden_truth_read=False,
+        source_root=source, sources=['refine_visit_predictions.py'])
     write(out / 'data.json', model.data)
     shutil.copy2(root / 'draws.npz', out / 'draws.npz')
-    for name in names:
-        target = out / 'source' / name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((source / name).read_bytes())
     print(json.dumps(dict(stage='recomputing_predictions', checks=checks,
                           population_size=args.population_size, mcmc_draws_added=0)), flush=True)
     report = model.report(z, structures, ll)
@@ -97,9 +92,7 @@ def main(argv=None):
                                     report['precision']['likelihood_acceptable'] and
                                     report['precision']['predictions_acceptable'])
     write(out / 'posterior.json', report)
-    manifest.update(completed_utc=datetime.now(timezone.utc).isoformat(),
-                    posterior_sha256=digest((out / 'posterior.json').read_bytes()))
-    write(out / 'manifest.json', manifest)
+    record.complete(posterior_sha256=digest((out / 'posterior.json').read_bytes()))
     print(json.dumps(dict(numerically_usable=report['numerically_usable'],
                           precision=report['precision'], flagged=report['diagnostics_flagged'])), flush=True)
 

@@ -8,8 +8,6 @@ import copy
 from datetime import datetime, timezone
 import json
 import pathlib
-import subprocess
-import tempfile
 import time
 
 import jsonschema
@@ -17,7 +15,8 @@ import jsonschema
 from .audit_measurement_semantics import eligible
 from .audit_visit_observations import SCHEMA as VISIT_SCHEMA, validate_visit_audit
 from .evidence_contract import REF, STR, arr, enum, normalized_quote, obj, validate
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import cli_version, run_codex
 
 
 VERSION = 'visit-interpretation-hypotheses/1'
@@ -207,9 +206,18 @@ def main(argv=None):
     write(out / 'schema.json', SCHEMA)
     write(out / 'inputs.json', payload)
     (out / 'prompt.txt').write_text(prompt)
-    version = subprocess.check_output(['codex', '--version'], text=True).strip()
+    # An offline revalidation must not require an installed/authenticated backend.
+    version = None if args.from_events else cli_version()
     start = time.monotonic()
     attempts = []
+    dependencies = list(paths.values())
+    if args.from_events:
+        dependencies += [pathlib.Path(args.from_events), *(pathlib.Path(args.source_cache)/name
+                         for name in ('inputs.json', 'schema.json', 'prompt.txt'))]
+    record = RunManifest(out, {}, operation='evidence.visit_hypotheses_import' if args.from_events
+        else 'evidence.visit_hypotheses', inputs=dependencies,
+        config=dict(model_requested=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=['audit_visit_hypotheses.py'])
     if args.from_events:
         cache, event_path = pathlib.Path(args.source_cache), pathlib.Path(args.from_events)
         if event_path.resolve().parent != cache.resolve():
@@ -223,16 +231,7 @@ def main(argv=None):
         validate_hypotheses(audit, evidence, visit, documents)
         write(out/'audit.json', audit)
         (out/'original.events.jsonl').write_bytes(event_path.read_bytes())
-        validation_files = ['audit_visit_hypotheses.py', 'audit_visit_observations.py',
-                            'evidence_contract.py', 'audit_measurement_semantics.py']
-        validation_sources = {}
-        for name in validation_files:
-            source = pathlib.Path(__file__).parent/name
-            target = out/'source'/name
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_bytes(source.read_bytes())
-            validation_sources[name] = digest(source.read_bytes())
-        write(out/'manifest.json', dict(completed_utc=datetime.now(timezone.utc).isoformat(),
+        record.complete(**dict(completed_utc=datetime.now(timezone.utc).isoformat(),
             mode='validation_only_import', original_cache=str(cache), original_events=str(event_path),
             model_requested=args.model, reasoning_requested='xhigh', cli_version_at_import=version,
             original_cli_version_not_recorded=True, hidden_truth_provided=False, fitted_outputs_provided=False,
@@ -240,7 +239,7 @@ def main(argv=None):
             input_sha256={str(p):digest(p.read_bytes()) for p in paths.values()},
             original_prompt_sha256=digest((cache/'prompt.txt').read_bytes()),
             validator_sha256=digest(pathlib.Path(__file__).read_bytes()),
-            validation_source_sha256=validation_sources,
+            validation_source_sha256=record.data['provenance']['source_sha256'],
             audit_sha256=digest((out/'audit.json').read_bytes()),
             note=('Original wrapper rejected a pre-turn managed-approval notice. Current visit validation also '
                   'allows a per-cycle reading covering multiple observed rounds; original responses and '
@@ -248,51 +247,32 @@ def main(argv=None):
         print(json.dumps(dict(program=evidence['program_id'], imported=True,
             hypothesis_rows=sum(bool(r['hypotheses']) for r in audit['measurements']))),flush=True)
         return
-    with tempfile.TemporaryDirectory(prefix='rc-visit-hypotheses-') as isolated:
-        schema = pathlib.Path(isolated) / 'schema.json'
-        write(schema, SCHEMA)
-        for attempt in range(3):
-            response = pathlib.Path(isolated) / f'response_{attempt}.json'
-            events = out / f'attempt_{attempt}.events.jsonl'
-            (out / f'attempt_{attempt}.prompt.txt').write_text(prompt)
-            command = ['codex', 'exec', '--sandbox', 'read-only', '--ephemeral',
-                '--skip-git-repo-check', '--ignore-user-config', '--json', '--color', 'never',
-                '-C', isolated, '-m', args.model, '-c', 'model_reasoning_effort="xhigh"',
-                '--output-schema', str(schema), '-o', str(response), '-']
-            with events.open('w') as stream, (out / f'attempt_{attempt}.stderr.log').open('w') as log:
-                status = subprocess.run(command, input=prompt, text=True, stdout=stream,
-                                        stderr=log, cwd=isolated, timeout=2400)
-            if status.returncode or not response.exists():
-                raise RuntimeError('Hypothesis audit failed; inspect preserved logs')
-            event_audit = check_source_only_events(events)
-            audit = json.loads(response.read_text())
-            write(out / f'attempt_{attempt}.json', audit)
-            if json.loads(event_audit.pop('final_message')) != audit:
-                raise ValueError('Final event message and saved response differ')
-            try:
-                validate_hypotheses(audit, evidence, visit, documents)
-                break
-            except (ValueError, jsonschema.ValidationError) as error:
-                attempts.append(str(error))
-                prompt += '\nReturn the complete corrected audit; do not change source facts. Error:\n'
-                prompt += str(error) + '\nPrevious response:\n' + json.dumps(audit)
-        else:
-            raise ValueError('Hypothesis validation failed after three attempts')
+    for attempt in range(3):
+        raw = run_codex(prompt, SCHEMA, out, stem=f'attempt_{attempt}',
+                        model=args.model, events=True)
+        events = out / f'attempt_{attempt}.events.jsonl'
+        event_audit = check_source_only_events(events)
+        audit = json.loads(raw)
+        write(out / f'attempt_{attempt}.json', audit)
+        if json.loads(event_audit.pop('final_message')) != audit:
+            raise ValueError('Final event message and saved response differ')
+        try:
+            validate_hypotheses(audit, evidence, visit, documents)
+            break
+        except (ValueError, jsonschema.ValidationError) as error:
+            attempts.append(str(error))
+            prompt += '\nReturn the complete corrected audit; do not change source facts. Error:\n'
+            prompt += str(error) + '\nPrevious response:\n' + json.dumps(audit)
+    else:
+        raise ValueError('Hypothesis validation failed after three attempts')
     write(out / 'audit.json', audit)
-    source = pathlib.Path(__file__).parent
-    names = ['audit_visit_hypotheses.py', 'audit_visit_observations.py',
-             'audit_measurement_semantics.py', 'evidence_contract.py', 'reconcile_evidence.py']
-    for name in names:
-        target = out / 'source' / name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((source / name).read_bytes())
-    write(out / 'manifest.json', dict(completed_utc=datetime.now(timezone.utc).isoformat(),
+    record.complete(**dict(completed_utc=datetime.now(timezone.utc).isoformat(),
         seconds=time.monotonic()-start, model=args.model, reasoning='xhigh', cli_version=version,
         hidden_truth_provided=False, fitted_outputs_provided=False, validation_repairs=attempts,
         source_only_event_audit=event_audit,
         input_sha256={str(p): digest(p.read_bytes()) for p in paths.values()},
-        source_sha256={name: digest((source / name).read_bytes()) for name in names},
-        artifact_sha256={p.name: digest(p.read_bytes()) for p in out.iterdir() if p.is_file()}))
+        artifact_sha256={p.name: digest(p.read_bytes()) for p in out.iterdir()
+                         if p.is_file() and p.name != 'manifest.json'}))
     print(json.dumps(dict(program=evidence['program_id'], measurements=len(audit['measurements']),
         hypothesis_rows=sum(bool(r['hypotheses']) for r in audit['measurements']))), flush=True)
 

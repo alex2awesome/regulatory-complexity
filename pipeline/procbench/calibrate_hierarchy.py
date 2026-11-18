@@ -20,7 +20,7 @@ import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel
 from .latent_gaussian import diagnostics
-from .run_hierarchical import write
+from .infra.manifest import write
 from .validate_hierarchy import generated_evidence
 
 

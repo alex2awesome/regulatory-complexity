@@ -117,7 +117,8 @@
               "timing",
               "fee",
               "artifact",
-              "rework"
+              "rework",
+              "criterion"
             ]
           },
           "fidelity": {
@@ -163,30 +164,91 @@
           },
           "count_observation": {
             "type": "object",
-            "required": ["measure", "statistic", "population"],
+            "required": [
+              "measure",
+              "statistic",
+              "population"
+            ],
             "properties": {
-              "measure": {"enum": ["correction_probability_per_eligible_visit", "cases_with_observed_correction"]},
-              "statistic": {"enum": ["planning_probability", "observed_cohort_fraction"]},
-              "population": {"type": "string"},
-              "stage_scope": {"type": "string"},
-              "as_of": {"type": "string"},
-              "numerator": {"type": "integer", "minimum": 0},
-              "sample_size": {"type": "integer", "minimum": 1}
+              "measure": {
+                "enum": [
+                  "correction_probability_per_eligible_visit",
+                  "cases_with_observed_correction"
+                ]
+              },
+              "statistic": {
+                "enum": [
+                  "planning_probability",
+                  "observed_cohort_fraction"
+                ]
+              },
+              "population": {
+                "type": "string"
+              },
+              "stage_scope": {
+                "type": "string"
+              },
+              "as_of": {
+                "type": "string"
+              },
+              "numerator": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sample_size": {
+                "type": "integer",
+                "minimum": 1
+              }
             },
             "additionalProperties": false,
             "description": "Preserve per-eligible-visit versus per-case units and actual counted denominators. Planning probabilities do not imply a counted sample."
           },
           "measurement_clock": {
-            "type": ["object", "null"],
-            "required": ["start", "end", "population", "statistic"],
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "start",
+              "end",
+              "population",
+              "statistic"
+            ],
             "properties": {
-              "start": {"type": "string"},
-              "end": {"type": "string"},
-              "population": {"type": "string"},
-              "statistic": {"enum": ["median", "median_and_p90", "typical", "optimistic_typical", "forecast", "service_target", "individual_completion"]},
-              "basis": {"enum": ["whole_case", "single_visit_cycle", "sum_visit_cycles"]},
-              "sample_size": {"type": "integer", "minimum": 0},
-              "as_of": {"type": "string"}
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              },
+              "population": {
+                "type": "string"
+              },
+              "statistic": {
+                "enum": [
+                  "median",
+                  "median_and_p90",
+                  "typical",
+                  "optimistic_typical",
+                  "forecast",
+                  "service_target",
+                  "individual_completion"
+                ]
+              },
+              "basis": {
+                "enum": [
+                  "whole_case",
+                  "single_visit_cycle",
+                  "sum_visit_cycles"
+                ]
+              },
+              "sample_size": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "as_of": {
+                "type": "string"
+              }
             },
             "additionalProperties": false,
             "description": "Observation operator the renderer must preserve; cycle times are not active-work hours or first-to-last spans."
@@ -331,6 +393,13 @@
     },
     "why": {
       "type": "string"
+    },
+    "must_not_reveal_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "predicate ids whose reading this artifact must not state"
     }
   }
 }

@@ -1,0 +1,79 @@
+{
+ "artifact_id": "J2__S03__program_page",
+ "world": "_fixture",
+ "kind": "program_page",
+ "jur": "J2",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "applicant",
+ "url": "https://www.ardenmoor.gov/planning/unpermitted-units",
+ "date": "2025-05-19",
+ "describes_version": 1,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Ardenmoor",
+ "reveals": [
+  {
+   "ref": "B01",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$275 application fee, Form P-51",
+   "must_quote": false
+  },
+  {
+   "ref": "B02",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "completeness notice within 30 days",
+   "must_quote": false
+  },
+  {
+   "ref": "B03",
+   "field": "actor",
+   "fidelity": "exact",
+   "value": "planner reviews with the Building Official",
+   "must_quote": false
+  },
+  {
+   "ref": "B04",
+   "field": "rework",
+   "fidelity": "approximate",
+   "value": "corrections emailed to the applicant",
+   "must_quote": false
+  },
+  {
+   "ref": "B05",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "city inspection or approved third-party inspector on Form P-53",
+   "must_quote": false
+  },
+  {
+   "ref": "B06",
+   "field": "artifact",
+   "fidelity": "exact",
+   "value": "Certificate of Compliance",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "approximate",
+   "value": "30 to 45 days",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "B07"
+ ],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   250,
+   400
+  ],
+  "template_lineage": "J1"
+ },
+ "why": "p_publish_program_page drew 0.44; third-party option is Ardenmoor's choice on C3"
+}

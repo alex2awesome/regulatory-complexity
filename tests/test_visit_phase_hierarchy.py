@@ -6,7 +6,7 @@ import pytest
 from scipy.special import roots_hermitenorm
 
 from pipeline.procbench.bayes_trace_hierarchy import Config,VisitHierarchy,duration_log_probability
-from test_trace_hierarchy import data_fixture,observation
+from procbench_fixtures import data_fixture,observation
 
 
 def phase_fixture():

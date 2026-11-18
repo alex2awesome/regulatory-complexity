@@ -1,0 +1,4 @@
+pyyaml
+numpy
+# optional: the exhaustive solver is the fallback
+z3-solver

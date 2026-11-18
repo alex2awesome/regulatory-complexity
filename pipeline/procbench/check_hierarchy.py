@@ -14,7 +14,7 @@ import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel, log_interval
 from .latent_gaussian import summary
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def clock_alternative_probability(bounds, prediction, alternative, scale, contamination):

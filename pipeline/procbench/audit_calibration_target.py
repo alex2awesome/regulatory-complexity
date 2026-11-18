@@ -12,7 +12,7 @@ import pathlib
 import numpy as np
 
 from .bayes_hierarchy import Config, HierarchicalModel, timing_interval
-from .run_hierarchical import write
+from .infra.manifest import write
 
 
 def main(argv=None):

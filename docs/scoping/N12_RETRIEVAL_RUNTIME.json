@@ -1,0 +1,83 @@
+{
+  "as_of_utc": "2026-09-17 13:40:10 UTC",
+  "scope": "Session-bound retrieval workers and durable checkpoints. Cell IDs are only meaningful in this active tool session; do not assume a durable scheduler.",
+  "w2_watch": {
+    "cell_id": "1322",
+    "record": "docs/scoping/W2_V6_WATCH.json",
+    "trigger": "observed.complete_by_counts === true",
+    "next_due_utc": "2026-09-17 13:45:03 UTC",
+    "action": "Spawn no-history source-only parser, then integrated V6. No duplicate render workflow.",
+    "last_checked_utc": "2026-09-17 12:45:03 UTC",
+    "last_observed_summary": {
+      "complete_by_counts": false,
+      "selected_specs": 3543,
+      "artifacts_rendered": 1337,
+      "artifacts_verified": 652,
+      "artifacts_failed_verification": 33,
+      "idle_minutes": 106,
+      "looks_alive": false
+    }
+  },
+  "running": [
+    {
+      "cell_id": "1406",
+      "task": "Reconciled forum history continuation",
+      "selected_pages": 3241,
+      "queue": "calguns_historical_resume_queue.json",
+      "checkpoint_prefix": "calguns_history_resume_attempts_",
+      "final_file": "calguns_history_resume_summary.json",
+      "note": "27 starter threads, one forum collector. Preserve failures and canonical-page checks. Stop403/429 or three consecutive transport errors.",
+      "last_checkpoint": "calguns_history_resume_attempts_1992.json"
+    }
+  ],
+  "pending": [
+    {
+      "task": "Statement-level relevance and case deduplication for retained discussions",
+      "note": "Transport/tree accounting completed; archive snapshots do not establish program relevance, independent cases, or live-site completeness."
+    },
+    {
+      "task": "Eight Santa Barbara followups discovered, not downloaded",
+      "record": "corpus/counties/raw/exhaustive_2026_09_17/santa_barbara_well_pending_sources.json",
+      "note": "New bulk PDF downloads held during shared-disk pressure."
+    },
+    {
+      "task": "OCR prepared mixed-image region queue",
+      "selected_documents": 154,
+      "selected_pages": 1200,
+      "queue": "ocr_mixed_image_regions_queue.json",
+      "state": "not_started_resource_hold",
+      "note": "Free shared disk9.5GiB at06:37PDT; avoid new processing while declining. Recheck resources before resuming. No new PDFs required; retain all source warnings."
+    }
+  ],
+  "completed_recently": [
+    "All338 generic-title report candidates have PDF references (337original links, one qualified press mirror);338byte hashes/18533pages, not relevant-case counts.",
+    "Additional245forum-topic entry pages plus564further pages inspected. Original562 readable plus timeout/502; both retry files passed canonical QA.",
+    "Starter creation-window collector stopped after1005requests, including ContraCosta140502gap; older history covers that unresolved window gap.",
+    "30qualifiedADUreferences mapped;670leads/4872rows/allchannelsopen.",
+    "Combined OCR audit: all1662 selected pages across46 inputs retained, all46 hashes unchanged, no missing/extra/duplicate pages or failed commands.29 outputs under30characters; unreviewed, not necessarily blank.",
+    "First two well selections:87 considered,78 networkrequests,50HTTP200,28failed,9hostskips;17validPDFs/126pages. Still not mapped into670leadmatrix. See well-primary-followup doc.",
+    "Six extra well/building Reddit OPs and all retained comments read;71uniquecommentIDs,2removed,3exactduplicatebodypairs,0overlapwithfrozen22408priorIDs. No timing datum promoted.",
+    "All338 generic-title embedded-text indexes complete:18533pages,2956sparse;338 source hashes rechecked unchanged, no missing/extra/duplicate/error index records. Keyword hits are discovery only.",
+    "Four extra well sources retrieved:3PDFs/72pages plus AlamedaFAQ. SF pair has identical extracted text despite distinct bytes.",
+    "Sixteen well child links retrieved and inspected:13PDFs/58pages,one historical Word document,two identical portal shells. Butte fee/application links have identical PDF bytes.",
+    "Well/discussion import96 refs brings ledger to766 uniqueIDs;all4872 rows remain open;83 newfilehashes unchanged,119 relative links resolve.16child URLs not yet mapped.",
+    "Remaining 1657 Reddit tree requests complete. One archive timeout preserved and recovered separately with 11 comments; 1982 query candidates accounted for: 51 reused + 274 first + 1657 remaining. 32191 unique comment IDs across new batches including retry, not independent cases.",
+    "Three missing-parent IDs across two Reddit trees queried via documented ID lookup; HTTP 200 with no returned records. Live availability unresolved. No fabricated parent bodies.",
+    "Butte report all 13 embedded pages read; pages 4–5 visually confirm 69 versus 113 WY2016 issuance conflict. El Dorado currently linked well forms disagree 30 versus 60 days for completion report; precedence unresolved.",
+    "Santa Barbara eight qualified pending source URLs retained, no download or matrix-closure claim.",
+    "Sixteen well child references now mapped; ledger 782 unique IDs, 4872 unique matrix rows, all channels open. All 16 hashes unchanged; no import/key/count mismatches.",
+    "All 2956 generic sparse-page pairs now have retained OCR (1819 reused +1137 additional). Independent audit:338 source hashes unchanged,no missing/extra/duplicate new records or chunk failures.332 outputs under30 characters remain unclassified; mixed text/image pages remain separate.",
+    "Kern appendix p13 visually reviewed, pages14/17–19 OCR read; budgeted positions, actual staffing, multiple programs and institutional response claims remain distinct. Colusa brochure-catalog IHSS hit is not nearby CWS-delay evidence.",
+    "Image-layout inventory complete across338 PDFs/18533pages,338 source hashes unchanged.3474 large-image page candidates in215 documents; not a missing-text count. Output-limit/native-diagnostic transport interruptions preserved; smaller compact batches and explicit diagnostic fields completed continuation.",
+    "Sparse OCR program discovery index covers2956 pages;35 candidate documents. Tehama IHSS hit concerns dated advisory-committee/publication claims, not recipient processing time.",
+    "Frozen first2124 forum history pages audited:31860 IDs/containers after explicit one-page UTF8 structural recovery,799empty bodies,2721edit markers. Default lxml/autoencoding omitted8nodes on LA page805; alternate parsers agree15; original bytes and counts preserved. This is not a full text-identity or live-site audit.",
+    "All215 mixed-image candidate documents/3474pages region-screened;1200 low-text-image pages in154docs queued but not started. All215 hashes unchanged; native warnings retained; photographs and existing OCR overlays remain possible."
+  ],
+  "raw_root": "corpus/counties/raw/exhaustive_2026_09_17/",
+  "resume_rule": "Reconcile saved successful requests, source hashes and canonical page IDs first. Never overwrite failure snapshots or launch a second copy of a live worker. Preserve source/relevance/currentness qualifications.",
+  "latest_space_check": {
+    "at_utc": "2026-09-17 13:37:20 UTC",
+    "available_gib": 9.5,
+    "note": "Further decline after13GiB plateau. New bulk PDFs and prepared1200-page OCR queue held; existing bounded forum collector continues. Recheck regularly; pause own collector if necessary to preserve storage headroom. No cleanup or unrelated-process termination authorized."
+  }
+}

@@ -28,7 +28,8 @@ from __future__ import annotations
 
 from .domains import DOMAINS
 from .rng import chance, pick, sub_rng, weighted
-from .world import JUR_BY_ID, actor_name
+from . import capacity
+from .world import actor_name, jur_by_id
 
 # ------------------------------------------------------------- back office --
 # tag -> (names, role, occasion, visibility, phase, median, p90, artifacts_out)
@@ -186,6 +187,10 @@ ADDED_PHASE = {
     "fire_clearance": 4.4, "extra_inspection": 6.5, "appeal_to_hearing_officer": 8.56,
 }
 
+# The hand-written jurisdictions' pace multipliers, literal so that
+# world_model_version 1 stays byte-identical. A generated county derives one
+# from capacity.speed_factor, which plants the measured population gradient and
+# the much larger unexplained residual that goes with it.
 SPEED = {"J1": 1.0, "J2": 1.25, "J3": 1.4, "J4": 1.15, "K1": 1.0, "K2": 1.1}
 
 # Back-office steps the *case* does not wait for: they run in parallel with the
@@ -232,9 +237,9 @@ def _artifacts(kind: str, dom: dict, terminal: str) -> tuple[list[str], list[str
     }.get(kind, ([], []))
 
 
-def _timing(cls: str, jur_id: str, shot_clock: int | None, rng, pace: float = 1.0) -> dict:
+def _timing(world: dict, cls: str, jur_id: str, shot_clock: int | None, rng, pace: float = 1.0) -> dict:
     med, p90 = TIMING[cls]
-    f = SPEED[jur_id] * pace * (0.85 + 0.3 * rng.random())
+    f = _speed_for(world, jur_id) * pace * (0.85 + 0.3 * rng.random())
     med, p90 = med * f, p90 * f
     if shot_clock and cls in ("decision", "notice", "appeal", "inspection"):
         # a shot clock anchors the distribution: most cases inside it, a tail outside
@@ -399,8 +404,37 @@ def _element_action(el: dict, dom: dict, rule: dict, jur: dict, lead: str, phase
     return (el["name"], [])
 
 
+# Keyed by (world, seed, scenario, jur_id), NOT by county id alone. Codex's
+# review reproduced the contamination the short key caused: build the reference
+# scenario and then the inverse one inside a single process and C01/C02 kept
+# 0.723 / 1.620 instead of the expected 1.452 / 0.816, because the second build
+# read the first build's cache. Separate CLI processes were unaffected, which is
+# exactly why it survived: every corpus so far was built by its own process, and
+# the defect would only have surfaced in a multi-seed or scenario sweep, where it
+# would have made two different worlds look identical.
+_SPEED_CACHE: dict[tuple, float] = {}
+
+
+def _speed_key(world: dict, jur_id: str) -> tuple:
+    return (world.get("world"), world.get("seed"),
+            world["knobs"].get("speed_scenario", "reference"), jur_id)
+
+
+def _speed_for(world: dict, jur_id: str) -> float:
+    """Pace multiplier for a jurisdiction: literal for the hand-written six,
+    derived and cached per (world, seed, scenario) for a generated county."""
+    if jur_id in SPEED:
+        return SPEED[jur_id]
+    return _SPEED_CACHE.get(_speed_key(world, jur_id), 1.15)
+
+
 def build_process(world: dict, statutes: dict, rule: dict) -> dict:
-    jur = JUR_BY_ID[rule["jur"]]
+    jur = jur_by_id(world)[rule["jur"]]
+    key = _speed_key(world, jur["id"])
+    if jur["id"] not in SPEED and key not in _SPEED_CACHE:
+        _SPEED_CACHE[key] = capacity.speed_factor(
+            jur, world["seed"],
+            scenario=world["knobs"].get("speed_scenario", "reference"))
     stat = statutes[rule["stat_id"]]
     dom = DOMAINS[rule["domain"]]
     knobs = world["knobs"]
@@ -464,7 +498,7 @@ def build_process(world: dict, statutes: dict, rule: dict) -> dict:
             notes.append("counterparty: %s" % actor_name(jur, counterparty, rule["domain"]))
         rows.append(dict(phase=phase, name=name, local_name=local, role=role, visibility=vis,
                          element_ref=el["element_id"], occasion=occ, ain=ain, aout=aout,
-                         timing=_timing(cls, jur["id"], el["shot_clock_days"], rng, dom["pace"]), fee=fee,
+                         timing=_timing(world, cls, jur["id"], el["shot_clock_days"], rng, dom["pace"]), fee=fee,
                          optional=el["optional"], p_occurs=None, standing=standing,
                          counterparty=counterparty,
                          element_text=el["name"],
@@ -474,7 +508,7 @@ def build_process(world: dict, statutes: dict, rule: dict) -> dict:
                          notes="; ".join(notes)))
 
     # ---- 2. locally added elements -----------------------------------------
-    from .local_rules import ADDED_ELEMENTS
+    from .local_rules import ADDED_ELEMENTS, optional_consultation_label
     for ae in rule["added_elements"]:
         spec = ADDED_ELEMENTS[ae["kind"]]
         role = spec["role"] if spec["role"] in jur["depts"] or spec["role"] == "applicant" else lead
@@ -484,12 +518,16 @@ def build_process(world: dict, statutes: dict, rule: dict) -> dict:
             fee = {"amount": min(ae["fee"], cap), "when": "at submittal", "label": ae["name"],
                    "refundable": ae["kind"] == "deposit"}
         names = spec.get("names_for", {}).get(rule["domain"], spec["names"])
+        if ae['kind'] == 'pre_application_meeting' and not ae['mandatory']:
+            # Normalize the pool as well as its chosen canonical name, preserving
+            # its size/order and the RNG sequence when excluding that name.
+            names = [optional_consultation_label(n) for n in names]
         variants = [n for n in names if n != ae["name"]]
         local = pick(rng, variants) if (variants and chance(rng, knobs["naming_drift"])) else None
         rows.append(dict(phase=ADDED_PHASE[ae["kind"]], name=ae["name"], local_name=local, role=role,
                          visibility=spec["visibility"], element_ref=ae["element_id"],
                          occasion=spec["occasion"], ain=[], aout=list(spec["out"]),
-                         timing=_timing_added(spec, jur["id"], rng, dom["pace"]), fee=fee,
+                         timing=_timing_added(world, spec, jur["id"], rng, dom["pace"]), fee=fee,
                          optional=not ae["mandatory"], p_occurs=None, standing=False,
                          counterparty=None, element_text=ae["name"],
                          span={"quote": ae["name"], "cite": rule["cite"]},
@@ -521,7 +559,7 @@ def build_process(world: dict, statutes: dict, rule: dict) -> dict:
         if role not in jur["depts"] and role not in ("applicant", "third_party", "health",
                                                      "assessor", "state_agency", "tenant"):
             role = lead
-        f = SPEED[jur["id"]] * dom["pace"] * (0.85 + 0.3 * rng.random())
+        f = _speed_for(world, jur["id"]) * dom["pace"] * (0.85 + 0.3 * rng.random())
         rows.append(dict(phase=spec["phase"], name=spec["names"][0],
                          local_name=(pick(rng, spec["names"][1:]) if len(spec["names"]) > 1
                                      and chance(rng, knobs["naming_drift"]) else None),
@@ -738,11 +776,13 @@ def build_process(world: dict, statutes: dict, rule: dict) -> dict:
                      sum(1 for a in activities if a["visibility"] == "applicant_inferable"),
                      sum(1 for a in activities if a["visibility"] == "staff_only"))),
     }
+    from .decision import attach as _attach_decision
+    _attach_decision(proc, stat, rule, knobs, world["seed"])
     return proc
 
 
-def _timing_added(spec: dict, jur_id: str, rng, pace: float = 1.0) -> dict:
-    f = SPEED[jur_id] * pace * (0.85 + 0.3 * rng.random())
+def _timing_added(world: dict, spec: dict, jur_id: str, rng, pace: float = 1.0) -> dict:
+    f = _speed_for(world, jur_id) * pace * (0.85 + 0.3 * rng.random())
     return {"dist": "lognormal", "median_days": round(spec["median"] * f, 1),
             "p90_days": round(spec["p90"] * f, 1)}
 

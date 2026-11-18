@@ -15,7 +15,7 @@ import numpy as np
 import scipy
 
 from .bayes_process_measurement import Config, ProcessMeasurementModel
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 from .measurement_kernel import ACCELERATOR
 from .timing_contract import INITIAL_POPULATION_MEDIAN
 

@@ -1,0 +1,27 @@
+{
+ "artifact_id": "J2__S07__faq",
+ "world": "_fixture",
+ "kind": "faq",
+ "jur": "J2",
+ "stat_id": "S07",
+ "target": false,
+ "audience": "applicant",
+ "url": "https://www.ardenmoor.gov/business/vending-faq",
+ "date": "2025-02-02",
+ "describes_version": 1,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Ardenmoor",
+ "reveals": [],
+ "must_not_reveal": [],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   200,
+   300
+  ],
+  "template_lineage": "J2"
+ },
+ "why": "distractor: other jurisdiction, other statute"
+}

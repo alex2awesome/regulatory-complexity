@@ -10,6 +10,7 @@ from pipeline.procbench.bayes_trace_hierarchy import Config,VisitHierarchy
 from pipeline.procbench.compare_visit_phases import score
 from pipeline.procbench.generate_visit_phases import generate
 from pipeline.procbench.reconcile_evidence import digest
+from pipeline.procbench.infra.manifest import source_closure
 from statistics import NormalDist
 
 
@@ -31,14 +32,14 @@ def test_phase_generator_preserves_matched_cycle_claims_and_is_replayable():
 
 def test_reference_audit_uses_frozen_dependencies_and_rejects_tampering(tmp_path):
     source=Path('pipeline/procbench')
-    names=['bayes_trace_hierarchy.py','compact_visit_trace.py','bayes_hierarchy.py',
-           'latent_gaussian.py','visit_clocks.py','evidence_contract.py','schedule_kernel.py']
+    snapshot=source_closure(source,['bayes_trace_hierarchy.py'])
     directory=tmp_path/'source'
     directory.mkdir()
     hashes={}
-    for name in names:
-        content=(source/name).read_bytes()
-        (directory/name).write_bytes(content)
+    for name,content in snapshot.items():
+        target=directory/name
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes(content)
         hashes[name]=digest(content)
     manifest={'source_sha256':hashes}
     frozen=frozen_reference(tmp_path,manifest)

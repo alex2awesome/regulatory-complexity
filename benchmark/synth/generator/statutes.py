@@ -14,6 +14,7 @@ different, so an agent that retrieves the wrong state gets a nearly-right graph.
 """
 from __future__ import annotations
 
+from .decision import build_decision_function, decision_section_spec, enabled as decision_enabled
 from .domains import DOMAINS, DOMAIN_ORDER, stat_id_for
 from .rng import chance, pick, sub_rng
 
@@ -80,7 +81,7 @@ def _element_spec(dom: dict, el: dict) -> str:
     return s
 
 
-def build_statute(domain: str, seed: int, state: str = "Marisol") -> dict:
+def build_statute(domain: str, seed: int, state: str = "Marisol", decision_model: bool = False) -> dict:
     dom = DOMAINS[domain]
     rng = sub_rng(seed, "statute", state, domain)
     marisol = state == "Marisol"
@@ -169,6 +170,12 @@ def build_statute(domain: str, seed: int, state: str = "Marisol") -> dict:
         removed = choices.pop(rng.randrange(len(choices)))
         differences.append("does not leave open: %s" % removed["what"])
 
+    decision_function = build_decision_function(domain, rng, marisol) if decision_model else None
+    if decision_function:
+        # the definitions subdivision carries the tests the statute fixes, the
+        # standards it leaves open, and the delegations (decision.py)
+        sections[1]["content_spec"] += decision_section_spec(decision_function)
+
     stat_id = stat_id_for(domain) if marisol else "C%s" % stat_id_for(domain)[1:]
     out = {
         "stat_id": stat_id,
@@ -191,6 +198,8 @@ def build_statute(domain: str, seed: int, state: str = "Marisol") -> dict:
         "open_choices": choices,
         "version": 1,
     }
+    if decision_function:
+        out["decision_function"] = decision_function
     if not marisol:
         out["lookalike_of"] = stat_id_for(domain)
         out["differences_from_lookalike"] = differences
@@ -200,12 +209,13 @@ def build_statute(domain: str, seed: int, state: str = "Marisol") -> dict:
 def build_statutes(world: dict) -> dict[str, dict]:
     seed = world["seed"]
     out: dict[str, dict] = {}
+    dm = decision_enabled(world)
     for domain in world.get("domains", DOMAIN_ORDER):
-        s = build_statute(domain, seed, "Marisol")
+        s = build_statute(domain, seed, "Marisol", decision_model=dm)
         out[s["stat_id"]] = s
     if world["knobs"]["neighbor_state"]:
         needed = sorted({i["domain"] for i in world["implementations"] if not i["target"]})
         for domain in needed:
-            s = build_statute(domain, seed, "Corvane")
+            s = build_statute(domain, seed, "Corvane", decision_model=dm)
             out[s["stat_id"]] = s
     return out

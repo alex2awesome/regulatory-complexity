@@ -1,0 +1,66 @@
+{
+ "artifact_id": "J1__S03__fee_schedule",
+ "world": "_fixture",
+ "kind": "fee_schedule",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "public",
+ "url": "https://www.halvern.gov/finance/fee-schedule-2025",
+ "date": "2025-04-01",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [],
+ "publisher": "City of Halvern Finance Department",
+ "reveals": [
+  {
+   "ref": "A02",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$430 application fee",
+   "must_quote": false
+  },
+  {
+   "ref": "A07",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$185 inspection; $95 reinspection",
+   "must_quote": false
+  },
+  {
+   "ref": "A01",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "pre-application meeting: no charge",
+   "must_quote": false
+  },
+  {
+   "ref": "E7",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "fee waiver at or below 80% AMI on Form FIN-9",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A04",
+  "A08",
+  "A09",
+  "A11"
+ ],
+ "contamination": [
+  {
+   "about": "J1__S07",
+   "value": "sidewalk vending permit $125 annual / $85 renewal"
+  }
+ ],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   200,
+   350
+  ],
+  "template_lineage": null
+ },
+ "why": "p_publish_fee_schedule=0.9 drew 0.08; vending fees included because it is one master schedule"
+}

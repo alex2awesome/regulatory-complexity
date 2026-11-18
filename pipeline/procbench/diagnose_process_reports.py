@@ -17,7 +17,7 @@ from scipy.special import logsumexp,ndtri
 
 from .bayes_outcome_measurement import mixture_quantile,shifted_selection_normalizer
 from .bayes_process_measurement import log_selection_weight
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 from .run_process_measurement import make_model, saved_config
 
 

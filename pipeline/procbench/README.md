@@ -1,5 +1,175 @@
 # procbench scorer — process-model reconstruction
 
+The current toy-statute experiment has [one active corrected implementation](toy_statute/README.md).
+Its process fitter is SMC; the older `toy_statute.fit` command delegates to it.
+Historical implementations are kept in run snapshots, not selectable production backends.
+
+## Current integration and infrastructure (2026-09-16)
+
+V6 is the integration target. V3–V5 are historical controls, not parallel new model
+directions. Start with the [audit implementation record](../../docs/2026-09-16-bayesian-audit-implementation.md).
+
+The package reorganization is staged. Only `infra/` has been extracted so far:
+
+- `infra/codex_runner.py`: isolated subprocess transport, raw attempt artifacts,
+  version/hash/timing/status records. Validation and repair policy stay upstream.
+- `infra/manifest.py`: JSON writing, hashing, static relative-import source snapshots,
+  and the current workflow's versioned manifest lifecycle.
+- `infra/scoring.py`: central interval score and log-duration scoring helpers.
+- `bayes_trace_hierarchy.py`, `compact_visit_trace.py`, `latent_gaussian.py` and
+  related kernels remain the current model, at their original import paths.
+- `reconcile_evidence.py`, `audit_*.py`, `compile_visit_durations.py`,
+  `semantic_calibration.py` and `evidence_baseline.py` remain evidence entry points.
+- `run_visit_hierarchy.py`, `extend_visit_hierarchy.py`, `refine_visit_predictions.py`
+  and comparison/validation commands retain their existing CLI paths.
+- V3–V5 models, experiment drivers, and `score`/`align`/`metrics` benchmark code
+  have not yet moved to `legacy/`, `experiments/` or `bench/`.
+
+Old serialization helper imports still work, but new code should import directly
+from `infra`. Do not import an inference driver just to write JSON. The separate
+top-level `pipeline/llm.py` still serves the discretion and older benchmark paths;
+it is not the process-evidence runner and is not deleted.
+
+New current-workflow manifests contain `manifest_version: procbench-run/1` and a
+common `provenance` object. Legacy top-level fields remain for saved-run consumers;
+their old schemas are not retroactively rewritten. `provenance.input_sha256` lists
+direct dependencies, while a top-level `input_sha256` may specifically identify
+the original evidence for equal-information comparisons. Use the appropriate one.
+
+No infrastructure change grants access to benchmark truth. A `hidden_truth_read`
+flag records the caller's declared role; it cannot certify what a prompt contains.
+See [run archive policy](../../runs/README.md) before moving any experiment records.
+
+For new V6 runs, `run_visit_hierarchy --observed-channels-only` keeps elapsed
+clocks and any directly observed payer/agency-hours channels, and omits independent
+unobserved labor parameters and their case effects. Omission integrates those
+unused priors out; it does not set burden to zero or produce labor posteriors.
+`--preflight` reports the retained channels and dimensions. Legacy/default fits
+retain all three channels and their saved layouts. Changing dimensions changes
+the finite population-integration grid, so precision checks are still required.
+This does not yet marginalize active-channel case effects or implement the
+complete source-to-route/count/resource compiler.
+
+`--hierarchy-sampler operation_centered` changes only the transition kernel: it
+updates program operation means under their Gaussian conditional prior, then
+refreshes likelihood-null hierarchy directions. Priors, latent coordinates and
+the original likelihood are retained. The historical `blocked` mode remains the
+default. The configured hierarchy scales must make the actual operation-mean
+covariance positive definite; positive task or agency contrasts can satisfy this
+without an operation effect. See the [same-target sampler and SolarTRACE source audit](../../docs/2026-09-19-solartrace-input-and-sampler-audit.md)
+for verification and the distinction between numerical and source-semantic fixes.
+The separate `case_scale_sampler=interwoven` option is also default-off. It
+updates each active channel's case-spread coordinate by one-dimensional ESS
+while rescaling every per-case operation residual to hold realized operation
+effects fixed. Its callback uses the complete likelihood, residual Normal-prior
+ratio and full Jacobian; the accepted state stores a freshly evaluated ordinary
+likelihood. Common-case, phase, dwell and hierarchy coordinates are not part of
+that transform. This is a transition reparameterization, not a spread prior or
+new observation model.
+New reports check operation log-location sums and represented agency inventory
+means as well as marginal latent coordinates; cancellation between effects can
+hide poor mixing of an estimand when only coordinates are checked.
+
+V6 post-fit development scoring is now supported by `evaluate_burden --run ...
+--world W2_DEV_001 --out <fresh directory>`. It checks fit completion, posterior
+hashes and every program's calibration/development assignment before reading
+truth, and emits hash-bound evaluation/release receipts. Numerical convergence
+alone is never a recovery certificate. See the
+[scoring and selection experiment record](../../docs/2026-09-19-v6-evaluation-and-selection-progress.md).
+Source-type ascertainment is an explicit compiler `source_type_sampling` policy;
+`run_visit_hierarchy --selection-sd` enables its existing sensitivity model, not
+an automatically known forum inclusion probability.
+
+The optional compiler `source_type_report_scales` policy separately declares
+fixed elapsed reporting-error scales. A `calibration_id` is an unverified
+reference, not learned trust. The structural bridge now preserves explicitly
+compiled finite-quantile cohorts as joint factors, including their reviewed
+denominators and reporting scales; it does not infer a cohort from a bare `n`.
+See [source precision and cohort handoff](../../docs/2026-09-20-source-precision-and-cohort-handoff.md)
+for contracts, controlled checks and outstanding real-data calibration limits.
+
+For SolarTRACE, `import_solartrace --panel-only --definitions <Information.csv>`
+prepares unique agency phase summaries with business-day units, zeros and joined
+source provenance retained. Its output is evidence, not a compiled process graph.
+The known-invalid historical graph export requires explicit `--legacy-unsafe`
+for diagnostic replay; adjacent joined installation counts never establish a
+timing cohort denominator automatically.
+
+V6 routes are program-wide inventory hypotheses. A route may instead of `blocks`
+provide `paths: [{id, probability_weight, blocks}, ...]` over subsets of its shared
+`operations`. One path is marginalized jointly across each case's reports;
+`case_path_scope` conditions known labels without treating anecdotes as prevalence
+counts. Population observations may carry an explicit `population_path_scope`.
+`--case-path-logit-sd` controls the logistic-normal path-frequency prior (zero fixes
+the supplied weights). This is not withdrawal/competing-risk support, and path
+weights still need calibration or an explicit sensitivity declaration.
+
+Optional `case_path_priors[case_id][inventory_id]` provides context-hashed,
+fixed case-specific sensitivity weights in the same joint mixture. Its guarded
+actor-assignment subtype retains an unknown alternative and rejects paths that
+differ in process structure rather than actor identity. It does not calibrate
+LLM confidence or learn population actor frequencies. See the
+[contract, likelihood and current limitations](../../docs/2026-09-20-calfresh-case-path-priors.md).
+
+Optional `joint_duration_reports` replaces explicitly grouped individual elapsed
+factors by one integrated common-log-error factor. It is a strict, opt-in
+shared-error sensitivity, not learned correlation or an automatic grouping of
+sentences. See [joint timeline assumptions and status](../../docs/2026-09-20-calfresh-joint-reported-timelines.md).
+
+Block schedules remain serial by default. A reviewed scheduling hypothesis may
+instead declare `predecessors` on **every** block: a list of predecessor block
+IDs, with `[]` for an explicit root. Dependencies form a validated DAG; an
+entire repeat block completes before any dependent block starts. This permits
+explicit overlap between blocks without changing within-block operation order,
+repeat counts, fees or work amounts. Partial declarations, unknown IDs and
+cycles are rejected. Preflight and posterior reports expose the schedule and
+state that overlap is not thereby learned. Unknown dependencies do not become
+parallel automatically, and these schedules impose no shared-staff capacity
+constraint. Serial/relaxed sensitivity fits require separately frozen inputs;
+running snapshots are never changed in place.
+
+`run_visit_hierarchy --elapsed-task-priors <file.json>` optionally supplies fixed
+task-specific elapsed prior baselines. The JSON requires
+`schema_version: "elapsed-task-priors/1"`,
+`clock: "single_visit_cycle_calendar_days_including_wait_and_service"`, a nonempty
+`medians_days` map from exact model task names to positive numbers, and a nonempty
+`rationale`. The runner hashes the input and saves its specification. Unknown
+task names fail rather than silently falling back; omitted tasks explicitly retain
+the global seven-day baseline. Leaving this option unset preserves the historical target.
+This changes prior log locations, not the shared hierarchy scales or parameter
+count. Reports disclose every baseline and fallback. These are complete-visit
+elapsed days, not hands-on hours: a short payment action does not itself establish
+a short payment queue. Values require independent elicitation/calibration or an
+explicit sensitivity protocol; this interface does not supply calibrated values.
+
+`compile_visit_durations` also accepts quote-backed `--source-bindings` and
+`--report-groups` sidecars. Bindings can declare a first-visit population and a
+first-present approval/denial operation union; these are explicit observation
+conditions, not an implicit default population. Report groups preserve repeated
+wording or disjunctive intervals as one likelihood factor, retaining every source
+claim. Coverage reports separate claims from factors and informative from
+residual-only evidence. These interfaces do not calibrate semantic weights or
+complete the route compiler. See the dated implementation record for the W2
+diagnostic results and the still-unimplemented observation/structure contracts.
+
+Finite sample medians and p90s now enter through program-level
+`quantile_cohorts`, not ordinary plug-in population observations. A cohort has
+one observed `sample_size`, one explicit `quantile_method` (`linear` or
+`inverted_cdf`), shared clock/operator alternatives, and a `reports` list of
+quantile intervals. Its summaries share the same integrated sample order
+statistics and interpretation; their marginal likelihoods are not multiplied.
+The source compiler accepts `--cohort-bindings` with quoted cohort membership
+and declared IID/non-overlap/conditional-reporting assumptions. It preserves n,
+refuses unsupported means and unreconciled shared-clock alternatives, and counts
+one likelihood factor per cohort. No independence or quantile convention is
+inferred from a reported denominator. `--cohort-quadrature-size` controls the
+power-of-two integration grid, refined along with the population grid by the
+precision check. Overlapping cohorts with different operators, duration-dependent
+recording/cutoff selection and finite-sample means remain unsupported. This is
+not evidence that a W2 dashboard satisfies the IID/non-overlap assumptions.
+
+## Scorer and historical benchmark documentation
+
 New: [joint Bayesian agency/task/case inference](../../docs/2026-09-16-bayesian-process-v4.md),
 [reserved-evaluation protocol](../../docs/2026-09-16-bayesian-process-v4-protocol.md),
 [experiments and limitations](../../docs/2026-09-16-bayesian-process-v4-results.md),

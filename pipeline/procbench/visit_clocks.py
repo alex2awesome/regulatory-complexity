@@ -2,8 +2,10 @@
 
 This module has no truth-reader, LLM, priors or inference. A future visit-based
 hierarchy can call the same operators for every latent trace draw. It must not
-replace that posterior with a single guessed trace. All timestamps are elapsed
-calendar days on one case clock; labor is separately supplied person-hours.
+replace that posterior with a single guessed trace. All timestamps must share one
+declared elapsed axis (calendar days by default; business days when the calling
+model explicitly declares them). No conversion occurs here; labor is separately
+supplied person-hours.
 """
 from dataclasses import dataclass
 import math
@@ -34,7 +36,7 @@ class Visit:
         if self.actor_id is not None and (not isinstance(self.actor_id,str) or not self.actor_id.strip()):
             raise ValueError('Unknown actor identity must be None, not a fabricated empty identifier')
         if not all(math.isfinite(x) for x in (self.start,self.end)) or self.end<self.start:
-            raise ValueError('Visit calendar endpoints must be finite and ordered')
+            raise ValueError('Visit elapsed endpoints must be finite and ordered')
         if len(set(self.markers))!=len(self.markers) or not set(self.markers)<=MARKERS:
             raise ValueError('Unknown or duplicated event marker')
         if self.service_start is not None and not self.start<=self.service_start<=self.end:

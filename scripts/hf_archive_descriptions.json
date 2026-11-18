@@ -1,0 +1,201 @@
+[
+ {
+  "title": "Gathered sources (`corpus/`)",
+  "intro": "Source material as collected: public government records, statute texts, agency pages and forum pulls.",
+  "archives": {
+   "corpus/ab2533.tar.gz": "AB 2533 pilot: Gov. Code 66311.7 and HSC 17920.3 verbatim from leginfo, source links, city checklists, process pages.",
+   "corpus/adu.tar.gz": "Gov. Code 66314 (ADU standards), verbatim.",
+   "corpus/counties.tar.gz": "County-scale sources for all 58 California counties: covariates (USDA ERS, Census Gazetteer, ACS, Statement of Vote) with a column-by-column source README; HCD Annual Progress Report Tables A and A2 (housing permit timing, 383 MB); CalFresh CF296, CF18 and CF256 county reports and State Auditor reports; civil grand jury reports (exhaustive pull, 2026-09-17); permit-portal observations; San Diego building events; Reddit pulls per county (`reddit_raw/`); coverage registers.",
+   "corpus/health_codes.tar.gz": "Restaurant inspection and grading codes (San Diego operations guide 2007, New York items) and a gold crosswalk.",
+   "corpus/realworld.tar.gz": "Process reconnaissance for nine California programs: ADU permit, CalFresh, CPRA request, CSLB license, DROS firearm purchase, food facility permit, N-400 naturalization, rooftop solar permit, UI claim. Agency pages, forms, fee schedules and forum threads per program. `_gold/` and each `sources.json` are benchmark answer material.",
+   "corpus/tax.tar.gz": "SARA statutory-reasoning dataset (third party): US tax statutes, Prolog encodings and cases."
+  }
+ },
+ {
+  "title": "Synthetic worlds (`benchmark/synth/worlds/`)",
+  "intro": "Generated worlds: a latent statute, its processes and cases, and the rendered evidence (forum posts, agency pages, records). Each world keeps its truth (answer key) beside the evidence.",
+  "archives": {
+   "benchmark/synth/worlds/W1.tar.gz": "First synthetic world: specs, rendered artifacts, render batches and logs, provenance.",
+   "benchmark/synth/worlds/W2_DEV_001.tar.gz": "W2 development world: statutes S01 to S12 across jurisdictions, full rendered evidence corpus, ceilings and truth (34k files). Release report: `docs/2026-09-16-w2-dev-001-release-report.md`.",
+   "benchmark/synth/worlds/THREE_FAMILY_PILOT_001.tar.gz": "Three-family pilot world 1: `public/` evidence, `private/` truth, construction receipt.",
+   "benchmark/synth/worlds/THREE_FAMILY_PILOT_002.tar.gz": "Three-family pilot world 2 (same layout).",
+   "benchmark/synth/worlds/THREE_FAMILY_PILOT_003.tar.gz": "Three-family pilot world 3 (same layout); used for render calibration.",
+   "benchmark/synth/worlds/_fixture.tar.gz": "Small test fixture world (also in git)."
+  }
+ },
+ {
+  "title": "Runs: rooftop solar permitting",
+  "intro": "Forum and administrative evidence on how long California solar permits take, and the models fitted to it.",
+  "archives": {
+   "runs/solar_forum_20260922.tar.gz": "Solar forum corpus: acquisition from Reddit and other forums, inventory, LLM reading packets (Claude and Codex bulk parses), adopted decisions, county model, bridge to the process model. The largest run (316k files).",
+   "runs/solar_census_20260928.tar.gz": "Solar and remaining-ADU collection: census plans over 528 California and 31 national subreddits, Gemma triage inputs and outputs, triage ledger.",
+   "runs/solar_bulk_adoption_20260923.tar.gz": "Bulk adoption of parsed Solar packets and the first fit on them.",
+   "runs/solar_step_model_20260923.tar.gz": "Solar step-level integration: action inventory audits, case posteriors.",
+   "runs/solar_model_20260929.tar.gz": "Solar model-input preparation: canonical reading waves, clock readiness, compiled fields.",
+   "runs/solar_model_audit_20260929.tar.gz": "Gemma audit of the clock maps behind the Solar and ADU model cuts.",
+   "runs/solar_panel_20260920.tar.gz": "Solar Bayesian panel fits: frozen estimands, posterior draws, design audit.",
+   "runs/solar_evaluation_20260922.tar.gz": "Same-evidence evaluation of the Solar fits against LLM baselines, admin and forum comparisons.",
+   "runs/solar_admin_integration_20260930.tar.gz": "Solar admin integration: clock crosswalk between forum and admin clocks, burden frames, legacy accounting.",
+   "runs/solar_ix_calibration_20260930.tar.gz": "Calibration of forum-reported interconnection times against the CA DG Stats anchor.",
+   "runs/rw_solartrace_20260918.tar.gz": "NREL SolarTRACE import: the 12 California jurisdictions with the most installs (1,477 observations).",
+   "runs/rw_solartrace60_20260918.tar.gz": "NREL SolarTRACE import: the 60 California jurisdictions with the most installs (6,298 observations).",
+   "runs/rw_dwell_20260918.tar.gz": "Sizing and probe of inter-operation dwell times on the Solar parse.",
+   "runs/sk3_fit_reports_20260919_1145.tar.gz": "Fit reports recovered from sk3 (SolarTRACE and W2 V6 fits)."
+  }
+ },
+ {
+  "title": "Runs: accessory dwelling unit (ADU) permitting",
+  "intro": "Forum discovery and triage, city ordinances, HCD review letters and ADU model inputs.",
+  "archives": {
+   "runs/adu_forum_20260921.tar.gz": "ADU forum corpus: discovery, extraction contract and vocabulary, parsed episodes (1,671 episodes naming 282 jurisdictions), adjudication, analysis.",
+   "runs/adu_gemma_triage_20260924.tar.gz": "Gemma 4 31B triage of the sk3 ADU post scan: 35 subreddits, 3.1M posts, 4,629 comment trees.",
+   "runs/adu_bayarea_20260924.tar.gz": "Bay Area city-subreddit discovery and Gemma triage.",
+   "runs/adu_statewide_20260926.tar.gz": "Statewide city-subreddit discovery: 211 candidate subreddits outside the Bay Area.",
+   "runs/adu_counties_20260926.tar.gz": "County-by-county discovery over 37 non-Bay-Area counties, triage ledger.",
+   "runs/adu_comment_census_20260925.tar.gz": "Plan for the comment census of California local subreddits (the post-only scan missed about half of codable threads). Payload: `scratch/adu_comment_census`.",
+   "runs/adu_fn_sample_20260924.tar.gz": "False-negative sample: ADU evidence the post-level keyword scan misses, with Gemma labels.",
+   "runs/adu_triage_batch2_20260926.tar.gz": "Gemma triage batch 2 of ADU threads: inputs, outputs, reading packets.",
+   "runs/adu_triage_batch3_20260926.tar.gz": "Gemma triage batch 3 (same layout).",
+   "runs/adu_triage_batch4_20260927.tar.gz": "Gemma triage batch 4 (same layout).",
+   "runs/adu_triage_batch5_20260927.tar.gz": "Gemma triage batch 5 (same layout).",
+   "runs/adu_triage_batch6_20260927.tar.gz": "Gemma triage batch 6 (same layout).",
+   "runs/adu_triage_batch7_20260927.tar.gz": "Gemma triage batch 7 (same layout).",
+   "runs/adu_triage_batch8_20260928.tar.gz": "Gemma triage batch 8 (same layout).",
+   "runs/adu_triage_batch9_20260928.tar.gz": "Gemma triage batch 9 (same layout).",
+   "runs/houzz_triage_20261001.tar.gz": "Houzz ADU threads (1,113 Internet Archive captures): rendering and Gemma triage.",
+   "runs/adu_hcd_letters_20260923.tar.gz": "474 HCD ADU review letters to cities and counties (raw PDFs, text) and 2,420 coded findings in `letters.json`, each with the local provision quoted.",
+   "runs/adu_ordinances_20260922.tar.gz": "City ADU ordinances: captures, raw pages, text, `ordinances.json`.",
+   "runs/adu_city_captures_20260922.tar.gz": "Captures of city ADU program pages (raw and text).",
+   "runs/adu_city_requirements_20260930.tar.gz": "City by requirement table: HCD letter findings and quoted ordinance provisions joined to admin ADU timing cohorts by jurisdiction and year.",
+   "runs/adu_model_20260929.tar.gz": "ADU model-input preparation: clock readings, evidence bundles, pooled inputs."
+  }
+ },
+ {
+  "title": "Runs: administrative records",
+  "intro": "Public permit and interconnection records with dates, and the joins to forum evidence.",
+  "archives": {
+   "runs/admin_data_20260929.tar.gz": "Index of the admin data pull for ADU and solar: README and manifest of CA DG Stats, DataSF building permits and housing production, LADBS permits, LA County EPIC-LA, San Diego DSD approvals, Sacramento and San Jose permits, LBNL Tracking the Sun, NREL SolarTRACE and SolarAPP+ reports. Payloads: `scratch/admin_data_20260929`.",
+   "runs/admin_model_inputs_20260930.tar.gz": "Model inputs built from the admin data: event crosswalk, cohorts by jurisdiction and year, Gemma validation, assumptions.",
+   "runs/admin_pdf_extraction_20261001.tar.gz": "Table extraction from CPUC Rule 21 quarterly PDFs, with Gemma inputs and checks.",
+   "runs/forum_cell_keys_20260930.tar.gz": "555 forum timing claims (Solar 527, ADU 28) keyed to admin cells by Gemma.",
+   "runs/forum_admin_calibration_20261001.tar.gz": "Forum versus admin reporting offsets with cell keys (exact-grid fit)."
+  }
+ },
+ {
+  "title": "Runs: process engine and toy statutes",
+  "intro": "The full-chain toy-statute model (statute to process to burden), its SMC and JAX fitters, audits, and the first real-data fits.",
+  "archives": {
+   "runs/toy_statute_20260926.tar.gz": "Toy statute rounds 1 to 4 (world W0 and variants): fits and results.",
+   "runs/toy_statute2_20260929.tar.gz": "Full-chain toy statutes (Backyard Hen Keeping Act HEN2, HK1, HK2 and variants) and the statute package.",
+   "runs/toy_statute3_20260930.tar.gz": "Blind-process toy HEN3: oracle and blind fits, scoring.",
+   "runs/toy_configurable_20260930.tar.gz": "Configurable inference speedups: ablations, HMC, joint checks.",
+   "runs/toy_jax_pilot_20260930.tar.gz": "JAX GPU pilot and posterior-equivalence checks against the CPU reference.",
+   "runs/toy_response_audit_20260930.tar.gz": "Audit of the engine after review responses: checks and profile.",
+   "runs/toy_response_repairs_20260930.tar.gz": "Checks of the audit repairs, runtime before and after.",
+   "runs/toy_scaling_exact_20260930.tar.gz": "Exact scaling checks of inference.",
+   "runs/toy_single_path_refactor_20260930.tar.gz": "Checks of the single-path refactor, with source before.",
+   "runs/archive_toy_statute_v3_20261005.tar.gz": "Frozen copy of the engine code and its tests as of 2026-10-05, with SHA-256 manifest.",
+   "runs/real_process_20261001.tar.gz": "First real Solar and ADU fits with the accelerated engine (SMC), with ADU permit mention evidence and quote checks.",
+   "runs/real_process_audit_20261001.tar.gz": "Audit of those fits: checks, numerical probes, remote logs.",
+   "runs/real_process_refit_20261002.tar.gz": "Solar and ADU refit after the audit: launches, comparison, logs."
+  }
+ },
+ {
+  "title": "Runs: synthetic benchmark and Bayesian process models (V3 to V6)",
+  "intro": "Fits of the Bayesian process models to synthetic worlds W1 and W2, with audits. V6 is the integration target; V3 to V5 are kept as historical controls.",
+  "archives": {
+   "runs/bayes_v3.tar.gz": "V3 Bayesian process model: evidence, posterior, draws, evaluation.",
+   "runs/bayes_v3_final.tar.gz": "V3 final pilot: corrected baseline scores, real-corpus control.",
+   "runs/bayes_v3_pilot.tar.gz": "V3 pilot evidence.",
+   "runs/bayes_v3_smoke.tar.gz": "V3 smoke run.",
+   "runs/bayes_v4.tar.gz": "V4 joint agency/task/case model: extraction branches, frozen fits, matched controls, calibration.",
+   "runs/bayes_v5.tar.gz": "V5: timing and selection controls, benchmark audits, source ledgers.",
+   "runs/bayes_v6.tar.gz": "V6 joint visit model: fixtures, phase and interpretation fits, source compilation, audit updates.",
+   "runs/w2_s12_s03_completion_20260917.tar.gz": "Completion of W2 statutes S12 and S03: renders, handoffs, checkpoints.",
+   "runs/w2_v6_diagnostic_parse_20260917_2335.tar.gz": "V6 on W2: diagnostic parses per case and statute.",
+   "runs/w2_v6_diagnostic_sources_20260917_2335.tar.gz": "V6 on W2: diagnostic source sets.",
+   "runs/w2_v6_diagnostic_compile_20260918.tar.gz": "V6 on W2: source-compiler diagnostic from the frozen public-source ledger.",
+   "runs/w2_v6_bridge_20260918.tar.gz": "V6 on W2: bridge from parses to model inputs, per case and statute.",
+   "runs/w2_v6_bridge_burden_20260918.tar.gz": "V6 on W2: burden bridge.",
+   "runs/w2_v6_compile_burden_20260918.tar.gz": "V6 on W2: compiled burden inputs.",
+   "runs/w2_v6_code_checks_20260918.tar.gz": "V6 code checks: replays of case paths, cohorts and report bindings.",
+   "runs/w2_v6_source_only_20260918.tar.gz": "V6 on W2: source-only inputs and preflights.",
+   "runs/w2_v6_fits_20260918.tar.gz": "V6 fits on W2 and the comparison to truth.",
+   "runs/w2_v6_fits_sk3_20260919.tar.gz": "V6 fits on W2 run on sk3, plus SolarTRACE fits, with the comparison to truth.",
+   "runs/synth.tar.gz": "W1 solve and score runs with supplied documents.",
+   "runs/synth_search.tar.gz": "W1 solve and score runs with search.",
+   "runs/incremental.tar.gz": "LLM extraction with deterministic incremental reconstruction, on real DROS and on W1.",
+   "runs/synthetic_measurements_2026-09-16.tar.gz": "Compiled measurements of the saved W1 evaluations (LLM, search, incremental, Bayesian pilot).",
+   "runs/codex_audit_20260920.tar.gz": "Audit of Codex work: inventory, semantic, snapshot and source-trust findings."
+  }
+ },
+ {
+  "title": "Runs: real-world process benchmark, CalFresh and three-family work",
+  "intro": "The nine-program real-world benchmark, real-corpus parsing, and the CalFresh and three-family studies.",
+  "archives": {
+   "runs/rw_pilot.tar.gz": "Real-world benchmark pilot over the nine programs and their agencies: alignments and scores.",
+   "runs/rw_llm.tar.gz": "Real-world benchmark, LLM arm: alignments, logs, scores.",
+   "runs/rw_agent.tar.gz": "Real-world benchmark, agent arm: k-vote alignments and scores.",
+   "runs/align_votes.tar.gz": "Alignment votes per program and agency.",
+   "runs/rw_parse_20260918.tar.gz": "Real-corpus parsing by program (ADU, CalFresh, solar, assessment appeals and others), parse queue, artifact index.",
+   "runs/rw_parse_20260919.tar.gz": "Continuation of real-corpus and forum parsing: work plans, shards, accepted packets.",
+   "runs/realworld_page_20260921.tar.gz": "Working record of the real-world process survey: HTML page and its data.",
+   "runs/process_structure_20260921.tar.gz": "CalFresh process structure: county captures and guides, forum sweeps, phases 1 to 3 (10.5 GB).",
+   "runs/three_family_20260920.tar.gz": "Three-family execution (Solar, CalFresh, CCW): pilots, phase reviews, cohorts.",
+   "runs/three_family_pilot_render_calibration_01.tar.gz": "Render calibration for the three-family pilot: drafts, packets, prompts.",
+   "runs/three_family_pilot_003_render_calibration_01.tar.gz": "Render calibration for pilot world 3, round 1: drafts, independent verifiers.",
+   "runs/three_family_pilot_003_render_calibration_02.tar.gz": "Render calibration for pilot world 3, round 2: adoption, reviews.",
+   "runs/open_model_smoketest_20260923.tar.gz": "Smoke test of Gemma 4 31B against frontier-model labels."
+  }
+ },
+ {
+  "title": "Runs: rules, readings and loopholes",
+  "intro": "The letter-versus-spirit experiments in `benchmark/rulegap/`.",
+  "archives": {
+   "runs/rulegap_20261111.tar.gz": "Rule-following experiments E1 and E3 (GPT-5.6 Luna, Claude Sonnet 5.5), agent studies (airline policy, constitution, Gemma), red-team trial.",
+   "runs/rulegap_20261117.tar.gz": "Question-asking interpreter pilot: generated questions, matches to planted questions, analysis."
+  }
+ },
+ {
+  "title": "Runs: procurement",
+  "intro": "California state procurement records with process dates.",
+  "archives": {
+   "runs/procurement_20261021.tar.gz": "Fetch scripts, logs and data: data.ca.gov purchase orders 2012 to 2015, Caltrans and DGS notices of intent to award (live and Wayback), DGS late-payment reports. The large SCPRS and CSCR exports are in `scratch/procurement_20261021`."
+  }
+ },
+ {
+  "title": "Runs: other",
+  "intro": "",
+  "archives": {
+   "runs/_files.tar.gz": "`runs/README.md` (run archive policy) and `alignment_three_way.json`."
+  }
+ },
+ {
+  "title": "Server scratch (`scratch/`)",
+  "intro": "This project's folders from shared scratch on the RegLab server sk3 (`/dfs/scratch0/alexspan`). Python environments and package caches are left out.",
+  "archives": {
+   "scratch/admin_data_20260929.tar.gz": "Admin data payloads (2.5 GB): CA DG Stats, CEC CalAPP, CPUC Rule 21 quarterlies, HCD APR, LA County EPIC-LA, LADBS, LBNL Tracking the Sun, DataSF, San Diego, Sacramento, San Jose.",
+   "scratch/admin_model_inputs_20260930.tar.gz": "Server copy of the admin model inputs, with Gemma jobs.",
+   "scratch/procurement_20261021.tar.gz": "FI$Cal SCPRS search and detail exports (weekly windows from 2015-07-01) and Cal eProcure CSCR events and event details (1.6 GB).",
+   "scratch/multi_census.tar.gz": "Multi-topic subreddit census (Solar and other programs) over 528 California and 31 national subreddits, fetched from the Arctic Shift API.",
+   "scratch/adu_census_interim.tar.gz": "ADU subreddit census, interim fetches and comment hits.",
+   "scratch/adu_comment_census.tar.gz": "ADU comment census of California local subreddits (bay, mid, south).",
+   "scratch/adu_bayarea_20260924.tar.gz": "Bay Area city-subreddit fetches.",
+   "scratch/adu_statewide_20260926.tar.gz": "Statewide city-subreddit fetches.",
+   "scratch/adu_counties_20260926.tar.gz": "Per-county subreddit fetches.",
+   "scratch/adu_fn_sample.tar.gz": "Raw fetches for the ADU false-negative sample.",
+   "scratch/adu_forum_fetch.tar.gz": "ADU forum fetch, phase 4.",
+   "scratch/gemma_jobs.tar.gz": "Gemma 4 31B offline batch jobs: inputs and outputs for triage and validation.",
+   "scratch/open_model_smoketest.tar.gz": "Gemma smoke-test outputs and timing.",
+   "scratch/rulegap_gemma_20261111.tar.gz": "Gemma runs for the rule-following agent study.",
+   "scratch/real_process_20261001.tar.gz": "Server side of the first real-data fits: code, launch scripts, logs.",
+   "scratch/real_process_refit_20261002.tar.gz": "Server side of the refit: code, fits, logs.",
+   "scratch/solar_admin_integration_20260930.tar.gz": "Burden-frame fits on the server.",
+   "scratch/solar_ix_calibration_20260930.tar.gz": "DG Stats anchor build.",
+   "scratch/solar_screen_20260923.tar.gz": "Solar screening set and its batch script (paused).",
+   "scratch/toy_configurable_20260930.tar.gz": "Server code for the configurable-inference runs.",
+   "scratch/toy_jax_pilot_20260930.tar.gz": "Server code for the JAX GPU pilot.",
+   "scratch/toy_statute.tar.gz": "Server copy of the toy-statute engine code."
+  }
+ }
+]

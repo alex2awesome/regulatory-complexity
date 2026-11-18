@@ -13,10 +13,11 @@ import math
 import pathlib
 
 import numpy as np
+from .infra.scoring import interval_score
 from scipy.special import logsumexp, ndtr, ndtri
 
 from .bayes_process_measurement import log_selection_weight
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 
 
 def selected_cases(rng,n,mu,sigma,strength,width=.35):
@@ -89,7 +90,7 @@ def main(argv=None):
                     estimates['selection' if selected else 'no_selection']=dict(
                         median_days=float(np.exp(point)),ci90=np.exp([lo,hi]).tolist(),
                         absolute_log_error=float(abs(point-mu)),covers=bool(lo<=mu<=hi),
-                        interval_score90=float(hi-lo+20*max(lo-mu,0)+20*max(mu-hi,0)),
+                        interval_score90=interval_score(lo, hi, mu),
                         mu_edge_mass=float(weights[:2].sum()+weights[-2:].sum()),
                         kappa_upper_edge_mass=float(kweights[-2:].sum()) if selected else None,
                         kappa=weighted_quantile(kappas,kweights,[.05,.5,.95]).tolist() if selected else None)

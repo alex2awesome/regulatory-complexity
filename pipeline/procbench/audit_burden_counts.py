@@ -7,17 +7,17 @@ sample size. No benchmark truth, fitted posterior, or scoring code is imported.
 from __future__ import annotations
 
 import argparse
+import copy
 from datetime import datetime, timezone
 import json
 import math
 import pathlib
-import subprocess
-import tempfile
 
 import jsonschema
 
 from .evidence_contract import REF, STR, TEXT, arr, enum, normalized_quote, obj, validate
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import run_codex
 
 
 VERSION = 'burden-count-evidence/1'
@@ -64,6 +64,36 @@ SCHEMA = obj(
         cohort_successes=COUNT, cohort_trials=COUNT)),
     unresolved=arr(obj(evidence=arr(REF), reason=STR)),
 )
+
+# A count-only case is not evidence of zero duration. Keep its identity and
+# source support explicitly, without manufacturing a timing/money measurement.
+CASE_DECLARATION = obj(case_id=STR, description=STR, evidence=arr(REF), notes=STR)
+CASE_REGISTRY_SCHEMA = obj(schema_version=enum('burden-case-registry/1'),
+                           program_id=STR, cases=arr(CASE_DECLARATION))
+SCHEMA_V2 = copy.deepcopy(SCHEMA)
+SCHEMA_V2['properties']['schema_version'] = enum('burden-count-evidence/2')
+SCHEMA_V2['properties']['cases'] = arr(CASE_DECLARATION)
+SCHEMA_V2['required'].append('cases')
+
+
+def validate_case_registry(registry, program_id, documents=None):
+    """Validate declared, quote-grounded identities, not inferred person matching."""
+    jsonschema.validate(registry, CASE_REGISTRY_SCHEMA)
+    if registry['program_id'] != program_id:
+        raise ValueError('Case registry program identity changed')
+    ids = [r['case_id'] for r in registry['cases']]
+    if any(not i.strip() for i in ids) or len(ids) != len(set(ids)):
+        raise ValueError('Case declarations require distinct nonempty identities')
+    texts = ({d['id']: normalized_quote(d['text']) for d in documents}
+             if documents is not None else None)
+    for row in registry['cases']:
+        if not row['description'].strip() or not row['evidence']:
+            raise ValueError('Case declarations require a description and quoted support')
+        for ref in row['evidence']:
+            quote = normalized_quote(ref['quote'])
+            if not quote or (texts is not None and quote not in texts.get(ref['doc_id'], '')):
+                raise ValueError('Nonverbatim case declaration: ' + ref['doc_id'])
+    return set(ids)
 
 PROMPT = """Extract numerical evidence about step/visit/agency counts and rework or
 conditional-route frequencies from the supplied PUBLIC documents. Output JSON only.
@@ -124,10 +154,13 @@ def validate_counts(audit, evidence, documents=None):
     Semantic correctness still requires review. In particular, this validator
     cannot prove from a verbatim quotation that its denominator was understood.
     """
-    jsonschema.validate(audit, SCHEMA)
+    jsonschema.validate(audit, SCHEMA_V2 if audit.get('schema_version') == 'burden-count-evidence/2' else SCHEMA)
     if audit['program_id'] != evidence['program_id']:
         raise ValueError('Program identity changed')
     cases = {m['case_id'] for m in evidence['measurements'] if m['case_id'] is not None}
+    if audit['schema_version'] == 'burden-count-evidence/2':
+        cases |= validate_case_registry(dict(schema_version='burden-case-registry/1',
+            program_id=audit['program_id'], cases=audit['cases']), evidence['program_id'], documents)
     activities = {a['id'] for a in evidence['activities']}
     actors = {a['id'] for a in evidence['actors']}
     texts = ({d['id']: normalized_quote(d['text']) for d in documents}
@@ -220,33 +253,24 @@ def main(argv=None):
     prompt += '\nPUBLIC DOCUMENTS:\n' + json.dumps(documents)
     write(out / 'schema.json', SCHEMA)
     (out / 'prompt.txt').write_text(prompt)
-    with tempfile.TemporaryDirectory(prefix='rc-count-audit-') as isolated:
-        schema = pathlib.Path(isolated) / 'schema.json'
-        response = pathlib.Path(isolated) / 'response.json'
-        write(schema, SCHEMA)
-        for attempt in range(3):
-            (out / f'attempt_{attempt}.prompt.txt').write_text(prompt)
-            command = ['codex', 'exec', '--sandbox', 'read-only', '--ephemeral',
-                       '--skip-git-repo-check', '--ignore-user-config', '--color', 'never',
-                       '-C', isolated, '-m', args.model, '-c', 'model_reasoning_effort="xhigh"',
-                       '--output-schema', str(schema), '-o', str(response), '-']
-            with (out / f'attempt_{attempt}.log').open('w') as log:
-                status = subprocess.run(command, input=prompt, text=True, stdout=log,
-                                        stderr=log, cwd=isolated, timeout=2400)
-            if status.returncode or not response.exists():
-                raise RuntimeError('Count/rework audit failed; inspect the preserved log')
-            audit = json.loads(response.read_text())
-            write(out / f'attempt_{attempt}.json', audit)
-            try:
-                validate_counts(audit, evidence, documents)
-                break
-            except (ValueError, jsonschema.ValidationError) as error:
-                prompt += '\nReturn a complete corrected audit. Validation error:\n'
-                prompt += str(error) + '\n' + json.dumps(audit)
-        else:
-            raise ValueError('Count/rework audit failed validation after three attempts')
+    record = RunManifest(out, {}, operation='evidence.audit_burden_counts',
+        inputs=[pathlib.Path(args.evidence), pathlib.Path(args.inputs)],
+        config=dict(model=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=[pathlib.Path(__file__).name])
+    for attempt in range(3):
+        audit = json.loads(run_codex(prompt, SCHEMA, out,
+            stem=f'attempt_{attempt}', model=args.model))
+        write(out / f'attempt_{attempt}.json', audit)
+        try:
+            validate_counts(audit, evidence, documents)
+            break
+        except (ValueError, jsonschema.ValidationError) as error:
+            prompt += '\nReturn a complete corrected audit. Validation error:\n'
+            prompt += str(error) + '\n' + json.dumps(audit)
+    else:
+        raise ValueError('Count/rework audit failed validation after three attempts')
     write(out / 'audit.json', audit)
-    write(out / 'manifest.json', dict(
+    record.complete(**dict(
         completed_utc=datetime.now(timezone.utc).isoformat(), model=args.model, reasoning='xhigh',
         hidden_truth_provided=False, bayesian_predictions_provided=False,
         input_evidence=str(path), input_sha256=digest(path.read_bytes()),

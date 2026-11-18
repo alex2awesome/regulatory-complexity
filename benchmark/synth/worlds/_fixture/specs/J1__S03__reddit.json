@@ -1,0 +1,143 @@
+{
+ "artifact_id": "J1__S03__reddit",
+ "world": "_fixture",
+ "kind": "reddit_thread",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "public",
+ "url": "https://www.reddit.com/r/Halvern/comments/8fq2k1/legalizing_an_unpermitted_unit_in_halvern_61_days/",
+ "date": "2025-07-14",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [],
+ "publisher": "reddit",
+ "subreddit": "r/Halvern",
+ "thread_id": "t_8fq2k1",
+ "reveals": [
+  {
+   "ref": "A01",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "pre-app meeting required, 11-day wait for a slot",
+   "must_quote": false
+  },
+  {
+   "ref": "A02",
+   "field": "fee",
+   "fidelity": "exact",
+   "value": "$430 at submittal",
+   "must_quote": false
+  },
+  {
+   "ref": "A03",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "incomplete letter 7 days after submittal",
+   "must_quote": false
+  },
+  {
+   "ref": "A06",
+   "field": "rework",
+   "fidelity": "exact",
+   "value": "two correction rounds",
+   "must_quote": false
+  },
+  {
+   "ref": "A07",
+   "field": "timing",
+   "fidelity": "approximate",
+   "value": "inspection about 1.5 weeks after scheduling",
+   "must_quote": false
+  },
+  {
+   "ref": "A04",
+   "field": "exists",
+   "fidelity": "approximate",
+   "value": "insider: circulated to Fire and Public Works before plan check",
+   "must_quote": false
+  },
+  {
+   "ref": "A08",
+   "field": "exists",
+   "fidelity": "approximate",
+   "value": "insider: every approval signed by the Chief Building Official",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "wrong",
+   "value": "98 days (delayed applicant; true median 47)",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [
+  "A09",
+  "A11"
+ ],
+ "contamination": [
+  {
+   "about": "J3__S03",
+   "value": "county: septic evaluation, four months, $610"
+  },
+  {
+   "about": "J1__S03",
+   "value": "wrong fee $250 stated by a commenter"
+  }
+ ],
+ "style": {
+  "register": "reddit_casual",
+  "length_words": [
+   450,
+   700
+  ],
+  "template_lineage": null
+ },
+ "persona": {
+  "applicant_id": "J1__S03#117",
+  "outcome": "delayed",
+  "true_timeline": {
+   "submit_to_issue_days": 98,
+   "rework_rounds": 2
+  },
+  "reported_timeline": {
+   "submit_to_issue_days": 98
+  },
+  "why_posting": "61 days with no inspection date, past the published 6-8 weeks"
+ },
+ "thread": [
+  {
+   "role": "op",
+   "author": "u_gablefront_ned",
+   "is_staff_insider": false
+  },
+  {
+   "role": "comment",
+   "author": "u_marisol_permits",
+   "is_staff_insider": false
+  },
+  {
+   "role": "comment",
+   "author": "u_throwaway_counter",
+   "is_staff_insider": true
+  },
+  {
+   "role": "comment",
+   "author": "u_deckbuilder88",
+   "wrong": [
+    "fee $250"
+   ],
+   "is_staff_insider": false
+  },
+  {
+   "role": "comment",
+   "author": "u_orchard_hill_2",
+   "contamination": [
+    "J3__S03"
+   ],
+   "is_staff_insider": false
+  }
+ ],
+ "why": "complaint_selection: delayed(>p75) drew 0.35; p_reveal_backoffice_in_comments=0.15 drew 0.04 -> insider comment"
+}

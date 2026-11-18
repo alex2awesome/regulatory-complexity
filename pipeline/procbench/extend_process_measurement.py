@@ -11,7 +11,7 @@ import time
 import numpy as np
 
 from .extend_hierarchy import check_fresh_seed
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 from .run_process_measurement import finer_config, make_model, saved_config
 
 

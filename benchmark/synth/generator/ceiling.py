@@ -29,6 +29,7 @@ bias, measurable by construction (plan §1 row 7).
 """
 from __future__ import annotations
 
+from .decision import decision_ceiling
 from .rng import median, r2
 
 RANK = {"exact": 3, "approximate": 2, "vague": 1, "wrong": 0}
@@ -152,6 +153,7 @@ def build_ceiling(world: dict, statutes: dict, processes: dict, summaries: dict,
         }
 
         n = len(acts)
+        dc = decision_ceiling(proc, mine)
         ceilings.append({
             "task_id": "%s__%s" % (world["world"], mid),
             "model_id": mid,
@@ -179,6 +181,7 @@ def build_ceiling(world: dict, statutes: dict, processes: dict, summaries: dict,
             "process_level_facts": proc_level,
             "order_recoverable": proc_level.get("order", {}).get("fidelity", "hidden"),
             "timing_ceiling": timing,
+            "decision_ceiling": dc,
             "artifacts_about_process": sorted(s["artifact_id"] for s in mine),
             "artifact_kinds": sorted({s["kind"] for s in mine}),
             "raising_artifacts": sorted({v[1] for slot in best.values() for v in slot.values()
@@ -195,6 +198,20 @@ def build_ceiling(world: dict, statutes: dict, processes: dict, summaries: dict,
                         "describes them (%s)" % (len(credited), ", ".join(credited))) if credited else "")),
         })
 
+        prompt = ("Construct the process model and expected timeline for the %s in %s, under %s. "
+                  "Give every activity (who does it, on what occasion, producing what), the order and "
+                  "rework loops, the fees, and the median and p90 elapsed time, with per-element "
+                  "confidence and the evidence you used."
+                  % (proc["program_name"], proc["jurisdiction"], stat["cite"]))
+        gold = {"process_truth": "truth/processes/%s.json" % mid,
+                "log_summary": "truth/log/%s.summary.json" % mid,
+                "ceiling": "ceiling.json#%s" % mid}
+        if proc.get("decision_model"):
+            prompt += (" Also state the eligibility and compliance criteria as this jurisdiction applies "
+                       "them: for each criterion give the case fact it tests, the threshold or standard "
+                       "used here, whether a failure can be corrected or is a denial, and which step "
+                       "checks it.")
+            gold["decision_model"] = "truth/processes/%s.json#decision_model" % mid
         tasks.append({
             "task_id": "%s__%s" % (world["world"], mid),
             "world": world["world"],
@@ -202,15 +219,9 @@ def build_ceiling(world: dict, statutes: dict, processes: dict, summaries: dict,
             "jurisdiction": proc["jurisdiction"],
             "stat_id": proc["stat_id"],
             "program_name": proc["program_name"],
-            "prompt": ("Construct the process model and expected timeline for the %s in %s, under %s. "
-                       "Give every activity (who does it, on what occasion, producing what), the order and "
-                       "rework loops, the fees, and the median and p90 elapsed time, with per-element "
-                       "confidence and the evidence you used."
-                       % (proc["program_name"], proc["jurisdiction"], stat["cite"])),
+            "prompt": prompt,
             "conditions": ["search", "oracle_docs", "oracle_no_distractors", "declared_only", "declared_plus_users"],
-            "gold": {"process_truth": "truth/processes/%s.json" % mid,
-                     "log_summary": "truth/log/%s.summary.json" % mid,
-                     "ceiling": "ceiling.json#%s" % mid},
+            "gold": gold,
             "n_activities": n,
             "n_actors": len(proc["actors"]),
         })

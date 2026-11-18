@@ -16,7 +16,7 @@ import types
 import numpy as np
 
 from .bayes_trace_hierarchy import Config,VisitHierarchy
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def frozen_reference(root,manifest):

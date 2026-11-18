@@ -9,7 +9,7 @@ import pathlib
 from scipy.special import ndtri
 
 from .compare_visit_integration import assert_nested_evidence,interval_score,verified_fit
-from .reconcile_evidence import digest,write
+from .infra.manifest import digest, write
 
 
 def score(report,truth):

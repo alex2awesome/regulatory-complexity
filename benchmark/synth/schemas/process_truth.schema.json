@@ -299,6 +299,20 @@
           "statutorily_disclosed": {
             "type": "boolean",
             "description": "true for a staff_only activity that implements a public statute or ordinance element: invisible to the applicant but inferable from public law, so the ceiling credits its existence at `approximate`."
+          },
+          "evaluates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "predicate ids this activity checks"
+          },
+          "inputs_required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "case facts this activity collects or checks"
           }
         }
       }
@@ -382,6 +396,13 @@
     },
     "notes": {
       "type": "string"
+    },
+    "decision_model": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "decision.py: predicates attached to the activities that evaluate them, with this jurisdiction's readings and expected fail rates"
     }
   }
 }

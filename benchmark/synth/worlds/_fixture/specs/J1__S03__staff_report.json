@@ -1,0 +1,93 @@
+{
+ "artifact_id": "J1__S03__staff_report",
+ "world": "_fixture",
+ "kind": "staff_report",
+ "jur": "J1",
+ "stat_id": "S03",
+ "target": true,
+ "audience": "council",
+ "url": "https://www.halvern.gov/council/agendas/2025-03-11/item-7-staff-report.pdf",
+ "date": "2025-03-04",
+ "describes_version": 2,
+ "stale": false,
+ "links_to": [
+  "J1__S03__ordinance"
+ ],
+ "publisher": "City of Halvern Building Division",
+ "reveals": [
+  {
+   "ref": "A03",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "intake screening median 4 days",
+   "must_quote": false
+  },
+  {
+   "ref": "A04",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "interdepartmental routing to Fire Prevention and Public Works, median 9 days",
+   "must_quote": false
+  },
+  {
+   "ref": "A05",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "plan review median 21 days to first comment",
+   "must_quote": false
+  },
+  {
+   "ref": "A06",
+   "field": "rework",
+   "fidelity": "exact",
+   "value": "35% of applications receive a correction notice",
+   "must_quote": false
+  },
+  {
+   "ref": "A07",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "field inspection median 11 days from request",
+   "must_quote": false
+  },
+  {
+   "ref": "A08",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "Chief Building Official signs every approval, median 5 days queue",
+   "must_quote": false
+  },
+  {
+   "ref": "A09",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "Finance fee reconciliation before certificate release",
+   "must_quote": false
+  },
+  {
+   "ref": "A11",
+   "field": "exists",
+   "fidelity": "exact",
+   "value": "records archiving to the permanent parcel file",
+   "must_quote": false
+  },
+  {
+   "ref": "process",
+   "field": "timing",
+   "fidelity": "exact",
+   "value": "median 47 days, p90 96 days, denial rate 8%",
+   "must_quote": false
+  }
+ ],
+ "must_not_reveal": [],
+ "contamination": [],
+ "style": {
+  "register": "bureaucratic_memo",
+  "length_words": [
+   400,
+   650
+  ],
+  "template_lineage": null
+ },
+ "why": "p_publish_staff_report=0.35 drew 0.09; designed tier \u2014 the only artifact revealing A04/A08/A09/A11"
+}

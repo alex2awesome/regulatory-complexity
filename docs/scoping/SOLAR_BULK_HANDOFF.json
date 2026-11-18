@@ -1,0 +1,43 @@
+{
+ "schema_version": "solar-bulk-handoff/1",
+ "updated_at": "2026-09-22T20:06:33.228224Z",
+ "plan": "docs/2026-09-22-solar-download-and-reading-handoff.md",
+ "evaluation_plan": "docs/2026-09-22-solar-same-evidence-evaluation-plan.md",
+ "api_owner": "Claude",
+ "handoff_state": "accepted_by_Claude_single_operator",
+ "active_invocation": "python3 pipeline/recon/solar_forum_collect.py comments --request-budget 200 --pause 10 (serial driver loop)",
+ "active_session": 1113,
+ "last_completed_invocation": "python3 pipeline/recon/solar_forum_collect.py list_national --request-budget 75 --pause 10",
+ "last_completed_session": 31389,
+ "last_completed_status_utc": "2026-09-22T18:06:19.600833+00:00",
+ "latest_logical_posts": 93627,
+ "latest_captured_trees": 2621,
+ "latest_comment_fetch_pending": 91006,
+ "next_api_owner": "Claude_if_accepted",
+ "claude_accepted_at": "2026-09-22T18:14:08.132097Z",
+ "coordination_policy": "Exactly one Arctic Shift operator across both sessions; this record is cooperative coordination, not a process lock. Check live processes and cooldown before takeover. Codex has released and will not start another API job without an explicit ownership handback.",
+ "reading_policy": "Claude owns new unreserved thread reads; Codex finishes existing reservations. Subtract all reservations and coverage, including SOL040 and SOL041 not yet consolidated.",
+ "canonical_acquisition_root": "runs/solar_forum_20260922/acquisition/forum",
+ "frozen_queue": "runs/solar_forum_20260922/queue_current17/thread_queue.json",
+ "frozen_queue_sha256": "da549faeb5c0a632070368e32e9bc4119e36d6308e1c5091e8991e5a17f2e6c8",
+ "frozen_queue_posts": 86034,
+ "claude_packet_root": "runs/solar_forum_20260922/parse/claude_bulk",
+ "scope": "Real Solar only. No model-core edits, canonical fit overwrites, commits, deletions, access-control circumvention or synthetic work.",
+ "claude_acceptance_note": "Claude accepted after verifying: (a) handoff_state released_available_for_Claude_acceptance, (b) no live solar_forum_collect.py process (ps checked 2026-09-22T18:13Z), (c) api_cooldown retry_not_before 2026-09-22T17:46:50Z already elapsed, (d) 130 GiB free, above the 10 GiB stop floor. Exactly one serial archive operator: a single driver loop issues bounded batches, honors api_cooldown.json between batches, and never runs two collector invocations concurrently. Subagents are used only for reading held trees and for non-Arctic-Shift independent-forum capture; no subagent calls the Arctic Shift API.",
+ "claude_driver_log": "runs/solar_forum_20260922/acquisition/forum/claude_driver/",
+ "claude_reading_progress": {
+  "packets_total": 141,
+  "packets_completed_verified_pass": 36,
+  "threads_fully_read": "see bulk_status.py (separate denominators)",
+  "cross_packet_duplicate_warning": "80 authors appear in >1 packet (238 episodes, 253 timing claims). Readers link same_installation_as only within their own packet. 'Installations linked within packet' overstates distinct contributors by ~15%. Upper bound on distinct contributors is 843 distinct authors. CANDIDATE links only, NOT auto-merged: a shared username is not proof of a shared installation (original install vs later expansion vs second property). Index at parse/claude_bulk/cross_packet_author_index.json. Cross-account aliases are NOT detected.",
+  "all_packets_staged_not_model_consumed": true
+ },
+ "claude_acquisition_changes_2026_09_23": {
+  "at_utc": "2026-09-23T05:33Z",
+  "requested_by": "Alex: cast far and wide for new California solar permitting downloads",
+  "collector_edits": "pipeline/recon/solar_forum_collect.py: registry 63->146 communities (+65 CA local, +18 adjacent), LOCAL_RECALL_TERMS +net metering/+interconnection, comments() ordering CA-first (order only, no exclusion). Pre-edit copies in runs/solar_forum_20260922/acquisition/forum/claude_driver/solar_forum_collect.before_*.py",
+  "frontier": "query_frontier.json 1716->2848 windows via network-free refine/extend_history",
+  "driver": "claude_driver/driver.py cycle now discovery-heavy with network-free refine; still exactly one collector at a time, pause 10",
+  "single_operator": "driver restarted twice; old driver+collector confirmed absent before each relaunch"
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "backend": "jax",
+  "kernel": "joint",
+  "batch_size": 256,
+  "bucket_towns": true
+}

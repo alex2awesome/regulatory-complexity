@@ -3,11 +3,10 @@ import argparse
 import copy
 import json
 import pathlib
-import subprocess
-import tempfile
 
 from .evidence_contract import STR, REF, arr, obj, validate
-from .reconcile_evidence import digest, write
+from .infra.manifest import RunManifest, digest, write
+from .infra.codex_runner import run_codex
 
 SCHEMA = obj(program_id=STR, clocks=arr(obj(measurement_id=STR,
     start_after_activity_ids=arr(STR), evidence=arr(REF), notes=STR)), unresolved=arr(STR))
@@ -81,30 +80,24 @@ def main(argv=None):
     prompt = PROMPT + '\nLEDGER:\n' + json.dumps(evidence) + '\nPUBLIC DOCUMENTS:\n' + json.dumps(docs)
     write(out / 'schema.json', SCHEMA)
     (out / 'prompt.txt').write_text(prompt)
-    with tempfile.TemporaryDirectory(prefix='rc-clock-audit-') as isolated:
-        schema, response = pathlib.Path(isolated) / 'schema.json', pathlib.Path(isolated) / 'response.json'
-        write(schema, SCHEMA)
-        for attempt in range(3):
-            command = ['codex', 'exec', '--sandbox', 'read-only', '--ephemeral', '--skip-git-repo-check',
-                '--ignore-user-config', '--color', 'never', '-C', isolated, '-m', args.model,
-                '-c', 'model_reasoning_effort="xhigh"', '--output-schema', str(schema), '-o', str(response), '-']
-            with (out / f'attempt_{attempt}.log').open('w') as log:
-                status = subprocess.run(command, input=prompt, text=True, stdout=log, stderr=log,
-                                        cwd=isolated, timeout=2400)
-            if status.returncode or not response.exists():
-                raise RuntimeError('Clock audit failed; inspect preserved backend log')
-            audit = json.loads(response.read_text())
-            write(out / f'attempt_{attempt}.json', audit)
-            try:
-                canonical = attach_clocks(evidence, audit, docs)
-                break
-            except ValueError as error:
-                prompt += '\nReturn a corrected complete object. Validation error:\n' + str(error) + '\n' + json.dumps(audit)
-        else:
-            raise ValueError('Clock validation failed after repairs')
+    record = RunManifest(out, {}, operation='evidence.audit_clocks',
+        inputs=[pathlib.Path(args.evidence), pathlib.Path(args.inputs)],
+        config=dict(model=args.model, reasoning='xhigh'), seeds={}, hidden_truth_read=False,
+        source_root=pathlib.Path(__file__).parent, sources=[pathlib.Path(__file__).name])
+    for attempt in range(3):
+        audit = json.loads(run_codex(prompt, SCHEMA, out,
+            stem=f'attempt_{attempt}', model=args.model))
+        write(out / f'attempt_{attempt}.json', audit)
+        try:
+            canonical = attach_clocks(evidence, audit, docs)
+            break
+        except ValueError as error:
+            prompt += '\nReturn a corrected complete object. Validation error:\n' + str(error) + '\n' + json.dumps(audit)
+    else:
+        raise ValueError('Clock validation failed after repairs')
     write(out / 'audit.json', audit)
     write(out / 'evidence.json', canonical)
-    write(out / 'manifest.json', dict(model=args.model, reasoning='xhigh', hidden_truth_provided=False,
+    record.complete(**dict(model=args.model, reasoning='xhigh', hidden_truth_provided=False,
         input_sha256=digest(pathlib.Path(args.evidence).read_bytes()),
         prompt_sha256=digest((out / 'prompt.txt').read_bytes()),
         source_sha256=digest(pathlib.Path(__file__).read_bytes()),

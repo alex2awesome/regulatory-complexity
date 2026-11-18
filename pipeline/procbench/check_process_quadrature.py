@@ -18,7 +18,7 @@ from scipy.stats import norm
 
 from .bayes_outcome_measurement import shifted_selection_normalizer
 from .bayes_process_measurement import log_selection_weight
-from .reconcile_evidence import digest, write
+from .infra.manifest import digest, write
 from .run_process_measurement import finer_config, make_model, saved_config
 
 

@@ -1,0 +1,27 @@
+{
+ "artifact_id": "J3__S03__program_page",
+ "world": "_fixture",
+ "kind": "program_page",
+ "jur": "J3",
+ "stat_id": "S03",
+ "target": false,
+ "audience": "applicant",
+ "url": "https://www.marisolcounty.gov/pdd/unpermitted-structures",
+ "date": "2025-01-28",
+ "describes_version": 1,
+ "stale": false,
+ "links_to": [],
+ "publisher": "Marisol County Planning and Development",
+ "reveals": [],
+ "must_not_reveal": [],
+ "contamination": [],
+ "style": {
+  "register": "municipal_web",
+  "length_words": [
+   250,
+   400
+  ],
+  "template_lineage": null
+ },
+ "why": "distractor: the SAME statute (S03) in the surrounding county \u2014 the hardest look-alike, and the one the r/Halvern thread drags in"
+}
